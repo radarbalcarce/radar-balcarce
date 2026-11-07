@@ -1928,6 +1928,16 @@
    "el título dice 15 y el cuerpo no lo explica"
   ]
  },
+ "19xphcz": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T18:31:33.587Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 1 problema (copia): copia 18 palabras seguidas del or"
+  ]
+ },
  "1a0h4cn": {
   "intentos": 1,
   "ultimo": "2026-11-05T13:32:55.692Z",
@@ -3159,17 +3169,6 @@
   "textos": 3,
   "numeradas": 3
  },
- "1gf52r7": {
-  "intentos": 2,
-  "ultimo": "2026-10-31T18:31:38.791Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1,
-  "motivos": [
-   "título o bajada: 1 problema (forma): el copete dice \"en vivo\" y el sit",
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
-  ]
- },
  "1ggsj9j": {
   "intentos": 1,
   "ultimo": "2026-11-05T01:31:38.301Z",
@@ -4341,13 +4340,6 @@
   "textos": 5,
   "numeradas": 16
  },
- "1mwg56f": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T18:31:38.791Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2
- },
  "1mx468p": {
   "intentos": 1,
   "ultimo": "2026-11-06T17:03:21.775Z",
@@ -4395,16 +4387,6 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
- },
- "1ndljiq": {
-  "intentos": 2,
-  "ultimo": "2026-10-31T18:31:38.791Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 3,
-  "motivos": [
-   "título o bajada: 1 problema (nombre): el copete nombra a \"nunez\" y la "
-  ]
  },
  "1ne56tu": {
   "intentos": 1,
@@ -4629,6 +4611,16 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
+ },
+ "1olmee2": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T18:31:33.587Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 19,
+  "motivos": [
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ]
  },
  "1omlme9": {
   "intentos": 1,
@@ -8008,16 +8000,6 @@
   "textos": 2,
   "numeradas": 4
  },
- "b7yw0o": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T18:31:38.791Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1,
-  "motivos": [
-   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez"
-  ]
- },
  "b80rfg": {
   "intentos": 2,
   "ultimo": "2026-11-02T20:31:54.719Z",
@@ -8311,13 +8293,6 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 2
- },
- "ct4pl1": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T18:31:38.791Z",
-  "motivo": "con cuerpo",
-  "textos": 7,
-  "numeradas": 21
  },
  "cvkrc1": {
   "intentos": 2,
@@ -12344,18 +12319,14 @@
   "numeradas": 8
  },
  "x5z8mz": {
-  "intentos": 1,
-  "ultimo": "2026-11-07T18:01:30.439Z",
-  "motivo": "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 260 palabras",
+  "intentos": 2,
+  "ultimo": "2026-11-07T18:31:33.587Z",
+  "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 25,
   "motivos": [
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
    "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re"
-  ],
-  "falla": [
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
-   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "x6852q": {
@@ -12884,24 +12855,5 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
- },
- "zxtu4e": {
-  "intentos": 3,
-  "ultimo": "2026-10-31T18:31:38.791Z",
-  "motivo": "título o bajada: 2 problemas (forma): el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
-  "textos": 2,
-  "numeradas": 2,
-  "motivos": [
-   "título o bajada: 1 problema (titulo): el título empieza con una etique",
-   "título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que",
-   "título o bajada: 1 problema (titulo): el título empieza con una etique",
-   "título o bajada: 2 problemas (forma): el titulo trae un escape sin dec"
-  ],
-  "falla": [
-   "el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
-   "el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
-   "el guion trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir"
-  ]
  }
 }

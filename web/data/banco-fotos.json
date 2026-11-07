@@ -84465,7 +84465,8 @@
    "corresponde": "si",
    "descripcion": "Proceso de refinamiento o vertido de sebo industrial en una planta."
   },
-  "huella": "36b9b33732af9f7d"
+  "huella": "36b9b33732af9f7d",
+  "ausenteDesde": "2026-11-07T18:32:53.324Z"
  },
  "4gbc9b": {
   "archivo": "fotos-notas/4gbc9b.jpg",
@@ -92182,7 +92183,8 @@
    "corresponde": "si",
    "descripcion": "Retrato de medio plano del Papa León XIV sonriendo en una escalera"
   },
-  "huella": "afefe7e7e3c3c199"
+  "huella": "afefe7e7e3c3c199",
+  "ausenteDesde": "2026-11-07T18:32:53.324Z"
  },
  "1wq5a8z": {
   "intentado": true,
@@ -92653,5 +92655,75 @@
   "fuentes": 3,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "x5z8mz": {
+  "archivo": "fotos-notas/x5z8mz.jpg",
+  "medio": "El Economista",
+  "credito": "Foto: El Economista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca recibe a Defensa y Justicia por la definición de la Tabla Anual",
+  "enlace": "https://eleconomista.com.ar/deportes/boca-vs-defensa-y-justicia-cuando-juegan-hora-donde-ver-vivo-n99517",
+  "imagenOriginal": "https://statics.eleconomista.com.ar/2025/09/68d55644de556.jpg",
+  "razon": "Es la única foto de acción completa que muestra claramente a los jugadores de ambos equipos en pleno partido, sin marcas de agua agregadas, menores reconocibles ni elementos gráficos.",
+  "cuando": "2026-11-07T18:32:06.477Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Boca celebrando un gol ante Defensa y Justicia en la cancha"
+  },
+  "huella": "2d2d6355655f0a27"
+ },
+ "1olmee2": {
+  "archivo": "fotos-notas/1olmee2.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Rosario Central recibe a Estudiantes de Río Cuarto por el Torneo Clausura",
+  "enlace": "https://www.ole.com.ar/futbol-primera/rosario-central-estudiantes-rio-cuarto-ver-hoy-vivo-definicion-tabla-anual-torneo-clausura-hora-ver-formaciones_0_yylFC42np1.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/31/qKg_5snQe_2000x1500__1.jpg",
+  "razon": "Es una fotografía real de jugadores festejando un gol, sin marcas agregadas, menores ni gráficos, y corresponde perfectamente al partido de Rosario Central.",
+  "cuando": "2026-11-07T18:32:06.477Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Rosario Central celebrando en la cancha",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de Rosario Central celebran un gol durante un partido de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "174b0b091b53cb83"
+ },
+ "19xphcz": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Rosario Central recibe a Estudiantes de Río Cuarto por la definición del Clausura",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Economista no se usa todavía.",
+  "cuando": "2026-11-07T18:32:06.477Z",
+  "intentos": 1,
+  "fuentes": 22,
+  "intentosPorCupo": 1
  }
 }
