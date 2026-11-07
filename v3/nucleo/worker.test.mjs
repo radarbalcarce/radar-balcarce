@@ -371,6 +371,10 @@ test('/salud abre sin clave y no muestra secretos; /notas, /vuelta y /resumen pi
   assert.equal(datos.uso.topeDiario, 150);
   assert.deepEqual(datos.claves, { gemini: true, telegram: true });
   assert.equal(datos.fuentes.conFalla[0].id, 'caida');
+  // la selección del día (7/11): cuántas nacionales van contra el cupo de esta hora y por qué quedó afuera cada historia
+  assert.equal(typeof datos.seleccion.nacionalesHoy, 'number');
+  assert.equal(typeof datos.seleccion.cupoNacionalAhora, 'number');
+  assert.ok(Object.keys(datos.seleccion.porMotivo).length > 0);
 
   // sin contraseña: 403
   assert.equal((await n.manejar(pedido('/notas?dia=2026-11-02'), env, deps)).status, 403);

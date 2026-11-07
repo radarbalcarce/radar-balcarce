@@ -835,6 +835,13 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       const tope = Math.floor(numero(env.NUCLEO_ARCHIVO_POR_VUELTA, ARCHIVO_POR_VUELTA));
       fotosDeArchivo = { activas: !!env.FOTOS && tope > 0, total: cuenta.total, ultimos7d: cuenta.desde, hoy: hoy.size, topePorVuelta: tope, ultimoError: ult?.ultima_falla ? String(ult.ultima_falla).slice(0, 200) : null };
     } catch (e) { console.error(`salud fotosDeArchivo: ${e.message}`); }
+    // Cómo viene la selección del día: notas publicadas, nacionales contra el cupo de esta hora y por qué quedó afuera cada historia. Si falla, /salud sigue.
+    let seleccion = null;
+    try {
+      const s = await db.seleccionEntre(env, desde, hasta);
+      const tope = numero(env.NUCLEO_TOPE_NACIONAL, 100);
+      seleccion = { ...s, nacionalesHoy: await db.contarNacionalesEntre(env, desde, hasta), cupoNacionalAhora: cupoNacional(tope, c.ahora), topeNacional: tope, minimoNacional: numero(env.NUCLEO_MINIMO_NACIONAL, 3) };
+    } catch (e) { console.error(`salud seleccion: ${e.message}`); }
     const ultima = estados.find((e) => e.fuente_id === '_vuelta');
     // Sólo las fuentes que hoy están activas: las apagadas dejan su última falla en la base y no son un problema (5/11/2026).
     const activasHoy = new Set(fuentes.map((f) => f.id));
@@ -844,6 +851,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       dia: c.dia,
       ultimaVuelta: ultima ? ultima.ultimo_ok : null,
       hoy,
+      seleccion,
       publicando: publica(env),
       fuentes: {
         activas: fuentes.length,

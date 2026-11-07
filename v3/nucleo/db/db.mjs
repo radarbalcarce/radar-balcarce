@@ -298,6 +298,19 @@ export async function contarEntre(env, desdeISO, hastaISO) {
   };
 }
 
+// Cómo cayó la selección de un día (para /salud, 7/11: salieron pocas notas y no había cómo ver por qué sin entrar a la base):
+// las historias tocadas ese día por estado y motivo, y las notas publicadas ese día.
+export async function seleccionEntre(env, desdeISO, hastaISO) {
+  const r = await env.DB.prepare(
+    'SELECT estado, motivo, COUNT(*) AS n FROM historias WHERE actualizada >= ? AND actualizada < ? GROUP BY estado, motivo',
+  ).bind(desdeISO, hastaISO).all();
+  const porMotivo = {};
+  for (const f of lista(r)) porMotivo[`${f.estado}:${f.motivo ?? '-'}`] = f.n;
+  const pub = await env.DB.prepare("SELECT COUNT(*) AS n FROM notas WHERE creada >= ? AND creada < ? AND estado = 'publicada'").bind(desdeISO, hastaISO).first();
+  const sinNota = await env.DB.prepare("SELECT COUNT(*) AS n FROM historias WHERE estado = 'elegida' AND nota_id IS NULL").bind().first();
+  return { notasPublicadas: (pub && pub.n) || 0, elegidasSinRedactar: (sinNota && sinNota.n) || 0, porMotivo };
+}
+
 export async function estadoDeFuentes(env) {
   const r = await env.DB.prepare('SELECT fuente_id, ultimo_ok, ultima_falla, fallas_seguidas, avisada FROM fuentes_estado').bind().all();
   return lista(r);
