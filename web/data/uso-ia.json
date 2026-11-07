@@ -3419,19 +3419,19 @@
   "2026-11-07": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 58,
+     "llamadas": 60,
      "errores": 19,
-     "entrada": 93471,
-     "salida": 43380,
+     "entrada": 97775,
+     "salida": 45122,
      "pensamiento": 0,
-     "total": 136851,
+     "total": 142897,
      "claves": {
-      "clasificacion": 58
+      "clasificacion": 60
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 16,
-       "ok": 39,
+       "ok": 41,
        "saturado": 3
       }
      }
@@ -3473,19 +3473,19 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 65,
+     "llamadas": 68,
      "errores": 11,
-     "entrada": 827681,
-     "salida": 8166,
+     "entrada": 866923,
+     "salida": 8565,
      "pensamiento": 0,
-     "total": 835847,
+     "total": 875488,
      "claves": {
-      "clasificacion": 65
+      "clasificacion": 68
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 9,
-       "ok": 54,
+       "ok": 57,
        "saturado": 2
       }
      }
@@ -3525,20 +3525,20 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 170,
+     "llamadas": 173,
      "errores": 32,
-     "entrada": 800688,
-     "salida": 143230,
+     "entrada": 827921,
+     "salida": 147372,
      "pensamiento": 0,
-     "total": 943918,
+     "total": 975293,
      "claves": {
-      "redaccion": 170
+      "redaccion": 173
      },
      "motivos": {
       "redaccion": {
        "cupo-diario": 17,
        "saturado": 15,
-       "ok": 138
+       "ok": 141
       }
      }
     },
@@ -3562,19 +3562,19 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 110,
+     "llamadas": 111,
      "errores": 27,
-     "entrada": 470918,
-     "salida": 37310,
+     "entrada": 481133,
+     "salida": 38184,
      "pensamiento": 0,
-     "total": 508228,
+     "total": 519317,
      "claves": {
-      "clasificacion": 110
+      "clasificacion": 111
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 18,
-       "ok": 83,
+       "ok": 84,
        "velocidad": 1,
        "saturado": 8
       }

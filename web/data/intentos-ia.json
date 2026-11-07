@@ -2107,13 +2107,6 @@
   "textos": 3,
   "numeradas": 3
  },
- "1aypt33": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T19:01:45.606Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 4
- },
  "1aziot7": {
   "intentos": 1,
   "ultimo": "2026-10-31T21:31:33.076Z",
@@ -2837,17 +2830,6 @@
   "textos": 4,
   "numeradas": 5
  },
- "1euhlh3": {
-  "intentos": 2,
-  "ultimo": "2026-10-31T19:01:45.606Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1,
-  "motivos": [
-   "título o bajada: 1 problema (numero): el copete dice 2 y la fuente no ",
-   "título o bajada: 1 problema (antecedente): el copete usa 5, que sale d"
-  ]
- },
  "1ev3lrn": {
   "intentos": 1,
   "ultimo": "2026-11-01T00:31:37.118Z",
@@ -3480,13 +3462,6 @@
  "1ilcmsv": {
   "intentos": 1,
   "ultimo": "2026-11-02T13:31:54.872Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2
- },
- "1imzt7r": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T19:01:45.606Z",
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
@@ -4733,17 +4708,6 @@
   "numeradas": 2,
   "motivos": [
    "cuerpo: 1 problema (copia): copia 23 palabras seguidas del original: d"
-  ]
- },
- "1pa7ehp": {
-  "intentos": 2,
-  "ultimo": "2026-10-31T19:01:45.606Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1,
-  "motivos": [
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
-   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez"
   ]
  },
  "1pen8sj": {
@@ -8989,6 +8953,21 @@
   "textos": 1,
   "numeradas": 1
  },
+ "frwixs": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T19:01:27.639Z",
+  "motivo": "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 276 palabras",
+  "textos": 7,
+  "numeradas": 8,
+  "motivos": [
+   "cuerpo: 1 problema (promesa): el título dice 16 y el cuerpo no lo expl",
+   "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de r"
+  ],
+  "falla": [
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
+   "el título dice 16 y el cuerpo no lo explica"
+  ]
+ },
  "fuib3b": {
   "intentos": 1,
   "ultimo": "2026-11-03T13:02:41.016Z",
@@ -9019,13 +8998,6 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
- },
- "fx345l": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T19:01:45.606Z",
-  "motivo": "con cuerpo",
-  "textos": 7,
-  "numeradas": 12
  },
  "fx6ld0": {
   "intentos": 1,
@@ -10154,18 +10126,12 @@
   "textos": 1,
   "numeradas": 1
  },
- "lrgvux": {
-  "intentos": 2,
-  "ultimo": "2026-10-31T19:01:45.606Z",
-  "motivo": "verificación baja: espera a una persona",
-  "textos": 1,
-  "numeradas": 1,
-  "motivos": [
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
-   "verificación baja: espera a una persona"
-  ],
-  "baja": true,
-  "fuentes": 1
+ "lrjmlp": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T19:01:27.639Z",
+  "motivo": "con cuerpo",
+  "textos": 8,
+  "numeradas": 22
  },
  "ls01hv": {
   "intentos": 1,
@@ -10322,17 +10288,6 @@
   "motivo": "con cuerpo",
   "textos": 7,
   "numeradas": 14
- },
- "mlnw2g": {
-  "intentos": 3,
-  "ultimo": "2026-10-31T19:01:45.606Z",
-  "motivo": "con cuerpo",
-  "textos": 7,
-  "numeradas": 11,
-  "motivos": [
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
-   "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de r"
-  ]
  },
  "mmuhfu": {
   "intentos": 1,

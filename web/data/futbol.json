@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-07T18:32:51.017Z",
+ "consultado": "2026-11-07T19:02:52.328Z",
  "equipos": [
   "9739",
   "3",
@@ -1003,12 +1003,12 @@
     "id": "401841666",
     "competencia": "liga",
     "inicio": "2026-11-07T18:00:00.000Z",
-    "estado": "en-juego",
-    "minuto": "33'",
+    "estado": "entretiempo",
+    "minuto": "45'+5'",
     "local": {
      "id": "11972",
      "nombre": "Gimnasia (Mendoza)",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "9744",
@@ -1016,7 +1016,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Germán Guiffrey",
+      "minuto": "45'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Estadio Víctor Antonio Legrotaglie",
     "fase": null,
     "partidoDeLaSerie": null,
@@ -1026,8 +1033,8 @@
     "id": "401841661",
     "competencia": "liga",
     "inicio": "2026-11-07T18:00:00.000Z",
-    "estado": "en-juego",
-    "minuto": "33'",
+    "estado": "entretiempo",
+    "minuto": "45'+4'",
     "local": {
      "id": "19",
      "nombre": "Talleres (Córdoba)",
@@ -1036,10 +1043,17 @@
     "visitante": {
      "id": "8",
      "nombre": "Estudiantes de La Plata",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "visitante",
+      "jugador": "Román Riquelme",
+      "minuto": "38'",
+      "tipo": "en contra"
+     }
+    ],
     "estadio": "Mario Alberto Kempes",
     "fase": null,
     "partidoDeLaSerie": null,

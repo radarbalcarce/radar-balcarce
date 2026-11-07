@@ -51712,9 +51712,7 @@
   "borrada": true
  },
  "1kyufg8": {
-  "archivo": "fotos-notas/1kyufg8.jpg",
   "medio": "El Destape",
-  "credito": "Foto: El Destape",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Gobierno suspende más de 21.000 pensiones por invalidez y exige una nueva revisión",
@@ -51734,7 +51732,8 @@
    "descripcion": "Personas y periodistas en la entrada de la Agencia Nacional de Discapacidad"
   },
   "huella": "cb9c9c088c92f0f4",
-  "ausenteDesde": "2026-10-31T18:34:04.028Z"
+  "intentado": true,
+  "borrada": true
  },
  "n7y2s4": {
   "archivo": "fotos-notas/n7y2s4.jpg",
@@ -84182,7 +84181,8 @@
    "corresponde": "si",
    "descripcion": "Retrato del Papa León XIV saludando con la mano derecha."
   },
-  "huella": "c040466666666637"
+  "huella": "c040466666666637",
+  "ausenteDesde": "2026-11-07T19:02:56.313Z"
  },
  "1pnue5h": {
   "archivo": "fotos-notas/km8ila.jpg",
@@ -92678,7 +92678,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Boca celebrando un gol ante Defensa y Justicia en la cancha"
   },
-  "huella": "2d2d6355655f0a27"
+  "huella": "2d2d6355655f0a27",
+  "ausenteDesde": "2026-11-07T19:02:56.313Z"
  },
  "1olmee2": {
   "archivo": "fotos-notas/1olmee2.jpg",
@@ -92714,7 +92715,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "174b0b091b53cb83"
+  "huella": "174b0b091b53cb83",
+  "ausenteDesde": "2026-11-07T19:02:56.313Z"
  },
  "19xphcz": {
   "intentado": true,
@@ -92725,5 +92727,29 @@
   "intentos": 1,
   "fuentes": 22,
   "intentosPorCupo": 1
+ },
+ "lrjmlp": {
+  "archivo": "fotos-notas/lrjmlp.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca y Defensa y Justicia juegan desde las 17.30 en la Bombonera",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/en-que-canal-pasan-hoy-boca-vs-defensa-y-justicia-por-el-torneo-clausura-2026-nid07112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/lautaro-blanco-se-convirtio-en-titular-7G52ZVWNNZBQ7PKV22UZNSVWPM.jpg?auth=3e89a301d3079ab9b7e67a9b4765db67456858b9271a91bfe2c07e9ddb66e9a2&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es una fotografía clara de un jugador de Boca en la Bombonera, sin marcas añadidas ni gráficos, ideal para ilustrar la nota.",
+  "cuando": "2026-11-07T19:01:46.392Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de Boca gesticulando en la cancha"
+  },
+  "huella": "2b66c68ca48f0f31"
  }
 }
