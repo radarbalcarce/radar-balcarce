@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-07T21:36:50.533Z",
- "portada": 134,
+ "generado": "2026-11-07T22:04:02.551Z",
+ "portada": 143,
  "archivo": 500,
- "esperandoCuerpo": 9,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-11-07T21:36:51.267Z",
+  "generado": "2026-11-07T22:04:03.109Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -43,7 +43,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -103,7 +103,17 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "en-hora",
+    "momento": "cerrada",
+    "salio": null,
+    "segundos": null,
+    "notas": []
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
     "salio": null,
     "segundos": 50,
     "notas": [
@@ -113,50 +123,19 @@
       "seccion": "Policiales"
      },
      {
+      "id": "uw3mgq",
+      "titulo": "Ferroviarios y Los Patos ganan en el inicio de la cuarta fecha del Clausura",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "1efbl8c",
+      "titulo": "Mateo López cierra el Parlamento Juvenil Bonaerense en La Plata",
+      "seccion": "Educación"
+     },
+     {
       "id": "19j1eud",
       "titulo": "Piden crear un programa de asistencia para estudiantes universitarios",
       "seccion": "Política"
-     },
-     {
-      "id": "qvrt15",
-      "titulo": "Exigen autorización previa para visitar la Reserva y el Autódromo",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "lx27ip",
-      "titulo": "Matías La Torre repasa su trayectoria musical en una emisora local",
-      "seccion": "Cultura y agenda"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 51,
-    "notas": [
-     {
-      "id": "5sp4cy",
-      "titulo": "Petruccelli rechaza el aumento de tarifas para la empresa de limpieza Ashira",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "jf7bz2",
-      "titulo": "Detienen a un hombre y secuestran cocaína tras allanamientos",
-      "seccion": "Policiales"
-     },
-     {
-      "id": "1xd4thu",
-      "titulo": "Emerson Fittipaldi llega por primera vez a Balcarce",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "7ashy7",
-      "titulo": "Virginia Aparicio cuestiona su exoneración del INTA",
-      "seccion": "Agro"
      }
     ]
    }
@@ -164,6 +143,18 @@
   "facebook": {
    "hoy": [],
    "cola": [
+    {
+     "id": "uw3mgq",
+     "titulo": "Ferroviarios y Los Patos ganan en el inicio de la cuarta fecha del Clausura",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1efbl8c",
+     "titulo": "Mateo López cierra el Parlamento Juvenil Bonaerense en La Plata",
+     "seccion": "Educación",
+     "marcada": false
+    },
     {
      "id": "xwpiqf",
      "titulo": "Franco Colapinto queda eliminado en la Q1 y largará 17 en Brasil",
@@ -177,27 +168,21 @@
      "marcada": false
     },
     {
-     "id": "17vnb63",
-     "titulo": "Boca empata con Defensa y Argentinos cae ante Huracán en el Clausura",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "ymnte9",
      "titulo": "Una policía rescata a una jubilada tras caer con su auto a un arroyo",
      "seccion": "Policiales",
      "marcada": false
     },
     {
-     "id": "c0cxzt",
-     "titulo": "Boca, Argentinos y Central definen la tabla anual",
-     "seccion": "Fútbol",
+     "id": "nubrst",
+     "titulo": "El papa León XIV celebra su primera misa en Sudamérica en Uruguay",
+     "seccion": "Argentina",
      "marcada": false
     },
     {
-     "id": "vupr8z",
-     "titulo": "Modifican el transporte en el AMBA por la visita del papa León XIV",
-     "seccion": "Argentina",
+     "id": "uvsel",
+     "titulo": "Boca empata sin goles ante Defensa y Justicia en La Bombonera",
+     "seccion": "Fútbol",
      "marcada": false
     }
    ],
