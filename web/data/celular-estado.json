@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-07T14:34:00.838Z",
- "portada": 119,
+ "generado": "2026-11-07T15:07:26.311Z",
+ "portada": 124,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-07T14:34:01.245Z",
+  "generado": "2026-11-07T15:07:26.875Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -95,22 +95,22 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 48,
+    "segundos": 55,
     "notas": [
      {
-      "id": "j7nvck",
-      "titulo": "Fallece Cristina Díaz, vecina colaboradora del Hospital Municipal",
-      "seccion": "Balcarce"
+      "id": "19j1eud",
+      "titulo": "Piden crear un programa de asistencia para estudiantes universitarios",
+      "seccion": "Política"
      },
      {
-      "id": "jf7bz2",
-      "titulo": "Detienen a un hombre y secuestran cocaína tras allanamientos",
+      "id": "1cny5nq",
+      "titulo": "Chocan una moto y una camioneta en calles 12 y 25",
       "seccion": "Policiales"
      },
      {
-      "id": "1xd4thu",
-      "titulo": "Emerson Fittipaldi llega por primera vez a Balcarce",
-      "seccion": "Automovilismo"
+      "id": "1wq5a8z",
+      "titulo": "Crean un registro municipal para acompañantes terapéuticos",
+      "seccion": "Balcarce"
      },
      {
       "id": "ff5o5",
@@ -126,27 +126,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 46,
     "notas": [
+     {
+      "id": "jf7bz2",
+      "titulo": "Detienen a un hombre y secuestran cocaína tras allanamientos",
+      "seccion": "Policiales"
+     },
      {
       "id": "1pkqfef",
       "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
       "seccion": "Balcarce"
      },
      {
-      "id": "19j1eud",
-      "titulo": "Piden crear un programa de asistencia para estudiantes universitarios",
-      "seccion": "Política"
-     },
-     {
-      "id": "1cny5nq",
-      "titulo": "Chocan una moto y una camioneta en calles 12 y 25",
-      "seccion": "Policiales"
-     },
-     {
       "id": "u5bwex",
       "titulo": "La escuela Taekwondo Henko reúne a más de cien alumnos",
       "seccion": "Deportes"
+     },
+     {
+      "id": "1xd4thu",
+      "titulo": "Emerson Fittipaldi llega por primera vez a Balcarce",
+      "seccion": "Automovilismo"
      }
     ]
    },
@@ -157,16 +157,16 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 51,
     "notas": [
      {
-      "id": "13ae8gs",
-      "titulo": "Prohíben circular con vehículos en espacios públicos del Geoparque Pun Antü",
+      "id": "qvrt15",
+      "titulo": "Exigen autorización previa para visitar la Reserva y el Autódromo",
       "seccion": "Balcarce"
      },
      {
-      "id": "16nvkvm",
-      "titulo": "La Liga Local de Básquet jugará el lunes la última fecha regular en Ferroviarios",
+      "id": "8x25q0",
+      "titulo": "Bautista Prieto gana el campeonato provincial de pesca en Cadetes",
       "seccion": "Deportes"
      },
      {
@@ -175,9 +175,9 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "1dsn87c",
-      "titulo": "El emprendimiento balcarceño Nahuen recibe una distinción internacional",
-      "seccion": "Economía"
+      "id": "55plr2",
+      "titulo": "El Museo Fangio incorpora cascos de Hamilton y Bottas",
+      "seccion": "Automovilismo"
      }
     ]
    }
@@ -185,12 +185,6 @@
   "facebook": {
    "hoy": [],
    "cola": [
-    {
-     "id": "ff5o5",
-     "titulo": "Sembrando Futuro llega a los mil egresados",
-     "seccion": "Educación",
-     "marcada": false
-    },
     {
      "id": "19j1eud",
      "titulo": "Piden crear un programa de asistencia para estudiantes universitarios",
@@ -204,14 +198,26 @@
      "marcada": false
     },
     {
-     "id": "u5bwex",
-     "titulo": "La escuela Taekwondo Henko reúne a más de cien alumnos",
-     "seccion": "Deportes",
+     "id": "1wq5a8z",
+     "titulo": "Crean un registro municipal para acompañantes terapéuticos",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
-     "id": "16nvkvm",
-     "titulo": "La Liga Local de Básquet jugará el lunes la última fecha regular en Ferroviarios",
+     "id": "1r07mnl",
+     "titulo": "Allanamiento policial por el hurto de herramientas de una camioneta",
+     "seccion": "Policiales",
+     "marcada": false
+    },
+    {
+     "id": "ff5o5",
+     "titulo": "Sembrando Futuro llega a los mil egresados",
+     "seccion": "Educación",
+     "marcada": false
+    },
+    {
+     "id": "u5bwex",
+     "titulo": "La escuela Taekwondo Henko reúne a más de cien alumnos",
      "seccion": "Deportes",
      "marcada": false
     },
