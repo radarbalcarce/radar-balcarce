@@ -50181,9 +50181,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1bz2jlk": {
-  "archivo": "fotos-notas/1bz2jlk.jpg",
   "medio": "iProfesional",
-  "credito": "Foto: iProfesional",
   "licencia": null,
   "origen": "medio",
   "titulo": "Molinos compra Grupo Ayudín y se mete en el negocio de limpieza",
@@ -50203,7 +50201,8 @@
    "descripcion": "Línea de producción de botellas de lavandina Ayudín en fábrica"
   },
   "huella": "51b19f81fb2bad5e",
-  "ausenteDesde": "2026-10-31T08:05:37.511Z"
+  "intentado": true,
+  "borrada": true
  },
  "1hmc6g3": {
   "archivo": "fotos-notas/1hmc6g3.jpg",
@@ -52120,9 +52119,7 @@
   "ausenteDesde": "2026-10-31T15:03:28.777Z"
  },
  "1h9faw0": {
-  "archivo": "fotos-notas/1h9faw0.jpg",
   "medio": "La Verdad",
-  "credito": "Foto: La Verdad",
   "licencia": null,
   "origen": "medio",
   "titulo": "El RENATRE aprueba un plan de pagos para deudas de empleadores rurales",
@@ -52142,7 +52139,8 @@
    "descripcion": "Fachada y cartel exterior de una delegación del RENATRE"
   },
   "huella": "07581a448484841a",
-  "ausenteDesde": "2026-10-31T09:01:41.914Z"
+  "intentado": true,
+  "borrada": true
  },
  "1euy2o2": {
   "medio": "La Verdad",
@@ -59259,9 +59257,7 @@
   "ausenteDesde": "2026-11-02T13:33:41.404Z"
  },
  "1cea0pz": {
-  "archivo": "fotos-notas/1cea0pz.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Emiten alerta amarilla por tormentas y lluvias en ocho provincias",
@@ -59281,7 +59277,8 @@
    "descripcion": "Calle urbana iluminada y mojada por la lluvia nocturna."
   },
   "huella": "0383939787978787",
-  "ausenteDesde": "2026-10-31T08:05:37.511Z"
+  "intentado": true,
+  "borrada": true
  },
  "1o1ei7p": {
   "intentado": true,
@@ -90489,11 +90486,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Argentina avanza a cuartos en el básquet 3x3 de los Juegos Olímpicos de la Juventud",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nueva no se usa todavía.",
-  "cuando": "2026-11-07T04:02:15.256Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 3
+  "razon": "Ninguna foto cumple con todos los requisitos: la A es gráfica, la B muestra menores reconocibles y la C tiene marca de agua del medio.",
+  "cuando": "2026-11-07T09:01:49.496Z",
+  "intentos": 2,
+  "fuentes": 3
  },
  "1b2mb7": {
   "archivo": "fotos-notas/1b2mb7.jpg",
@@ -91165,5 +91161,14 @@
   "cuando": "2026-11-07T08:01:43.800Z",
   "intentos": 1,
   "fuentes": 5
+ },
+ "mgz564": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Pampita acampa para asistir a la misa del papa León XIV en Palermo",
+  "razon": "Ninguna foto muestra el hecho de la nota (Pampita acampando para asistir a la misa del papa León XIV en Palermo), ya que la mayoría son retratos de estudio o de otros contextos, o bien muestran al Papa solo.",
+  "cuando": "2026-11-07T09:01:49.496Z",
+  "intentos": 1,
+  "fuentes": 10
  }
 }

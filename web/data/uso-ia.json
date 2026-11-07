@@ -3419,19 +3419,19 @@
   "2026-11-07": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 21,
+     "llamadas": 22,
      "errores": 16,
-     "entrada": 13044,
-     "salida": 6331,
+     "entrada": 15148,
+     "salida": 7041,
      "pensamiento": 0,
-     "total": 19375,
+     "total": 22189,
      "claves": {
-      "clasificacion": 21
+      "clasificacion": 22
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 16,
-       "ok": 5
+       "ok": 6
       }
      }
     },
@@ -3472,19 +3472,19 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 13,
+     "llamadas": 16,
      "errores": 9,
-     "entrada": 58191,
-     "salida": 1578,
+     "entrada": 104480,
+     "salida": 2081,
      "pensamiento": 0,
-     "total": 59769,
+     "total": 106561,
      "claves": {
-      "clasificacion": 13
+      "clasificacion": 16
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 9,
-       "ok": 4
+       "ok": 7
       }
      }
     },
@@ -3507,20 +3507,20 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 19,
+     "llamadas": 25,
      "errores": 18,
-     "entrada": 7267,
-     "salida": 1375,
+     "entrada": 50135,
+     "salida": 7865,
      "pensamiento": 0,
-     "total": 8642,
+     "total": 58000,
      "claves": {
-      "redaccion": 19
+      "redaccion": 25
      },
      "motivos": {
       "redaccion": {
        "cupo-diario": 17,
        "saturado": 1,
-       "ok": 1
+       "ok": 7
       }
      }
     },
@@ -3544,19 +3544,19 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 21,
+     "llamadas": 23,
      "errores": 18,
-     "entrada": 16282,
-     "salida": 1308,
+     "entrada": 31119,
+     "salida": 2599,
      "pensamiento": 0,
-     "total": 17590,
+     "total": 33718,
      "claves": {
-      "clasificacion": 21
+      "clasificacion": 23
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 18,
-       "ok": 3
+       "ok": 5
       }
      }
     },
