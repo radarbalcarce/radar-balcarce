@@ -3419,19 +3419,19 @@
   "2026-11-07": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 48,
+     "llamadas": 50,
      "errores": 18,
-     "entrada": 73144,
-     "salida": 34147,
+     "entrada": 77301,
+     "salida": 35676,
      "pensamiento": 0,
-     "total": 107291,
+     "total": 112977,
      "claves": {
-      "clasificacion": 48
+      "clasificacion": 50
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 16,
-       "ok": 30,
+       "ok": 32,
        "saturado": 2
       }
      }
@@ -3473,19 +3473,19 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 53,
+     "llamadas": 55,
      "errores": 10,
-     "entrada": 660080,
-     "salida": 6812,
+     "entrada": 701407,
+     "salida": 7098,
      "pensamiento": 0,
-     "total": 666892,
+     "total": 708505,
      "claves": {
-      "clasificacion": 53
+      "clasificacion": 55
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 9,
-       "ok": 43,
+       "ok": 45,
        "saturado": 1
       }
      }
@@ -3525,20 +3525,20 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 139,
+     "llamadas": 144,
      "errores": 30,
-     "entrada": 610015,
-     "salida": 111158,
+     "entrada": 636054,
+     "salida": 115871,
      "pensamiento": 0,
-     "total": 721173,
+     "total": 751925,
      "claves": {
-      "redaccion": 139
+      "redaccion": 144
      },
      "motivos": {
       "redaccion": {
        "cupo-diario": 17,
        "saturado": 13,
-       "ok": 109
+       "ok": 114
       }
      }
     },
@@ -3562,19 +3562,19 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 91,
+     "llamadas": 93,
      "errores": 24,
-     "entrada": 381916,
-     "salida": 30167,
+     "entrada": 391330,
+     "salida": 30885,
      "pensamiento": 0,
-     "total": 412083,
+     "total": 422215,
      "claves": {
-      "clasificacion": 91
+      "clasificacion": 93
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 18,
-       "ok": 67,
+       "ok": 69,
        "velocidad": 1,
        "saturado": 5
       }
@@ -3598,18 +3598,18 @@
      }
     },
     "qwen/qwen3.8-27b": {
-     "llamadas": 38,
+     "llamadas": 40,
      "errores": 10,
-     "entrada": 44187,
-     "salida": 2877,
+     "entrada": 46383,
+     "salida": 3069,
      "pensamiento": 0,
-     "total": 47064,
+     "total": 49452,
      "claves": {
-      "groq": 38
+      "groq": 40
      },
      "motivos": {
       "groq": {
-       "ok": 28,
+       "ok": 30,
        "cupo-diario": 1,
        "velocidad": 6,
        "otro": 3

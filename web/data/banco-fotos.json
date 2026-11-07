@@ -83901,7 +83901,8 @@
    "corresponde": "si",
    "descripcion": "Retrato del vecino frente a la basílica."
   },
-  "huella": "6848cc4b59f9b9a9"
+  "huella": "6848cc4b59f9b9a9",
+  "ausenteDesde": "2026-11-07T16:32:51.741Z"
  },
  "1bdbr93": {
   "archivo": "fotos-notas/1bdbr93.jpg",
@@ -90594,7 +90595,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "85c7466564743030"
+  "huella": "85c7466564743030",
+  "ausenteDesde": "2026-11-07T16:32:51.741Z"
  },
  "12nspdw": {
   "intentado": true,
@@ -92250,7 +92252,8 @@
    "corresponde": "si",
    "descripcion": "Auto de Fórmula 1 en pista tomando una curva"
   },
-  "huella": "20181c98b2baf23e"
+  "huella": "20181c98b2baf23e",
+  "ausenteDesde": "2026-11-07T16:32:51.741Z"
  },
  "1lc4vya": {
   "intentado": true,
@@ -92390,5 +92393,38 @@
   "fuentes": 2,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "hfy4ax": {
+  "archivo": "fotos-notas/hfy4ax.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Una entrenadora comparte una rutina de nueve ejercicios para mayores",
+  "enlace": "https://www.lanacion.com.ar/lifestyle/cuidado-cuerpo-belleza/kate-nolte-entrenadora-tengo-47-anos-y-mi-mama-tiene-83-hacemos-juntas-nueve-ejercicios-para-nid05112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/la-reconocida-personal-trainer-mostro-el-paso-a-XUT3WFH4G5CLZIVQYCM4B6BESM.png?auth=3ca5c63e5bd7dbe7f4eb7a4cb24d9ff14ce7cf918d95271c03bdc01c1d6211f8&width=1200&height=800&quality=70&smart=true",
+  "razon": "Muestra claramente a la entrenadora y a una persona mayor en un entorno adecuado, sin marcas ni menores.",
+  "cuando": "2026-11-07T16:31:54.079Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Una entrenadora y una mujer mayor de pie en el interior de una casa"
+  },
+  "huella": "04848ccccc0c4c0c"
+ },
+ "1f6vf5a": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El peronismo desplaza a Franja Morada en Veterinarias y Económicas en la UNLP",
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de 0221 (un menor); la de El Día (no corresponde a la nota): no se elige ninguna.",
+  "cuando": "2026-11-07T16:31:54.079Z",
+  "intentos": 1,
+  "fuentes": 4
  }
 }

@@ -2915,6 +2915,13 @@
   "textos": 2,
   "numeradas": 3
  },
+ "1f6vf5a": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T16:31:16.852Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
+ },
  "1f8gdb3": {
   "intentos": 1,
   "ultimo": "2026-11-05T04:01:49.282Z",
@@ -9287,6 +9294,16 @@
   "textos": 1,
   "numeradas": 3
  },
+ "hfy4ax": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T16:31:16.852Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ]
+ },
  "hho8o4": {
   "intentos": 2,
   "ultimo": "2026-11-04T14:32:37.591Z",
@@ -10133,6 +10150,22 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 5
+ },
+ "lcskhc": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T16:31:16.852Z",
+  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"ribera\" y la fuente no",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 6 problemas (antecedente, nombre, relleno): el cuerpo usa 17, ",
+   "título o bajada: 1 problema (nombre): el copete nombra a \"ribera\" y la"
+  ],
+  "falla": [
+   "el copete nombra a \"ribera\" y la fuente no",
+   "el cuerpo dice 50 y la fuente no lo dice",
+   "el cuerpo dice 9 y la fuente no lo dice"
+  ]
  },
  "lfdxin": {
   "intentos": 1,
