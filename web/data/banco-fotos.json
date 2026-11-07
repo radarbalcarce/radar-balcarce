@@ -56227,8 +56227,7 @@
    "corresponde": "generica",
    "descripcion": "Vitrinas de una heladería con distintos gustos de helado"
   },
-  "huella": "72524d4d4d4d4595",
-  "ausenteDesde": "2026-11-02T01:02:57.921Z"
+  "huella": "72524d4d4d4d4595"
  },
  "6smgc": {
   "intentado": true,
@@ -84669,7 +84668,8 @@
    "corresponde": "si",
    "descripcion": "Plantel de San Lorenzo entrenando en campo de juego."
   },
-  "huella": "ee3d3e3b9072271d"
+  "huella": "ee3d3e3b9072271d",
+  "ausenteDesde": "2026-11-07T10:03:14.626Z"
  },
  "1yyb1et": {
   "archivo": "fotos-notas/1yyb1et.jpg",
@@ -87351,14 +87351,40 @@
   "ausenteDesde": "2026-11-06T14:33:19.138Z"
  },
  "1simil3": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1simil3.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Franco Colapinto presenta un casco con los colores de Boca para el GP de Brasil",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
-  "cuando": "2026-11-07T01:32:13.760Z",
-  "intentos": 1,
-  "fuentes": 8,
-  "intentosPorCupo": 4
+  "enlace": "https://www.tycsports.com/automovilismo/nuevo-casco-colapinto-f1-boca-id770579.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/05/1003163/casco_862x485.webp?v=1",
+  "razon": "Es la única foto que muestra claramente el casco de Boca junto a Franco Colapinto, con excelente encuadre y sin marcas de agua ni problemas.",
+  "cuando": "2026-11-07T10:01:51.372Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Colapinto mostrando el casco con los colores de Boca.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Franco Colapinto sonriendo mientras sostiene un casco de Fórmula 1 con los colores de Boca Juniors."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "6743822327455139"
  },
  "dyb4xn": {
   "archivo": "fotos-notas/dyb4xn.jpg",
@@ -87476,14 +87502,40 @@
   "huella": "e3fceeefcb6b60de"
  },
  "1hjt1n9": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Realizan la 35ª Marcha del Orgullo en Buenos Aires con shows y cortes",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Crónica no se usa todavía.",
-  "cuando": "2026-11-06T19:33:39.352Z",
-  "intentos": 1,
-  "fuentes": 7,
-  "intentosPorCupo": 2
+  "archivo": "fotos-notas/trh790.jpg",
+  "medio": "Página/12",
+  "credito": "Foto: Página/12",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La 35ª Marcha del Orgullo modifica su recorrido por la visita papal",
+  "enlace": "https://www.pagina12.com.ar/2026/11/05/marcha-del-orgullo-2026-asi-sera-el-recorrido-hacia-el-congreso/",
+  "imagenOriginal": "https://www.pagina12.com.ar/resizer/v2/2YYYITN6F5CYVHU5UJIZ4H6PO4.jpg?smart=true&auth=65e390a86c37e2b8b5b576c50882bfeb6fc6a7cf6de7f5f5c862cbab3f1a86ca&width=1200&height=630",
+  "razon": "Es la única imagen que muestra el contexto de la marcha con buena calidad, sin marcas de agua, sin menores identificables y sin elementos gráficos sobreimpresos. La segunda opinión (groq) descartó la de El Día (parece una foto de stock): se usa Página/12.",
+  "cuando": "2026-11-07T04:02:15.256Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Personas sosteniendo una bandera de la Marcha del Orgullo.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Multitud de personas sosteniendo banderas y pancartas de la Marcha del Orgullo en una calle céntrica."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "4f0daf0f213f214c"
  },
  "1e0l32b": {
   "archivo": "fotos-notas/1e0l32b.jpg",
@@ -90575,7 +90627,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano de un operador financiero observando múltiples gráficos de mercado en pantallas."
   },
-  "huella": "232711132513959f"
+  "huella": "232711132513959f",
+  "ausenteDesde": "2026-11-07T10:03:14.626Z"
  },
  "a1d2fw": {
   "intentado": true,
@@ -91166,9 +91219,90 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Pampita acampa para asistir a la misa del papa León XIV en Palermo",
-  "razon": "Ninguna foto muestra el hecho de la nota (Pampita acampando para asistir a la misa del papa León XIV en Palermo), ya que la mayoría son retratos de estudio o de otros contextos, o bien muestran al Papa solo.",
-  "cuando": "2026-11-07T09:01:49.496Z",
+  "razon": "Ninguna de las fotos disponibles ilustra correctamente el hecho mencionado en la nota (Pampita acampando para asistir a la misa del papa León XIV en Palermo).",
+  "cuando": "2026-11-07T10:01:51.372Z",
+  "intentos": 2,
+  "fuentes": 11
+ },
+ "tgk7er": {
+  "archivo": "fotos-notas/tgk7er.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Atlético Tucumán y Banfield empatan 2 a 2 en el sur bonaerense",
+  "enlace": "https://www.lagaceta.com.ar/nota/1161414/deportes/en-vivo-atletico-tucuman-empata-00-ante-banfield-ultimo-partido-ano.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/11/06/ignacio-izaguirre--especial-para-la-gaceta-1161414-235832.jpg",
+  "razon": "Es una fotografía de acción nítida, sin marcas superpuestas, menores ni gráficos, ideal para ilustrar la nota deportiva.",
+  "cuando": "2026-11-07T10:01:51.372Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores disputando la pelota en el partido."
+  },
+  "huella": "6387971717075307"
+ },
+ "1m0tujp": {
+  "archivo": "fotos-notas/1m0tujp.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Charly García visita a Ronnie Wood en la previa de su show en Buenos Aires",
+  "enlace": "https://tn.com.ar/musica/noticias/2026/11/07/charly-garcia-visito-a-ronnie-wood-antes-de-su-show-en-buenos-aires-la-imagen-con-regalos-y-carino/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/charly-garcia-visito-a-ron-wood-en-los-camarines-del-arena-de-buenos-aires-y-le-regalo-varios-discos-de-vinilo-entre-ellos-clics-modernos-foto-instagram-dfentertainment-AQAX3XOU4NC2PO5GJVLFBE2OC4.jpg?auth=2205975e0c8369964e19b70d416ef58ff21aecce33a1c4e5be03ff443f55a82b&width=1023",
+  "razon": "Es la única foto que muestra directamente el encuentro entre Charly García y Ronnie Wood, ilustrando perfectamente el título de la nota.",
+  "cuando": "2026-11-07T10:01:51.372Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Ronnie Wood y Charly García juntos posando sonrientes."
+  },
+  "huella": "7f6f7fd694a5e9c8"
+ },
+ "wdi0sa": {
+  "archivo": "fotos-notas/wdi0sa.jpg",
+  "medio": "Córdoba Competición",
+  "credito": "Foto: Córdoba Competición",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Villagra lidera el shakedown del Rally de Traslasierra en Villa Dolores",
+  "enlace": "https://cordobacompeticion.com/nacionales/rally-argentino/con-el-shakedown-en-villa-dolores-comenzo-el-rally-de-traslasierra/",
+  "imagenOriginal": "https://i0.wp.com/cordobacompeticion.com/wp-content/uploads/2026/11/WhatsApp-Image-2026-11-06-at-15.48.55.jpeg?resize=660%2C330&ssl=1",
+  "razon": "La foto B muestra un excelente encuadre del auto de rally levantando polvo con las sierras de fondo, sin personas ni marcas de medios.",
+  "cuando": "2026-11-07T10:01:51.372Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de rally levantando una gran polvareda con sierras de fondo"
+  },
+  "huella": "bddfc686d34963e6"
+ },
+ "ur5cn8": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Frozen, el musical se estrena en mayo de 2027 en Buenos Aires",
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de TyC Sports (es un flyer, un afiche o una captura de pantalla, no una foto): no se elige ninguna.",
+  "cuando": "2026-11-07T10:01:51.372Z",
   "intentos": 1,
-  "fuentes": 10
+  "fuentes": 4
  }
 }
