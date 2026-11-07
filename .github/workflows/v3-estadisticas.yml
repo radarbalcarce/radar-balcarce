@@ -1,10 +1,18 @@
-# Radar 3.0: las estadísticas de la web (Cloudflare Web Analytics) y de Facebook e Instagram (API de Meta), a pedido.
-# Corre redes/estadisticas.mjs, que mide y muestra los números en el registro (no guarda nada ni publica nada).
-# Desde el 3/11/2026 el vigilante viejo dejó de medirlas: esto las trae de vuelta hasta que estén en el informe diario de 3.0 (Hernán, 7/11).
+# Radar 3.0: las estadísticas de la web (Cloudflare Web Analytics) y de Facebook e Instagram (API de Meta).
+# Corre redes/estadisticas.mjs (mide; no guarda nada en el repositorio) y manda el resumen por Telegram al dueño del bot.
+# Todos los días a las 21:30 de Balcarce y a pedido. Desde el 3/11/2026 el vigilante viejo dejó de medirlas (Hernán, 7/11: «tienen que estar»).
 name: "Radar 3.0: estadísticas"
 
 on:
+  schedule:
+    - cron: '30 0 * * *'
   workflow_dispatch:
+    inputs:
+      telegram:
+        description: '¿Mandar el resumen por Telegram?'
+        type: choice
+        options: [si, no]
+        default: si
 
 permissions:
   contents: read
@@ -19,10 +27,17 @@ jobs:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       CLOUDFLARE_ANALYTICS_TOKEN: ${{ secrets.CLOUDFLARE_ANALYTICS_TOKEN }}
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
       - name: Medir
-        run: node redes/estadisticas.mjs
+        run: node redes/estadisticas.mjs | tee medicion.txt
+      - name: Mandar por Telegram
+        if: ${{ github.event_name == 'schedule' || inputs.telegram == 'si' }}
+        run: |
+          sed -n '/Así saldría en el WhatsApp:/,$p' medicion.txt | tail -n +2 | sed '/^\s*$/d' > resumen.txt
+          test -s resumen.txt || { echo "No hubo resumen para mandar"; exit 0; }
+          node v3/redaccion/telegram/herramientas.mjs decir resumen.txt
