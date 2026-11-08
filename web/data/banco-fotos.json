@@ -63926,9 +63926,7 @@
   "ausenteDesde": "2026-11-03T20:08:17.495Z"
  },
  "7mjpj1": {
-  "archivo": "fotos-notas/7mjpj1.jpg",
   "medio": "Perfil",
-  "credito": "Foto: Perfil",
   "licencia": null,
   "origen": "medio",
   "titulo": "Colapinto largará undécimo en el Gran Premio de México",
@@ -63948,7 +63946,8 @@
    "descripcion": "Auto de Fórmula 1 en pista de frente"
   },
   "huella": "bb306aececdad2d2",
-  "ausenteDesde": "2026-11-01T17:12:13.257Z"
+  "intentado": true,
+  "borrada": true
  },
  "1nm1r17": {
   "archivo": "fotos-notas/1nm1r17.jpg",
@@ -82874,7 +82873,8 @@
    "corresponde": "si",
    "descripcion": "Una triatleta compitiendo en bicicleta en un entorno rural."
   },
-  "huella": "009eaaa5583c3015"
+  "huella": "009eaaa5583c3015",
+  "ausenteDesde": "2026-11-08T17:32:16.826Z"
  },
  "t44aqz": {
   "archivo": "fotos-notas/t44aqz.jpg",
@@ -95148,7 +95148,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "35377ac8cc161516"
+  "huella": "35377ac8cc161516",
+  "ausenteDesde": "2026-11-08T17:32:16.826Z"
  },
  "16v0c3c": {
   "archivo": "fotos-notas/16v0c3c.jpg",
@@ -95246,8 +95247,7 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "32aaea6223f3f363",
-  "ausenteDesde": "2026-11-08T14:33:15.568Z"
+  "huella": "32aaea6223f3f363"
  },
  "fgldcf": {
   "archivo": "fotos-notas/fgldcf.jpg",
@@ -95302,10 +95302,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El papa León XIV encabeza una misa multitudinaria en la Ciudad",
-  "razon": "Ninguna foto cumple con todos los requisitos: la A tiene marca de agua, la B tiene menores reconocibles en la multitud y la C corresponde a un evento diferente (desde un balcón).",
-  "cuando": "2026-11-08T14:03:24.746Z",
-  "intentos": 1,
-  "fuentes": 3
+  "razon": "La única foto disponible tiene una marca de agua del medio (Noticias Argentinas) superpuesta, lo que impide su selección según las reglas.",
+  "cuando": "2026-11-08T17:31:29.322Z",
+  "intentos": 2,
+  "fuentes": 7,
+  "errorGemini": "la respuesta no es JSON"
  },
  "1n263sp": {
   "archivo": "fotos-notas/1n263sp.jpg",
@@ -95923,7 +95924,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "1f1ace29acad7712"
+  "huella": "1f1ace29acad7712",
+  "ausenteDesde": "2026-11-08T17:32:16.826Z"
  },
  "t3rs5e": {
   "archivo": "fotos-notas/t3rs5e.jpg",
@@ -95947,6 +95949,91 @@
    "corresponde": "si",
    "descripcion": "Jugadores disputando la pelota durante el partido."
   },
-  "huella": "caca5a4b6949c958"
+  "huella": "caca5a4b6949c958",
+  "ausenteDesde": "2026-11-08T17:32:16.826Z"
+ },
+ "1x49yvp": {
+  "archivo": "fotos-notas/1x49yvp.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Di María valora la temporada de Rosario Central tras el festejo frustrado",
+  "enlace": "https://www.clarin.com/deportes/posteo-angel-di-maria-festejo-frustrado-rosario-central-saludo-paredes-boca-campeon-frase-desato-euforia-anulo_0_VixgR3dRKK.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/08/21/kySD4IvIs_2000x1500__1.jpg",
+  "razon": "Es la única foto nítida y con buen encuadre que muestra directamente al jugador con la camiseta del club en actitud de lamento, sin problemas de marcas añadidas ni menores.",
+  "cuando": "2026-11-08T17:31:29.322Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador con camiseta de Rosario Central cubriéndose la cara con la mano.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de Rosario Central con la mano en la cara, mostrando frustración o tristeza."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "adda864b58543646"
+ },
+ "1k3s35l": {
+  "archivo": "fotos-notas/1k3s35l.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto compite en el Gran Premio de Brasil",
+  "enlace": "https://perfil.com/deportes/franco-colapinto-afronta-las-ultimas-practicas-libres-del-gp-de-brasil-segui-la-sesion-en-vivo-a7qwn1h0PqXK",
+  "imagenOriginal": "https://fotos.perfil.com/2026/11/07/trim/1140/641/franco-colapinto-2362261.jpg",
+  "razon": "Muestra claramente el auto de Franco Colapinto en pista, con buena nitidez, sin marcas de agua agregadas ni personas reconocibles.",
+  "cuando": "2026-11-08T17:31:29.322Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de Fórmula 1 de perfil en la pista"
+  },
+  "huella": "064301133a989293"
+ },
+ "1r2yr8l": {
+  "archivo": "fotos-notas/1r2yr8l.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto largará desde el puesto 15 en el Gran Premio de Brasil",
+  "enlace": "https://www.lagaceta.com.ar/nota/1161570/deportes/colapinto-gp-brasil-donde-hora-se-puede-ver-vivo-carrera.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/11/08/en-brasil-colapinto-tiene-duro-examen-circuito-interlagos-1161570-085147.jpg",
+  "razon": "Es una fotografía nítida y con excelente encuadre frontal de Franco Colapinto en su monoplaza durante el Gran Premio, sin marcas superpuestas ni problemas de menores.",
+  "cuando": "2026-11-08T17:31:29.322Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Colapinto conduciendo su monoplaza de frente en la pista"
+  },
+  "huella": "6af2acecec92d842"
  }
 }
