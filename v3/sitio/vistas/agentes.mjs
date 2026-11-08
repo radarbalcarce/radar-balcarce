@@ -45,6 +45,17 @@ export function serviciosJson({ farmacia = null, clima = null, eventos = [] } = 
   });
 }
 
+/** /.well-known/security.txt (RFC 9116). Vence el 7/11/2027: hay que renovarlo antes. */
+export function securityTxt() {
+  return [
+    'Contact: mailto:contacto@radarbalcarce.com',
+    'Expires: 2027-11-07T00:00:00.000Z',
+    'Preferred-Languages: es',
+    `Canonical: ${BASE}/.well-known/security.txt`,
+    '',
+  ].join('\n');
+}
+
 export function llmsTxt() {
   return `# ${NOMBRE}
 

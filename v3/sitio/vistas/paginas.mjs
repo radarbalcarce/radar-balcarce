@@ -1,6 +1,7 @@
 // Las páginas de texto del sitio: quiénes somos, cómo trabajamos, contacto y política de privacidad. /publicidad ya no es una página: redirige (301) a la nota del media kit.
 // Escritas a mano (la fuente es v3/nucleo/PERFIL.md). Si cambia algo de lo que decimos acá, se cambia acá.
-import { pagina } from './base.mjs';
+import { pagina, organizacionDelMedio } from './base.mjs';
+import { BASE } from '../util.mjs';
 
 export const WHATSAPP = '2266 51-1612';
 export const WHATSAPP_URL = 'https://wa.me/5492266511612';
@@ -116,8 +117,20 @@ const PAGINAS = { 'quienes-somos': QUIENES, 'como-trabajamos': COMO, 'contacto':
 export const RUTAS_DE_TEXTO = [...Object.keys(PAGINAS), 'publicidad'];
 
 /** Una de las páginas de texto, o null si no existe. */
+/** «Quiénes somos» como `AboutPage` cuyo tema es el medio: quién lo fundó, quién colabora, sus principios y su mail. Sin `WebSite`. */
+function datosDeQuienesSomos() {
+  return {
+    '@context': 'https://schema.org', '@type': 'AboutPage', name: QUIENES.titulo, url: `${BASE}/quienes-somos`, inLanguage: 'es-AR',
+    mainEntity: {
+      ...organizacionDelMedio(), '@context': undefined, email: MAIL, publishingPrinciples: `${BASE}/como-trabajamos`,
+      founder: { '@type': 'Person', name: 'Hernán Accomo', jobTitle: 'Fundador y director' },
+      employee: { '@type': 'Person', name: 'Andrés Gerace' },
+    },
+  };
+}
+
 export function paginaDeTexto(clave, { indexar, contexto } = {}) {
   const p = PAGINAS[clave];
   if (!p) return null;
-  return pagina({ titulo: p.titulo, descripcion: p.descripcion, canonico: `/${clave}`, indexar, contexto, cuerpo: `<article class="texto">${p.html}</article>` });
+  return pagina({ titulo: p.titulo, descripcion: p.descripcion, canonico: `/${clave}`, indexar, contexto, datos: clave === 'quienes-somos' ? [datosDeQuienesSomos()] : undefined, cuerpo: `<article class="texto">${p.html}</article>` });
 }

@@ -205,6 +205,23 @@ test('/llms.txt, los datos para agentes, el mapa de noticias y el mapa de págin
   assert.match(await (await ir('/robots.txt')).text(), /Disallow: \/panel\//);
 });
 
+test('/.well-known/security.txt (RFC 9116) en texto plano y /security.txt redirige', async () => {
+  const { ir } = montar();
+  const r = await ir('/.well-known/security.txt');
+  assert.equal(r.status, 200);
+  assert.match(r.headers.get('content-type'), /text\/plain/);
+  const t = await r.text();
+  assert.match(t, /^Contact: mailto:contacto@radarbalcarce\.com$/m);
+  assert.match(t, /^Expires: 2027-11-07T00:00:00\.000Z$/m);
+  assert.match(t, /^Preferred-Languages: es$/m);
+  assert.match(t, /^Canonical: https:\/\/radarbalcarce\.com\/\.well-known\/security\.txt$/m);
+  assert.ok(new Date(t.match(/^Expires: (.+)$/m)[1]) > new Date('2026-11-07'));
+  const v = await ir('/security.txt');
+  assert.equal(v.status, 301);
+  assert.equal(v.headers.get('location'), '/.well-known/security.txt');
+  assert.ok(esRutaPropia('/.well-known/security.txt') && esRutaPropia('/security.txt'));
+});
+
 test('direcciones del sitio viejo: mapas por mes, páginas de sección numeradas, secciones renombradas, feed por sección, temas y tarjetas', async () => {
   const { sqlite, ir, pedidos } = montar();
   insertarNota(sqlite);
@@ -292,7 +309,7 @@ test('inventario: ninguna de las rutas que tenía el sitio viejo sale hacia él 
   const { sqlite, ir, pedidos } = montar({ objetos });
   insertarNota(sqlite);
   const rutas = ['/', '/hoy', '/agenda', '/agenda/paseo-de-primavera-en-san-agustin-muni24067', '/agenda/paseo-de-primavera-en-san-agustin-muni24067/evento.ics', '/farmacias', '/clima', '/dolar', '/util',
-    '/tablas', '/tablas/liga-profesional', '/tablas/formula-1', '/compartir', '/quienes-somos', '/como-trabajamos', '/contacto', '/politica-de-privacidad', '/publicidad', '/llms.txt',
+    '/tablas', '/tablas/liga-profesional', '/tablas/formula-1', '/compartir', '/quienes-somos', '/como-trabajamos', '/contacto', '/politica-de-privacidad', '/publicidad', '/llms.txt', '/.well-known/security.txt', '/security.txt',
     '/agentes/ultimas.json', '/agentes/indice.json', '/agentes/servicios.json', '/robots.txt', '/rss.xml', '/feed.xml', '/sitemap.xml', '/sitemap-index.xml', '/sitemap-news.xml', '/sitemap-paginas.xml',
     '/sitemap-2026-11.xml', '/sitemap-notas/2026-11/sitemap.xml', '/seccion/balcarce', '/seccion/balcarce-2', '/seccion/balcarce/feed.xml', '/tema/algo', '/buscar?q=hospital',
     '/nota/se-inauguro-la-nueva-sala-del-hospital-abc1234', '/nota/titular-viejo-zzz999', '/panel/', '/panel/app.js', '/escudos/5.png', '/compartir/radar-balcarce-vertical.mp4', '/icon-192.png', '/icon-512.png',

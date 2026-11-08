@@ -1,7 +1,7 @@
 // Las tres páginas del día: /clima, /farmacias y /dolar. Con los datos de la solapa de la tapa (datos-del-dia.mjs), en detalle y con mucho dibujo.
 // Si falta un dato, la página lo dice o no muestra ese bloque; nunca se inventa. Todo el color sale de variables (claro y oscuro en base.mjs).
 import { esc, partesEnBalcarce } from '../util.mjs';
-import { pagina } from './base.mjs';
+import { pagina, paginaLd } from './base.mjs';
 import { iconoDeClima } from './dia.mjs';
 import { graficoHoras, resumenDeHoras } from './grafico-horas.mjs';
 import { graficoDolar, resumenDeDolar, variacionDe } from './grafico-dolar.mjs';
@@ -148,6 +148,7 @@ ${bloqueSmn()}
     titulo: 'El clima en Balcarce hoy y los próximos días',
     descripcion: 'La temperatura de ahora en Balcarce, la sensación térmica, el viento, la humedad y el pronóstico de los próximos días: mínima, máxima, probabilidad de lluvia.',
     canonico: '/clima', indexar, contexto, cuerpo: envolver(cuerpo),
+    datos: [paginaLd('El clima en Balcarce hoy y los próximos días', '/clima')],
   });
 }
 
@@ -186,6 +187,19 @@ function fichaChica(x) {
 <span class="far-links">${tel ? `<a class="enlace" href="${esc(tel)}">Tel. ${esc(x.telefono)}</a>` : ''}<a class="enlace" href="${esc(enlaceDeMapa(x.direccion, x.nombre))}" rel="noopener">Mapa</a></span></div>`;
 }
 
+/** La farmacia de turno como `Pharmacy` (sin teléfono ni dirección si no los hay). */
+function farmaciaLd(x) {
+  const nombre = String(x?.nombre ?? '').trim();
+  if (!nombre) return null;
+  const direccion = String(x.direccion ?? '').trim();
+  const telefono = String(x.telefono ?? '').trim();
+  return {
+    '@type': 'Pharmacy', name: `Farmacia ${nombre}`,
+    address: { '@type': 'PostalAddress', ...(direccion ? { streetAddress: direccion } : {}), addressLocality: 'Balcarce', addressRegion: 'Buenos Aires', addressCountry: 'AR' },
+    ...(telefono ? { telephone: telefono } : {}),
+  };
+}
+
 export function paginaFarmacias({ indexar, contexto = {} } = {}) {
   const f = contexto.farmacia;
   let cuerpo;
@@ -215,6 +229,7 @@ ${dias ? `<ol class="far-semana">${dias}</ol>` : '<p class="nota-chica">El Coleg
     titulo: 'Farmacia de turno en Balcarce hoy',
     descripcion: 'Qué farmacia está de turno hoy en Balcarce y cuáles siguen toda la semana, con dirección, teléfono y mapa, y hasta qué hora rige el turno.',
     canonico: '/farmacias', indexar, contexto, cuerpo: envolver(cuerpo),
+    datos: [paginaLd('Farmacia de turno en Balcarce hoy', '/farmacias', f?.farmacias?.length ? { mainEntity: farmaciaLd(f.farmacias[0]) ?? undefined } : {})],
   });
 }
 

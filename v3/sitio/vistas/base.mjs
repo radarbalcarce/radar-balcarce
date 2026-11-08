@@ -464,12 +464,22 @@ export const REDES_DEL_MEDIO = [
   'https://www.youtube.com/@radarbalcarce', 'https://x.com/RadarBalcarce',
 ];
 
+/** El medio como organización (la misma en la portada, en «Quiénes somos» y en lo que la cita por @id). */
+export function organizacionDelMedio() {
+  return { '@context': 'https://schema.org', '@type': 'NewsMediaOrganization', '@id': `${BASE}/#medio`, name: NOMBRE, url: BASE, logo: { '@type': 'ImageObject', url: `${BASE}/icon-512.png`, width: 512, height: 512 }, sameAs: REDES_DEL_MEDIO };
+}
+
+/** Un `WebPage` simple de una página del sitio: nombre, dirección y el sitio al que pertenece. `extra`: campos que se suman (p. ej. `mainEntity`). */
+export function paginaLd(nombre, ruta, extra = {}) {
+  return { '@context': 'https://schema.org', '@type': 'WebPage', name: nombre, url: BASE + ruta, inLanguage: 'es-AR', isPartOf: { '@type': 'WebSite', '@id': `${BASE}/#sitio`, name: NOMBRE, url: BASE }, ...extra };
+}
+
 /** Los datos estructurados del sitio entero (portada y secciones): el sitio con su buscador (/buscar?q=) y el medio con su logo y sus redes. */
 export function datosDelSitio() {
   return [
     { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${BASE}/#sitio`, name: NOMBRE, url: BASE, inLanguage: 'es-AR', publisher: { '@id': `${BASE}/#medio` },
       potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: `${BASE}/buscar?q={search_term_string}` }, 'query-input': 'required name=search_term_string' } },
-    { '@context': 'https://schema.org', '@type': 'NewsMediaOrganization', '@id': `${BASE}/#medio`, name: NOMBRE, url: BASE, logo: { '@type': 'ImageObject', url: `${BASE}/icon-512.png`, width: 512, height: 512 }, sameAs: REDES_DEL_MEDIO },
+    organizacionDelMedio(),
   ];
 }
 

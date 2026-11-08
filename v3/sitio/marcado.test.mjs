@@ -46,3 +46,39 @@ test('las demás páginas no cargan el marcado del sitio', async () => {
   const { env } = baseDePrueba();
   assert.ok(!tipo(marcado(await (await ir(env, '/quienes-somos')).text()), 'WebSite'));
 });
+
+test('/quienes-somos: AboutPage cuyo tema es el medio (fundador, colaborador, principios, mail) y sin WebSite', async () => {
+  const { env } = baseDePrueba();
+  const datos = marcado(await (await ir(env, '/quienes-somos')).text());
+  const about = tipo(datos, 'AboutPage');
+  assert.equal(about.url, 'https://radarbalcarce.com/quienes-somos');
+  const org = about.mainEntity;
+  assert.equal(org['@type'], 'NewsMediaOrganization');
+  assert.equal(org.name, 'Radar Balcarce');
+  assert.equal(org.founder.name, 'Hernán Accomo');
+  assert.equal(org.employee.name, 'Andrés Gerace');
+  assert.equal(org.publishingPrinciples, 'https://radarbalcarce.com/como-trabajamos');
+  assert.equal(org.email, 'contacto@radarbalcarce.com');
+  assert.ok(!tipo(datos, 'WebSite'));
+  assert.ok(!marcado(await (await ir(env, '/contacto')).text()).some((x) => x['@type'] === 'AboutPage'), 'sólo Quiénes somos');
+});
+
+test('/farmacias y /clima: WebPage con nombre, dirección y el sitio; la farmacia de turno como Pharmacy sólo con lo que hay', async () => {
+  const { paginaFarmacias, paginaClima } = await import('./vistas/paginas-del-dia.mjs');
+  const ld = (h) => tipo(marcado(h), 'WebPage');
+  const completa = ld(paginaFarmacias({ indexar: true, contexto: { farmacia: { fecha: '2026-11-03', farmacias: [{ nombre: 'Santa Inés', direccion: 'Calle 17 N° 537', telefono: '42-4301' }] } } }));
+  assert.equal(completa.url, 'https://radarbalcarce.com/farmacias');
+  assert.equal(completa.isPartOf.url, 'https://radarbalcarce.com');
+  assert.equal(completa.mainEntity['@type'], 'Pharmacy');
+  assert.equal(completa.mainEntity.telephone, '42-4301');
+  assert.deepEqual(completa.mainEntity.address, { '@type': 'PostalAddress', streetAddress: 'Calle 17 N° 537', addressLocality: 'Balcarce', addressRegion: 'Buenos Aires', addressCountry: 'AR' });
+  const sinTel = ld(paginaFarmacias({ indexar: true, contexto: { farmacia: { fecha: '2026-11-03', farmacias: [{ nombre: 'Norte', direccion: null, telefono: null }] } } }));
+  assert.equal(sinTel.mainEntity.name, 'Farmacia Norte');
+  assert.ok(!('telephone' in sinTel.mainEntity) && !('streetAddress' in sinTel.mainEntity.address));
+  const sinDatos = ld(paginaFarmacias({ indexar: true, contexto: {} }));
+  assert.equal(sinDatos.name, 'Farmacia de turno en Balcarce hoy');
+  assert.ok(!('mainEntity' in sinDatos), 'sin datos no hay Pharmacy');
+  const clima = ld(paginaClima({ indexar: true, contexto: {} }));
+  assert.equal(clima.url, 'https://radarbalcarce.com/clima');
+  assert.equal(clima.isPartOf['@id'], 'https://radarbalcarce.com/#sitio');
+});
