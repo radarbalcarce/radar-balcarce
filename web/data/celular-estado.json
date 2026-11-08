@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-08T11:06:12.068Z",
- "portada": 67,
- "archivo": 496,
+ "generado": "2026-11-08T11:33:10.310Z",
+ "portada": 65,
+ "archivo": 500,
  "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-11-08T11:06:12.510Z",
+  "generado": "2026-11-08T11:33:10.723Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -116,7 +116,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 52,
     "notas": [
      {
       "id": "lx27ip",
@@ -129,14 +129,14 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "1w8v4jx",
-      "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
-      "seccion": "Educación"
+      "id": "7ashy7",
+      "titulo": "Virginia Aparicio cuestiona su exoneración del INTA",
+      "seccion": "Agro"
      },
      {
-      "id": "55plr2",
-      "titulo": "El Museo Fangio incorpora cascos de Hamilton y Bottas",
-      "seccion": "Automovilismo"
+      "id": "zswtcs",
+      "titulo": "Walter Degracia abre un nuevo gimnasio de boxeo en la ciudad",
+      "seccion": "Deportes"
      }
     ]
    },
@@ -147,34 +147,41 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 54,
     "notas": [
      {
-      "id": "5sp4cy",
-      "titulo": "Petruccelli rechaza el aumento de tarifas para la empresa de limpieza Ashira",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "7ashy7",
-      "titulo": "Virginia Aparicio cuestiona su exoneración del INTA",
-      "seccion": "Agro"
-     },
-     {
-      "id": "zswtcs",
-      "titulo": "Walter Degracia abre un nuevo gimnasio de boxeo en la ciudad",
+      "id": "u5bwex",
+      "titulo": "La escuela Taekwondo Henko reúne a más de cien alumnos",
       "seccion": "Deportes"
      },
      {
-      "id": "nubrst",
-      "titulo": "El papa León XIV celebra su primera misa en Sudamérica en Uruguay",
+      "id": "1vn9y3q",
+      "titulo": "El papa Léon XIV llega hoy a la Argentina en su primera visita oficial",
       "seccion": "Argentina"
+     },
+     {
+      "id": "ymnte9",
+      "titulo": "Una policía rescata a una jubilada tras caer con su auto a un arroyo",
+      "seccion": "Policiales"
+     },
+     {
+      "id": "xwpiqf",
+      "titulo": "Franco Colapinto queda eliminado en la Q1 y largará 17 en Brasil",
+      "seccion": "Automovilismo"
      }
     ]
    }
   ],
   "facebook": {
    "hoy": [],
-   "cola": [],
+   "cola": [
+    {
+     "id": "1vn9y3q",
+     "titulo": "El papa Léon XIV llega hoy a la Argentina en su primera visita oficial",
+     "seccion": "Argentina",
+     "marcada": false
+    }
+   ],
    "cupo": 5,
    "proximoDesde": "2026-11-03T16:06:05.155Z",
    "porDia": 5,
