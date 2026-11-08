@@ -53288,9 +53288,7 @@
   "ausenteDesde": "2026-11-02T00:05:51.206Z"
  },
  "1uuz38u": {
-  "archivo": "fotos-notas/13i41og.jpg",
   "medio": "Radio Mitre",
-  "credito": "Foto: Radio Mitre",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Ciudad de Buenos Aires aprueba el primer cementerio y crematorio de mascotas",
@@ -53322,7 +53320,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "958c8d9296564717",
-  "ausenteDesde": "2026-11-01T20:36:19.011Z"
+  "intentado": true,
+  "borrada": true
  },
  "1ae2u4c": {
   "archivo": "fotos-notas/1ae2u4c.jpg",
@@ -53388,9 +53387,7 @@
   "ausenteDesde": "2026-11-01T21:03:30.036Z"
  },
  "bjkvmp": {
-  "archivo": "fotos-notas/bjkvmp.jpg",
   "medio": "Perfil",
-  "credito": "Foto: Perfil",
   "licencia": null,
   "origen": "medio",
   "titulo": "Vicente López lidera el ranking de municipios de la UBA",
@@ -53410,7 +53407,8 @@
    "descripcion": "Vista aérea panorámica de la costa y edificios de Vicente López"
   },
   "huella": "78787b704c1d59d9",
-  "ausenteDesde": "2026-11-01T20:36:19.011Z"
+  "intentado": true,
+  "borrada": true
  },
  "1bdjadx": {
   "archivo": "fotos-notas/1bdjadx.jpg",
@@ -57635,9 +57633,7 @@
   "borrada": true
  },
  "gpghgh": {
-  "archivo": "fotos-notas/gpghgh.jpg",
   "medio": "FayerWayer",
-  "credito": "Foto: FayerWayer",
   "licencia": null,
   "origen": "medio",
   "titulo": "Fallece el actor Patrick Stewart a los 86 años en Los Angeles",
@@ -57657,7 +57653,8 @@
    "descripcion": "Retrato de Patrick Stewart en un evento de Star Trek."
   },
   "huella": "2f072f0f4d454465",
-  "ausenteDesde": "2026-11-01T20:36:19.011Z"
+  "intentado": true,
+  "borrada": true
  },
  "2rs9xh": {
   "intentado": true,
@@ -83242,7 +83239,8 @@
    "corresponde": "si",
    "descripcion": "Dos jugadores de River abrazados celebrando un gol."
   },
-  "huella": "c8da5a1aec616c6d"
+  "huella": "c8da5a1aec616c6d",
+  "ausenteDesde": "2026-11-08T21:01:44.937Z"
  },
  "14f43c9": {
   "archivo": "fotos-notas/14f43c9.jpg",
@@ -89976,7 +89974,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "55653458494b4fe3"
+  "huella": "55653458494b4fe3",
+  "ausenteDesde": "2026-11-08T21:01:44.937Z"
  },
  "xign0n": {
   "archivo": "fotos-notas/xign0n.jpg",
@@ -96303,7 +96302,8 @@
    "corresponde": "si",
    "descripcion": "El Papa León XIV saludando con la mano derecha levantada junto a colaboradores."
   },
-  "huella": "06666347078e8f8f"
+  "huella": "06666347078e8f8f",
+  "ausenteDesde": "2026-11-08T21:01:44.937Z"
  },
  "1j3ytpy": {
   "archivo": "fotos-notas/1j3ytpy.webp",
@@ -96328,5 +96328,53 @@
    "descripcion": "Entrenador de River en el campo de juego"
   },
   "huella": "bbb5756a2a2aa9a9"
+ },
+ "1fj1dkr": {
+  "archivo": "fotos-notas/1fj1dkr.jpg",
+  "medio": "Diario Popular",
+  "credito": "Foto: Diario Popular",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV llega a la Argentina y rinde homenaje a San Martín",
+  "enlace": "https://www.diariopopular.com.ar/politica/leon-xiv-rindio-homenaje-san-martin-n928332",
+  "imagenOriginal": "https://media.diariopopular.com.ar/p/727181029b399dbfbe0901d673c2dc49/adjuntos/143/imagenes/008/263/0008263954/1200x675/smart/plaza.jpg",
+  "razon": "Es la única foto nítida, sin marcas superpuestas, sin menores y que corresponde perfectamente al hecho.",
+  "cuando": "2026-11-08T21:01:26.112Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Plano medio del papa León XIV y un funcionario junto a la estatua de San Martín"
+  },
+  "huella": "5777a5a525ab2620"
+ },
+ "1ct1o11": {
+  "archivo": "fotos-notas/1ct1o11.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Atlético de Madrid empata uno a uno con Barcelona",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/atletico-de-madrid-vs-barcelona-en-vivo-el-minuto-a-minuto-del-partido-por-la-liga-de-espana-nid08112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/giuliano-autor-del-gol-festeja-con-7663OHX27FABRHS6DZUOGC3PIE.jpg?auth=56eba5ecf6ae51bc274c81a0b5f3028a5bca95d735b9d20e9fd753b083f24c2a&width=1200&height=675&quality=70&smart=true",
+  "razon": "Es la mejor foto que cumple con todos los requisitos, mostrando una celebración del partido sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-11-08T21:01:26.112Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Atlético de Madrid celebrando un gol en el campo"
+  },
+  "huella": "4b2a89c2aa66a674"
  }
 }
