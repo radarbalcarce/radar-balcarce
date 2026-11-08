@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-08T19:02:07.884Z",
+ "generado": "2026-11-08T19:32:29.662Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -47,28 +47,6 @@
    "maximo": 3
   },
   {
-   "id": "dvnl2g",
-   "titulo": "Lando Norris ganó bajo la lluvia en Interlagos, Kimi Antonelli fue 5° y Franco Colapinto superó a Pierre Gasly",
-   "copete": "Se impuso Lando Narris en Interlagos, después de una carrera muy intensa con varios cambios de posición. Detrás llegó Max Verstappen, que había largado 21 y tercero quedó Isack Hadjar. El campeón Kimi Antonelli quedó afuera del podio con el quinto puesto. Franco Colapinto cerró…",
-   "seccion": "Automovilismo",
-   "fecha": "2026-11-08T15:56:48.000Z",
-   "fuentes": [
-    {
-     "medio": "La Nación",
-     "enlace": "https://www.lanacion.com.ar/deportes/automovilismo/franco-colapinto-en-el-gran-premio-de-brasil-de-formula-1-nid08112026/",
-     "fecha": "2026-11-08T15:56:48.000Z"
-    },
-    {
-     "medio": "Crónica",
-     "enlace": "https://www.cronica.com.ar/depo/polideportivo/colapinto-quedo-en-el-puesto-13-en-un-gp-de-brasil-con-lluvia-norris-gano-la-carrera/",
-     "fecha": "2026-11-08T18:08:00.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "cuerpo: 3 problemas (antecedente, tildes, promesa): el cuerpo usa \"domingo\", que sale de una nota anterior, como si fuera de hoy; sin esas oraciones quedan 211 ",
-   "maximo": 3
-  },
-  {
    "id": "17n32fb",
    "titulo": "La matera que llevó Lionel Messi al entrenamiento del Inter Miami y el detalle que ilusionó a los hinchas de Newell’s",
    "copete": "",
@@ -93,6 +71,28 @@
    ],
    "intentos": 1,
    "motivo": "con cuerpo",
+   "maximo": 3
+  },
+  {
+   "id": "1cq3djo",
+   "titulo": "Budín de banana y avena en freidora de aire: la receta saludable que se prepara en pocos minutos",
+   "copete": "Una receta que combina la practicidad con los antojos dulces, sin la necesidad de salirse de los objetivos saludables.",
+   "seccion": "Cultura y agenda",
+   "fecha": "2026-11-08T10:28:00.000Z",
+   "fuentes": [
+    {
+     "medio": "La Gaceta (Tucumán)",
+     "enlace": "https://www.lagaceta.com.ar/nota/1161573/sociedad/budin-banana-avena-freidora-aire-receta-saludable-se-prepara-pocos-minutos.html",
+     "fecha": "2026-11-08T10:28:00.000Z"
+    },
+    {
+     "medio": "La Capital (Rosario)",
+     "enlace": "https://www.lacapital.com.ar/informacion-general/panqueques-avena-y-banana-una-receta-saludable-el-desayuno-n10290857.html",
+     "fecha": "2026-11-08T19:26:00.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "título o bajada: 4 problemas (forma, numero): el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
    "maximo": 3
   },
   {
@@ -133,20 +133,20 @@
    "motivo": "agotó los 3 intentos; cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 65 palabras"
   },
   {
-   "id": "1ddbyyw",
-   "titulo": "La agenda del papa León XIV en CABA: el recorrido del papamóvil hora por hora",
-   "seccion": "Argentina",
-   "fecha": "2026-11-08T12:52:00.000Z",
-   "intentos": 4,
-   "motivo": "agotó los 4 intentos; título o bajada: 1 problema (numero): el copete dice 4 y la fuente no lo dice"
-  },
-  {
    "id": "1cud4al",
    "titulo": "Arruabarrena tras consagrarse Campeón de Liga: “Ganamos como le gusta a la gente, a lo Boca”",
    "seccion": "Fútbol",
    "fecha": "2026-11-08T02:24:21.000Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; título o bajada: 2 problemas (nombre): el copete nombra a \"division\" y la fuente no"
+  },
+  {
+   "id": "1ddbyyw",
+   "titulo": "La agenda del papa León XIV en CABA: el recorrido del papamóvil hora por hora",
+   "seccion": "Argentina",
+   "fecha": "2026-11-08T10:52:26.305Z",
+   "intentos": 4,
+   "motivo": "agotó los 4 intentos; título o bajada: 1 problema (numero): el copete dice 4 y la fuente no lo dice"
   },
   {
    "id": "w97jse",

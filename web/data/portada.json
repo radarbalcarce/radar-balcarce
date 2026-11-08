@@ -1,6 +1,56 @@
 {
-  "generado": "2026-11-08T19:02:07.884Z",
+  "generado": "2026-11-08T19:32:29.662Z",
   "notas": [
+    {
+      "id": "f1resultado2026r20",
+      "propia": "f1",
+      "tipoF1": "resultado",
+      "destacados": [
+        {
+          "texto": "Ver el campeonato de pilotos y constructores",
+          "href": "/tablas/formula-1"
+        }
+      ],
+      "circuitoF1": "Autódromo José Carlos Pace",
+      "titulo": "F1: así fue el Gran Premio de Brasil, con Lando Norris en lo más alto del podio",
+      "copete": "Lando Norris ganó, Max Verstappen fue segundo y Isack Hadjar tercero. Así le fue a Colapinto. El resultado completo y cómo está el campeonato.",
+      "cuerpo": "Lando Norris (McLaren) ganó el Gran Premio de Brasil de la Fórmula 1, que se corrió el domingo 8 de noviembre en Autódromo José Carlos Pace, São Paulo, Brasil, con un tiempo de 1:35:23,504, tras 71 vueltas. El podio lo completaron Max Verstappen (Red Bull), a 14,602 segundos, y Isack Hadjar (Red Bull), a 24,485 segundos.\n\nDel cuarto al décimo puesto terminaron, en ese orden: George Russell, Andrea Kimi Antonelli, Oscar Piastri, Charles Leclerc, Liam Lawson, Lewis Hamilton, Nico Hülkenberg.\n\nEl argentino Franco Colapinto, con Alpine F1 Team, terminó en el puesto 13 (a 50,488 segundos del ganador).\n\nAsí quedó el campeonato de pilotos después de la fecha 20: 1º Andrea Kimi Antonelli, 380 puntos; 2º Max Verstappen, 261 puntos; 3º Lewis Hamilton, 259 puntos; 4º George Russell, 250 puntos; 5º Charles Leclerc, 245 puntos. Franco Colapinto es 12º con 27 puntos.\n\nLos datos son los resultados oficiales según Jolpica F1 (datos abiertos). Balcarce es la ciudad natal de Juan Manuel Fangio, cinco veces campeón del mundo.",
+      "guion": null,
+      "seccion": "Automovilismo",
+      "local": false,
+      "relevancia": 58,
+      "medios": [
+        "Jolpica F1 (datos abiertos)"
+      ],
+      "enlace": "https://github.com/jolpica/jolpica-f1",
+      "fuentesConsultadas": [
+        {
+          "medio": "Jolpica F1 (datos abiertos)",
+          "enlace": "https://github.com/jolpica/jolpica-f1"
+        }
+      ],
+      "fecha": "2026-11-08T19:32:26.765Z",
+      "sinFecha": false,
+      "visto": "2026-11-08T19:32:26.765Z",
+      "publicadaPor": null,
+      "publicadaCuando": "2026-11-08T19:32:26.765Z",
+      "temas": [],
+      "etiquetas": [
+        "Fórmula 1",
+        "F1",
+        "Gran Premio",
+        "Gran Premio de Brasil",
+        "resultados",
+        "Franco Colapinto"
+      ],
+      "como": "automatica",
+      "firma": "Nota de Radar Balcarce armada con los datos abiertos de Jolpica F1.",
+      "slug": "f1-asi-fue-el-gran-premio-de-brasil-con-lando-norris-en-lo-mas-alto",
+      "foto": {
+        "archivo": "fotos-notas/libre-f1resultado2026r20.jpg",
+        "credito": "Foto: ProtoplasmaKid / Wikimedia Commons (CC BY-SA 4.0)"
+      }
+    },
     {
       "id": "1a0snlf",
       "titulo": "Detienen en Palermo a un falso bombero cerca del escenario del Papa",
@@ -10,6 +60,7 @@
       "seccion": "Policiales",
       "medios": [
         "La Nación",
+        "0223 (Mar del Plata)",
         "TN (Todo Noticias)",
         "Clarín",
         "El Destape",
@@ -18,8 +69,10 @@
         "Canal 26",
         "Diario Popular",
         "Noticias Argentinas (NA)",
+        "El Día",
         "La Nueva",
         "QZ Noticias (Mar del Plata)",
+        "El Marplatense",
         "Ámbito",
         "Minuto Uno",
         "La Gaceta (Tucumán)",
@@ -29,7 +82,7 @@
       "fecha": "2026-11-08T17:42:39.000Z",
       "sinFecha": false,
       "visto": "2026-11-08T18:31:16.545Z",
-      "relevancia": 65,
+      "relevancia": 67,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -163,6 +216,27 @@
           "medio": "Ámbito",
           "enlace": "https://www.ambito.com/informacion-general/alerta-palermo-antes-la-llegada-leon-xiv-detuvieron-un-motociclista-que-se-hizo-pasar-bombero-n6342949",
           "fecha": "2026-11-08T18:52:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "0223 (Mar del Plata)",
+          "enlace": "https://www.0223.com.ar/nota/2026-11-8-16-19-0-detuvieron-a-un-joven-que-se-hizo-pasar-por-bombero-para-infiltrarse-en-el-escenario-donde-estara-el-papa",
+          "fecha": "2026-11-08T19:19:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/policiales/atraparon-a-un-falso-bombero-ubicado-a-metros-del-escenario-del-papa-leon-xiv-policiales_1794165720",
+          "fecha": "2026-11-08T19:23:15.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Marplatense",
+          "enlace": "https://www.elmarplatense.com/alarma-por-la-visita-del-papa-un-hombre-se-infiltro-como-falso-bombero-a-metros-del-escenario-y-termino-detenido",
+          "fecha": "2026-11-08T17:49:30.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -1148,13 +1222,14 @@
         "Olé",
         "Noticias Argentinas (NA)",
         "Doble Amarilla",
+        "La Capital (Rosario)",
         "Los Andes (Mendoza)"
       ],
       "enlace": "https://www.ole.com.ar/newells-old-boys/newells-ennervalencia-boca-rosariocentral-lucaregiardo_0_HzNdKCS9C7.html",
       "fecha": "2026-11-08T13:34:49.000Z",
       "sinFecha": false,
       "visto": "2026-11-08T15:02:08.008Z",
-      "relevancia": 48,
+      "relevancia": 50,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -1224,6 +1299,13 @@
           "medio": "Noticias Argentinas (NA)",
           "enlace": "https://noticiasargentinas.com/deportes/luca-regiardo-pidio-disculpas-por-el-festejo-de-newell-s-tras-el-titulo-de-boca---es-inaceptable-_a6af097b4083a87fddc159e89",
           "fecha": "2026-11-08T15:47:31.676Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Capital (Rosario)",
+          "enlace": "https://www.lacapital.com.ar/ovacion/es-inaceptable-luca-regiardo-pidio-disculpas-el-festejo-newells-el-titulo-boca-n10291129.html",
+          "fecha": "2026-11-08T19:22:00.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -1431,7 +1513,6 @@
       "guion": "Karina Milei celebra la llegada del papa León XIV al país.",
       "seccion": "Argentina",
       "medios": [
-        "El Destape",
         "Perfil",
         "Crónica",
         "Radio Mitre",
@@ -1453,8 +1534,8 @@
       "relevancia": 63,
       "local": false,
       "muyContada": {
-        "medios": 14,
-        "porque": "14 medios",
+        "medios": 13,
+        "porque": "13 medios",
         "desde": "2026-11-08T13:31:57.999Z"
       },
       "publicadaPor": null,
@@ -2569,6 +2650,7 @@
         "El Destape",
         "iProfesional",
         "Crónica",
+        "Radio Mitre",
         "Diario Popular",
         "Noticias Argentinas (NA)",
         "El Día",
@@ -3168,6 +3250,20 @@
           "fecha": "2026-11-08T18:52:00.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "Radio Mitre",
+          "enlace": "https://radiomitre.cienradios.com/videos/video-asi-fue-la-llegada-del-papa-leon-xiv-a-florida/",
+          "fecha": "2026-11-08T13:17:22.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Gaceta (Tucumán)",
+          "enlace": "https://www.lagaceta.com.ar/nota/1161603/sociedad/video-mira-vivo-llegada-papa-leon-xiv-argentina.html",
+          "fecha": "2026-11-08T15:24:00.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -3728,6 +3824,13 @@
           "medio": "0221",
           "enlace": "https://www.0221.com.ar/policiales/quien-es-el-hombre-acusado-amenazar-muerte-al-papa-leon-xiv-antes-su-visita-argentina-n137141",
           "fecha": "2026-11-08T16:27:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Infobrisas (Radio Brisas)",
+          "enlace": "https://www.infobrisas.com/noticias/2026/11/08/114087-detuvieron-a-una-persona-por-amenazas-de-muerte-contra-el-papa-leon-xiv",
+          "fecha": "2026-11-08T11:42:30.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -4683,6 +4786,7 @@
       "guion": "El Papa León XIV llega a la Argentina tras 39 años de la última visita.",
       "seccion": "Argentina",
       "medios": [
+        "El Día",
         "Ámbito",
         "C5N",
         "Minuto Uno"
@@ -4691,7 +4795,7 @@
       "fecha": "2026-11-07T23:13:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-08T01:01:19.308Z",
-      "relevancia": 29,
+      "relevancia": 32,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4710,9 +4814,6 @@
         "El Papa visitará el monumento a San Martín en Retiro al llegar.",
         "El pontífice parte el miércoles 11 de noviembre.",
         "El Papa publicó la encíclica Magnifica Humanitas sobre la era digital."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
       ],
       "textoRedes": "El Papa León XIV llega a la Argentina este domingo 8 de noviembre. Es la primera visita papal en 39 años. El pontífice permanecerá en el país hasta el miércoles 11 y brindará un mensaje sobre el bien común y la autoridad política.",
       "etiquetas": [
@@ -4742,90 +4843,24 @@
           "fecha": "2026-11-07T23:13:00.000Z",
           "oficial": false,
           "aporte": "Detalla el cronograma de llegada, el simbolismo de los jinetes y el contenido de la encíclica papal."
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/la-ciudad/bienvenido-el-mensaje-en-la-plata-para-la-visita-del-papa-leon-xiv-la-ciudad_1794165540",
+          "fecha": "2026-11-08T19:21:28.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "nivel": "ALTA",
+        "porque": "Lo contaron cuatro medios independientes.",
         "sugeridoPorIA": null
       },
       "slug": "el-papa-leon-xiv-llega-a-la-argentina-tras-39-anos-de-la-ultima-visita",
       "foto": {
         "archivo": "fotos-notas/5ik6uu.jpg",
         "credito": "Foto: Minuto Uno"
-      }
-    },
-    {
-      "id": "jaqyo3",
-      "titulo": "Villagra lidera el Rally de Traslasierra tras una penalización a Rossi",
-      "copete": "Federico Villagra encabeza la clasificación general del campeonato argentino tras una sanción a Santino Rossi. La competencia se definirá este domingo con cuatro tramos.",
-      "cuerpo": "Federico Villagra encabeza la clasificación general de la primera etapa del Rally de Traslasierra por el campeonato argentino. El piloto del Skoda lidera la competencia con una ventaja de apenas siete décimas sobre Miguel Baldoni.\n\nEl anterior puntero, Santino Rossi, recibió una sanción de 30 segundos por no respetar el camino demarcado y descendió al tercer lugar, a 20 segundos de la punta.\n\nLa competencia continuará este domingo con la disputa de cuatro pruebas especiales que totalizarán 53,68 kilómetros cronometrados.\n\nEl viernes, el uruguayo Rodrigo Zeballos había dominado la prueba especial nocturna inicial en Villa Dolores.",
-      "guion": "Villagra lidera el Rally de Traslasierra tras una penalización a Rossi.",
-      "seccion": "Automovilismo",
-      "medios": [
-        "Córdoba Competición",
-        "Campeones"
-      ],
-      "enlace": "https://campeones.com.ar/sorprendente-dominio-de-santino-rossi-en-el-rally-de-traslasierra/",
-      "fecha": "2026-11-07T22:39:45.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-08T11:31:32.236Z",
-      "relevancia": 46,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Federico Villagra lidera la clasificación general del Rally de Traslasierra.",
-        "Santino Rossi cayó al tercer puesto tras recibir una penalización de 30 segundos.",
-        "La segunda etapa se disputará este domingo con cuatro pruebas especiales."
-      ],
-      "seSabe": [
-        "Federico Villagra lidera la general con una ventaja de siete décimas sobre Miguel Baldoni.",
-        "Santino Rossi recibió una sanción de 30 segundos por no respetar el camino demarcado.",
-        "La competencia define la octava fecha del campeonato argentino."
-      ],
-      "textoRedes": "Federico Villagra lidera el Rally de Traslasierra tras una sanción de 30 segundos a Santino Rossi. La octava fecha del campeonato argentino se define este domingo.",
-      "etiquetas": [
-        "Rally de Traslasierra",
-        "Federico Villagra",
-        "Santino Rossi",
-        "campeonato argentino"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Campeones",
-          "enlace": "https://campeones.com.ar/sorprendente-dominio-de-santino-rossi-en-el-rally-de-traslasierra/",
-          "fecha": "2026-11-07T22:39:45.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre el dominio inicial de Santino Rossi en la primera etapa."
-        },
-        {
-          "medio": "Córdoba Competición",
-          "enlace": "https://cordobacompeticion.com/nacionales/rally-argentino/penalizaron-a-rossi-y-villagra-es-nuevo-lider-de-la-carrera/",
-          "fecha": "2026-11-08T06:17:06.000Z",
-          "oficial": false,
-          "aporte": "Detalló la sanción a Santino Rossi, el liderazgo de Federico Villagra y el cronograma de la segunda etapa."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "lx5prq",
-          "titulo": "Rodrigo Zeballos lidera el Rally de Traslasierra en Villa Dolores",
-          "fecha": "2026-11-07T03:33:51.000Z",
-          "ruta": "/nota/rodrigo-zeballos-lidera-el-rally-de-traslasierra-en-villa-dolores-lx5prq"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "villagra-lidera-el-rally-de-traslasierra-tras-una-penalizacion-a-rossi",
-      "foto": {
-        "archivo": "fotos-notas/jaqyo3.jpg",
-        "credito": "Foto: Córdoba Competición"
       }
     },
     {
@@ -5138,6 +5173,91 @@
       "slug": "walter-degracia-abre-un-nuevo-gimnasio-de-boxeo-en-la-ciudad"
     },
     {
+      "id": "1gifpkm",
+      "titulo": "Tandil recupera el récord mundial con un salame de 512 metros",
+      "copete": "En el marco del festival Chacinar, la ciudad superó la marca que ostentaba San Andrés de Giles. La elaboración estuvo a cargo de la firma Cagnoli.",
+      "cuerpo": "Tandil recuperó el récord mundial del salame más largo tras alcanzar una marca de 512,90 metros durante la octava edición del festival Chacinar. El evento se desarrolló el sábado 7 de noviembre en la diagonal Illia del Parque Independencia, en el inicio de un fin de semana largo.\n\nLa pieza superó los 501,66 metros que había logrado el pasado 9 de agosto la localidad de San Andrés de Giles, registro que le había arrebatado el primer puesto a los elaboradores locales. La medición oficial comenzó cerca de las 19, tras el arribo del embutido transportado en un montacargas, y estuvo fiscalizada por la escribana Marcela Lorea cerca de la medianoche.\n\nLa elaboración del embutido estuvo a cargo de la empresa Cagnoli junto con las familias tradicionales que integran el Consejo de la Denominación de Origen, integrado además por Las Dinas, El Reencuentro y Estancias Integradas.\n\nEl festival, organizado por el Clúster Porcino de Tandil y el Municipio, continuará durante el fin de semana con propuestas gastronómicas, feria de emprendedores, espectáculos musicales y diversas actividades recreativas para toda la familia. Las jornadas prevén concursos de atado y embutido, además de presentaciones de artistas locales y regionales en el escenario principal.",
+      "guion": "Tandil recupera el récord mundial con un salame de 512 metros.",
+      "seccion": "Agro",
+      "medios": [
+        "Agrofy News",
+        "El Eco de Tandil",
+        "El Diario de Tandil"
+      ],
+      "enlace": "https://news.agrofy.com.ar/noticia/216959/salame-casi-cinco-cuadras-tandil-busca-fin-semana-recuperar-record-le-gano-san-andres-giles",
+      "fecha": "2026-11-07T21:59:05.000Z",
+      "sinFecha": false,
+      "visto": "2026-11-08T19:31:11.639Z",
+      "relevancia": 31,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Tandil alcanzó los 512,90 metros de salame y recuperó el récord mundial.",
+        "La marca superó los 501,66 metros logrados previamente por San Andrés de Giles.",
+        "La medición oficial se realizó el sábado 7 de noviembre en el festival Chacinar.",
+        "La elaboración estuvo a cargo de Cagnoli y firmas de la Denominación de Origen."
+      ],
+      "seSabe": [
+        "Tandil registró un salame de 512,90 metros en el festival Chacinar.",
+        "La marca anterior pertenecía a San Andrés de Giles con 501,66 metros.",
+        "La medición fue fiscalizada por la escribana Marcela Lorea.",
+        "Cagnoli elaboró el producto y recibió una distinción nacional previa por su picado grueso."
+      ],
+      "textoRedes": "Tandil recuperó el récord mundial del salame más largo al alcanzar los 512,90 metros durante la octava edición del festival Chacinar, superando la marca que ostentaba San Andrés de Giles.",
+      "etiquetas": [
+        "Tandil",
+        "Chacinar",
+        "Cagnoli",
+        "Denominacion de Origen"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Agrofy News",
+          "enlace": "https://news.agrofy.com.ar/noticia/216959/salame-casi-cinco-cuadras-tandil-busca-fin-semana-recuperar-record-le-gano-san-andres-giles",
+          "fecha": "2026-11-07T09:30:00.000Z",
+          "oficial": false,
+          "aporte": "Aportó los datos sobre la Denominación de Origen y la distinción de Cagnoli en Caminos y Sabores."
+        },
+        {
+          "medio": "El Eco de Tandil",
+          "enlace": "https://www.eleco.com.ar/la-ciudad/con-51290-metros-tandil-vuelve-a-tener-el-salame-mas-largo",
+          "fecha": "2026-11-08T02:41:55.000Z",
+          "oficial": false,
+          "aporte": "Detalló el desarrollo de la medición, los horarios y la confirmación de la escribana sobre la marca final."
+        },
+        {
+          "medio": "El Eco de Tandil",
+          "enlace": "https://www.eleco.com.ar/la-ciudad/chacinar-2026-tandil-buscara-recuperar-el-record-del-salame-mas-largo-del-mundo",
+          "fecha": "2026-11-07T21:59:05.000Z",
+          "oficial": false,
+          "aporte": "Precisó los antecedentes de la competencia con San Andrés de Giles y las expectativas de los productores."
+        },
+        {
+          "medio": "El Diario de Tandil",
+          "enlace": "https://www.eldiariodetandil.com/nota-tandil-vuelve-a-tener-el-salame-mas-largo-del-mundo-alcanzo-los-512-90-metros--105294",
+          "fecha": "2026-11-08T02:11:00.000Z",
+          "oficial": false,
+          "aporte": "Confirmó la cifra final de 512,90 metros alcanzada por el embutido tandilense."
+        },
+        {
+          "medio": "El Diario de Tandil",
+          "enlace": "https://www.eldiariodetandil.com/nota-chacinar-tres-dias-de-fiesta-y-el-salame-mas-largo-del-mundo-105292",
+          "fecha": "2026-11-07T15:11:00.000Z",
+          "oficial": false,
+          "aporte": "Informó la agenda completa del festival y la participación conjunta del Clúster Porcino y el Municipio."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron tres medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "tandil-recupera-el-record-mundial-con-un-salame-de-512-metros"
+    },
+    {
       "id": "uw3mgq",
       "titulo": "Ferroviarios y Los Patos ganan en el inicio de la cuarta fecha del Clausura",
       "copete": "Los dos equipos consiguieron triunfos en el arranque de la cuarta jornada del torneo oficial de la Liga Balcarceña de Fútbol. La competencia continuará el domingo con cuatro encuentros.",
@@ -5291,19 +5411,17 @@
       "seccion": "Automovilismo",
       "medios": [
         "Clarín",
-        "TN (Todo Noticias)",
-        "Noticias Argentinas (NA)",
-        "El Marplatense",
-        "Doble Amarilla",
-        "Bolavip Argentina",
         "La Gaceta (Tucumán)",
-        "El Gráfico"
+        "Doble Amarilla",
+        "El Gráfico",
+        "TyC Sports",
+        "Noticias Argentinas (NA)"
       ],
       "enlace": "https://www.lagaceta.com.ar/nota/1161570/deportes/colapinto-gp-brasil-donde-hora-se-puede-ver-vivo-carrera.html",
       "fecha": "2026-11-07T21:00:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-08T13:31:57.999Z",
-      "relevancia": 69,
+      "relevancia": 63,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -6366,7 +6484,6 @@
       "guion": "El papa León XIV encabeza una misa multitudinaria en la Ciudad.",
       "seccion": "Argentina",
       "medios": [
-        "A24",
         "Crónica",
         "Noticias Argentinas (NA)",
         "Ámbito",
@@ -6374,10 +6491,10 @@
         "Clarín"
       ],
       "enlace": "https://noticiasargentinas.com/sociedad/leon-xiv-en-la-ciudad--claves-para-ver-la-santa-misa-del-lunes-en-el-monumento-de-los-espanoles-y-seguirlo-en-la-caravana-por-libertador_a6aef6af24574a35e62f07581",
-      "fecha": "2026-11-07T18:59:58.000Z",
+      "fecha": "2026-11-07T18:47:41.383Z",
       "sinFecha": false,
       "visto": "2026-11-08T14:01:28.554Z",
-      "relevancia": 39,
+      "relevancia": 37,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -6563,20 +6680,13 @@
         "Doble Amarilla",
         "Bolavip Argentina",
         "Córdoba Competición",
-        "Ámbito",
         "C5N",
         "Minuto Uno",
         "La Capital (Rosario)",
         "Los Andes (Mendoza)",
-        "Clarín",
-        "La Gaceta (Tucumán)",
-        "La Brújula 24",
         "Perfil",
-        "Olé",
-        "Canal 26",
-        "Noticias Argentinas (NA)",
-        "El Gráfico",
-        "El Cronista"
+        "La Gaceta (Tucumán)",
+        "La Brújula 24"
       ],
       "enlace": "https://www.lagaceta.com.ar/nota/1161485/deportes/vivo-franco-colapinto-quedo-eliminado-q1-largara-17-gp-brasil.html",
       "fecha": "2026-11-07T17:40:00.000Z",
@@ -7366,6 +7476,13 @@
           "medio": "La Gaceta (Tucumán)",
           "enlace": "https://www.lagaceta.com.ar/nota/1161599/deportes/en-vivo-ocho-vueltas-final-franco-colapinto-marcha-13-gran-premio-brasil-pasado-agua.html",
           "fecha": "2026-11-08T13:26:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "C5N",
+          "enlace": "https://www.c5n.com/deportes/franco-colapinto-corre-la-formula-1-horarios-y-cronograma-completo-del-gran-premio-brasil-n253403",
+          "fecha": "2026-11-06T23:41:00.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -10259,6 +10376,7 @@
     }
   ],
   "secciones": [
+    "Automovilismo",
     "Policiales",
     "Fútbol",
     "Argentina",
@@ -10266,12 +10384,11 @@
     "Economía",
     "Balcarce",
     "Salud",
-    "Automovilismo",
     "Tecnología",
     "Cultura y agenda",
     "Deportes",
-    "Educación",
-    "Agro"
+    "Agro",
+    "Educación"
   ],
   "temas": [
     {
@@ -10304,9 +10421,9 @@
     "ahora": {
       "temp": 22,
       "sensacion": 21,
-      "humedad": 42,
-      "viento": 5,
-      "rumbo": "O",
+      "humedad": 41,
+      "viento": 4,
+      "rumbo": "NO",
       "cielo": "Despejado",
       "esDeDia": true
     },

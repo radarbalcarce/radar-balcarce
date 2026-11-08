@@ -819,352 +819,272 @@
  },
  "resultado": {
   "temporada": 2026,
-  "ronda": 19,
-  "nombre": "Mexico City Grand Prix",
-  "circuito": "Autódromo Hermanos Rodríguez",
-  "localidad": "Mexico City",
-  "pais": "Mexico",
-  "largada": "2026-11-01T20:00:00.000Z",
+  "ronda": 20,
+  "nombre": "Brazilian Grand Prix",
+  "circuito": "Autódromo José Carlos Pace",
+  "localidad": "São Paulo",
+  "pais": "Brazil",
+  "largada": "2026-11-08T17:00:00.000Z",
   "filas": [
    {
     "posicion": 1,
     "posicionTexto": "1",
-    "piloto": "Max Verstappen",
-    "colapinto": false,
-    "equipo": "Red Bull",
-    "numero": "3",
-    "parrilla": 5,
-    "vueltas": 71,
-    "estado": "Finished",
-    "tiempo": "2:20:28.772",
-    "vueltaRapida": {
-     "vuelta": 50,
-     "tiempo": "1:19.328",
-     "rango": 2
-    }
-   },
-   {
-    "posicion": 2,
-    "posicionTexto": "2",
-    "piloto": "Lewis Hamilton",
-    "colapinto": false,
-    "equipo": "Ferrari",
-    "numero": "44",
-    "parrilla": 1,
-    "vueltas": 71,
-    "estado": "Finished",
-    "tiempo": "+0.799",
-    "vueltaRapida": {
-     "vuelta": 50,
-     "tiempo": "1:19.268",
-     "rango": 1
-    }
-   },
-   {
-    "posicion": 3,
-    "posicionTexto": "3",
-    "piloto": "Andrea Kimi Antonelli",
-    "colapinto": false,
-    "equipo": "Mercedes",
-    "numero": "12",
-    "parrilla": 4,
-    "vueltas": 71,
-    "estado": "Finished",
-    "tiempo": "+4.006",
-    "vueltaRapida": {
-     "vuelta": 64,
-     "tiempo": "1:19.427",
-     "rango": 3
-    }
-   },
-   {
-    "posicion": 4,
-    "posicionTexto": "4",
-    "piloto": "Charles Leclerc",
-    "colapinto": false,
-    "equipo": "Ferrari",
-    "numero": "16",
-    "parrilla": 3,
-    "vueltas": 71,
-    "estado": "Finished",
-    "tiempo": "+10.707",
-    "vueltaRapida": {
-     "vuelta": 64,
-     "tiempo": "1:19.851",
-     "rango": 5
-    }
-   },
-   {
-    "posicion": 5,
-    "posicionTexto": "5",
     "piloto": "Lando Norris",
     "colapinto": false,
     "equipo": "McLaren",
     "numero": "1",
-    "parrilla": 6,
+    "parrilla": 0,
     "vueltas": 71,
     "estado": "Finished",
-    "tiempo": "+11.778",
-    "vueltaRapida": {
-     "vuelta": 50,
-     "tiempo": "1:19.800",
-     "rango": 4
-    }
+    "tiempo": "1:35:23.504",
+    "vueltaRapida": null
    },
    {
-    "posicion": 6,
-    "posicionTexto": "6",
-    "piloto": "George Russell",
+    "posicion": 2,
+    "posicionTexto": "2",
+    "piloto": "Max Verstappen",
     "colapinto": false,
-    "equipo": "Mercedes",
-    "numero": "63",
-    "parrilla": 2,
+    "equipo": "Red Bull",
+    "numero": "3",
+    "parrilla": 0,
     "vueltas": 71,
     "estado": "Finished",
-    "tiempo": "+12.263",
-    "vueltaRapida": {
-     "vuelta": 51,
-     "tiempo": "1:20.147",
-     "rango": 6
-    }
+    "tiempo": "+14.602",
+    "vueltaRapida": null
    },
    {
-    "posicion": 7,
-    "posicionTexto": "7",
-    "piloto": "Oscar Piastri",
-    "colapinto": false,
-    "equipo": "McLaren",
-    "numero": "81",
-    "parrilla": 12,
-    "vueltas": 71,
-    "estado": "Finished",
-    "tiempo": "+19.475",
-    "vueltaRapida": {
-     "vuelta": 52,
-     "tiempo": "1:20.690",
-     "rango": 9
-    }
-   },
-   {
-    "posicion": 8,
-    "posicionTexto": "8",
-    "piloto": "Franco Colapinto",
-    "colapinto": true,
-    "equipo": "Alpine F1 Team",
-    "numero": "43",
-    "parrilla": 11,
-    "vueltas": 71,
-    "estado": "Finished",
-    "tiempo": "+20.204",
-    "vueltaRapida": {
-     "vuelta": 50,
-     "tiempo": "1:20.750",
-     "rango": 12
-    }
-   },
-   {
-    "posicion": 9,
-    "posicionTexto": "9",
-    "piloto": "Liam Lawson",
-    "colapinto": false,
-    "equipo": "RB F1 Team",
-    "numero": "30",
-    "parrilla": 22,
-    "vueltas": 71,
-    "estado": "Finished",
-    "tiempo": "+20.899",
-    "vueltaRapida": {
-     "vuelta": 50,
-     "tiempo": "1:20.713",
-     "rango": 10
-    }
-   },
-   {
-    "posicion": 10,
-    "posicionTexto": "10",
-    "piloto": "Pierre Gasly",
-    "colapinto": false,
-    "equipo": "Alpine F1 Team",
-    "numero": "10",
-    "parrilla": 9,
-    "vueltas": 71,
-    "estado": "Finished",
-    "tiempo": "+21.483",
-    "vueltaRapida": {
-     "vuelta": 50,
-     "tiempo": "1:20.754",
-     "rango": 13
-    }
-   },
-   {
-    "posicion": 11,
-    "posicionTexto": "11",
-    "piloto": "Gabriel Bortoleto",
-    "colapinto": false,
-    "equipo": "Audi",
-    "numero": "5",
-    "parrilla": 13,
-    "vueltas": 71,
-    "estado": "Finished",
-    "tiempo": "+22.041",
-    "vueltaRapida": {
-     "vuelta": 55,
-     "tiempo": "1:20.872",
-     "rango": 14
-    }
-   },
-   {
-    "posicion": 12,
-    "posicionTexto": "12",
+    "posicion": 3,
+    "posicionTexto": "3",
     "piloto": "Isack Hadjar",
     "colapinto": false,
     "equipo": "Red Bull",
     "numero": "6",
-    "parrilla": 7,
+    "parrilla": 0,
     "vueltas": 71,
     "estado": "Finished",
-    "tiempo": "+22.503",
-    "vueltaRapida": {
-     "vuelta": 43,
-     "tiempo": "1:20.244",
-     "rango": 7
-    }
+    "tiempo": "+24.485",
+    "vueltaRapida": null
    },
    {
-    "posicion": 13,
-    "posicionTexto": "13",
-    "piloto": "Ryo Hirakawa",
+    "posicion": 4,
+    "posicionTexto": "4",
+    "piloto": "George Russell",
     "colapinto": false,
-    "equipo": "Haas F1 Team",
-    "numero": "50",
-    "parrilla": 18,
+    "equipo": "Mercedes",
+    "numero": "63",
+    "parrilla": 0,
     "vueltas": 71,
     "estado": "Finished",
-    "tiempo": "+25.373",
-    "vueltaRapida": {
-     "vuelta": 71,
-     "tiempo": "1:20.984",
-     "rango": 15
-    }
+    "tiempo": "+33.991",
+    "vueltaRapida": null
    },
    {
-    "posicion": 14,
-    "posicionTexto": "14",
-    "piloto": "Alexander Albon",
+    "posicion": 5,
+    "posicionTexto": "5",
+    "piloto": "Andrea Kimi Antonelli",
     "colapinto": false,
-    "equipo": "Williams",
-    "numero": "23",
-    "parrilla": 16,
+    "equipo": "Mercedes",
+    "numero": "12",
+    "parrilla": 0,
     "vueltas": 71,
     "estado": "Finished",
-    "tiempo": "+27.562",
-    "vueltaRapida": {
-     "vuelta": 50,
-     "tiempo": "1:21.114",
-     "rango": 17
-    }
+    "tiempo": "+36.017",
+    "vueltaRapida": null
    },
    {
-    "posicion": 15,
-    "posicionTexto": "15",
-    "piloto": "Carlos Sainz",
+    "posicion": 6,
+    "posicionTexto": "6",
+    "piloto": "Oscar Piastri",
     "colapinto": false,
-    "equipo": "Williams",
-    "numero": "55",
-    "parrilla": 15,
+    "equipo": "McLaren",
+    "numero": "81",
+    "parrilla": 0,
     "vueltas": 71,
     "estado": "Finished",
-    "tiempo": "+28.638",
-    "vueltaRapida": {
-     "vuelta": 51,
-     "tiempo": "1:21.339",
-     "rango": 19
-    }
+    "tiempo": "+56.475",
+    "vueltaRapida": null
    },
    {
-    "posicion": 16,
-    "posicionTexto": "16",
+    "posicion": 7,
+    "posicionTexto": "7",
+    "piloto": "Charles Leclerc",
+    "colapinto": false,
+    "equipo": "Ferrari",
+    "numero": "16",
+    "parrilla": 0,
+    "vueltas": 71,
+    "estado": "Finished",
+    "tiempo": "+1:13.586",
+    "vueltaRapida": null
+   },
+   {
+    "posicion": 8,
+    "posicionTexto": "8",
+    "piloto": "Liam Lawson",
+    "colapinto": false,
+    "equipo": "RB F1 Team",
+    "numero": "30",
+    "parrilla": 0,
+    "vueltas": 71,
+    "estado": "Finished",
+    "tiempo": "+1:15.402",
+    "vueltaRapida": null
+   },
+   {
+    "posicion": 9,
+    "posicionTexto": "9",
+    "piloto": "Lewis Hamilton",
+    "colapinto": false,
+    "equipo": "Ferrari",
+    "numero": "44",
+    "parrilla": 0,
+    "vueltas": 70,
+    "estado": "Lapped",
+    "tiempo": "+4.427",
+    "vueltaRapida": null
+   },
+   {
+    "posicion": 10,
+    "posicionTexto": "10",
     "piloto": "Nico Hülkenberg",
     "colapinto": false,
     "equipo": "Audi",
     "numero": "27",
-    "parrilla": 10,
-    "vueltas": 71,
-    "estado": "Finished",
-    "tiempo": "+29.977",
-    "vueltaRapida": {
-     "vuelta": 70,
-     "tiempo": "1:20.732",
-     "rango": 11
-    }
+    "parrilla": 0,
+    "vueltas": 70,
+    "estado": "Lapped",
+    "tiempo": "+17.105",
+    "vueltaRapida": null
    },
    {
-    "posicion": 17,
-    "posicionTexto": "17",
-    "piloto": "Sergio Pérez",
-    "colapinto": false,
-    "equipo": "Cadillac F1 Team",
-    "numero": "11",
-    "parrilla": 20,
-    "vueltas": 71,
-    "estado": "Finished",
-    "tiempo": "+30.695",
-    "vueltaRapida": {
-     "vuelta": 50,
-     "tiempo": "1:21.256",
-     "rango": 18
-    }
-   },
-   {
-    "posicion": 18,
-    "posicionTexto": "R",
+    "posicion": 11,
+    "posicionTexto": "11",
     "piloto": "Arvid Lindblad",
     "colapinto": false,
     "equipo": "RB F1 Team",
     "numero": "41",
-    "parrilla": 8,
-    "vueltas": 58,
-    "estado": "Retired",
-    "tiempo": null,
-    "vueltaRapida": {
-     "vuelta": 50,
-     "tiempo": "1:20.555",
-     "rango": 8
-    }
+    "parrilla": 0,
+    "vueltas": 70,
+    "estado": "Lapped",
+    "tiempo": "+19.130",
+    "vueltaRapida": null
    },
    {
-    "posicion": 19,
-    "posicionTexto": "R",
+    "posicion": 12,
+    "posicionTexto": "12",
+    "piloto": "Fernando Alonso",
+    "colapinto": false,
+    "equipo": "Aston Martin",
+    "numero": "14",
+    "parrilla": 0,
+    "vueltas": 70,
+    "estado": "Lapped",
+    "tiempo": "+36.856",
+    "vueltaRapida": null
+   },
+   {
+    "posicion": 13,
+    "posicionTexto": "13",
+    "piloto": "Franco Colapinto",
+    "colapinto": true,
+    "equipo": "Alpine F1 Team",
+    "numero": "43",
+    "parrilla": 0,
+    "vueltas": 70,
+    "estado": "Lapped",
+    "tiempo": "+50.488",
+    "vueltaRapida": null
+   },
+   {
+    "posicion": 14,
+    "posicionTexto": "14",
+    "piloto": "Pierre Gasly",
+    "colapinto": false,
+    "equipo": "Alpine F1 Team",
+    "numero": "10",
+    "parrilla": 0,
+    "vueltas": 70,
+    "estado": "Lapped",
+    "tiempo": "+58.677",
+    "vueltaRapida": null
+   },
+   {
+    "posicion": 15,
+    "posicionTexto": "15",
+    "piloto": "Alexander Albon",
+    "colapinto": false,
+    "equipo": "Williams",
+    "numero": "23",
+    "parrilla": 0,
+    "vueltas": 70,
+    "estado": "Lapped",
+    "tiempo": "+1:04.101",
+    "vueltaRapida": null
+   },
+   {
+    "posicion": 16,
+    "posicionTexto": "16",
+    "piloto": "Gabriel Bortoleto",
+    "colapinto": false,
+    "equipo": "Audi",
+    "numero": "5",
+    "parrilla": 0,
+    "vueltas": 70,
+    "estado": "Lapped",
+    "tiempo": "+1:16.420",
+    "vueltaRapida": null
+   },
+   {
+    "posicion": 17,
+    "posicionTexto": "17",
     "piloto": "Oliver Bearman",
     "colapinto": false,
     "equipo": "Haas F1 Team",
     "numero": "87",
-    "parrilla": 14,
-    "vueltas": 47,
-    "estado": "Retired",
-    "tiempo": null,
-    "vueltaRapida": {
-     "vuelta": 43,
-     "tiempo": "1:21.068",
-     "rango": 16
-    }
+    "parrilla": 0,
+    "vueltas": 70,
+    "estado": "Lapped",
+    "tiempo": "+1:26.711",
+    "vueltaRapida": null
+   },
+   {
+    "posicion": 18,
+    "posicionTexto": "18",
+    "piloto": "Sergio Pérez",
+    "colapinto": false,
+    "equipo": "Cadillac F1 Team",
+    "numero": "11",
+    "parrilla": 0,
+    "vueltas": 69,
+    "estado": "Lapped",
+    "tiempo": "+27.120",
+    "vueltaRapida": null
+   },
+   {
+    "posicion": 19,
+    "posicionTexto": "19",
+    "piloto": "Carlos Sainz",
+    "colapinto": false,
+    "equipo": "Williams",
+    "numero": "55",
+    "parrilla": 0,
+    "vueltas": 69,
+    "estado": "Lapped",
+    "tiempo": "+32.463",
+    "vueltaRapida": null
    },
    {
     "posicion": 20,
-    "posicionTexto": "R",
-    "piloto": "Valtteri Bottas",
+    "posicionTexto": "20",
+    "piloto": "Rafael Camara",
     "colapinto": false,
-    "equipo": "Cadillac F1 Team",
-    "numero": "77",
-    "parrilla": 21,
-    "vueltas": 42,
-    "estado": "Retired",
-    "tiempo": null,
-    "vueltaRapida": {
-     "vuelta": 33,
-     "tiempo": "1:22.487",
-     "rango": 20
-    }
+    "equipo": "Haas F1 Team",
+    "numero": "51",
+    "parrilla": 0,
+    "vueltas": 69,
+    "estado": "Lapped",
+    "tiempo": "+51.715",
+    "vueltaRapida": null
    },
    {
     "posicion": 21,
@@ -1173,32 +1093,24 @@
     "colapinto": false,
     "equipo": "Aston Martin",
     "numero": "18",
-    "parrilla": 19,
-    "vueltas": 5,
+    "parrilla": 0,
+    "vueltas": 30,
     "estado": "Retired",
     "tiempo": null,
-    "vueltaRapida": {
-     "vuelta": 2,
-     "tiempo": "1:23.696",
-     "rango": 22
-    }
+    "vueltaRapida": null
    },
    {
     "posicion": 22,
-    "posicionTexto": "R",
-    "piloto": "Fernando Alonso",
+    "posicionTexto": "W",
+    "piloto": "Valtteri Bottas",
     "colapinto": false,
-    "equipo": "Aston Martin",
-    "numero": "14",
-    "parrilla": 17,
-    "vueltas": 5,
-    "estado": "Retired",
+    "equipo": "Cadillac F1 Team",
+    "numero": "77",
+    "parrilla": 0,
+    "vueltas": 0,
+    "estado": "Did not start",
     "tiempo": null,
-    "vueltaRapida": {
-     "vuelta": 2,
-     "tiempo": "1:23.544",
-     "rango": 21
-    }
+    "vueltaRapida": null
    }
   ]
  },
@@ -2048,7 +1960,8 @@
   "f1parrilla2026r19": "2026-10-31T23:04:42.477Z",
   "f1resultado2026r19": "2026-11-02T01:32:38.363Z",
   "f1horarios2026r20": "2026-11-05T03:03:39.871Z",
-  "f1parrilla2026r20": "2026-11-08T00:04:31.167Z"
+  "f1parrilla2026r20": "2026-11-08T00:04:31.167Z",
+  "f1resultado2026r20": "2026-11-08T19:32:26.765Z"
  },
  "calendarioCuando": "2026-11-08T14:04:52.109Z"
 }

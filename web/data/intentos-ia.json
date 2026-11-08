@@ -282,16 +282,6 @@
    "el cuerpo nombra a \"municipal\" y la fuente no"
   ]
  },
- "11f4s3g": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T19:02:50.780Z",
-  "motivo": "con cuerpo",
-  "textos": 5,
-  "numeradas": 19,
-  "motivos": [
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
-  ]
- },
  "11fdw5n": {
   "intentos": 1,
   "ultimo": "2026-11-04T12:31:44.925Z",
@@ -1193,13 +1183,6 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
- },
- "16myge3": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T19:02:50.780Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 6
  },
  "16nvkvm": {
   "intentos": 1,
@@ -2266,13 +2249,6 @@
   "textos": 2,
   "numeradas": 2
  },
- "1bcuezn": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T19:02:50.780Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 7
- },
  "1bdbr93": {
   "intentos": 1,
   "ultimo": "2026-11-05T20:32:15.471Z",
@@ -2483,6 +2459,22 @@
   "numeradas": 18,
   "motivos": [
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ]
+ },
+ "1cq3djo": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T19:31:19.671Z",
+  "motivo": "título o bajada: 4 problemas (forma, numero): el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "título o bajada: 4 problemas (forma, numero): el titulo trae un escape"
+  ],
+  "falla": [
+   "el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+   "el titulo dice 0 y la fuente no lo dice",
+   "el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+   "el cuerpo dice 0 y la fuente no lo dice"
   ]
  },
  "1cqsg0d": {
@@ -3161,6 +3153,13 @@
   "motivo": "con cuerpo",
   "textos": 9,
   "numeradas": 19
+ },
+ "1gifpkm": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T19:31:19.671Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 5
  },
  "1gjjdy7": {
   "intentos": 1,
@@ -3998,6 +3997,13 @@
    "cuerpo: 1 problema (promesa): el título dice 2.026 y el cuerpo no lo e"
   ]
  },
+ "1kzbst2": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T19:31:19.671Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
+ },
  "1kzdzz1": {
   "intentos": 1,
   "ultimo": "2026-11-03T02:01:56.283Z",
@@ -4672,13 +4678,6 @@
   "textos": 2,
   "numeradas": 2
  },
- "1phgymz": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T19:02:50.780Z",
-  "motivo": "con cuerpo",
-  "textos": 11,
-  "numeradas": 16
- },
  "1phrkui": {
   "intentos": 1,
   "ultimo": "2026-11-05T20:02:43.275Z",
@@ -5339,13 +5338,6 @@
   "ultimo": "2026-11-04T16:32:20.746Z",
   "motivo": "con cuerpo",
   "textos": 4,
-  "numeradas": 4
- },
- "1tnk8f8": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T19:02:50.780Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
   "numeradas": 4
  },
  "1tnn4za": {
@@ -6787,13 +6779,6 @@
   "textos": 3,
   "numeradas": 3
  },
- "4r08x7": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T19:02:50.780Z",
-  "motivo": "con cuerpo",
-  "textos": 5,
-  "numeradas": 22
- },
  "4ruhpf": {
   "intentos": 3,
   "ultimo": "2026-11-06T10:02:04.344Z",
@@ -7432,13 +7417,6 @@
   "motivos": [
    "cuerpo: 1 problema (promesa): el título dice 15 y el cuerpo no lo expl"
   ]
- },
- "89822l": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T19:02:50.780Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 4
  },
  "89bbcc": {
   "intentos": 1,
@@ -8740,23 +8718,6 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
- },
- "ewwq08": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T19:02:50.780Z",
-  "motivo": "cuerpo: 7 problemas (numero, copia, tildes): el cuerpo dice 50.000.000 y la fuente no lo dice; sin esas oraciones quedan 100 palabras",
-  "textos": 1,
-  "numeradas": 2,
-  "motivos": [
-   "cuerpo: 4 problemas (forma, numero, nombre): el cuerpo trae un escape ",
-   "cuerpo: 7 problemas (numero, copia, tildes): el cuerpo dice 50.000.000"
-  ],
-  "falla": [
-   "el cuerpo dice 50.000.000 y la fuente no lo dice",
-   "el cuerpo dice 2.000 y la fuente no lo dice",
-   "el cuerpo dice 80 y la fuente no lo dice",
-   "el cuerpo dice 20.000 y la fuente no lo dice"
-  ]
  },
  "ewyf4j": {
   "intentos": 2,
@@ -12088,16 +12049,6 @@
   "textos": 1,
   "numeradas": 1
  },
- "wg9b9i": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T19:02:50.780Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 3,
-  "motivos": [
-   "título o bajada: 1 problema (numero): el copete dice 5 y la fuente no "
-  ]
- },
  "wgd2zk": {
   "intentos": 1,
   "ultimo": "2026-11-06T21:31:23.283Z",
@@ -12306,6 +12257,13 @@
   "motivos": [
    "título o bajada: 1 problema (nombre): el copete nombra a \"copa\" y la f"
   ]
+ },
+ "xnhjov": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T19:31:19.671Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2
  },
  "xqeb23": {
   "intentos": 1,
