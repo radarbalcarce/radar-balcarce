@@ -1544,13 +1544,6 @@
   "textos": 4,
   "numeradas": 4
  },
- "17y7def": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T19:31:47.214Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1
- },
  "17zse91": {
   "intentos": 1,
   "ultimo": "2026-11-02T20:03:32.686Z",
@@ -1889,13 +1882,6 @@
   "textos": 5,
   "numeradas": 6
  },
- "19mge3x": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T19:31:47.214Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1
- },
  "19pf29a": {
   "intentos": 1,
   "ultimo": "2026-11-06T15:01:51.511Z",
@@ -2129,6 +2115,13 @@
    "título o bajada: 1 problema (pasado): el título está en pasado: va en ",
    "título o bajada: 1 problema (sensacionalista): usa \"castigo\", que pres"
   ]
+ },
+ "1axored": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T20:01:20.113Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
  },
  "1ay6zen": {
   "intentos": 1,
@@ -2462,19 +2455,13 @@
   ]
  },
  "1cq3djo": {
-  "intentos": 1,
-  "ultimo": "2026-11-08T19:31:19.671Z",
-  "motivo": "título o bajada: 4 problemas (forma, numero): el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+  "intentos": 2,
+  "ultimo": "2026-11-08T20:01:20.113Z",
+  "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2,
   "motivos": [
    "título o bajada: 4 problemas (forma, numero): el titulo trae un escape"
-  ],
-  "falla": [
-   "el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
-   "el titulo dice 0 y la fuente no lo dice",
-   "el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
-   "el cuerpo dice 0 y la fuente no lo dice"
   ]
  },
  "1cqsg0d": {
@@ -3345,6 +3332,23 @@
   "numeradas": 7,
   "motivos": [
    "título o bajada: 1 problema (largo): el titulo tiene 108 caracteres, e"
+  ]
+ },
+ "1hw7puq": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T20:01:20.113Z",
+  "motivo": "título o bajada: 1 problema (numero): el copete dice 4 y la fuente no lo dice",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 4 problemas (numero, nombre): el titulo dice 4 y la f",
+   "título o bajada: 1 problema (numero): el copete dice 4 y la fuente no "
+  ],
+  "falla": [
+   "el copete dice 4 y la fuente no lo dice",
+   "el cuerpo dice 9 y la fuente no lo dice",
+   "el cuerpo nombra a \"autonoma\" y la fuente no",
+   "copia 15 palabras seguidas del original (\"autoridades representantes de la sociedad civil y miembros del cuerpo diplomatico en el palacio…\")"
   ]
  },
  "1hwc8eu": {
@@ -6744,6 +6748,13 @@
   "textos": 1,
   "numeradas": 1
  },
+ "4d0ncc": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T20:01:20.113Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 5
+ },
  "4gbc9b": {
   "intentos": 1,
   "ultimo": "2026-11-06T01:01:55.648Z",
@@ -6981,13 +6992,6 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 4
- },
- "5y0c9e": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T19:31:47.214Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 3
  },
  "5yfwmh": {
   "intentos": 1,
@@ -9432,6 +9436,23 @@
   "textos": 4,
   "numeradas": 19
  },
+ "j2eo86": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T20:01:20.113Z",
+  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 95 caracteres, el máximo es 90",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
+   "título o bajada: 1 problema (largo): el titulo tiene 95 caracteres, el"
+  ],
+  "falla": [
+   "el titulo tiene 95 caracteres, el máximo es 90",
+   "el cuerpo dice 10,3 y la fuente no lo dice",
+   "el cuerpo dice 8,3 y la fuente no lo dice",
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+  ]
+ },
  "j4arhc": {
   "intentos": 1,
   "ultimo": "2026-11-03T16:40:18.530Z",
@@ -9797,22 +9818,6 @@
    "cuerpo: 3 problemas (numero, nombre, relleno): el cuerpo dice 3 y la f"
   ]
  },
- "kiw420": {
-  "intentos": 3,
-  "ultimo": "2026-11-01T19:31:47.214Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"luis\", \"vildoza\" y el cuerpo no los explica; sin esas oraciones quedan 106 palabras",
-  "textos": 1,
-  "numeradas": 1,
-  "motivos": [
-   "título o bajada: 1 problema (antecedente): el copete usa \"domingo\", qu",
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
-   "cuerpo: 2 problemas (antecedente, copia): el cuerpo usa \"domingo\", que",
-   "cuerpo: 1 problema (promesa): el título nombra a \"luis\", \"vildoza\" y e"
-  ],
-  "falla": [
-   "el título nombra a \"luis\", \"vildoza\" y el cuerpo no los explica"
-  ]
- },
  "kj8ssn": {
   "intentos": 1,
   "ultimo": "2026-11-04T05:01:55.626Z",
@@ -9840,6 +9845,20 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 5
+ },
+ "kngsvm": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T20:01:20.113Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"leon\", \"xiv\" y el cuerpo no los explica; sin esas oraciones quedan 233 palabras",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 42 palabras seguidas del original: d",
+   "cuerpo: 1 problema (promesa): el título nombra a \"leon\", \"xiv\" y el cu"
+  ],
+  "falla": [
+   "el título nombra a \"leon\", \"xiv\" y el cuerpo no los explica"
+  ]
  },
  "knoxl8": {
   "intentos": 1,
