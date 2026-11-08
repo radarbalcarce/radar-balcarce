@@ -1619,13 +1619,6 @@
    "cuerpo: 7 problemas (antecedente, promesa): el cuerpo usa 30.000, que "
   ]
  },
- "181j9oz": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T17:32:43.337Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
- },
  "181mosg": {
   "intentos": 1,
   "ultimo": "2026-11-07T16:02:09.277Z",
@@ -2195,16 +2188,6 @@
   "textos": 1,
   "numeradas": 3
  },
- "1b0plcb": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T17:32:43.337Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 2,
-  "motivos": [
-   "cuerpo: 1 problema (promesa): el título dice 2.026 y el cuerpo no lo e"
-  ]
- },
  "1b2e9mn": {
   "intentos": 1,
   "ultimo": "2026-11-05T20:02:43.275Z",
@@ -2402,13 +2385,6 @@
   "motivos": [
    "cuerpo: 1 problema (promesa): el título dice 13 y el cuerpo no lo expl"
   ]
- },
- "1c47hrh": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T17:32:43.337Z",
-  "motivo": "con cuerpo",
-  "textos": 8,
-  "numeradas": 10
  },
  "1c4w9yb": {
   "intentos": 1,
@@ -2913,13 +2889,6 @@
   "textos": 4,
   "numeradas": 5
  },
- "1ewmn8c": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T17:32:43.337Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1
- },
  "1ewxphc": {
   "intentos": 1,
   "ultimo": "2026-11-03T22:31:34.777Z",
@@ -3076,17 +3045,6 @@
   "falla": [
    "el copete dice \"en vivo\" y el sitio no hace coberturas en vivo",
    "el título está en pasado (\"vino\"): va en presente, como \"aprueba\" o \"gana\""
-  ]
- },
- "1fqpogt": {
-  "intentos": 2,
-  "ultimo": "2026-11-01T17:32:43.337Z",
-  "motivo": "con cuerpo",
-  "textos": 7,
-  "numeradas": 8,
-  "motivos": [
-   "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re",
-   "cuerpo: 3 problemas (forma, nombre, repite): el cuerpo trae un escape "
   ]
  },
  "1frmyx2": {
@@ -4932,13 +4890,6 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 8
- },
- "1qmg5i0": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T17:32:43.337Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2
  },
  "1qrcv2": {
   "intentos": 1,
@@ -7229,6 +7180,13 @@
   "textos": 7,
   "numeradas": 14
  },
+ "6n3aut": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T18:01:13.601Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 9
+ },
  "6o6ez1": {
   "intentos": 1,
   "ultimo": "2026-11-08T13:01:17.594Z",
@@ -7734,19 +7692,16 @@
   "numeradas": 4
  },
  "98y49g": {
-  "intentos": 4,
-  "ultimo": "2026-11-08T15:31:43.293Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"canapino\", \"tc\", \"pick\", \"up\" y el cuerpo no los explica; sin esas oraciones quedan 240 palabras",
-  "textos": 3,
-  "numeradas": 5,
+  "intentos": 5,
+  "ultimo": "2026-11-08T18:01:13.601Z",
+  "motivo": "con cuerpo",
+  "textos": 7,
+  "numeradas": 8,
   "motivos": [
    "cuerpo: 4 problemas (numero, copia, promesa): el cuerpo dice 27 y la f",
    "Gemini: Expected ',' or ']' after array element in JSON at position 89",
    "cuerpo: 2 problemas (antecedente, copia): el cuerpo usa \"sabado\", que ",
    "cuerpo: 1 problema (promesa): el título nombra a \"canapino\", \"tc\", \"pi"
-  ],
-  "falla": [
-   "el título nombra a \"canapino\", \"tc\", \"pick\", \"up\" y el cuerpo no los explica"
   ]
  },
  "9blifj": {
@@ -10045,6 +10000,16 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 3
+ },
+ "ktee01": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T18:01:13.601Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 5,
+  "motivos": [
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ]
  },
  "kvuifd": {
   "intentos": 1,
@@ -12709,24 +12674,6 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
- },
- "yvutej": {
-  "intentos": 3,
-  "ultimo": "2026-11-01T17:32:43.337Z",
-  "motivo": "cuerpo: 3 problemas (repite, copia, tildes): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 135 palabras",
-  "textos": 2,
-  "numeradas": 2,
-  "motivos": [
-   "cuerpo: 6 problemas (nombre, fecha, copia, tildes): el cuerpo nombra a",
-   "cuerpo: 2 problemas (copia, tildes): copia 19 palabras seguidas del or",
-   "cuerpo: 2 problemas (nombre): el cuerpo nombra a \"turismo\" y la fuente",
-   "cuerpo: 3 problemas (repite, copia, tildes): el cuerpo repite el copet"
-  ],
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "copia 19 palabras seguidas del original (\"la mas veloz de la undecima y anteultima fecha de la temporada el piloto…\"): decilo con otras pala",
-   "el texto está escrito sin tildes (position): va con las tildes y la eñe donde corresponden"
-  ]
  },
  "ywp9x3": {
   "intentos": 1,

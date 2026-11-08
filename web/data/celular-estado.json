@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-08T17:32:16.983Z",
- "portada": 84,
+ "generado": "2026-11-08T18:02:06.698Z",
+ "portada": 85,
  "archivo": 500,
  "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-11-08T17:32:17.275Z",
+  "generado": "2026-11-08T18:02:07.142Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -43,7 +43,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -93,7 +93,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": 49,
     "notas": [
@@ -182,6 +182,12 @@
      "id": "4hqzww",
      "titulo": "Luca Regiardo pide disculpas por los festejos de Newell's tras el gol de Boca",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "6n3aut",
+     "titulo": "Cortes de tránsito en Buenos Aires por la visita papal y eventos",
+     "seccion": "Argentina",
      "marcada": false
     },
     {
