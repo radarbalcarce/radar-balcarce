@@ -3623,56 +3623,56 @@
   "2026-11-08": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 18,
-     "errores": 8,
+     "llamadas": 19,
+     "errores": 9,
      "entrada": 23584,
      "salida": 10917,
      "pensamiento": 0,
      "total": 34501,
      "claves": {
-      "clasificacion": 18
+      "clasificacion": 19
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 5,
        "ok": 10,
-       "saturado": 2,
+       "saturado": 3,
        "otro": 1
       }
      }
     },
     "openai/gpt-oss-120b": {
-     "llamadas": 8,
+     "llamadas": 9,
      "errores": 0,
-     "entrada": 21105,
-     "salida": 17887,
+     "entrada": 23662,
+     "salida": 20144,
      "pensamiento": 0,
-     "total": 38992,
+     "total": 43806,
      "claves": {
-      "groq": 8
+      "groq": 9
      },
      "motivos": {
       "groq": {
-       "ok": 8
+       "ok": 9
       }
      }
     }
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 26,
+     "llamadas": 29,
      "errores": 10,
-     "entrada": 210317,
-     "salida": 2882,
+     "entrada": 242339,
+     "salida": 3083,
      "pensamiento": 0,
-     "total": 213199,
+     "total": 245422,
      "claves": {
-      "clasificacion": 26
+      "clasificacion": 29
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 10,
-       "ok": 16
+       "ok": 19
       }
      }
     },
@@ -3711,19 +3711,19 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 48,
+     "llamadas": 53,
      "errores": 19,
-     "entrada": 199296,
-     "salida": 31354,
+     "entrada": 220432,
+     "salida": 36409,
      "pensamiento": 0,
-     "total": 230650,
+     "total": 256841,
      "claves": {
-      "redaccion": 48
+      "redaccion": 53
      },
      "motivos": {
       "redaccion": {
        "cupo-diario": 15,
-       "ok": 29,
+       "ok": 34,
        "saturado": 4
       }
      }
@@ -3751,19 +3751,19 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 30,
+     "llamadas": 33,
      "errores": 12,
-     "entrada": 109567,
-     "salida": 8948,
+     "entrada": 122521,
+     "salida": 9896,
      "pensamiento": 0,
-     "total": 118515,
+     "total": 132417,
      "claves": {
-      "clasificacion": 30
+      "clasificacion": 33
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 10,
-       "ok": 18,
+       "ok": 21,
        "saturado": 2
       }
      }

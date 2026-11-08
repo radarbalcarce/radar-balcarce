@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-08T12:31:39.784Z",
+ "generado": "2026-11-08T13:01:51.174Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -74,6 +74,33 @@
    "maximo": 3
   },
   {
+   "id": "1ddbyyw",
+   "titulo": "La agenda del papa León XIV en CABA: el recorrido del papamóvil hora por hora",
+   "copete": "",
+   "seccion": "Argentina",
+   "fecha": "2026-11-08T10:52:26.305Z",
+   "fuentes": [
+    {
+     "medio": "Ámbito",
+     "enlace": "https://www.ambito.com/informacion-general/la-agenda-del-papa-leon-xiv-caba-el-recorrido-del-papamovil-hora-hora-n6339671",
+     "fecha": "2026-11-07T13:35:00.000Z"
+    },
+    {
+     "medio": "El Cronista",
+     "enlace": "https://www.cronista.com/informacion-gral/como-es-el-recorrido-del-papamovil-que-llevara-a-leon-xiv-durante-su-visita-a-buenos-aires/",
+     "fecha": "2026-11-08T10:52:26.305Z"
+    },
+    {
+     "medio": "Minuto Uno",
+     "enlace": "https://www.minutouno.com/sociedad/un-video-anticipa-como-sera-el-recorrido-del-papamovil-buenos-aires-n6342886",
+     "fecha": "2026-11-08T12:52:00.000Z"
+    }
+   ],
+   "intentos": 3,
+   "motivo": "con cuerpo",
+   "maximo": 3
+  },
+  {
    "id": "lx5prq",
    "titulo": "«Coco» Zeballos, el primer líder en Traslasierra",
    "copete": "El Rally de Traslasierra abrió oficialmente su competencia este viernes por la noche con el Súper Prime Villa Dolores, primera prueba especial de la octava fecha del Rally Argentino, que fue liderada por el uruguayo Rodrigo Zeballos. Sobre un recorrido de 1,43 kilómetros de…",
@@ -125,14 +152,6 @@
  ],
  "descartadas": [
   {
-   "id": "5fjn8z",
-   "titulo": "Una muestra artística que transforma la sala transitoria del Museo Histórico",
-   "seccion": "Cultura y agenda",
-   "fecha": "2026-11-07T12:36:36.000Z",
-   "intentos": 3,
-   "motivo": "agotó los 3 intentos; cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 65 palabras"
-  },
-  {
    "id": "18jr7sd",
    "titulo": "TC Pick Up: Canapino logró en La Plata su 1ª “pole” de 2026",
    "seccion": "Automovilismo",
@@ -141,12 +160,12 @@
    "motivo": "agotó los 3 intentos; cuerpo: 1 problema (tildes): el texto está escrito sin tildes (position): va con las tildes y la eñe donde corresponden; sin esas oraciones "
   },
   {
-   "id": "1cud4al",
-   "titulo": "Arruabarrena tras consagrarse Campeón de Liga: “Ganamos como le gusta a la gente, a lo Boca”",
-   "seccion": "Fútbol",
-   "fecha": "2026-11-08T02:24:21.000Z",
+   "id": "5fjn8z",
+   "titulo": "Una muestra artística que transforma la sala transitoria del Museo Histórico",
+   "seccion": "Cultura y agenda",
+   "fecha": "2026-11-07T12:36:36.000Z",
    "intentos": 3,
-   "motivo": "agotó los 3 intentos; título o bajada: 2 problemas (nombre): el copete nombra a \"division\" y la fuente no"
+   "motivo": "agotó los 3 intentos; cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 65 palabras"
   },
   {
    "id": "w97jse",
@@ -155,6 +174,14 @@
    "fecha": "2026-11-07T20:08:42.000Z",
    "intentos": 5,
    "motivo": "agotó los 5 intentos; cuerpo: 3 problemas (numero, promesa): el cuerpo dice 30 y la fuente no lo dice; sin esas oraciones quedan 201 palabras"
+  },
+  {
+   "id": "1cud4al",
+   "titulo": "Arruabarrena tras consagrarse Campeón de Liga: “Ganamos como le gusta a la gente, a lo Boca”",
+   "seccion": "Fútbol",
+   "fecha": "2026-11-08T02:24:21.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; título o bajada: 2 problemas (nombre): el copete nombra a \"division\" y la fuente no"
   },
   {
    "id": "r8nehv",

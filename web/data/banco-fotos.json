@@ -63106,9 +63106,7 @@
   "ausenteDesde": "2026-11-01T16:03:11.391Z"
  },
  "3ouu54": {
-  "archivo": "fotos-notas/3ouu54.jpg",
   "medio": "Canal 26",
-  "credito": "Foto: Canal 26",
   "licencia": null,
   "origen": "medio",
   "titulo": "Marco Rubio niega la participación de Estados Unidos en la salida de Flávio Bolsonaro",
@@ -63128,7 +63126,8 @@
    "descripcion": "Marco Rubio en conferencia con bandera de Estados Unidos de fondo"
   },
   "huella": "1c0c8c9a8acbcf43",
-  "ausenteDesde": "2026-11-01T12:31:56.498Z"
+  "intentado": true,
+  "borrada": true
  },
  "1kvhopy": {
   "archivo": "fotos-notas/1kvhopy.jpg",
@@ -82510,7 +82509,8 @@
    "corresponde": "si",
    "descripcion": "Jugador de River celebrando o dando indicaciones en el campo."
   },
-  "huella": "4b2d064b1b171726"
+  "huella": "4b2d064b1b171726",
+  "ausenteDesde": "2026-11-08T13:01:51.042Z"
  },
  "1jihob": {
   "archivo": "fotos-notas/1jihob.jpg",
@@ -87587,7 +87587,8 @@
    "corresponde": "si",
    "descripcion": "El papa León XIV frente a un avión"
   },
-  "huella": "4000ab47f0b4b7d7"
+  "huella": "4000ab47f0b4b7d7",
+  "ausenteDesde": "2026-11-08T13:01:51.042Z"
  },
  "1elyy8r": {
   "archivo": "fotos-notas/1elyy8r.jpg",
@@ -94923,7 +94924,8 @@
    "corresponde": "si",
    "descripcion": "Monoplaza en plena competencia en la pista."
   },
-  "huella": "0aaebcb8b5a641fe"
+  "huella": "0aaebcb8b5a641fe",
+  "ausenteDesde": "2026-11-08T13:01:51.042Z"
  },
  "12bs360": {
   "archivo": "fotos-notas/12bs360.webp",
@@ -94948,5 +94950,62 @@
    "descripcion": "Zona rural con un molino y árboles azotados por viento y tierra en suspensión"
   },
   "huella": "82a4e6c358002846"
+ },
+ "6o6ez1": {
+  "archivo": "fotos-notas/6o6ez1.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Karina Milei celebra la llegada del papa León XIV al país",
+  "enlace": "https://www.cronica.com.ar/politica/karina-milei-que-la-visita-del-papa-sea-una-oportunidad-para-que-los-argentinos-nos-encontremos-unidos/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1731/1731213/6af0693e263ab_600_315!.jpg?s=5f9b1ee274a3474cb6aa8b8debc9d5da&d=1794106800",
+  "razon": "Es la única foto nítida que muestra directamente el hecho principal de la nota sin marcas de agua agregadas.",
+  "cuando": "2026-11-08T13:01:38.173Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei y Karina Milei junto al papa León XIV y un religioso"
+  },
+  "huella": "ceef6c63666e6636"
+ },
+ "bat8yl": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Las empresas amplían sus equipos de tecnología por la inteligencia artificial",
+  "razon": "La mejor foto era la de La Nueva, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-11-08T13:01:38.173Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "gvvo6q": {
+  "archivo": "fotos-notas/gvvo6q.webp",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Alfaro presenta la lista de Paraguay para los amistosos de noviembre",
+  "enlace": "https://www.tycsports.com/futbol-internacional/alfaro-presento-la-lista-de-paraguay-con-tres-jugadores-del-futbol-argentino-y-una-llamativa-ausencia-id770774.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/03/16/932352/gustavo-alfaro-dt-de-paraguay_862x485.webp",
+  "razon": "La foto A muestra claramente al DT Alfaro con buena nitidez y sin marcas de agua ni elementos extraños.",
+  "cuando": "2026-11-08T13:01:38.173Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El director técnico Gustavo Alfaro con la bandera de Paraguay de fondo."
+  },
+  "huella": "06072737313128bb"
  }
 }
