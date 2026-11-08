@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-08T01:04:32.160Z",
+ "consultado": "2026-11-08T01:32:20.050Z",
  "equipos": [
   "9739",
   "3",
@@ -1178,11 +1178,11 @@
     "competencia": "liga",
     "inicio": "2026-11-08T01:00:00.000Z",
     "estado": "en-juego",
-    "minuto": "4'",
+    "minuto": "32'",
     "local": {
      "id": "2975",
      "nombre": "Instituto (Córdoba)",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "14",
@@ -1190,7 +1190,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Facundo Suárez",
+      "minuto": "7'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Monumental Presidente Perón",
     "fase": null,
     "partidoDeLaSerie": null,
