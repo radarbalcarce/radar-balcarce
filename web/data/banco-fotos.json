@@ -61870,9 +61870,7 @@
   "fuentes": 4
  },
  "q5lpx1": {
-  "archivo": "fotos-notas/q5lpx1.jpg",
   "medio": "El Eco de Tandil",
-  "credito": "Foto: El Eco de Tandil",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Gobierno define los detalles finales para la visita del papa León XIV",
@@ -61892,7 +61890,8 @@
    "descripcion": "El papa León XIV saludando con las manos levantadas"
   },
   "huella": "49494d494d757571",
-  "ausenteDesde": "2026-11-01T15:33:58.252Z"
+  "intentado": true,
+  "borrada": true
  },
  "1chrqym": {
   "archivo": "fotos-notas/1chrqym.jpg",
@@ -82682,7 +82681,8 @@
    "corresponde": "si",
    "descripcion": "Lucas Beltrán celebrando un gol señalando hacia la tribuna."
   },
-  "huella": "16bc2bef6b211111"
+  "huella": "16bc2bef6b211111",
+  "ausenteDesde": "2026-11-08T16:03:00.181Z"
  },
  "2iw9bd": {
   "archivo": "fotos-notas/2iw9bd.jpg",
@@ -92262,9 +92262,9 @@
   "origen": "ninguna",
   "titulo": "Crean un registro municipal para acompañantes terapéuticos",
   "razon": "La mejor foto era la de Infórmese Primero (FM 104.9), pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-11-07T15:04:32.358Z",
-  "intentos": 1,
-  "fuentes": 1
+  "cuando": "2026-11-08T16:02:18.798Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "yg8p04": {
   "intentado": true,
@@ -95614,5 +95614,113 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "731b36b53d599a3b"
+ },
+ "vfwfkv": {
+  "archivo": "fotos-notas/vfwfkv.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Petruccelli rechaza la suba de precios del servicio de Ashira",
+  "enlace": "https://www.radiogabal.com.ar/index.php/politica/petruccelli-adelanto-que-votara-en-contra-de-la-redeterminacion-de-precios-de-ashira",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2025/Gabriel_Petruccelli_debate.jpg",
+  "razon": "Es la única opción disponible, cumple con todos los requisitos de calidad y no presenta marcas ni menores.",
+  "cuando": "2026-11-08T16:02:18.798Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Hombre con traje hablando en un atril frente a una pantalla."
+  },
+  "huella": "6f6767e7d3d3d333"
+ },
+ "1a30pz0": {
+  "archivo": "fotos-notas/1a30pz0.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Kicillof pide un endeudamiento de USD 1.000 millones y prevé un fondo municipal",
+  "enlace": "https://www.radiogabal.com.ar/index.php/politica/balcarce-podria-recibir-fondos-de-un-nuevo-endeudamiento-de-kicillof-para-reforzar-la-seguridad",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2024/Frente_Municipalidad.jpg",
+  "razon": "Es la única foto disponible, de buena calidad, sin personas ni marcas agregadas, que ilustra adecuadamente un edificio gubernamental.",
+  "cuando": "2026-11-08T16:02:18.798Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista exterior del Palacio Municipal"
+  },
+  "huella": "003070f694970230"
+ },
+ "1o7z50": {
+  "archivo": "fotos-notas/1o7z50.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV inicia su visita oficial a la Argentina con un esquema de feriados",
+  "enlace": "https://www.lanacion.com.ar/sociedad/visita-del-papa-leon-xiv-a-la-argentina-feriados-agenda-cronograma-misas-y-todo-lo-que-hay-que-saber-nid02112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/el-papa-leon-xiv-estara-del-domingo-8-al-CJCSRAD4ARHC7COPIDYUXKJF5A.JPG?auth=ca016ab8cbc3edd8ab132c24f81ca1227b3e06b09373a9b866e17462ebbc7018&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es un plano medio limpio, con el Papa saludando sonriente, sin marcas ni personas en el fondo.",
+  "cuando": "2026-11-08T16:02:18.798Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El papa León XIV saludando sonriente en plano medio",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "El papa León XIV sonriendo y saludando con la mano alzada."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "a5a527272e1b1949"
+ },
+ "6t2s2v": {
+  "archivo": "fotos-notas/6t2s2v.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto larga decimoquinto en el Gran Premio de Brasil",
+  "enlace": "https://www.lanacion.com.ar/deportes/automovilismo/f1-a-que-hora-corre-franco-colapinto-en-el-gp-de-brasil-2026-y-por-donde-se-puede-ver-nid08112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/franco-colapinto-larga-15°-el-gran-premio-de-san-44OUM6UBRNCNTJ76DXT64MS5OI.jpg?auth=d64dbb96b435fd3aef285e1873e92023aa59f2e5842b7ffcef202c419da1c13b&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es una fotografía clara del auto de Franco Colapinto en pista, sin marcas de agua ni personas.",
+  "cuando": "2026-11-08T16:02:18.798Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de Fórmula 1 en pista tomando una curva"
+  },
+  "huella": "096171a1b5891b13"
  }
 }

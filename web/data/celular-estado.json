@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-08T15:32:32.256Z",
- "portada": 71,
+ "generado": "2026-11-08T16:03:00.352Z",
+ "portada": 74,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-11-08T15:32:32.756Z",
+  "generado": "2026-11-08T16:03:00.830Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -83,10 +83,25 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null,
-    "segundos": 53,
+    "segundos": null,
+    "notas": []
+   },
+   {
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 49,
     "notas": [
+     {
+      "id": "1a30pz0",
+      "titulo": "Kicillof pide un endeudamiento de USD 1.000 millones y prevé un fondo municipal",
+      "seccion": "Política"
+     },
      {
       "id": "h4r3xq",
       "titulo": "Modifican la actividad escolar y bancaria en Balcarce por la visita del Papa",
@@ -101,42 +116,6 @@
       "id": "1cny5nq",
       "titulo": "Chocan una moto y una camioneta en calles 12 y 25",
       "seccion": "Policiales"
-     },
-     {
-      "id": "1efbl8c",
-      "titulo": "Mateo López cierra el Parlamento Juvenil Bonaerense en La Plata",
-      "seccion": "Educación"
-     }
-    ]
-   },
-   {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 52,
-    "notas": [
-     {
-      "id": "19j1eud",
-      "titulo": "Piden crear un programa de asistencia para estudiantes universitarios",
-      "seccion": "Política"
-     },
-     {
-      "id": "zswtcs",
-      "titulo": "Walter Degracia abre un nuevo gimnasio de boxeo en la ciudad",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "lx27ip",
-      "titulo": "Matías La Torre repasa su trayectoria musical en una emisora local",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "1wq5a8z",
-      "titulo": "Crean un registro municipal para acompañantes terapéuticos",
-      "seccion": "Balcarce"
      }
     ]
    },
@@ -147,27 +126,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 49,
     "notas": [
      {
-      "id": "7ashy7",
-      "titulo": "Virginia Aparicio cuestiona su exoneración del INTA",
-      "seccion": "Agro"
+      "id": "1efbl8c",
+      "titulo": "Mateo López cierra el Parlamento Juvenil Bonaerense en La Plata",
+      "seccion": "Educación"
      },
      {
-      "id": "u5bwex",
-      "titulo": "La escuela Taekwondo Henko reúne a más de cien alumnos",
+      "id": "19j1eud",
+      "titulo": "Piden crear un programa de asistencia para estudiantes universitarios",
+      "seccion": "Política"
+     },
+     {
+      "id": "1wq5a8z",
+      "titulo": "Crean un registro municipal para acompañantes terapéuticos",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "zswtcs",
+      "titulo": "Walter Degracia abre un nuevo gimnasio de boxeo en la ciudad",
       "seccion": "Deportes"
-     },
-     {
-      "id": "xwpiqf",
-      "titulo": "Franco Colapinto queda eliminado en la Q1 y largará 17 en Brasil",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "1vn9y3q",
-      "titulo": "El papa Léon XIV llega hoy a la Argentina en su primera visita oficial",
-      "seccion": "Argentina"
      }
     ]
    }
@@ -176,15 +155,15 @@
    "hoy": [],
    "cola": [
     {
-     "id": "h4r3xq",
-     "titulo": "Modifican la actividad escolar y bancaria en Balcarce por la visita del Papa",
-     "seccion": "Balcarce",
+     "id": "1a30pz0",
+     "titulo": "Kicillof pide un endeudamiento de USD 1.000 millones y prevé un fondo municipal",
+     "seccion": "Política",
      "marcada": false
     },
     {
-     "id": "40e7i7",
-     "titulo": "Franco Colapinto larga 15 en el Gran Premio de San Pablo de Fórmula 1",
-     "seccion": "Automovilismo",
+     "id": "h4r3xq",
+     "titulo": "Modifican la actividad escolar y bancaria en Balcarce por la visita del Papa",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
@@ -197,6 +176,12 @@
      "id": "1n263sp",
      "titulo": "Las ventas minoristas bajan 1,6% interanual en octubre",
      "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "4hqzww",
+     "titulo": "Luca Regiardo pide disculpas por los festejos de Newell's tras el gol de Boca",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
