@@ -91,7 +91,7 @@ export const SUMAR = [
   { id: 'lanacion-salud', nombre: 'La Nación · Salud', medio: 'La Nación', url: 'https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/salud/' },
   { id: 'clarin-sociedad', nombre: 'Clarín · Sociedad', medio: 'Clarín', url: 'https://www.clarin.com/rss/sociedad/' },
   { id: 'perfil-politica', nombre: 'Perfil · Política', medio: 'Perfil', url: 'https://www.perfil.com/feed/politica' },
-  { id: 'perfil-sociedad', nombre: 'Perfil · Sociedad', medio: 'Perfil', url: 'https://www.perfil.com/feed/sociedad' },
+  { id: 'perfil-sociedad', nombre: 'Perfil · Portada', medio: 'Perfil', url: 'https://www.perfil.com/feed' }, // feed/sociedad da 404 desde el 7/11/2026
   { id: 'perfil-tecnologia', nombre: 'Perfil · Tecnología', medio: 'Perfil', url: 'https://www.perfil.com/feed/tecnologia' },
   { id: 'minsalud', nombre: 'Ministerio de Salud de la Nación', medio: 'Ministerio de Salud de la Nación', url: 'https://www.argentina.gob.ar/salud/noticias/rss', oficial: true },
   { id: 'capital-humano', nombre: 'Capital Humano (Educación)', medio: 'Ministerio de Capital Humano', url: 'https://www.argentina.gob.ar/capital-humano/noticias/rss', oficial: true },

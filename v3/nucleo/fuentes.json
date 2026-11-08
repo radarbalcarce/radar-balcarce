@@ -1028,12 +1028,13 @@
     {
       "oficial": false,
       "id": "perfil-sociedad",
-      "nombre": "Perfil · Sociedad",
+      "nombre": "Perfil · Portada",
       "medio": "Perfil",
-      "url": "https://www.perfil.com/feed/sociedad",
+      "url": "https://www.perfil.com/feed",
       "tipo": "rss",
       "alcance": "pais",
-      "activa": true
+      "activa": true,
+      "nota": "perfil.com/feed/sociedad da 404 (7/11/2026); se lee el feed general de Perfil, que está al día. Se deja el id para no perder su historial."
     },
     {
       "oficial": false,
