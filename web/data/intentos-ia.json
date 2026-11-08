@@ -437,13 +437,19 @@
   "numeradas": 2
  },
  "124qmkn": {
-  "intentos": 1,
-  "ultimo": "2026-11-08T14:01:41.068Z",
-  "motivo": "con cuerpo",
+  "intentos": 2,
+  "ultimo": "2026-11-08T17:01:43.589Z",
+  "motivo": "título o bajada: 1 problema (forma): el copete trae letras rotas (letras que no son del castellano en \"encabezarâ\"): texto mal escrito, s",
   "textos": 4,
-  "numeradas": 7,
+  "numeradas": 8,
   "motivos": [
-   "título o bajada: 1 problema (relleno): el copete tiene una frase de re"
+   "título o bajada: 1 problema (relleno): el copete tiene una frase de re",
+   "cuerpo: 1 problema (copia): copia 16 palabras seguidas del original: d",
+   "título o bajada: 1 problema (forma): el copete trae letras rotas (letr"
+  ],
+  "falla": [
+   "el copete trae letras rotas (letras que no son del castellano en \"encabezarâ\"): texto mal escrito, se vuelve a pedir",
+   "el título dice 4 y el cuerpo no lo explica"
   ]
  },
  "125t5q0": {
@@ -2578,6 +2584,13 @@
   "textos": 2,
   "numeradas": 2
  },
+ "1d3z0kk": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T17:01:43.589Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 70
+ },
  "1d48nyw": {
   "intentos": 1,
   "ultimo": "2026-11-02T17:03:20.662Z",
@@ -4517,13 +4530,6 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 4
- },
- "1nm1r17": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T16:32:51.097Z",
-  "motivo": "con cuerpo",
-  "textos": 6,
-  "numeradas": 6
  },
  "1npdrzq": {
   "intentos": 1,
@@ -6854,6 +6860,13 @@
   "textos": 2,
   "numeradas": 3
  },
+ "4crcso": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T17:01:43.589Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
+ },
  "4gbc9b": {
   "intentos": 1,
   "ultimo": "2026-11-06T01:01:55.648Z",
@@ -7374,13 +7387,6 @@
   "textos": 3,
   "numeradas": 4
  },
- "7mjpj1": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T16:32:51.097Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 8
- },
  "7o1zjd": {
   "intentos": 1,
   "ultimo": "2026-11-06T01:32:22.062Z",
@@ -7486,13 +7492,14 @@
   "numeradas": 3
  },
  "861rdk": {
-  "intentos": 1,
-  "ultimo": "2026-11-08T16:31:11.634Z",
-  "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 3559 (line 1 column 3560)",
+  "intentos": 2,
+  "ultimo": "2026-11-08T17:01:43.589Z",
+  "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 5,
   "motivos": [
-   "Gemini: Expected ',' or ']' after array element in JSON at position 35"
+   "Gemini: Expected ',' or ']' after array element in JSON at position 35",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
   ]
  },
  "876j1t": {
@@ -8798,6 +8805,13 @@
   "textos": 1,
   "numeradas": 1
  },
+ "eq8rq8": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T17:01:43.589Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
+ },
  "esekbh": {
   "intentos": 1,
   "ultimo": "2026-11-03T21:01:50.130Z",
@@ -10032,13 +10046,6 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 3
- },
- "krdezb": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T16:32:51.097Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 4
  },
  "kvuifd": {
   "intentos": 1,
@@ -11462,6 +11469,13 @@
    "título o bajada: 1 problema (numero): el copete dice 7 y la fuente no "
   ]
  },
+ "sqb2us": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T17:01:43.589Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "sqcelu": {
   "intentos": 1,
   "ultimo": "2026-11-03T00:52:35.190Z",
@@ -11519,17 +11533,15 @@
   "numeradas": 5
  },
  "t3rs5e": {
-  "intentos": 1,
-  "ultimo": "2026-11-08T16:31:11.634Z",
-  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 156 palabras",
+  "intentos": 2,
+  "ultimo": "2026-11-08T17:01:43.589Z",
+  "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 10,
   "motivos": [
    "título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que",
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
-  ],
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo"
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
+   "cuerpo: 3 problemas (relleno, promesa): el cuerpo tiene una frase de r"
   ]
  },
  "t44aqz": {
