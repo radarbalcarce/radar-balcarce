@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-08T14:04:55.082Z",
- "portada": 70,
+ "generado": "2026-11-08T14:33:15.712Z",
+ "portada": 74,
  "archivo": 500,
- "esperandoCuerpo": 8,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-11-08T14:04:55.506Z",
+  "generado": "2026-11-08T14:33:15.999Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -116,13 +116,39 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 47,
+    "segundos": 52,
     "notas": [
      {
       "id": "19j1eud",
       "titulo": "Piden crear un programa de asistencia para estudiantes universitarios",
       "seccion": "Política"
      },
+     {
+      "id": "1w8v4jx",
+      "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
+      "seccion": "Educación"
+     },
+     {
+      "id": "55plr2",
+      "titulo": "El Museo Fangio incorpora cascos de Hamilton y Bottas",
+      "seccion": "Automovilismo"
+     },
+     {
+      "id": "c5pgr6",
+      "titulo": "Suspenden un partido de fútbol femenino tras la agresión a un juez de línea",
+      "seccion": "Policiales"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 49,
+    "notas": [
      {
       "id": "zswtcs",
       "titulo": "Walter Degracia abre un nuevo gimnasio de boxeo en la ciudad",
@@ -134,40 +160,14 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "7ashy7",
-      "titulo": "Virginia Aparicio cuestiona su exoneración del INTA",
-      "seccion": "Agro"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 54,
-    "notas": [
-     {
-      "id": "u5bwex",
-      "titulo": "La escuela Taekwondo Henko reúne a más de cien alumnos",
-      "seccion": "Deportes"
+      "id": "ff5o5",
+      "titulo": "Sembrando Futuro llega a los mil egresados",
+      "seccion": "Educación"
      },
      {
       "id": "xwpiqf",
       "titulo": "Franco Colapinto queda eliminado en la Q1 y largará 17 en Brasil",
       "seccion": "Automovilismo"
-     },
-     {
-      "id": "1vn9y3q",
-      "titulo": "El papa Léon XIV llega hoy a la Argentina en su primera visita oficial",
-      "seccion": "Argentina"
-     },
-     {
-      "id": "ymnte9",
-      "titulo": "Una policía rescata a una jubilada tras caer con su auto a un arroyo",
-      "seccion": "Policiales"
      }
     ]
    }
@@ -188,14 +188,14 @@
      "marcada": false
     },
     {
-     "id": "1jbz59o",
-     "titulo": "El Gobierno decreta feriados por la visita del papa León XIV a la Argentina",
+     "id": "6wk2g5",
+     "titulo": "Implementan un operativo especial de transporte por la visita del Papa",
      "seccion": "Argentina",
      "marcada": false
     },
     {
-     "id": "6wk2g5",
-     "titulo": "Implementan un operativo especial de transporte por la visita del Papa",
+     "id": "1jbz59o",
+     "titulo": "El Gobierno decreta feriados por la visita del papa León XIV a la Argentina",
      "seccion": "Argentina",
      "marcada": false
     }

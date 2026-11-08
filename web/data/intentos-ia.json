@@ -1528,13 +1528,14 @@
   "numeradas": 4
  },
  "17v08xu": {
-  "intentos": 1,
-  "ultimo": "2026-11-07T16:02:09.277Z",
+  "intentos": 2,
+  "ultimo": "2026-11-08T14:31:22.878Z",
   "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 29,
+  "textos": 3,
+  "numeradas": 20,
   "motivos": [
-   "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el"
+   "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el",
+   "cuerpo: 2 problemas (relleno, copia): el cuerpo tiene una frase de rel"
   ]
  },
  "17v3n8i": {
@@ -2609,11 +2610,18 @@
   "numeradas": 3
  },
  "1ddbyyw": {
-  "intentos": 3,
-  "ultimo": "2026-11-06T12:32:07.570Z",
-  "motivo": "con cuerpo",
+  "intentos": 4,
+  "ultimo": "2026-11-08T14:31:22.878Z",
+  "motivo": "título o bajada: 1 problema (numero): el copete dice 4 y la fuente no lo dice",
   "textos": 4,
-  "numeradas": 7
+  "numeradas": 5,
+  "motivos": [
+   "título o bajada: 2 problemas (numero): el titulo dice 4 y la fuente no",
+   "título o bajada: 1 problema (numero): el copete dice 4 y la fuente no "
+  ],
+  "falla": [
+   "el copete dice 4 y la fuente no lo dice"
+  ]
  },
  "1ddsn7l": {
   "intentos": 1,
@@ -3344,6 +3352,16 @@
   "numeradas": 9,
   "motivos": [
    "cuerpo: 2 problemas (antecedente, relleno): el cuerpo usa \"nunez\", que"
+  ]
+ },
+ "1hdeozx": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T14:31:22.878Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 4 problemas (numero, nombre, repite, copia): el cuerpo dice 2."
   ]
  },
  "1hhw2ky": {
@@ -4388,6 +4406,13 @@
   "ultimo": "2026-11-04T19:01:48.275Z",
   "motivo": "con cuerpo",
   "textos": 2,
+  "numeradas": 4
+ },
+ "1n263sp": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T14:31:22.878Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
   "numeradas": 4
  },
  "1n3rabx": {
@@ -6832,13 +6857,6 @@
   "textos": 1,
   "numeradas": 2
  },
- "4iit0x": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T14:31:28.146Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1
- },
  "4mq1wo": {
   "intentos": 2,
   "ultimo": "2026-11-01T16:02:04.735Z",
@@ -7176,13 +7194,6 @@
   "falla": [
    "copia 20 palabras seguidas del original (\"para asistir a los operadores de los centros de monitoreo en la deteccion de…\"): decilo con otras "
   ]
- },
- "6czbod": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T14:31:28.146Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 4
  },
  "6d1uyu": {
   "intentos": 1,
@@ -7692,22 +7703,16 @@
   "numeradas": 4
  },
  "98y49g": {
-  "intentos": 2,
-  "ultimo": "2026-11-08T14:01:41.068Z",
-  "motivo": "cuerpo: 4 problemas (numero, copia, promesa): el cuerpo dice 27 y la fuente no lo dice; sin esas oraciones quedan 201 palabras",
-  "textos": 1,
+  "intentos": 3,
+  "ultimo": "2026-11-08T14:31:22.878Z",
+  "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 893 (line 10 column 1)",
+  "textos": 4,
   "numeradas": 4,
   "motivos": [
-   "cuerpo: 1 problema (copia): copia 23 palabras seguidas del original: d",
    "cuerpo: 2 problemas (antecedente, promesa): el cuerpo usa 7, que sale ",
    "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez",
-   "cuerpo: 4 problemas (numero, copia, promesa): el cuerpo dice 27 y la f"
-  ],
-  "falla": [
-   "el cuerpo dice 27 y la fuente no lo dice",
-   "el cuerpo dice 640 y la fuente no lo dice",
-   "copia 18 palabras seguidas del original (\"en el autodromo roberto mouras de la plata y se aseguro el mejor lugar…\"): decilo con otras palabr",
-   "el título nombra a \"tc\", \"pick\", \"up\" y el cuerpo no los explica"
+   "cuerpo: 4 problemas (numero, copia, promesa): el cuerpo dice 27 y la f",
+   "Gemini: Expected ',' or ']' after array element in JSON at position 89"
   ]
  },
  "9blifj": {
@@ -8522,18 +8527,6 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 9
- },
- "doggn2": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T14:31:28.146Z",
-  "motivo": "verificación baja: espera a una persona",
-  "textos": 1,
-  "numeradas": 1,
-  "motivos": [
-   "verificación baja: espera a una persona"
-  ],
-  "baja": true,
-  "fuentes": 1
  },
  "dopjuz": {
   "intentos": 1,
@@ -9449,20 +9442,14 @@
   "numeradas": 2
  },
  "igffai": {
-  "intentos": 1,
-  "ultimo": "2026-11-08T14:01:41.068Z",
-  "motivo": "cuerpo: 8 problemas (nombre, numero, antecedente, relleno, repite, promesa): el cuerpo nombra a \"arrorito\" y la fuente no; sin esas oraciones quedan 135 palabra",
+  "intentos": 2,
+  "ultimo": "2026-11-08T14:31:22.878Z",
+  "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 12,
   "motivos": [
    "cuerpo: 2 problemas (antecedente, copia): el cuerpo usa \"sabado\", que ",
    "cuerpo: 8 problemas (nombre, numero, antecedente, relleno, repite, pro"
-  ],
-  "falla": [
-   "el cuerpo nombra a \"arrorito\" y la fuente no",
-   "el cuerpo dice 30 y la fuente no lo dice",
-   "el cuerpo usa \"angel\", que sale de una nota anterior, como si fuera de hoy",
-   "el cuerpo usa \"di\", que sale de una nota anterior, como si fuera de hoy"
   ]
  },
  "igfg75": {
@@ -9834,13 +9821,6 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 15
- },
- "k1k0sl": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T14:31:28.146Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2
  },
  "k2294s": {
   "intentos": 1,

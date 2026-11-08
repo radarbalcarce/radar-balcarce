@@ -92455,8 +92455,7 @@
    "corresponde": "si",
    "descripcion": "Primer plano del Papa sonriendo y saludando desde un auto"
   },
-  "huella": "36b13a3a3f999f8d",
-  "ausenteDesde": "2026-11-07T20:04:02.069Z"
+  "huella": "36b13a3a3f999f8d"
  },
  "7ashy7": {
   "archivo": "fotos-notas/7ashy7.jpg",
@@ -95171,7 +95170,8 @@
    "corresponde": "si",
    "descripcion": "Director técnico de Lanús en primer plano con campera granate"
   },
-  "huella": "040c0c0c1e0ecc45"
+  "huella": "040c0c0c1e0ecc45",
+  "ausenteDesde": "2026-11-08T14:33:15.568Z"
  },
  "124qmkn": {
   "archivo": "fotos-notas/124qmkn.jpg",
@@ -95207,7 +95207,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "32aaea6223f3f363"
+  "huella": "32aaea6223f3f363",
+  "ausenteDesde": "2026-11-08T14:33:15.568Z"
  },
  "fgldcf": {
   "archivo": "fotos-notas/fgldcf.jpg",
@@ -95266,5 +95267,89 @@
   "cuando": "2026-11-08T14:03:24.746Z",
   "intentos": 1,
   "fuentes": 3
+ },
+ "1n263sp": {
+  "archivo": "fotos-notas/1n263sp.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Las ventas minoristas bajan 1,6% interanual en octubre",
+  "enlace": "https://www.lagaceta.com.ar/nota/1161586/economia/ventas-minoristas-cayeron-16porciento-octubre-condicionadas-restricciones-ingresos-familiares.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/11/08/ventas-minoristas-acumulan-caida-2porciento-2026-came-1161586-111921.jpg",
+  "razon": "Es la única foto sin marcas de agua, menores de edad ni problemas de stock, mostrando compras minoristas de forma limpia.",
+  "cuando": "2026-11-08T14:32:05.117Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona comprando en góndola de supermercado."
+  },
+  "huella": "064eeaf656dc3c5c"
+ },
+ "1hdeozx": {
+  "archivo": "fotos-notas/1hdeozx.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Alojarán a León XIV en el histórico Palacio Fernández Anchorena",
+  "enlace": "https://www.lanacion.com.ar/propiedades/casas-y-departamentos/un-palacio-una-fortuna-y-una-marquesa-la-historia-desconocida-detras-de-la-nunciatura-en-buenos-nid08112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/el-frente-de-la-nunciatura-apostolica-en-recoleta-BPXNP2LY75GSLPMBJFN2PSTDPE.JPG?auth=20ead239c88002d7572e26d9e3cdadb9126ddb0fae7aac30aa0fc00b001129cd&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única fotografía que muestra el edificio mencionado en la nota sin elementos gráficos sobreimpresos ni composiciones de archivo.",
+  "cuando": "2026-11-08T14:32:05.117Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada del Palacio Fernández Anchorena con personas caminando por la vereda."
+  },
+  "huella": "31b219d5ddcc4909"
+ },
+ "igffai": {
+  "archivo": "fotos-notas/igffai.jpg",
+  "medio": "Diario Popular",
+  "credito": "Foto: Diario Popular",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Rosario Central gana pero pierde el título de liga",
+  "enlace": "https://www.diariopopular.com.ar/deportes/del-festejo-la-desilusion-rosario-central-gano-pero-no-le-alcanzo-n928272",
+  "imagenOriginal": "https://media.diariopopular.com.ar/p/c6d89f8bf81ae83e02fc5796435380c7/adjuntos/143/imagenes/008/263/0008263897/1200x675/smart/hwjmxbjwgaaya10.jpg",
+  "razon": "Es la foto de mejor calidad, corresponde perfectamente a la nota, muestra una jugada clara y no tiene marcas ni menores.",
+  "cuando": "2026-11-08T14:32:05.117Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de Rosario Central disputando el balón con un rival",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de Rosario Central con la camiseta 32 controlando el balón durante un partido de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "4b534b534b696707"
  }
 }
