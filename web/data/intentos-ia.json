@@ -2563,13 +2563,6 @@
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
   ]
  },
- "1df7mwd": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T20:31:38.035Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
- },
  "1dhujhn": {
   "intentos": 1,
   "ultimo": "2026-11-04T23:02:16.411Z",
@@ -3148,16 +3141,6 @@
   "textos": 4,
   "numeradas": 5
  },
- "1gjjdy7": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T20:31:38.035Z",
-  "motivo": "con cuerpo",
-  "textos": 7,
-  "numeradas": 7,
-  "motivos": [
-   "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de r"
-  ]
- },
  "1gjl17m": {
   "intentos": 1,
   "ultimo": "2026-11-02T11:01:42.399Z",
@@ -3544,6 +3527,16 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 5
+ },
+ "1j3ytpy": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T20:31:40.872Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 1 problema (nombre): el copete nombra a \"nunez\" y la "
+  ]
  },
  "1j4cbps": {
   "intentos": 1,
@@ -5809,19 +5802,6 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
- },
- "1we22fg": {
-  "intentos": 4,
-  "ultimo": "2026-11-01T20:31:38.035Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 5,
-  "motivos": [
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
-   "cuerpo: 3 problemas (nombre, relleno): el cuerpo nombra a \"alberto\" y ",
-   "cuerpo: 1 problema (numero): el cuerpo dice 40 y la fuente no lo dice;",
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
-  ]
  },
  "1wfweh9": {
   "intentos": 1,
@@ -8286,17 +8266,6 @@
   "textos": 6,
   "numeradas": 7
  },
- "d4errd": {
-  "intentos": 2,
-  "ultimo": "2026-11-01T20:31:38.035Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 3,
-  "motivos": [
-   "cuerpo: 3 problemas (antecedente, nombre, copia): el cuerpo usa \"ciuda",
-   "cuerpo: 6 problemas (antecedente, nombre, numero): el cuerpo usa \"ciud"
-  ]
- },
  "d4fr84": {
   "intentos": 2,
   "ultimo": "2026-11-07T00:02:08.712Z",
@@ -8523,16 +8492,6 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 4
- },
- "e1z4iv": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T20:31:38.035Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3,
-  "motivos": [
-   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
-  ]
  },
  "e3lp2q": {
   "intentos": 1,
@@ -9437,20 +9396,14 @@
   "numeradas": 19
  },
  "j2eo86": {
-  "intentos": 1,
-  "ultimo": "2026-11-08T20:01:20.113Z",
-  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 95 caracteres, el máximo es 90",
+  "intentos": 2,
+  "ultimo": "2026-11-08T20:31:40.872Z",
+  "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
    "título o bajada: 1 problema (largo): el titulo tiene 95 caracteres, el"
-  ],
-  "falla": [
-   "el titulo tiene 95 caracteres, el máximo es 90",
-   "el cuerpo dice 10,3 y la fuente no lo dice",
-   "el cuerpo dice 8,3 y la fuente no lo dice",
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "j4arhc": {
@@ -9471,13 +9424,6 @@
    "cuerpo: 1 problema (numero): el cuerpo dice 5 y la fuente no lo dice; ",
    "título o bajada: 4 problemas (antecedente): el copete usa 8, que sale "
   ]
- },
- "j6h1yj": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T20:31:38.035Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 27
  },
  "j75wry": {
   "intentos": 2,
@@ -9847,17 +9793,15 @@
   "numeradas": 5
  },
  "kngsvm": {
-  "intentos": 1,
-  "ultimo": "2026-11-08T20:01:20.113Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"leon\", \"xiv\" y el cuerpo no los explica; sin esas oraciones quedan 233 palabras",
-  "textos": 3,
-  "numeradas": 3,
+  "intentos": 2,
+  "ultimo": "2026-11-08T20:31:40.872Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4,
   "motivos": [
    "cuerpo: 1 problema (copia): copia 42 palabras seguidas del original: d",
-   "cuerpo: 1 problema (promesa): el título nombra a \"leon\", \"xiv\" y el cu"
-  ],
-  "falla": [
-   "el título nombra a \"leon\", \"xiv\" y el cuerpo no los explica"
+   "cuerpo: 1 problema (promesa): el título nombra a \"leon\", \"xiv\" y el cu",
+   "cuerpo: 1 problema (copia): copia 20 palabras seguidas del original: d"
   ]
  },
  "knoxl8": {
@@ -10125,13 +10069,6 @@
   "motivo": "con cuerpo",
   "textos": 7,
   "numeradas": 7
- },
- "lt07ea": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T20:31:38.035Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 5
  },
  "lx27ip": {
   "intentos": 1,
@@ -12395,17 +12332,6 @@
   "numeradas": 5,
   "motivos": [
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
-  ]
- },
- "yag2by": {
-  "intentos": 2,
-  "ultimo": "2026-11-01T20:31:38.035Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 10,
-  "motivos": [
-   "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re",
-   "cuerpo: 2 problemas (nombre, repite): el cuerpo nombra a \"nunez\" y la "
   ]
  },
  "yal4xi": {
