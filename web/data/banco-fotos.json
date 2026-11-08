@@ -63434,9 +63434,7 @@
   "ausenteDesde": "2026-11-01T16:03:11.391Z"
  },
  "1p7kl5o": {
-  "archivo": "fotos-notas/1p7kl5o.jpg",
   "medio": "Clarín",
-  "credito": "Foto: Clarín",
   "licencia": null,
   "origen": "medio",
   "titulo": "Talleres golea 3 a 0 a Deportivo Riestra por el Torneo Clausura",
@@ -63456,7 +63454,8 @@
    "descripcion": "Jugadores de Talleres festejando un gol en la cancha"
   },
   "huella": "a525b7222daa6c6a",
-  "ausenteDesde": "2026-11-01T14:33:16.644Z"
+  "intentado": true,
+  "borrada": true
  },
  "4iit0x": {
   "archivo": "fotos-notas/4iit0x.jpg",
@@ -82735,7 +82734,8 @@
    "corresponde": "si",
    "descripcion": "José Luis Daza hablando frente a una pantalla con un gráfico económico y una bandera argentina."
   },
-  "huella": "2d2d2d0d2d8bcbf3"
+  "huella": "2d2d2d0d2d8bcbf3",
+  "ausenteDesde": "2026-11-08T15:03:57.143Z"
  },
  "15lwyqk": {
   "archivo": "fotos-notas/15lwyqk.jpg",
@@ -92455,7 +92455,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano del Papa sonriendo y saludando desde un auto"
   },
-  "huella": "36b13a3a3f999f8d"
+  "huella": "36b13a3a3f999f8d",
+  "ausenteDesde": "2026-11-08T15:03:57.143Z"
  },
  "7ashy7": {
   "archivo": "fotos-notas/7ashy7.jpg",
@@ -95032,15 +95033,28 @@
   "huella": "6af2acecec92d842"
  },
  "128dpdk": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/128dpdk.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Sunderland y Chelsea juegan este domingo por la Premier League",
-  "razon": "Groq también falló: HTTP 503: qwen/qwen3.8-27b is currently over capacity. Please try again and back off exponentially. Visit https://groqstatus.com to see if there is an (Gemini: The operation was aborted due to timeout)",
-  "cuando": "2026-11-08T13:33:54.312Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 1,
-  "errorGemini": "The operation was aborted due to timeout"
+  "enlace": "https://tn.com.ar/deportes/futbol/2026/11/08/sunderland-vs-chelsea-en-vivo-por-la-fecha-10-de-la-premier-league-hora-donde-ver-y-formaciones/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/soccer-football-premier-league-sunderland-v-chelsea-stadium-of-light-sunderland-britain-november-8-2026-general-view-of-a-corner-flag-inside-the-stadium-before-the-match-reutersscott-heppell-editorial-use-only-no-use-with-unauthorized-audio-video-data-fixture-lists-clubleague-logos-or-live-services-online-in-match-use-limited-to-120-images-no-video-emulation-no-use-in-betting-games-or-single-clubleagueplayer-publications-please-contact-your-account-representative-for-further-details-4RS4MR6RTTM4X5RN7DQKVHS4HI.2cJM?auth=8c41c8a9ff94bcfa8ede85214ecff35d6d43b36e703cd9e8505a201e5250b9cf&width=1023",
+  "razon": "Es la única foto válida que ilustra el evento sin elementos superpuestos de video o marcas de medios.",
+  "cuando": "2026-11-08T15:02:59.986Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Córner en un estadio de fútbol con bandera del Sunderland"
+  },
+  "huella": "73518d8d0e8e8eef"
  },
  "bqycdp": {
   "archivo": "fotos-notas/bqycdp.jpg",
@@ -95103,14 +95117,40 @@
   "huella": "240d0e2e43733642"
  },
  "dtfbq": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/dtfbq.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Boca gana la tabla anual de la Liga Profesional con un gol de Enner Valencia",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TN (Todo Noticias) no se usa todavía.",
-  "cuando": "2026-11-08T13:33:54.312Z",
-  "intentos": 1,
-  "fuentes": 6,
-  "intentosPorCupo": 1
+  "enlace": "https://tn.com.ar/deportes/futbol/2026/11/07/la-euforia-de-enner-valencia-tras-marcar-el-gol-del-titulo-para-boca-del-mensaje-que-ledejo-a-riquelme-al-festejo-con-su-familia/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/https%3A%2F%2Fthumbs.vodgc.net%2F1-14-1a69f4923d501794092769405.30%3F799524?auth=00eb194482fa514c2deac8f1ef323c4a41d8dcc93193ae5efccdef3e634b3c9c&width=1023",
+  "razon": "Es la única foto de calidad profesional que muestra claramente el festejo de los jugadores de Boca sin marcas de agua ni otros impedimentos.",
+  "cuando": "2026-11-08T15:02:59.986Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Boca festejando un gol.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de Boca Juniors celebrando un gol durante un partido de la Liga Profesional."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "35377ac8cc161516"
  },
  "16v0c3c": {
   "archivo": "fotos-notas/16v0c3c.jpg",
@@ -95146,7 +95186,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "e3a56ff3b2b6616b"
+  "huella": "e3a56ff3b2b6616b",
+  "ausenteDesde": "2026-11-08T15:03:57.143Z"
  },
  "1mmvcyi": {
   "archivo": "fotos-notas/1mmvcyi.jpg",
@@ -95350,6 +95391,158 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "4b534b534b696707"
+  "huella": "4b534b534b696707",
+  "ausenteDesde": "2026-11-08T15:03:57.143Z"
+ },
+ "4hqzww": {
+  "archivo": "fotos-notas/4hqzww.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Luca Regiardo pide disculpas por los festejos de Newell's tras el gol de Boca",
+  "enlace": "https://www.ole.com.ar/newells-old-boys/newells-ennervalencia-boca-rosariocentral-lucaregiardo_0_HzNdKCS9C7.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/11/08/KZw5FZjsy_2000x1500__1.jpg",
+  "razon": "Es la única opción disponible y muestra al protagonista de la nota en la conferencia de prensa, sin marcas de agua del medio ni menores de edad.",
+  "cuando": "2026-11-08T15:02:59.986Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Luca Regiardo sentado en la conferencia de prensa de Newell's Old Boys.",
+   "detalle": "Se observa a un joven (probablemente adulto joven) en primer plano. Los logos en el fondo son parte de la escena real.",
+   "segunda": {
+    "proveedor": "gemini",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Luca Regiardo hablando en una conferencia de prensa con fondo de Newell's Old Boys."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "11919009a9b52530"
+ },
+ "a8ajus": {
+  "archivo": "fotos-notas/a8ajus.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Independiente queda fuera de las copas internacionales por fair play",
+  "enlace": "https://www.tycsports.com/independiente/independiente-afuera-copas-2027-por-tabla-fair-play-id770827.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/07/1003695/independiente-riestra_1440x810.webp?v=1",
+  "razon": "Es la única foto que muestra claramente al equipo completo de Independiente sin marcas agregadas, menores ni problemas técnicos.",
+  "cuando": "2026-11-08T15:02:59.986Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Plantel de Independiente posando para la formación antes de un partido."
+  },
+  "huella": "3b3b2eee98983bbb"
+ },
+ "43zcvs": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Arruabarrena revela el llamado de Ponzio tras el título de Boca",
+  "razon": "La única foto disponible es una captura de pantalla de televisión con zócalos, logos superpuestos y marca de agua del canal.",
+  "cuando": "2026-11-08T15:02:59.986Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "1kfksmi": {
+  "archivo": "fotos-notas/1kfksmi.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Claudio Tapia entrega la copa a Boca y recibe silbidos en la Bombonera",
+  "enlace": "https://tn.com.ar/deportes/futbol/2026/11/07/video-silbaron-a-chiqui-tapia-cuando-ingreso-a-la-bombonera-para-entregarle-el-trofeo-a-boca/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/https%3A%2F%2Fthumbs.vodgc.net%2F1-14-b7da5075e05b1794095858349-1794096132.jpg?auth=15df32f7a210a043822a824fe456c902f63b596f50757252e9c38b1f92457100&width=1023",
+  "razon": "Muestra claramente a Claudio Tapia entregando la copa a Boca en la Bombonera con buena nitidez y sin marcas ni menores.",
+  "cuando": "2026-11-08T15:02:59.986Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Claudio Tapia entrega la copa al capitán de Boca en la Bombonera.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Claudio Tapia y un jugador de Boca Juniors posan con la copa de campeón de liga."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "4f4e47878581850c"
+ },
+ "1mn2et2": {
+  "archivo": "fotos-notas/1mn2et2.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca gana la Tabla Anual y alcanza los 75 túdores oficiales",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/asi-quedo-la-tabla-historica-de-campeones-del-futbol-argentino-tras-el-titulo-de-boca-nid07112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/miguel-meretiel-y-enner-valencia-festejan-el-ITDIK6OEEJCEVCUQZZIXJV3AVM.JPG?auth=4d7c454dafca7538f2698a48f42c1d379887b5eff8c0d0c4ce3481fe26fdbf09&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única foto limpia de marcas de agua, sin elementos gráficos extraños y muestra claramente a los jugadores celebrando con el trofeo.",
+  "cuando": "2026-11-08T15:02:59.986Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Boca besando el trofeo"
+  },
+  "huella": "1a8e3831d6d6cbc3"
+ },
+ "10f6q9o": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca y Defensa y Justicia juegan por la última fecha del Clausura",
+  "razon": "Ninguna foto sirve: las que corresponden tienen marcas de agua, son gráficas, de archivo o no muestran el partido indicado.",
+  "cuando": "2026-11-08T15:02:59.986Z",
+  "intentos": 1,
+  "fuentes": 20
+ },
+ "1jqapk8": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "River espera rival para los octavos de final y concentra en Pilar",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-08T15:02:59.986Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }

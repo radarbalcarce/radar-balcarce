@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-08T14:33:15.712Z",
- "portada": 74,
+ "generado": "2026-11-08T15:03:57.280Z",
+ "portada": 71,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-11-08T14:33:15.999Z",
+  "generado": "2026-11-08T15:03:57.726Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -116,39 +116,13 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 47,
     "notas": [
      {
       "id": "19j1eud",
       "titulo": "Piden crear un programa de asistencia para estudiantes universitarios",
       "seccion": "Política"
      },
-     {
-      "id": "1w8v4jx",
-      "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
-      "seccion": "Educación"
-     },
-     {
-      "id": "55plr2",
-      "titulo": "El Museo Fangio incorpora cascos de Hamilton y Bottas",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "c5pgr6",
-      "titulo": "Suspenden un partido de fútbol femenino tras la agresión a un juez de línea",
-      "seccion": "Policiales"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 49,
-    "notas": [
      {
       "id": "zswtcs",
       "titulo": "Walter Degracia abre un nuevo gimnasio de boxeo en la ciudad",
@@ -160,14 +134,40 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "ff5o5",
-      "titulo": "Sembrando Futuro llega a los mil egresados",
-      "seccion": "Educación"
+      "id": "7ashy7",
+      "titulo": "Virginia Aparicio cuestiona su exoneración del INTA",
+      "seccion": "Agro"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 54,
+    "notas": [
+     {
+      "id": "u5bwex",
+      "titulo": "La escuela Taekwondo Henko reúne a más de cien alumnos",
+      "seccion": "Deportes"
      },
      {
       "id": "xwpiqf",
       "titulo": "Franco Colapinto queda eliminado en la Q1 y largará 17 en Brasil",
       "seccion": "Automovilismo"
+     },
+     {
+      "id": "1vn9y3q",
+      "titulo": "El papa Léon XIV llega hoy a la Argentina en su primera visita oficial",
+      "seccion": "Argentina"
+     },
+     {
+      "id": "ymnte9",
+      "titulo": "Una policía rescata a una jubilada tras caer con su auto a un arroyo",
+      "seccion": "Policiales"
      }
     ]
    }
@@ -176,15 +176,15 @@
    "hoy": [],
    "cola": [
     {
-     "id": "6o6ez1",
-     "titulo": "Karina Milei celebra la llegada del papa León XIV al país",
-     "seccion": "Argentina",
-     "marcada": false
-    },
-    {
      "id": "40e7i7",
      "titulo": "Franco Colapinto larga 15 en el Gran Premio de San Pablo de Fórmula 1",
      "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
+     "id": "6o6ez1",
+     "titulo": "Karina Milei celebra la llegada del papa León XIV al país",
+     "seccion": "Argentina",
      "marcada": false
     },
     {
