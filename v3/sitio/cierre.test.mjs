@@ -205,6 +205,18 @@ test('/llms.txt, los datos para agentes, el mapa de noticias y el mapa de págin
   assert.match(await (await ir('/robots.txt')).text(), /Disallow: \/panel\//);
 });
 
+test('/humans.txt: quiénes hacen el sitio, en texto plano', async () => {
+  const { ir } = montar();
+  const r = await ir('/humans.txt');
+  assert.equal(r.status, 200);
+  assert.match(r.headers.get('content-type'), /text\/plain/);
+  const t = await r.text();
+  assert.match(t, /Hernán Accomo/);
+  assert.match(t, /Andrés Gerace/);
+  assert.match(t, /contacto@radarbalcarce\.com/);
+  assert.ok(esRutaPropia('/humans.txt'));
+});
+
 test('/.well-known/security.txt (RFC 9116) en texto plano y /security.txt redirige', async () => {
   const { ir } = montar();
   const r = await ir('/.well-known/security.txt');

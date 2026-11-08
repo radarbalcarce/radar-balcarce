@@ -19,7 +19,7 @@ import { leerAgenda, eventoDeRuta } from './agenda.mjs';
 import { icsDeEvento } from './eventos.mjs';
 import { leerLiga, leerCampeonatoF1 } from './tablas.mjs';
 import { paginaAgenda, paginaDeEvento, paginaHoy, paginaUtil, paginaTablas, paginaLiga, paginaF1, paginaCompartir, paginaYaNoEsta } from './vistas/cierre.mjs';
-import { ultimasJson, indiceJson, serviciosJson, llmsTxt, securityTxt, sitemapNoticias } from './vistas/agentes.mjs';
+import { ultimasJson, indiceJson, serviciosJson, llmsTxt, securityTxt, humansTxt, sitemapNoticias } from './vistas/agentes.mjs';
 import { NOTAS as NOTAS_VIEJAS, SECCIONES as SECCIONES_VIEJAS } from './redirecciones-viejas.mjs';
 import { RUTA_DE_COPIA, PREFIJO_R2_DE_COPIAS } from './fotos-copia.mjs';
 import { destinoDeRestoViejo } from './restos-del-viejo.mjs';
@@ -100,7 +100,7 @@ export function esRutaPropia(pathname) {
     || /^\/sitemap-\d{4}-(?:0[1-9]|1[0-2])\.xml$/.test(ruta) || /^\/seccion\/[a-z]+(?:-\d+)?$/.test(ruta) || /^\/nota\/[^/]+$/.test(ruta)
     // Lo que servía el sitio viejo y ahora es de acá (el cierre, REGLAS.md § 10).
     || ruta === '/farmacia' || ruta === '/rss' || ruta === '/media-kit' || ruta === '/hoy' || ruta === '/util' || ruta === '/tablas' || ruta === '/tablas/liga-profesional' || ruta === '/tablas/formula-1' || ruta === '/compartir'
-    || ruta === '/agenda' || /^\/agenda\/[^/]+(?:\/evento\.ics)?$/.test(ruta) || ruta === '/llms.txt' || ruta === '/.well-known/security.txt' || ruta === '/security.txt' || /^\/agentes\/(?:ultimas|indice|servicios)\.json$/.test(ruta)
+    || ruta === '/agenda' || /^\/agenda\/[^/]+(?:\/evento\.ics)?$/.test(ruta) || ruta === '/llms.txt' || ruta === '/.well-known/security.txt' || ruta === '/security.txt' || ruta === '/humans.txt' || /^\/agentes\/(?:ultimas|indice|servicios)\.json$/.test(ruta)
     || ruta === '/sitemap-news.xml' || ruta === '/sitemap-paginas.xml' || ruta === '/sitemap-index.xml' || /^\/sitemap-notas\/\d{4}-\d{2}\/sitemap\.xml$/.test(ruta)
     || /^\/seccion\/[a-z]+\/feed\.xml$/.test(ruta) || /^\/tema\/[^/]+$/.test(ruta) || /(?:^|\/)opengraph-image$/.test(ruta);
 }
@@ -288,6 +288,7 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
 
     if (ruta === '/.well-known/security.txt') return { r: respuesta(securityTxt(), { tipo: 'text/plain; charset=utf-8', cache: CACHE.texto }), cachear: true };
     if (ruta === '/security.txt') return redirigir('/.well-known/security.txt');
+    if (ruta === '/humans.txt') return { r: respuesta(humansTxt(), { tipo: 'text/plain; charset=utf-8', cache: CACHE.texto }), cachear: true };
     if (ruta === '/llms.txt') return { r: respuesta(llmsTxt(), { tipo: 'text/plain; charset=utf-8', cache: CACHE.texto }), cachear: true };
     if (ruta === '/util') return { r: respuesta(paginaUtil({ indexar, contexto: await contextoDelDia() }), { cache: CACHE.texto, indexar }), cachear: true };
     if (ruta === '/compartir') return { r: respuesta(paginaCompartir({ contexto: await contextoDelDia() }), { cache: CACHE.texto, indexar: false }), cachear: true };

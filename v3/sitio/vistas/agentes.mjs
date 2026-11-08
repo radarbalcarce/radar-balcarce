@@ -56,6 +56,25 @@ export function securityTxt() {
   ].join('\n');
 }
 
+/** /humans.txt: quiénes hacen el sitio (la convención de humanstxt.org). Lo mismo que dice «Quiénes somos». */
+export function humansTxt() {
+  return [
+    '/* EQUIPO */',
+    'Fundador y director: Hernán Accomo',
+    'Colabora: Andrés Gerace',
+    'Redacción: Redacción Radar Balcarce (notas escritas con inteligencia artificial a partir de varias fuentes y verificadas contra ellas)',
+    'Contacto: contacto@radarbalcarce.com',
+    'Sitio: Balcarce, Buenos Aires, Argentina',
+    '',
+    '/* SITIO */',
+    'Idioma: español (es-AR)',
+    `Cómo trabajamos: ${BASE}/como-trabajamos`,
+    `Quiénes somos: ${BASE}/quienes-somos`,
+    'Tecnología: Cloudflare Workers y D1',
+    '',
+  ].join('\n');
+}
+
 export function llmsTxt() {
   return `# ${NOMBRE}
 
