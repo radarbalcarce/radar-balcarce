@@ -3623,19 +3623,19 @@
   "2026-11-08": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 8,
+     "llamadas": 10,
      "errores": 6,
-     "entrada": 5427,
-     "salida": 2965,
+     "entrada": 9751,
+     "salida": 4851,
      "pensamiento": 0,
-     "total": 8392,
+     "total": 14602,
      "claves": {
-      "clasificacion": 8
+      "clasificacion": 10
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 5,
-       "ok": 2,
+       "ok": 4,
        "saturado": 1
       }
      }
@@ -3659,19 +3659,19 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 11,
+     "llamadas": 14,
      "errores": 10,
-     "entrada": 23953,
-     "salida": 106,
+     "entrada": 68001,
+     "salida": 1060,
      "pensamiento": 0,
-     "total": 24059,
+     "total": 69061,
      "claves": {
-      "clasificacion": 11
+      "clasificacion": 14
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 10,
-       "ok": 1
+       "ok": 4
       }
      }
     },
@@ -3710,19 +3710,19 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 16,
+     "llamadas": 22,
      "errores": 15,
-     "entrada": 5071,
-     "salida": 931,
+     "entrada": 41515,
+     "salida": 7514,
      "pensamiento": 0,
-     "total": 6002,
+     "total": 49029,
      "claves": {
-      "redaccion": 16
+      "redaccion": 22
      },
      "motivos": {
       "redaccion": {
        "cupo-diario": 15,
-       "ok": 1
+       "ok": 7
       }
      }
     },
@@ -3745,18 +3745,19 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 10,
+     "llamadas": 13,
      "errores": 10,
-     "entrada": 0,
-     "salida": 0,
+     "entrada": 17336,
+     "salida": 1475,
      "pensamiento": 0,
-     "total": 0,
+     "total": 18811,
      "claves": {
-      "clasificacion": 10
+      "clasificacion": 13
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 10
+       "cupo-diario": 10,
+       "ok": 3
       }
      }
     },
