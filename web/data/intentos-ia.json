@@ -593,6 +593,13 @@
   "textos": 5,
   "numeradas": 14
  },
+ "12rqjnm": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T02:02:18.133Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 12
+ },
  "12stj4i": {
   "intentos": 1,
   "ultimo": "2026-11-07T10:32:24.726Z",
@@ -673,6 +680,21 @@
   "numeradas": 9,
   "motivos": [
    "título o bajada: 2 problemas (forma, numero): el copete trae un escape"
+  ]
+ },
+ "13clu2t": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T02:02:18.133Z",
+  "motivo": "cuerpo: 2 problemas (numero, relleno): el cuerpo dice 6 y la fuente no lo dice; sin esas oraciones quedan 220 palabras",
+  "textos": 2,
+  "numeradas": 4,
+  "motivos": [
+   "cuerpo: 4 problemas (numero, antecedente, relleno): el cuerpo dice 6 y",
+   "cuerpo: 2 problemas (numero, relleno): el cuerpo dice 6 y la fuente no"
+  ],
+  "falla": [
+   "el cuerpo dice 6 y la fuente no lo dice",
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "13d6i82": {
@@ -1010,16 +1032,6 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
- },
- "15jfqvv": {
-  "intentos": 3,
-  "ultimo": "2026-11-01T02:01:28.381Z",
-  "motivo": "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (título, bajada o texto para redes)",
-  "textos": 3,
-  "numeradas": 3,
-  "motivos": [
-   "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (t"
-  ]
  },
  "15lwyqk": {
   "intentos": 1,
@@ -4265,16 +4277,6 @@
   "textos": 2,
   "numeradas": 2
  },
- "1mdggut": {
-  "intentos": 2,
-  "ultimo": "2026-11-01T02:01:28.381Z",
-  "motivo": "con cuerpo",
-  "textos": 6,
-  "numeradas": 6,
-  "motivos": [
-   "título o bajada: 1 problema (forma): el copete dice \"en vivo\" y el sit"
-  ]
- },
  "1mf52q7": {
   "intentos": 1,
   "ultimo": "2026-11-06T10:02:04.344Z",
@@ -4449,19 +4451,6 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
- },
- "1nvpv7e": {
-  "intentos": 3,
-  "ultimo": "2026-11-01T02:01:28.381Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 6,
-  "motivos": [
-   "cuerpo: 6 problemas (numero, fecha, nombre, antecedente, relleno): el ",
-   "cuerpo: 3 problemas (numero, fecha, nombre): el cuerpo dice 1 y la fue",
-   "cuerpo: 2 problemas (numero, fecha): el cuerpo dice 1 y la fuente no l",
-   "cuerpo: 1 problema (fecha): el cuerpo menciona \"noviembre\" y la fuente"
-  ]
  },
  "1nxw06y": {
   "intentos": 1,
@@ -4795,6 +4784,13 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 41
+ },
+ "1pzxic6": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T02:02:18.133Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "1pzxzuk": {
   "intentos": 1,
@@ -7692,6 +7688,22 @@
    "título o bajada: 1 problema (largo): el titulo tiene 99 caracteres, el"
   ]
  },
+ "9cxjwp": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T02:02:18.133Z",
+  "motivo": "título o bajada: 1 problema (numero): el copete dice 3 y la fuente no lo dice",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "título o bajada: 1 problema (numero): el copete dice 3 y la fuente no "
+  ],
+  "falla": [
+   "el copete dice 3 y la fuente no lo dice",
+   "el cuerpo dice 3 y la fuente no lo dice",
+   "el cuerpo usa \"asociacion\", que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo nombra a \"radiofonia\" y la fuente no"
+  ]
+ },
  "9e9o5x": {
   "intentos": 1,
   "ultimo": "2026-11-06T19:01:33.474Z",
@@ -7761,16 +7773,6 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
- },
- "a08xt5": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T02:01:28.381Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 3,
-  "motivos": [
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
-  ]
  },
  "a0gd4g": {
   "intentos": 1,
@@ -7849,13 +7851,6 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 18
- },
- "agdudm": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T02:01:28.381Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 7
  },
  "age0rp": {
   "intentos": 1,
@@ -10197,13 +10192,6 @@
   "textos": 8,
   "numeradas": 15
  },
- "lmyi7o": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T02:01:28.381Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1
- },
  "lnh6no": {
   "intentos": 1,
   "ultimo": "2026-11-07T23:31:28.813Z",
@@ -10989,13 +10977,6 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 10
- },
- "q9p54v": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T02:01:28.381Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 3
  },
  "q9wlq": {
   "intentos": 3,
@@ -12486,6 +12467,13 @@
   "motivos": [
    "título o bajada: 1 problema (nombre): el copete nombra a \"copa\" y la f"
   ]
+ },
+ "xqeb23": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T02:02:18.133Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
  },
  "xrlaa0": {
   "intentos": 2,

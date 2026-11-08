@@ -82441,7 +82441,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano de una hoja de girasol afectada por roya negra."
   },
-  "huella": "72d3b199d25a6a69"
+  "huella": "72d3b199d25a6a69",
+  "ausenteDesde": "2026-11-08T02:03:31.416Z"
  },
  "191rncb": {
   "archivo": "fotos-notas/191rncb.jpg",
@@ -83104,7 +83105,8 @@
    "corresponde": "si",
    "descripcion": "Un murciélago posado sobre una superficie de madera."
   },
-  "huella": "783c1e3f2bd7cbe3"
+  "huella": "783c1e3f2bd7cbe3",
+  "ausenteDesde": "2026-11-08T02:03:31.416Z"
  },
  "1h2i4lv": {
   "archivo": "fotos-notas/1h2i4lv.jpg",
@@ -93339,7 +93341,8 @@
    "corresponde": "si",
    "descripcion": "Bandera del orgullo flameando en la Marcha del Orgullo en Buenos Aires."
   },
-  "huella": "1a527bd774347414"
+  "huella": "1a527bd774347414",
+  "ausenteDesde": "2026-11-08T02:03:31.416Z"
  },
  "17vnb63": {
   "archivo": "fotos-notas/17vnb63.jpg",
@@ -93469,11 +93472,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Muere el actor Gabriel González Abat a los 56 años",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TN (Todo Noticias) no se usa todavía.",
-  "cuando": "2026-11-08T00:01:54.809Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Minuto Uno no se usa todavía.",
+  "cuando": "2026-11-08T02:02:50.607Z",
   "intentos": 1,
-  "fuentes": 7,
-  "intentosPorCupo": 2
+  "fuentes": 8,
+  "intentosPorCupo": 3
  },
  "sl86ui": {
   "archivo": "fotos-notas/sl86ui.jpg",
@@ -94275,5 +94278,74 @@
    "descripcion": "El papa saludando al bajar de un avión"
   },
   "huella": "03151d15322333b3"
+ },
+ "1pzxic6": {
+  "archivo": "fotos-notas/1pzxic6.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Nadadores balcarceños compiten en el Panamericano Master de Buenos Aires",
+  "enlace": "https://eldiariobalcarce.com.ar/nadadores-master-en-campeonato-panamericano-34",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-11-05-11-58-36Nadadores.jpg",
+  "razon": "La foto muestra claramente a los nadadores balcarceños en el evento, tiene buena calidad y no presenta marcas de agua, menores ni elementos que impidan su publicación.",
+  "cuando": "2026-11-08T02:02:50.607Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Grupo de nadadores posando con medallas frente a un banner del Panamericano Master."
+  },
+  "huella": "3329643152635554"
+ },
+ "xqeb23": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca gana la Tabla Anual y los jugadores sorprenden a Arruabarrena",
+  "razon": "Ninguna de las fotos es apta: la A y la B son capturas de pantalla de televisión con zócalos y logos sobreimpresos, y la C es una composición gráfica que incluye una captura de pantalla dentro de un círculo.",
+  "cuando": "2026-11-08T02:02:50.607Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "12rqjnm": {
+  "archivo": "fotos-notas/12rqjnm.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV visita Argentina con un esquema especial de feriados",
+  "enlace": "https://www.cronica.com.ar/sociedad/lo-confirmo-el-servicio-meteorologico-asi-estara-el-tiempo-en-buenos-aires-y-cordoba-durante-la-visita-del-papa-leon-xiv/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1730/1730009/6aec63a4483c0_600_315!.png?s=136d9ff2ca493804e37da3a7f2ae3705&d=1793847600",
+  "razon": "Es la única imagen que muestra al protagonista de la nota en un contexto coherente y sin elementos que impidan su publicación.",
+  "cuando": "2026-11-08T02:02:50.607Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa saludando desde el papamóvil con la Basílica de San Pedro de fondo.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "El papa León XIV saludando desde el vehículo papal con la Basílica de San Pedro de fondo."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "5a327aaba2a2e7e7"
  }
 }
