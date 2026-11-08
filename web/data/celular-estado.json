@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-08T12:03:04.853Z",
- "portada": 63,
+ "generado": "2026-11-08T12:31:39.784Z",
+ "portada": 70,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-11-08T12:03:05.346Z",
+  "generado": "2026-11-08T12:31:40.045Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -116,27 +116,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 51,
     "notas": [
+     {
+      "id": "c5pgr6",
+      "titulo": "Suspenden un partido de fútbol femenino tras la agresión a un juez de línea",
+      "seccion": "Policiales"
+     },
      {
       "id": "lx27ip",
       "titulo": "Matías La Torre repasa su trayectoria musical en una emisora local",
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "1wq5a8z",
-      "titulo": "Crean un registro municipal para acompañantes terapéuticos",
-      "seccion": "Balcarce"
+      "id": "1w8v4jx",
+      "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
+      "seccion": "Educación"
      },
      {
-      "id": "7ashy7",
-      "titulo": "Virginia Aparicio cuestiona su exoneración del INTA",
-      "seccion": "Agro"
-     },
-     {
-      "id": "zswtcs",
-      "titulo": "Walter Degracia abre un nuevo gimnasio de boxeo en la ciudad",
-      "seccion": "Deportes"
+      "id": "55plr2",
+      "titulo": "El Museo Fangio incorpora cascos de Hamilton y Bottas",
+      "seccion": "Automovilismo"
      }
     ]
    },
@@ -147,27 +147,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 53,
     "notas": [
      {
-      "id": "u5bwex",
-      "titulo": "La escuela Taekwondo Henko reúne a más de cien alumnos",
+      "id": "7ashy7",
+      "titulo": "Virginia Aparicio cuestiona su exoneración del INTA",
+      "seccion": "Agro"
+     },
+     {
+      "id": "ff5o5",
+      "titulo": "Sembrando Futuro llega a los mil egresados",
+      "seccion": "Educación"
+     },
+     {
+      "id": "zswtcs",
+      "titulo": "Walter Degracia abre un nuevo gimnasio de boxeo en la ciudad",
       "seccion": "Deportes"
      },
      {
-      "id": "1vn9y3q",
-      "titulo": "El papa Léon XIV llega hoy a la Argentina en su primera visita oficial",
-      "seccion": "Argentina"
-     },
-     {
-      "id": "ymnte9",
-      "titulo": "Una policía rescata a una jubilada tras caer con su auto a un arroyo",
-      "seccion": "Policiales"
-     },
-     {
-      "id": "xwpiqf",
-      "titulo": "Franco Colapinto queda eliminado en la Q1 y largará 17 en Brasil",
-      "seccion": "Automovilismo"
+      "id": "1wq5a8z",
+      "titulo": "Crean un registro municipal para acompañantes terapéuticos",
+      "seccion": "Balcarce"
      }
     ]
    }
@@ -184,6 +184,12 @@
     {
      "id": "6wk2g5",
      "titulo": "Implementan un operativo especial de transporte por la visita del Papa",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "1jbz59o",
+     "titulo": "El Gobierno decreta feriados por la visita del papa León XIV a la Argentina",
      "seccion": "Argentina",
      "marcada": false
     }
