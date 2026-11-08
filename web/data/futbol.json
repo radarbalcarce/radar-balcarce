@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-07T23:33:41.145Z",
+ "consultado": "2026-11-08T00:33:13.782Z",
  "equipos": [
   "9739",
   "3",
@@ -1220,101 +1220,7 @@
     "torneo": "torneo-clausura"
    }
   ],
-  "copaargentina": [
-   {
-    "id": "401926287",
-    "competencia": "copaargentina",
-    "inicio": "2026-10-29T00:15:00.000Z",
-    "estado": "final",
-    "minuto": "95'",
-    "local": {
-     "id": "9785",
-     "nombre": "Atlético Tucumán",
-     "goles": 1
-    },
-    "visitante": {
-     "id": "7764",
-     "nombre": "Platense",
-     "goles": 1
-    },
-    "penales": {
-     "local": 4,
-     "visitante": 5
-    },
-    "goles": [
-     {
-      "equipo": "local",
-      "jugador": "Pedro Canelo",
-      "minuto": "91'",
-      "tipo": "de penal"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Agustín Lagos",
-      "minuto": "92'",
-      "tipo": "de penal"
-     },
-     {
-      "equipo": "local",
-      "jugador": "Rodrigo Granillo",
-      "minuto": "93'",
-      "tipo": "de penal"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Franco Zapiola",
-      "minuto": "94'",
-      "tipo": "de penal"
-     },
-     {
-      "equipo": "local",
-      "jugador": "Clever Ferreira",
-      "minuto": "95'",
-      "tipo": "de penal"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Bruno Sepúlveda",
-      "minuto": "96'",
-      "tipo": "de penal"
-     },
-     {
-      "equipo": "local",
-      "jugador": "Lautaro Godoy",
-      "minuto": "97'",
-      "tipo": "de penal"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Ignacio Vázquez",
-      "minuto": "98'",
-      "tipo": "de penal"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Guido Mainero",
-      "minuto": "99'",
-      "tipo": "de penal"
-     },
-     {
-      "equipo": "local",
-      "jugador": "Renzo Tesuri",
-      "minuto": "36'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Nicolas Retamar",
-      "minuto": "58'",
-      "tipo": "gol"
-     }
-    ],
-    "estadio": "Padre Ernesto Martearena",
-    "fase": null,
-    "partidoDeLaSerie": null,
-    "torneo": "semifinals"
-   }
-  ],
+  "copaargentina": [],
   "libertadores": [],
   "sudamericana": []
  },

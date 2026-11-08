@@ -84053,7 +84053,8 @@
    "corresponde": "si",
    "descripcion": "Personas trabajando en una oficina de mercado financiero."
   },
-  "huella": "3cb51d5df1378b70"
+  "huella": "3cb51d5df1378b70",
+  "ausenteDesde": "2026-11-08T00:33:15.290Z"
  },
  "a40ey8": {
   "archivo": "fotos-notas/a40ey8.jpg",
@@ -86223,13 +86224,28 @@
   "ausenteDesde": "2026-11-06T10:33:33.118Z"
  },
  "8wbsui": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/8wbsui.jpg",
+  "medio": "Los Andes (Mendoza)",
+  "credito": "Foto: Los Andes (Mendoza)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La definición de los clasificados a las copas internacionales de 2027",
-  "razon": "Ninguna foto sirve: la A tiene marca del medio (Olé), y las fotos B y C son capturas de pantalla de tablas de posiciones (gráficas) que no cumplen con los requisitos de una fotografía real.",
-  "cuando": "2026-11-06T10:03:11.714Z",
-  "intentos": 1,
-  "fuentes": 4
+  "enlace": "https://www.losandes.com.ar/deportes/copa-libertadores-y-sudamericana-2027-que-equipos-argentinos-ya-clasificaron-y-como-esta-el-panorama-n6013420",
+  "imagenOriginal": "https://media.losandes.com.ar/p/9779066a4e7e6fdeab5c3f353a7bd593/adjuntos/368/imagenes/100/764/0100764431/1200x675/smart/belgrano.png",
+  "razon": "Es la única imagen que es una fotografía real de un evento deportivo, sin marcas de agua añadidas por medios, sin ser una placa gráfica y sin menores identificables.",
+  "cuando": "2026-11-08T00:32:37.239Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Belgrano celebrando un campeonato en el campo de juego."
+  },
+  "huella": "3931391b5b04751b"
  },
  "tuh854": {
   "archivo": "fotos-notas/tuh854.jpg",
@@ -88144,7 +88160,8 @@
    "corresponde": "si",
    "descripcion": "Andy Kusnetzoff en el estudio de PH Podemos Hablar"
   },
-  "huella": "cece4e0e0c2d684c"
+  "huella": "cece4e0e0c2d684c",
+  "ausenteDesde": "2026-11-08T00:33:15.290Z"
  },
  "1p1dj43": {
   "archivo": "fotos-notas/1p1dj43.jpg",
@@ -89576,13 +89593,40 @@
   "ausenteDesde": "2026-11-07T00:36:38.848Z"
  },
  "1w9enoc": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1w9enoc.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Cardenal Newman e Hindú juegan la final del URBA Top 14",
-  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de El Día (parece una foto de stock): no se elige ninguna.",
-  "cuando": "2026-11-06T21:31:57.564Z",
-  "intentos": 2,
-  "fuentes": 4
+  "enlace": "https://www.ole.com.ar/rugby/newman-va-bicampeonato-vs-hindu-final-urba-ver_0_8EzYyTgybR.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/11/06/BCeIVzr0k_2000x1500__1.jpg",
+  "razon": "Es la única imagen que muestra claramente el desarrollo del juego, sin marcas de agua, sin elementos gráficos sobreimpresos y sin menores reconocibles.",
+  "cuando": "2026-11-08T00:32:37.239Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Composición de dos fotos de jugadores de rugby en partido.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de rugby de equipos con camisetas granate y azul y amarilla en acción sobre el campo."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "dc1958b890986a60"
  },
  "1o81q50": {
   "intentado": true,
@@ -92272,13 +92316,28 @@
   "ausenteDesde": "2026-11-07T16:32:51.741Z"
  },
  "1lc4vya": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1lc4vya.jpg",
+  "medio": "La Nueva",
+  "credito": "Foto: La Nueva",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La facturación del Cyber Monday cae un 20 por ciento en términos reales",
-  "razon": "La única foto disponible tiene una marca de agua superpuesta del medio Noticias Argentinas.",
-  "cuando": "2026-11-07T15:31:40.280Z",
-  "intentos": 1,
-  "fuentes": 3
+  "enlace": "https://www.lanueva.com/nota/2026-11-7-20-38-0-las-ventas-en-el-cyber-monday-cayeron-un-20-en-terminos-reales-respecto-del-2025",
+  "imagenOriginal": "https://pxcdn.lanueva.com/112026/1794094678724.jpg?&cw=600&ch=365",
+  "razon": "Es la única imagen que no presenta marcas de agua sobreimpresas por el medio, siendo una representación adecuada del concepto de compras online para la nota.",
+  "cuando": "2026-11-08T00:32:37.239Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona realizando compras online en una laptop junto a un carrito de compras miniatura."
+  },
+  "huella": "66dec317923c330b"
  },
  "181mosg": {
   "archivo": "fotos-notas/181mosg.jpg",
@@ -93973,5 +94032,38 @@
   "imagenOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Vista_a%C3%A9rea_del_Aut%C3%B3dromo_Jos%C3%A9_Carlos_Pace_03.jpg/1280px-Vista_a%C3%A9rea_del_Aut%C3%B3dromo_Jos%C3%A9_Carlos_Pace_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "titulo": "File:Vista aérea del Autódromo José Carlos Pace 03.jpg",
   "cuando": "2026-11-08T00:04:35.976Z"
+ },
+ "1b3h24d": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca Juniors gana la Tabla Anual y los hinchas festejan en la plaza Libertad",
+  "razon": "La única foto disponible muestra a varios menores de edad siendo cargados en hombros por adultos, lo cual incumple la política de publicación de Radar Balcarce.",
+  "cuando": "2026-11-08T00:32:37.239Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1xt5ci": {
+  "archivo": "fotos-notas/1xt5ci.jpg",
+  "medio": "Los Andes (Mendoza)",
+  "credito": "Foto: Los Andes (Mendoza)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca gana la Liga Profesional con un gol agónico de Enner Valencia",
+  "enlace": "https://www.losandes.com.ar/deportes/leandro-paredes-se-emociono-el-campeonato-boca-sone-toda-mi-vida-esto-n6013423",
+  "imagenOriginal": "https://media.losandes.com.ar/p/857c508b64a3b4e3ff77fe0e5c2bfb12/adjuntos/368/imagenes/100/747/0100747739/1200x675/smart/leandro-paredes-volante-boca-juniors.jpg",
+  "razon": "Es la única imagen que muestra una acción de juego clara, sin marcas de agua, sin elementos gráficos sobreimpresos y sin menores identificables.",
+  "cuando": "2026-11-08T00:32:37.239Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de Boca pateando la pelota en pleno partido."
+  },
+  "huella": "898dd65a3551f237"
  }
 }
