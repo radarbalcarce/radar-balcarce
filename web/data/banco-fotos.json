@@ -61881,9 +61881,7 @@
   "borrada": true
  },
  "1chrqym": {
-  "archivo": "fotos-notas/1chrqym.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Javier Milei inaugura un auditorio evangélico en la ciudad de Neuquén",
@@ -61903,7 +61901,8 @@
    "descripcion": "Javier Milei hablando en un atril con fondo de cortinados"
   },
   "huella": "323261223169484c",
-  "ausenteDesde": "2026-11-01T21:33:21.487Z"
+  "intentado": true,
+  "borrada": true
  },
  "cpswpz": {
   "medio": "La Brújula 24",
@@ -83981,7 +83980,8 @@
    "corresponde": "si",
    "descripcion": "Claudio Tapia sentado en una conferencia de prensa con micrófonos y sponsors de fondo."
   },
-  "huella": "a7a525a1c3a9ab22"
+  "huella": "a7a525a1c3a9ab22",
+  "ausenteDesde": "2026-11-08T22:04:23.756Z"
  },
  "km8ila": {
   "archivo": "fotos-notas/km8ila.jpg",
@@ -84994,7 +84994,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "3737091137333133"
+  "huella": "3737091137333133",
+  "ausenteDesde": "2026-11-08T22:04:23.756Z"
  },
  "q70euu": {
   "archivo": "fotos-notas/q70euu.jpg",
@@ -88362,7 +88363,8 @@
    "corresponde": "si",
    "descripcion": "Cuatro personas adultas paradas al aire libre en un sector con plantas y árboles."
   },
-  "huella": "9321169199dbcbdf"
+  "huella": "9321169199dbcbdf",
+  "ausenteDesde": "2026-11-08T22:04:23.756Z"
  },
  "10oc2b1": {
   "archivo": "fotos-notas/10oc2b1.jpg",
@@ -89043,7 +89045,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "af0a6d262e27a716"
+  "huella": "af0a6d262e27a716",
+  "ausenteDesde": "2026-11-08T22:04:23.756Z"
  },
  "13en1uy": {
   "intentado": true,
@@ -93436,10 +93439,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Ferroviarios y Los Patos ganan en el inicio de la cuarta fecha del Clausura",
-  "razon": "La segunda opinión (groq, porque la primera IA vio gente muy joven) descartó la de Infórmese Primero (FM 104.9) (un menor): no se elige ninguna.",
-  "cuando": "2026-11-08T05:02:41.476Z",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Infórmese Primero (FM 104.9) no se usa todavía.",
+  "cuando": "2026-11-08T22:02:46.297Z",
   "intentos": 2,
-  "fuentes": 2
+  "fuentes": 3,
+  "intentosPorCupo": 1
  },
  "1efbl8c": {
   "intentado": true,
@@ -96459,7 +96463,8 @@
    "corresponde": "si",
    "descripcion": "El papa León XIV saludando desde el papamóvil"
   },
-  "huella": "1676363637133333"
+  "huella": "1676363637133333",
+  "ausenteDesde": "2026-11-08T22:04:23.756Z"
  },
  "mfu55j": {
   "intentado": true,
@@ -96493,5 +96498,215 @@
    "descripcion": "Director técnico gesticulando y discutiendo con el árbitro en el partido"
   },
   "huella": "6adccc4b3b135623"
+ },
+ "1mezi1z": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Jorge Macri entrega las llaves de la Ciudad al papa León XIV",
+  "razon": "Ninguna foto cumple con todos los requisitos ya que todas las que muestran la entrega de llaves incluyen un menor (el bebé en brazos), lo cual impide su publicación.",
+  "cuando": "2026-11-08T22:02:46.297Z",
+  "intentos": 1,
+  "fuentes": 5
+ },
+ "hm1xmt": {
+  "archivo": "fotos-notas/hm1xmt.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Milei recibe al papa León XIV en la Casa Rosada con dos obsequios",
+  "enlace": "https://www.lanacion.com.ar/politica/los-regalos-que-milei-preparo-para-darle-al-papa-leon-xiv-cuando-visite-la-casa-rosada-nid08112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/archivo-los-hermanos-milei-y-el-papa-en-el-A5P3UZLD5JCB7LKHHRB43Z7R4M.jpeg?auth=670494b51ea907e3ccb54acc2af599da41d4a6a5480e4bf4edc1744484a83174&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la foto más nítida, muestra claramente el encuentro y la entrega de obsequios sin marcas de agua ni menores.",
+  "cuando": "2026-11-08T22:02:46.297Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Milei y el papa León XIV observando obsequios junto a Karina Milei"
+  },
+  "huella": "96c4c4c2c2e36b6b"
+ },
+ "1c5tvs2": {
+  "archivo": "fotos-notas/1c5tvs2.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Tomás Aranda agradece a Lionel Messi tras ganar su primer título con Boca",
+  "enlace": "https://www.ole.com.ar/boca-juniors/agradecimiento-aranda-messi-campeon-boca_0_v9c12kdZdq.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/11/08/d4WGgVL6G_2000x1500__1.jpg",
+  "razon": "Es la única foto que ilustra directamente el título de la nota sobre Tomás Aranda ganando su título con Boca, sin marcas de agua, menores reconocibles, gráficos de televisión ni composición de archivo.",
+  "cuando": "2026-11-08T22:02:46.297Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Tomás Aranda sonriendo con sombrero azul y amarillo de Boca y mostrando su medalla en la Bombonera.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de Boca Juniors sonriendo y mostrando una medalla mientras usa un gorro de celebración."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "1d5e5b0e1f391e58"
+ },
+ "v1tqes": {
+  "archivo": "fotos-notas/v1tqes.jpg",
+  "medio": "Bolavip Argentina",
+  "credito": "Foto: Bolavip Argentina",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Atlético de Madrid pierde 2 a 1 frente a Barcelona con un gol de Giuliano Simeone",
+  "enlace": "https://bolavip.com/ar/europa/asistencia-de-julian-alvarez-y-gol-de-giuliano-simeone-para-el-1-0-de-atletico-de-madrid-a-barcelona",
+  "imagenOriginal": "https://media.bolavip.com/wp-content/uploads/sites/18/2026/11/08171949/giuliano-1200x740.webp",
+  "razon": "Es la mejor foto que corresponde al partido, con buen encuadre de la jugada, sin menores, marcas ni problemas.",
+  "cuando": "2026-11-08T22:02:46.297Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Giuliano Simeone rematando al arco durante el partido"
+  },
+  "huella": "f9e6b9b959696267"
+ },
+ "1ovpvup": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Franco Colapinto termina decimotercero en el Gran Premio de Brasil",
+  "razon": "Ninguna de las fotos corresponde al piloto y evento mencionados en la nota (Franco Colapinto en el GP de Brasil; los autos y pilotos mostrados son de otra escudería y categoría).",
+  "cuando": "2026-11-08T22:02:46.297Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "1j5alxm": {
+  "archivo": "fotos-notas/1j5alxm.jpg",
+  "medio": "Canal 26",
+  "credito": "Foto: Canal 26",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV llega a la Argentina y se reúne con Javier Milei",
+  "enlace": "https://www.canal26.com/politica/2026/11/07/los-temas-que-marcaran-el-encuentro-entre-javier-milei-y-el-papa-leon-xiv-en-casa-rosada/",
+  "imagenOriginal": "https://www.canal26.com/resizer/v2/FQXETHUYQRETBKUJXDZYIISSYM.jpg?auth=c59fd43dd59ae8a926a835fb20a106c396982274628232180825a275bc48fab6&height=630&width=1200&quality=70&smart=true",
+  "razon": "Es la foto más limpia y clara de la reunión entre el papa León XIV y Javier Milei, sin marcas de agua ni menores, y con excelente encuadre.",
+  "cuando": "2026-11-08T22:02:46.297Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El papa León XIV reunido con Javier Milei en un despacho."
+  },
+  "huella": "919197d24242c6ce"
+ },
+ "1wiica5": {
+  "archivo": "fotos-notas/1wiica5.jpg",
+  "medio": "Ámbito",
+  "credito": "Foto: Ámbito",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV llega a la Argentina en su primera visita oficial",
+  "enlace": "https://www.ambito.com/politica/todas-las-fotos-la-llegada-leon-xiv-la-argentina-n6342978",
+  "imagenOriginal": "https://media.ambito.com/p/28ba0e56d99f18fcbd9ae7301a212383/adjuntos/239/imagenes/043/755/0043755294/1200x675/smart/leon-xiv-argentina.jpg",
+  "razon": "Muestra claramente al papa descendiendo del avión en su visita oficial, con buen encuadre y sin marcas ni menores.",
+  "cuando": "2026-11-08T22:02:46.297Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El papa bajando las escaleras del avión oficial."
+  },
+  "huella": "9baf6fdf37731999"
+ },
+ "v53icl": {
+  "archivo": "fotos-notas/v53icl.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto termina decimotercero en el Gran Premio de Brasil",
+  "enlace": "https://tn.com.ar/deportes/formula-1/2026/11/08/cuando-vuelve-a-correr-franco-colapinto-con-alpine-tras-su-participacion-en-el-gp-de-brasil-de-la-formula-1/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/las-vegas-el-proximo-destino-de-franco-colapinto-con-alpine-en-la-formula-1-foto-alpinef1teamig-TC7UGLMFNJADFI3FITBLQ4W3Z4.jpg?auth=30a543f79b63688de811bf0ede233de475f03adb96ba654dff4eac7e387c13fa&width=1023",
+  "razon": "Es una fotografía nítida, de excelente encuadre, tomada en el evento y sin marcas de agua ni menores.",
+  "cuando": "2026-11-08T22:02:46.297Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Colapinto con campera azul y gorra en el circuito.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Franco Colapinto con gorra y chaqueta de Alpine en el paddock"
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "1292caaaa6a68595"
+ },
+ "1c4j3ni": {
+  "archivo": "fotos-notas/1c4j3ni.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Selección Argentina inicia los entrenamientos en Ezeiza para la fecha FIFA",
+  "enlace": "https://perfil.com/deportes/la-seleccion-argentina-pone-en-marcha-la-era-post-messi-cronograma-para-la-fecha-fifa-aOZAk2q0mMim",
+  "imagenOriginal": "https://fotos.perfil.com/2026/09/29/trim/1140/641/lionel-scaloni-entrenando-a-la-seleccion-argentina-2336869.jpg",
+  "razon": "Es una foto clara, con buen encuadre de plano medio del entrenador Lionel Scaloni en el predio, sin marcas de agua ni menores.",
+  "cuando": "2026-11-08T22:02:46.297Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Lionel Scaloni con una pelota durante los entrenamientos"
+  },
+  "huella": "26060602020b9bb9"
  }
 }
