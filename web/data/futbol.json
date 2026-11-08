@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-08T23:03:06.959Z",
+ "consultado": "2026-11-08T23:34:38.181Z",
  "equipos": [
   "9739",
   "3",
@@ -1227,7 +1227,7 @@
     "competencia": "liga",
     "inicio": "2026-11-08T22:30:00.000Z",
     "estado": "en-juego",
-    "minuto": "33'",
+    "minuto": "46'",
     "local": {
      "id": "11989",
      "nombre": "Central Córdoba (Santiago del Estero)",
@@ -1236,7 +1236,7 @@
     "visitante": {
      "id": "12",
      "nombre": "Lanús",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
     "goles": [
@@ -1245,6 +1245,12 @@
       "jugador": "Tomás Guidara",
       "minuto": "31'",
       "tipo": "en contra"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Eduardo Salvio",
+      "minuto": "41'",
+      "tipo": "gol"
      }
     ],
     "estadio": "Alfredo Terrera",

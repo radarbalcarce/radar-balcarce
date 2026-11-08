@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-08T23:03:10.031Z",
- "portada": 83,
- "archivo": 498,
- "esperandoCuerpo": 7,
+ "generado": "2026-11-08T23:34:41.322Z",
+ "portada": 96,
+ "archivo": 500,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-11-08T23:03:10.445Z",
+  "generado": "2026-11-08T23:34:41.799Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -105,8 +105,13 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 54,
     "notas": [
+     {
+      "id": "nhniw",
+      "titulo": "Amigos Unidos, San Manuel y San Agustín lideran el Clausura femenino",
+      "seccion": "Fútbol"
+     },
      {
       "id": "1cny5nq",
       "titulo": "Chocan una moto y una camioneta en calles 12 y 25",
@@ -121,11 +126,6 @@
       "id": "h4r3xq",
       "titulo": "Modifican la actividad escolar y bancaria en Balcarce por la visita del Papa",
       "seccion": "Balcarce"
-     },
-     {
-      "id": "uw3mgq",
-      "titulo": "Ferroviarios y Los Patos ganan en el inicio de la cuarta fecha del Clausura",
-      "seccion": "Fútbol"
      }
     ]
    }
@@ -133,6 +133,12 @@
   "facebook": {
    "hoy": [],
    "cola": [
+    {
+     "id": "nhniw",
+     "titulo": "Amigos Unidos, San Manuel y San Agustín lideran el Clausura femenino",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
     {
      "id": "861rdk",
      "titulo": "Liverpool vence 3 a 1 al Crystal Palace con un gol de Alexis Mac Allister",
@@ -142,6 +148,12 @@
     {
      "id": "1a0snlf",
      "titulo": "Detienen en Palermo a un falso bombero cerca del escenario del Papa",
+     "seccion": "Policiales",
+     "marcada": false
+    },
+    {
+     "id": "12ejmmi",
+     "titulo": "Cinco monjas vuelcan en la Ruta 188 cuando viajaban hacia Luján",
      "seccion": "Policiales",
      "marcada": false
     },
@@ -167,12 +179,6 @@
      "id": "kngsvm",
      "titulo": "La torre de control de Aeroparque saluda al papa León XIV en su llegada",
      "seccion": "Argentina",
-     "marcada": false
-    },
-    {
-     "id": "1j3ytpy",
-     "titulo": "River aguarda por la recuperación de sus lesionados para los playoffs",
-     "seccion": "Fútbol",
      "marcada": false
     }
    ],
