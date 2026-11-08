@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-08T02:03:31.600Z",
- "portada": 124,
+ "generado": "2026-11-08T03:02:29.708Z",
+ "portada": 114,
  "archivo": 500,
- "esperandoCuerpo": 10,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-08T02:03:32.195Z",
+  "generado": "2026-11-08T03:02:30.178Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -43,17 +43,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": null
-   },
-   {
-    "nombre": "utiles",
-    "tipo": "reel",
-    "hora": "17:00",
-    "que": "Los teléfonos útiles",
-    "voz": "locutor",
-    "ventana": 60,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -63,7 +53,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -73,7 +63,7 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -83,7 +73,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    }
   ],
@@ -93,29 +83,9 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
-   },
-   {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
-    "momento": "cerrada",
-    "salio": null,
-    "segundos": null,
-    "notas": []
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "en-hora",
-    "salio": null,
-    "segundos": 50,
+    "segundos": 52,
     "notas": [
      {
       "id": "1b3h24d",
@@ -138,6 +108,68 @@
       "seccion": "Educación"
      }
     ]
+   },
+   {
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 51,
+    "notas": [
+     {
+      "id": "uw3mgq",
+      "titulo": "Ferroviarios y Los Patos ganan en el inicio de la cuarta fecha del Clausura",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "c5pgr6",
+      "titulo": "Suspenden un partido de fútbol femenino tras la agresión a un juez de línea",
+      "seccion": "Policiales"
+     },
+     {
+      "id": "lx27ip",
+      "titulo": "Matías La Torre repasa su trayectoria musical en una emisora local",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "1pkqfef",
+      "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
+      "seccion": "Balcarce"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 55,
+    "notas": [
+     {
+      "id": "jf7bz2",
+      "titulo": "Detienen a un hombre y secuestran cocaína tras allanamientos",
+      "seccion": "Policiales"
+     },
+     {
+      "id": "8x25q0",
+      "titulo": "Bautista Prieto gana el campeonato provincial de pesca en Cadetes",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1wq5a8z",
+      "titulo": "Crean un registro municipal para acompañantes terapéuticos",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "1w8v4jx",
+      "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
+      "seccion": "Educación"
+     }
+    ]
    }
   ],
   "facebook": {
@@ -156,12 +188,6 @@
      "marcada": false
     },
     {
-     "id": "eiuk6",
-     "titulo": "Franco Colapinto celebra el título de Boca junto a Bizarrap en Brasil",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
      "id": "c5pgr6",
      "titulo": "Suspenden un partido de fútbol femenino tras la agresión a un juez de línea",
      "seccion": "Policiales",
@@ -174,9 +200,9 @@
      "marcada": false
     },
     {
-     "id": "h7gs3x",
-     "titulo": "Boca vence a Defensa y Justicia y se consagra campeón de la Liga Profesional",
-     "seccion": "Fútbol",
+     "id": "eiuk6",
+     "titulo": "Franco Colapinto celebra el título de Boca junto a Bizarrap en Brasil",
+     "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
@@ -186,8 +212,14 @@
      "marcada": false
     },
     {
-     "id": "zi73gi",
-     "titulo": "Rosario Central celebra un título que finalmente queda en manos de Boca",
+     "id": "h7gs3x",
+     "titulo": "Boca vence a Defensa y Justicia y se consagra campeón de la Liga Profesional",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1xt5ci",
+     "titulo": "Boca gana la Liga Profesional con un gol agónico de Enner Valencia",
      "seccion": "Fútbol",
      "marcada": false
     }

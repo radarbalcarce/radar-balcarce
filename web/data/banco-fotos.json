@@ -54228,9 +54228,7 @@
   "ausenteDesde": "2026-11-01T02:03:53.219Z"
  },
  "e97loe": {
-  "archivo": "fotos-notas/e97loe.jpg",
   "medio": "El Destape",
-  "credito": "Foto: El Destape",
   "licencia": null,
   "origen": "medio",
   "titulo": "Cuestan hasta 1,2 millones los hoteles en Luján por la visita del papa León XIV",
@@ -54250,12 +54248,11 @@
    "descripcion": "El papa León XIV saludando a la multitud"
   },
   "huella": "6272723038dbdacf",
-  "ausenteDesde": "2026-11-01T02:03:53.219Z"
+  "intentado": true,
+  "borrada": true
  },
  "1epe8uw": {
-  "archivo": "fotos-notas/1epe8uw.jpg",
   "medio": "La Tecla",
-  "credito": "Foto: La Tecla",
   "licencia": null,
   "origen": "medio",
   "titulo": "Muere Juan Marcelo, la voz histórica del dúo Juan y Juan",
@@ -54275,7 +54272,8 @@
    "descripcion": "Juan Marcelo con camisa a rayas y vitral de fondo"
   },
   "huella": "94b3aaabf3ababf8",
-  "ausenteDesde": "2026-11-01T02:03:53.219Z"
+  "intentado": true,
+  "borrada": true
  },
  "o53hxl": {
   "archivo": "fotos-notas/o53hxl.jpg",
@@ -61230,9 +61228,7 @@
   "fuentes": 1
  },
  "kgin5v": {
-  "archivo": "fotos-notas/kgin5v.jpg",
   "medio": "Crónica",
-  "credito": "Foto: Crónica",
   "licencia": null,
   "origen": "medio",
   "titulo": "Colapinto termina duodécimo en la última práctica en México",
@@ -61252,7 +61248,8 @@
    "descripcion": "Primer plano de Franco Colapinto con casco dentro del auto"
   },
   "huella": "071b0814162c0a03",
-  "ausenteDesde": "2026-11-01T02:03:53.219Z"
+  "intentado": true,
+  "borrada": true
  },
  "x17gbl": {
   "archivo": "fotos-notas/x17gbl.jpg",
@@ -82274,7 +82271,8 @@
    "descripcion": "Vista posterior de un casco de seguridad blanco con el logo de OSEBAL S.A. Aguas de la Ciudad.",
    "detalle": "El logo de OSEBAL es parte del casco (escena real) y no una marca de agua agregada por el medio."
   },
-  "huella": "a1e1615941e0e8d0"
+  "huella": "a1e1615941e0e8d0",
+  "ausenteDesde": "2026-11-08T03:02:29.572Z"
  },
  "x4bwtx": {
   "intentado": true,
@@ -83001,7 +82999,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "6bada9c5cece4c42"
+  "huella": "6bada9c5cece4c42",
+  "ausenteDesde": "2026-11-08T03:02:29.572Z"
  },
  "x5oj5d": {
   "intentado": true,
@@ -93207,7 +93206,8 @@
    "corresponde": "si",
    "descripcion": "Pedro Alliana junto a otras autoridades en la asunción"
   },
-  "huella": "48202c2a4b436333"
+  "huella": "48202c2a4b436333",
+  "ausenteDesde": "2026-11-08T03:02:29.572Z"
  },
  "1k5gget": {
   "archivo": "fotos-notas/1k5gget.jpg",
@@ -93418,11 +93418,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Ferroviarios y Los Patos ganan en el inicio de la cuarta fecha del Clausura",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Infórmese Primero (FM 104.9) no se usa todavía.",
-  "cuando": "2026-11-08T01:31:55.117Z",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 503: qwen/qwen3.8-27b is currently over capacity. Please try again and back off exponentially. Visit https://groqst): la foto de Infórmese Primero (FM 104.9) no se usa todavía.",
+  "cuando": "2026-11-08T03:01:43.704Z",
   "intentos": 1,
   "fuentes": 2,
-  "intentosPorCupo": 1
+  "intentosPorCupo": 2
  },
  "1efbl8c": {
   "intentado": true,
@@ -94346,6 +94346,55 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "5a327aaba2a2e7e7"
+  "huella": "5a327aaba2a2e7e7",
+  "ausenteDesde": "2026-11-08T03:02:29.572Z"
+ },
+ "1532un7": {
+  "archivo": "fotos-notas/1532un7.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "María Becerra cierra la 35ª Marcha del Orgullo en Buenos Aires",
+  "enlace": "https://www.cronica.com.ar/sociedad/marcha-del-orgullo-2026-como-sera-la-movilizacion-y-a-que-hora-es-el-show-de-maria-becerra/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1730/1730965/6aef3c89d3e8c_600_315!.jpg?s=c1331eb63381b5071791ad8d8899f49f&d=1794020400",
+  "razon": "Es la única imagen que muestra el contexto del evento (la marcha) sin marcas de agua, sin ser una captura de pantalla y sin ser una foto de estudio.",
+  "cuando": "2026-11-08T03:01:43.704Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Bandera del orgullo flameando en la marcha con edificios de fondo."
+  },
+  "huella": "1a527bd774347414"
+ },
+ "9cxjwp": {
+  "archivo": "fotos-notas/9cxjwp.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Muere Sergio Ramírez, histórico productor y director de televisión",
+  "enlace": "https://perfil.com/entretenimiento/murio-sergio-el-gallego-ramirez-el-historico-director-y-productor-de-television-que-gano-doce-premios-martin-fierro-ab9ht2Z1TIP6",
+  "imagenOriginal": "https://fotos.perfil.com/2026/11/07/trim/1140/641/sergio-el-gallego-ramirez-y-el-martin-fierro-2362267.jpg",
+  "razon": "La foto A es un retrato claro y profesional del protagonista, sin marcas de agua ni elementos distractores, cumpliendo con los criterios de calidad.",
+  "cuando": "2026-11-08T03:01:43.704Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de Sergio Ramírez sonriendo."
+  },
+  "huella": "c989a9992d312622"
  }
 }
