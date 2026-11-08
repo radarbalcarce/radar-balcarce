@@ -55754,9 +55754,7 @@
   "borrada": true
  },
  "vqr3ko": {
-  "archivo": "fotos-notas/vqr3ko.jpg",
   "medio": "Punto Noticias",
-  "credito": "Foto: Punto Noticias",
   "licencia": null,
   "origen": "medio",
   "titulo": "La UNMDP distingue a León Gieco y Álvaro García Linera",
@@ -55776,7 +55774,8 @@
    "descripcion": "León Gieco tocando la guitarra y Álvaro García Linera en un retrato"
   },
   "huella": "672721212929a9c1",
-  "ausenteDesde": "2026-11-01T03:03:34.693Z"
+  "intentado": true,
+  "borrada": true
  },
  "1llj2g7": {
   "medio": "Olé",
@@ -61108,9 +61107,7 @@
   "ausenteDesde": "2026-11-02T22:35:21.770Z"
  },
  "1mdggut": {
-  "archivo": "fotos-notas/1mdggut.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "Milan e Inter juegan en San Siro por la décima fecha de la Serie A",
@@ -61130,7 +61127,8 @@
    "descripcion": "Acción de juego en el partido entre Milan e Inter en San Siro"
   },
   "huella": "a496869625676263",
-  "ausenteDesde": "2026-11-01T03:03:34.693Z"
+  "intentado": true,
+  "borrada": true
  },
  "1oo88r4": {
   "archivo": "fotos-notas/1oo88r4.jpg",
@@ -62503,9 +62501,7 @@
   "fuentes": 4
  },
  "ufix2m": {
-  "archivo": "fotos-notas/ufix2m.jpg",
   "medio": "Ruralnet",
-  "credito": "Foto: Ruralnet",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Servicio Meteorológico Nacional emite alertas por tormentas en el país",
@@ -62525,7 +62521,8 @@
    "descripcion": "Mapa satelital de cobertura nubosa y tormentas sobre Argentina."
   },
   "huella": "96a2a3a1c2e3c1e1",
-  "ausenteDesde": "2026-11-01T03:03:34.693Z"
+  "intentado": true,
+  "borrada": true
  },
  "a08xt5": {
   "archivo": "fotos-notas/a08xt5.jpg",
@@ -93889,12 +93886,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Boca vence a Defensa y Justicia y se consagra campeón de la Liga Profesional",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout)",
-  "cuando": "2026-11-08T01:02:04.942Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 503: qwen/qwen3.8-27b is currently over capacity. Please try again and back off exponentially. Visit https://groqst): la foto de La Nación no se usa todavía.",
+  "cuando": "2026-11-08T04:02:12.301Z",
   "intentos": 1,
-  "fuentes": 66,
-  "intentosPorCupo": 2,
-  "errorGemini": "The operation was aborted due to timeout"
+  "fuentes": 71,
+  "intentosPorCupo": 3
  },
  "1yuu5ib": {
   "archivo": "fotos-notas/1yuu5ib.jpg",
@@ -93924,11 +93920,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Boca conquista la tabla anual 2026 tras una definición agónica",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Día no se usa todavía.",
-  "cuando": "2026-11-08T01:31:55.117Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Perfil no se usa todavía.",
+  "cuando": "2026-11-08T04:02:12.301Z",
   "intentos": 1,
-  "fuentes": 5,
-  "intentosPorCupo": 2
+  "fuentes": 7,
+  "intentosPorCupo": 3
  },
  "lnh6no": {
   "intentado": true,
@@ -94396,5 +94392,29 @@
    "descripcion": "Retrato de Sergio Ramírez sonriendo."
   },
   "huella": "c989a9992d312622"
+ },
+ "1svt6lt": {
+  "archivo": "fotos-notas/1svt6lt.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Instituto y Newell's empatan 2 a 2 en el cierre de la fase regular",
+  "enlace": "https://www.ole.com.ar/instituto/empate-instituto-newells_3_wurlBxpalC.html",
+  "imagenOriginal": "https://cdn.jwplayer.com/v2/media/aKlBxMSl/poster.jpg?width=1920",
+  "razon": "Es la única imagen que muestra una acción de juego clara, sin marcas de agua sobreimpresas, sin menores identificables y con buena calidad.",
+  "cuando": "2026-11-08T04:02:12.301Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de Instituto celebrando un gol."
+  },
+  "huella": "064b0c0d2d0d0fe6"
  }
 }

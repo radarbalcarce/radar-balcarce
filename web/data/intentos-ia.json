@@ -683,18 +683,19 @@
   ]
  },
  "13clu2t": {
-  "intentos": 1,
-  "ultimo": "2026-11-08T02:02:18.133Z",
-  "motivo": "cuerpo: 2 problemas (numero, relleno): el cuerpo dice 6 y la fuente no lo dice; sin esas oraciones quedan 220 palabras",
+  "intentos": 2,
+  "ultimo": "2026-11-08T04:01:47.736Z",
+  "motivo": "cuerpo: 1 problema (copia): copia 19 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 220 palabras",
   "textos": 2,
   "numeradas": 4,
   "motivos": [
    "cuerpo: 4 problemas (numero, antecedente, relleno): el cuerpo dice 6 y",
-   "cuerpo: 2 problemas (numero, relleno): el cuerpo dice 6 y la fuente no"
+   "cuerpo: 2 problemas (numero, relleno): el cuerpo dice 6 y la fuente no",
+   "cuerpo: 4 problemas (numero, antecedente, relleno): el cuerpo dice 6 y",
+   "cuerpo: 1 problema (copia): copia 19 palabras seguidas del original: d"
   ],
   "falla": [
-   "el cuerpo dice 6 y la fuente no lo dice",
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+   "copia 19 palabras seguidas del original (\"en el estadio diego armando maradona por la fecha 16 del torneo clausura y…\"): decilo con otras pa"
   ]
  },
  "13d6i82": {
@@ -2484,6 +2485,20 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
+ },
+ "1cud4al": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T04:01:47.736Z",
+  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"copa\" y la fuente no",
+  "textos": 1,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 1 problema (nombre): el copete nombra a \"copa\" y la f"
+  ],
+  "falla": [
+   "el copete nombra a \"copa\" y la fuente no",
+   "el cuerpo nombra a \"copa\" y la fuente no"
+  ]
  },
  "1cvi4gt": {
   "intentos": 1,
@@ -5234,6 +5249,13 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 2
+ },
+ "1svt6lt": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T04:01:47.736Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 6
  },
  "1sw7pf2": {
   "intentos": 1,
