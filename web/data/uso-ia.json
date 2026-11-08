@@ -3623,19 +3623,19 @@
   "2026-11-08": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 30,
+     "llamadas": 32,
      "errores": 12,
-     "entrada": 43189,
-     "salida": 19978,
+     "entrada": 47938,
+     "salida": 22232,
      "pensamiento": 0,
-     "total": 63167,
+     "total": 70170,
      "claves": {
-      "clasificacion": 30
+      "clasificacion": 32
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 5,
-       "ok": 18,
+       "ok": 20,
        "saturado": 5,
        "otro": 2
       }
@@ -3660,19 +3660,19 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 47,
+     "llamadas": 50,
      "errores": 10,
-     "entrada": 450176,
-     "salida": 5316,
+     "entrada": 481719,
+     "salida": 5529,
      "pensamiento": 0,
-     "total": 455492,
+     "total": 487248,
      "claves": {
-      "clasificacion": 47
+      "clasificacion": 50
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 10,
-       "ok": 37
+       "ok": 40
       }
      }
     },
@@ -3711,19 +3711,19 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 109,
+     "llamadas": 115,
      "errores": 26,
-     "entrada": 536766,
-     "salida": 90600,
+     "entrada": 577488,
+     "salida": 97100,
      "pensamiento": 0,
-     "total": 627366,
+     "total": 674588,
      "claves": {
-      "redaccion": 109
+      "redaccion": 115
      },
      "motivos": {
       "redaccion": {
        "cupo-diario": 15,
-       "ok": 83,
+       "ok": 89,
        "saturado": 11
       }
      }
@@ -3751,19 +3751,19 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 65,
+     "llamadas": 68,
      "errores": 17,
-     "entrada": 280833,
-     "salida": 22747,
+     "entrada": 293814,
+     "salida": 23736,
      "pensamiento": 0,
-     "total": 303580,
+     "total": 317550,
      "claves": {
-      "clasificacion": 65
+      "clasificacion": 68
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 10,
-       "ok": 48,
+       "ok": 51,
        "saturado": 5,
        "otro": 1,
        "velocidad": 1

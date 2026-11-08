@@ -1353,6 +1353,13 @@
   "textos": 1,
   "numeradas": 1
  },
+ "17a8e13": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T16:31:11.634Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "17cxx4j": {
   "intentos": 1,
   "ultimo": "2026-11-03T14:35:07.909Z",
@@ -4099,6 +4106,13 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
+ },
+ "1l5vphg": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T16:31:11.634Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
  },
  "1l893l9": {
   "intentos": 1,
@@ -7471,6 +7485,16 @@
   "textos": 2,
   "numeradas": 3
  },
+ "861rdk": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T16:31:11.634Z",
+  "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 3559 (line 1 column 3560)",
+  "textos": 4,
+  "numeradas": 5,
+  "motivos": [
+   "Gemini: Expected ',' or ']' after array element in JSON at position 35"
+  ]
+ },
  "876j1t": {
   "intentos": 3,
   "ultimo": "2026-11-03T21:31:41.789Z",
@@ -10189,6 +10213,13 @@
   "textos": 6,
   "numeradas": 8
  },
+ "lnwvlo": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T16:31:11.634Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "lp1ekj": {
   "intentos": 1,
   "ultimo": "2026-11-02T04:01:31.722Z",
@@ -11486,6 +11517,20 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 5
+ },
+ "t3rs5e": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T16:31:11.634Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 156 palabras",
+  "textos": 6,
+  "numeradas": 10,
+  "motivos": [
+   "título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
  },
  "t44aqz": {
   "intentos": 1,
