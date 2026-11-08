@@ -404,11 +404,15 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       await fijar([nota]);
       const buena = rutaDeNota(nota);
       if (ruta !== buena) return { r: new Response(null, { status: 301, headers: { location: buena, 'cache-control': `public, max-age=${CACHE.nota[1]}` } }), cachear: true };
-      const contextoNota = await contextoDelDia();
+      // Las tres consultas van a la vez (7/11: una nota sin caché tardaba 1,6 s en responder, casi todo esperando una consulta detrás de otra).
+      const [contextoNota, seguir, ultimas] = await Promise.all([
+        contextoDelDia(),
+        consultas.paraSeguirLeyendo(env, nota).catch(() => []),
+        consultas.listar(env, { limite: 150, despues: new Date(ahora().getTime() - 48 * 3600 * 1000).toISOString() }).catch(() => []),
+      ]);
       const indexarNota = indexar && !noSeIndexa(nota);
-      const seguir = await consultas.paraSeguirLeyendo(env, nota).catch(() => []);
       // «Lo más contado»: lo de las últimas 48 horas con más fuentes, sin repetir lo que ya está en «Seguí leyendo».
-      const contadas = masContadas(await consultas.listar(env, { limite: 150, despues: new Date(ahora().getTime() - 48 * 3600 * 1000).toISOString() }).catch(() => []), { ahora: ahora(), excluir: [nota.id, ...seguir.map((x) => x.id)] });
+      const contadas = masContadas(ultimas, { ahora: ahora(), excluir: [nota.id, ...seguir.map((x) => x.id)] });
       return { r: respuesta(paginaDeNota(nota, { indexar: indexarNota, contexto: contextoNota, seguir, contadas }), { cache: contextoNota.publicidad.hayAvisos ? CACHE.conAvisos : CACHE.nota, indexar: indexarNota }), cachear: true };
     }
 
