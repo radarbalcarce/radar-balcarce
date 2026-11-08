@@ -54110,9 +54110,7 @@
   "ausenteDesde": "2026-11-01T10:32:24.594Z"
  },
  "e2viac": {
-  "archivo": "fotos-notas/e2viac.jpg",
   "medio": "La Capital (Rosario)",
-  "credito": "Foto: La Capital (Rosario)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Plataformas de streaming y cines renuevan su cartelera por Halloween",
@@ -54132,7 +54130,8 @@
    "descripcion": "Primer plano de mujer llorando con sonrisa forzada en ambiente cinematográfico"
   },
   "huella": "2b0a4f4c4ccccae3",
-  "ausenteDesde": "2026-11-01T06:05:29.647Z"
+  "intentado": true,
+  "borrada": true
  },
  "z5zzy3": {
   "intentado": true,
@@ -93312,7 +93311,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Boca Juniors y Defensa y Justicia disputando el balón en un partido"
   },
-  "huella": "139b991909688a03"
+  "huella": "139b991909688a03",
+  "ausenteDesde": "2026-11-08T07:02:00.611Z"
  },
  "108788b": {
   "archivo": "fotos-notas/108788b.jpg",
@@ -93463,14 +93463,40 @@
   "intentosPorCupo": 1
  },
  "zhagqb": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/zhagqb.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Muere el actor Gabriel González Abat a los 56 años",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Minuto Uno no se usa todavía.",
-  "cuando": "2026-11-08T02:02:50.607Z",
-  "intentos": 1,
-  "fuentes": 8,
-  "intentosPorCupo": 3
+  "enlace": "https://www.minutouno.com/espectaculos/murio-el-actor-gabriel-gonzalez-abat-recordado-su-papel-canuto-senorita-maestra-n6342743",
+  "imagenOriginal": "https://media.minutouno.com/p/65d73ed2f2e95f7e8cd8edcd550f0720/adjuntos/150/imagenes/043/753/0043753378/1200x675/smart/gabriel-gonzalez-abat.jpg",
+  "razon": "Es la única imagen que muestra al actor en su faceta adulta, sin marcas de agua, sin ser una captura de pantalla y con buena calidad. La segunda opinión (groq) descartó la de TN (Todo Noticias) (parece una foto de stock): se usa Minuto Uno.",
+  "cuando": "2026-11-08T07:01:13.742Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": true,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato del actor Gabriel González Abat.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Retrato de un hombre sonriente de mediana edad con fondo azul desenfocado."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "c9c5c68a0a060206"
  },
  "sl86ui": {
   "archivo": "fotos-notas/sl86ui.jpg",
