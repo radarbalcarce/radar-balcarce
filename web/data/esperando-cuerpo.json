@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-08T15:03:57.280Z",
+ "generado": "2026-11-08T15:32:32.256Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -94,6 +94,33 @@
    "intentos": 1,
    "motivo": "con cuerpo",
    "maximo": 3
+  },
+  {
+   "id": "1ez8f4g",
+   "titulo": "El primer título del año: Boca va por la tabla Anual y el adiós a la sequía",
+   "copete": "",
+   "seccion": "Fútbol",
+   "fecha": "2026-11-07T16:22:45.000Z",
+   "fuentes": [
+    {
+     "medio": "Olé",
+     "enlace": "https://www.ole.com.ar/boca-juniors/1300-dias-despues-boca-paso-volver-campeon_0_nETAo94icy.html",
+     "fecha": "2026-11-06T23:23:56.000Z"
+    },
+    {
+     "medio": "Olé",
+     "enlace": "https://www.ole.com.ar/independiente/independiente-torneoclausura-copasudamericana-jadsonviera_0_Du30bHKaHv.html",
+     "fecha": "2026-11-07T23:17:23.000Z"
+    },
+    {
+     "medio": "C5N",
+     "enlace": "https://www.c5n.com/deportes/tras-el-titulo-la-tabla-anual-que-copas-va-jugar-boca-n253726",
+     "fecha": "2026-11-07T22:45:00.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "con cuerpo",
+   "maximo": 3
   }
  ],
  "descartadas": [
@@ -109,9 +136,9 @@
    "id": "98y49g",
    "titulo": "Canapino ganó la clasificación de TC Pick Up en La Plata",
    "seccion": "Automovilismo",
-   "fecha": "2026-11-07T21:31:31.000Z",
-   "intentos": 3,
-   "motivo": "agotó los 3 intentos; Gemini: Expected ',' or ']' after array element in JSON at position 893 (line 10 column 1)"
+   "fecha": "2026-11-07T22:16:52.000Z",
+   "intentos": 4,
+   "motivo": "agotó los 4 intentos; cuerpo: 1 problema (promesa): el título nombra a \"canapino\", \"tc\", \"pick\", \"up\" y el cuerpo no los explica; sin esas oraciones quedan 240 pa"
   },
   {
    "id": "1ddbyyw",
@@ -136,14 +163,6 @@
    "fecha": "2026-11-08T02:24:21.000Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; título o bajada: 2 problemas (nombre): el copete nombra a \"division\" y la fuente no"
-  },
-  {
-   "id": "jhi7gh",
-   "titulo": "Argentinos Juniors vs. Huracán: cuándo juegan, a qué hora y dónde ver en VIVO",
-   "seccion": "Fútbol",
-   "fecha": "2026-11-07T15:05:17.000Z",
-   "intentos": 3,
-   "motivo": "agotó los 3 intentos; cuerpo: 3 problemas (numero, relleno, promesa): el cuerpo dice 40 y la fuente no lo dice; sin esas oraciones quedan 122 palabras"
   },
   {
    "id": "r8nehv",

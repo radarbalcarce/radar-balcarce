@@ -51758,9 +51758,7 @@
   "huella": "420889c4c6e687c4"
  },
  "tp23to": {
-  "archivo": "fotos-notas/tp23to.jpg",
   "medio": "Canal 26",
-  "credito": "Foto: Canal 26",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Senado debate la reforma de la ley de Salud Mental e internaciones",
@@ -51780,7 +51778,8 @@
    "descripcion": "Vista general del recinto del Senado con legisladores durante una sesión"
   },
   "huella": "2f9a3d061d609cd6",
-  "ausenteDesde": "2026-11-01T15:04:43.281Z"
+  "intentado": true,
+  "borrada": true
  },
  "8towux": {
   "medio": "Acción 5 (Balcarce)",
@@ -52703,9 +52702,7 @@
   "ausenteDesde": "2026-11-01T11:02:48.709Z"
  },
  "zv94ul": {
-  "archivo": "fotos-notas/zv94ul.jpg",
   "medio": "Radio Gabal (FM 104.1)",
-  "credito": "Foto: Radio Gabal (FM 104.1)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Un temporal de lluvia y granizo afecta cultivos en la zona de Dos Naciones",
@@ -52726,7 +52723,8 @@
    "descripcion": "Vista desde un vehículo de un camino rural inundado y cubierto de granizo bajo un cielo nublado."
   },
   "huella": "0717831c7fffbd7d",
-  "ausenteDesde": "2026-11-01T15:04:43.281Z"
+  "intentado": true,
+  "borrada": true
  },
  "11s9ojn": {
   "archivo": "fotos-notas/11s9ojn.jpg",
@@ -62571,9 +62569,7 @@
   "ausenteDesde": "2026-11-03T15:53:46.405Z"
  },
  "agdudm": {
-  "archivo": "fotos-notas/agdudm.jpg",
   "medio": "Diario Popular",
-  "credito": "Foto: Diario Popular",
   "licencia": null,
   "origen": "medio",
   "titulo": "Vélez y San Lorenzo empatan 2-2 en un duelo clave por el Torneo Clausura",
@@ -62593,7 +62589,8 @@
    "descripcion": "Disputa de balón entre un jugador de San Lorenzo y uno de Vélez."
   },
   "huella": "9c94a7c5e7e75727",
-  "ausenteDesde": "2026-11-01T15:04:43.281Z"
+  "intentado": true,
+  "borrada": true
  },
  "q9p54v": {
   "archivo": "fotos-notas/q9p54v.jpg",
@@ -83398,7 +83395,8 @@
    "corresponde": "si",
    "descripcion": "Mauricio Macri sentado en un panel con fondo de marca ABECEB."
   },
-  "huella": "388b6807c64e1312"
+  "huella": "388b6807c64e1312",
+  "ausenteDesde": "2026-11-08T15:32:32.082Z"
  },
  "zuh1lf": {
   "archivo": "fotos-notas/zuh1lf.jpg",
@@ -85847,7 +85845,8 @@
    "corresponde": "si",
    "descripcion": "Retrato de Wanda Nara mirando a cámara."
   },
-  "huella": "ec0c0c0d0707070f"
+  "huella": "ec0c0c0d0707070f",
+  "ausenteDesde": "2026-11-08T15:32:32.082Z"
  },
  "1e8sfqo": {
   "archivo": "fotos-notas/1e8sfqo.jpg",
@@ -86410,7 +86409,8 @@
    "corresponde": "si",
    "descripcion": "Retrato de Maluma con remera roja frente a una puerta"
   },
-  "huella": "66f2c2ca266c664a"
+  "huella": "66f2c2ca266c664a",
+  "ausenteDesde": "2026-11-08T15:32:32.082Z"
  },
  "5o7an1": {
   "archivo": "fotos-notas/5o7an1.jpg",
@@ -95523,7 +95523,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Boca besando el trofeo"
   },
-  "huella": "1a8e3831d6d6cbc3"
+  "huella": "1a8e3831d6d6cbc3",
+  "ausenteDesde": "2026-11-08T15:32:32.082Z"
  },
  "10f6q9o": {
   "intentado": true,
@@ -95544,5 +95545,74 @@
   "fuentes": 4,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "h4r3xq": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Modifican la actividad escolar y bancaria en Balcarce por la visita del Papa",
+  "razon": "La única foto disponible incluye menores reconocibles entre la multitud.",
+  "cuando": "2026-11-08T15:32:09.110Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "ls4mne": {
+  "archivo": "fotos-notas/ls4mne.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Lionel Messi gana la Bota de Oro de la MLS por segundo año consecutivo",
+  "enlace": "https://www.ole.com.ar/messi/lionel-messi-bota-oro-mls-segunda-vez-consecutiva-mvp-inter-miami-premios_0_b1qtEcsTPp.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/11/07/iLxNxC5Jm_2000x1500__1.jpg",
+  "razon": "Es la foto de mejor calidad, muestra claramente a Lionel Messi sosteniendo el trofeo de la Bota de Oro de la MLS, sin marcas de medios ni menores.",
+  "cuando": "2026-11-08T15:32:09.110Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Lionel Messi sonriendo mientras sostiene el trofeo de la Bota de Oro en la cancha."
+  },
+  "huella": "643477971a1a4f13"
+ },
+ "7ywrpc": {
+  "archivo": "fotos-notas/7ywrpc.jpg",
+  "medio": "Bolavip Argentina",
+  "credito": "Foto: Bolavip Argentina",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Rosario Central vence a Estudiantes de Río Cuarto pero Boca se consagra campeón",
+  "enlace": "https://bolavip.com/ar/futbolargentino/angel-di-maria-tras-el-titulo-que-boca-le-arrebato-a-rosario-central-me-pone-muy-contento",
+  "imagenOriginal": "https://media.bolavip.com/wp-content/uploads/sites/18/2026/10/11182208/Angel-Di-Maria-autor-de-un-gol-de-Rosario-Central-ante-Independiente-Rivadavia-1200x740.webp",
+  "razon": "Es la única foto de buena calidad, nítida, que muestra claramente a un protagonista del partido sin marcas de agua agregadas, menores ni elementos gráficos.",
+  "cuando": "2026-11-08T15:32:09.110Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Ángel Di María con la camiseta de Rosario Central gesticulando en la cancha",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de Rosario Central con la camiseta 110 celebrando en la cancha."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "731b36b53d599a3b"
  }
 }

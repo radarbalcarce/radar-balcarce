@@ -317,17 +317,6 @@
    "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: d"
   ]
  },
- "11fke2d": {
-  "intentos": 2,
-  "ultimo": "2026-11-01T15:03:04.062Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1,
-  "motivos": [
-   "título o bajada: 4 problemas (forma, numero): el titulo trae un escape",
-   "título o bajada: 1 problema (nombre): el copete nombra a \"lujon\" y la "
-  ]
- },
  "11hy02l": {
   "intentos": 1,
   "ultimo": "2026-11-04T12:31:44.925Z",
@@ -2405,13 +2394,6 @@
    "cuerpo: 1 problema (promesa): el título dice 13 y el cuerpo no lo expl"
   ]
  },
- "1c1yogu": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T15:31:48.775Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
- },
  "1c47hrh": {
   "intentos": 1,
   "ultimo": "2026-11-01T17:32:43.337Z",
@@ -2744,13 +2726,6 @@
   "motivos": [
    "título o bajada: 1 problema (numero): el copete dice 444.158 y la fuen"
   ]
- },
- "1e05fh7": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T15:03:04.062Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 3
  },
  "1e0l32b": {
   "intentos": 1,
@@ -4249,19 +4224,6 @@
   "textos": 3,
   "numeradas": 3
  },
- "1lpwpom": {
-  "intentos": 3,
-  "ultimo": "2026-11-01T15:31:48.775Z",
-  "motivo": "con cuerpo",
-  "textos": 6,
-  "numeradas": 16,
-  "motivos": [
-   "cuerpo: 2 problemas (nombre, promesa): el cuerpo nombra a \"alberto\" y ",
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
-   "cuerpo: 2 problemas (nombre, relleno): el cuerpo nombra a \"alberto\" y ",
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
-  ]
- },
  "1lsynwu": {
   "intentos": 1,
   "ultimo": "2026-11-06T19:01:33.474Z",
@@ -5583,17 +5545,6 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
- },
- "1u60y5j": {
-  "intentos": 2,
-  "ultimo": "2026-11-01T15:03:04.062Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 3,
-  "motivos": [
-   "título o bajada: 1 problema (forma): el copete trae letras rotas (letr",
-   "cuerpo: 3 problemas (tilde, copia, tildes): el cuerpo dice \"mas\" en ve"
-  ]
  },
  "1u8n6i5": {
   "intentos": 1,
@@ -7481,6 +7432,13 @@
   "textos": 3,
   "numeradas": 3
  },
+ "7ywrpc": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T15:31:43.293Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 9
+ },
  "8039du": {
   "intentos": 1,
   "ultimo": "2026-11-01T21:01:29.473Z",
@@ -7745,16 +7703,19 @@
   "numeradas": 4
  },
  "98y49g": {
-  "intentos": 3,
-  "ultimo": "2026-11-08T14:31:22.878Z",
-  "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 893 (line 10 column 1)",
-  "textos": 4,
-  "numeradas": 4,
+  "intentos": 4,
+  "ultimo": "2026-11-08T15:31:43.293Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"canapino\", \"tc\", \"pick\", \"up\" y el cuerpo no los explica; sin esas oraciones quedan 240 palabras",
+  "textos": 3,
+  "numeradas": 5,
   "motivos": [
-   "cuerpo: 2 problemas (antecedente, promesa): el cuerpo usa 7, que sale ",
-   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez",
    "cuerpo: 4 problemas (numero, copia, promesa): el cuerpo dice 27 y la f",
-   "Gemini: Expected ',' or ']' after array element in JSON at position 89"
+   "Gemini: Expected ',' or ']' after array element in JSON at position 89",
+   "cuerpo: 2 problemas (antecedente, copia): el cuerpo usa \"sabado\", que ",
+   "cuerpo: 1 problema (promesa): el título nombra a \"canapino\", \"tc\", \"pi"
+  ],
+  "falla": [
+   "el título nombra a \"canapino\", \"tc\", \"pick\", \"up\" y el cuerpo no los explica"
   ]
  },
  "9blifj": {
@@ -8936,13 +8897,6 @@
   "textos": 2,
   "numeradas": 3
  },
- "f6043u": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T15:31:48.775Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1
- },
  "f7kf8n": {
   "intentos": 1,
   "ultimo": "2026-11-06T23:32:30.892Z",
@@ -8977,16 +8931,6 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
- },
- "fd9hbq": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T15:31:48.775Z",
-  "motivo": "con cuerpo",
-  "textos": 5,
-  "numeradas": 5,
-  "motivos": [
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
-  ]
  },
  "fdqq4d": {
   "intentos": 3,
@@ -9306,6 +9250,13 @@
   "falla": [
    "el cuerpo nombra a \"matias\" y la fuente no"
   ]
+ },
+ "h4r3xq": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T15:31:43.293Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "h7cuyv": {
   "intentos": 1,
@@ -9753,16 +9704,6 @@
    "sin material"
   ]
  },
- "jnzd9g": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T15:31:48.775Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2,
-  "motivos": [
-   "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re"
-  ]
- },
  "jnztmb": {
   "intentos": 1,
   "ultimo": "2026-11-02T22:31:52.193Z",
@@ -9980,18 +9921,6 @@
   "numeradas": 7,
   "motivos": [
    "cuerpo: 3 problemas (numero, nombre, relleno): el cuerpo dice 3 y la f"
-  ]
- },
- "kgxuk7": {
-  "intentos": 2,
-  "ultimo": "2026-11-01T15:31:48.775Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 57,
-  "motivos": [
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
-   "título o bajada: 1 problema (relleno): el copete tiene una frase de re",
-   "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re"
   ]
  },
  "kiw420": {
@@ -10287,6 +10216,13 @@
   "textos": 5,
   "numeradas": 17
  },
+ "ls4mne": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T15:31:43.293Z",
+  "motivo": "con cuerpo",
+  "textos": 7,
+  "numeradas": 7
+ },
  "lt07ea": {
   "intentos": 1,
   "ultimo": "2026-11-01T20:31:38.035Z",
@@ -10442,23 +10378,6 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 4
- },
- "mpzvx9": {
-  "intentos": 3,
-  "ultimo": "2026-11-01T15:03:04.062Z",
-  "motivo": "título o bajada: 1 problema (antecedente): el copete usa \"nunez\", que sale de una nota anterior, como si fuera de hoy",
-  "textos": 2,
-  "numeradas": 3,
-  "motivos": [
-   "título o bajada: 1 problema (antecedente): el copete usa \"nunez\", que ",
-   "Gemini: Expected ',' or ']' after array element in JSON at position 28",
-   "título o bajada: 1 problema (antecedente): el copete usa \"clausura\", q",
-   "título o bajada: 1 problema (antecedente): el copete usa \"nunez\", que "
-  ],
-  "falla": [
-   "el copete usa \"nunez\", que sale de una nota anterior, como si fuera de hoy",
-   "el cuerpo repite el copete en vez de desarrollarlo"
-  ]
  },
  "mrleoh": {
   "intentos": 1,
@@ -10619,13 +10538,6 @@
   "motivos": [
    "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (t"
   ]
- },
- "nn6aem": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T15:31:48.775Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 4
  },
  "nn90d2": {
   "intentos": 1,
@@ -11840,16 +11752,6 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 11
- },
- "ucd67q": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T15:31:48.775Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3,
-  "motivos": [
-   "título o bajada: 1 problema (largo): el titulo tiene 96 caracteres, el"
-  ]
  },
  "ud9h6r": {
   "intentos": 1,
