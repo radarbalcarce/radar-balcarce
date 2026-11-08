@@ -92924,11 +92924,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Diseñan jardines con plantas hospederas para atraer y sostener mariposas",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Brújula 24 no se usa todavía.",
-  "cuando": "2026-11-08T00:01:54.809Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 3
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de La Brújula 24 (parece una foto de stock): no se elige ninguna.",
+  "cuando": "2026-11-08T05:02:41.476Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "xwpiqf": {
   "archivo": "fotos-notas/xwpiqf.jpg",
@@ -93415,11 +93414,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Ferroviarios y Los Patos ganan en el inicio de la cuarta fecha del Clausura",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 503: qwen/qwen3.8-27b is currently over capacity. Please try again and back off exponentially. Visit https://groqst): la foto de Infórmese Primero (FM 104.9) no se usa todavía.",
-  "cuando": "2026-11-08T03:01:43.704Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 2
+  "razon": "La segunda opinión (groq, porque la primera IA vio gente muy joven) descartó la de Infórmese Primero (FM 104.9) (un menor): no se elige ninguna.",
+  "cuando": "2026-11-08T05:02:41.476Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "1efbl8c": {
   "intentado": true,
@@ -93844,7 +93842,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "889e9e8ee662f4bc"
+  "huella": "889e9e8ee662f4bc",
+  "ausenteDesde": "2026-11-08T05:02:54.262Z"
  },
  "zi73gi": {
   "archivo": "fotos-notas/zi73gi.jpg",
@@ -94367,7 +94366,8 @@
    "corresponde": "si",
    "descripcion": "Bandera del orgullo flameando en la marcha con edificios de fondo."
   },
-  "huella": "1a527bd774347414"
+  "huella": "1a527bd774347414",
+  "ausenteDesde": "2026-11-08T05:02:54.262Z"
  },
  "9cxjwp": {
   "archivo": "fotos-notas/9cxjwp.jpg",
@@ -94416,5 +94416,29 @@
    "descripcion": "Jugador de Instituto celebrando un gol."
   },
   "huella": "064b0c0d2d0d0fe6"
+ },
+ "17takfc": {
+  "archivo": "fotos-notas/17takfc.jpg",
+  "medio": "Página/12",
+  "credito": "Foto: Página/12",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Estrenan la película Biografía de Jorge Luis Borges de Mariano Llinás",
+  "enlace": "https://www.pagina12.com.ar/2026/11/08/biografia-de-jorge-luis-borges-de-mariano-llinas-el-arte-de-la-digresion/",
+  "imagenOriginal": "https://www.pagina12.com.ar/resizer/v2/LZSOHXVFUFDQZIA6FDP4XSNVVE.jpg?smart=true&auth=591c3ad4a1c7f50c9299c6eebe3cf8a37cf88dd5650654fb0b2104bd5b4ab03c&width=1200&height=630",
+  "razon": "La foto A es una imagen representativa de la película, mientras que la B es un retrato del director que no ilustra el contenido del film.",
+  "cuando": "2026-11-08T05:02:41.476Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Mano sosteniendo una pequeña fotografía antigua de Jorge Luis Borges."
+  },
+  "huella": "4f4f0e3717341d75"
  }
 }

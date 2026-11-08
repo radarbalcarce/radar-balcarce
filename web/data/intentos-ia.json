@@ -1486,6 +1486,16 @@
   "textos": 3,
   "numeradas": 4
  },
+ "17takfc": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T05:02:13.685Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 1 problema (nombre): el cuerpo nombra a \"ciudad\" y la fuente n"
+  ]
+ },
  "17tph8k": {
   "intentos": 1,
   "ultimo": "2026-11-03T18:32:13.005Z",
@@ -2487,8 +2497,8 @@
   "numeradas": 3
  },
  "1cud4al": {
-  "intentos": 1,
-  "ultimo": "2026-11-08T04:01:47.736Z",
+  "intentos": 2,
+  "ultimo": "2026-11-08T05:02:13.685Z",
   "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"copa\" y la fuente no",
   "textos": 1,
   "numeradas": 3,
@@ -5716,6 +5726,20 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 11
+ },
+ "1vn9y3q": {
+  "intentos": 1,
+  "ultimo": "2026-11-08T05:02:13.685Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título dice 3 y el cuerpo no lo explica; sin esas oraciones quedan 285 palabras",
+  "textos": 5,
+  "numeradas": 5,
+  "motivos": [
+   "cuerpo: 1 problema (promesa): el título dice 4 y el cuerpo no lo expli",
+   "cuerpo: 1 problema (promesa): el título dice 3 y el cuerpo no lo expli"
+  ],
+  "falla": [
+   "el título dice 3 y el cuerpo no lo explica"
+  ]
  },
  "1vo7o37": {
   "intentos": 1,
