@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-08T22:32:01.436Z",
- "portada": 94,
- "archivo": 499,
+ "generado": "2026-11-08T23:03:10.031Z",
+ "portada": 83,
+ "archivo": 498,
  "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-08T22:32:02.487Z",
+  "generado": "2026-11-08T23:03:10.445Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -63,7 +63,7 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -134,18 +134,6 @@
    "hoy": [],
    "cola": [
     {
-     "id": "v53icl",
-     "titulo": "Franco Colapinto termina decimotercero en el Gran Premio de Brasil",
-     "seccion": "Automovilismo",
-     "marcada": false
-    },
-    {
-     "id": "1fj1dkr",
-     "titulo": "El papa León XIV llega a la Argentina y rinde homenaje a San Martín",
-     "seccion": "Argentina",
-     "marcada": false
-    },
-    {
      "id": "861rdk",
      "titulo": "Liverpool vence 3 a 1 al Crystal Palace con un gol de Alexis Mac Allister",
      "seccion": "Fútbol",
@@ -158,21 +146,33 @@
      "marcada": false
     },
     {
-     "id": "kngsvm",
-     "titulo": "La torre de control de Aeroparque saluda al papa León XIV en su llegada",
-     "seccion": "Argentina",
-     "marcada": false
-    },
-    {
      "id": "4qved0",
      "titulo": "El papa León XIV encabeza un acto en el Palacio Libertad",
      "seccion": "Política",
      "marcada": false
     },
     {
+     "id": "1fj1dkr",
+     "titulo": "El papa León XIV llega a la Argentina y rinde homenaje a San Martín",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
      "id": "1mezi1z",
      "titulo": "Jorge Macri entrega las llaves de la Ciudad al papa León XIV",
      "seccion": "Política",
+     "marcada": false
+    },
+    {
+     "id": "kngsvm",
+     "titulo": "La torre de control de Aeroparque saluda al papa León XIV en su llegada",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "1j3ytpy",
+     "titulo": "River aguarda por la recuperación de sus lesionados para los playoffs",
+     "seccion": "Fútbol",
      "marcada": false
     }
    ],

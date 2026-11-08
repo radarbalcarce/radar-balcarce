@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-08T22:31:56.775Z",
+ "consultado": "2026-11-08T23:03:06.959Z",
  "equipos": [
   "9739",
   "3",
@@ -1227,11 +1227,11 @@
     "competencia": "liga",
     "inicio": "2026-11-08T22:30:00.000Z",
     "estado": "en-juego",
-    "minuto": "2'",
+    "minuto": "33'",
     "local": {
      "id": "11989",
      "nombre": "Central Córdoba (Santiago del Estero)",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "12",
@@ -1239,7 +1239,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Tomás Guidara",
+      "minuto": "31'",
+      "tipo": "en contra"
+     }
+    ],
     "estadio": "Alfredo Terrera",
     "fase": null,
     "partidoDeLaSerie": null,
@@ -1721,7 +1728,7 @@
    }
   ]
  },
- "tablaCuando": "2026-11-08T21:32:35.548Z",
+ "tablaCuando": "2026-11-08T23:03:06.959Z",
  "notas": {
   "futbolpartidosliga20261002": "2026-10-04T02:29:42.845Z",
   "futbolresultadosliga20261002": "2026-10-04T02:29:42.845Z",
