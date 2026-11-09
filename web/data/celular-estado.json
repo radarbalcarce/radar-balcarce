@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-09T14:32:34.084Z",
- "portada": 82,
+ "generado": "2026-11-09T15:03:14.068Z",
+ "portada": 89,
  "archivo": 500,
  "esperandoCuerpo": 1,
  "redes": {
-  "generado": "2026-11-09T14:32:34.499Z",
+  "generado": "2026-11-09T15:03:14.413Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "El feriado",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -33,7 +33,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -53,7 +53,7 @@
     "que": "Participá: mandanos noticias",
     "voz": "locutora",
     "ventana": 60,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -167,7 +167,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 51,
     "notas": [
      {
       "id": "15fqj6p",
@@ -175,19 +175,19 @@
       "seccion": "Fútbol"
      },
      {
+      "id": "5wafjv",
+      "titulo": "Impulsan colecta de golosinas para la visita de Papá Noel a Protección a la Infancia",
+      "seccion": "Balcarce"
+     },
+     {
       "id": "1a0snlf",
       "titulo": "Detienen en Palermo a un falso bombero cerca del escenario del Papa",
       "seccion": "Policiales"
      },
      {
-      "id": "1vn9y3q",
-      "titulo": "El papa Léon XIV llega hoy a la Argentina en su primera visita oficial",
+      "id": "f9z7ys",
+      "titulo": "El papa León XIV encabeza la misa central en el Monumento a los Españoles",
       "seccion": "Argentina"
-     },
-     {
-      "id": "1mezi1z",
-      "titulo": "Jorge Macri entrega las llaves de la Ciudad al papa León XIV",
-      "seccion": "Política"
      }
     ]
    }
@@ -229,12 +229,6 @@
      "id": "15fqj6p",
      "titulo": "FC Agrarias vence a San Lorenzo y escala al segundo puesto de la Zona C",
      "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "ect9ll",
-     "titulo": "Anticipan temperaturas agradables y lluvias hacia el fin de semana",
-     "seccion": "Balcarce",
      "marcada": false
     }
    ],
