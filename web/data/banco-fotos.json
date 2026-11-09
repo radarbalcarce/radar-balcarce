@@ -55432,9 +55432,7 @@
   "borrada": true
  },
  "mcrhzc": {
-  "archivo": "fotos-notas/mcrhzc.jpg",
   "medio": "La Tecla",
-  "credito": "Foto: La Tecla",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Provincia promulga la ley que habilita a las cooperativas a generar energía renovable",
@@ -55454,7 +55452,8 @@
    "descripcion": "Vista aérea de generadores eléctricos y vehículos institucionales en una planta."
   },
   "huella": "f0f90427909a6878",
-  "ausenteDesde": "2026-11-02T10:32:22.679Z"
+  "intentado": true,
+  "borrada": true
  },
  "dr2hke": {
   "medio": "El Día",
@@ -55563,9 +55562,7 @@
   "ausenteDesde": "2026-11-02T13:33:41.404Z"
  },
  "120msi1": {
-  "archivo": "fotos-notas/120msi1.jpg",
   "medio": "Radio Mitre",
-  "credito": "Foto: Radio Mitre",
   "licencia": null,
   "origen": "medio",
   "titulo": "Calculan una inflación cercana al dos por ciento para octubre",
@@ -55585,7 +55582,8 @@
    "descripcion": "Persona comprando en góndola de supermercado con carrito."
   },
   "huella": "6c4e4b5b196acd89",
-  "ausenteDesde": "2026-11-02T10:32:22.679Z"
+  "intentado": true,
+  "borrada": true
  },
  "1flgfaq": {
   "medio": "La Nueva",
@@ -56402,9 +56400,7 @@
   "ausenteDesde": "2026-11-02T14:12:08.018Z"
  },
  "1oof9yt": {
-  "archivo": "fotos-notas/1oof9yt.webp",
   "medio": "El Día",
-  "credito": "Foto: El Día",
   "licencia": null,
   "origen": "medio",
   "titulo": "Modifican las reglas de prioridad de paso en esquinas bonaerenses",
@@ -56424,7 +56420,8 @@
    "descripcion": "autos circulando en una calle urbana"
   },
   "huella": "25454d6f33819f8f",
-  "ausenteDesde": "2026-11-02T10:32:22.679Z"
+  "intentado": true,
+  "borrada": true
  },
  "1r3wtoi": {
   "archivo": "fotos-notas/1r3wtoi.jpg",
@@ -61212,9 +61209,7 @@
   "ausenteDesde": "2026-11-03T07:04:27.064Z"
  },
  "14cnssm": {
-  "archivo": "fotos-notas/14cnssm.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "River define sus chances para clasificar a la Copa Libertadores",
@@ -61234,7 +61229,8 @@
    "descripcion": "Plantel de River Plate posando antes de un partido."
   },
   "huella": "2f2b136dd9e91733",
-  "ausenteDesde": "2026-11-02T10:32:22.679Z"
+  "intentado": true,
+  "borrada": true
  },
  "1p5bkzu": {
   "medio": "El Eco de Tandil",
@@ -97580,7 +97576,8 @@
    "corresponde": "si",
    "descripcion": "Acción de juego entre un jugador del Barcelona y uno del Atlético de Madrid."
   },
-  "huella": "9a9a0aabb3315531"
+  "huella": "9a9a0aabb3315531",
+  "ausenteDesde": "2026-11-09T10:32:28.029Z"
  },
  "ssw6p1": {
   "archivo": "fotos-notas/ssw6p1.jpg",
@@ -98212,5 +98209,29 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "0b070c0c0a0d24a6"
+ },
+ "1blz2xb": {
+  "archivo": "fotos-notas/1blz2xb.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Definen los cruces de octavos de final del Torneo Clausura 2026",
+  "enlace": "https://www.clarin.com/deportes/definieron-octavos-torneo-clausura-caminos-boca-river-unica-chance-superclasico_0_AuxD59b0qg.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/11/07/tu0tB3vKi_2000x1500__1.jpg",
+  "razon": "La IA había preferido la de La Nación, pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto): se usa Clarín en su lugar, aunque no sea la ideal.",
+  "cuando": "2026-11-09T10:32:13.704Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "generica",
+   "descripcion": "Dos futbolistas de Boca Juniors en un partido oficial."
+  },
+  "huella": "2bbb9a999ad2a70b"
  }
 }
