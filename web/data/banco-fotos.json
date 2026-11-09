@@ -57618,9 +57618,7 @@
   "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "u1eoal": {
-  "archivo": "fotos-notas/u1eoal.jpg",
   "medio": "El Diario Balcarce",
-  "credito": "Foto: El Diario Balcarce",
   "licencia": null,
   "origen": "medio",
   "titulo": "Lucenza lanza la segunda edición del programa Mujeres al Volante",
@@ -57641,7 +57639,8 @@
    "descripcion": "Dos mujeres con remeras de Lucenza posan sonrientes frente a un micro de la empresa."
   },
   "huella": "3e1fafda359bc9b6",
-  "ausenteDesde": "2026-11-02T21:34:02.748Z"
+  "intentado": true,
+  "borrada": true
  },
  "18yvm4g": {
   "medio": "Radio Mitre",
@@ -59571,9 +59570,7 @@
   "borrada": true
  },
  "1pkrpmr": {
-  "archivo": "fotos-notas/1pkrpmr.jpg",
   "medio": "Minuto Uno",
-  "credito": "Foto: Minuto Uno",
   "licencia": null,
   "origen": "medio",
   "titulo": "Newell's y Unión juegan en Rosario por el Torneo Clausura 2026",
@@ -59605,7 +59602,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "8e33b6737363692d",
-  "ausenteDesde": "2026-11-02T21:34:02.748Z"
+  "intentado": true,
+  "borrada": true
  },
  "1r3uc04": {
   "archivo": "fotos-notas/1r3uc04.jpg",
@@ -88115,7 +88113,8 @@
    "corresponde": "si",
    "descripcion": "Fachada de la Casa del Bicentenario de Balcarce"
   },
-  "huella": "9953926a2a28e24d"
+  "huella": "9953926a2a28e24d",
+  "ausenteDesde": "2026-11-09T22:03:07.884Z"
  },
  "1pkqfef": {
   "archivo": "fotos-notas/1pkqfef.jpg",
@@ -88374,7 +88373,8 @@
    "corresponde": "si",
    "descripcion": "Funcionarios y personas en un espacio interior."
   },
-  "huella": "99b0addc5cd2c287"
+  "huella": "99b0addc5cd2c287",
+  "ausenteDesde": "2026-11-09T22:03:07.884Z"
  },
  "10foxvg": {
   "archivo": "fotos-notas/10foxvg.jpg",
@@ -100151,13 +100151,28 @@
   "ausenteDesde": "2026-11-09T20:34:02.141Z"
  },
  "1ln0egg": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1ln0egg.jpg",
+  "medio": "C5N",
+  "credito": "Foto: C5N",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El papa León XIV canta Alma Misionera en su visita al Cottolengo Don Orione",
-  "razon": "Ninguna foto cumple con todos los requisitos necesarios para ser publicada sin inconvenientes.",
-  "cuando": "2026-11-09T19:32:49.541Z",
-  "intentos": 1,
-  "fuentes": 3
+  "enlace": "https://www.c5n.com/sociedad/video-el-papa-leon-xiv-canto-alma-misionera-el-cottolengo-don-orione-n253838",
+  "imagenOriginal": "https://media.c5n.com/p/1ecdf7221cdecf098ceaef2039ca56ef/adjuntos/326/imagenes/000/406/0000406917/1200x675/smart/papa-leon-xiv-el-cottolengo-don-orione.jpg",
+  "razon": "Es la única imagen que muestra el contexto completo del evento (el Papa en el altar del Cottolengo) sin marcas de agua, sin menores y con buena calidad.",
+  "cuando": "2026-11-09T22:02:01.914Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general del Papa en el altar del Cottolengo Don Orione."
+  },
+  "huella": "8d8ccd0b9ec6d6d6"
  },
  "jjjc7z": {
   "archivo": "fotos-notas/jjjc7z.jpg",
@@ -100857,5 +100872,89 @@
   "cuando": "2026-11-09T21:32:34.356Z",
   "intentos": 1,
   "fuentes": 2
+ },
+ "xkzl8s": {
+  "archivo": "fotos-notas/xkzl8s.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Productores de yerba mate envían carta al papa León XIV por la crisis del sector",
+  "enlace": "https://tn.com.ar/campo/2026/11/09/un-kilo-de-hoja-verde-a-280-el-numero-que-los-yerbateros-pusieron-frente-al-papa/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/los-productores-de-yerba-mate-le-enviaron-una-carta-a-leon-xiv-con-un-fuerte-reclamo-el-que-trabaja-la-tierra-esta-por-el-suelo-foto-misiones-opina-P27YIPVBMZGXNO3B3UY32VP25M.jpg?auth=cd0ff783bc79027b230168b640b12a03ee73556ef4f0f3942723440355b135d9&width=1023",
+  "razon": "Es una imagen clara, sin marcas de agua ni elementos distractores, que ilustra adecuadamente la actividad de los productores de yerba mate.",
+  "cuando": "2026-11-09T22:02:01.914Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos trabajadores rurales cosechando yerba mate en una plantación."
+  },
+  "huella": "8d6969596268e488"
+ },
+ "6041lf": {
+  "archivo": "fotos-notas/6041lf.jpg",
+  "medio": "0221",
+  "credito": "Foto: 0221",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Una cartonera de Ensenada le habla al papa León XIV en la UCA",
+  "enlace": "https://www.0221.com.ar/ensenada/la-historia-la-cartonera-ensenada-que-llego-el-papa-leon-xiv-y-conmovio-su-relato-n137196",
+  "imagenOriginal": "https://media.0221.com.ar/p/d718794457720da9b2e5a51514d0bd47/adjuntos/357/imagenes/100/303/0100303389/1200x630/739x393:759x413/abrazo-solemne-del-papa-y-una-mujer.png",
+  "razon": "Es la única imagen que muestra el hecho central de la nota (el encuentro con el Papa) y no presenta marcas de agua, elementos gráficos ni menores.",
+  "cuando": "2026-11-09T22:02:01.914Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa abrazando a una joven durante el evento.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "El Papa León XIV abraza a una mujer de cabello largo en un evento."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "ccac626060626666"
+ },
+ "860vjz": {
+  "archivo": "fotos-notas/860vjz.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Las ventas de los comercios pyme bajan 1,6% en octubre y acumulan una caída anual",
+  "enlace": "https://tn.com.ar/economia/2026/11/08/las-ventas-de-los-comercios-pyme-cayeron-en-octubre-y-acumulan-una-baja-del-2-en-lo-que-va-del-ano/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/pese-a-las-compras-por-el-dia-de-la-madre-y-el-cambio-de-temporada-el-consumo-no-logro-recuperarse-en-octubre-foto-leandro-herediatn-NRSUZNV44ZDEPKPZGQLC5AW5RM.jpg?auth=d9046c6ae27dae81bdef76172122433c3b2a874edfad5b7388c4857df5812a81&width=1023",
+  "razon": "Es la única imagen que ilustra el contexto de consumo minorista sin marcas de agua, sin menores y con una composición clara y profesional.",
+  "cuando": "2026-11-09T22:02:01.914Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona eligiendo ropa en un local comercial."
+  },
+  "huella": "363434252b26a4a5"
  }
 }

@@ -1,34 +1,7 @@
 {
- "generado": "2026-11-09T21:33:06.594Z",
+ "generado": "2026-11-09T22:03:08.168Z",
  "intentosMaximos": 3,
  "notas": [
-  {
-   "id": "110honl",
-   "titulo": "Los Pinos celebrará su 126º aniversario con dos jornadas de música, tradición y actividades para toda la familia",
-   "copete": "Los festejos se desarrollarán el sábado 14 y domingo 15 de noviembre, con una propuesta que incluirá espectáculos musicales, danzas, cabalgata, desfile tradicionalista, gastronomía y artesanías. La programación fue presentada este viernes en el Palacio Municipal y contará con la…",
-   "seccion": "Balcarce",
-   "fecha": "2026-11-09T15:01:06.000Z",
-   "fuentes": [
-    {
-     "medio": "Puntonueve (FM 100.9)",
-     "enlace": "https://puntonueve.com.ar/los-pinos-celebrara-su-126o-aniversario-con-dos-jornadas-de-musica-tradicion-y-actividades-para-toda-la-familia/",
-     "fecha": "2026-11-07T14:03:38.000Z"
-    },
-    {
-     "medio": "Diario La Vanguardia",
-     "enlace": "https://www.diariolavanguardia.com/noticias/45287-los-pinos-celebrara-su-126-aniversario-con-dos-jornadas-de-musica-tradicion-y-actividades-para-toda-la-familia/",
-     "fecha": null
-    },
-    {
-     "medio": "Ahora Balcarce",
-     "enlace": "http://ahorabalcarce.com.ar/los-pinos-celebrara-su-126o-aniversario/",
-     "fecha": "2026-11-09T15:01:06.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "cuerpo: 1 problema (promesa): el título dice 2 y el cuerpo no lo explica; sin esas oraciones quedan 286 palabras",
-   "maximo": 3
-  },
   {
    "id": "sfjd3l",
    "titulo": "Qué necesita Mercedes para ser campeón de constructores de la Fórmula 1",
@@ -87,6 +60,33 @@
    "maximo": 5
   },
   {
+   "id": "1kbvhwo",
+   "titulo": "Es cartonero y se entrevistó con Francisco y el Papa: \"A León le pedí tierra, techo y trabajo\"",
+   "copete": "",
+   "seccion": "Argentina",
+   "fecha": "2026-11-09T18:37:00.000Z",
+   "fuentes": [
+    {
+     "medio": "El Destape",
+     "enlace": "https://www.eldestapeweb.com/sociedad/cartonero-llevo-voz-trabajadores-encuentro-papa-leon-xiv-le-pedi-tierra-techo-trabajo-20261198052",
+     "fecha": "2026-11-09T11:00:52.174Z"
+    },
+    {
+     "medio": "Minuto Uno",
+     "enlace": "https://www.minutouno.com/sociedad/leon-xiv-defendio-las-3t-francisco-tierra-techo-y-trabajo-son-exigencias-la-justicia-social-n6343324",
+     "fecha": "2026-11-09T20:20:00.000Z"
+    },
+    {
+     "medio": "La Gaceta (Tucumán)",
+     "enlace": "https://www.lagaceta.com.ar/nota/1161789/sociedad/ante-empresarios-sindicalistas-leon-xiv-reivindico-francisco-tierra-techo-trabajo-son-exigencias-justicia-social.html",
+     "fecha": "2026-11-09T18:37:00.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+   "maximo": 3
+  },
+  {
    "id": "1gqvau3",
    "titulo": "El papa León XIV advirtió sobre los males que “destruyen el futuro de los jóvenes”",
    "copete": "",
@@ -109,19 +109,10 @@
      "fecha": "2026-11-09T18:44:45.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+   "intentos": 2,
+   "motivo": "cuerpo: 2 problemas (repite, tildes): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
    "maximo": 3
   }
  ],
- "descartadas": [
-  {
-   "id": "10g0hk8",
-   "titulo": "“Historia natural de los gliptodontes” se presentó MUHBA",
-   "seccion": "Cultura y agenda",
-   "fecha": "2026-11-09T15:20:10.000Z",
-   "intentos": 3,
-   "motivo": "agotó los 3 intentos; sin material"
-  }
- ]
+ "descartadas": []
 }

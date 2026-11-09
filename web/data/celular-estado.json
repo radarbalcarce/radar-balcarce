@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-09T21:33:06.594Z",
- "portada": 120,
+ "generado": "2026-11-09T22:03:08.168Z",
+ "portada": 106,
  "archivo": 500,
  "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-11-09T21:33:07.164Z",
+  "generado": "2026-11-09T22:03:08.482Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -63,7 +63,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -73,7 +73,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -113,31 +113,10 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null,
-    "segundos": 55,
-    "notas": [
-     {
-      "id": "1w8v4jx",
-      "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
-      "seccion": "Educación"
-     },
-     {
-      "id": "17nu3vp",
-      "titulo": "Emerson Fittipaldi visita el Museo Fangio por su aniversario",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "1iw8ih",
-      "titulo": "Acumulan cubiertas y basura sobre la avenida Caseros",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1tpvs2y",
-      "titulo": "Abren los últimos cupos para la carrera de trail",
-      "seccion": "Cultura y agenda"
-     }
-    ]
+    "segundos": null,
+    "notas": []
    },
    {
     "nombre": "podcast",
@@ -146,27 +125,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 47,
     "notas": [
      {
-      "id": "1hado1m",
-      "titulo": "La Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
+      "id": "17nu3vp",
+      "titulo": "Emerson Fittipaldi visita el Museo Fangio por su aniversario",
+      "seccion": "Automovilismo"
+     },
+     {
+      "id": "1w8v4jx",
+      "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
+      "seccion": "Educación"
+     },
+     {
+      "id": "6qyz7u",
+      "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
       "seccion": "Deportes"
      },
      {
       "id": "1su1zi1",
       "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
       "seccion": "Fútbol"
-     },
-     {
-      "id": "1su15zm",
-      "titulo": "Garantizan la continuidad del Registro del Automotor",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1cpw03j",
-      "titulo": "Camila Peralta actúa en la nueva serie de Netflix dirigida por Trapero",
-      "seccion": "Cultura y agenda"
      }
     ]
    }
@@ -181,33 +160,15 @@
      "marcada": false
     },
     {
-     "id": "1iw8ih",
-     "titulo": "Acumulan cubiertas y basura sobre la avenida Caseros",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
-     "id": "1tpvs2y",
-     "titulo": "Abren los últimos cupos para la carrera de trail",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "1hado1m",
-     "titulo": "La Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
-     "seccion": "Deportes",
-     "marcada": false
-    },
-    {
-     "id": "e9wwts",
-     "titulo": "Organizan la maratón Jaime Gosende tras el éxito de la carrera Luis Vildoza",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
      "id": "6qyz7u",
      "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
      "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "1tveim",
+     "titulo": "Lionel Messi integra el once ideal de 2026 elegido por futbolistas",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -217,9 +178,27 @@
      "marcada": false
     },
     {
-     "id": "1tveim",
-     "titulo": "Lionel Messi integra el once ideal de 2026 elegido por futbolistas",
-     "seccion": "Fútbol",
+     "id": "nhxwla",
+     "titulo": "Victoria Villarruel confirma que no fue invitada a la misa del papa León XIV",
+     "seccion": "Política",
+     "marcada": false
+    },
+    {
+     "id": "1e3wb39",
+     "titulo": "Fernando Bravo lee la profecía de Ezequiel en la misa del papa León XIV",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "135o3nw",
+     "titulo": "Soledad Pastorutti canta ante una multitud en la previa de la misa papal",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "1kfiwii",
+     "titulo": "León XIV recibe una camiseta de Estudiantes durante su visita a Claypole",
+     "seccion": "Argentina",
      "marcada": false
     }
    ],

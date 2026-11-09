@@ -3104,17 +3104,20 @@
   "numeradas": 3
  },
  "1gqvau3": {
-  "intentos": 1,
-  "ultimo": "2026-11-09T21:31:41.610Z",
-  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "intentos": 2,
+  "ultimo": "2026-11-09T22:01:26.623Z",
+  "motivo": "cuerpo: 2 problemas (repite, tildes): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
   "textos": 1,
   "numeradas": 3,
   "motivos": [
    "título o bajada: 1 problema (nombre): el copete nombra a \"ciudad\" y la",
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
+   "cuerpo: 3 problemas (relleno, repite, copia): el cuerpo tiene una fras",
+   "cuerpo: 2 problemas (repite, tildes): el cuerpo repite el copete en ve"
   ],
   "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo"
+   "el cuerpo repite el copete en vez de desarrollarlo",
+   "el texto está escrito sin tildes (dia, pais, Ademas, generacion): va con las tildes y la eñe donde corresponden"
   ]
  },
  "1grohf": {
@@ -3727,6 +3730,19 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 7
+ },
+ "1kbvhwo": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T22:01:26.623Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
  },
  "1kcql1o": {
   "intentos": 1,
@@ -6881,13 +6897,14 @@
   "numeradas": 17
  },
  "6041lf": {
-  "intentos": 1,
-  "ultimo": "2026-11-09T21:31:41.610Z",
-  "motivo": "semáforo: tema sensible: \"violencia de género\", en lo que escribió la IA",
+  "intentos": 2,
+  "ultimo": "2026-11-09T22:01:26.623Z",
+  "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 4,
   "motivos": [
-   "semáforo: tema sensible: \"violencia de género\", en lo que escribió la "
+   "semáforo: tema sensible: \"violencia de género\", en lo que escribió la ",
+   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez"
   ]
  },
  "60lmll": {
@@ -7231,6 +7248,16 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
+ },
+ "860vjz": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T22:01:26.623Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 6,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 21 palabras seguidas del original: d"
+  ]
  },
  "861rdk": {
   "intentos": 2,
@@ -11954,6 +11981,13 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 4
+ },
+ "xkzl8s": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T22:01:26.623Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
  },
  "xl96vo": {
   "intentos": 1,
