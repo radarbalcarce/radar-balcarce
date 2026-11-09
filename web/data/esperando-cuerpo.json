@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-09T10:32:28.194Z",
+ "generado": "2026-11-09T11:02:01.500Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -85,6 +85,55 @@
    "intentos": 1,
    "motivo": "con cuerpo",
    "maximo": 5
+  },
+  {
+   "id": "kv2wk7",
+   "titulo": "La Fugazzeta Fest llega al Planetario de Palermo con entrada gratis: cuándo será el festival que reunirá a más de 10 pizzerías",
+   "copete": "La Ciudad de Buenos Aires se prepara para celebrar uno de sus sabores más tradicionales con la segunda edición de Fugazzeta Fest 2026 , un festival gastronómico que reunirá a más de 10 pizzerías en el Planetario Galileo Galilei , ubicado en Palermo . El encuentro se realizará el…",
+   "seccion": "Cultura y agenda",
+   "fecha": "2026-11-09T01:00:00.000Z",
+   "fuentes": [
+    {
+     "medio": "Canal 26",
+     "enlace": "https://www.canal26.com/turismo/2026/11/09/la-fugazzeta-fest-llega-al-planetario-de-palermo-con-entrada-gratis-cuando-sera-el-festival-que-reunira-a-mas-de-10-pizzerias/",
+     "fecha": "2026-11-09T01:00:00.000Z"
+    },
+    {
+     "medio": "TyC Sports",
+     "enlace": "https://www.tycsports.com/gaming/fugazzeta-fest-en-palermo-cuando-es-donde-se-realiza-y-como-sera-el-festival-con-entrada-gratuita-id770776.html",
+     "fecha": "2026-11-09T10:36:48.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"fugazzeta\", \"fest\" y el cuerpo no los explica; sin esas oraciones quedan 262 palabras",
+   "maximo": 3
+  },
+  {
+   "id": "jtuxjo",
+   "titulo": "A qué hora es la cadena nacional del papa León XIV con Milei en CABA: dónde ver por TV",
+   "copete": "",
+   "seccion": "Política",
+   "fecha": "2026-11-08T22:25:00.000Z",
+   "fuentes": [
+    {
+     "medio": "El Destape",
+     "enlace": "https://www.eldestapeweb.com/sociedad/hora-cadena-nacional-papa-leon-xiv-milei-caba-donde-ver-tv-20261187025",
+     "fecha": "2026-11-08T10:00:25.692Z"
+    },
+    {
+     "medio": "Minuto Uno",
+     "enlace": "https://www.minutouno.com/espectaculos/de-cuanto-fue-el-rating-la-cadena-nacional-del-papa-leon-xiv-javier-milei-n6343013",
+     "fecha": "2026-11-08T22:25:00.000Z"
+    },
+    {
+     "medio": "Radio Mitre",
+     "enlace": "https://radiomitre.cienradios.com/espectaculos/el-el-rating-de-la-cadena-nacional-del-papa-leon-xiv-junto-a-javier-milei/",
+     "fecha": "2026-11-08T22:56:26.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 207 palabras",
+   "maximo": 3
   }
  ],
  "descartadas": [
@@ -95,14 +144,6 @@
    "fecha": "2026-11-09T00:12:00.000Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (título, bajada o texto para redes)"
-  },
-  {
-   "id": "1ddbyyw",
-   "titulo": "La agenda del papa León XIV en CABA: el recorrido del papamóvil hora por hora",
-   "seccion": "Argentina",
-   "fecha": "2026-11-08T10:52:26.305Z",
-   "intentos": 4,
-   "motivo": "agotó los 4 intentos; título o bajada: 1 problema (numero): el copete dice 4 y la fuente no lo dice"
   }
  ]
 }

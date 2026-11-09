@@ -916,16 +916,6 @@
   "textos": 3,
   "numeradas": 3
  },
- "153in3t": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T11:01:42.399Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 3,
-  "motivos": [
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
-  ]
- },
  "156kjj1": {
   "intentos": 1,
   "ultimo": "2026-11-05T04:01:49.282Z",
@@ -3125,13 +3115,6 @@
   "textos": 4,
   "numeradas": 5
  },
- "1gjl17m": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T11:01:42.399Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 3
- },
  "1gkdsuy": {
   "intentos": 1,
   "ultimo": "2026-11-03T02:01:56.283Z",
@@ -3233,6 +3216,13 @@
  "1h5ipna": {
   "intentos": 1,
   "ultimo": "2026-11-05T23:31:32.373Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
+ "1h9858b": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T11:01:22.446Z",
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
@@ -4357,6 +4347,13 @@
  "1n4cm9": {
   "intentos": 1,
   "ultimo": "2026-11-04T02:02:26.067Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 3
+ },
+ "1n89hkv": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T11:01:22.446Z",
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 3
@@ -8197,16 +8194,6 @@
    "cuerpo: 1 problema (promesa): el título nombra a \"castro\", \"roma\" y el"
   ]
  },
- "cwdhlo": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T11:01:42.399Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 9,
-  "motivos": [
-   "título o bajada: 1 problema (largo): el titulo tiene 92 caracteres, el"
-  ]
- },
  "cwyl95": {
   "intentos": 1,
   "ultimo": "2026-11-06T23:01:46.686Z",
@@ -9566,6 +9553,20 @@
   "textos": 3,
   "numeradas": 3
  },
+ "jtuxjo": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T11:01:22.446Z",
+  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 207 palabras",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 2 problemas (largo, relleno): el titulo tiene 91 cara",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ],
+  "falla": [
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+  ]
+ },
  "jv6v7i": {
   "intentos": 1,
   "ultimo": "2026-11-04T14:32:37.591Z",
@@ -9826,6 +9827,20 @@
   "numeradas": 5,
   "motivos": [
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ]
+ },
+ "kv2wk7": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T11:01:22.446Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"fugazzeta\", \"fest\" y el cuerpo no los explica; sin esas oraciones quedan 262 palabras",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 23 palabras seguidas del original: d",
+   "cuerpo: 1 problema (promesa): el título nombra a \"fugazzeta\", \"fest\" y"
+  ],
+  "falla": [
+   "el título nombra a \"fugazzeta\", \"fest\" y el cuerpo no los explica"
   ]
  },
  "kvuifd": {
@@ -10967,13 +10982,6 @@
   "textos": 1,
   "numeradas": 1
  },
- "rjdouh": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T11:01:42.399Z",
-  "motivo": "con cuerpo",
-  "textos": 5,
-  "numeradas": 6
- },
  "rkt3tm": {
   "intentos": 2,
   "ultimo": "2026-11-06T13:31:18.602Z",
@@ -11717,13 +11725,6 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 4
- },
- "v7e3ft": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T11:01:42.399Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2
  },
  "v7iwd7": {
   "intentos": 1,
