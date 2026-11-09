@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-09T18:33:53.506Z",
- "portada": 103,
+ "generado": "2026-11-09T19:03:56.324Z",
+ "portada": 104,
  "archivo": 500,
  "esperandoCuerpo": 1,
  "redes": {
-  "generado": "2026-11-09T18:33:54.074Z",
+  "generado": "2026-11-09T19:03:56.784Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -115,7 +115,7 @@
     "voz": "locutora",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 54,
+    "segundos": 55,
     "notas": [
      {
       "id": "17nu3vp",
@@ -123,19 +123,19 @@
       "seccion": "Automovilismo"
      },
      {
+      "id": "1w8v4jx",
+      "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
+      "seccion": "Educación"
+     },
+     {
+      "id": "1iw8ih",
+      "titulo": "Acumulan cubiertas y basura sobre la avenida Caseros",
+      "seccion": "Balcarce"
+     },
+     {
       "id": "1tpvs2y",
       "titulo": "Abren los últimos cupos para la carrera de trail",
       "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "1hado1m",
-      "titulo": "La Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "1su1zi1",
-      "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
-      "seccion": "Fútbol"
      }
     ]
    },
@@ -146,22 +146,22 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 51,
     "notas": [
      {
-      "id": "6qyz7u",
-      "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
+      "id": "1hado1m",
+      "titulo": "La Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
       "seccion": "Deportes"
+     },
+     {
+      "id": "1su1zi1",
+      "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
+      "seccion": "Fútbol"
      },
      {
       "id": "1su15zm",
       "titulo": "Garantizan la continuidad del Registro del Automotor",
       "seccion": "Balcarce"
-     },
-     {
-      "id": "1li6hf9",
-      "titulo": "Los Patos, Boca y San Manuel ganan por el torneo Clausura",
-      "seccion": "Fútbol"
      },
      {
       "id": "1cpw03j",
@@ -178,6 +178,18 @@
      "id": "17nu3vp",
      "titulo": "Emerson Fittipaldi visita el Museo Fangio por su aniversario",
      "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
+     "id": "1w8v4jx",
+     "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
+     "seccion": "Educación",
+     "marcada": false
+    },
+    {
+     "id": "1iw8ih",
+     "titulo": "Acumulan cubiertas y basura sobre la avenida Caseros",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
@@ -207,18 +219,6 @@
     {
      "id": "1su1zi1",
      "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "1su15zm",
-     "titulo": "Garantizan la continuidad del Registro del Automotor",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
-     "id": "1li6hf9",
-     "titulo": "Los Patos, Boca y San Manuel ganan por el torneo Clausura",
      "seccion": "Fútbol",
      "marcada": false
     }
