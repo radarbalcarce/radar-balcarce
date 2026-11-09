@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-09T13:03:15.079Z",
- "portada": 87,
+ "generado": "2026-11-09T13:33:15.068Z",
+ "portada": 88,
  "archivo": 500,
- "esperandoCuerpo": 1,
+ "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-11-09T13:03:15.397Z",
+  "generado": "2026-11-09T13:33:15.419Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -105,13 +105,39 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 53,
+    "segundos": 54,
     "notas": [
      {
       "id": "1w8v4jx",
       "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
       "seccion": "Educación"
      },
+     {
+      "id": "1su1zi1",
+      "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "1su15zm",
+      "titulo": "Garantizan la continuidad del Registro del Automotor",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "4ddcm1",
+      "titulo": "Exigen coordinar de manera previa las visitas a la Reserva Fangio y al Autódromo",
+      "seccion": "Cultura y agenda"
+     }
+    ]
+   },
+   {
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 47,
+    "notas": [
      {
       "id": "1li6hf9",
       "titulo": "Los Patos, Boca y San Manuel ganan por el torneo Clausura",
@@ -126,17 +152,22 @@
       "id": "1a30pz0",
       "titulo": "Kicillof pide un endeudamiento de USD 1.000 millones y prevé un fondo municipal",
       "seccion": "Política"
+     },
+     {
+      "id": "1a0snlf",
+      "titulo": "Detienen en Palermo a un falso bombero cerca del escenario del Papa",
+      "seccion": "Policiales"
      }
     ]
    },
    {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 48,
     "notas": [
      {
       "id": "15fqj6p",
@@ -149,40 +180,9 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "1y7jzkw",
-      "titulo": "Detienen a una persona por amenazas de muerte contra el papa León XIV",
-      "seccion": "Argentina"
-     },
-     {
       "id": "1n263sp",
       "titulo": "Las ventas minoristas bajan 1,6% interanual en octubre",
       "seccion": "Economía"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 52,
-    "notas": [
-     {
-      "id": "1kowtv2",
-      "titulo": "Ferroviarios gana el clásico y continúan los triunfos en el torneo",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "4crcso",
-      "titulo": "El Colegio Emilio Lamarca organiza una nueva Caravana de la Alegría",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1vn9y3q",
-      "titulo": "El papa Léon XIV llega hoy a la Argentina en su primera visita oficial",
-      "seccion": "Argentina"
      },
      {
       "id": "12ejmmi",
@@ -202,6 +202,18 @@
      "marcada": false
     },
     {
+     "id": "1su1zi1",
+     "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1su15zm",
+     "titulo": "Garantizan la continuidad del Registro del Automotor",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "1li6hf9",
      "titulo": "Los Patos, Boca y San Manuel ganan por el torneo Clausura",
      "seccion": "Fútbol",
@@ -217,6 +229,12 @@
      "id": "ect9ll",
      "titulo": "Anticipan temperaturas agradables y lluvias hacia el fin de semana",
      "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "cc2yp4",
+     "titulo": "Kiki Ramos deja la Selección Argentina y jugará para Haití",
+     "seccion": "Fútbol",
      "marcada": false
     }
    ],
