@@ -102,13 +102,6 @@
   "textos": 4,
   "numeradas": 4
  },
- "10f66es": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T22:31:52.193Z",
-  "motivo": "con cuerpo",
-  "textos": 6,
-  "numeradas": 22
- },
  "10f6q9o": {
   "intentos": 1,
   "ultimo": "2026-11-08T15:02:25.331Z",
@@ -953,13 +946,6 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 18
- },
- "15cqvjt": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T22:31:52.193Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
  },
  "15dlgkk": {
   "intentos": 1,
@@ -1924,13 +1910,6 @@
   "textos": 1,
   "numeradas": 3
  },
- "1a65ht0": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T22:31:52.193Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 10
- },
  "1a6su8r": {
   "intentos": 1,
   "ultimo": "2026-11-08T11:31:41.003Z",
@@ -2413,13 +2392,6 @@
    "el copete nombra a \"copa\" y la fuente no",
    "el cuerpo nombra a \"copa\" y la fuente no"
   ]
- },
- "1cvi4gt": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T22:31:52.193Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 3
  },
  "1cztasq": {
   "intentos": 1,
@@ -3104,9 +3076,9 @@
   "numeradas": 3
  },
  "1gqvau3": {
-  "intentos": 2,
-  "ultimo": "2026-11-09T22:01:26.623Z",
-  "motivo": "cuerpo: 2 problemas (repite, tildes): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "intentos": 3,
+  "ultimo": "2026-11-09T22:31:25.866Z",
+  "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 3,
   "motivos": [
@@ -3114,10 +3086,6 @@
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
    "cuerpo: 3 problemas (relleno, repite, copia): el cuerpo tiene una fras",
    "cuerpo: 2 problemas (repite, tildes): el cuerpo repite el copete en ve"
-  ],
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "el texto está escrito sin tildes (dia, pais, Ademas, generacion): va con las tildes y la eñe donde corresponden"
   ]
  },
  "1grohf": {
@@ -3693,16 +3661,6 @@
   "textos": 6,
   "numeradas": 29
  },
- "1k4dcgh": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T22:31:52.193Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2,
-  "motivos": [
-   "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: d"
-  ]
- },
  "1k5gget": {
   "intentos": 1,
   "ultimo": "2026-11-07T20:31:18.800Z",
@@ -3732,16 +3690,13 @@
   "numeradas": 7
  },
  "1kbvhwo": {
-  "intentos": 1,
-  "ultimo": "2026-11-09T22:01:26.623Z",
-  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "intentos": 2,
+  "ultimo": "2026-11-09T22:31:25.866Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
-  ],
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "1kcql1o": {
@@ -3799,6 +3754,13 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
+ },
+ "1khpjtc": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T22:31:25.866Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 9
  },
  "1khqpu6": {
   "intentos": 1,
@@ -5678,11 +5640,20 @@
   "numeradas": 4
  },
  "1vz85bz": {
-  "intentos": 1,
-  "ultimo": "2026-11-09T16:33:45.650Z",
-  "motivo": "con cuerpo",
+  "intentos": 2,
+  "ultimo": "2026-11-09T22:31:25.866Z",
+  "motivo": "título o bajada: 2 problemas (antecedente): el titulo usa 2, que sale de una nota anterior, como si fuera de hoy",
   "textos": 1,
-  "numeradas": 1
+  "numeradas": 1,
+  "motivos": [
+   "título o bajada: 1 problema (fecha): el copete menciona \"lunes\" y la f",
+   "título o bajada: 2 problemas (antecedente): el titulo usa 2, que sale "
+  ],
+  "falla": [
+   "el titulo usa 2, que sale de una nota anterior, como si fuera de hoy",
+   "el guion usa 2, que sale de una nota anterior, como si fuera de hoy",
+   "el título dice 2 y el cuerpo no lo explica"
+  ]
  },
  "1w0bbl0": {
   "intentos": 2,
@@ -6221,6 +6192,13 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 5
+ },
+ "1ytjq97": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T22:31:25.866Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 4
  },
  "1ytq949": {
   "intentos": 1,
@@ -7017,18 +6995,6 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
- },
- "6of09f": {
-  "intentos": 2,
-  "ultimo": "2026-11-02T22:31:52.193Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 3,
-  "motivos": [
-   "título o bajada: 1 problema (titulo): el título empieza con una etique",
-   "título o bajada: 1 problema (largo): el titulo tiene 95 caracteres, el",
-   "título o bajada: 1 problema (antecedente): el copete usa 11, que sale "
-  ]
  },
  "6qu55w": {
   "intentos": 1,
@@ -7859,13 +7825,6 @@
   "textos": 1,
   "numeradas": 1
  },
- "bk0199": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T22:31:52.193Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 4
- },
  "bp752x": {
   "intentos": 3,
   "ultimo": "2026-11-07T23:01:38.460Z",
@@ -8201,16 +8160,6 @@
   "numeradas": 3,
   "motivos": [
    "título o bajada: 1 problema (fecha): el copete menciona \"lunes\" y la f"
-  ]
- },
- "d9x0o": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T22:31:52.193Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 4,
-  "motivos": [
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ]
  },
  "dah2f9": {
@@ -8572,6 +8521,16 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
+ },
+ "f2j51d": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T22:31:25.866Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 4,
+  "motivos": [
+   "título o bajada: 1 problema (relleno): el copete tiene una frase de re"
+  ]
  },
  "f7kf8n": {
   "intentos": 1,
@@ -9185,13 +9144,6 @@
   "textos": 3,
   "numeradas": 4
  },
- "j1k5s6": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T22:31:52.193Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 19
- },
  "j2eo86": {
   "intentos": 2,
   "ultimo": "2026-11-08T20:31:40.872Z",
@@ -9220,16 +9172,6 @@
    "título o bajada: 1 problema (antecedente): el copete usa \"interlagos\",",
    "cuerpo: 1 problema (numero): el cuerpo dice 5 y la fuente no lo dice; ",
    "título o bajada: 4 problemas (antecedente): el copete usa 8, que sale "
-  ]
- },
- "j75wry": {
-  "intentos": 2,
-  "ultimo": "2026-11-02T22:31:52.193Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2,
-  "motivos": [
-   "verificación baja: espera a una persona"
   ]
  },
  "j7nvck": {
@@ -9365,13 +9307,6 @@
   "motivos": [
    "sin material"
   ]
- },
- "jnztmb": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T22:31:52.193Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
  },
  "jpaewd": {
   "intentos": 1,
@@ -9972,8 +9907,8 @@
   ]
  },
  "mimxr7": {
-  "intentos": 1,
-  "ultimo": "2026-11-09T16:33:45.650Z",
+  "intentos": 2,
+  "ultimo": "2026-11-09T22:31:25.866Z",
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1,
@@ -10225,16 +10160,6 @@
    "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v"
   ]
  },
- "o68ssi": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T22:31:52.193Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 4,
-  "motivos": [
-   "título o bajada: 1 problema (numero): el copete dice 4 y la fuente no "
-  ]
- },
  "oal4ia": {
   "intentos": 3,
   "ultimo": "2026-11-06T13:31:18.602Z",
@@ -10308,8 +10233,8 @@
   "numeradas": 5
  },
  "otqeqy": {
-  "intentos": 1,
-  "ultimo": "2026-11-09T16:33:45.650Z",
+  "intentos": 2,
+  "ultimo": "2026-11-09T22:31:25.866Z",
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
@@ -11398,6 +11323,13 @@
   "textos": 2,
   "numeradas": 2
  },
+ "ujrkeo": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T22:31:25.866Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
+ },
  "upcgyu": {
   "intentos": 1,
   "ultimo": "2026-11-03T00:52:35.190Z",
@@ -12044,13 +11976,6 @@
   "textos": 3,
   "numeradas": 3
  },
- "xv1osq": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T22:31:52.193Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1
- },
  "xwe65b": {
   "intentos": 1,
   "ultimo": "2026-11-06T12:32:07.570Z",
@@ -12285,6 +12210,13 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
+ },
+ "z2uyn": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T22:31:25.866Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 7
  },
  "z4ttau": {
   "intentos": 1,

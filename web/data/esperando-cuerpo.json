@@ -1,7 +1,24 @@
 {
- "generado": "2026-11-09T22:03:08.168Z",
+ "generado": "2026-11-09T22:35:43.217Z",
  "intentosMaximos": 3,
  "notas": [
+  {
+   "id": "1vz85bz",
+   "titulo": "Los Pinos celebrará su 126º aniversario",
+   "copete": "En el contexto de una conferencia de prensa desarrollada esta mañana en la “Sala de los Intendentes” del Palacio Municipal, se presentó el programa de actividades previsto para conmemorar el 126º aniversario de la localidad de Los Pinos, que tendrá lugar el sábado 14 y domingo…",
+   "seccion": "Balcarce",
+   "fecha": "2026-11-09T15:01:06.000Z",
+   "fuentes": [
+    {
+     "medio": "Ahora Balcarce",
+     "enlace": "http://ahorabalcarce.com.ar/los-pinos-celebrara-su-126o-aniversario/",
+     "fecha": "2026-11-09T15:01:06.000Z"
+    }
+   ],
+   "intentos": 2,
+   "motivo": "título o bajada: 2 problemas (antecedente): el titulo usa 2, que sale de una nota anterior, como si fuera de hoy",
+   "maximo": 3
+  },
   {
    "id": "sfjd3l",
    "titulo": "Qué necesita Mercedes para ser campeón de constructores de la Fórmula 1",
@@ -58,61 +75,16 @@
    "intentos": 1,
    "motivo": "con cuerpo",
    "maximo": 5
-  },
-  {
-   "id": "1kbvhwo",
-   "titulo": "Es cartonero y se entrevistó con Francisco y el Papa: \"A León le pedí tierra, techo y trabajo\"",
-   "copete": "",
-   "seccion": "Argentina",
-   "fecha": "2026-11-09T18:37:00.000Z",
-   "fuentes": [
-    {
-     "medio": "El Destape",
-     "enlace": "https://www.eldestapeweb.com/sociedad/cartonero-llevo-voz-trabajadores-encuentro-papa-leon-xiv-le-pedi-tierra-techo-trabajo-20261198052",
-     "fecha": "2026-11-09T11:00:52.174Z"
-    },
-    {
-     "medio": "Minuto Uno",
-     "enlace": "https://www.minutouno.com/sociedad/leon-xiv-defendio-las-3t-francisco-tierra-techo-y-trabajo-son-exigencias-la-justicia-social-n6343324",
-     "fecha": "2026-11-09T20:20:00.000Z"
-    },
-    {
-     "medio": "La Gaceta (Tucumán)",
-     "enlace": "https://www.lagaceta.com.ar/nota/1161789/sociedad/ante-empresarios-sindicalistas-leon-xiv-reivindico-francisco-tierra-techo-trabajo-son-exigencias-justicia-social.html",
-     "fecha": "2026-11-09T18:37:00.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
-   "maximo": 3
-  },
-  {
-   "id": "1gqvau3",
-   "titulo": "El papa León XIV advirtió sobre los males que “destruyen el futuro de los jóvenes”",
-   "copete": "",
-   "seccion": "Argentina",
-   "fecha": "2026-11-09T18:44:45.000Z",
-   "fuentes": [
-    {
-     "medio": "Noticias Argentinas (NA)",
-     "enlace": "https://noticiasargentinas.com/politica/el-papa-leon-xiv-advirtio-sobre-los-males-que--destruyen-el-futuro-de-los-jovenes-_a6af1e7f7bb351de480742eea",
-     "fecha": "2026-11-09T15:55:11.496Z"
-    },
-    {
-     "medio": "TN (Todo Noticias)",
-     "enlace": "https://tn.com.ar/videos/2026/11/09/leon-xiv-en-la-argentina-las-adicciones-destruyen-a-los-jovenes/",
-     "fecha": "2026-11-09T20:55:37.000Z"
-    },
-    {
-     "medio": "Mi8 (Canal 8 Mar del Plata)",
-     "enlace": "https://mi8.com.ar/las-adicciones-destruyen-el-futuro-de-los-jovenes-y-deterioran-las-relaciones-familiares-los-principales-conceptos-de-la-homilia-de-leon-xiv/",
-     "fecha": "2026-11-09T18:44:45.000Z"
-    }
-   ],
-   "intentos": 2,
-   "motivo": "cuerpo: 2 problemas (repite, tildes): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
-   "maximo": 3
   }
  ],
- "descartadas": []
+ "descartadas": [
+  {
+   "id": "10g0hk8",
+   "titulo": "“Historia natural de los gliptodontes” se presentó MUHBA",
+   "seccion": "Cultura y agenda",
+   "fecha": "2026-11-09T15:20:10.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; sin material"
+  }
+ ]
 }
