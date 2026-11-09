@@ -1,6 +1,10 @@
 {
-  "fecha": "2026-11-02T12:46:15.096Z",
+  "fecha": "2026-11-09T12:50:54.928Z",
   "problemas": [
+    {
+      "clave": "imagen-compartir-enlace",
+      "texto": "La imagen \"compartir-enlace\" no responde (HTTP 404): https://radarbalcarce.com/nota/anticipan-temperaturas-agradables-y-lluvias-hacia-el-fin-de-semana-ect9ll/opengraph-image"
+    },
     {
       "clave": "seo",
       "texto": "El auditor de SEO en vivo encontró páginas con problemas: corré `node web/scripts/auditar-seo-vivo.mjs` para ver cuáles."
