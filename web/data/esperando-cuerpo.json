@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-09T01:03:58.580Z",
+ "generado": "2026-11-09T01:33:08.855Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -85,8 +85,8 @@
      "fecha": "2026-11-08T21:29:00.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "cuerpo: 3 problemas (nombre, relleno): el cuerpo nombra a \"manchester\" y la fuente no; sin esas oraciones quedan 168 palabras",
+   "intentos": 2,
+   "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 203 palabras",
    "maximo": 5
   },
   {
@@ -157,53 +157,6 @@
    "intentos": 1,
    "motivo": "con cuerpo",
    "maximo": 3
-  },
-  {
-   "id": "1g01yxa",
-   "titulo": "Lanús empató, se quedó sin localía y chocará con River en octavos",
-   "copete": "",
-   "seccion": "Fútbol",
-   "fecha": "2026-11-09T00:30:00.000Z",
-   "fuentes": [
-    {
-     "medio": "Olé",
-     "enlace": "https://www.ole.com.ar/futbol-primera/centralcordoba-lanus-torneoclausura-defensa-river-barracas_0_K9ysCjP4pC.html",
-     "fecha": "2026-11-08T21:18:17.000Z"
-    },
-    {
-     "medio": "TN (Todo Noticias)",
-     "enlace": "https://tn.com.ar/deportes/futbol/2026/11/08/central-cordoba-se-vs-lanus-en-vivo-por-la-fase-de-grupos-de-la-liga-profesional-hora-donde-ver-y-formaciones/",
-     "fecha": "2026-11-09T00:24:40.000Z"
-    },
-    {
-     "medio": "TyC Sports",
-     "enlace": "https://www.tycsports.com/river-plate/los-dos-posibles-rivales-de-river-en-octavos-y-que-falta-para-que-se-defina-id770844.html",
-     "fecha": "2026-11-09T00:40:03.000Z"
-    },
-    {
-     "medio": "Olé",
-     "enlace": "https://www.ole.com.ar/futbol-primera/resumen-central-cordoba-1-lanus-1_3_wltxZxDFYl.html",
-     "fecha": "2026-11-09T00:43:01.000Z"
-    },
-    {
-     "medio": "Olé",
-     "enlace": "https://www.ole.com.ar/river-plate/river-clausura-octavos-final-playoffs-lanus-rival-claves-fecha-estadio_0_b1HgQsOJLO.html",
-     "fecha": "2026-11-09T00:24:39.000Z"
-    },
-    {
-     "medio": "Noticias Argentinas (NA)",
-     "enlace": "https://noticiasargentinas.com/deportes/lanus-empato-con-central-cordoba-y-sera-rival-de-river-en-los-octavos-del-torneo-clausura-2026_a6af111c4083a87fddc19c6a7",
-     "fecha": "2026-11-09T00:30:00.000Z"
-    },
-    {
-     "medio": "El Gráfico",
-     "enlace": "https://www.elgrafico.com.ar/articulo/1038/103823/lanus-no-pudo-con-central-cordoba-y-sera-rival-de-river-en-los-octavos",
-     "fecha": "2026-11-09T00:30:00.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "título o bajada: 2 problemas (forma): el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
-   "maximo": 4
   }
  ],
  "descartadas": [
