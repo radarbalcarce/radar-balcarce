@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-09T17:04:50.712Z",
- "portada": 101,
+ "generado": "2026-11-09T17:33:17.166Z",
+ "portada": 103,
  "archivo": 500,
  "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-11-09T17:04:51.740Z",
+  "generado": "2026-11-09T17:33:17.638Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -115,8 +115,13 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 54,
     "notas": [
+     {
+      "id": "17nu3vp",
+      "titulo": "Emerson Fittipaldi visita el Museo Fangio por su aniversario",
+      "seccion": "Automovilismo"
+     },
      {
       "id": "1tpvs2y",
       "titulo": "Abren los últimos cupos para la carrera de trail",
@@ -131,11 +136,6 @@
       "id": "4zycxq",
       "titulo": "Prohíben circular con vehículos en el Geoparque Pun Antú",
       "seccion": "Balcarce"
-     },
-     {
-      "id": "8umlw9",
-      "titulo": "Los Pinos celebra su aniversario con una jornada de promoción vitivinícola",
-      "seccion": "Agro"
      }
     ]
    },
@@ -149,14 +149,14 @@
     "segundos": 49,
     "notas": [
      {
-      "id": "6qyz7u",
-      "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
-      "seccion": "Deportes"
-     },
-     {
       "id": "1cpw03j",
       "titulo": "Camila Peralta actúa en la nueva serie de Netflix dirigida por Trapero",
       "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "6qyz7u",
+      "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
+      "seccion": "Deportes"
      },
      {
       "id": "1su1zi1",
@@ -175,6 +175,12 @@
    "hoy": [],
    "cola": [
     {
+     "id": "17nu3vp",
+     "titulo": "Emerson Fittipaldi visita el Museo Fangio por su aniversario",
+     "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
      "id": "1tpvs2y",
      "titulo": "Abren los últimos cupos para la carrera de trail",
      "seccion": "Cultura y agenda",
@@ -190,12 +196,6 @@
      "id": "e9wwts",
      "titulo": "Organizan la maratón Jaime Gosende tras el éxito de la carrera Luis Vildoza",
      "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "6qyz7u",
-     "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
-     "seccion": "Deportes",
      "marcada": false
     },
     {
@@ -217,9 +217,9 @@
      "marcada": false
     },
     {
-     "id": "1su1zi1",
-     "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
-     "seccion": "Fútbol",
+     "id": "6qyz7u",
+     "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
+     "seccion": "Deportes",
      "marcada": false
     }
    ],
