@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-09T15:03:14.068Z",
- "portada": 89,
+ "generado": "2026-11-09T15:33:07.101Z",
+ "portada": 91,
  "archivo": 500,
- "esperandoCuerpo": 1,
+ "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-11-09T15:03:14.413Z",
+  "generado": "2026-11-09T15:33:07.564Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -105,7 +105,7 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 49,
+    "segundos": 52,
     "notas": [
      {
       "id": "1w8v4jx",
@@ -113,19 +113,19 @@
       "seccion": "Educación"
      },
      {
-      "id": "6qyz7u",
-      "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
+      "id": "1tpvs2y",
+      "titulo": "Abren los últimos cupos para la carrera de trail",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "1hado1m",
+      "titulo": "La Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
       "seccion": "Deportes"
      },
      {
       "id": "1su1zi1",
       "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
       "seccion": "Fútbol"
-     },
-     {
-      "id": "1su15zm",
-      "titulo": "Garantizan la continuidad del Registro del Automotor",
-      "seccion": "Balcarce"
      }
     ]
    },
@@ -136,27 +136,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 49,
     "notas": [
+     {
+      "id": "6qyz7u",
+      "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1su15zm",
+      "titulo": "Garantizan la continuidad del Registro del Automotor",
+      "seccion": "Balcarce"
+     },
      {
       "id": "1li6hf9",
       "titulo": "Los Patos, Boca y San Manuel ganan por el torneo Clausura",
       "seccion": "Fútbol"
      },
      {
-      "id": "ect9ll",
-      "titulo": "Anticipan temperaturas agradables y lluvias hacia el fin de semana",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1a30pz0",
-      "titulo": "Kicillof pide un endeudamiento de USD 1.000 millones y prevé un fondo municipal",
-      "seccion": "Política"
-     },
-     {
-      "id": "1n263sp",
-      "titulo": "Las ventas minoristas bajan 1,6% interanual en octubre",
-      "seccion": "Economía"
+      "id": "8umlw9",
+      "titulo": "Los Pinos celebra su aniversario con una jornada de promoción vitivinícola",
+      "seccion": "Agro"
      }
     ]
    },
@@ -175,19 +175,19 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "5wafjv",
-      "titulo": "Impulsan colecta de golosinas para la visita de Papá Noel a Protección a la Infancia",
+      "id": "ect9ll",
+      "titulo": "Anticipan temperaturas agradables y lluvias hacia el fin de semana",
       "seccion": "Balcarce"
      },
      {
-      "id": "1a0snlf",
-      "titulo": "Detienen en Palermo a un falso bombero cerca del escenario del Papa",
-      "seccion": "Policiales"
+      "id": "1a30pz0",
+      "titulo": "Kicillof pide un endeudamiento de USD 1.000 millones y prevé un fondo municipal",
+      "seccion": "Política"
      },
      {
-      "id": "f9z7ys",
-      "titulo": "El papa León XIV encabeza la misa central en el Monumento a los Españoles",
-      "seccion": "Argentina"
+      "id": "1n263sp",
+      "titulo": "Las ventas minoristas bajan 1,6% interanual en octubre",
+      "seccion": "Economía"
      }
     ]
    }
@@ -199,6 +199,18 @@
      "id": "1w8v4jx",
      "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
      "seccion": "Educación",
+     "marcada": false
+    },
+    {
+     "id": "1tpvs2y",
+     "titulo": "Abren los últimos cupos para la carrera de trail",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "1hado1m",
+     "titulo": "La Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
+     "seccion": "Deportes",
      "marcada": false
     },
     {
