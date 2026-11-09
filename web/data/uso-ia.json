@@ -3812,18 +3812,18 @@
   "2026-11-09": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 47,
+     "llamadas": 49,
      "errores": 12,
-     "entrada": 84030,
-     "salida": 37682,
+     "entrada": 88749,
+     "salida": 39900,
      "pensamiento": 0,
-     "total": 121712,
+     "total": 128649,
      "claves": {
-      "clasificacion": 47
+      "clasificacion": 49
      },
      "motivos": {
       "clasificacion": {
-       "ok": 35,
+       "ok": 37,
        "cupo-diario": 3,
        "saturado": 9
       }
@@ -3865,20 +3865,20 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 73,
+     "llamadas": 76,
      "errores": 12,
-     "entrada": 743073,
-     "salida": 9042,
+     "entrada": 783973,
+     "salida": 9544,
      "pensamiento": 0,
-     "total": 752115,
+     "total": 793517,
      "claves": {
-      "clasificacion": 73
+      "clasificacion": 76
      },
      "motivos": {
       "clasificacion": {
        "saturado": 4,
        "cupo-diario": 7,
-       "ok": 61,
+       "ok": 64,
        "otro": 1
       }
      }
@@ -3918,20 +3918,20 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 231,
-     "errores": 60,
-     "entrada": 1052753,
-     "salida": 180679,
+     "llamadas": 240,
+     "errores": 61,
+     "entrada": 1103353,
+     "salida": 188709,
      "pensamiento": 0,
-     "total": 1233432,
+     "total": 1292062,
      "claves": {
-      "redaccion": 231
+      "redaccion": 240
      },
      "motivos": {
       "redaccion": {
-       "ok": 171,
+       "ok": 179,
        "cupo-diario": 17,
-       "saturado": 43
+       "saturado": 44
       }
      }
     },
@@ -3960,19 +3960,19 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 145,
+     "llamadas": 153,
      "errores": 30,
-     "entrada": 684689,
-     "salida": 52945,
+     "entrada": 733272,
+     "salida": 56886,
      "pensamiento": 0,
-     "total": 737634,
+     "total": 790158,
      "claves": {
-      "clasificacion": 145
+      "clasificacion": 153
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 18,
-       "ok": 115,
+       "ok": 123,
        "saturado": 11,
        "velocidad": 1
       }
