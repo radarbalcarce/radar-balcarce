@@ -1,157 +1,656 @@
 {
-  "generado": "2026-11-09T00:32:37.173Z",
+  "generado": "2026-11-09T01:03:58.580Z",
   "notas": [
     {
-      "id": "5wafjv",
-      "titulo": "Impulsan colecta de golosinas para la visita de Papá Noel a Protección a la Infancia",
-      "copete": "Lanzan una campaña solidaria para juntar caramelos y golosinas destinados a los chicos de la institución. Las donaciones se recibirán hasta el 20 de diciembre.",
-      "cuerpo": "Impulsan una campaña solidaria para reunir caramelos y distintas golosinas destinadas a los niños de Protección a la Infancia. La iniciativa fue puesta en marcha por Claudio Albino con el propósito de acompañar la tradicional visita de Papá Noel, programada para el 27 de diciembre.\n\nLa recolección permanecerá abierta hasta el 20 de diciembre. Los interesados en colaborar pueden acercar sus donaciones al domicilio del impulsor, situado en la zona de calle 13 y Bis.\n\nAdemás, quienes residan en las inmediaciones del centro y tengan dificultades para trasladarse pueden coordinar el retiro de la colaboración, el cual se realizará con una silla de ruedas motorizada según las condiciones climáticas.\n\nTambién es posible efectuar aportes económicos a través de un alias bancario. Con ese dinero se adquirirán los productos faltantes y se difundirán los comprobantes de compra para garantizar transparencia en el destino de los fondos.",
-      "guion": "Impulsan colecta de golosinas para la visita de Papá Noel a Protección a la Infancia.",
-      "seccion": "Balcarce",
-      "medios": [
-        "Diario La Vanguardia"
+      "id": "futboltablaliga20261105",
+      "propia": "futbol",
+      "tipoFutbol": "tablas",
+      "competenciaFutbol": "liga",
+      "datosFutbol": {
+        "torneo": "Argentine Liga Profesional de Fútbol",
+        "zonas": [
+          {
+            "nombre": "Zona A",
+            "filas": [
+              {
+                "posicion": 1,
+                "id": "2975",
+                "equipo": "Instituto (Córdoba)",
+                "pj": 16,
+                "g": 10,
+                "e": 4,
+                "p": 2,
+                "gf": 26,
+                "gc": 15,
+                "dif": 11,
+                "pts": 34
+              },
+              {
+                "posicion": 2,
+                "id": "5",
+                "equipo": "Boca Juniors",
+                "pj": 16,
+                "g": 9,
+                "e": 6,
+                "p": 1,
+                "gf": 24,
+                "gc": 14,
+                "dif": 10,
+                "pts": 33
+              },
+              {
+                "posicion": 3,
+                "id": "21",
+                "equipo": "Vélez Sarsfield",
+                "pj": 16,
+                "g": 7,
+                "e": 7,
+                "p": 2,
+                "gf": 25,
+                "gc": 17,
+                "dif": 8,
+                "pts": 28
+              },
+              {
+                "posicion": 4,
+                "id": "8950",
+                "equipo": "Defensa y Justicia",
+                "pj": 16,
+                "g": 8,
+                "e": 4,
+                "p": 4,
+                "gf": 21,
+                "gc": 15,
+                "dif": 6,
+                "pts": 28
+              },
+              {
+                "posicion": 5,
+                "id": "12",
+                "equipo": "Lanús",
+                "pj": 15,
+                "g": 7,
+                "e": 4,
+                "p": 4,
+                "gf": 18,
+                "gc": 11,
+                "dif": 7,
+                "pts": 25
+              },
+              {
+                "posicion": 6,
+                "id": "14",
+                "equipo": "Newell's Old Boys",
+                "pj": 16,
+                "g": 5,
+                "e": 8,
+                "p": 3,
+                "gf": 16,
+                "gc": 13,
+                "dif": 3,
+                "pts": 23
+              },
+              {
+                "posicion": 7,
+                "id": "11",
+                "equipo": "Independiente",
+                "pj": 16,
+                "g": 6,
+                "e": 5,
+                "p": 5,
+                "gf": 15,
+                "gc": 16,
+                "dif": -1,
+                "pts": 23
+              },
+              {
+                "posicion": 8,
+                "id": "11972",
+                "equipo": "Gimnasia (Mendoza)",
+                "pj": 16,
+                "g": 6,
+                "e": 4,
+                "p": 6,
+                "gf": 18,
+                "gc": 17,
+                "dif": 1,
+                "pts": 22
+              },
+              {
+                "posicion": 9,
+                "id": "20",
+                "equipo": "Unión (Santa Fe)",
+                "pj": 16,
+                "g": 6,
+                "e": 3,
+                "p": 7,
+                "gf": 24,
+                "gc": 24,
+                "dif": 0,
+                "pts": 21
+              },
+              {
+                "posicion": 10,
+                "id": "7764",
+                "equipo": "Platense",
+                "pj": 16,
+                "g": 5,
+                "e": 5,
+                "p": 6,
+                "gf": 18,
+                "gc": 20,
+                "dif": -2,
+                "pts": 20
+              },
+              {
+                "posicion": 11,
+                "id": "18",
+                "equipo": "San Lorenzo",
+                "pj": 16,
+                "g": 5,
+                "e": 4,
+                "p": 7,
+                "gf": 9,
+                "gc": 16,
+                "dif": -7,
+                "pts": 19
+              },
+              {
+                "posicion": 12,
+                "id": "8",
+                "equipo": "Estudiantes de La Plata",
+                "pj": 16,
+                "g": 4,
+                "e": 4,
+                "p": 8,
+                "gf": 21,
+                "gc": 22,
+                "dif": -1,
+                "pts": 16
+              },
+              {
+                "posicion": 13,
+                "id": "19",
+                "equipo": "Talleres (Córdoba)",
+                "pj": 16,
+                "g": 3,
+                "e": 4,
+                "p": 9,
+                "gf": 17,
+                "gc": 23,
+                "dif": -6,
+                "pts": 13
+              },
+              {
+                "posicion": 14,
+                "id": "17702",
+                "equipo": "Deportivo Riestra",
+                "pj": 16,
+                "g": 2,
+                "e": 6,
+                "p": 8,
+                "gf": 11,
+                "gc": 19,
+                "dif": -8,
+                "pts": 12
+              },
+              {
+                "posicion": 15,
+                "id": "11989",
+                "equipo": "Central Córdoba (Santiago del Estero)",
+                "pj": 15,
+                "g": 2,
+                "e": 4,
+                "p": 9,
+                "gf": 11,
+                "gc": 25,
+                "dif": -14,
+                "pts": 10
+              }
+            ]
+          },
+          {
+            "nombre": "Zona B",
+            "filas": [
+              {
+                "posicion": 1,
+                "id": "17",
+                "equipo": "Rosario Central",
+                "pj": 16,
+                "g": 10,
+                "e": 4,
+                "p": 2,
+                "gf": 26,
+                "gc": 12,
+                "dif": 14,
+                "pts": 34
+              },
+              {
+                "posicion": 2,
+                "id": "3",
+                "equipo": "Argentinos Juniors",
+                "pj": 16,
+                "g": 9,
+                "e": 4,
+                "p": 3,
+                "gf": 20,
+                "gc": 14,
+                "dif": 6,
+                "pts": 31
+              },
+              {
+                "posicion": 3,
+                "id": "9",
+                "equipo": "Gimnasia La Plata",
+                "pj": 16,
+                "g": 9,
+                "e": 4,
+                "p": 3,
+                "gf": 25,
+                "gc": 20,
+                "dif": 5,
+                "pts": 31
+              },
+              {
+                "posicion": 4,
+                "id": "16",
+                "equipo": "River Plate",
+                "pj": 16,
+                "g": 8,
+                "e": 2,
+                "p": 6,
+                "gf": 21,
+                "gc": 14,
+                "dif": 7,
+                "pts": 26
+              },
+              {
+                "posicion": 5,
+                "id": "10060",
+                "equipo": "Barracas Central",
+                "pj": 16,
+                "g": 7,
+                "e": 5,
+                "p": 4,
+                "gf": 17,
+                "gc": 13,
+                "dif": 4,
+                "pts": 26
+              },
+              {
+                "posicion": 6,
+                "id": "4",
+                "equipo": "Belgrano (Córdoba)",
+                "pj": 16,
+                "g": 6,
+                "e": 5,
+                "p": 5,
+                "gf": 17,
+                "gc": 15,
+                "dif": 2,
+                "pts": 23
+              },
+              {
+                "posicion": 7,
+                "id": "9744",
+                "equipo": "Independiente Rivadavia",
+                "pj": 16,
+                "g": 6,
+                "e": 5,
+                "p": 5,
+                "gf": 21,
+                "gc": 24,
+                "dif": -3,
+                "pts": 23
+              },
+              {
+                "posicion": 8,
+                "id": "10",
+                "equipo": "Huracán",
+                "pj": 16,
+                "g": 6,
+                "e": 4,
+                "p": 6,
+                "gf": 14,
+                "gc": 16,
+                "dif": -2,
+                "pts": 22
+              },
+              {
+                "posicion": 9,
+                "id": "10158",
+                "equipo": "Sarmiento (Junín)",
+                "pj": 16,
+                "g": 6,
+                "e": 3,
+                "p": 7,
+                "gf": 23,
+                "gc": 24,
+                "dif": -1,
+                "pts": 21
+              },
+              {
+                "posicion": 10,
+                "id": "7767",
+                "equipo": "Tigre",
+                "pj": 16,
+                "g": 5,
+                "e": 4,
+                "p": 7,
+                "gf": 16,
+                "gc": 16,
+                "dif": 0,
+                "pts": 19
+              },
+              {
+                "posicion": 11,
+                "id": "9785",
+                "equipo": "Atlético Tucumán",
+                "pj": 16,
+                "g": 4,
+                "e": 6,
+                "p": 6,
+                "gf": 16,
+                "gc": 17,
+                "dif": -1,
+                "pts": 18
+              },
+              {
+                "posicion": 12,
+                "id": "235",
+                "equipo": "Banfield",
+                "pj": 16,
+                "g": 3,
+                "e": 6,
+                "p": 7,
+                "gf": 18,
+                "gc": 25,
+                "dif": -7,
+                "pts": 15
+              },
+              {
+                "posicion": 13,
+                "id": "15",
+                "equipo": "Racing Club",
+                "pj": 16,
+                "g": 4,
+                "e": 3,
+                "p": 9,
+                "gf": 16,
+                "gc": 24,
+                "dif": -8,
+                "pts": 15
+              },
+              {
+                "posicion": 14,
+                "id": "9739",
+                "equipo": "Aldosivi",
+                "pj": 16,
+                "g": 3,
+                "e": 2,
+                "p": 11,
+                "gf": 16,
+                "gc": 26,
+                "dif": -10,
+                "pts": 11
+              },
+              {
+                "posicion": 15,
+                "id": "19685",
+                "equipo": "Estudiantes de Río Cuarto",
+                "pj": 16,
+                "g": 2,
+                "e": 3,
+                "p": 11,
+                "gf": 10,
+                "gc": 23,
+                "dif": -13,
+                "pts": 9
+              }
+            ]
+          }
+        ]
+      },
+      "destacados": [
+        {
+          "texto": "Ver la tabla de posiciones",
+          "href": "/tablas/liga-profesional"
+        }
       ],
-      "enlace": "https://www.diariolavanguardia.com/noticias/45280-impulsan-una-colecta-de-golosinas-para-la-llegada-de-papa-noel-a-proteccion-a-la-infancia/",
-      "fecha": "2026-11-08T23:31:20.374Z",
-      "sinFecha": true,
-      "visto": "2026-11-09T00:31:10.516Z",
-      "relevancia": 63,
-      "local": true,
+      "lugarFoto": "José María Minella",
+      "titulo": "Liga Profesional: así están las tablas después de la fecha del 5 al 8 de noviembre",
+      "copete": "Posiciones de las dos zonas de la Liga Profesional de Fútbol (Argentine Liga Profesional de Fútbol), con puntos, partidos jugados y goles.",
+      "cuerpo": "Así quedaron las posiciones de la Liga Profesional de Fútbol (Argentine Liga Profesional de Fútbol) después de los partidos del 5 al 8 de noviembre. Los equipos están ordenados como informa ESPN, con los mismos criterios de desempate del torneo:\n\nZona A:\n1º Instituto (Córdoba): 34 puntos, 16 jugados (10 ganados, 4 empatados, 2 perdidos), goles 26 a 15, diferencia +11.\n2º Boca Juniors: 33 puntos, 16 jugados (9 ganados, 6 empatados, 1 perdidos), goles 24 a 14, diferencia +10.\n3º Vélez Sarsfield: 28 puntos, 16 jugados (7 ganados, 7 empatados, 2 perdidos), goles 25 a 17, diferencia +8.\n4º Defensa y Justicia: 28 puntos, 16 jugados (8 ganados, 4 empatados, 4 perdidos), goles 21 a 15, diferencia +6.\n5º Lanús: 25 puntos, 15 jugados (7 ganados, 4 empatados, 4 perdidos), goles 18 a 11, diferencia +7.\n6º Newell's Old Boys: 23 puntos, 16 jugados (5 ganados, 8 empatados, 3 perdidos), goles 16 a 13, diferencia +3.\n7º Independiente: 23 puntos, 16 jugados (6 ganados, 5 empatados, 5 perdidos), goles 15 a 16, diferencia -1.\n8º Gimnasia (Mendoza): 22 puntos, 16 jugados (6 ganados, 4 empatados, 6 perdidos), goles 18 a 17, diferencia +1.\n9º Unión (Santa Fe): 21 puntos, 16 jugados (6 ganados, 3 empatados, 7 perdidos), goles 24 a 24, diferencia 0.\n10º Platense: 20 puntos, 16 jugados (5 ganados, 5 empatados, 6 perdidos), goles 18 a 20, diferencia -2.\n11º San Lorenzo: 19 puntos, 16 jugados (5 ganados, 4 empatados, 7 perdidos), goles 9 a 16, diferencia -7.\n12º Estudiantes de La Plata: 16 puntos, 16 jugados (4 ganados, 4 empatados, 8 perdidos), goles 21 a 22, diferencia -1.\n13º Talleres (Córdoba): 13 puntos, 16 jugados (3 ganados, 4 empatados, 9 perdidos), goles 17 a 23, diferencia -6.\n14º Deportivo Riestra: 12 puntos, 16 jugados (2 ganados, 6 empatados, 8 perdidos), goles 11 a 19, diferencia -8.\n15º Central Córdoba (Santiago del Estero): 10 puntos, 15 jugados (2 ganados, 4 empatados, 9 perdidos), goles 11 a 25, diferencia -14.\n\nZona B:\n1º Rosario Central: 34 puntos, 16 jugados (10 ganados, 4 empatados, 2 perdidos), goles 26 a 12, diferencia +14.\n2º Argentinos Juniors: 31 puntos, 16 jugados (9 ganados, 4 empatados, 3 perdidos), goles 20 a 14, diferencia +6.\n3º Gimnasia La Plata: 31 puntos, 16 jugados (9 ganados, 4 empatados, 3 perdidos), goles 25 a 20, diferencia +5.\n4º River Plate: 26 puntos, 16 jugados (8 ganados, 2 empatados, 6 perdidos), goles 21 a 14, diferencia +7.\n5º Barracas Central: 26 puntos, 16 jugados (7 ganados, 5 empatados, 4 perdidos), goles 17 a 13, diferencia +4.\n6º Belgrano (Córdoba): 23 puntos, 16 jugados (6 ganados, 5 empatados, 5 perdidos), goles 17 a 15, diferencia +2.\n7º Independiente Rivadavia: 23 puntos, 16 jugados (6 ganados, 5 empatados, 5 perdidos), goles 21 a 24, diferencia -3.\n8º Huracán: 22 puntos, 16 jugados (6 ganados, 4 empatados, 6 perdidos), goles 14 a 16, diferencia -2.\n9º Sarmiento (Junín): 21 puntos, 16 jugados (6 ganados, 3 empatados, 7 perdidos), goles 23 a 24, diferencia -1.\n10º Tigre: 19 puntos, 16 jugados (5 ganados, 4 empatados, 7 perdidos), goles 16 a 16, diferencia 0.\n11º Atlético Tucumán: 18 puntos, 16 jugados (4 ganados, 6 empatados, 6 perdidos), goles 16 a 17, diferencia -1.\n12º Banfield: 15 puntos, 16 jugados (3 ganados, 6 empatados, 7 perdidos), goles 18 a 25, diferencia -7.\n13º Racing Club: 15 puntos, 16 jugados (4 ganados, 3 empatados, 9 perdidos), goles 16 a 24, diferencia -8.\n14º Aldosivi: 11 puntos, 16 jugados (3 ganados, 2 empatados, 11 perdidos), goles 16 a 26, diferencia -10.\n15º Estudiantes de Río Cuarto: 9 puntos, 16 jugados (2 ganados, 3 empatados, 11 perdidos), goles 10 a 23, diferencia -13.\n\nLos datos son las posiciones oficiales según ESPN.",
+      "guion": null,
+      "seccion": "Fútbol",
+      "local": false,
+      "relevancia": 56,
+      "medios": [
+        "ESPN (datos abiertos)"
+      ],
+      "enlace": "https://www.espn.com.ar/futbol/",
+      "fuentesConsultadas": [
+        {
+          "medio": "ESPN (datos abiertos)",
+          "enlace": "https://www.espn.com.ar/futbol/"
+        }
+      ],
+      "fecha": "2026-11-09T01:03:53.775Z",
+      "sinFecha": false,
+      "visto": "2026-11-09T01:03:53.775Z",
+      "publicadaPor": null,
+      "publicadaCuando": "2026-11-09T01:03:53.775Z",
+      "temas": [],
+      "etiquetas": [
+        "fútbol",
+        "Liga Profesional",
+        "tabla de posiciones",
+        "posiciones",
+        "Argentine Liga Profesional de Fútbol"
+      ],
+      "como": "automatica",
+      "firma": "Nota de Radar Balcarce armada con los datos de ESPN.",
+      "slug": "liga-profesional-asi-estan-las-tablas-despues-de-la-fecha-del-5-al-8",
+      "foto": {
+        "archivo": "fotos-notas/libre-futboltablaliga20261105.jpg",
+        "credito": "Foto: Nachomdqcor / Wikimedia Commons (CC BY-SA 3.0)"
+      }
+    },
+    {
+      "id": "1m8qkrx",
+      "titulo": "Definen los cruces de octavos de final del Torneo Clausura 2026",
+      "copete": "Concluyó la fase regular y quedaron establecidos los 16 equipos clasificados para la etapa eliminatoria. Los encuentros se disputarán a partido único desde el fin de semana del 21 y 22 de noviembre.",
+      "cuerpo": "Terminó la etapa regular del Torneo Clausura 2026 de la Liga Profesional de Fútbol y quedaron confirmados los 16 equipos que avanzaron a los octavos de final para competir por el título. La definición se completó este domingo tras el empate 1-1 entre Central Córdoba de Santiago del Estero y Lanús en el Estadio Único Madre de Ciudades.\n\nEn la Zona A, Instituto de Córdoba finalizó en el primer puesto con 33 puntos, seguido por Boca Juniors, Vélez Sarsfield, Defensa y Justicia, Lanús, Newell's Old Boys, Independiente y Gimnasia de Mendoza. Por su parte, la Zona B tuvo a Rosario Central como líder, acompañado en los primeros lugares por Argentinos Juniors, Gimnasia de La Plata, River Plate, Barracas Central, Belgrano, Independiente Rivadavia y Huracán.\n\nLos octavos de final se jugarán a partido único en la cancha del conjunto mejor ubicado en la tabla general durante la fase clasificatoria. Las llaves quedaron emparejadas con Instituto frente a Huracán, River frente a Lanús, Argentinos Juniors ante Independiente, y Vélez contra Belgrano en la parte izquierda del cuadro. Del lado derecho se medirán Rosario Central con Gimnasia de Mendoza, Defensa y Justicia frente a Barracas Central, Boca contra Independiente Rivadavia, y Gimnasia de La Plata ante Newell's.\n\nLa actividad de los playoffs comenzará el fin de semana del 21 y 22 de noviembre. No obstante, el compromiso entre Boca e Independiente Rivadavia se disputará el miércoles 25 de noviembre debido a la participación del equipo xeneize en la final internacional. En caso de empate durante los 90 minutos reglamentarios en esta instancia, la serie se resolverá directamente mediante tiros desde el punto penal. La final del torneo se llevará a cabo el sábado 12 de diciembre en el Estadio Único de La Plata.",
+      "guion": "Definen los cruces de octavos de final del Torneo Clausura 2026.",
+      "seccion": "Fútbol",
+      "medios": [
+        "La Nación",
+        "TN (Todo Noticias)",
+        "El Destape",
+        "Olé",
+        "Radio Mitre",
+        "Canal 26",
+        "Doble Amarilla",
+        "Bolavip Argentina",
+        "El Gráfico",
+        "C5N",
+        "TyC Sports",
+        "Perfil"
+      ],
+      "enlace": "https://www.tycsports.com/boca-juniors/posibles-rivales-de-boca-octavos-de-final-torneo-clausura-id770722.html",
+      "fecha": "2026-11-09T00:08:00.000Z",
+      "sinFecha": false,
+      "visto": "2026-11-09T01:01:48.811Z",
+      "relevancia": 45,
+      "local": false,
+      "muyContada": {
+        "medios": 10,
+        "porque": "10 medios",
+        "desde": "2026-11-09T01:01:48.811Z"
+      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
       "como": "automatica",
       "claves": [
-        "Colecta solidaria de golosinas para Protección a la Infancia.",
-        "Campaña abierta hasta el 20 de diciembre.",
-        "Visita de Papá Noel programada para el 27 de diciembre.",
-        "Recepción de donaciones en calle 13 y Bis."
+        "La fase regular finalizó con el empate entre Central Córdoba y Lanús.",
+        "Los octavos de final se disputarán a partido único en la cancha del mejor ubicado.",
+        "Los playoffs comenzarán el fin de semana del 21 y 22 de noviembre.",
+        "La final del certamen se jugará el 12 de diciembre en La Plata."
       ],
       "seSabe": [
-        "Claudio Albino impulsa una colecta de golosinas para la institución.",
-        "La visita de Papá Noel está prevista para el 27 de diciembre.",
-        "La campaña finaliza el 20 de diciembre.",
-        "Se aceptan transferencias mediante alias para la compra de golosinas."
+        "Instituto de Córdoba ganó la Zona A y Rosario Central lideró la Zona B.",
+        "Boca Juniors se consagró campeón de la tabla anual.",
+        "Los cruces de octavos se definirán por penales en caso de empate a los 90 minutos.",
+        "El partido entre Boca e Independiente Rivadavia se programó para el 25 de noviembre."
       ],
       "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
+        "Todavía no se oficializaron los horarios específicos de los encuentros para el fin de semana del 21 y 22 de noviembre."
       ],
-      "textoRedes": "Lanzan una colecta de golosinas para que Papá Noel visite a los chicos de Protección a la Infancia. La campaña estará abierta hasta el 20 de diciembre y reciben donaciones en la zona de calle 13 y Bis.",
+      "textoRedes": "Quedaron definidos los cruces y el cuadro completo para los octavos de final del Torneo Clausura 2026. Los partidos se jugarán a partido único desde el fin de semana del 21 y 22 de noviembre.",
       "etiquetas": [
-        "colecta solidaria",
-        "Protección a la Infancia",
-        "Papá Noel",
-        "Claudio Albino",
-        "golosinas",
-        "Balcarce"
+        "Torneo Clausura",
+        "Fútbol argentino",
+        "Octavos de final",
+        "Playoffs",
+        "Liga Profesional"
       ],
       "fuentesConsultadas": [
         {
-          "medio": "Diario La Vanguardia",
-          "enlace": "https://www.diariolavanguardia.com/noticias/45280-impulsan-una-colecta-de-golosinas-para-la-llegada-de-papa-noel-a-proteccion-a-la-infancia/",
-          "fecha": null,
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/boca-juniors/posibles-rivales-de-boca-octavos-de-final-torneo-clausura-id770722.html",
+          "fecha": "2026-11-07T19:42:14.000Z",
           "oficial": false,
-          "aporte": "Informó sobre la campaña solidaria de golosinas, las fechas límite, el lugar de entrega y la modalidad de colaboración económica y retiro a domicilio."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "impulsan-colecta-de-golosinas-para-la-visita-de-papa-noel-a",
-      "foto": {
-        "archivo": "fotos-notas/5wafjv.jpg",
-        "credito": "Foto: Diario La Vanguardia"
-      }
-    },
-    {
-      "id": "nhniw",
-      "titulo": "Amigos Unidos, San Manuel y San Agustín lideran el Clausura femenino",
-      "copete": "Se disputó una nueva jornada del torneo oficial con triunfos de los punteros en las diferentes zonas. Además, un juez de línea recibió el impacto de un proyectil arrojado desde la tribuna.",
-      "cuerpo": "Los equipos de Amigos Unidos, San Manuel y San Agustín continúan al frente de sus respectivas zonas en la fase Clausura del torneo oficial de fútbol femenino, que agrupa a doce instituciones locales y lleva el nombre Copa 75º Aniversario Asociación Bomberos Voluntarios.\n\nEn el inicio de la ronda de revanchas, Amigos Unidos derrotó a Ferroviarios con dos anotaciones de Yanina Gómez y un penal convertido por Melina Caro, sumando así su décima octava victoria consecutiva en el certamen. Por su parte, San Manuel se impuso por 3 a 0 ante Sportivo gracias a una destacada actuación de Morena Vargas, autora de los tres tantos, mientras que Boca superó a Los Pinos por 2 a 1 con goles de Karen Luvoni y Romina Faiad, achicando diferencias en la tabla. En tanto, Atlético San Agustín ratificó su buen momento tras vencer holgadamente a Racing.\n\nEn otro de los encuentros, Agrarias le ganó a San Lorenzo, partido que registró la expulsión de Jenifer Da Silva. En tanto, Los Patos se impuso por 2 a 1 frente a River con conquistas de Aymara Vismara y Vanesa Quiroga.\n\nDurante el desarrollo de los encuentros dominicales, el árbitro asistente Javier Loza resultó levemente herido tras recibir el impacto de un objeto contundente arrojado desde la parcialidad local. El juez explicó que el incidente se originó a partir de una confusión con una seña realizada durante el desarrollo del juego. Las autoridades aguardan el informe oficial del juez Nicolás Avero para determinar los pasos a seguir.",
-      "guion": "Amigos Unidos, San Manuel y San Agustín lideran el Clausura femenino.",
-      "seccion": "Fútbol",
-      "medios": [
-        "Acción 5 (Balcarce)"
-      ],
-      "enlace": "https://accion5.com/fem-golearon-san-manuel-san-agustin-y-amigos-unidos-y-siguen-liderando-el-clausura/",
-      "fecha": "2026-11-08T23:22:13.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-08T23:31:20.374Z",
-      "relevancia": 88,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [
-        "bomberos"
-      ],
-      "como": "automatica",
-      "claves": [
-        "Amigos Unidos, San Manuel y San Agustín lideran el torneo Clausura femenino.",
-        "El certamen cuenta con la participación de doce equipos locales.",
-        "Un juez asistente sufrió una herida leve tras la agresión con un proyectil desde la tribuna."
-      ],
-      "seSabe": [
-        "Amigos Unidos venció a Ferroviarios con goles de Yanina Gómez y Melina Caro.",
-        "San Manuel derrotó a Sportivo con tres tantos de Morena Vargas.",
-        "Boca le ganó a Los Pinos por 2 a 1.",
-        "Los Patos superó a River por 2 a 1.",
-        "Jenifer Da Silva fue expulsada en el encuentro entre San Lorenzo y Agrarias.",
-        "El asistente Javier Loza fue alcanzado por un proyectil arrojado desde la tribuna."
-      ],
-      "noConfirmado": [
-        "El informe oficial que presentará el árbitro Nicolás Avero sobre el incidente en el partido.",
-        "Las sanciones disciplinarias que podrían aplicarse tras la agresión al juez de línea.",
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "Avanza el torneo Clausura de fútbol femenino con triunfos de los líderes en sus respectivas zonas. En uno de los encuentros, un juez asistente recibió el impacto de un proyectil arrojado desde la tribuna.",
-      "etiquetas": [
-        "futbol femenino",
-        "Clausura 2026",
-        "Amigos Unidos",
-        "San Manuel",
-        "San Agustin"
-      ],
-      "fuentesConsultadas": [
+          "aporte": null
+        },
         {
-          "medio": "Acción 5 (Balcarce)",
-          "enlace": "https://accion5.com/fem-golearon-san-manuel-san-agustin-y-amigos-unidos-y-siguen-liderando-el-clausura/",
-          "fecha": "2026-11-08T23:22:13.000Z",
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/deportes/futbol/asi-quedaron-confirmadas-las-llaves-de-los-octavos-de-final-del-torneo-clausura-2026-tras-la-fecha-nid08112026/",
+          "fecha": "2026-11-09T00:49:08.000Z",
           "oficial": false,
-          "aporte": "Detalles de los resultados de la fecha del torneo femenino, las goleadoras y el incidente con el juez de línea."
+          "aporte": "Enumeró los equipos clasificados en ambas zonas y los relegados."
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/deportes/futbol/2026/11/08/se-definieron-los-cruces-de-octavos-de-final-del-torneo-clausura-cuando-se-jugaran-y-como-quedo-el-cuadro-de-los-playoffs/",
+          "fecha": "2026-11-09T00:29:59.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/deportes/asi-quedaron-cruces-playoffs-torneo-clausura-2026-2026118212751",
+          "fecha": "2026-11-09T00:27:51.506Z",
+          "oficial": false,
+          "aporte": "Especificó los estadios donde se disputarán los encuentros de octavos."
+        },
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/river-plate/river-clausura-octavosdefinal-monumental-lanus-defensayjusticia-newells-velez_0_x2PWk9vW1W.html",
+          "fecha": "2026-11-08T03:05:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Radio Mitre",
+          "enlace": "https://radiomitre.cienradios.com/deportes/se-definieron-los-cruces-de-octavos-de-final-del-torneo-clausura-2026-como-quedo-el-cuadro-de-los-playoffs/",
+          "fecha": "2026-11-09T00:40:37.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Canal 26",
+          "enlace": "https://www.canal26.com/deportes/2026/11/09/playoffs-torneo-clausura-2026-como-quedo-el-cuadro-con-los-cruces-de-octavos-de-final-y-cuando-podria-jugarse-el-superclasico/",
+          "fecha": "2026-11-09T00:32:23.000Z",
+          "oficial": false,
+          "aporte": "Aportó las fechas del calendario de playoffs y la programación particular de Boca."
+        },
+        {
+          "medio": "Doble Amarilla",
+          "enlace": "https://www.dobleamarilla.com.ar/liga-/asi-quedaron-los-cruces-de-playoffs-de-octavos-de-final-del-torneo-clausura_a6aee93a03a400cf8c7dccc2f",
+          "fecha": "2026-11-09T00:30:15.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Bolavip Argentina",
+          "enlace": "https://bolavip.com/ar/futbolargentino/se-confirmaron-todos-los-cruces-de-los-octavos-de-final-del-torneo-clausura-2026-los-rivales-de-boca-y-river",
+          "fecha": "2026-11-09T00:24:20.000Z",
+          "oficial": false,
+          "aporte": "Informó el empate entre Central Córdoba y Lanús y las posiciones finales."
+        },
+        {
+          "medio": "El Gráfico",
+          "enlace": "https://www.elgrafico.com.ar/articulo/1038/102923/octavos-del-clausura-2026-cruces-y-fechas-de-playoffs-de-la-liga-argentina",
+          "fecha": "2026-11-09T00:08:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Gráfico",
+          "enlace": "https://www.elgrafico.com.ar/articulo/1038/103756/los-cruces-de-octavos-en-vivo-segui-como-quedan-los-playoffs-gol-a-gol",
+          "fecha": "2026-11-08T15:09:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "C5N",
+          "enlace": "https://www.c5n.com/deportes/asi-quedaron-playoffs-torneo-clausura-6-noviembre-2026",
+          "fecha": "2026-11-08T12:27:00.000Z",
+          "oficial": false,
+          "aporte": "Detalló los resultados de la última fecha y los cruces generales del cuadro."
+        },
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/futbol-primera/torneo-clausura-llave-octavos-quedo-cruces-boca-river_0_vP6m2ps1m0.html",
+          "fecha": "2026-11-07T22:32:21.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Perfil",
+          "enlace": "https://perfil.com/deportes/torneo-clausura-asi-quedo-el-cuadro-de-octavos-de-final-aUnSf9I2Xv3p",
+          "fecha": "2026-11-08T12:59:18.000Z",
+          "oficial": false,
+          "aporte": "Indicó que la final se jugará el 12 de diciembre en La Plata."
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/river-plate/los-cuatro-probables-rivales-de-river-en-octavos-del-torneo-clausura-2026-id770712.html",
+          "fecha": "2026-11-08T13:58:25.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
         {
-          "id": "f6043u",
-          "titulo": "Amigos Unidos y Ferroviarios ganan en la tercera fecha del Clausura",
-          "fecha": "2026-11-01T15:02:26.000Z",
-          "ruta": "/nota/amigos-unidos-y-ferroviarios-ganan-en-la-tercera-fecha-del-clausura-f6043u"
+          "id": "s226oa",
+          "titulo": "River asegura su lugar en octavos y espera rival para el Torneo Clausura",
+          "fecha": "2026-11-06T19:56:00.000Z",
+          "ruta": "/nota/river-asegura-su-lugar-en-octavos-y-espera-rival-para-el-torneo-s226oa"
         },
         {
-          "id": "7amn8l",
-          "titulo": "Amigos Unidos golea y empatan Ferroviarios y Los Patos",
-          "fecha": "2026-10-27T12:05:32.000Z",
-          "ruta": "/nota/amigos-unidos-golea-y-empatan-ferroviarios-y-los-patos-7amn8l"
+          "id": "57n255",
+          "titulo": "Boca enfrenta a Independiente Rivadavia en los octavos de final",
+          "fecha": "2026-11-07T17:55:55.000Z",
+          "ruta": "/nota/boca-enfrenta-a-independiente-rivadavia-en-los-octavos-de-final-57n255"
         },
         {
-          "id": "1vwpejn",
-          "titulo": "El Concejo declara de interés el aniversario del Club Amigos Unidos",
-          "fecha": "2026-10-10T18:30:12.000Z",
-          "ruta": "/nota/el-concejo-declara-de-interes-el-aniversario-del-club-amigos-unidos-1vwpejn"
+          "id": "frwixs",
+          "titulo": "Instituto juega ante Newell's por la última fecha del Torneo Clausura",
+          "fecha": "2026-11-07T03:07:40.000Z",
+          "ruta": "/nota/instituto-juega-ante-newell-s-por-la-ultima-fecha-del-torneo-clausura-frwixs"
         }
       ],
       "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "nivel": "ALTA",
+        "porque": "Lo contaron 12 medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "amigos-unidos-san-manuel-y-san-agustin-lideran-el-clausura-femenino",
+      "slug": "definen-los-cruces-de-octavos-de-final-del-torneo-clausura-2026",
       "foto": {
-        "archivo": "fotos-notas/nhniw.jpg",
-        "credito": "Foto: Acción 5 (Balcarce)"
+        "archivo": "fotos-notas/1m8qkrx.jpg",
+        "credito": "Foto: Canal 26"
       }
     },
     {
@@ -231,6 +730,90 @@
       "foto": {
         "archivo": "fotos-notas/13cbzqc.jpg",
         "credito": "Foto: La Nueva"
+      }
+    },
+    {
+      "id": "1jqbxm2",
+      "titulo": "Axel Kicillof pide tomar nota del discurso del papa León XIV",
+      "copete": "El gobernador bonaerense calificó de impecables las definiciones del Pontífice en el Palacio Libertad. Además, valoró su mensaje sobre la economía y convocó a participar de las actividades previstas en Claypole y Luján.",
+      "cuerpo": "El gobernador de la Provincia de Buenos Aires, Axel Kicillof, asistió este domingo al Palacio Libertad para presenciar el primer discurso del papa León XIV ante las autoridades del país. Tras el encuentro, el mandatario provincial calificó las definiciones del Pontífice de impecables y aseguró que la dirigencia política debe prestar atención a sus palabras.\n\nEn declaraciones a la prensa, Kicillof destacó la frase en la que el Santo Pontífice señaló que la economía debe estar al servicio de las personas y no a la inversa. El gobernador remarcó que el discurso profundizó sobre problemáticas sociales y económicas, tales como el presupuesto para las universidades nacionales, la ciencia y la discapacidad.\n\nDe cara a la agenda del Sumo Pontífice en territorio bonaerense, Kicillof confirmó que el lunes a las 9:15 asistirá al Pequeño Cottolengo Don Orione en la localidad de Claypole, ubicada en el partido de Almirante Brown, para acompañar al líder religioso en su visita a los residentes y trabajadores de la institución.\n\nFinalmente, el mandatario convocó a la ciudadanía a participar de la misa multitudinaria que se celebrará el miércoles 11 de noviembre a las 10 en la plaza frente a la Basílica de Nuestra Señora de Luján, un acontecimiento al que definió como monumental.",
+      "guion": "Axel Kicillof pide tomar nota del discurso del papa León XIV.",
+      "seccion": "Política",
+      "medios": [
+        "El Destape",
+        "Ámbito",
+        "C5N"
+      ],
+      "enlace": "https://www.c5n.com/politica/axel-kicillof-el-primer-discurso-leon-xiv-hay-que-tomar-nota-todo-lo-que-dijo-el-papa-n253809",
+      "fecha": "2026-11-08T23:12:00.000Z",
+      "sinFecha": false,
+      "visto": "2026-11-09T01:01:48.811Z",
+      "relevancia": 52,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Kicillof valoró el primer discurso del papa León XIV en el Palacio Libertad.",
+        "El gobernador pidió que el Poder Ejecutivo tome nota de las prioridades planteadas por el Pontífice.",
+        "Este lunes por la mañana visitará el Pequeño Cottolengo Don Orione en Claypole junto al Papa.",
+        "Convocó a la misa multitudinaria prevista para el miércoles en la Basílica de Luján."
+      ],
+      "seSabe": [
+        "Axel Kicillof asistió al encuentro entre el papa León XIV y el presidente Javier Milei en el Palacio Libertad.",
+        "El gobernador destacó los ejes del mensaje papal sobre economía, educación y sectores vulnerables.",
+        "El Papa visitará el Pequeño Cottolengo Don Orione en Claypole este lunes a las 9:15.",
+        "León XIV oficiará una misa en la Basílica de Luján este miércoles 11 de noviembre a las 10."
+      ],
+      "textoRedes": "Axel Kicillof pidió tomar nota del primer discurso del papa León XIV tras presenciar el encuentro en el Palacio Libertad. El gobernador bonaerense acompañará al Pontífice en su visita a Claypole y convocó a la misa en Luján.",
+      "etiquetas": [
+        "Axel Kicillof",
+        "Papa León XIV",
+        "Palacio Libertad",
+        "Claypole",
+        "Luján",
+        "Provincia de Buenos Aires"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "C5N",
+          "enlace": "https://www.c5n.com/politica/axel-kicillof-el-primer-discurso-leon-xiv-hay-que-tomar-nota-todo-lo-que-dijo-el-papa-n253809",
+          "fecha": "2026-11-08T23:12:00.000Z",
+          "oficial": false,
+          "aporte": "Detalló las declaraciones de Kicillof sobre la justicia social, el rol de la economía y la convocatoria a la misa de Luján."
+        },
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/politica/axel-kicillof-llegada-papa-abrazamos-mensaje-indiferencia-individualismo-crueldad-2026118172658",
+          "fecha": "2026-11-08T23:46:00.000Z",
+          "oficial": false,
+          "aporte": "Aportó el cronograma de actividades del Papa en la provincia de Buenos Aires y las menciones a universidades y discapacidad."
+        },
+        {
+          "medio": "Ámbito",
+          "enlace": "https://www.ambito.com/politica/axel-kicillof-destaco-el-discurso-leon-xiv-y-pidio-tomar-nota-su-mensaje-n6343047",
+          "fecha": "2026-11-09T00:58:00.000Z",
+          "oficial": false,
+          "aporte": "Profundizó en la lectura política del gobernador sobre el mensaje papal frente a las corrientes de ultraderecha."
+        },
+        {
+          "medio": "C5N",
+          "enlace": "https://www.c5n.com/politica/axel-kicillof-el-primer-discurso-leon-xiv-hay-que-tomar-nota-todo-lo-que-dio-el-papa-n253809",
+          "fecha": "2026-11-08T23:12:00.000Z",
+          "oficial": false,
+          "aporte": null
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron tres medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "axel-kicillof-pide-tomar-nota-del-discurso-del-papa-leon-xiv",
+      "foto": {
+        "archivo": "fotos-notas/1jqbxm2.jpg",
+        "credito": "Foto: El Destape"
       }
     },
     {
@@ -556,70 +1139,6 @@
       }
     },
     {
-      "id": "1kxowsl",
-      "titulo": "Milei destaca la visita del papa León XIV en el Palacio Libertad",
-      "copete": "El mandatario convocó a superar las diferencias políticas durante un mensaje institucional en el inicio de la agenda oficial del Sumo Pontífice en el país.",
-      "cuerpo": "El presidente Javier Milei encabezó un mensaje este domingo en el Palacio Libertad, donde destacó la visita del papa León XIV y convocó a dejar de lado las disputas partidarias. Ante autoridades nacionales, el mandatario afirmó que la presencia del Sumo Pontífice genera alegría tanto para los católicos como para quienes profesan otros credos, y sostuvo que su llegada eleva espiritualmente a la ciudadanía.\n\nDurante su discurso, el jefe de Estado recordó al papa Francisco, fallecido en abril de 2025, a quien calificó como el argentino más importante de la historia y una figura inspiradora por su humanidad.\n\nEn el tramo final de su intervención, Milei se dirigió directamente al pontífice y le solicitó que rece por los argentinos.",
-      "guion": "Milei destaca la visita del papa León XIV en el Palacio Libertad.",
-      "seccion": "Política",
-      "medios": [
-        "Puntonueve (FM 100.9)"
-      ],
-      "enlace": "https://puntonueve.com.ar/milei-destaco-la-visita-del-papa-leon-xiv-y-llamo-a-superar-las-diferencias-politicas/",
-      "fecha": "2026-11-08T22:38:18.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-08T23:31:20.374Z",
-      "relevancia": 59,
-      "local": false,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Javier Milei brindó un discurso este domingo en el Palacio Libertad.",
-        "El Presidente destacó la llegada del papa León XIV al país.",
-        "Convocó a superar las diferencias políticas y recordó al papa Francisco.",
-        "El encuentro forma parte de la primera jornada de actividades oficiales del Sumo Pontífice."
-      ],
-      "seSabe": [
-        "El presidente Javier Milei habló este domingo en el Palacio Libertad.",
-        "El mandatario destacó la visita del papa León XIV y pidió dejar de lado las diferencias políticas, según informó un medio local.",
-        "Milei recordó al papa Francisco, fallecido en abril de 2025, y lo definió como el argentino más importante de la historia.",
-        "El mensaje se dio en el marco del encuentro institucional de la primera jornada oficial del Papa en la Argentina."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "El presidente Javier Milei destacó la visita del papa León XIV durante un mensaje en el Palacio Libertad y convocó a superar las diferencias políticas en el inicio de la agenda oficial del Sumo Pontífice.",
-      "etiquetas": [
-        "Javier Milei",
-        "papa León XIV",
-        "Palacio Libertad",
-        "papa Francisco",
-        "política"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Puntonueve (FM 100.9)",
-          "enlace": "https://puntonueve.com.ar/milei-destaco-la-visita-del-papa-leon-xiv-y-llamo-a-superar-las-diferencias-politicas/",
-          "fecha": "2026-11-08T22:38:18.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "milei-destaca-la-visita-del-papa-leon-xiv-en-el-palacio-libertad",
-      "foto": {
-        "archivo": "fotos-notas/1kxowsl.jpg",
-        "credito": "Foto: Puntonueve (FM 100.9)"
-      }
-    },
-    {
       "id": "cytjxh",
       "titulo": "River negocia un amistoso contra el Inter Miami de Messi en enero",
       "copete": "Existen conversaciones avanzadas para que el equipo estadounidense visite el Monumental durante la pretemporada. El entrenador del conjunto norteamericano aseguró que la posibilidad está casi confirmada.",
@@ -864,7 +1383,9 @@
       "medios": [
         "TN (Todo Noticias)",
         "TyC Sports",
-        "Radio Mitre"
+        "Radio Mitre",
+        "Noticias Argentinas (NA)",
+        "La Nueva"
       ],
       "enlace": "https://tn.com.ar/deportes/formula-1/2026/11/08/un-final-decepcionante-la-reflexion-de-flavio-briatore-sobre-el-rendimiento-de-alpine-en-el-gran-premio-de-brasil/",
       "fecha": "2026-11-08T21:38:41.000Z",
@@ -917,6 +1438,20 @@
           "fecha": "2026-11-09T00:04:11.000Z",
           "oficial": false,
           "aporte": "Informó sobre el desarrollo general de la carrera en el circuito paulista y la ubicación final de los pilotos."
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/deportes/briatore-aniquilo-a-colapinto-y-gasly-al-calificar-sus-desempenos-en-el-gp-de-brasil---decepcionante-_a6af10caa083a87fddc19811b",
+          "fecha": "2026-11-09T00:09:22.408Z",
+          "oficial": false,
+          "aporte": "Informó las declaraciones de Briatore sobre el rendimiento de Colapinto y Gasly, las posiciones finales en Interlagos y los problemas de Alpine con pista mojada."
+        },
+        {
+          "medio": "La Nueva",
+          "enlace": "https://www.lanueva.com/nota/2026-11-8-21-35-0-briatore-aniquilo-a-colapinto-y-gasly-al-calificar-sus-desempenos-en-el-gp-de-brasil-decepcionante",
+          "fecha": "2026-11-09T00:56:23.000Z",
+          "oficial": false,
+          "aporte": "Aportó los datos sobre la diferencia de puntos entre Racing Bulls y Alpine en el campeonato de constructores."
         }
       ],
       "antecedentes": [
@@ -1711,7 +2246,16 @@
         "Ámbito",
         "C5N",
         "Minuto Uno",
-        "La Capital (Rosario)"
+        "La Capital (Rosario)",
+        "0223 (Mar del Plata)",
+        "LU9 Mar del Plata",
+        "Agencia DIB",
+        "El Día",
+        "0221",
+        "El Marplatense",
+        "Mi8 (Canal 8 Mar del Plata)",
+        "El Eco de Tandil",
+        "Los Andes (Mendoza)"
       ],
       "enlace": "https://www.eldestapeweb.com/sociedad/ver-vivo-encuentro-papa-leon-xiv-milei-palacio-libertad-202611811025",
       "fecha": "2026-11-08T19:04:00.000Z",
@@ -2505,6 +3049,34 @@
           "fecha": "2026-11-08T22:47:34.000Z",
           "oficial": false,
           "aporte": "Indicó que el jefe de la Iglesia se detuvo a intercambiar palabras con la titular del Senado."
+        },
+        {
+          "medio": "Crónica",
+          "enlace": "https://www.cronica.com.ar/politica/javier-milei-celebro-la-reunion-de-diversos-espacios-en-la-llegada-de-leon-xiv-en-argentina-me-alegra-ver-a-todo-el-arco-politico-aqui/",
+          "fecha": "2026-11-09T00:22:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Perfil",
+          "enlace": "https://perfil.com/sociedad/el-mensaje-que-aerolineas-argentinas-le-dedico-al-papa-leon-xiv-en-su-llegada-al-pais-avsdY7a61zuT",
+          "fecha": "2026-11-08T21:47:52.000Z",
+          "oficial": false,
+          "aporte": "Especificó el número de vuelo y las aeronaves utilizadas por Aerolíneas Argentinas para el traslado."
+        },
+        {
+          "medio": "Ámbito",
+          "enlace": "https://www.ambito.com/milei-recibio-al-papa-leon-xiv-el-palacio-libertad-me-alegra-verlos-todos-reunidos-aqui-mas-alla-nuestras-diferencias-n6343003",
+          "fecha": "2026-11-08T22:20:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Los Andes (Mendoza)",
+          "enlace": "https://www.losandes.com.ar/politica/el-mensaje-javier-milei-el-papa-leon-xiv-recordo-francisco-y-llamo-la-unidad-argentina-n6013490",
+          "fecha": "2026-11-08T23:30:00.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -2958,68 +3530,6 @@
       }
     },
     {
-      "id": "4crcso",
-      "titulo": "El Colegio Emilio Lamarca organiza una nueva Caravana de la Alegría",
-      "copete": "La tradicional propuesta familiar se realizará el domingo 15 de noviembre. Incluye un concurso escolar de bicicletas de papel reciclable y la venta de cartones.",
-      "cuerpo": "El Colegio Emilio Lamarca organizará el domingo 15 de noviembre una nueva edición de la Caravana de la Alegría. La concentración y partida se programaron para las 10:30 desde la sede de la institución, ubicada en la calle 20, con destino final en el Colegio Rural San José.\n\nEn la previa, la iniciativa sumará un concurso destinado a los alumnos de las escuelas locales para crear bicicletas con papel reciclable. Los trabajos deberán entregarse durante la semana previa en el establecimiento y participarán de un sorteo el mismo día del evento, mientras que la escuela del ganador recibirá un premio.\n\nComo parte de la organización, la institución puso a la venta los tradicionales cartones a un valor de 4.000 pesos cada uno, con una promoción de dos unidades por 6.000 pesos.",
-      "guion": "El Colegio Emilio Lamarca organiza una nueva Caravana de la Alegría.",
-      "seccion": "Balcarce",
-      "medios": [
-        "Diario La Vanguardia"
-      ],
-      "enlace": "https://www.diariolavanguardia.com/noticias/45294-el-colegio-emilio-lamarca-prepara-una-nueva-edicion-de-la-caravana-de-la-alegria/",
-      "fecha": "2026-11-08T17:01:34.938Z",
-      "sinFecha": true,
-      "visto": "2026-11-08T17:01:34.938Z",
-      "relevancia": 63,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El Colegio Emilio Lamarca prepara la Caravana de la Alegría para el domingo 15 de noviembre.",
-        "La partida será a las 10:30 desde calle 20 hacia el Colegio Rural San José.",
-        "Organizan un concurso escolar de bicicletas hechas con papel reciclable.",
-        "Los cartones cuestan 4.000 pesos cada uno y hay una promoción de dos por 6.000 pesos."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "El Colegio Emilio Lamarca prepara una nueva edición de la Caravana de la Alegría para el domingo 15 de noviembre. La partida será a las 10:30 desde calle 20 hacia el Colegio Rural San José, con un concurso escolar y venta de cartones.",
-      "etiquetas": [
-        "Colegio Emilio Lamarca",
-        "Caravana de la Alegria",
-        "Balcarce",
-        "Colegio Rural San Jose",
-        "concurso escolar"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Diario La Vanguardia",
-          "enlace": "https://www.diariolavanguardia.com/noticias/45294-el-colegio-emilio-lamarca-prepara-una-nueva-edicion-de-la-caravana-de-la-alegria/",
-          "fecha": null,
-          "oficial": false,
-          "aporte": "Detalló la fecha, el horario, el recorrido, el concurso escolar y el valor de los cartones para la Caravana de la Alegría"
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "aa7nni",
-          "titulo": "Reprograman la Caravana de la Alegría para noviembre",
-          "fecha": "2026-10-15T11:42:09.000Z",
-          "ruta": "/nota/reprograman-la-caravana-de-la-alegria-para-noviembre-aa7nni"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-colegio-emilio-lamarca-organiza-una-nueva-caravana-de-la-alegria"
-    },
-    {
       "id": "1j3ytpy",
       "titulo": "River aguarda por la recuperación de sus lesionados para los playoffs",
       "copete": "El conjunto dirigido por Leonardo Ponzio aprovecha las dos semanas de la fecha FIFA para recuperar futbolistas de cara a los octavos de final del Torneo Clausura.",
@@ -3028,7 +3538,6 @@
       "seccion": "Fútbol",
       "medios": [
         "Crónica",
-        "Doble Amarilla",
         "Bolavip Argentina",
         "Minuto Uno",
         "Los Andes (Mendoza)"
@@ -3037,7 +3546,7 @@
       "fecha": "2026-11-08T16:29:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-08T20:31:30.991Z",
-      "relevancia": 52,
+      "relevancia": 49,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -3145,14 +3654,20 @@
         "Crónica",
         "Diario Popular",
         "Noticias Argentinas (NA)",
+        "El Eco de Tandil",
         "Los Andes (Mendoza)"
       ],
       "enlace": "https://www.ole.com.ar/futbol-internacional/inglaterra/alexis-mac-allister-gol-cabeza_3_QwzQnqy6nA.html",
       "fecha": "2026-11-08T15:56:41.000Z",
       "sinFecha": false,
       "visto": "2026-11-08T17:01:34.938Z",
-      "relevancia": 71,
+      "relevancia": 73,
       "local": false,
+      "muyContada": {
+        "medios": 8,
+        "porque": "8 medios",
+        "desde": "2026-11-09T01:01:48.811Z"
+      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -3239,6 +3754,13 @@
           "medio": "Diario Popular",
           "enlace": "https://www.diariopopular.com.ar/futbol/alexis-mac-allister-volvio-marcar-liverpool-el-triunfo-crystal-palace-n928340",
           "fecha": "2026-11-08T22:43:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Eco de Tandil",
+          "enlace": "https://www.eleco.com.ar/deportes/mac-allister-anoto-para-la-victoria-de-liverpool",
+          "fecha": "2026-11-09T00:19:25.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -3658,9 +4180,9 @@
       "guion": "Agustín Canapino gana la final de TC Pick Up en La Plata.",
       "seccion": "Automovilismo",
       "medios": [
-        "Solotc",
+        "Campeones",
         "Córdoba Competición",
-        "Campeones"
+        "Solotc"
       ],
       "enlace": "https://www.solotc.com.ar/tc-pick-up-gano-clasificacion-hoy-la-plata-fecha-10-2026/",
       "fecha": "2026-11-08T13:55:07.000Z",
@@ -3953,6 +4475,7 @@
       "medios": [
         "El Destape",
         "Crónica",
+        "Radio Mitre",
         "Los Andes (Mendoza)",
         "Perfil"
       ],
@@ -3960,7 +4483,7 @@
       "fecha": "2026-11-08T13:48:34.000Z",
       "sinFecha": false,
       "visto": "2026-11-08T16:31:03.106Z",
-      "relevancia": 42,
+      "relevancia": 45,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4019,6 +4542,13 @@
           "fecha": "2026-11-08T13:48:34.000Z",
           "oficial": false,
           "aporte": "Confirmó los puntajes de la fase regular y la imposibilidad de un choque previo al partido definitorio."
+        },
+        {
+          "medio": "Radio Mitre",
+          "enlace": "https://radiomitre.cienradios.com/deportes/cuando-podrian-cruzarse-boca-y-river-en-los-playoffs-del-torneo-clausura-2026/",
+          "fecha": "2026-11-09T00:45:07.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -4189,6 +4719,7 @@
       "seccion": "Argentina",
       "medios": [
         "La Nación",
+        "TyC Sports",
         "Minuto Uno",
         "Clarín"
       ],
@@ -4196,7 +4727,7 @@
       "fecha": "2026-11-08T12:58:33.000Z",
       "sinFecha": false,
       "visto": "2026-11-08T16:01:33.358Z",
-      "relevancia": 46,
+      "relevancia": 42,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4275,6 +4806,13 @@
           "fecha": "2026-11-08T19:20:47.000Z",
           "oficial": false,
           "aporte": "Aportó la confirmación inicial sobre el arribo del papa León XIV al país."
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/automovilismo/f1-horarios-y-el-cronograma-completo-del-gp-de-las-vegas-id770846.html",
+          "fecha": "2026-11-08T14:27:34.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -4294,6 +4832,92 @@
       "foto": {
         "archivo": "fotos-notas/1o7z50.jpg",
         "credito": "Foto: La Nación"
+      }
+    },
+    {
+      "id": "rlyl7t",
+      "titulo": "Boca juega la semifinal de la Copa Argentina contra Banfield",
+      "copete": "El equipo dirigido por Rodolfo Arruabarrena enfrentará al Taladro el sábado 14 de noviembre en Mendoza. El lunes arranca la venta de entradas.",
+      "cuerpo": "Boca se medirá ante Banfield en una de las semifinales de la Copa Argentina 2026. El encuentro se disputará el sábado 14 de noviembre, a las 19.00, en el estadio Malvinas Argentinas de Mendoza, con el arbitraje de Nazareno Arasa y transmisión de TyC Sports.\n\nTras consagrarse campeón de la liga local, el plantel disfrutará de libre descanso el domingo y el lunes, y retomará los entrenamientos el martes por la tarde en el predio de Ezeiza. Durante el último encuentro ante Defensa y Justicia, el capitán Leandro Paredes debió ser reemplazado por una dolencia muscular que preliminarmente sería una contractura, por lo que su evolución marcará su disponibilidad.\n\nEl expendio online comenzará el lunes 9 de noviembre, a partir de las 15, a través de la plataforma Deportick. Las localidades generales costarán 85.000 pesos, la platea descubierta 150.000 pesos y la platea cubierta 200.000 pesos, mientras que los menores de hasta 11 años abonarán 65.000 pesos.\n\nEl canje de los tickets físicos se realizará el viernes 13 de noviembre, de 11 a 19, en la Boletería Sur del estadio mendocino, y el sábado 14, de 11 a 18, en las boleterías del estadio Bautista Gargantini. Además, el viernes 13 en el mismo horario habrá venta presencial de plateas en la Boletería Norte del Malvinas Argentinas, y las autoridades aclararon que el día del partido no se realizarán operaciones de venta ni canje en el escenario del juego.",
+      "guion": "Boca juega la semifinal de la Copa Argentina contra Banfield.",
+      "seccion": "Fútbol",
+      "medios": [
+        "TyC Sports",
+        "Olé",
+        "Minuto Uno"
+      ],
+      "enlace": "https://www.ole.com.ar/copa-argentina/vuelve-jugar-boca-vs-banfield-semifinal-copa-argentina-2026-dia-horario-tv_0_DMztLDvPN5.html",
+      "fecha": "2026-11-08T12:58:22.000Z",
+      "sinFecha": false,
+      "visto": "2026-11-09T01:01:48.811Z",
+      "relevancia": 27,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Boca y Banfield jugarán el sábado 14 de noviembre a las 19.00 en Mendoza.",
+        "El árbitro principal del encuentro será Nazareno Arasa.",
+        "La venta de entradas online comenzará el lunes 9 de noviembre a las 15 en Deportick.",
+        "El plantel retomará las prácticas el martes por la tarde en Ezeiza."
+      ],
+      "seSabe": [
+        "El partido se jugará el sábado 14 de noviembre a las 19.00 en el estadio Malvinas Argentinas.",
+        "Nazareno Arasa será el árbitro principal del encuentro.",
+        "La venta de entradas para Boca arranca el lunes 9 de noviembre a las 15 por Deportick.",
+        "El plantel se entrenará el martes por la tarde tras los festejos del título."
+      ],
+      "noConfirmado": [
+        "La evolución de la dolencia muscular de Leandro Paredes para llegar al partido."
+      ],
+      "textoRedes": "Boca enfrentará a Banfield el sábado 14 de noviembre a las 19.00 en Mendoza por la semifinal de la Copa Argentina. Este lunes comenzará la venta de entradas.",
+      "etiquetas": [
+        "Boca",
+        "Banfield",
+        "Copa Argentina",
+        "Rodolfo Arruabarrena",
+        "Nazareno Arasa"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/copa-argentina/vuelve-jugar-boca-vs-banfield-semifinal-copa-argentina-2026-dia-horario-tv_0_DMztLDvPN5.html",
+          "fecha": "2026-11-07T22:38:59.000Z",
+          "oficial": false,
+          "aporte": "Informó la fecha, hora, estadio, árbitros y el cruce contra Banfield."
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/boca-juniors/la-decision-de-arruabarrena-tras-el-titulo-de-boca-y-a-pocos-dias-de-la-semifinal-de-la-copa-argentina-id770843.html",
+          "fecha": "2026-11-08T12:58:22.000Z",
+          "oficial": false,
+          "aporte": "Detalló el descanso del plantel, la vuelta a las prácticas y la molestia física de Paredes."
+        },
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/boca-juniors/atento-boca-comienza-venta-tickets-semifinal-banfield_0_NbIDGs9ASa.html",
+          "fecha": "2026-11-08T23:27:31.000Z",
+          "oficial": false,
+          "aporte": "Precisó el inicio de la venta de entradas, los precios y las modalidades de canje."
+        },
+        {
+          "medio": "Minuto Uno",
+          "enlace": "https://www.minutouno.com/deportes/los-dias-boca-el-titulo-la-decision-arruabarrena-antes-la-semifinal-banfield-n6343001",
+          "fecha": "2026-11-09T00:44:59.000Z",
+          "oficial": false,
+          "aporte": "Confirmó la fecha de regreso aos entrenamientos para el martes 10 de noviembre."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron tres medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "boca-juega-la-semifinal-de-la-copa-argentina-contra-banfield",
+      "foto": {
+        "archivo": "fotos-notas/rlyl7t.jpg",
+        "credito": "Foto: Olé"
       }
     },
     {
@@ -5264,7 +5888,7 @@
       "fecha": "2026-11-08T07:00:17.000Z",
       "sinFecha": false,
       "visto": "2026-11-08T12:31:01.736Z",
-      "relevancia": 45,
+      "relevancia": 37,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -5644,14 +6268,13 @@
       "guion": "El papa Léon XIV llega hoy a la Argentina en su primera visita oficial.",
       "seccion": "Argentina",
       "medios": [
-        "La Nación",
         "LU9 Mar del Plata",
+        "La Nación",
         "El Destape",
         "Diario Popular",
         "Noticias Argentinas (NA)",
         "El Día",
         "0221",
-        "La Brújula 24",
         "La Tecla",
         "QZ Noticias (Mar del Plata)",
         "El Marplatense",
@@ -5664,13 +6287,14 @@
         "La Gaceta (Tucumán)",
         "La Nueva",
         "Clarín",
-        "Los Andes (Mendoza)"
+        "Los Andes (Mendoza)",
+        "La Brújula 24"
       ],
       "enlace": "https://www.lanacion.com.ar/sociedad/a-que-hora-llega-el-papa-leon-xiv-a-la-argentina-manana-domingo-8-de-noviembre-nid07112026/",
       "fecha": "2026-11-08T05:35:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-08T11:31:32.236Z",
-      "relevancia": 67,
+      "relevancia": 60,
       "local": false,
       "muyContada": {
         "medios": 19,
@@ -7304,66 +7928,6 @@
       "slug": "boca-gana-la-tabla-anual-y-los-jugadores-sorprenden-a-arruabarrena"
     },
     {
-      "id": "c5pgr6",
-      "titulo": "Suspenden un partido de fútbol femenino tras la agresión a un juez de línea",
-      "copete": "El encuentro entre San Lorenzo y FC Agrarias en el Estadio Municipal fue interrumpido. Un árbitro asistente resultó herido por un proyectil arrojado desde la tribuna.",
-      "cuerpo": "El Estadio Municipal General Balcarce fue escenario de un episodio de violencia durante el enfrentamiento de fútbol femenino entre San Lorenzo y FC Agrarias. Según informó un medio local, el partido debió ser suspendido cuando estaba por finalizar debido a que un juez de línea, identificado como Abel Javier Loza, recibió el impacto de una piedra. De acuerdo con la información difundida, el proyectil habría sido arrojado por un simpatizante del club San Lorenzo. Tras el incidente, el árbitro asistente se dirigió a la comisaría de la ciudad para radicar la denuncia correspondiente por lo sucedido. El hecho impidió la conclusión normal del evento deportivo programado en el predio municipal.",
-      "guion": "Suspenden un partido de fútbol femenino tras la agresión a un juez de línea.",
-      "seccion": "Policiales",
-      "medios": [
-        "Puntonueve (FM 100.9)"
-      ],
-      "enlace": "https://puntonueve.com.ar/repudiable-agresion-en-el-futbol-local-un-juez-de-linea-recibio-un-piedrazo-y-el-partido-fue-suspendido/",
-      "fecha": "2026-11-08T00:37:19.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-08T01:31:24.124Z",
-      "relevancia": 67,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El partido de fútbol femenino fue suspendido por incidentes.",
-        "Un juez de línea fue alcanzado por una piedra.",
-        "La víctima radicó una denuncia en la comisaría local.",
-        "El agresor fue señalado como un simpatizante de San Lorenzo."
-      ],
-      "seSabe": [
-        "El partido entre San Lorenzo y FC Agrarias fue suspendido en el Estadio Municipal.",
-        "El juez de línea Abel Javier Loza fue golpeado por una piedra.",
-        "La víctima realizó una denuncia policial tras el hecho."
-      ],
-      "noConfirmado": [
-        "La identidad del agresor, señalado como simpatizante de San Lorenzo, no ha sido confirmada por autoridades oficiales.",
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "Suspenden el partido de fútbol femenino entre San Lorenzo y FC Agrarias en el Estadio Municipal. Un juez de línea recibió un piedrazo y radicó la denuncia correspondiente en la comisaría local.",
-      "etiquetas": [
-        "fútbol femenino",
-        "violencia en el deporte",
-        "Estadio Municipal",
-        "San Lorenzo",
-        "FC Agrarias"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Puntonueve (FM 100.9)",
-          "enlace": "https://puntonueve.com.ar/repudiable-agresion-en-el-futbol-local-un-juez-de-linea-recibio-un-piedrazo-y-el-partido-fue-suspendido/",
-          "fecha": "2026-11-08T00:37:19.000Z",
-          "oficial": false,
-          "aporte": "Detalló el lugar del hecho, los equipos involucrados, la identidad del juez agredido y la presentación de la denuncia policial."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "suspenden-un-partido-de-futbol-femenino-tras-la-agresion-a-un-juez-de"
-    },
-    {
       "id": "19bt0th",
       "titulo": "Boca define la tabla anual ante Defensa y Justicia en la Bombonera",
       "copete": "El equipo de la Ribera busca su primer título desde marzo de 2023. Cuatro futbolistas de aquel plantel continúan en la institución.",
@@ -7641,12 +8205,9 @@
         "Crónica",
         "Diario Popular",
         "Noticias Argentinas (NA)",
-        "Doble Amarilla",
         "Ámbito",
         "C5N",
-        "La Gaceta (Tucumán)",
         "0223 (Mar del Plata)",
-        "Clarín",
         "La Nueva",
         "La Brújula 24",
         "A24"
@@ -7655,7 +8216,7 @@
       "fecha": "2026-11-07T23:16:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-07T23:31:15.485Z",
-      "relevancia": 48,
+      "relevancia": 46,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -8561,9 +9122,9 @@
       "guion": "Ferroviarios y Los Patos ganan en el inicio de la cuarta fecha del Clausura.",
       "seccion": "Fútbol",
       "medios": [
-        "News Balcarce (FM 91.7)",
+        "Infórmese Primero (FM 104.9)",
         "Puntonueve (FM 100.9)",
-        "Infórmese Primero (FM 104.9)"
+        "News Balcarce (FM 91.7)"
       ],
       "enlace": "http://www.informeseprimero.com.ar/2026/11/futbol-ferroviarios-y-los-patos-ganaron.html",
       "fecha": "2026-11-07T21:38:18.919Z",
@@ -11167,151 +11728,6 @@
       "slug": "una-policia-rescata-a-una-jubilada-tras-caer-con-su-auto-a-un-arroyo"
     },
     {
-      "id": "1w8v4jx",
-      "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
-      "copete": "La institución local participa por primera vez con dos vehículos eléctricos en la competencia nacional. Las pruebas se desarrollan el sábado y la carrera principal será mañana en el autódromo Eusebio Marcilla.",
-      "cuerpo": "La Escuela de Educación Secundaria Técnica Nº 1 Lucas Kraglievich participa este fin de semana en una nueva edición del Desafío ECO YPF en el autódromo Eusebio Marcilla de la ciudad de Junín. La institución afronta por primera vez el certamen nacional con dos vehículos eléctricos propulsados por baterías, identificados con los números 52 y 155, construidos y preparados por alumnos de los últimos años y docentes.\n\nDurante el sábado se desarrollan las actividades previstas por la organización, que incluyen las pruebas en pista y la instancia de clasificación.\n\nLa delegación local forma parte de la competencia desde 2015 y la incorporación de una segunda unidad se concretó a partir de una beca otorgada por el Automóvil Club Argentino. Los prototipos presentan diferencias en sus diseños y carrocerías, aunque comparten las normativas técnicas del reglamento.\n\nDetrás de ambos vehículos hay meses de trabajo y aprendizaje en las áreas de mecánica, electricidad y electrónica. Con los dos autos ya en pista, la delegación transita las horas previas a la prueba final con el objetivo de representar a la ciudad.",
-      "guion": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO.",
-      "seccion": "Educación",
-      "seccionAntes": "Automovilismo",
-      "medios": [
-        "Diario La Vanguardia"
-      ],
-      "enlace": "https://www.diariolavanguardia.com/noticias/45298-el-equipo-de-la-escuela-tecnica-ya-esta-en-junin-con-sus-dos-autos-para-participar-del-desafio-eco/",
-      "fecha": "2026-11-07T17:01:09.490Z",
-      "sinFecha": true,
-      "visto": "2026-11-07T17:01:09.490Z",
-      "relevancia": 71,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [
-        "autodromo"
-      ],
-      "como": "automatica",
-      "claves": [
-        "La Escuela Técnica compite con dos autos eléctricos en el Desafío ECO.",
-        "Las pruebas y clasificación se realizan este sábado en Junín.",
-        "La carrera principal será este domingo en el autódromo Eusebio Marcilla.",
-        "La institución participa desde 2015 y sumó un segundo vehículo por una beca."
-      ],
-      "seSabe": [
-        "La Escuela Técnica Nº 1 de Balcarce participa en el Desafío ECO YPF en Junín.",
-        "La delegación compite con dos vehículos eléctricos numerados 52 y 155.",
-        "Las pruebas y la clasificación se desarrollan este sábado.",
-        "La carrera principal se disputa el domingo 8 de noviembre en el autódromo Eusebio Marcilla.",
-        "La participación con dos unidades se concretó mediante una beca del Automóvil Club Argentino."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "La Escuela Técnica de Balcarce compite este fin de semana en el Desafío ECO en Junín con dos vehículos eléctricos. Las pruebas se desarrollan este sábado y la carrera principal será este domingo en el autódromo Eusebio Marcilla.",
-      "etiquetas": [
-        "Escuela Tecnica",
-        "Desafio ECO",
-        "Junin",
-        "autos electricos",
-        "Balcarce"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Diario La Vanguardia",
-          "enlace": "https://www.diariolavanguardia.com/noticias/45298-el-equipo-de-la-escuela-tecnica-ya-esta-en-junin-con-sus-dos-autos-para-participar-del-desafio-eco/",
-          "fecha": null,
-          "oficial": false,
-          "aporte": "Informó la llegada de la delegación de la Escuela Técnica a Junín, la utilización de dos vehículos eléctricos, las fechas de las pruebas y la carrera, y los detalles del proyecto institucional."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "174ziev",
-          "titulo": "Mario Alberghini defiende la seguridad del autódromo Juan Manuel Fangio",
-          "fecha": "2026-11-06T17:41:48.000Z",
-          "ruta": "/nota/mario-alberghini-defiende-la-seguridad-del-autodromo-juan-manuel-174ziev"
-        },
-        {
-          "id": "1chkyii",
-          "titulo": "Jorge Macri presenta la propuesta para que la Fórmula 1 vuelva a Buenos Aires",
-          "fecha": "2026-11-06T15:32:00.000Z",
-          "ruta": "/nota/jorge-macri-presenta-la-propuesta-para-que-la-formula-1-vuelva-a-1chkyii"
-        },
-        {
-          "id": "1xd4thu",
-          "titulo": "Emerson Fittipaldi llega por primera vez a Balcarce",
-          "fecha": "2026-11-06T14:36:09.000Z",
-          "ruta": "/nota/emerson-fittipaldi-llega-por-primera-vez-a-balcarce-1xd4thu"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "la-escuela-tecnica-de-balcarce-compite-en-junin-en-el-desafio-eco"
-    },
-    {
-      "id": "1fygzpu",
-      "titulo": "Grupo HETS presenta el calendario 2027 de carreras de aventura",
-      "copete": "La organización dio a conocer las tres fechas previstas para el año próximo, que incluirán competencias de running nocturno y trail de montaña en los paisajes serranos.",
-      "cuerpo": "Grupo HETS dio a conocer su cronograma de competencias para 2027, una propuesta que integrará tres eventos de running nocturno y trail de montaña en los escenarios naturales de Balcarce. La primera cita será el 6 de marzo con el Balcarce Corre Night, una prueba nocturna en distancias de 8K y 13K. El calendario continuará el 23 de mayo con Bachicha Trail, que ofrecerá alternativas de 10K, 22K y 37K. Por último, el 12 de septiembre se realizará Tierras del Diablo, con recorridos de 11K, 20K y 30K.\n\nBajo el lema Las sierras más antiguas del planeta, la iniciativa busca reunir a deportistas de distintos puntos y poner en valor los atractivos de la región. La entidad organizadora cuenta con una trayectoria de más de 18 años en la logística de pruebas deportivas y proyecta ampliar su alcance hacia el ámbito internacional.",
-      "guion": "Grupo HETS presenta el calendario 2027 de carreras de aventura",
-      "seccion": "Deportes",
-      "medios": [
-        "Diario La Vanguardia"
-      ],
-      "enlace": "https://www.diariolavanguardia.com/deportes/14429-grupo-hets-presento-su-calendario-2027-tres-carreras-de-aventura-tendran-a-balcarce-como-escenario/",
-      "fecha": "2026-11-07T17:01:09.490Z",
-      "sinFecha": true,
-      "visto": "2026-11-07T17:01:09.490Z",
-      "relevancia": 59,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El calendario de Grupo HETS para 2027 contempla tres eventos deportivos en Balcarce.",
-        "La primera fecha será el 6 de marzo con el Balcarce Corre Night en 8K y 13K.",
-        "El 23 de mayo se disputará el Bachicha Trail en tres distancias.",
-        "El 12 de septiembre se cerrará la temporada con Tierras del Diablo."
-      ],
-      "seSabe": [
-        "Grupo HETS presentó tres fechas de competencias para 2027 en Balcarce.",
-        "La temporada incluye el Balcarce Corre Night el 6 de marzo.",
-        "El Bachicha Trail se llevará a cabo el 23 de mayo.",
-        "Tierras del Diablo se realizará el 12 de septiembre.",
-        "La organización posee una trayectoria de más de 18 años en el rubro."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "Grupo HETS presentó el calendario 2027 de carreras de aventura que se realizarán en Balcarce, con tres fechas confirmadas de running nocturno y trail de montaña.",
-      "etiquetas": [
-        "deportes",
-        "carreras",
-        "running",
-        "Balcarce",
-        "Grupo HETS"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Diario La Vanguardia",
-          "enlace": "https://www.diariolavanguardia.com/deportes/14429-grupo-hets-presento-su-calendario-2027-tres-carreras-de-aventura-tendran-a-balcarce-como-escenario/",
-          "fecha": null,
-          "oficial": false,
-          "aporte": "Informó el calendario completo de competencias para 2027 con fechas, distancias y características de cada prueba."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "grupo-hets-presenta-el-calendario-2027-de-carreras-de-aventura"
-    },
-    {
       "id": "zhagqb",
       "titulo": "Muere el actor Gabriel González Abat a los 56 años",
       "copete": "La Asociación Argentina de Actores confirmó el fallecimiento del intérprete recordado por su personaje de Canuto en Señorita maestra. Tenía 56 años y una extensa trayectoria en cine, teatro y televisión.",
@@ -12184,16 +12600,14 @@
         "Mi8 (Canal 8 Mar del Plata)",
         "El Eco de Tandil",
         "La Capital (Rosario)",
-        "Perfil",
         "Crónica",
-        "La Brújula 24",
         "Agencia DIB"
       ],
       "enlace": "https://www.lacapital.com.ar/informacion-general/el-papa-leon-xiv-celebro-su-primera-misa-sudamerica-y-hablo-del-mate-como-simbolo-n10290984.html",
       "fecha": "2026-11-07T15:05:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-07T22:01:26.427Z",
-      "relevancia": 47,
+      "relevancia": 44,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -12526,159 +12940,6 @@
         "archivo": "fotos-notas/nubrst.jpg",
         "credito": "Foto: El Destape"
       }
-    },
-    {
-      "id": "55plr2",
-      "titulo": "El Museo Fangio incorpora cascos de Hamilton y Bottas",
-      "copete": "La institución sumará dos piezas históricas para el aniversario del espacio en Balcarce. Las gestiones estuvieron a cargo del consejero honorario Peter Nygaard.",
-      "cuerpo": "La Fundación Fangio sumará a su patrimonio los cascos de los pilotos de Fórmula 1 Lewis Hamilton y Valtteri Bottas. Las piezas llegarán a Balcarce para formar parte de la celebración por los 40 años del Museo y la inauguración de un nuevo sector expositivo de más de 500 metros cuadrados dedicado a la máxima categoría del automovilismo mundial.\n\nLa incorporación fue anunciada por la entidad, que resaltó las gestiones realizadas por su consejero honorario, Peter Nygaard, para concretar intercambios con figuras destacadas. El casco de Hamilton, actual piloto de Ferrari, se obtuvo a través de Jo Livingston, director global de Marca y Comunicación del británico. Por su parte, Bottas entregó el casco homenaje utilizado en el Gran Premio de Italia de 2023 en Monza, dedicado a Giuseppe Farina y Juan Manuel Fangio por su paso por Alfa Romeo.",
-      "guion": "El Museo Fangio incorpora cascos de Hamilton y Bottas",
-      "seccion": "Automovilismo",
-      "medios": [
-        "Diario La Vanguardia"
-      ],
-      "enlace": "https://www.diariolavanguardia.com/noticias/45295-los-cascos-de-lewis-hamilton-y-valtteri-bottas-llegaran-a-balcarce-para-el-aniversario-del-museo-fangio/",
-      "fecha": "2026-11-07T15:01:09.380Z",
-      "sinFecha": true,
-      "visto": "2026-11-07T15:01:09.380Z",
-      "relevancia": 71,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [
-        "fangio"
-      ],
-      "como": "automatica",
-      "claves": [
-        "El Museo Fangio incorpora cascos de Hamilton y Bottas.",
-        "Las piezas forman parte del 40.º aniversario de la institución.",
-        "Inaugurarán un espacio de más de 500 metros cuadrados dedicado a la Fórmula 1.",
-        "Las gestiones fueron realizadas por el consejero honorario Peter Nygaard."
-      ],
-      "seSabe": [
-        "La Fundación Fangio incorporará los cascos de Lewis Hamilton y Valtteri Bottas.",
-        "La llegada de las piezas coincide con los 40 años del Museo y un nuevo espacio expositivo de más de 500 metros cuadrados.",
-        "Peter Nygaard concretó las gestiones para los intercambios de las piezas.",
-        "El casco de Bottas corresponde al utilizado en Monza en 2023 en homenaje a Giuseppe Farina y Juan Manuel Fangio."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "El Museo Fangio incorporará los cascos de Lewis Hamilton y Valtteri Bottas para celebrar sus 40 años en Balcarce junto a un nuevo espacio expositivo.",
-      "etiquetas": [
-        "Museo Fangio",
-        "Balcarce",
-        "Formula 1",
-        "Lewis Hamilton",
-        "Valtteri Bottas",
-        "Automovilismo"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Diario La Vanguardia",
-          "enlace": "https://www.diariolavanguardia.com/noticias/45295-los-cascos-de-lewis-hamilton-y-valtteri-bottas-llegaran-a-balcarce-para-el-aniversario-del-museo-fangio/",
-          "fecha": null,
-          "oficial": false,
-          "aporte": "Informó la incorporación de los cascos de Hamilton y Bottas al Museo Fangio, los detalles de las gestiones de Peter Nygaard y la inauguración del nuevo espacio de 500 metros cuadrados."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "yko3zc",
-          "titulo": "El Museo Fangio celebra 40 años con la presencia de Emerson Fittipaldi",
-          "fecha": "2026-11-05T18:16:20.000Z",
-          "ruta": "/nota/el-museo-fangio-celebra-40-anos-con-la-presencia-de-emerson-fittipaldi-yko3zc"
-        },
-        {
-          "id": "r4bjyj",
-          "titulo": "Emerson Fittipaldi visitará el Museo Fangio en noviembre",
-          "fecha": "2026-10-31T13:12:21.000Z",
-          "ruta": "/nota/emerson-fittipaldi-visitara-el-museo-fangio-en-noviembre-r4bjyj"
-        },
-        {
-          "id": "w7ghgv",
-          "titulo": "Fangio consigue su primer título mundial de Fórmula 1 hace 75 años",
-          "fecha": "2026-10-28T12:45:40.000Z",
-          "ruta": "/nota/fangio-consigue-su-primer-titulo-mundial-de-formula-1-hace-75-anos-w7ghgv"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-museo-fangio-incorpora-cascos-de-hamilton-y-bottas",
-      "foto": {
-        "archivo": "fotos-notas/55plr2.jpg",
-        "credito": "Foto: Diario La Vanguardia"
-      }
-    },
-    {
-      "id": "dcayre",
-      "titulo": "Construirán el paredón del estadio municipal con mano de obra comunal",
-      "copete": "El Sindicato de Trabajadores Municipales indicó que la medida evitaría contratar a una empresa privada. Los fondos se destinarían a reparar otras instalaciones.",
-      "cuerpo": "El encuentro reunió al secretario de Obras y Servicios Públicos, Gustavo Torres, con la secretaria general del Sindicato de Trabajadores Municipales, Xoana Martínez, integrantes de la Comisión Directiva, delegados y funcionarios locales.\n\nDurante la junta, el funcionario comunal habría confirmado que las tareas pueden concretarse con trabajadores del área. Esta variante permitiría prescindir de una firma privada y utilizar los aproximadamente 14 millones de pesos del canon que la Liga Balcarceña de Fútbol debe abonar por el uso del predio en remodelaciones para los baños, los vestuarios y las cabinas.\n\nDesde el gremio destacaron la capacidad del personal para ejecutar las labores y señalaron que la propuesta busca optimizar los recursos disponibles. En ese sentido, Martínez colaborará en la identificación y selección de los agentes que participarán de las tareas, mientras que Torres se comprometió a elevar la iniciativa ante el Concejo Deliberante.\n\nCon la nueva alternativa gremial, el debate sobre la ejecución de los trabajos sumó un esquema que modificaría el destino presupuestario previsto inicialmente.",
-      "guion": "Construirán el paredón del estadio municipal con mano de obra comunal.",
-      "seccion": "Balcarce",
-      "medios": [
-        "Diario La Vanguardia"
-      ],
-      "enlace": "https://www.diariolavanguardia.com/noticias/45293-el-paredon-del-estadio-finalmente-se-construira-con-mano-de-obra-municipal/",
-      "fecha": "2026-11-07T15:01:09.380Z",
-      "sinFecha": true,
-      "visto": "2026-11-07T15:01:09.380Z",
-      "relevancia": 63,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El sindicato municipal acordó construir el paredón del estadio con personal comunal.",
-        "La medida busca evitar la contratación de una firma privada.",
-        "Los 14 millones de pesos del canon de la Liga Balcarceña se usarían para otras mejoras."
-      ],
-      "seSabe": [
-        "El secretario Gustavo Torres se reunió con la dirigencia del Sindicato de Trabajadores Municipales.",
-        "Xoana Martínez colaborará en la selección del personal para la obra.",
-        "El funcionario comunal se comprometió a informar la alternativa al Concejo Deliberante."
-      ],
-      "noConfirmado": [
-        "Todavía no se confirmó formalmente la aprobación definitiva del proyecto en el Concejo Deliberante.",
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "El Sindicato de Trabajadores Municipales informó que el paredón del estadio se haría con personal comunal para ahorrar fondos y destinarlos a otras mejoras.",
-      "etiquetas": [
-        "estadio municipal",
-        "Sindicato de Trabajadores Municipales",
-        "Obras Públicas",
-        "Liga Balcarceña",
-        "Concejo Deliberante"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Diario La Vanguardia",
-          "enlace": "https://www.diariolavanguardia.com/noticias/45293-el-paredon-del-estadio-finalmente-se-construira-con-mano-de-obra-municipal/",
-          "fecha": null,
-          "oficial": false,
-          "aporte": "Aportó los detalles de la reunión entre el gremio municipal y Obras Públicas para definir la ejecución del paredón."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "zlom91",
-          "titulo": "La Liga Balcarceña defiende el paredón del Estadio Municipal",
-          "fecha": "2026-10-24T12:30:09.000Z",
-          "ruta": "/nota/la-liga-balcarcena-defiende-el-paredon-del-estadio-municipal-zlom91"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "construiran-el-paredon-del-estadio-municipal-con-mano-de-obra-comunal"
     },
     {
       "id": "9cxjwp",
@@ -13042,69 +13303,6 @@
       "slug": "la-escuela-taekwondo-henko-reune-a-mas-de-cien-alumnos"
     },
     {
-      "id": "ff5o5",
-      "titulo": "Sembrando Futuro llega a los mil egresados",
-      "copete": "El programa de formación y empleo juvenil impulsado por McCain Argentina y Fundación Forge celebró una nueva graduación en el distrito. La iniciativa ya alcanzó los mil egresados desde su puesta en marcha en 2018.",
-      "cuerpo": "El programa Sembrando Futuro alcanzó los mil egresados en Balcarce tras la graduación de 126 jóvenes en una nueva ceremonia organizada por McCain Argentina y Fundación Forge. La propuesta, creada en 2018, está destinada a participantes de entre 17 y 24 años con el objetivo de brindarles herramientas gratuitas para acceder a un empleo formal y transitar su inserción en el ámbito laboral.\n\nEl encuentro contó con la participación del intendente Esteban Reino y de las inspectoras de Nivel Secundario Sandra Itria y Silvia Buceta, además de familias y representantes educativos. Lucila Martínez, líder del proyecto, indicó que los egresados representan un logro colectivo y destacó el alcance de la iniciativa educativa.\n\nPor su parte, Matías Victory, director de Recursos Humanos para Cono Sur de McCain, remarcó la importancia de la articulación entre el sector privado, las organizaciones y el Estado para abordar la empleabilidad juvenil. Actualmente, la red de aliados está integrada por 70 empresas, de las cuales 20 participaron de las actividades formativas durante 2026 con el aporte de 81 voluntarios.\n\nDurante la jornada, los alumnos Eunice Cambiaso, Marcos Martínez y Germaine Nucete Costa compartieron sus experiencias ante los presentes y valoraron los aprendizajes obtenidos en materia de confianza y habilidades profesionales. En paralelo al cierre de esta edición, otros 50 jóvenes ya comenzaron su trayecto de capacitación dentro de la misma propuesta.",
-      "guion": "Sembrando Futuro llega a los mil egresados",
-      "seccion": "Educación",
-      "medios": [
-        "Puntonueve (FM 100.9)"
-      ],
-      "enlace": "https://puntonueve.com.ar/sembrando-futuro-alcanzo-los-1-000-egresados-en-balcarce-desde-su-creacion/",
-      "fecha": "2026-11-07T13:51:53.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-07T14:31:12.642Z",
-      "relevancia": 59,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El programa Sembrando Futuro alcanzó los 1.000 egresados en Balcarce desde su inicio en 2018.",
-        "En esta edición se graduaron 126 jóvenes y otros 50 ya comenzaron su formación.",
-        "La iniciativa conjunta entre McCain Argentina y Fundación Forge capacita a personas de 17 a 24 años.",
-        "Setenta empresas forman parte de la red de aliados que colabora con mentores y simulacros laborales."
-      ],
-      "seSabe": [
-        "El programa Sembrando Futuro llegó a los 1.000 egresados en Balcarce desde su creación en 2018, según informó la fuente.",
-        "Un total de 126 jóvenes recibieron su diploma en la ceremonia de graduación.",
-        "El intendente Esteban Reino y las inspectoras Sandra Itria y Silvia Buceta participaron del encuentro.",
-        "Setenta empresas integran la red de aliados y 81 voluntarios colaboraron durante 2026.",
-        "Un grupo de 50 jóvenes ya dio inicio a su proceso formativo."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "El programa Sembrando Futuro alcanzó los mil egresados en Balcarce tras una nueva ceremonia de graduación que certificó a 126 jóvenes para facilitar su inserción en el mercado laboral.",
-      "etiquetas": [
-        "Sembrando Futuro",
-        "egresados",
-        "empleo",
-        "capacitación",
-        "Balcarce",
-        "McCain Argentina",
-        "Fundación Forge"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Puntonueve (FM 100.9)",
-          "enlace": "https://puntonueve.com.ar/sembrando-futuro-alcanzo-los-1-000-egresados-en-balcarce-desde-su-creacion/",
-          "fecha": "2026-11-07T13:51:53.000Z",
-          "oficial": false,
-          "aporte": "Informó los detalles de la ceremonia de graduación, las autoridades presentes, los testimonios de los alumnos y las cifras de egresados y empresas colaboradoras."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "sembrando-futuro-llega-a-los-mil-egresados"
-    },
-    {
       "id": "19j1eud",
       "titulo": "Piden crear un programa de asistencia para estudiantes universitarios",
       "copete": "La iniciativa ingresó al Concejo Deliberante y solicita al Ejecutivo incluir una partida específica en el Presupuesto 2027 para becas, alquileres y transporte.",
@@ -13204,7 +13402,10 @@
       "seccion": "Fútbol",
       "medios": [
         "Bolavip Argentina",
-        "TyC Sports"
+        "TyC Sports",
+        "Olé",
+        "Minuto Uno",
+        "Clarín"
       ],
       "enlace": "https://bolavip.com/ar/europa/valencia-vs-real-madrid-horario-y-donde-ver-en-vivo-y-online-en-argentina-por-la-jornada-12-de-la-laliga",
       "fecha": "2026-11-07T13:09:28.000Z",
@@ -13333,6 +13534,20 @@
           "fecha": "2026-11-08T15:01:23.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/espana/la-liga/ver-en-vivo-atletico-de-madrid-vs-barcelona-donde-seguirlo-por-tv-y-online-id770805.html",
+          "fecha": "2026-11-08T19:51:13.000Z",
+          "oficial": false,
+          "aporte": "Indicó los canales específicos de televisión y cable para ver el encuentro."
+        },
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/futbol-internacional/espana/triunfo-barcelona-frente-atletico-madrid_3_iD33Uuf4vj.html",
+          "fecha": "2026-11-08T22:02:39.000Z",
+          "oficial": false,
+          "aporte": "Registró el resultado final del partido."
         }
       ],
       "verificacion": {
@@ -13345,96 +13560,9 @@
         "archivo": "fotos-notas/aqgb22.jpg",
         "credito": "Foto: TN (Todo Noticias)"
       }
-    },
-    {
-      "id": "7ashy7",
-      "titulo": "Virginia Aparicio cuestiona su exoneración del INTA",
-      "copete": "La investigadora ratificó su postura tras recibir muestras de apoyo en la plaza Libertad. Cuestionó la prohibición de ingreso a la Estación Experimental y reclamó mayores controles estatales sobre plaguicidas.",
-      "cuerpo": "La investigadora Virginia Aparicio se refirió públicamente a su situación en el Instituto Nacional de Tecnología Agropecuaria, luego de que se oficializara su exoneración y se le prohibiera la entrada a la Estación Experimental Agropecuaria de Balcarce. Durante una concentración en la plaza Libertad, donde recibió el respaldo de una caravana llegada desde Mar del Plata, la científica señaló que el conflicto se originó a partir de los hallazgos de un trabajo sobre exposición a plaguicidas.\n\nAparicio, quien cuenta con una trayectoria de más de 22 años en la institución, explicó que el proyecto había sido aprobado con el fin de aportar a la calidad de vida del sector agropecuario y de la comunidad. Sin embargo, indicó que las prioridades cambiaron con las modificaciones de autoridades. Entre los resultados del estudio, destacó la detección de residuos de sustancias prohibidas como el DDT y diversas combinaciones de productos en las muestras analizadas.\n\nEn ese marco, cuestionó la modalidad en que se instrumentó la notificación y sostuvo que las decisiones son adoptadas por funcionarios ausentes en el procedimiento cotidiano.\n\nAnte este escenario, la investigadora remarcó la necesidad de implementar políticas públicas más estrictas y fortalecer las tareas de fiscalización. Por último, advirtió sobre la falta de continuidad del grupo de trabajo debido a la suspensión de un colega y las dificultades para incorporar becarios en el actual contexto del organismo.",
-      "guion": "Virginia Aparicio cuestiona su exoneración del INTA",
-      "seccion": "Agro",
-      "medios": [
-        "El Diario Balcarce"
-      ],
-      "enlace": "https://eldiariobalcarce.com.ar/virginia-aparicio-tras-las-muestras-de-apoyo-tengo-confianza-de-jubilarme-en-el-inta-653",
-      "fecha": "2026-11-07T12:34:59.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-07T16:01:35.533Z",
-      "relevancia": 63,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [
-        "inta"
-      ],
-      "como": "automatica",
-      "claves": [
-        "Virginia Aparicio cuestionó su exoneración y la prohibición de ingreso a la Estación Experimental Agropecuaria de Balcarce.",
-        "La científica vinculó la decisión del organismo a los resultados de una investigación sobre exposición a plaguicidas.",
-        "El estudio detectó residuos de DDT y diversas combinaciones de productos en las muestras analizadas.",
-        "Aparicio reclamó un Estado con mayores controles, la intervención del Senasa y el impulso a modelos agroecológicos."
-      ],
-      "seSabe": [
-        "Virginia Aparicio fue exonerada del Instituto Nacional de Tecnología Agropecuaria y se le prohibió el ingreso a la sede local.",
-        "La científica participó de una concentración en la plaza Libertad tras una movilización respaldada desde Mar del Plata.",
-        "La investigadora señaló que el sumario administrativo se vincula con los resultados de un estudio sobre plaguicidas.",
-        "El trabajo científico detectó la presencia de residuos de DDT y diversas combinaciones de sustancias."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "Virginia Aparicio se refirió a su exoneración del INTA en Balcarce tras recibir muestras de apoyo. La científica vinculó la medida con los resultados de su investigación sobre plaguicidas.",
-      "etiquetas": [
-        "Virginia Aparicio",
-        "INTA",
-        "Balcarce",
-        "plaguicidas",
-        "investigación",
-        "agroecología"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Diario Balcarce",
-          "enlace": "https://eldiariobalcarce.com.ar/virginia-aparicio-tras-las-muestras-de-apoyo-tengo-confianza-de-jubilarme-en-el-inta-653",
-          "fecha": "2026-11-07T12:34:59.000Z",
-          "oficial": false,
-          "aporte": "Detalló los motivos de su exoneración, las dificultades para ingresar a la Estación Experimental y los resultados de la investigación sobre plaguicidas."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "zq4p96",
-          "titulo": "Realizan una caravana en Balcarce para pedir la reincorporación de Virginia Aparicio",
-          "fecha": "2026-11-05T15:30:11.000Z",
-          "ruta": "/nota/realizan-una-caravana-en-balcarce-para-pedir-la-reincorporacion-de-zq4p96"
-        },
-        {
-          "id": "1cj5sd",
-          "titulo": "Virginia Aparicio debate en un programa local sobre su situación en el INTA",
-          "fecha": "2026-10-10T18:47:37.000Z",
-          "ruta": "/nota/virginia-aparicio-debate-en-un-programa-local-sobre-su-situacion-en-1cj5sd"
-        },
-        {
-          "id": "18jx7kk",
-          "titulo": "Virginia Aparicio brinda su testimonio el viernes en Polémica en Gabal",
-          "fecha": "2026-10-09T13:47:33.000Z",
-          "ruta": "/nota/virginia-aparicio-habla-en-radio-sobre-su-situacion-en-el-inta-18jx7kk"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "virginia-aparicio-cuestiona-su-exoneracion-del-inta",
-      "foto": {
-        "archivo": "fotos-notas/7ashy7.jpg",
-        "credito": "Foto: El Diario Balcarce"
-      }
     }
   ],
   "secciones": [
-    "Balcarce",
     "Fútbol",
     "Política",
     "Argentina",
@@ -13443,6 +13571,7 @@
     "Policiales",
     "Cultura y agenda",
     "Economía",
+    "Balcarce",
     "Salud",
     "Deportes",
     "Agro",
@@ -13452,16 +13581,11 @@
     {
       "nombre": "El autódromo",
       "ranura": "autodromo",
-      "cuantas": 3
+      "cuantas": 2
     },
     {
       "nombre": "Ferroviarios",
       "ranura": "ferroviarios",
-      "cuantas": 2
-    },
-    {
-      "nombre": "Bomberos Voluntarios",
-      "ranura": "bomberos",
       "cuantas": 2
     },
     {
@@ -13472,10 +13596,10 @@
   ],
   "clima": {
     "ahora": {
-      "temp": 15,
+      "temp": 14,
       "sensacion": 13,
-      "humedad": 75,
-      "viento": 12,
+      "humedad": 78,
+      "viento": 11,
       "rumbo": "N",
       "cielo": "Despejado",
       "esDeDia": false
@@ -13813,13 +13937,6 @@
     "diaDeLaSemana": "sábado",
     "tocaHoy": false
   },
-  "pendientes": [
-    {
-      "id": "1twtpm9",
-      "titulo": "Un proyecto de autoría balcarceña busca incentivar la…",
-      "seccion": "Agro",
-      "motivo": "verificación baja: espera a una persona (visto al reescribir)"
-    }
-  ],
-  "esperandoCuerpo": 5
+  "pendientes": [],
+  "esperandoCuerpo": 4
 }

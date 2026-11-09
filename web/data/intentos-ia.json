@@ -2453,17 +2453,15 @@
   "numeradas": 3
  },
  "1ct1o11": {
-  "intentos": 2,
-  "ultimo": "2026-11-09T00:31:17.973Z",
-  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 251 palabras",
+  "intentos": 3,
+  "ultimo": "2026-11-09T01:01:56.634Z",
+  "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 9,
   "motivos": [
    "cuerpo: 1 problema (promesa): el título dice 12 y el cuerpo no lo expl",
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
-  ],
-  "falla": [
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
+   "título o bajada: 1 problema (forma): el copete dice \"en directo\" y el "
   ]
  },
  "1cud4al": {
@@ -3084,6 +3082,22 @@
   "textos": 9,
   "numeradas": 12
  },
+ "1g01yxa": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T01:01:56.634Z",
+  "motivo": "título o bajada: 2 problemas (forma): el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+  "textos": 5,
+  "numeradas": 7,
+  "motivos": [
+   "título o bajada: 2 problemas (forma): el titulo trae un escape sin dec"
+  ],
+  "falla": [
+   "el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+   "el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+   "el guion trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
+ },
  "1g0rr37": {
   "intentos": 1,
   "ultimo": "2026-11-06T07:01:21.039Z",
@@ -3406,13 +3420,6 @@
   "textos": 2,
   "numeradas": 3
  },
- "1i09ufo": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T01:01:23.776Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
- },
  "1i24cq9": {
   "intentos": 1,
   "ultimo": "2026-11-02T20:31:54.719Z",
@@ -3540,13 +3547,6 @@
   "motivos": [
    "título o bajada: 1 problema (largo): el titulo tiene 100 caracteres, e"
   ]
- },
- "1j0aet3": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T01:01:23.776Z",
-  "motivo": "con cuerpo",
-  "textos": 5,
-  "numeradas": 5
  },
  "1j3ytpy": {
   "intentos": 1,
@@ -3718,6 +3718,13 @@
  "1jqapk8": {
   "intentos": 1,
   "ultimo": "2026-11-08T15:02:25.331Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 4
+ },
+ "1jqbxm2": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T01:01:56.634Z",
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 4
@@ -4260,6 +4267,13 @@
   "textos": 5,
   "numeradas": 5
  },
+ "1m8qkrx": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T01:01:56.634Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 15
+ },
  "1m9dno6": {
   "intentos": 1,
   "ultimo": "2026-11-03T02:01:56.283Z",
@@ -4629,6 +4643,13 @@
   "ultimo": "2026-11-08T22:01:54.023Z",
   "motivo": "con cuerpo",
   "textos": 2,
+  "numeradas": 2
+ },
+ "1owkl5x": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T01:01:56.634Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
   "numeradas": 2
  },
  "1oxq6qr": {
@@ -5867,6 +5888,13 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 7
+ },
+ "1wn8v7k": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T01:01:56.634Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 25
  },
  "1wo5kz0": {
   "intentos": 1,
@@ -7685,6 +7713,22 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 6
+ },
+ "a55ug3": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T01:01:56.634Z",
+  "motivo": "cuerpo: 3 problemas (nombre, relleno): el cuerpo nombra a \"manchester\" y la fuente no; sin esas oraciones quedan 168 palabras",
+  "textos": 5,
+  "numeradas": 15,
+  "motivos": [
+   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít",
+   "cuerpo: 3 problemas (nombre, relleno): el cuerpo nombra a \"manchester\""
+  ],
+  "falla": [
+   "el cuerpo nombra a \"manchester\" y la fuente no",
+   "el cuerpo nombra a \"city\" y la fuente no",
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+  ]
  },
  "a8ajus": {
   "intentos": 1,
@@ -9981,13 +10025,6 @@
    "cuerpo: 6 problemas (antecedente, nombre, copia, promesa): el cuerpo u"
   ]
  },
- "laiqbz": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T01:01:23.776Z",
-  "motivo": "con cuerpo",
-  "textos": 5,
-  "numeradas": 5
- },
  "lcskhc": {
   "intentos": 3,
   "ultimo": "2026-11-07T17:31:46.528Z",
@@ -10462,13 +10499,6 @@
    "título o bajada: 2 problemas (numero): el titulo dice 50 y la fuente n",
    "título o bajada: 1 problema (nombre): el copete nombra a \"municipalida"
   ]
- },
- "oav56f": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T01:01:23.776Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 11
  },
  "odsw24": {
   "intentos": 1,
@@ -11039,6 +11069,13 @@
    "cuerpo: 1 problema (copia): copia 20 palabras seguidas del original: d",
    "título o bajada: 1 problema (forma): el copete trae un escape sin deco"
   ]
+ },
+ "rlyl7t": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T01:01:56.634Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
  },
  "rmesn7": {
   "intentos": 1,
@@ -11631,13 +11668,6 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 4
- },
- "urmjr8": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T01:01:23.776Z",
-  "motivo": "con cuerpo",
-  "textos": 5,
-  "numeradas": 11
  },
  "usptb4": {
   "intentos": 1,
