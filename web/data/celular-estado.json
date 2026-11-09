@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-09T13:33:15.068Z",
- "portada": 88,
- "archivo": 500,
+ "generado": "2026-11-09T14:03:48.868Z",
+ "portada": 77,
+ "archivo": 499,
  "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-11-09T13:33:15.419Z",
+  "generado": "2026-11-09T14:03:49.248Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -105,13 +105,8 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 54,
+    "segundos": 52,
     "notas": [
-     {
-      "id": "1w8v4jx",
-      "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
-      "seccion": "Educación"
-     },
      {
       "id": "1su1zi1",
       "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
@@ -120,32 +115,6 @@
      {
       "id": "1su15zm",
       "titulo": "Garantizan la continuidad del Registro del Automotor",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "4ddcm1",
-      "titulo": "Exigen coordinar de manera previa las visitas a la Reserva Fangio y al Autódromo",
-      "seccion": "Cultura y agenda"
-     }
-    ]
-   },
-   {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 47,
-    "notas": [
-     {
-      "id": "1li6hf9",
-      "titulo": "Los Patos, Boca y San Manuel ganan por el torneo Clausura",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "ect9ll",
-      "titulo": "Anticipan temperaturas agradables y lluvias hacia el fin de semana",
       "seccion": "Balcarce"
      },
      {
@@ -161,22 +130,22 @@
     ]
    },
    {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 49,
     "notas": [
      {
-      "id": "15fqj6p",
-      "titulo": "FC Agrarias vence a San Lorenzo y escala al segundo puesto de la Zona C",
+      "id": "1li6hf9",
+      "titulo": "Los Patos, Boca y San Manuel ganan por el torneo Clausura",
       "seccion": "Fútbol"
      },
      {
-      "id": "5wafjv",
-      "titulo": "Impulsan colecta de golosinas para la visita de Papá Noel a Protección a la Infancia",
+      "id": "ect9ll",
+      "titulo": "Anticipan temperaturas agradables y lluvias hacia el fin de semana",
       "seccion": "Balcarce"
      },
      {
@@ -185,9 +154,40 @@
       "seccion": "Economía"
      },
      {
+      "id": "f9z7ys",
+      "titulo": "El papa León XIV encabeza la misa central en el Monumento a los Españoles",
+      "seccion": "Argentina"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 55,
+    "notas": [
+     {
+      "id": "15fqj6p",
+      "titulo": "FC Agrarias vence a San Lorenzo y escala al segundo puesto de la Zona C",
+      "seccion": "Fútbol"
+     },
+     {
       "id": "12ejmmi",
       "titulo": "Cinco monjas vuelcan en la Ruta 188 cuando viajaban hacia Luján",
       "seccion": "Policiales"
+     },
+     {
+      "id": "1vn9y3q",
+      "titulo": "El papa Léon XIV llega hoy a la Argentina en su primera visita oficial",
+      "seccion": "Argentina"
+     },
+     {
+      "id": "1mezi1z",
+      "titulo": "Jorge Macri entrega las llaves de la Ciudad al papa León XIV",
+      "seccion": "Política"
      }
     ]
    }
@@ -195,12 +195,6 @@
   "facebook": {
    "hoy": [],
    "cola": [
-    {
-     "id": "1w8v4jx",
-     "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
-     "seccion": "Educación",
-     "marcada": false
-    },
     {
      "id": "1su1zi1",
      "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
@@ -229,12 +223,6 @@
      "id": "ect9ll",
      "titulo": "Anticipan temperaturas agradables y lluvias hacia el fin de semana",
      "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
-     "id": "cc2yp4",
-     "titulo": "Kiki Ramos deja la Selección Argentina y jugará para Haití",
-     "seccion": "Fútbol",
      "marcada": false
     }
    ],

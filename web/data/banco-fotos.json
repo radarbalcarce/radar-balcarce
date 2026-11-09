@@ -55537,9 +55537,7 @@
   "fuentes": 2
  },
  "14267ce": {
-  "archivo": "fotos-notas/itupk2.jpg",
   "medio": "Puntonueve (FM 100.9)",
-  "credito": "Foto: Puntonueve (FM 100.9)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Defensa Civil emite recomendaciones ante la llegada de tormentas intensas",
@@ -55559,7 +55557,8 @@
    "descripcion": "Cielo nublado con nubes de tormenta sobre unos árboles"
   },
   "huella": "61f8585a906646d6",
-  "ausenteDesde": "2026-11-02T13:33:41.404Z"
+  "intentado": true,
+  "borrada": true
  },
  "120msi1": {
   "medio": "Radio Mitre",
@@ -59083,9 +59082,7 @@
   "borrada": true
  },
  "1tshzdo": {
-  "archivo": "fotos-notas/1tshzdo.jpg",
   "medio": "Universidad Nacional de La Plata",
-  "credito": "Foto: Universidad Nacional de La Plata",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Universidad Nacional de La Plata reconoce a investigadores premiados",
@@ -59117,7 +59114,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "1830385dd19fbd19",
-  "ausenteDesde": "2026-11-02T13:33:41.404Z"
+  "intentado": true,
+  "borrada": true
  },
  "1cea0pz": {
   "medio": "TN (Todo Noticias)",
@@ -66077,9 +66075,7 @@
   "ausenteDesde": "2026-11-03T23:06:10.601Z"
  },
  "dj6e4w": {
-  "archivo": "fotos-notas/dj6e4w.jpg",
   "medio": "Los Andes (Mendoza)",
-  "credito": "Foto: Los Andes (Mendoza)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Lanús y Gimnasia de Mendoza empatan 1 a 1 por el Torneo Clausura",
@@ -66111,7 +66107,8 @@
    "dudosa": "la primera IA vio gente muy joven"
   },
   "huella": "6939acc24e4e4f56",
-  "ausenteDesde": "2026-11-02T13:33:41.404Z"
+  "intentado": true,
+  "borrada": true
  },
  "r3fs89": {
   "medio": "TyC Sports",
@@ -67574,9 +67571,7 @@
   "ausenteDesde": "2026-11-03T23:33:59.984Z"
  },
  "1iz9m04": {
-  "archivo": "fotos-notas/1iz9m04.jpg",
   "medio": "Bolavip Argentina",
-  "credito": "Foto: Bolavip Argentina",
   "licencia": null,
   "origen": "medio",
   "titulo": "Definen los cruces de octavos de final del Torneo Clausura 2026",
@@ -67609,7 +67604,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "176313d3c3c3c5c4",
-  "ausenteDesde": "2026-11-02T13:33:41.404Z"
+  "intentado": true,
+  "borrada": true
  },
  "1kel7ih": {
   "archivo": "fotos-notas/1kel7ih.jpg",
@@ -93428,10 +93424,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Mateo López cierra el Parlamento Juvenil Bonaerense en La Plata",
-  "razon": "Todas las fotos muestran menores de edad reconocibles, por lo que no pueden ser publicadas según la política del medio.",
-  "cuando": "2026-11-09T12:01:58.710Z",
-  "intentos": 2,
-  "fuentes": 2
+  "razon": "Ambas fotos muestran claramente a menores de edad (alumnos del Parlamento Juvenil) con el rostro visible, lo que impide su publicación.",
+  "cuando": "2026-11-09T14:02:10.288Z",
+  "intentos": 3,
+  "fuentes": 3,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "1j09vcf": {
   "archivo": "fotos-notas/1j09vcf.jpg",
@@ -98362,7 +98359,8 @@
    "corresponde": "si",
    "descripcion": "Tormenta eléctrica nocturna sobre una ciudad y ruta mojada"
   },
-  "huella": "2f03070f2f2f2407"
+  "huella": "2f03070f2f2f2407",
+  "ausenteDesde": "2026-11-09T14:03:48.637Z"
  },
  "kv2wk7": {
   "intentado": true,
@@ -98698,7 +98696,8 @@
    "corresponde": "si",
    "descripcion": "El Papa Francisco interactuando con Marta Griselda Torres en silla de ruedas."
   },
-  "huella": "078f938686a66248"
+  "huella": "078f938686a66248",
+  "ausenteDesde": "2026-11-09T14:03:48.637Z"
  },
  "1ph9b9n": {
   "archivo": "fotos-notas/1ph9b9n.jpg",
@@ -98746,7 +98745,8 @@
    "corresponde": "si",
    "descripcion": "Persona cerrando un corral rural con árboles doblados por el viento fuerte"
   },
-  "huella": "a3c1e9ec6c2dccc3"
+  "huella": "a3c1e9ec6c2dccc3",
+  "ausenteDesde": "2026-11-09T14:03:48.637Z"
  },
  "4ddcm1": {
   "archivo": "fotos-notas/4ddcm1.jpg",
@@ -98794,6 +98794,137 @@
    "corresponde": "si",
    "descripcion": "Personas junto al cartel y el salame gigante en Tandil."
   },
-  "huella": "3c1c1c5de5d70f5f"
+  "huella": "3c1c1c5de5d70f5f",
+  "ausenteDesde": "2026-11-09T14:03:48.637Z"
+ },
+ "wdg63z": {
+  "archivo": "fotos-notas/wdg63z.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV visita el Cottolengo Don Orione en Claypole",
+  "enlace": "https://www.eldestapeweb.com/politica/5-frases-importantes-papa-leon-xiv-cottolengo-don-orione-202611910108",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/112026/1794232208861.jpg?&cw=1600&ch=900",
+  "razon": "Muestra claramente al Papa en el Cottolengo Don Orione interactuando con una persona mayor, con excelente encuadre y sin marcas ni menores.",
+  "cuando": "2026-11-09T14:02:10.288Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El papa León XIV tomando las manos de una persona en silla de ruedas en el Cottolengo"
+  },
+  "huella": "8a8a864ec662e6f2"
+ },
+ "1xucrph": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Selección argentina inicia los entrenamientos en Ezeiza para los amistosos",
+  "razon": "La única imagen disponible es un montaje gráfico (collage) y no una fotografía real del entrenamiento, por lo que no cumple con los requisitos para ser publicada.",
+  "cuando": "2026-11-09T14:02:10.288Z",
+  "intentos": 1,
+  "fuentes": 8,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "m7jzs2": {
+  "archivo": "fotos-notas/m7jzs2.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "River enfrenta a Lanús en los octavos de final del Torneo Clausura",
+  "enlace": "https://www.ole.com.ar/futbol-primera/centralcordoba-lanus-torneoclausura-defensa-river-barracas_0_K9ysCjP4pC.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/11/09/bbrVrGUow_2000x1500__1.jpg",
+  "razon": "Muestra una jugada entre jugadores de Lanús y River de manera clara, sin marcas agregadas ni menores.",
+  "cuando": "2026-11-09T14:02:10.288Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Lanús y River disputando la pelota en un partido"
+  },
+  "huella": "cbae27c6c58a9343"
+ },
+ "1guaivc": {
+  "archivo": "fotos-notas/1guaivc.jpg",
+  "medio": "La Brújula 24",
+  "credito": "Foto: La Brújula 24",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV pronuncia su primer discurso en el Palacio Libertad",
+  "enlace": "https://www.labrujula24.com/notas/2026/11/08/leon-xiv-recordo-a-francisco-en-su-primer-discurso-vengo-a-la-patria-donde-el-comenzo-la-historia-n529734/",
+  "imagenOriginal": "https://www.labrujula24.com/wp-content/uploads/2026/11/papaleon22-1000x600.jpg",
+  "razon": "Muestra al Papa hablando en el atril con buena calidad de imagen, sin marcas ni menores.",
+  "cuando": "2026-11-09T14:02:10.288Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa leyendo un discurso en el atril"
+  },
+  "huella": "2c2c263677e7ee60"
+ },
+ "r6ev84": {
+  "archivo": "fotos-notas/r6ev84.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV encabeza su primera misa en el Monumento a los Españoles",
+  "enlace": "https://www.eldestapeweb.com/sociedad/donde-ver-tv-vivo-misa-papa-leon-xiv-visita-argentina-esta-forma-20261187025",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/112026/1793731089983/papa-leon-xiv-jpeg..jpeg?&cw=1600&ch=900",
+  "razon": "Es la mejor foto que corresponde a la misa, tiene excelente encuadre y nitidez, y no tiene marcas, menores ni problemas.",
+  "cuando": "2026-11-09T14:02:10.288Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El papa León XIV oficiando misa al aire libre."
+  },
+  "huella": "c7c8c8ca8fafa48c"
+ },
+ "1r2n4of": {
+  "archivo": "fotos-notas/1r2n4of.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV llega a la Argentina y comienza su visita oficial",
+  "enlace": "https://tn.com.ar/deportes/futbol/2026/11/08/el-mensaje-de-la-afa-por-la-llegada-del-papa-leon-xiv-a-la-argentina-le-deseamos-una-grata-estadia/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/el-saludo-de-la-afa-al-papa-en-su-llegada-a-la-argentina-foto-reuters-45276NRTIBHUXDTXYJUAJZJIN4.jpg?auth=4d33c2fe136b958c05dbff840ceff83a4ab38f7d20967a8b5ea6443053d2c27f&width=1023",
+  "razon": "Es la única foto nítida que corresponde perfectamente al hecho, sin marcas añadidas y limpia.",
+  "cuando": "2026-11-09T14:02:10.288Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El papa León XIV bajando por la escalinata de un avión"
+  },
+  "huella": "0a8a159428292c28"
  }
 }
