@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-09T09:05:24.961Z",
+ "generado": "2026-11-09T10:03:01.382Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -85,39 +85,9 @@
    "intentos": 1,
    "motivo": "con cuerpo",
    "maximo": 5
-  },
-  {
-   "id": "r1cb6c",
-   "titulo": "Girolami y Pernía repartieron victorias: El título se define en Uruguay",
-   "copete": "Néstor Girolami y Leonel Pernía se repartieron los triunfos en el Gran Premio de Rosario, correspondiente a la novena fecha del TCR South America, y estiraron la definición del campeonato hasta la última cita de la temporada que se llevará a cabo en el circuito de El Pinar, en…",
-   "seccion": "Automovilismo",
-   "fecha": "2026-11-08T21:52:20.000Z",
-   "fuentes": [
-    {
-     "medio": "Córdoba Competición",
-     "enlace": "https://cordobacompeticion.com/internacionales/tcr/girolami-y-pernia-repartieron-victorias-el-titulo-se-define-en-uruguay/",
-     "fecha": "2026-11-08T21:52:20.000Z"
-    },
-    {
-     "medio": "La Capital (Rosario)",
-     "enlace": "https://www.lacapital.com.ar/ovacion/pernia-y-girolami-se-sacaron-chispas-rosario-una-nueva-fecha-del-tcr-south-america-n10291156.html",
-     "fecha": "2026-11-09T01:06:00.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
-   "maximo": 3
   }
  ],
  "descartadas": [
-  {
-   "id": "1tou6bk",
-   "titulo": "El cantante de Ke Personajes rompió el silencio tras su detención en Entre Ríos: \"Me equivoqué, soy humano\"",
-   "seccion": "Cultura y agenda",
-   "fecha": "2026-11-09T00:12:00.000Z",
-   "intentos": 3,
-   "motivo": "agotó los 3 intentos; semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (título, bajada o texto para redes)"
-  },
   {
    "id": "1ddbyyw",
    "titulo": "La agenda del papa León XIV en CABA: el recorrido del papamóvil hora por hora",
@@ -125,6 +95,14 @@
    "fecha": "2026-11-08T10:52:26.305Z",
    "intentos": 4,
    "motivo": "agotó los 4 intentos; título o bajada: 1 problema (numero): el copete dice 4 y la fuente no lo dice"
+  },
+  {
+   "id": "1tou6bk",
+   "titulo": "El cantante de Ke Personajes rompió el silencio tras su detención en Entre Ríos: \"Me equivoqué, soy humano\"",
+   "seccion": "Cultura y agenda",
+   "fecha": "2026-11-09T00:12:00.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (título, bajada o texto para redes)"
   }
  ]
 }

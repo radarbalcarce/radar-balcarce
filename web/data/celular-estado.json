@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-09T09:05:24.961Z",
- "portada": 86,
+ "generado": "2026-11-09T10:03:01.382Z",
+ "portada": 88,
  "archivo": 500,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-11-09T09:05:25.342Z",
+  "generado": "2026-11-09T10:03:01.672Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -105,7 +105,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 55,
     "notas": [
      {
       "id": "1kowtv2",
@@ -123,9 +123,9 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "1efbl8c",
-      "titulo": "Mateo López cierra el Parlamento Juvenil Bonaerense en La Plata",
-      "seccion": "Educación"
+      "id": "zswtcs",
+      "titulo": "Walter Degracia abre un nuevo gimnasio de boxeo en la ciudad",
+      "seccion": "Deportes"
      }
     ]
    },
@@ -136,7 +136,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 51,
     "notas": [
      {
       "id": "nhniw",
@@ -149,14 +149,14 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "zswtcs",
-      "titulo": "Walter Degracia abre un nuevo gimnasio de boxeo en la ciudad",
-      "seccion": "Deportes"
-     },
-     {
       "id": "1y7jzkw",
       "titulo": "Detienen a una persona por amenazas de muerte contra el papa León XIV",
       "seccion": "Argentina"
+     },
+     {
+      "id": "1n263sp",
+      "titulo": "Las ventas minoristas bajan 1,6% interanual en octubre",
+      "seccion": "Economía"
      }
     ]
    },
@@ -167,7 +167,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 54,
     "notas": [
      {
       "id": "4crcso",
@@ -180,14 +180,14 @@
       "seccion": "Argentina"
      },
      {
-      "id": "1n263sp",
-      "titulo": "Las ventas minoristas bajan 1,6% interanual en octubre",
-      "seccion": "Economía"
-     },
-     {
       "id": "12ejmmi",
       "titulo": "Cinco monjas vuelcan en la Ruta 188 cuando viajaban hacia Luján",
       "seccion": "Policiales"
+     },
+     {
+      "id": "v1tqes",
+      "titulo": "Atlético de Madrid pierde 2 a 1 frente a Barcelona con un gol de Giuliano Simeone",
+      "seccion": "Fútbol"
      }
     ]
    }
@@ -199,6 +199,12 @@
      "id": "1kowtv2",
      "titulo": "Ferroviarios gana el clásico y continúan los triunfos en el torneo",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "xiohnl",
+     "titulo": "El papa León XIV visita el Cottolengo Don Orione en Claypole",
+     "seccion": "Argentina",
      "marcada": false
     }
    ],
