@@ -1,24 +1,7 @@
 {
- "generado": "2026-11-09T22:35:43.217Z",
+ "generado": "2026-11-09T23:03:59.985Z",
  "intentosMaximos": 3,
  "notas": [
-  {
-   "id": "1vz85bz",
-   "titulo": "Los Pinos celebrará su 126º aniversario",
-   "copete": "En el contexto de una conferencia de prensa desarrollada esta mañana en la “Sala de los Intendentes” del Palacio Municipal, se presentó el programa de actividades previsto para conmemorar el 126º aniversario de la localidad de Los Pinos, que tendrá lugar el sábado 14 y domingo…",
-   "seccion": "Balcarce",
-   "fecha": "2026-11-09T15:01:06.000Z",
-   "fuentes": [
-    {
-     "medio": "Ahora Balcarce",
-     "enlace": "http://ahorabalcarce.com.ar/los-pinos-celebrara-su-126o-aniversario/",
-     "fecha": "2026-11-09T15:01:06.000Z"
-    }
-   ],
-   "intentos": 2,
-   "motivo": "título o bajada: 2 problemas (antecedente): el titulo usa 2, que sale de una nota anterior, como si fuera de hoy",
-   "maximo": 3
-  },
   {
    "id": "sfjd3l",
    "titulo": "Qué necesita Mercedes para ser campeón de constructores de la Fórmula 1",
@@ -85,6 +68,14 @@
    "fecha": "2026-11-09T15:20:10.000Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; sin material"
+  },
+  {
+   "id": "1vz85bz",
+   "titulo": "Los Pinos celebrará su 126º aniversario",
+   "seccion": "Balcarce",
+   "fecha": "2026-11-09T15:01:06.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; título o bajada: 2 problemas (antecedente): el titulo usa 2, que sale de una nota anterior, como si fuera de hoy"
   }
  ]
 }

@@ -89486,7 +89486,8 @@
    "corresponde": "si",
    "descripcion": "Placa conmemorativa instalada en memoria del escritor Jorge Aulicino."
   },
-  "huella": "e3173337ab97bcce"
+  "huella": "e3173337ab97bcce",
+  "ausenteDesde": "2026-11-09T23:03:59.788Z"
  },
  "ywrbgw": {
   "archivo": "fotos-notas/ywrbgw.jpg",
@@ -89678,7 +89679,8 @@
    "corresponde": "si",
    "descripcion": "Fabio Di Giannantonio en su moto durante una sesión de MotoGP."
   },
-  "huella": "015872e0e4367627"
+  "huella": "015872e0e4367627",
+  "ausenteDesde": "2026-11-09T23:03:59.788Z"
  },
  "yty6g4": {
   "intentado": true,
@@ -90296,7 +90298,8 @@
    "corresponde": "si",
    "descripcion": "Juana Viale y Mirtha Legrand posando juntas en el estudio de televisión."
   },
-  "huella": "e67434252527e6e7"
+  "huella": "e67434252527e6e7",
+  "ausenteDesde": "2026-11-09T23:03:59.788Z"
  },
  "bdyse8": {
   "archivo": "fotos-notas/bdyse8.jpg",
@@ -90970,7 +90973,8 @@
    "corresponde": "si",
    "descripcion": "Retrato de un hombre y una mujer sonriendo frente a un cartel naranja con la palabra 'PEÑA'."
   },
-  "huella": "f109a8c844cab232"
+  "huella": "f109a8c844cab232",
+  "ausenteDesde": "2026-11-09T23:03:59.788Z"
  },
  "15dlgkk": {
   "intentado": true,
@@ -91516,7 +91520,8 @@
    "corresponde": "si",
    "descripcion": "Vista aérea del predio del Cottolengo Don Orione"
   },
-  "huella": "a72326ae884ade9a"
+  "huella": "a72326ae884ade9a",
+  "ausenteDesde": "2026-11-09T23:03:59.788Z"
  },
  "1pttpi4": {
   "intentado": true,
@@ -100870,13 +100875,28 @@
   "huella": "785b490d3b8faf0f"
  },
  "z5yeln": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/z5yeln.jpg",
+  "medio": "La Tecla",
+  "credito": "Foto: La Tecla",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Empresarios y gremios se reúnen con el papa León XIV en la UCA",
-  "razon": "Ninguna de las fotos es apta: la foto A incluye un menor en brazos y la foto B no corresponde al evento mencionado en la nota.",
-  "cuando": "2026-11-09T21:32:34.356Z",
-  "intentos": 1,
-  "fuentes": 4
+  "enlace": "https://www.latecla.info/171032-papa-leon-xiv-privar-a-una-persona-del-trabajo-es-herir-gravemente-su-dignidad",
+  "imagenOriginal": "https://latecla-repos-dw6.aplinews.com/archivos/noticias/fotografias/217677_3.jpg",
+  "razon": "Es la foto con mejor encuadre, nitidez y calidad, sin marcas de agua, sin menores y que ilustra correctamente el evento.",
+  "cuando": "2026-11-09T23:02:50.431Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa León XIV sentado en una silla blanca."
+  },
+  "huella": "0f1b1b1b97959594"
  },
  "xxy521": {
   "intentado": true,
@@ -100994,7 +101014,8 @@
    "corresponde": "si",
    "descripcion": "El Papa saludando a la multitud."
   },
-  "huella": "e04c2928bc151ece"
+  "huella": "e04c2928bc151ece",
+  "ausenteDesde": "2026-11-09T23:03:59.788Z"
  },
  "z2uyn": {
   "intentado": true,
@@ -101125,7 +101146,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "3c1c1cddd77f579b"
+  "huella": "3c1c1cddd77f579b",
+  "ausenteDesde": "2026-11-09T23:03:59.788Z"
  },
  "1ytjq97": {
   "archivo": "fotos-notas/1ytjq97.jpg",
@@ -101150,5 +101172,215 @@
    "descripcion": "Jugadores de Lanús celebrando un gol abrazados."
   },
   "huella": "1256c767c34167c5"
+ },
+ "o8ut5p": {
+  "archivo": "fotos-notas/o8ut5p.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Vivero de San Agustín provee flores para el escenario del papa León XIV",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45301-las-flores-del-escenario-principal-para-el-papa-leon-xiv-fueron-adquiridas-en-san-agustin/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66326.gif",
+  "razon": "La imagen muestra claramente el altar decorado con las flores mencionadas en la nota, sin marcas de agua, sin menores y con buena calidad.",
+  "cuando": "2026-11-09T23:02:50.431Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Altar religioso decorado con arreglos florales durante una ceremonia."
+  },
+  "huella": "6b3377b59d1ba2c0"
+ },
+ "1y9uddw": {
+  "archivo": "fotos-notas/1y9uddw.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "River y Gimnasia juegan un amistoso el sábado en el Monumental",
+  "enlace": "https://www.ole.com.ar/river-plate/river-lanus-torneoclausura-gimnasia-leonardoponzio_0_WPw70xXITn.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/02/6ZiQS54HW_2000x1500__1.jpg",
+  "razon": "Es la única imagen que muestra claramente a los protagonistas del evento (River y Gimnasia) en una acción de juego, sin marcas de agua, sin menores y con buena calidad.",
+  "cuando": "2026-11-09T23:02:50.431Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Director técnico de River con ropa de entrenamiento.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de River Plate con indumentaria de entrenamiento en el campo de juego."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "1976160d30266672"
+ },
+ "1opdc9l": {
+  "archivo": "fotos-notas/1opdc9l.jpg",
+  "medio": "La Tecla",
+  "credito": "Foto: La Tecla",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "León XIV pide a los obispos argentinos trabajar por el bien común",
+  "enlace": "https://www.latecla.info/171036-encuentro-con-obispos-el-papa-homenajeo-a-francisco-y-pidio-por-la-unidad-de-la-iglesia",
+  "imagenOriginal": "https://latecla-repos-dw6.aplinews.com/archivos/noticias/fotografias/217681_3.jpg",
+  "razon": "La foto A es una fotografía de prensa limpia, sin marcas de agua ni elementos gráficos, que ilustra correctamente el evento. La foto B es una captura de pantalla de una transmisión televisiva, lo cual la invalida según las reglas.",
+  "cuando": "2026-11-09T23:02:50.431Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Grupo de obispos y autoridades religiosas en un acto oficial frente a una placa conmemorativa."
+  },
+  "huella": "35b79b9b978e1f1f"
+ },
+ "183ka9m": {
+  "archivo": "fotos-notas/183ka9m.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Muere Vanderlei, el futbolista que pateó el penal decisivo ante Gatti",
+  "enlace": "https://www.ole.com.ar/futbol-internacional/vanderlei-cruzeiro-hugogatti-copalibertadores1977-boca-montevideo-penal_0_S9NOgdbPah.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/11/09/vE6VMNoTI_2000x1500__1.jpg",
+  "razon": "Es la única imagen que no presenta marcas de agua sobreimpresas, siendo una fotografía clara del protagonista de la nota.",
+  "cuando": "2026-11-09T23:02:50.431Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": true,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de perfil de Vanderlei."
+  },
+  "huella": "f0f8e0e2f0b27878"
+ },
+ "103oy5i": {
+  "archivo": "fotos-notas/103oy5i.jpg",
+  "medio": "Diario Popular",
+  "credito": "Foto: Diario Popular",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV se reúne con trabajadores y empresarios en la UCA",
+  "enlace": "https://www.diariopopular.com.ar/sociedad/el-papa-leon-xiv-la-uca-privar-una-persona-su-trabajo-es-herir-gravemente-su-dignidad-n928448",
+  "imagenOriginal": "https://media.diariopopular.com.ar/p/8b8702a7d22424b50fcf10660945bf42/adjuntos/143/imagenes/008/264/0008264098/1200x675/smart/2y33vgi3wvgddh4cljvzvejbzq.avif",
+  "razon": "Es la foto más limpia, con buen encuadre, sin marcas de agua, sin menores y que ilustra claramente al protagonista del hecho.",
+  "cuando": "2026-11-09T23:02:50.431Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El papa León XIV sentado en una silla blanca."
+  },
+  "huella": "0713333b3b2b2b25"
+ },
+ "hgjdnj": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El papa León XIV advierte sobre los riesgos de la inteligencia artificial",
+  "razon": "Todas las imágenes proporcionadas son capturas de pantalla de una transmisión televisiva, lo cual las clasifica como gráficas según las instrucciones.",
+  "cuando": "2026-11-09T23:02:50.431Z",
+  "intentos": 1,
+  "fuentes": 4
+ },
+ "1knbtp3": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Fernando Bravo relata su encuentro personal con el papa León XIV",
+  "razon": "Ambas imágenes son montajes gráficos (collages) que combinan dos fotografías distintas, por lo que no son fotografías de una escena real.",
+  "cuando": "2026-11-09T23:02:50.431Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "vjaywr": {
+  "archivo": "fotos-notas/vjaywr.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Las plataformas de streaming renuevan su catálogo con nuevos estrenos",
+  "enlace": "https://www.eldestapeweb.com/cultura/estrenos-mubi-noviembre-2026-ver-peliculas-series-nuevas-producciones-llegan-2026119193140",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/112026/1794255849525/the-curse-serie-jpg..jpg?&cw=1600&ch=900",
+  "razon": "La foto B es una imagen promocional de una producción audiovisual, adecuada para ilustrar estrenos, mientras que la A es una foto de stock genérica.",
+  "cuando": "2026-11-09T23:02:50.431Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fotograma de una actriz en una escena de una producción de streaming."
+  },
+  "huella": "1c3420303032222a"
+ },
+ "165dd8j": {
+  "archivo": "fotos-notas/165dd8j.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Servicio Meteorológico Nacional anticipa buen tiempo para la visita papal",
+  "enlace": "https://tn.com.ar/sociedad/2026/11/09/como-estara-el-clima-en-el-amba-durante-la-primera-misa-de-leon-xiv-en-la-argentina/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/como-estara-el-clima-este-lunes-en-el-amba-foto-nicolas-suarezefe-QFPUNTVDXFASNDKWPLXVMSDDRI.jpg?auth=b6528cea436087f33c07f4f094dca3a63e7e449fa736b75d830a12783db1289d&width=1023",
+  "razon": "Es la única imagen que ilustra directamente el hecho (la visita papal) con buena calidad, sin marcas de agua, sin menores y sin elementos gráficos.",
+  "cuando": "2026-11-09T23:02:50.431Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Mano sosteniendo una bandera del Vaticano frente a un edificio.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "Una persona agita una bandera de la Ciudad del Vaticano frente a la Casa Rosada."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "10180c1d8f0d5793"
  }
 }
