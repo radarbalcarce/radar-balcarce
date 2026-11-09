@@ -84469,7 +84469,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "0888841ccc8cac8c"
+  "huella": "0888841ccc8cac8c",
+  "ausenteDesde": "2026-11-09T02:02:52.136Z"
  },
  "63p8qe": {
   "archivo": "fotos-notas/63p8qe.jpg",
@@ -86998,7 +86999,8 @@
    "corresponde": "si",
    "descripcion": "Vista del Obelisco en Buenos Aires con una bandera argentina."
   },
-  "huella": "feece8f1751537b7"
+  "huella": "feece8f1751537b7",
+  "ausenteDesde": "2026-11-09T02:02:52.136Z"
  },
  "1bpncpk": {
   "archivo": "fotos-notas/1bpncpk.jpg",
@@ -93411,14 +93413,40 @@
   "huella": "1f5f4fd753531d17"
  },
  "uw3mgq": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/uw3mgq.jpg",
+  "medio": "News Balcarce (FM 91.7)",
+  "credito": "Foto: News Balcarce (FM 91.7)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Ferroviarios y Los Patos ganan en el inicio de la cuarta fecha del Clausura",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Infórmese Primero (FM 104.9) no se usa todavía.",
-  "cuando": "2026-11-08T23:33:37.046Z",
-  "intentos": 2,
-  "fuentes": 4,
-  "intentosPorCupo": 2
+  "enlace": "https://newsbalcarce.com.ar/?p=31139",
+  "imagenOriginal": "https://newsbalcarce.com.ar/wp-content/uploads/AU-FV-BLANCO-LEDESMA.jpg",
+  "razon": "Es la única foto que muestra una acción de juego clara, con buen encuadre, sin marcas de agua, sin menores y sin elementos distractores.",
+  "cuando": "2026-11-09T02:01:57.710Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos jugadores disputando la posesión de la pelota en pleno juego.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de Ferroviarios y Los Patos disputando la pelota en una acción de juego."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "939307731be8516b"
  },
  "1efbl8c": {
   "intentado": true,
@@ -97373,7 +97401,8 @@
    "corresponde": "si",
    "descripcion": "Dos jugadores de fútbol frente a frente"
   },
-  "huella": "591617b72a18391b"
+  "huella": "591617b72a18391b",
+  "ausenteDesde": "2026-11-09T02:02:52.136Z"
  },
  "xl96vo": {
   "archivo": "fotos-notas/xl96vo.webp",
@@ -97446,5 +97475,77 @@
    "descripcion": "Ignacio Vilas celebrando su victoria junto a su auto de carreras y el cartel de primer puesto."
   },
   "huella": "6da4272d6dcc44d8"
+ },
+ "vsj0ic": {
+  "archivo": "fotos-notas/vsj0ic.jpg",
+  "medio": "Diario Popular",
+  "credito": "Foto: Diario Popular",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Kicillof pide al Gobierno Nacional escuchar el mensaje del Papa León XIV",
+  "enlace": "https://www.diariopopular.com.ar/politica/kicillof-pidio-escuchar-leon-xiv-y-reclamo-que-el-gobierno-tambien-lo-haga-n928416",
+  "imagenOriginal": "https://media.diariopopular.com.ar/p/bc153ffed38eed01b7f9edbfd8ed2a0c/adjuntos/143/imagenes/008/264/0008264034/1200x675/smart/kicillof.jpg",
+  "razon": "La foto B es la única que no presenta marcas de agua sobreimpresas, es una fotografía de una escena real y muestra claramente al protagonista de la nota en una conferencia de prensa.",
+  "cuando": "2026-11-09T02:01:57.710Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Axel Kicillof dando declaraciones a la prensa."
+  },
+  "huella": "630a8e0dcdccdc4d"
+ },
+ "1g01yxa": {
+  "archivo": "fotos-notas/1g01yxa.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "River enfrenta a Lanús en los octavos de final del Torneo Clausura",
+  "enlace": "https://www.tycsports.com/river-plate/los-dos-posibles-rivales-de-river-en-octavos-y-que-falta-para-que-se-defina-id770844.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/30/1001121/river-llega-necesitado-al-superclasico-en-la-bombonera_1440x810.webp?v=1",
+  "razon": "Es la única foto que muestra a los jugadores de River en una situación de partido real, sin marcas de agua, sin ser gráfica y sin menores reconocibles.",
+  "cuando": "2026-11-09T02:01:57.710Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de River Plate abrazados en un círculo."
+  },
+  "huella": "2a12173752450707"
+ },
+ "a55ug3": {
+  "archivo": "fotos-notas/a55ug3.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Barcelona remonta ante Atlético de Madrid y se consolida como líder",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/julian-alvarez-sigue-enredado-con-barcelona-fallo-dos-ocasiones-de-gol-que-lamento-atletico-de-nid08112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/julian-alvarez-intenta-llegar-a-la-pelota-antes-VVBHF23JEFB4ZG4S5OBZUX5WCM.jpg?auth=753c724a223a5fb1684225c2ce0a98299c64229040725fbed3d79b1856b25a58&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la mejor imagen disponible: tiene un encuadre claro de la acción de juego, buena nitidez, no presenta marcas de agua, no es una captura de pantalla y no contiene menores.",
+  "cuando": "2026-11-09T02:01:57.710Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Acción de juego entre un jugador del Barcelona y uno del Atlético de Madrid."
+  },
+  "huella": "9a9a0aabb3315531"
  }
 }
