@@ -88090,7 +88090,8 @@
    "corresponde": "si",
    "descripcion": "Plataforma petrolera en altamar junto a una embarcación"
   },
-  "huella": "4f0f4d0d0f17b163"
+  "huella": "4f0f4d0d0f17b163",
+  "ausenteDesde": "2026-11-09T21:33:06.420Z"
  },
  "e7bi4o": {
   "archivo": "fotos-notas/e7bi4o.jpg",
@@ -88149,7 +88150,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "64652aaa22626c5c"
+  "huella": "64652aaa22626c5c",
+  "ausenteDesde": "2026-11-09T21:33:06.420Z"
  },
  "1r3wzjp": {
   "archivo": "fotos-notas/1r3wzjp.jpg",
@@ -88655,7 +88657,8 @@
    "corresponde": "si",
    "descripcion": "Manuel Adorni sentado en un recinto legislativo."
   },
-  "huella": "e081030323190321"
+  "huella": "e081030323190321",
+  "ausenteDesde": "2026-11-09T21:33:06.420Z"
  },
  "1chkyii": {
   "archivo": "fotos-notas/1chkyii.jpg",
@@ -88889,7 +88892,8 @@
    "corresponde": "si",
    "descripcion": "Vista de la bolsa de valores con una bandera de EE.UU. y pantallas."
   },
-  "huella": "670787072793737b"
+  "huella": "670787072793737b",
+  "ausenteDesde": "2026-11-09T21:33:06.420Z"
  },
  "1d66y2u": {
   "archivo": "fotos-notas/1d66y2u.jpg",
@@ -99852,11 +99856,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Lionel Messi integra el once ideal de 2026 elegido por futbolistas",
-  "razon": "La única imagen disponible es una ilustración digital (no una fotografía) y además lleva la marca de agua del medio 'Doble Amarilla'.",
-  "cuando": "2026-11-09T18:02:03.286Z",
-  "intentos": 1,
-  "fuentes": 5,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "razon": "Ninguna foto cumple con todos los requisitos sin marcas de agua o por ser gráficas/ilustraciones.",
+  "cuando": "2026-11-09T21:32:34.356Z",
+  "intentos": 2,
+  "fuentes": 7
  },
  "1lz4tts": {
   "archivo": "fotos-notas/1lz4tts.jpg",
@@ -100764,5 +100767,95 @@
    "descripcion": "Giuliano Simeone festejando y señalando con la camiseta del Atlético de Madrid."
   },
   "huella": "a6ce541d0d0b8f4d"
+ },
+ "1hb9wo": {
+  "archivo": "fotos-notas/1hb9wo.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "León XIV encabeza una cumbre interreligiosa en el Palacio San Martín",
+  "enlace": "https://www.eldia.com/politica-y-economia/el-papa-leon-xiv-se-reune-en-cancilleria-con-mas-de-100-lideres-religiosos-y-de-pueblos-originarios-politica-y-economia_1794253173",
+  "imagenOriginal": "https://cdn1.eldia.com/112026/1794258968447.jpeg?&cw=1200&ch=630",
+  "razon": "Es la única imagen que muestra claramente al protagonista en el contexto del evento sin ser una captura de pantalla ni presentar marcas de agua.",
+  "cuando": "2026-11-09T21:32:34.356Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de León XIV saludando en un acto oficial."
+  },
+  "huella": "65654d9d891d8d37"
+ },
+ "jjlzqq": {
+  "archivo": "fotos-notas/jjlzqq.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Baja el riesgo país y suben las acciones argentinas en Nueva York",
+  "enlace": "https://tn.com.ar/economia/2026/11/09/durante-el-feriado-local-baja-el-riesgo-pais-y-las-acciones-argentinas-suben-hasta-3-en-wall-street/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/riesgo-pais-bonos-y-acciones-asi-opera-hoy-el-mercado-en-medio-del-feriado-por-la-visita-del-papa-leon-xiv-foto-reutersjeenah-moon-RQO5L7WYGVFXFPHBVSW36MOBF4.jpg?auth=e8b9cd19b21abb9ca81ac418515f1fd3e919d78c3b79a576c75252a7b931658d&width=1023",
+  "razon": "Es la imagen que mejor ilustra el entorno de trabajo bursátil de manera clara, sin marcas de agua, sin menores y con una composición profesional adecuada para la nota.",
+  "cuando": "2026-11-09T21:32:34.356Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Operador financiero hablando por teléfono en la bolsa de Nueva York."
+  },
+  "huella": "4129a12535111814"
+ },
+ "1oa1vmx": {
+  "archivo": "fotos-notas/1oa1vmx.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV advierte sobre el desempleo y la inteligencia artificial en la UCA",
+  "enlace": "https://www.lagaceta.com.ar/nota/1161680/sociedad/en-vivo-papa-leon-xiv-uca-trabajo-contribuye-construir-realidad-social.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/11/09/el-papa-calles-buenos-aires-1161680-172058.jpg",
+  "razon": "Es la única imagen que muestra el hecho en el lugar, sin marcas de agua, sin elementos gráficos sobreimpresos y sin menores reconocibles.",
+  "cuando": "2026-11-09T21:32:34.356Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa León XIV saludando desde el papamóvil en un evento público."
+  },
+  "huella": "785b490d3b8faf0f"
+ },
+ "z5yeln": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Empresarios y gremios se reúnen con el papa León XIV en la UCA",
+  "razon": "Ninguna de las fotos es apta: la foto A incluye un menor en brazos y la foto B no corresponde al evento mencionado en la nota.",
+  "cuando": "2026-11-09T21:32:34.356Z",
+  "intentos": 1,
+  "fuentes": 4
+ },
+ "xxy521": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Decretan feriado el viernes 13 de noviembre en dos distritos",
+  "razon": "Ambas imágenes son gráficas o de stock, por lo que ninguna cumple con los criterios editoriales para ser elegida.",
+  "cuando": "2026-11-09T21:32:34.356Z",
+  "intentos": 1,
+  "fuentes": 2
  }
 }
