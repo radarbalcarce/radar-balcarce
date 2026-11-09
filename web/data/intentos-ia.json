@@ -802,9 +802,9 @@
   "numeradas": 3
  },
  "1449zv9": {
-  "intentos": 1,
-  "ultimo": "2026-11-09T07:02:06.555Z",
-  "motivo": "semáforo: necesita ojo humano: \"niño\", en lo que escribió la IA",
+  "intentos": 2,
+  "ultimo": "2026-11-09T09:01:21.700Z",
+  "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3,
   "motivos": [
@@ -2801,16 +2801,6 @@
   "textos": 6,
   "numeradas": 8
  },
- "1ep2nce": {
-  "intentos": 3,
-  "ultimo": "2026-11-02T08:01:43.169Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 5,
-  "motivos": [
-   "título o bajada: 1 problema (copia): copia 13 palabras seguidas del or"
-  ]
- },
  "1es1dg0": {
   "intentos": 1,
   "ultimo": "2026-11-06T00:31:19.037Z",
@@ -3912,19 +3902,15 @@
   "numeradas": 2
  },
  "1kowtv2": {
-  "intentos": 1,
-  "ultimo": "2026-11-09T03:01:23.409Z",
-  "motivo": "cuerpo: 3 problemas (nombre, repite): el cuerpo nombra a \"facultad\" y la fuente no; sin esas oraciones quedan 0 palabras",
+  "intentos": 2,
+  "ultimo": "2026-11-09T09:01:21.700Z",
+  "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1,
   "motivos": [
    "título o bajada: 2 problemas (antecedente): el copete usa \"liga\", que ",
-   "cuerpo: 3 problemas (nombre, repite): el cuerpo nombra a \"facultad\" y "
-  ],
-  "falla": [
-   "el cuerpo nombra a \"facultad\" y la fuente no",
-   "el cuerpo nombra a \"ciencias\" y la fuente no",
-   "el cuerpo repite el copete en vez de desarrollarlo"
+   "cuerpo: 3 problemas (nombre, repite): el cuerpo nombra a \"facultad\" y ",
+   "título o bajada: 2 problemas (antecedente): el copete usa \"liga\", que "
   ]
  },
  "1kp9k81": {
@@ -3957,13 +3943,6 @@
   "motivos": [
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ]
- },
- "1ktheso": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T08:01:43.169Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 5
  },
  "1kwuqra": {
   "intentos": 1,
@@ -5137,6 +5116,13 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
+ },
+ "1s2adpy": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T09:01:21.700Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 7
  },
  "1s2oqkn": {
   "intentos": 1,
@@ -8124,6 +8110,16 @@
   "baja": true,
   "fuentes": 1
  },
+ "cbma9s": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T09:01:21.700Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 7,
+  "motivos": [
+   "cuerpo: 2 problemas (relleno, copia): el cuerpo tiene una frase de rel"
+  ]
+ },
  "ccpclt": {
   "intentos": 1,
   "ultimo": "2026-11-02T17:03:20.662Z",
@@ -8154,13 +8150,6 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 7
- },
- "cjdlcl": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T08:01:43.169Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 5
  },
  "cn2m07": {
   "intentos": 2,
@@ -8978,6 +8967,16 @@
   "textos": 1,
   "numeradas": 3
  },
+ "gi3gmp": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T09:01:21.700Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 5,
+  "motivos": [
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ]
+ },
  "gkco77": {
   "intentos": 1,
   "ultimo": "2026-11-03T21:01:50.130Z",
@@ -9054,6 +9053,13 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 5
+ },
+ "h0y6ju": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T09:01:21.700Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 8
  },
  "h3jn9a": {
   "intentos": 1,
@@ -10854,23 +10860,25 @@
   "textos": 4,
   "numeradas": 12
  },
+ "r1cb6c": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T09:01:21.700Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
+ },
  "r2xuqs": {
   "intentos": 1,
   "ultimo": "2026-11-06T21:01:37.021Z",
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
- },
- "r36y0": {
-  "intentos": 2,
-  "ultimo": "2026-11-02T09:01:43.621Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3,
-  "motivos": [
-   "cuerpo: 2 problemas (nombre, repite): el cuerpo nombra a \"alberto\" y l",
-   "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re"
-  ]
  },
  "r4aec2": {
   "intentos": 1,

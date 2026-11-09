@@ -66221,9 +66221,7 @@
   "ausenteDesde": "2026-11-03T21:05:03.267Z"
  },
  "1vfwv5k": {
-  "archivo": "fotos-notas/1vfwv5k.jpg",
   "medio": "Ámbito",
-  "credito": "Foto: Ámbito",
   "licencia": null,
   "origen": "medio",
   "titulo": "Sancionan a Franco Colapinto y Pierre Gasly tras el Gran Premio de México",
@@ -66243,7 +66241,8 @@
    "descripcion": "Monoplaza tomando una curva en el circuito"
   },
   "huella": "67d3d093d81c0e07",
-  "ausenteDesde": "2026-11-02T09:02:04.911Z"
+  "intentado": true,
+  "borrada": true
  },
  "ve8uzo": {
   "archivo": "fotos-notas/ve8uzo.jpg",
@@ -66622,9 +66621,7 @@
   "borrada": true
  },
  "1q4jau3": {
-  "archivo": "fotos-notas/1q4jau3.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "River sufre dos expulsiones en el Superclásico ante Boca en la Bombonera",
@@ -66644,7 +66641,8 @@
    "descripcion": "El árbitro muestra una tarjeta roja a un jugador de River."
   },
   "huella": "56232309cd6a485a",
-  "ausenteDesde": "2026-11-02T08:02:53.749Z"
+  "intentado": true,
+  "borrada": true
  },
  "1ep2nce": {
   "archivo": "fotos-notas/1ep2nce.jpg",
@@ -66709,9 +66707,7 @@
   "ausenteDesde": "2026-11-03T22:36:09.566Z"
  },
  "cjdlcl": {
-  "archivo": "fotos-notas/cjdlcl.jpg",
   "medio": "Olé",
-  "credito": "Foto: Olé",
   "licencia": null,
   "origen": "medio",
   "titulo": "Arsenal derrota 1 a 0 a Liverpool y lidera la Premier League",
@@ -66731,7 +66727,8 @@
    "descripcion": "Jugadores de Arsenal y Liverpool durante el partido."
   },
   "huella": "3046124f4b6bcd54",
-  "ausenteDesde": "2026-11-02T09:02:04.911Z"
+  "intentado": true,
+  "borrada": true
  },
  "r36y0": {
   "intentado": true,
@@ -88002,7 +87999,8 @@
    "corresponde": "si",
    "descripcion": "Frente del Ministerio de Economía con autos estacionados en la calle."
   },
-  "huella": "701c435058342418"
+  "huella": "701c435058342418",
+  "ausenteDesde": "2026-11-09T09:05:24.843Z"
  },
  "17w4y10": {
   "archivo": "fotos-notas/17w4y10.jpg",
@@ -89898,7 +89896,8 @@
    "corresponde": "si",
    "descripcion": "Los hermanos Passaglia junto a Oscar Ahumada sosteniendo una camiseta de fútbol en un estadio."
   },
-  "huella": "b5b451d95165e4ec"
+  "huella": "b5b451d95165e4ec",
+  "ausenteDesde": "2026-11-09T09:05:24.843Z"
  },
  "fjbvuk": {
   "archivo": "fotos-notas/fjbvuk.jpg",
@@ -94960,9 +94959,9 @@
   "origen": "ninguna",
   "titulo": "Las empresas amplían sus equipos de tecnología por la inteligencia artificial",
   "razon": "La mejor foto era la de La Nueva, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-11-08T13:01:38.173Z",
-  "intentos": 1,
-  "fuentes": 2
+  "cuando": "2026-11-09T09:02:13.601Z",
+  "intentos": 2,
+  "fuentes": 3
  },
  "gvvo6q": {
   "archivo": "fotos-notas/gvvo6q.webp",
@@ -96823,13 +96822,40 @@
   "huella": "656f1fdfce0a1e27"
  },
  "1cnhyqu": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1cnhyqu.jpg",
+  "medio": "A24",
+  "credito": "Foto: A24",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Establecen feriado nacional el lunes 9 de noviembre por la visita del papa León XIV",
-  "razon": "La mejor foto era la de TyC Sports, pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-11-09T05:02:25.952Z",
-  "intentos": 3,
-  "fuentes": 5
+  "enlace": "https://www.a24.com/actualidad/feriados-la-visita-del-papa-leon-xiv-que-servicios-funcionaran-y-cuales-estaran-cerrados-buenos-aires-n1614462",
+  "imagenOriginal": "https://media.a24.com/p/2be2e291201a682316ed73f2c201018f/adjuntos/296/imagenes/009/845/0009845035/1200x675/smart/papa-leon.jpg",
+  "razon": "Es la única foto que muestra directamente el hecho de la nota (la visita del papa León XIV), con buena calidad, sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-11-09T09:02:13.601Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El papa León XIV saluda a la multitud desde el papamóvil.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "El papa León XIV saluda desde el Papamóvil ante una multitud que lo fotografía."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "4f2b2b272fab3b5b"
  },
  "csdxz1": {
   "archivo": "fotos-notas/csdxz1.jpg",
@@ -97739,7 +97765,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "4f2b2b272fab3b5b"
+  "huella": "4f2b2b272fab3b5b",
+  "ausenteDesde": "2026-11-09T09:05:24.843Z"
  },
  "1o86wqu": {
   "intentado": true,
@@ -97841,7 +97868,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "55ad77960f0d1594"
+  "huella": "55ad77960f0d1594",
+  "ausenteDesde": "2026-11-09T09:05:24.843Z"
  },
  "8fa2z": {
   "intentado": true,
@@ -97874,7 +97902,8 @@
    "corresponde": "si",
    "descripcion": "El presidente y su comitiva junto al Papa observando un documento en el Vaticano."
   },
-  "huella": "ceee6e6b666e6636"
+  "huella": "ceee6e6b666e6636",
+  "ausenteDesde": "2026-11-09T09:05:24.843Z"
  },
  "1j628dn": {
   "archivo": "fotos-notas/1j628dn.jpg",
@@ -97899,5 +97928,158 @@
    "descripcion": "El Obelisco porteño bajo un cielo soleado."
   },
   "huella": "4dab3e5c1e954b69"
+ },
+ "1s2adpy": {
+  "archivo": "fotos-notas/1s2adpy.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El dólar oficial cotiza a $1.570 para la venta por el feriado nacional",
+  "enlace": "https://tn.com.ar/economia/2026/11/09/dolar-oficial-hoy-y-dolar-blue-a-cuanto-cotizan-este-lunes-9-de-noviembre/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/dolar-oficial-hoy-y-dolar-blue-todas-las-cotizaciones-foto-adobestock-WPLAYW6OG5H3HCWLD67LSZ3KK4.jpg?auth=98dce841a26138b0682eee16e62ede97d55ddb22608f2ff30c948b44c79b9bea&width=1023",
+  "razon": "Es una fotografía clara de billetes de dólar sin marcas añadidas, menores ni elementos gráficos o de stock, ideal para ilustrar la nota de economía.",
+  "cuando": "2026-11-09T09:02:13.601Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de billetes de cien dólares"
+  },
+  "huella": "8d8fcad84c7eeed7"
+ },
+ "1kowtv2": {
+  "archivo": "fotos-notas/1kowtv2.jpg",
+  "medio": "Acción 5 (Balcarce)",
+  "credito": "Foto: Acción 5 (Balcarce)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Ferroviarios gana el clásico y continúan los triunfos en el torneo",
+  "enlace": "https://accion5.com/con-gol-agonico-san-agustin-lo-complico-a-racing-goleo-san-manuel-y-se-arrimo-ferro/",
+  "imagenOriginal": "https://accion5.com/wp-content/uploads/2026/11/1-2.jpg",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos de calidad, muestra una jugada clara del partido y no presenta marcas de agua, menores ni problemas de archivo o diseño gráfico.",
+  "cuando": "2026-11-09T09:02:13.601Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de fútbol disputando la pelota cerca del arco",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de fútbol en una disputa física cerca del arco durante un partido."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "a5e5fd59e5e25715"
+ },
+ "h0y6ju": {
+  "archivo": "fotos-notas/h0y6ju.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "River jugará contra Lanús en los octavos de final del Torneo Clausura",
+  "enlace": "https://www.ole.com.ar/river-plate/river-clausura-octavos-final-playoffs-lanus-rival-claves-fecha-estadio_0_b1HgQsOJLO.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/11/05/8XtzMSWya_2000x1500__1.jpg",
+  "razon": "Muestra a jugadores de River celebrando en la cancha con buena nitidez y sin marcas agregadas.",
+  "cuando": "2026-11-09T09:02:13.601Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de River celebrando un gol en el campo de juego"
+  },
+  "huella": "3ee8f8e058e9094b"
+ },
+ "1449zv9": {
+  "archivo": "fotos-notas/1449zv9.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV llega a la Argentina y se reúne con Javier Milei",
+  "enlace": "https://www.eldia.com/informacion-general/el-papa-en-argentina-leon-xiv-entre-los-honores-y-el-fervor-informacion-general_1794205974",
+  "imagenOriginal": "https://cdn1.eldia.com/6af1496dadaeaf0014d0c7bd/1794203913221.jpg?&cw=1200&ch=630",
+  "razon": "La foto B muestra claramente al Papa León XIV bajando del avión, cumpliendo perfectamente con el hecho central de la nota y sin marcas ni menores.",
+  "cuando": "2026-11-09T09:02:13.601Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa León XIV bajando por la escalerilla de un avión de Aerolíneas Argentinas.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "El Papa y Javier Milei saludan desde la escalera de un avión de Aerolíneas Argentinas."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "6de669e9ef644c4c"
+ },
+ "cbma9s": {
+  "archivo": "fotos-notas/cbma9s.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV inicia su visita oficial a la Argentina tras arribar a Buenos Aires",
+  "enlace": "https://www.lanacion.com.ar/sociedad/las-mejores-fotos-del-primer-dia-del-papa-leon-xiv-en-su-visita-a-la-argentina-nid08112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/llegada-del-papa-leon-xiv-al-aeroparque-jorge-RGMBXOPTNZE4FFLYS35NMVUYDY.JPG?auth=45e400440939e1015e53cc09a2ac952a061579f67ae7dbbe4b1d77ea7a8fbfd3&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la foto más clara del arribo del Papa al avión sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-11-09T09:02:13.601Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa saludando desde la escalinata del avión"
+  },
+  "huella": "e8e7cacacde6c49e"
+ },
+ "gi3gmp": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "León XIV encabeza una misa multitudinaria en el Monumento de los Españoles",
+  "razon": "Ninguna de las fotos muestra una misa multitudinaria en el Monumento de los Españoles correspondiente al hecho de la nota; varias son fotos de estudio o en otros lugares, y otras son fotos genéricas o de archivo que no corresponden.",
+  "cuando": "2026-11-09T09:02:13.601Z",
+  "intentos": 1,
+  "fuentes": 11
  }
 }
