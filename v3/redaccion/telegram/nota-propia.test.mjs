@@ -2,6 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { aNota } from '../../sitio/db/consultas.mjs';
 import worker, { depDe, DIRECCION, contrasenaDelWebhook } from './worker.mjs';
 import {
   procesar, vencerPreguntaDeRedes, esOk, esNo, esArmar, redesDeTexto, slugDe, enlacesDe, itemDe, normalizar, TOPE_PEDIDOS_IA, FIRMA,
@@ -232,7 +233,7 @@ test('«ok» guarda la nota en D1 (publicada, origen redaccion, firma de Hernán
   assert.equal(fila.seccion, 'Balcarce');
   assert.equal(JSON.parse(fila.cuerpo).length, 2);
   assert.deepEqual(JSON.parse(fila.redes), { eleccion: 'solo-web', confirmada: false, preguntada: '2026-11-02T15:00:00.000Z' });
-  const foto = JSON.parse(fila.foto);
+  const foto = JSON.parse(fila.foto)[0];
   assert.equal(foto.pendiente, true);
   assert.equal(foto.telegram_file_id, 'FOTO1');
 
@@ -246,7 +247,7 @@ test('«ok» guarda la nota en D1 (publicada, origen redaccion, firma de Hernán
   assert.equal(JSON.parse(t.kv.datos.get('pedido')).fase, 'redes');
 });
 
-test('con el bucket FOTOS la foto se sube a R2 y no queda pendiente', { skip: sinSqlite }, async () => {
+test('con el bucket FOTOS la foto se sube a R2 con dirección pública y no queda pendiente', { skip: sinSqlite }, async () => {
   const t = armar({ respuestas: [respuestaDeNota()], conFotos: true });
   await t.dice('Algo pasó');
   await procesar(t.dep, t.msg({ photo: [{ file_id: 'FOTO1', file_size: 5 }] }));
@@ -254,9 +255,40 @@ test('con el bucket FOTOS la foto se sube a R2 y no queda pendiente', { skip: si
   await t.dice('ok');
   const fila = t.sqlite.prepare('SELECT * FROM notas').get();
   assert.equal(t.subidas.length, 1);
-  assert.equal(t.subidas[0].clave, `redaccion/${fila.id}.jpg`);
+  assert.equal(t.subidas[0].clave, `fotos-notas/redaccion-${fila.id}-1.jpg`);
   assert.equal(t.subidas[0].opciones.httpMetadata.contentType, 'image/jpeg');
-  assert.deepEqual([JSON.parse(fila.foto).r2, JSON.parse(fila.foto).pendiente], [`redaccion/${fila.id}.jpg`, false]);
+  const [f] = JSON.parse(fila.foto);
+  assert.deepEqual([f.r2, f.pendiente, f.url], [`fotos-notas/redaccion-${fila.id}-1.jpg`, false, `https://radarbalcarce.com/fotos-notas/redaccion-${fila.id}-1.jpg`]);
+});
+
+test('con 3 fotos se suben las 3 y la columna foto queda con 3 direcciones https (el sitio da portada y fotos)', { skip: sinSqlite }, async () => {
+  const t = armar({ respuestas: [respuestaDeNota()], conFotos: true });
+  await t.dice('Algo pasó');
+  for (const id of ['FOTOA', 'FOTOB', 'FOTOC']) await procesar(t.dep, t.msg({ photo: [{ file_id: id, file_size: 5 }] }));
+  await t.dice('armala');
+  await t.dice('ok');
+  const fila = t.sqlite.prepare('SELECT * FROM notas').get();
+  assert.deepEqual(t.subidas.map((x) => x.clave).sort(), [1, 2, 3].map((n) => `fotos-notas/redaccion-${fila.id}-${n}.jpg`));
+  const fotos = JSON.parse(fila.foto);
+  assert.equal(fotos.length, 3);
+  assert.ok(fotos.every((f) => f.url.startsWith('https://radarbalcarce.com/fotos-notas/redaccion-') && f.url.endsWith('.jpg')));
+  const nota = aNota(fila);
+  assert.equal(nota.fotos.length, 3);
+  assert.equal(nota.foto.url, fotos[0].url);
+});
+
+test('si una foto no se puede bajar, la nota se publica con las que sí', { skip: sinSqlite }, async () => {
+  const t = armar({ respuestas: [respuestaDeNota()], conFotos: true });
+  const bajar = t.dep.descargar;
+  t.dep.descargar = async (id) => { if (id === 'FOTOB') throw new Error('no baja'); return bajar(id); };
+  await t.dice('Algo pasó');
+  for (const id of ['FOTOA', 'FOTOB', 'FOTOC']) await procesar(t.dep, t.msg({ photo: [{ file_id: id, file_size: 5 }] }));
+  await t.dice('armala');
+  await t.dice('ok');
+  const fila = t.sqlite.prepare('SELECT * FROM notas').get();
+  assert.equal(fila.estado, 'publicada');
+  assert.equal(JSON.parse(fila.foto).length, 2);
+  assert.equal(t.subidas.length, 2);
 });
 
 test('sin foto la nota se guarda con foto nula (saldría la placa)', { skip: sinSqlite }, async () => {

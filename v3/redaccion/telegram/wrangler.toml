@@ -29,6 +29,9 @@ fallthrough = true
 [vars]
 GEMINI_MODELO = "gemini-3.1-flash-lite"
 
-# Opcional, cuando exista el bucket R2 de fotos: [[r2_buckets]] binding = "FOTOS". Sin él, la foto de una nota propia queda como referencia de Telegram (pendiente).
+# El depósito de fotos del sitio (el mismo de v3/sitio/wrangler.toml): las fotos de una nota propia se guardan como fotos-notas/redaccion-<id>-<n>.jpg.
+[[r2_buckets]]
+binding = "FOTOS"
+bucket_name = "radar-fotos"
 
 # Secretos TELEGRAM_TOKEN y GEMINI_API_KEY: lo carga el workflow desde GitHub Secrets, o una persona en el panel de Cloudflare. Nunca acá.

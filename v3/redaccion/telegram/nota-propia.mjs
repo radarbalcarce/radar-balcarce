@@ -391,15 +391,26 @@ async function descartar(dep) {
 
 // ------------------------------------------------------------------------------------------------------------ publicar
 
+const MAX_FOTOS = 10;
+
+// Guarda todas las fotos de la nota (hasta 10) en el depósito del sitio, con dirección pública: la primera es la de portada. Si una descarga falla, se guardan las demás.
 async function guardarFoto(dep, pedido, nota, id) {
-  const f = pedido.material.fotos?.[0];
-  if (!f) return null;
+  const lista = (pedido.material.fotos ?? []).slice(0, MAX_FOTOS);
+  if (!lista.length) return null;
   const base = { url: null, credito: 'Radar Balcarce', alt: nota.titulo, ancho: null, alto: null };
-  if (!dep.fotos) return { ...base, telegram_file_id: f.file_id, mime: f.mime, pendiente: true };
-  const { bytes, mime } = await dep.descargar(f.file_id);
-  const clave = `redaccion/${id}.jpg`;
-  await dep.fotos.put(clave, bytes, { httpMetadata: { contentType: mime || f.mime || 'image/jpeg' } });
-  return { ...base, r2: clave, pendiente: false };
+  if (!dep.fotos) return [{ ...base, telegram_file_id: lista[0].file_id, mime: lista[0].mime, pendiente: true }];
+  const guardadas = [];
+  for (const f of lista) {
+    try {
+      const { bytes, mime } = await dep.descargar(f.file_id);
+      const n = guardadas.length + 1;
+      const nombre = `redaccion-${id}-${n}.jpg`;
+      const clave = `fotos-notas/${nombre}`;
+      await dep.fotos.put(clave, bytes, { httpMetadata: { contentType: mime || f.mime || 'image/jpeg' } });
+      guardadas.push({ ...base, url: `${SITIO}/fotos-notas/${nombre}`, r2: clave, pendiente: false });
+    } catch { /* una foto que no baja no frena la nota */ }
+  }
+  return guardadas.length ? guardadas : null;
 }
 
 const SQL_NOTA = `INSERT INTO notas (id, historia_id, creada, titulo, bajada, cuerpo, seccion, en_dos_lineas, ficha, no_publicar, verificacion, foto, fuentes, fecha_hecho, firma, pedidos, estado, origen, slug, publicada_en, redes)
@@ -426,7 +437,7 @@ async function publicar(dep, pedido) {
     'Publicada.',
     enlace,
     '(Todavía no hay corte: el enlace se va a ver cuando el sitio nuevo esté en línea.)',
-    foto?.pendiente ? '(La foto quedó guardada en Telegram, pendiente de subir al sitio.)' : '',
+    foto?.[0]?.pendiente ? '(La foto quedó guardada en Telegram, pendiente de subir al sitio.)' : '',
   ].filter(Boolean).join('\n'));
   return dep.enviar('¿Qué hago en las redes con esta nota? Si no elegís en 1 hora, queda sólo en la web.', { botones: botonesDeRedes(id) });
 }

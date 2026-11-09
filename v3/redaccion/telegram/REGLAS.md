@@ -44,8 +44,10 @@ Es el camino de las notas firmadas por Hernán (la de Nancy, la de Halloween), d
      la vista previa. Una foto sola pasa a ser la de portada (sin gastar IA).
    La vista previa espera 24 horas. Si mandás material nuevo sin contestarla, se toma como corrección: para empezar de cero, `/cancelar`.
 4. **«ok» publica.** La nota se guarda en la base (`notas`: estado `publicada`, origen `redaccion`, firma «Hernán Accomo») y el bot te da el enlace
-   `radarbalcarce.com/nota/<título>-<código>`. **Todavía no hay corte:** el enlace se va a ver cuando el sitio nuevo esté en línea. La foto se sube al
-   bucket de fotos si existe; si no, queda anotada como pendiente (la referencia de Telegram) hasta que haya dónde guardarla.
+   `radarbalcarce.com/nota/<título>-<código>`. **Todavía no hay corte:** el enlace se va a ver cuando el sitio nuevo esté en línea. Todas las fotos (hasta 10) se suben
+   al depósito `radar-fotos` (binding `FOTOS`) como `fotos-notas/redaccion-<código>-<n>.jpg`, con dirección pública `radarbalcarce.com/fotos-notas/…`; la primera es la
+   de portada y la columna `foto` queda como lista (así sale el carrusel de redes con 3 fotos o más). Si una descarga falla, se guardan las demás; sin bucket,
+   la primera queda como referencia de Telegram, pendiente.
 5. **Redes.** Enseguida te pregunta con tres botones: **Todo** (posteo con foto en todas las redes, historia con la tarjeta y reel con voz), **Posteo e
    historia**, **Sólo la web**. Si no contestás en 1 hora, queda **Sólo la web** y te avisa. También podés escribir la opción. Las redes de la 3.0 todavía no
    existen: por ahora sólo se anota la elección en la nota (columna `redes`).
