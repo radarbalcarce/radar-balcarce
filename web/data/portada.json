@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-09T04:02:52.644Z",
+  "generado": "2026-11-09T05:03:15.942Z",
   "notas": [
     {
       "id": "ssw6p1",
@@ -18,7 +18,7 @@
       "fecha": "2026-11-09T01:25:05.000Z",
       "sinFecha": false,
       "visto": "2026-11-09T03:01:12.863Z",
-      "relevancia": 56,
+      "relevancia": 46,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -799,13 +799,14 @@
       "medios": [
         "Noticias Argentinas (NA)",
         "Punto Noticias",
+        "El Eco de Tandil",
         "Noticias Agropecuarias"
       ],
       "enlace": "https://noticiasargentinas.com/politica/en-su-primer-mensaje-en-argentina--el-papa-pidio-cuidar-la-democracia-y--convivir-en-las-diferencias-_a6af0f230083a87fddc18560b",
       "fecha": "2026-11-08T23:55:35.000Z",
       "sinFecha": false,
       "visto": "2026-11-09T01:31:39.844Z",
-      "relevancia": 40,
+      "relevancia": 49,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -823,9 +824,6 @@
         "El Regimiento de Artillería 1 interpretó el Himno Nacional durante la recepción oficial.",
         "El Papa realizó un homenaje a José de San Martín en la plaza homónima de Retiro junto al canciller Pablo Quirno.",
         "Mantuvo una reunión a solas con el Presidente en la Casa Rosada previa a su discurso en el Palacio Libertad."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
       ],
       "textoRedes": "El papa León XIV arribó a la Argentina y brindó su primer discurso en el Palacio Libertad ante Javier Milei, donde reclamó cuidar la democracia, limitar el poder y priorizar a las personas en la economía.",
       "etiquetas": [
@@ -856,6 +854,13 @@
           "fecha": "2026-11-09T01:24:26.000Z",
           "oficial": false,
           "aporte": "Aportó la cobertura completa de la llegada del Papa, el recorrido institucional y los textuales de su discurso en el Palacio Libertad."
+        },
+        {
+          "medio": "El Eco de Tandil",
+          "enlace": "https://www.eleco.com.ar/nacionales/ante-milei-el-papa-pidio-cuidar-la-democracia-limites-al-poder-y-convivir-en-las-diferencias",
+          "fecha": "2026-11-09T04:00:04.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -867,8 +872,8 @@
         }
       ],
       "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "nivel": "ALTA",
+        "porque": "Lo contaron cuatro medios independientes.",
         "sugeridoPorIA": null
       },
       "slug": "el-papa-leon-xiv-reclama-ante-javier-milei-cuidar-la-democracia",
@@ -888,16 +893,17 @@
         "A24",
         "Noticias Argentinas (NA)",
         "La Nueva",
+        "El Eco de Tandil",
         "Los Andes (Mendoza)"
       ],
       "enlace": "https://noticiasargentinas.com/politica/villarruel-advirtio-que-el-papa-sabe-que-en-la-argentina--no-somos-todos-hermanos--y-pidio-dialogo-politico_a6af0ff47083a87fddc18da64",
       "fecha": "2026-11-08T23:14:37.000Z",
       "sinFecha": false,
       "visto": "2026-11-09T00:02:24.266Z",
-      "relevancia": 49,
+      "relevancia": 52,
       "local": false,
       "muyContada": {
-        "medios": 4,
+        "medios": 5,
         "porque": "4 medios en sus primeras 3 horas, de noche",
         "desde": "2026-11-09T01:31:39.844Z"
       },
@@ -951,6 +957,13 @@
           "medio": "A24",
           "enlace": "https://www.a24.com/politica/no-somos-todos-hermanos-la-frase-victoria-villarruel-el-discurso-del-papa-leon-xiv-n1614611",
           "fecha": "2026-11-09T01:06:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Eco de Tandil",
+          "enlace": "https://www.eleco.com.ar/nacionales/villarruel-dijo-que-leon-xiv-sabe-que-aqui-no-somos-todos-hermanos",
+          "fecha": "2026-11-09T04:00:04.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -1048,6 +1061,90 @@
       "foto": {
         "archivo": "fotos-notas/1jqbxm2.jpg",
         "credito": "Foto: El Destape"
+      }
+    },
+    {
+      "id": "1cd2d4c",
+      "titulo": "La AMIA saluda la llegada del papa León XIV a la Argentina",
+      "copete": "La institución destacó la importancia del diálogo interreligioso tras el arribo del Sumo Pontífice. El líder de la Iglesia Católica inició su gira pastoral de cuatro días por el país.",
+      "cuerpo": "La Asociación Mutual Israelita Argentina (AMIA) expresó su saludo a la comunidad católica y a la sociedad argentina por la reciente llegada del papa León XIV. A través de sus canales oficiales, la entidad resaltó el significado histórico de esta visita pastoral y convocó a profundizar el diálogo interreligioso como herramienta fundamental para la convivencia social. La mutual subrayó que la presencia del Pontífice representa una oportunidad para renovar el compromiso con los valores compartidos, promoviendo la paz, el respeto mutuo y la construcción de una sociedad más fraterna.\n\nEl papa León XIV arribó al país el domingo 8 de noviembre, minutos después de las 16:30, al Aeroparque Jorge Newbery, proveniente de Uruguay. En su primera jornada, fue recibido por el presidente Javier Milei, con quien mantuvo una audiencia privada en la Casa Rosada. Además, el Papa colocó una ofrenda floral en la Plaza San Martín y recibió la Llave de la Ciudad de Buenos Aires en la plazoleta Juan de Garay. Su última actividad del día fue un discurso en el Palacio Libertad, tras lo cual se trasladó al Palacio Fernández Anchorena, sede de la Nunciatura Apostólica, donde se aloja durante su estadía.\n\nEsta visita marca el regreso de un Papa a la Argentina después de 1987, cuando el país recibió a Juan Pablo II. En sus primeras declaraciones públicas, el Sumo Pontífice manifestó su alegría por encontrarse en el país y destacó la misión de la Iglesia en la defensa de la dignidad humana y el bien común.",
+      "guion": "La AMIA saluda la llegada del papa León XIV a la Argentina.",
+      "seccion": "Argentina",
+      "medios": [
+        "Crónica",
+        "Noticias Argentinas (NA)",
+        "El Día",
+        "Los Andes (Mendoza)"
+      ],
+      "enlace": "https://noticiasargentinas.com/sociedad/la-amia-saludo-la-llegada-del-papa-leon-xiv-y-destaco-la-importancia-del-dialogo-interreligioso_a6af0a175083a87fddc15e91a",
+      "fecha": "2026-11-08T23:11:00.000Z",
+      "sinFecha": false,
+      "visto": "2026-11-09T05:01:57.464Z",
+      "relevancia": 42,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "La AMIA valoró la visita papal como un impulso al diálogo interreligioso.",
+        "El Papa llegó el domingo 8 de noviembre y permanecerá en el país hasta el miércoles 11.",
+        "La agenda oficial incluyó un encuentro con el presidente Javier Milei en la Casa Rosada.",
+        "León XIV se hospeda en la Nunciatura Apostólica, ubicada en el barrio de Recoleta."
+      ],
+      "etiquetas": [
+        "Papa León XIV",
+        "AMIA",
+        "Argentina",
+        "diálogo interreligioso",
+        "visita pastoral"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/sociedad/la-amia-saludo-la-llegada-del-papa-leon-xiv-y-destaco-la-importancia-del-dialogo-interreligioso_a6af0a175083a87fddc15e91a",
+          "fecha": "2026-11-08T16:25:59.987Z",
+          "oficial": false,
+          "aporte": "Precisó el horario de arribo del vuelo procedente de Montevideo."
+        },
+        {
+          "medio": "Crónica",
+          "enlace": "https://www.cronica.com.ar/sociedad/el-mensaje-de-leon-xiv-tras-su-primer-dia-en-el-pais-saludo-con-afecto-a-todos-los-argentinos/",
+          "fecha": "2026-11-09T00:16:00.000Z",
+          "oficial": false,
+          "aporte": "Detalló la agenda del primer día del Papa, su lugar de hospedaje y el mensaje sobre su llegada."
+        },
+        {
+          "medio": "Crónica",
+          "enlace": "https://www.cronica.com.ar/sociedad/amia-saluda-llegada-papa-leon-xiv/",
+          "fecha": "2026-11-08T21:15:51.000Z",
+          "oficial": false,
+          "aporte": "Reforzó el mensaje de unidad y los valores de fraternidad expresados por la mutual judía."
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/politica-y-economia/amia-saludo-la-llegada-del-papa-a-la-argentina-politica-y-economia_1794198755",
+          "fecha": "2026-11-09T04:32:35.000Z",
+          "oficial": false,
+          "aporte": "Informó sobre el pronunciamiento oficial de la AMIA y su llamado a la convivencia pacífica."
+        },
+        {
+          "medio": "Los Andes (Mendoza)",
+          "enlace": "https://www.losandes.com.ar/el-mensaje-del-papa-leon-xiv-x-su-llegada-la-argentina-saludo-afecto-todos-los-argentinos-n6013495",
+          "fecha": "2026-11-08T23:11:00.000Z",
+          "oficial": false,
+          "aporte": "Confirmó la duración de la gira hasta el miércoles 11 y el antecedente de la visita de 1987."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron cuatro medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "la-amia-saluda-la-llegada-del-papa-leon-xiv-a-la-argentina",
+      "foto": {
+        "archivo": "fotos-notas/1cd2d4c.jpg",
+        "credito": "Foto: Crónica"
       }
     },
     {
@@ -1660,6 +1757,13 @@
           "fecha": "2026-11-09T01:10:19.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/deportes/futbol/la-formula-julian-giuliano-con-la-que-atletico-de-madrid-le-convirtio-a-barcelona-en-el-duelo-de-la-nid08112026/",
+          "fecha": "2026-11-08T21:57:52.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -2061,6 +2165,7 @@
       "guion": "Cinco monjas vuelcan en la Ruta 188 cuando viajaban hacia Luján.",
       "seccion": "Policiales",
       "medios": [
+        "La Nación",
         "0223 (Mar del Plata)",
         "TN (Todo Noticias)",
         "Clarín",
@@ -2080,7 +2185,7 @@
       "fecha": "2026-11-08T21:17:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-08T23:31:20.374Z",
-      "relevancia": 70,
+      "relevancia": 63,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -2236,6 +2341,13 @@
           "fecha": "2026-11-09T02:17:20.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/sociedad/cinco-monjas-volcaron-en-la-ruta-cuando-viajaban-a-lujan-para-ver-al-papa-leon-xiv-nid09112026/",
+          "fecha": "2026-11-09T04:29:04.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -2244,6 +2356,72 @@
         "sugeridoPorIA": null
       },
       "slug": "cinco-monjas-vuelcan-en-la-ruta-188-cuando-viajaban-hacia-lujan"
+    },
+    {
+      "id": "1emlgtj",
+      "titulo": "El papa León XIV inicia su visita a la Argentina con repiques de campanas",
+      "copete": "El pontífice aterrizó el domingo en el Aeroparque Jorge Newbery. Diversas comunidades religiosas de la provincia de Buenos Aires organizaron misas y traslados para participar de las actividades programadas hasta el miércoles.",
+      "cuerpo": "La llegada del papa León XIV al país, ocurrida el domingo pasadas las 16.30 tras aterrizar en el Aeroparque Jorge Newbery, fue recibida con un repique de campanas que se extendió durante diez minutos. La convocatoria, impulsada por la Arquidiócesis platense bajo la gestión de monseñor Gustavo Carra, alcanzó a numerosas parroquias de La Plata, Berisso, Ensenada, Brandsen, Magdalena y Punta Indio como gesto de bienvenida y esperanza.\n\nEn la capital provincial, los fieles se reunieron frente a la Catedral de la Inmaculada Concepción para seguir el momento. Allí, las autoridades eclesiásticas dispusieron la colocación de pantallas gigantes para transmitir los discursos y celebraciones del Santo Padre, cuya agenda en el país se extenderá hasta el miércoles 11 de noviembre. Además, el municipio local decoró las fachadas del Palacio Comunal y del Pasaje Dardo Rocha con retratos del pontífice y los colores del Vaticano.\n\nDiversas parroquias organizaron traslados para que los fieles participen de las misas centrales. Según explicaron desde la parroquia Nuestra Señora del Perpetuo Socorro, la visita ha generado un incremento en el acercamiento de los creyentes a los sacramentos y a la oración comunitaria.\n\nEl capellán Jorge Massueli señaló que el objetivo del Papa es predicar el mensaje de Jesucristo y fomentar sentimientos de justicia, paz y tolerancia. La agenda del pontífice incluye también visitas a instituciones como el Cottolengo Don Orione en Claypole y encuentros con representantes del ámbito laboral y de diversas comunidades religiosas.",
+      "guion": "El papa León XIV inicia su visita a la Argentina con repiques de campanas.",
+      "seccion": "Cultura y agenda",
+      "medios": [
+        "TN (Todo Noticias)",
+        "El Día"
+      ],
+      "enlace": "https://tn.com.ar/videos/sociedad/2026/11/08/video-asi-fueron-las-campanadas-en-la-basilica-de-lujan-y-en-distintas-iglesias-del-pais-para-recibir-al-papa-leon-xiv/",
+      "fecha": "2026-11-08T20:49:19.000Z",
+      "sinFecha": false,
+      "visto": "2026-11-09T05:01:57.464Z",
+      "relevancia": 31,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "El papa León XIV arribó al país el domingo 8 de noviembre.",
+        "La Arquidiócesis platense organizó repiques de campanas en varias localidades.",
+        "La visita oficial del pontífice se extenderá hasta el miércoles 11.",
+        "Se dispusieron pantallas gigantes en la Catedral de La Plata para seguir las actividades.",
+        "El cronograma incluye misas en Palermo y una convocatoria multitudinaria en Luján."
+      ],
+      "seSabe": [
+        "El Papa llegó a la Argentina el domingo por la tarde.",
+        "La visita oficial finaliza el miércoles 11 de noviembre.",
+        "Se realizaron repiques de campanas en múltiples parroquias de la región platense.",
+        "El municipio de La Plata instaló retratos del pontífice en edificios públicos."
+      ],
+      "textoRedes": "El papa León XIV comenzó su visita a la Argentina. Tras su llegada el domingo, diversas comunidades religiosas realizaron repiques de campanas y organizaron traslados para participar de las misas programadas hasta el miércoles 11 de noviembre.",
+      "etiquetas": [
+        "Papa León XIV",
+        "Argentina",
+        "Iglesia Católica",
+        "La Plata",
+        "Luján",
+        "Visita papal"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/videos/sociedad/2026/11/08/video-asi-fueron-las-campanadas-en-la-basilica-de-lujan-y-en-distintas-iglesias-del-pais-para-recibir-al-papa-leon-xiv/",
+          "fecha": "2026-11-08T20:49:19.000Z",
+          "oficial": false,
+          "aporte": "Confirma la realización de los repiques de campanas en la Basílica de Luján y otros templos del país."
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/la-ciudad/la-ciudad-recibio-con-campanadas-la-visita-al-pais-del-papa-leon-xiv-la-ciudad_1794199280",
+          "fecha": "2026-11-09T04:41:20.000Z",
+          "oficial": false,
+          "aporte": "Detalla el cronograma de la visita, las actividades parroquiales y el impacto espiritual en los fieles."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron dos medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "el-papa-leon-xiv-inicia-su-visita-a-la-argentina-con-repiques-de"
     },
     {
       "id": "5gecwu",
@@ -2356,7 +2534,6 @@
       "medios": [
         "La Nación",
         "El Cronista",
-        "Perfil",
         "Crónica",
         "Diario Popular",
         "Noticias Argentinas (NA)",
@@ -2364,6 +2541,7 @@
         "Ámbito",
         "elDiarioAR",
         "Radio Mitre",
+        "Perfil",
         "La Nueva"
       ],
       "enlace": "https://www.cronica.com.ar/politica/leon-xiv-en-el-monumento-al-general-san-martin-y-a-los-ejercitos-de-la-independencia-en-la-plaza-san-martin/",
@@ -2954,6 +3132,7 @@
       "seccion": "Argentina",
       "medios": [
         "TyC Sports",
+        "El Día",
         "0221",
         "Mi8 (Canal 8 Mar del Plata)",
         "La Capital (Rosario)"
@@ -2962,7 +3141,7 @@
       "fecha": "2026-11-08T19:38:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-08T23:01:26.000Z",
-      "relevancia": 40,
+      "relevancia": 43,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -3008,6 +3187,13 @@
           "medio": "Mi8 (Canal 8 Mar del Plata)",
           "enlace": "https://mi8.com.ar/un-feriado-espectacular-como-estara-el-clima-este-lunes-9-de-noviembre-en-mar-del-plata/",
           "fecha": "2026-11-08T23:05:56.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/la-ciudad/los-alcances-del-feriado-nacional-la-ciudad_1794198980",
+          "fecha": "2026-11-09T04:36:20.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -3174,16 +3360,7 @@
         "Radio Mitre",
         "Canal 26",
         "C5N",
-        "Minuto Uno",
-        "Infórmese Primero (FM 104.9)",
-        "Clarín",
-        "El Cronista",
-        "Perfil",
-        "Noticias Argentinas (NA)",
-        "La Nueva",
-        "Ámbito",
-        "La Capital (Rosario)",
-        "Puntonueve (FM 100.9)"
+        "Minuto Uno"
       ],
       "enlace": "https://www.eldestapeweb.com/sociedad/ver-vivo-encuentro-papa-leon-xiv-milei-palacio-libertad-202611811025",
       "fecha": "2026-11-08T19:04:00.000Z",
@@ -4633,7 +4810,7 @@
       "fecha": "2026-11-08T16:40:02.000Z",
       "sinFecha": false,
       "visto": "2026-11-08T22:01:47.709Z",
-      "relevancia": 53,
+      "relevancia": 46,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4828,13 +5005,14 @@
       "medios": [
         "La Nación",
         "El Destape",
+        "El Día",
         "C5N"
       ],
       "enlace": "https://www.lanacion.com.ar/sociedad/visita-de-leon-xiv-a-que-hora-del-domingo-abren-la-vigilia-para-la-misa-del-papa-en-el-monumento-a-nid08112026/",
       "fecha": "2026-11-08T16:17:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-08T23:31:20.374Z",
-      "relevancia": 39,
+      "relevancia": 42,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4893,6 +5071,20 @@
           "medio": "Perfil",
           "enlace": "https://perfil.com/sociedad/leon-xiv-en-la-argentina-como-sera-el-recorrido-del-papa-y-los-detalles-de-la-misa-en-palermo-aLvmw7z6mEVJ",
           "fecha": "2026-11-08T18:50:24.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/sociedad/noche-anterior-miles-fieles-hacen-fila-misa-papa-leon-xiv-202611821553",
+          "fecha": "2026-11-09T00:55:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/politica-y-economia/leon-xiv-da-su-primera-misa-en-el-monumento-de-los-espanoles-politica-y-economia_1794199055",
+          "fecha": "2026-11-09T04:37:35.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -5604,11 +5796,13 @@
       "guion": "Las ventas minoristas bajan 1,6% interanual en octubre.",
       "seccion": "Economía",
       "medios": [
+        "Infórmese Primero (FM 104.9)",
         "Agencia DIB",
         "TN (Todo Noticias)",
         "El Destape",
         "Diario Popular",
         "Noticias Argentinas (NA)",
+        "El Día",
         "Mi8 (Canal 8 Mar del Plata)",
         "El Diario de Tandil",
         "Ámbito",
@@ -5620,11 +5814,11 @@
       "fecha": "2026-11-08T13:53:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-08T14:31:14.106Z",
-      "relevancia": 52,
+      "relevancia": 58,
       "local": false,
       "muyContada": {
-        "medios": 11,
-        "porque": "11 medios",
+        "medios": 13,
+        "porque": "13 medios",
         "desde": "2026-11-08T20:31:30.991Z"
       },
       "publicadaPor": null,
@@ -5729,6 +5923,20 @@
           "fecha": "2026-11-09T01:11:00.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "Infórmese Primero (FM 104.9)",
+          "enlace": "http://www.informeseprimero.com.ar/2026/11/las-ventas-de-las-pymes-volvieron-caer.html",
+          "fecha": "2026-11-09T02:25:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/politica-y-economia/las-ventas-minoristas-siguen-cayendo-pero-con-una-leve-suba-mensual-politica-y-economia_1794198575",
+          "fecha": "2026-11-09T04:29:35.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -5761,12 +5969,7 @@
         "El Destape",
         "Crónica",
         "Los Andes (Mendoza)",
-        "Perfil",
-        "TyC Sports",
-        "Olé",
-        "Noticias Argentinas (NA)",
-        "Bolavip Argentina",
-        "El Gráfico"
+        "Perfil"
       ],
       "enlace": "https://www.cronica.com.ar/depo/actualidad/boca-river-torneo-clausura-2026-cruces-playoffs-final/",
       "fecha": "2026-11-08T13:48:34.000Z",
@@ -6093,6 +6296,213 @@
       "foto": {
         "archivo": "fotos-notas/1l5vphg.jpg",
         "credito": "Foto: Crónica"
+      }
+    },
+    {
+      "id": "v1tqes",
+      "titulo": "Atlético de Madrid pierde 2 a 1 frente a Barcelona con un gol de Giuliano Simeone",
+      "copete": "El conjunto colchonero cayó el domingo ante el líder de la Liga de España en el estadio Metropolitano. Giuliano Simeone abrió el marcador tras una asistencia de Julián Álvarez, pero Fermín dio vuelta el resultado con un doblete.",
+      "cuerpo": "Atlético de Madrid cayó por 2 a 1 ante Barcelona el domingo en el estadio Metropolitano, en el cierre de la duodécima fecha de la Liga de España. El encuentro enfrentó a los dos animadores del torneo en un duelo clave por el liderazgo de la tabla de posiciones.\n\nEn un arranque frenético del conjunto local, Julián Álvarez desaprovechó un mano a mano inicial, pero rápidamente se redimió. Tras una jugada gestada con un cambio de frente de Kang in Lee, el delantero cordobés habilitó a Giuliano Simeone, quien definió de primera para anotar el 1-0 parcial antes de los diez minutos de juego.\n\nCon esta conquista, el hijo del entrenador Diego Simeone alcanzó los cuatro tantos en la actual temporada del certamen español y sumó siete participaciones directas en goles. Sin embargo, el equipo visitante reaccionó antes del cierre de la etapa inicial e igualó las acciones por intermedio de Fermín López a los 45 minutos.\n\nEn el complemento, el mismo mediocampista del conjunto azulgrana sentenció el 2-1 definitivo a los 21 minutos, resultado que le permite al elenco catalán mantenerse en lo más alto de la tabla de posiciones en solitario.\n\nDurante el encuentro, el equipo dirigido por Diego Simeone no pudo contar con Cristian Romero, quien continúa marginado de las canchas debido a una distensión muscular sufrida el 17 de octubre frente a Espanyol. Por su parte, Julián Álvarez sumó su segunda asistencia en lo que va del torneo local.",
+      "guion": "Atlético de Madrid pierde 2 a 1 frente a Barcelona con un gol de Giuliano Simeone.",
+      "seccion": "Fútbol",
+      "medios": [
+        "TyC Sports",
+        "Olé",
+        "Bolavip Argentina",
+        "Minuto Uno",
+        "Clarín"
+      ],
+      "enlace": "https://bolavip.com/ar/europa/simeone-elogio-a-julian-alvarez-previo-al-duelo-entre-atletico-de-madrid-y-barcelona-por-laliga",
+      "fecha": "2026-11-08T13:44:25.000Z",
+      "sinFecha": false,
+      "visto": "2026-11-08T22:01:47.709Z",
+      "relevancia": 46,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Atlético de Madrid perdió 2 a 1 frente a Barcelona por la fecha 12 de la Liga de España.",
+        "Giuliano Simeone anotó el tanto inicial del conjunto colchonero con asistencia de Julián Álvarez.",
+        "Fermín López marcó por duplicado y dio vuelta el marcador para el equipo visitante.",
+        "Cristian Romero quedó fuera del partido por una lesión muscular."
+      ],
+      "seSabe": [
+        "Barcelona se impuso por 2 a 1 con goles de Fermín López a los 45 y a los 21 minutos del complemento.",
+        "Giuliano Simeone convirtió su cuarto gol en la temporada de LaLiga.",
+        "Julián Álvarez registró su segunda asistencia en el torneo local.",
+        "Cristian Romero se ausentó por una distensión muscular."
+      ],
+      "noConfirmado": [
+        "El tiempo exacto de recuperación de Cristian Romero para su retorno a las canchas tras la Fecha FIFA."
+      ],
+      "textoRedes": "Atlético de Madrid cayó por 2 a 1 ante Barcelona en el estadio Metropolitano por la Liga de España. Giuliano Simeone abrió el marcador tras una asistencia de Julián Álvarez, pero Fermín dio vuelta el resultado para el conjunto visitante.",
+      "etiquetas": [
+        "Atletico de Madrid",
+        "Barcelona",
+        "Julian Alvarez",
+        "Giuliano Simeone",
+        "Liga de Espana"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Bolavip Argentina",
+          "enlace": "https://bolavip.com/ar/europa/simeone-elogio-a-julian-alvarez-previo-al-duelo-entre-atletico-de-madrid-y-barcelona-por-laliga",
+          "fecha": "2026-11-07T15:40:54.000Z",
+          "oficial": false,
+          "aporte": "Aportó los dichos del entrenador Diego Simeone en la conferencia de prensa previa."
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/deportes/atletico-madrid-vs-barcelona-vivo-hora-formaciones-ver-partido-liga-espana_0_rTskUYmp76.html",
+          "fecha": "2026-11-08T13:44:25.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/futbol-internacional/espana/video-asistencia-julian-alvarez-gol-giuliano-simeone-barcelona_0_3dCbV50y0D.html",
+          "fecha": "2026-11-08T20:33:49.000Z",
+          "oficial": false,
+          "aporte": "Describió la jugada previa con la participación de Kang in Lee en la asistencia del gol."
+        },
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/futbol-internacional/espana/julian-asistio-giuliano-1-0-atletico-madrid_3_J5DEgQuJJt.html",
+          "fecha": "2026-11-08T20:29:09.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Bolavip Argentina",
+          "enlace": "https://bolavip.com/ar/europa/asistencia-de-julian-alvarez-y-gol-de-giuliano-simeone-para-el-1-0-de-atletico-de-madrid-a-barcelona",
+          "fecha": "2026-11-08T20:17:28.000Z",
+          "oficial": false,
+          "aporte": "Informó el resultado final de 2-1 favorable al Barcelona y los goles de Fermín López."
+        },
+        {
+          "medio": "Minuto Uno",
+          "enlace": "https://www.minutouno.com/deportes/julian-alvarez-asistio-y-giuliano-simeone-le-marco-al-barcelona-asi-fue-el-gol-del-atletico-madrid-n6342988",
+          "fecha": "2026-11-08T21:29:00.000Z",
+          "oficial": false,
+          "aporte": "Confirmó las estadísticas de Giuliano Simeone en la temporada de LaLiga."
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/deportes/simeone-queda-cuti-romero-alaba-julian-alvarez-reencuentro-atletico-madrid-barcelona-culebron-pos-mundial-2026_0_B3cJvQiDYz.html",
+          "fecha": "2026-11-07T15:56:08.000Z",
+          "oficial": false,
+          "aporte": "Detalló la hora, el estadio, los antecedentes de Julián Álvarez frente al rival y la baja de Cristian Romero."
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/espana/la-liga/ver-en-vivo-atletico-de-madrid-vs-barcelona-donde-seguirlo-por-tv-y-online-id770805.html",
+          "fecha": "2026-11-08T19:51:13.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/espana/la-liga/atletico-de-madrid-vs-barcelona-en-vivo-donde-ver-por-tv-y-online-id770802.html",
+          "fecha": "2026-11-08T19:00:03.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/futbol-internacional/espana/atleticodemadrid-barcelona-laliga-enriquecerezo-julianalvarez_0_63DoPRsJ81.html",
+          "fecha": "2026-11-08T17:34:31.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/futbol-internacional/espana/atletico-madrid-vs-barcelona-liga-espana-formaciones-dia-horario-ver-tv_0_cMhfJmaeGp.html",
+          "fecha": "2026-11-07T19:08:51.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Bolavip Argentina",
+          "enlace": "https://bolavip.com/ar/europa/por-que-cuti-romero-no-juega-para-atletico-de-madrid-contra-barcelona-por-laliga",
+          "fecha": "2026-11-08T17:50:30.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Bolavip Argentina",
+          "enlace": "https://bolavip.com/ar/europa/alineaciones-de-atletico-de-madrid-y-barcelona-para-el-duelo-de-la-jornada-12-de-la-laliga",
+          "fecha": "2026-11-08T15:01:23.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Bolavip Argentina",
+          "enlace": "https://bolavip.com/ar/europa/donde-ver-en-vivo-atletico-de-madrid-vs-barcelona-por-la-jornada-12-de-la-laliga-tv-y-streaming-online",
+          "fecha": "2026-11-08T12:03:04.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Minuto Uno",
+          "enlace": "https://www.minutouno.com/deportes/atletico-madrid-vs-barcelona-laliga-horario-formaciones-y-tv-n6342007",
+          "fecha": "2026-11-08T13:48:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/champions-league/atletico-de-madrid-vs-barcelona-en-vivo-donde-ver-por-tv-y-online-id770805.html",
+          "fecha": "2026-11-07T20:47:21.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/deportes/futbol/la-formula-julian-giuliano-con-la-que-atletico-de-madrid-le-convirtio-a-barcelona-en-el-duelo-de-la-nid08112026/",
+          "fecha": "2026-11-08T21:57:52.000Z",
+          "oficial": false,
+          "aporte": "Informó los detalles del desarrollo del partido, los autores de los goles y las posiciones en la tabla."
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/deportes/futbol/2026/11/08/atletico-madrid-vs-barcelona-en-vivo-por-la-fecha-12-de-la-liga-de-espana-hora-donde-ver-y-formaciones/",
+          "fecha": "2026-11-08T22:53:28.000Z",
+          "oficial": false,
+          "aporte": "Indicó las estadísticas del encuentro y la programación de los próximos partidos para ambos clubes."
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/deportes/el-barcelona-remonto-ante-el-atletico-de-madrid-y-sigue-en-la-punta-de-laliga_a6af106b0083a87fddc193d65",
+          "fecha": "2026-11-08T23:41:00.000Z",
+          "oficial": false,
+          "aporte": "Detalló los resultados y las ubicaciones de otros equipos en la tabla de posiciones."
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "181mosg",
+          "titulo": "Simeone evalúa el presente de Julián Álvarez previo al duelo con Barcelona",
+          "fecha": "2026-11-07T14:06:35.000Z",
+          "ruta": "/nota/simeone-evalua-el-presente-de-julian-alvarez-previo-al-duelo-con-181mosg"
+        },
+        {
+          "id": "aqgb22",
+          "titulo": "Valencia y Real Madrid juegan el sábado a las 17 por LaLiga",
+          "fecha": "2026-11-07T13:09:28.000Z",
+          "ruta": "/nota/valencia-y-real-madrid-juegan-este-sabado-a-las-17-por-laliga-aqgb22"
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron cuatro medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "atletico-de-madrid-pierde-2-a-1-frente-a-barcelona-con-un-gol-de",
+      "foto": {
+        "archivo": "fotos-notas/v1tqes.jpg",
+        "credito": "Foto: Bolavip Argentina"
       }
     },
     {
@@ -6934,14 +7344,13 @@
         "Canal 26",
         "Diario Popular",
         "Ámbito",
-        "C5N",
-        "El Cronista"
+        "C5N"
       ],
       "enlace": "https://www.ambito.com/informacion-general/trenes-argentinos-lanzo-un-cronograma-especial-recibir-al-papa-leon-xiv-n6341139",
       "fecha": "2026-11-08T10:29:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-08T12:01:41.549Z",
-      "relevancia": 40,
+      "relevancia": 39,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -7709,26 +8118,27 @@
         "LU9 Mar del Plata",
         "La Nación",
         "El Destape",
-        "Radio Mitre",
+        "Noticias Argentinas (NA)",
+        "0221",
         "El Marplatense",
         "Doble Amarilla",
+        "Ámbito",
         "C5N",
         "Minuto Uno",
         "La Capital (Rosario)",
         "La Nueva",
-        "Clarín",
         "La Gaceta (Tucumán)",
-        "Perfil"
+        "Clarín"
       ],
       "enlace": "https://www.lanacion.com.ar/sociedad/a-que-hora-llega-el-papa-leon-xiv-a-la-argentina-manana-domingo-8-de-noviembre-nid07112026/",
       "fecha": "2026-11-08T05:35:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-08T11:31:32.236Z",
-      "relevancia": 54,
+      "relevancia": 56,
       "local": false,
       "muyContada": {
-        "medios": 11,
-        "porque": "11 medios",
+        "medios": 13,
+        "porque": "13 medios",
         "desde": "2026-11-08T11:31:32.236Z"
       },
       "publicadaPor": null,
@@ -9716,7 +10126,6 @@
         "TN (Todo Noticias)",
         "TyC Sports",
         "Crónica",
-        "Diario Popular",
         "Noticias Argentinas (NA)",
         "Ámbito",
         "C5N",
@@ -9729,7 +10138,7 @@
       "fecha": "2026-11-07T23:16:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-07T23:31:15.485Z",
-      "relevancia": 46,
+      "relevancia": 45,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -11624,653 +12033,6 @@
         "sugeridoPorIA": null
       },
       "slug": "una-policia-rescata-a-una-jubilada-tras-caer-con-su-auto-a-un-arroyo"
-    },
-    {
-      "id": "zhagqb",
-      "titulo": "Muere el actor Gabriel González Abat a los 56 años",
-      "copete": "La Asociación Argentina de Actores confirmó el fallecimiento del intérprete recordado por su personaje de Canuto en Señorita maestra. Tenía 56 años y una extensa trayectoria en cine, teatro y televisión.",
-      "cuerpo": "El actor Gabriel González Abat falleció el 6 de noviembre a los 56 años. La noticia fue confirmada por la Asociación Argentina de Actores y Actrices a través de un mensaje de despedida que recordó su trayectoria.\n\nNacido el 4 de febrero de 1970, comenzó su carrera en la infancia cuando la directora María Herminia Avellaneda lo seleccionó para integrar el elenco de la ficción infantil Señorita maestra, donde interpretó el recordado papel de Canuto. Posteriormente participó en diversos unitarios y programas televisivos como Los especiales de ATC, El árbol azul y Liberta condicionada.\n\nEn 1988 formó parte de la telenovela Sin marido, escrita por Alberto Migré, donde encarnó a Federico Noriega. A partir de ese trabajo incorporó el apellido materno a su nombre artístico. En la pantalla grande integró los elencos de películas como Los chicos de la guerra, Mingo y Aníbal contra los fantasmas y La historia oficial. En teatro participó en la obra Flores blancas para Thelma, presentada en el Teatro El Vitral bajo la dirección de Leonardo Abremón.\n\nHasta el momento no se informaron públicamente los motivos específicos del fallecimiento.",
-      "guion": "Muere el actor Gabriel González Abat a los 56 años.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "TN (Todo Noticias)",
-        "Crónica",
-        "Minuto Uno",
-        "La Nación",
-        "Perfil",
-        "Canal 26",
-        "Radio Mitre",
-        "La Gaceta (Tucumán)"
-      ],
-      "enlace": "https://www.minutouno.com/espectaculos/murio-el-actor-gabriel-gonzalez-abat-recordado-su-papel-canuto-senorita-maestra-n6342743",
-      "fecha": "2026-11-07T16:45:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-07T21:31:20.735Z",
-      "relevancia": 40,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Falleció a los 56 años el actor Gabriel González Abat.",
-        "La Asociación Argentina de Actores y Actrices confirmó la noticia.",
-        "Alcanzó gran popularidad por su personaje de Canuto en Señorita maestra."
-      ],
-      "seSabe": [
-        "El actor Gabriel González Abat murió el 6 de noviembre de 2026 a los 56 años.",
-        "La Asociación Argentina de Actores y Actrices comunicó su fallecimiento.",
-        "Desarrolló una extensa trayectoria en televisión, cine y teatro desde su infancia."
-      ],
-      "noConfirmado": [
-        "No se informó públicamente la causa de muerte del actor."
-      ],
-      "textoRedes": "Murió a los 56 años el actor Gabriel González Abat, recordado por su papel de Canuto en Señorita maestra y por su extensa trayectoria en cine, teatro y televisión.",
-      "etiquetas": [
-        "Gabriel González Abat",
-        "Señorita maestra",
-        "fallecimiento",
-        "Asociación Argentina de Actores",
-        "televisión argentina"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/espectaculos/murio-el-actor-gabriel-gonzalez-abat-recordado-su-papel-canuto-senorita-maestra-n6342743",
-          "fecha": "2026-11-07T14:20:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó detalles sobre la fecha del fallecimiento, la biografía artística en televisión, cine y teatro, y los trabajos en producciones como Sin marido."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/show/famosos/2026/11/07/murio-a-los-56-anos-el-actor-gabriel-gonzalez-abat-recordada-estrella-de-senorita-maestra/",
-          "fecha": "2026-11-07T21:21:33.000Z",
-          "oficial": false,
-          "aporte": "Confirmó que la Asociación Argentina de Actores y Actrices comunicó la noticia y sumó datos sobre películas y declaraciones del actor."
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/espectaculos/de-que-murio-gabriel-gonzalez-abat-el-actor-que-interpreto-canuto-senorita-maestra-n6342769",
-          "fecha": "2026-11-07T16:45:00.000Z",
-          "oficial": false,
-          "aporte": "Indicó que hasta el momento no se informó una causa de muerte específica."
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/espectaculos/murio-a-los-56-anos-gabriel-gonzalez-abat-actor-de-senorita-maestra-nid07112026/",
-          "fecha": "2026-11-07T22:15:07.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://perfil.com/entretenimiento/murio-gabriel-gonzalez-abat-el-actor-de-senorita-maestra-a-los-56-anos-a2dUw0S4SkaD",
-          "fecha": "2026-11-07T22:41:02.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/espectaculos/2026/11/07/murio-gabriel-gonzalez-abat-reconocido-actor-de-senorita-maestra-tenia-56-anos/",
-          "fecha": "2026-11-07T22:26:05.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/espectaculos/murio-el-actor-gabriel-gonzalez-abat-reconocido-por-su-papel-en-senorita-maestra-tenia-56-anos/",
-          "fecha": "2026-11-07T23:01:25.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/sociedad/murio-a-los-58-anos-gabriel-gonzalez-abat-el-actor-que-interpreto-a-canuto-en-senorita-maestra/",
-          "fecha": "2026-11-08T00:25:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Gaceta (Tucumán)",
-          "enlace": "https://www.lagaceta.com.ar/nota/1161589/sociedad/dolor-television-argentina-murio-gabriel-gonzalez-abat-recordado-canuto-senorita-maestra.html",
-          "fecha": "2026-11-08T11:55:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "muere-el-actor-gabriel-gonzalez-abat-a-los-56-anos",
-      "foto": {
-        "archivo": "fotos-notas/zhagqb.jpg",
-        "credito": "Foto: Minuto Uno"
-      }
-    },
-    {
-      "id": "17vnb63",
-      "titulo": "Boca empata con Defensa y Argentinos cae ante Huracán en el Clausura",
-      "copete": "En la última fecha del Torneo Clausura, Boca iguala sin goles y Rosario Central se ubica parcialmente como líder de la tabla anual gracias a su victoria parcial ante Estudiantes de Río Cuarto.",
-      "cuerpo": "En la última fecha de la fase regular del Torneo Clausura, la definición por el título de la tabla anual se desarrolla en simultáneo en distintos estadios. En La Bombonera, Boca Juniors empata sin goles frente a Defensa y Justicia durante el primer tiempo, en un encuentro que contó con un tanto anulado por el VAR a Miguel Merentiel bajo el arbitraje de Sebastián Zunino.\n\nEn paralelo, en el estadio Diego Armando Maradona, Argentinos Juniors cae por 2 a 0 ante Huracán. El conjunto visitante abrió el marcador a los 7 minutos del primer tiempo por intermedio de Oscar Cortés, mientras que Bruno Barticciotto estiró la ventaja a los 30 minutos con asistencia de Facundo Kalinger. El desarrollo del juego en La Paternal se vio modificado por las expulsiones en el equipo local de Franco Paredes a los 25 minutos por juego brusco grave y de Nicolás Diez por una acción antideportiva a los 28 minutos.\n\nPor su parte, en el estadio Gigante de Arroyito, Rosario Central supera por 1 a 0 a Estudiantes de Río Cuarto con un gol convertido por Julián Fernández a los 41 minutos de la etapa inicial, bajo la dirección arbitral de Hernán Mastrángelo. Con estos resultados parciales, el conjunto rosarino se posiciona momentáneamente en el primer puesto de la tabla anual en la pelea que mantiene con el equipo xeneize y con el elenco de La Paternal.",
-      "guion": "Boca empata con Defensa y Argentinos cae ante Huracán en el Clausura.",
-      "seccion": "Fútbol",
-      "medios": [
-        "La Nación",
-        "TN (Todo Noticias)",
-        "El Destape",
-        "Olé",
-        "Bolavip Argentina",
-        "El Gráfico",
-        "TyC Sports"
-      ],
-      "enlace": "https://www.elgrafico.com.ar/articulo/1038/103788/boca-vs-defensa-y-justicia-por-el-torneo-clausura-seguilo-en-vivo",
-      "fecha": "2026-11-07T16:13:38.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-07T21:31:20.735Z",
-      "relevancia": 39,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Boca iguala sin goles ante Defensa y Justicia en La Bombonera.",
-        "Argentinos Juniors pierde 2 a 0 como local frente a Huracán.",
-        "Rosario Central le gana 1 a 0 a Estudiantes de Río Cuarto y lidera la tabla anual.",
-        "El primer tiempo en La Paternal tuvo dos expulsiones en el conjunto local."
-      ],
-      "seSabe": [
-        "Boca empata 0 a 0 con Defensa y Justicia en el estadio Alberto J. Armando.",
-        "Huracán le gana 2 a 0 a Argentinos Juniors con goles de Oscar Cortés y Bruno Barticciotto.",
-        "Franco Paredes y Nicolás Diez fueron expulsados en Argentinos Juniors.",
-        "Rosario Central vence 1 a 0 a Estudiantes de Río Cuarto con tanto de Julián Fernández."
-      ],
-      "noConfirmado": [
-        "El resultado final de los tres encuentros que definen al campeón de la tabla anual."
-      ],
-      "textoRedes": "En la última fecha del Torneo Clausura, Boca empata sin goles ante Defensa y Justicia, Argentinos Juniors cae 2 a 0 frente a Huracán y Rosario Central le gana a Estudiantes de Río Cuarto.",
-      "etiquetas": [
-        "Torneo Clausura",
-        "Boca Juniors",
-        "Rosario Central",
-        "Argentinos Juniors",
-        "Huracan",
-        "Defensa y Justicia",
-        "Estudiantes de Rio Cuarto"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Gráfico",
-          "enlace": "https://www.elgrafico.com.ar/articulo/1038/103788/boca-vs-defensa-y-justicia-por-el-torneo-clausura-seguilo-en-vivo",
-          "fecha": "2026-11-07T20:30:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/deportes/video-goles-huracan-vs-argentinos-juniors-le-dan-mano-boca-2026117182134",
-          "fecha": "2026-11-07T21:21:34.730Z",
-          "oficial": false,
-          "aporte": "Detalló los goles y las expulsiones en el partido entre Argentinos Juniors y Huracán."
-        },
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/futbol/liga-profesional-de-futbol/rosario-central-vs-estudiantes-rc-en-vivo-hoy-resultado-goles-y-minuto-a-minuto-del-torneo-clausura-2026/",
-          "fecha": "2026-11-07T21:18:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/futbol/liga-profesional-de-futbol/argentinos-juniors-vs-huracan-en-vivo-hoy-resultado-goles-y-minuto-a-minuto-del-torneo-clausura-2026/",
-          "fecha": "2026-11-07T21:23:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/futbol/liga-profesional-de-futbol/boca-juniors-vs-defensa-y-justicia-en-vivo-hoy-resultado-goles-y-minuto-a-minuto-del-torneo-clausura-2026/",
-          "fecha": "2026-11-07T21:26:00.000Z",
-          "oficial": false,
-          "aporte": "Informó las formaciones iniciales y las incidencias del encuentro entre Boca y Defensa y Justicia."
-        },
-        {
-          "medio": "La Nueva",
-          "enlace": "https://www.lanueva.com/nota/2026-11-7-5-0-51-hora-tv-y-formaciones-boca-recibe-a-defensa-y-justicia-con-la-gran-chance-de-ser-campeon-de-liga",
-          "fecha": "2026-11-07T21:26:05.000Z",
-          "oficial": false,
-          "aporte": "Indicó las estadísticas de la tabla anual y el marcador parcial en La Bombonera."
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/deportes/minuto-minuto-vivo-argentinos-juniors-vs-huracan-el-torneo-clausura-2026-goles-y-resultado-n6341642",
-          "fecha": "2026-11-07T21:15:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/deportes/minuto-minuto-rosario-central-vs-estudiantes-rc-el-torneo-clausura-2026-goles-y-resultado-n6341603",
-          "fecha": "2026-11-07T21:25:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó los datos del partido entre Rosario Central y Estudiantes de Río Cuarto."
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/deportes/minuto-minuto-vivo-boca-vs-defensa-y-justicia-el-torneo-clausura-2026-resultado-y-goles-n6341589",
-          "fecha": "2026-11-07T21:18:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/deportes/boca-empata-defensa-y-justicia-y-ahora-el-campeon-es-rosario-central-n6013329",
-          "fecha": "2026-11-07T21:16:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/deportes/--la-definicion-del-campeon-de-liga-en-vivo--el-minuto-a-minuto-de-boca--argentinos-jrs--y-rosario-central_a6aef0c614574a35e62edadf8",
-          "fecha": "2026-11-07T21:22:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Doble Amarilla",
-          "enlace": "https://www.dobleamarilla.com.ar/liga-/boca-depende-de-si-mismo-y-va-por-el-titulo-de-campeon-de-liga-ante-defensa-y-justicia_a6aee039720dd1ac23cfda129",
-          "fecha": "2026-11-07T11:08:46.617Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/deportes/futbol/en-que-canal-pasan-hoy-boca-vs-defensa-y-justicia-por-el-torneo-clausura-2026-nid07112026/",
-          "fecha": "2026-11-07T16:52:07.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/deportes/futbol/por-donde-pasan-boca-vs-defensa-y-justicia-y-que-canal-lo-transmite-en-vivo-nid07112026/",
-          "fecha": "2026-11-07T16:13:38.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/deportes/futbol/a-que-hora-juega-boca-vs-defensa-y-justicia-y-por-donde-se-puede-ver-en-vivo-nid07112026/",
-          "fecha": "2026-11-07T12:00:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/deportes/futbol/2026/11/07/donde-ver-boca-vs-defensa-y-justicia-en-vivo-por-la-liga-profesional-y-que-canal-lo-transmite/",
-          "fecha": "2026-11-07T08:30:29.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/deportes/boca-vs-defensa-justicia-formacion-tv-hora-partido-torneo-clausura-2026117154129",
-          "fecha": "2026-11-07T18:41:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/boca-juniors/a-que-hora-juega-boca-vs-defensa-y-justicia-y-como-verlo-en-vivo-id770352.html",
-          "fecha": "2026-11-07T19:36:16.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/boca-juniors/por-donde-pasan-boca-vs-defensa-y-justicia-y-que-canal-lo-transmite-en-vivo-por-tv-e-internet-id770299.html",
-          "fecha": "2026-11-07T19:34:42.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/boca-juniors/boca-vs-defensa-y-justicia-que-canal-lo-pasa-por-tv-y-como-ver-online-id770295.html",
-          "fecha": "2026-11-07T19:34:12.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/futbol-primera/resumen-boca-1-defensa-justicia-0_3_ZHmIbzooWw.html",
-          "fecha": "2026-11-07T22:49:52.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/boca-juniors/boca-defensayjusticia-labombonera-vascoarruabarrena-copaargentina-copalibertadores-copasudamericana-atleticomineiro-martinpalermo_0_5LJ9cenuuZ.html",
-          "fecha": "2026-11-07T13:59:51.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Bolavip Argentina",
-          "enlace": "https://bolavip.com/ar/futbolargentino/alineaciones-de-boca-y-defensa-y-justicia-para-el-duelo-de-la-fecha-16-del-torneo-clausura",
-          "fecha": "2026-11-07T11:59:27.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Bolavip Argentina",
-          "enlace": "https://bolavip.com/ar/boca/por-que-no-juega-leonel-flores-hoy-en-boca-vs-defensa-y-justicia-por-el-torneo-clausura",
-          "fecha": "2026-11-07T18:11:35.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Bolavip Argentina",
-          "enlace": "https://bolavip.com/ar/futbolargentino/sebastian-zunino-el-arbitro-de-boca-vs-defensa-y-justicia-por-el-torneo-clausura-2026",
-          "fecha": "2026-11-07T14:31:19.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Bolavip Argentina",
-          "enlace": "https://bolavip.com/ar/futbolargentino/donde-ver-en-vivo-boca-vs-defensa-y-justicia-por-la-fecha-16-del-torneo-clausura-2026",
-          "fecha": "2026-11-07T12:09:55.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/depo/ligaprofesional/boca-vs-defensa-y-justicia-por-el-torneo-clausura-2026-de-la-liga-profesional-hora-formaciones-y-como-verlo-en-vivo/",
-          "fecha": "2026-11-07T09:03:07.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/futbol-primera/boca-vs-defensa-justicia-vivo-definicion-tabla-anual-torneo-clausura-dia-hora-ver-tv-online-formaciones_0_EfIz8EeA9U.html",
-          "fecha": "2026-11-07T11:25:40.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/deportes/boca-vs-defensa-justicia-vivo-hora-juegan-ver-partido-xeneize-va-titulo-tabla-anual_0_IZw28P3cuP.html",
-          "fecha": "2026-11-07T15:09:49.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Gráfico",
-          "enlace": "https://www.elgrafico.com.ar/articulo/1038/103809/flores-va-al-banco-la-formacion-de-boca-frente-a-defensa-y-justicia",
-          "fecha": "2026-11-07T18:45:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://perfil.com/deportes/boca-recibe-a-defensa-y-justicia-y-busca-ser-el-campeon-de-liga-por-tabla-anual-seguilo-minuto-a-minuto-ah10O9f4ikVk",
-          "fecha": "2026-11-07T13:37:39.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/deportes/boca-recibe-defensa-y-justicia-y-suena-el-titulo-anual-la-liga-profesional-n6013329",
-          "fecha": "2026-11-07T20:18:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/deportes/asi-fue-el-recibimiento-los-hinchas-boca-la-definicion-defensa-y-justicia-n6342812",
-          "fecha": "2026-11-07T21:36:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/boca-juniors/la-formacion-de-boca-vs-defensa-y-justicia-por-el-torneo-apertura-id770410.html",
-          "fecha": "2026-11-07T18:36:18.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Verdad",
-          "enlace": "https://laverdadonline.com/boca-recibe-a-defensa-y-justicia-en-busca-del-titulo-de-campeon-de-liga/",
-          "fecha": "2026-11-07T11:30:20.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/deportes/boca-argentinos-y-central-en-una-definicion-electrizante-por-la-tabla-anual-deportes_1794053700",
-          "fecha": "2026-11-07T23:00:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Verdad",
-          "enlace": "https://laverdadonline.com/boca-le-gano-de-manera-agonica-a-defensa-y-justicia-y-se-consagro-campeon-de-liga/",
-          "fecha": "2026-11-07T23:21:22.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Bolavip Argentina",
-          "enlace": "https://bolavip.com/ar/boca/los-puntajes-de-boca-vs-defensa-por-el-clausura-jugador-por-jugador",
-          "fecha": "2026-11-07T22:38:38.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/deportes/uno-uno-puntajes-jugadores-boca-consagracion-tabla-anual-defensa-justicia-2026117193923",
-          "fecha": "2026-11-07T22:39:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/boca-juniors/los-puntajes-de-boca-vs-defensa-y-justicia-por-el-torneo-apertura-op-id770823.html",
-          "fecha": "2026-11-08T00:50:17.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/deportes/uno-por-uno-el-boletin-de-calificaciones-de-los-jugadores-de-boca-vs-defensa-y-justicia-deportes-edicion-impresa_1794118620",
-          "fecha": "2026-11-08T06:17:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "frwixs",
-          "titulo": "Instituto juega ante Newell's por la última fecha del Torneo Clausura",
-          "fecha": "2026-11-07T15:11:09.000Z",
-          "ruta": "/nota/instituto-juega-ante-newell-s-por-la-ultima-fecha-del-torneo-clausura-frwixs"
-        },
-        {
-          "id": "s226oa",
-          "titulo": "River asegura su lugar en octavos y espera rival para el Torneo Clausura",
-          "fecha": "2026-11-06T19:56:00.000Z",
-          "ruta": "/nota/river-asegura-su-lugar-en-octavos-y-espera-rival-para-el-torneo-s226oa"
-        },
-        {
-          "id": "km3ws4",
-          "titulo": "Unión y Vélez juegan hoy por la última fecha del Torneo Clausura 2026",
-          "fecha": "2026-11-06T10:15:00.000Z",
-          "ruta": "/nota/union-y-velez-juegan-hoy-por-la-ultima-fecha-del-torneo-clausura-2026-km3ws4"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron seis medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "boca-empata-con-defensa-y-argentinos-cae-ante-huracan-en-el-clausura",
-      "foto": {
-        "archivo": "fotos-notas/17vnb63.jpg",
-        "credito": "Foto: La Nueva"
-      }
-    },
-    {
-      "id": "2eu7c0",
-      "titulo": "Santiago Luján revela que padece un linfoma y Huracán le renueva",
-      "copete": "El volante del Globo contó cómo transita el tratamiento contra la enfermedad y agradeció el respaldo de la dirigencia. Su vínculo contractual se extenderá para acompañarlo.",
-      "cuerpo": "El volante de Huracán Santiago Luján reveló que atraviesa un tratamiento médico tras ser diagnosticado con un linfoma en el cuello. El futbolista de 24 años explicó que la dolencia se manifestó luego de regresar de su paso a préstamo por Mitre de Santiago del Estero, al sentir una presión en la zona que derivó en estudios específicos y siete días de internación.\n\nEn relación con su continuidad deportiva, el deportista detalló que su contrato vence en diciembre, pero la Comisión Directiva del club de Parque Patricios se comunicó para asegurarle que le renovarán el vínculo con el fin de respaldarlo durante el proceso. Además, destacó el acompañamiento de los dirigentes y mencionó que le restan cinco meses más de quimioterapia para luego buscar su regreso a las canchas.\n\nEn su trayectoria profesional, el mediocampistase formó en la institución y debutó en febrero de 2023, además de registrar pasos previos por Aldosivi, donde logró el ascenso a la Liga Profesional, y por el conjunto santiagueño en la Primera Nacional.",
-      "guion": "Santiago Luján revela que padece un linfoma y Huracán le renueva.",
-      "seccion": "Salud",
-      "seccionAntes": "Fútbol",
-      "medios": [
-        "TN (Todo Noticias)",
-        "TyC Sports"
-      ],
-      "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/el-jugador-de-huracan-santiago-lujan-conto-como-atraviesa-su-lucha-contra-un-cancer-id770781.html",
-      "fecha": "2026-11-07T16:10:10.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-07T18:01:17.506Z",
-      "relevancia": 22,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El volante de Huracán Santiago Luján afronta un tratamiento contra un linfoma.",
-        "El jugador indicó que le quedan cinco meses más de quimioterapia por delante.",
-        "La dirigencia del club le comunicó que le renovarán el contrato que vence en diciembre."
-      ],
-      "seSabe": [
-        "Santiago Luján tiene 24 años y juega como volante en Huracán.",
-        "El futbolista fue diagnosticado con un linfoma tras una internación de siete días.",
-        "La Comisión Directiva le aseguró la renovación de su vínculo contractual."
-      ],
-      "textoRedes": "El volante de Huracán Santiago Luján contó que transita un tratamiento contra un linfoma y que la institución le renovará el contrato para acompañarlo.",
-      "etiquetas": [
-        "Santiago Luján",
-        "Huracán",
-        "futbolista",
-        "linfoma",
-        "salud",
-        "Liga Profesional"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/el-jugador-de-huracan-santiago-lujan-conto-como-atraviesa-su-lucha-contra-un-cancer-id770781.html",
-          "fecha": "2026-11-07T16:10:10.000Z",
-          "oficial": false,
-          "aporte": "Detalló los goles convertidos en sus pasos por Mitre y Huracán, y agradeció a directivos específicos como Abel Poza y Fer Locaso."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/deportes/futbol/2026/11/07/un-futbolista-de-huracan-revelo-que-tiene-cancer-y-conto-como-atraviesa-el-tratamiento/",
-          "fecha": "2026-11-07T17:58:43.000Z",
-          "oficial": false,
-          "aporte": "Profundizó en el temor inicial que sintió por su familia al recibir el diagnóstico del linfoma."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "santiago-lujan-revela-que-padece-un-linfoma-y-huracan-le-renueva",
-      "foto": {
-        "archivo": "fotos-notas/2eu7c0.jpg",
-        "credito": "Foto: TN (Todo Noticias)"
-      }
-    },
-    {
-      "id": "l8pgrk",
-      "titulo": "Fuoco consigue la pole en Monza y Pechito López clasifica quinto",
-      "copete": "Antonio Fuoco logró el mejor registro en la Hyperpole del WEC en Monza con la Ferrari del equipo AF Corse. El argentino José María López se ubicó en el quinto puesto de la divisional LMGT3.",
-      "cuerpo": "Antonio Fuoco se quedó con la última pole positión de la temporada 2026 del Campeonato Mundial de Resistencia en el autódromo de Monza. Al mando de la Ferrari 499P N° 50 del equipo AF Corse, el piloto italiano marcó un tiempo de 1:33.364 en la sesión de Hyperpole y superó por 0s096 al Genesis GMR-001 N° 19 conducido por Mathieu Jaminet. El tercer lugar de la divisional Hypercar quedó para el Cadillac V-Series.R N° 38 de Earl Bamber a 0s177 de la punta.\n\nEn la divisional LMGT3, la pole positión fue para el Akkodis ASP Team con el Lexus RC F GT3 N° 78, después de que Hadrien David estableciera un registro de 1:47.523. En tanto, el argentino José María López completó el Top 5 de la categoría junto al rumano Petru Umbrărescu y al austríaco Clemens Schmid a bordo del Lexus RC F GT3 N° 87, unidad que quedó a 0s210 de la pole de sus compañeros de estructura. Schmid estuvo al volante durante la tanda clasificatoria en el trazado italiano.\n\nLa actividad oficial continuará el domingo con la disputa de la competencia de seis horas de duración, la cual se pondrá en marcha a las 07:00 de Argentina para cerrar el calendario anual del certamen de resistencia.",
-      "guion": "Fuoco consigue la pole en Monza y Pechito López clasifica quinto.",
-      "seccion": "Automovilismo",
-      "medios": [
-        "Campeones",
-        "Córdoba Competición"
-      ],
-      "enlace": "https://campeones.com.ar/wec-antonio-fuoco-pone-a-ferrari-en-la-hyperpole-en-monza/",
-      "fecha": "2026-11-07T16:04:03.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-07T20:31:09.789Z",
-      "relevancia": 50,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Antonio Fuoco logró la pole position en Monza con la Ferrari 499P N° 50.",
-        "José María López se ubicó en el quinto puesto de la divisional LMGT3.",
-        "La carrera final de la temporada comenzara el domingo a las 07:00 de Argentina."
-      ],
-      "seSabe": [
-        "Antonio Fuoco marcó un tiempo de 1:33.364 en la Hyperpole de Hypercar.",
-        "El Akkodis ASP Team obtuvo la pole en LMGT3 con Hadrien David al volante del Lexus N° 78.",
-        "La competencia de seis horas se pondrá en marcha este domingo a las 07:00 de Argentina."
-      ],
-      "textoRedes": "Antonio Fuoco logró la pole position del WEC en Monza con la Ferrari y José María López clasificó quinto en la divisional LMGT3.",
-      "etiquetas": [
-        "WEC",
-        "Monza",
-        "Antonio Fuoco",
-        "Jose Maria Lopez",
-        "Ferrari",
-        "Hypercar",
-        "LMGT3"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Campeones",
-          "enlace": "https://campeones.com.ar/wec-antonio-fuoco-pone-a-ferrari-en-la-hyperpole-en-monza/",
-          "fecha": "2026-11-07T16:04:03.000Z",
-          "oficial": false,
-          "aporte": "Informó los detalles de las posiciones de salida y los integrantes de las tripulaciones."
-        },
-        {
-          "medio": "Córdoba Competición",
-          "enlace": "https://cordobacompeticion.com/internacionales/wec/pole-para-ferrari-y-top-5-para-pechito/",
-          "fecha": "2026-11-07T19:16:18.000Z",
-          "oficial": false,
-          "aporte": "Detalló los registros de la sesión de clasificaciones y el tiempo de José María López."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "174ziev",
-          "titulo": "Mario Alberghini defiende la seguridad del autódromo Juan Manuel Fangio",
-          "fecha": "2026-11-06T17:41:48.000Z",
-          "ruta": "/nota/mario-alberghini-defiende-la-seguridad-del-autodromo-juan-manuel-174ziev"
-        },
-        {
-          "id": "1chkyii",
-          "titulo": "Jorge Macri presenta la propuesta para que la Fórmula 1 vuelva a Buenos Aires",
-          "fecha": "2026-11-06T15:32:00.000Z",
-          "ruta": "/nota/jorge-macri-presenta-la-propuesta-para-que-la-formula-1-vuelva-a-1chkyii"
-        },
-        {
-          "id": "1xd4thu",
-          "titulo": "Emerson Fittipaldi llega por primera vez a Balcarce",
-          "fecha": "2026-11-06T14:36:09.000Z",
-          "ruta": "/nota/emerson-fittipaldi-llega-por-primera-vez-a-balcarce-1xd4thu"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "fuoco-consigue-la-pole-en-monza-y-pechito-lopez-clasifica-quinto"
     }
   ],
   "secciones": [
@@ -12299,7 +12061,7 @@
     "ahora": {
       "temp": 12,
       "sensacion": 10,
-      "humedad": 87,
+      "humedad": 88,
       "viento": 11,
       "rumbo": "NO",
       "cielo": "Despejado",
