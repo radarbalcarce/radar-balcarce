@@ -58740,9 +58740,7 @@
   "borrada": true
  },
  "1p5bf1w": {
-  "archivo": "fotos-notas/1p5bf1w.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "Newman vence a Alumni y es el primer finalista del Top 14 de la URBA",
@@ -58774,7 +58772,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "3d15367a2b0c2c6c",
-  "ausenteDesde": "2026-11-02T12:34:55.631Z"
+  "intentado": true,
+  "borrada": true
  },
  "yhn2j5": {
   "medio": "Infórmese Primero (FM 104.9)",
@@ -67322,9 +67321,7 @@
   "ausenteDesde": "2026-11-04T03:08:15.608Z"
  },
  "ujc5yz": {
-  "archivo": "fotos-notas/ujc5yz.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Boca derrota 1 a 0 a River en una nueva edición del Superclásico",
@@ -67344,7 +67341,8 @@
    "descripcion": "Jugadores de Boca y River disputando el balón en el Superclásico"
   },
   "huella": "3a41b17949d8c9c9",
-  "ausenteDesde": "2026-11-02T12:34:55.631Z"
+  "intentado": true,
+  "borrada": true
  },
  "k0gz3v": {
   "archivo": "fotos-notas/k0gz3v.jpg",
@@ -86529,7 +86527,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "96e38cd6d0d6c525"
+  "huella": "96e38cd6d0d6c525",
+  "ausenteDesde": "2026-11-09T13:03:14.923Z"
  },
  "lzeqr7": {
   "intentado": true,
@@ -86580,7 +86579,8 @@
    "corresponde": "si",
    "descripcion": "Inspectores de tránsito labrando multas y revisando documentación"
   },
-  "huella": "e9cbc90e84969ade"
+  "huella": "e9cbc90e84969ade",
+  "ausenteDesde": "2026-11-09T13:03:14.923Z"
  },
  "17p5w4b": {
   "archivo": "fotos-notas/17p5w4b.jpg",
@@ -86604,7 +86604,8 @@
    "corresponde": "generica",
    "descripcion": "Colectivo de la línea 60 circulando por la calle"
   },
-  "huella": "06260638aa2736e0"
+  "huella": "06260638aa2736e0",
+  "ausenteDesde": "2026-11-09T13:03:14.923Z"
  },
  "1kz91kn": {
   "archivo": "fotos-notas/1kz91kn.jpg",
@@ -90860,7 +90861,8 @@
    "corresponde": "si",
    "descripcion": "Nelson Cuevas posando con una camiseta de River."
   },
-  "huella": "39555533903163c1"
+  "huella": "39555533903163c1",
+  "ausenteDesde": "2026-11-09T13:03:14.923Z"
  },
  "5sp4cy": {
   "archivo": "fotos-notas/5sp4cy.jpg",
@@ -97517,7 +97519,8 @@
    "corresponde": "si",
    "descripcion": "Axel Kicillof dando declaraciones a la prensa."
   },
-  "huella": "630a8e0dcdccdc4d"
+  "huella": "630a8e0dcdccdc4d",
+  "ausenteDesde": "2026-11-09T13:03:14.923Z"
  },
  "1g01yxa": {
   "archivo": "fotos-notas/1g01yxa.jpg",
@@ -98473,5 +98476,105 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "616571eab37a6a72"
+ },
+ "1li6hf9": {
+  "archivo": "fotos-notas/1li6hf9.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Los Patos, Boca y San Manuel ganan por el torneo Clausura",
+  "enlace": "https://eldiariobalcarce.com.ar/exitos-de-los-patos-boca-y-san-manuel-352",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-11-09-12-48-44patos.JPG",
+  "razon": "Es la única opción disponible, corresponde a la nota de fútbol local y cumple con todos los criterios de calidad.",
+  "cuando": "2026-11-09T13:02:31.572Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores disputando un partido de fútbol en una cancha de césped"
+  },
+  "huella": "2d55ca7233959718"
+ },
+ "15fqj6p": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "FC Agrarias vence a San Lorenzo y escala al segundo puesto de la Zona C",
+  "razon": "La segunda opinión (groq, porque la primera IA vio gente muy joven) descartó la de El Diario Balcarce (un menor): no se elige ninguna.",
+  "cuando": "2026-11-09T13:02:31.572Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1q11sus": {
+  "archivo": "fotos-notas/1q11sus.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El judoca Teddy Riner anuncia su candidatura presidencial en Francia para 2027",
+  "enlace": "https://www.lanacion.com.ar/deportes/juegos-olimpicos/teddy-riner-la-leyenda-olimpica-que-quiere-ser-el-sucesor-de-emmanuel-macron-como-presidente-de-nid09112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/el-legendario-judoca-frances-teddy-riner-quiere-OXG2T3REEFF73NA2XAVOJDDPGY.JPG?auth=13149238f5bd96239c9495a10c65d1a52053e88681f4fdcda34ca027438d7404&width=1200&height=800&quality=70&smart=true",
+  "razon": "La foto B muestra al judoca Teddy Riner de cuerpo entero con mejor encuadre y sin marcas de agua, ideal para ilustrar la nota.",
+  "cuando": "2026-11-09T13:02:31.572Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Teddy Riner celebrando en un tatami con mejor amplitud de plano.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Teddy Riner gritando con su kimono de judo azul en un estadio."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "6d4d1d3c42e2f3f2"
+ },
+ "1pukxfy": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Abel Pintos, Luciano Pereyra, Jairo y Nahuel Pennisi cantan al papa León XIV",
+  "razon": "Ninguna de las fotos corresponde al hecho mencionado en la nota sobre los artistas cantando al papa.",
+  "cuando": "2026-11-09T13:02:31.572Z",
+  "intentos": 1,
+  "fuentes": 82
+ },
+ "fx6ftw": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El papa León XIV encabeza su primera misa ante una multitud en Palermo",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-09T13:02:31.572Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "19o9ny1": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Las panaderías aplican medidas de emergencia ante el derrumbe en la venta de facturas",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-09T13:02:31.572Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }

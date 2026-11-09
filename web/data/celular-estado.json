@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-09T12:31:25.416Z",
- "portada": 74,
+ "generado": "2026-11-09T13:03:15.079Z",
+ "portada": 87,
  "archivo": 500,
- "esperandoCuerpo": 2,
+ "esperandoCuerpo": 1,
  "redes": {
-  "generado": "2026-11-09T12:31:25.687Z",
+  "generado": "2026-11-09T13:03:15.397Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -43,7 +43,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -103,10 +103,20 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 52,
+    "segundos": 53,
     "notas": [
+     {
+      "id": "1w8v4jx",
+      "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
+      "seccion": "Educación"
+     },
+     {
+      "id": "1li6hf9",
+      "titulo": "Los Patos, Boca y San Manuel ganan por el torneo Clausura",
+      "seccion": "Fútbol"
+     },
      {
       "id": "ect9ll",
       "titulo": "Anticipan temperaturas agradables y lluvias hacia el fin de semana",
@@ -116,16 +126,6 @@
       "id": "1a30pz0",
       "titulo": "Kicillof pide un endeudamiento de USD 1.000 millones y prevé un fondo municipal",
       "seccion": "Política"
-     },
-     {
-      "id": "xiohnl",
-      "titulo": "El papa León XIV visita el Cottolengo Don Orione en Claypole",
-      "seccion": "Argentina"
-     },
-     {
-      "id": "1n263sp",
-      "titulo": "Las ventas minoristas bajan 1,6% interanual en octubre",
-      "seccion": "Economía"
      }
     ]
    },
@@ -136,27 +136,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 51,
     "notas": [
+     {
+      "id": "15fqj6p",
+      "titulo": "FC Agrarias vence a San Lorenzo y escala al segundo puesto de la Zona C",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "5wafjv",
+      "titulo": "Impulsan colecta de golosinas para la visita de Papá Noel a Protección a la Infancia",
+      "seccion": "Balcarce"
+     },
      {
       "id": "1y7jzkw",
       "titulo": "Detienen a una persona por amenazas de muerte contra el papa León XIV",
       "seccion": "Argentina"
      },
      {
-      "id": "12ejmmi",
-      "titulo": "Cinco monjas vuelcan en la Ruta 188 cuando viajaban hacia Luján",
-      "seccion": "Policiales"
-     },
-     {
-      "id": "1mezi1z",
-      "titulo": "Jorge Macri entrega las llaves de la Ciudad al papa León XIV",
-      "seccion": "Política"
-     },
-     {
-      "id": "861rdk",
-      "titulo": "Liverpool vence 3 a 1 al Crystal Palace con un gol de Alexis Mac Allister",
-      "seccion": "Fútbol"
+      "id": "1n263sp",
+      "titulo": "Las ventas minoristas bajan 1,6% interanual en octubre",
+      "seccion": "Economía"
      }
     ]
    },
@@ -167,27 +167,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 52,
     "notas": [
+     {
+      "id": "1kowtv2",
+      "titulo": "Ferroviarios gana el clásico y continúan los triunfos en el torneo",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "4crcso",
+      "titulo": "El Colegio Emilio Lamarca organiza una nueva Caravana de la Alegría",
+      "seccion": "Balcarce"
+     },
      {
       "id": "1vn9y3q",
       "titulo": "El papa Léon XIV llega hoy a la Argentina en su primera visita oficial",
       "seccion": "Argentina"
      },
      {
-      "id": "4qved0",
-      "titulo": "El papa León XIV encabeza un acto en el Palacio Libertad",
-      "seccion": "Política"
-     },
-     {
-      "id": "4hqzww",
-      "titulo": "Luca Regiardo pide disculpas por los festejos de Newell's tras el gol de Boca",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "8gz70k",
-      "titulo": "Nvidia investiga a su CEO por una presunta red de espionaje chino",
-      "seccion": "Tecnología"
+      "id": "12ejmmi",
+      "titulo": "Cinco monjas vuelcan en la Ruta 188 cuando viajaban hacia Luján",
+      "seccion": "Policiales"
      }
     ]
    }
@@ -196,15 +196,27 @@
    "hoy": [],
    "cola": [
     {
-     "id": "ect9ll",
-     "titulo": "Anticipan temperaturas agradables y lluvias hacia el fin de semana",
-     "seccion": "Balcarce",
+     "id": "1w8v4jx",
+     "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
+     "seccion": "Educación",
      "marcada": false
     },
     {
-     "id": "xiohnl",
-     "titulo": "El papa León XIV visita el Cottolengo Don Orione en Claypole",
-     "seccion": "Argentina",
+     "id": "1li6hf9",
+     "titulo": "Los Patos, Boca y San Manuel ganan por el torneo Clausura",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "15fqj6p",
+     "titulo": "FC Agrarias vence a San Lorenzo y escala al segundo puesto de la Zona C",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "ect9ll",
+     "titulo": "Anticipan temperaturas agradables y lluvias hacia el fin de semana",
+     "seccion": "Balcarce",
      "marcada": false
     }
    ],
