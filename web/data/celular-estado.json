@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-09T15:33:07.101Z",
- "portada": 91,
+ "generado": "2026-11-09T16:03:00.085Z",
+ "portada": 84,
  "archivo": 500,
  "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-11-09T15:33:07.564Z",
+  "generado": "2026-11-09T16:03:00.613Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -43,7 +43,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -53,7 +53,7 @@
     "que": "Participá: mandanos noticias",
     "voz": "locutora",
     "ventana": 60,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -103,31 +103,10 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null,
-    "segundos": 52,
-    "notas": [
-     {
-      "id": "1w8v4jx",
-      "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
-      "seccion": "Educación"
-     },
-     {
-      "id": "1tpvs2y",
-      "titulo": "Abren los últimos cupos para la carrera de trail",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "1hado1m",
-      "titulo": "La Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "1su1zi1",
-      "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
-      "seccion": "Fútbol"
-     }
-    ]
+    "segundos": null,
+    "notas": []
    },
    {
     "nombre": "noticia2",
@@ -136,7 +115,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 50,
     "notas": [
      {
       "id": "6qyz7u",
@@ -144,19 +123,19 @@
       "seccion": "Deportes"
      },
      {
+      "id": "1su1zi1",
+      "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
+      "seccion": "Fútbol"
+     },
+     {
       "id": "1su15zm",
       "titulo": "Garantizan la continuidad del Registro del Automotor",
       "seccion": "Balcarce"
      },
      {
-      "id": "1li6hf9",
-      "titulo": "Los Patos, Boca y San Manuel ganan por el torneo Clausura",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "8umlw9",
-      "titulo": "Los Pinos celebra su aniversario con una jornada de promoción vitivinícola",
-      "seccion": "Agro"
+      "id": "1cpw03j",
+      "titulo": "Camila Peralta actúa en la nueva serie de Netflix dirigida por Trapero",
+      "seccion": "Cultura y agenda"
      }
     ]
    },
@@ -167,17 +146,12 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 48,
     "notas": [
      {
-      "id": "15fqj6p",
-      "titulo": "FC Agrarias vence a San Lorenzo y escala al segundo puesto de la Zona C",
+      "id": "1li6hf9",
+      "titulo": "Los Patos, Boca y San Manuel ganan por el torneo Clausura",
       "seccion": "Fútbol"
-     },
-     {
-      "id": "ect9ll",
-      "titulo": "Anticipan temperaturas agradables y lluvias hacia el fin de semana",
-      "seccion": "Balcarce"
      },
      {
       "id": "1a30pz0",
@@ -188,6 +162,11 @@
       "id": "1n263sp",
       "titulo": "Las ventas minoristas bajan 1,6% interanual en octubre",
       "seccion": "Economía"
+     },
+     {
+      "id": "1a0snlf",
+      "titulo": "Detienen en Palermo a un falso bombero cerca del escenario del Papa",
+      "seccion": "Policiales"
      }
     ]
    }
@@ -195,24 +174,6 @@
   "facebook": {
    "hoy": [],
    "cola": [
-    {
-     "id": "1w8v4jx",
-     "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
-     "seccion": "Educación",
-     "marcada": false
-    },
-    {
-     "id": "1tpvs2y",
-     "titulo": "Abren los últimos cupos para la carrera de trail",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "1hado1m",
-     "titulo": "La Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
-     "seccion": "Deportes",
-     "marcada": false
-    },
     {
      "id": "6qyz7u",
      "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
@@ -232,6 +193,12 @@
      "marcada": false
     },
     {
+     "id": "1cpw03j",
+     "titulo": "Camila Peralta actúa en la nueva serie de Netflix dirigida por Trapero",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
      "id": "1li6hf9",
      "titulo": "Los Patos, Boca y San Manuel ganan por el torneo Clausura",
      "seccion": "Fútbol",
@@ -240,6 +207,12 @@
     {
      "id": "15fqj6p",
      "titulo": "FC Agrarias vence a San Lorenzo y escala al segundo puesto de la Zona C",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1msxvk3",
+     "titulo": "Rosario Central responde con un video institucional tras el festejo frustrado",
      "seccion": "Fútbol",
      "marcada": false
     }
