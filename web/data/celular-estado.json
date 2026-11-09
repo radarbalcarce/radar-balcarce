@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-09T14:03:48.868Z",
- "portada": 77,
- "archivo": 499,
- "esperandoCuerpo": 2,
+ "generado": "2026-11-09T14:32:34.084Z",
+ "portada": 82,
+ "archivo": 500,
+ "esperandoCuerpo": 1,
  "redes": {
-  "generado": "2026-11-09T14:03:49.248Z",
+  "generado": "2026-11-09T14:32:34.499Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -105,8 +105,18 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 52,
+    "segundos": 49,
     "notas": [
+     {
+      "id": "1w8v4jx",
+      "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
+      "seccion": "Educación"
+     },
+     {
+      "id": "6qyz7u",
+      "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
+      "seccion": "Deportes"
+     },
      {
       "id": "1su1zi1",
       "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
@@ -116,16 +126,6 @@
       "id": "1su15zm",
       "titulo": "Garantizan la continuidad del Registro del Automotor",
       "seccion": "Balcarce"
-     },
-     {
-      "id": "1a30pz0",
-      "titulo": "Kicillof pide un endeudamiento de USD 1.000 millones y prevé un fondo municipal",
-      "seccion": "Política"
-     },
-     {
-      "id": "1a0snlf",
-      "titulo": "Detienen en Palermo a un falso bombero cerca del escenario del Papa",
-      "seccion": "Policiales"
      }
     ]
    },
@@ -136,7 +136,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 54,
     "notas": [
      {
       "id": "1li6hf9",
@@ -149,14 +149,14 @@
       "seccion": "Balcarce"
      },
      {
+      "id": "1a30pz0",
+      "titulo": "Kicillof pide un endeudamiento de USD 1.000 millones y prevé un fondo municipal",
+      "seccion": "Política"
+     },
+     {
       "id": "1n263sp",
       "titulo": "Las ventas minoristas bajan 1,6% interanual en octubre",
       "seccion": "Economía"
-     },
-     {
-      "id": "f9z7ys",
-      "titulo": "El papa León XIV encabeza la misa central en el Monumento a los Españoles",
-      "seccion": "Argentina"
      }
     ]
    },
@@ -167,7 +167,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 50,
     "notas": [
      {
       "id": "15fqj6p",
@@ -175,8 +175,8 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "12ejmmi",
-      "titulo": "Cinco monjas vuelcan en la Ruta 188 cuando viajaban hacia Luján",
+      "id": "1a0snlf",
+      "titulo": "Detienen en Palermo a un falso bombero cerca del escenario del Papa",
       "seccion": "Policiales"
      },
      {
@@ -195,6 +195,18 @@
   "facebook": {
    "hoy": [],
    "cola": [
+    {
+     "id": "1w8v4jx",
+     "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
+     "seccion": "Educación",
+     "marcada": false
+    },
+    {
+     "id": "6qyz7u",
+     "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
+     "seccion": "Deportes",
+     "marcada": false
+    },
     {
      "id": "1su1zi1",
      "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
