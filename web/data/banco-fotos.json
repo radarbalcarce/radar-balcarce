@@ -57381,9 +57381,7 @@
   "fuentes": 1
  },
  "ew76gn": {
-  "archivo": "fotos-notas/ew76gn.jpg",
   "medio": "Clarín",
-  "credito": "Foto: Clarín",
   "licencia": null,
   "origen": "medio",
   "titulo": "Luis María Urriza asume la presidencia de la Asociación de Maíz y Sorgo",
@@ -57403,7 +57401,8 @@
    "descripcion": "Retrato de Luis María Urriza en un entorno de campo."
   },
   "huella": "5836f3e169212372",
-  "ausenteDesde": "2026-11-02T17:46:44.091Z"
+  "intentado": true,
+  "borrada": true
  },
  "1messk8": {
   "intentado": true,
@@ -58244,9 +58243,7 @@
   "borrada": true
  },
  "11h87ft": {
-  "archivo": "fotos-notas/11h87ft.jpg",
   "medio": "Olé",
-  "credito": "Foto: Olé",
   "licencia": null,
   "origen": "medio",
   "titulo": "Tigre vence a Huracán en el inicio de la decimoquinta fecha",
@@ -58266,7 +58263,8 @@
    "descripcion": "Jugadores de Tigre en disputa de balón durante el partido."
   },
   "huella": "b8b8d2a9f1f05899",
-  "ausenteDesde": "2026-11-02T17:46:44.091Z"
+  "intentado": true,
+  "borrada": true
  },
  "vcum32": {
   "medio": "El Eco de Tandil",
@@ -59865,9 +59863,7 @@
   "borrada": true
  },
  "6pllp2": {
-  "archivo": "fotos-notas/6pllp2.jpg",
   "medio": "El Cronista",
-  "credito": "Foto: El Cronista",
   "licencia": null,
   "origen": "medio",
   "titulo": "ARCA devolverá 9.377 millones a Enrique Piñeyro tras un fallo judicial",
@@ -59887,7 +59883,8 @@
    "descripcion": "Retrato de Enrique Piñeyro con camisa y corbata frente a una biblioteca"
   },
   "huella": "3705613171731233",
-  "ausenteDesde": "2026-11-02T17:46:44.091Z"
+  "intentado": true,
+  "borrada": true
  },
  "yov4eb": {
   "medio": "La Verdad",
@@ -86961,7 +86958,8 @@
    "corresponde": "si",
    "descripcion": "Gustavo Torres con un micrófono de Líder 90.9 enfrente"
   },
-  "huella": "16161612587060e8"
+  "huella": "16161612587060e8",
+  "ausenteDesde": "2026-11-09T18:02:29.856Z"
  },
  "1b5krcg": {
   "archivo": "fotos-notas/1b5krcg.jpg",
@@ -87121,7 +87119,8 @@
    "corresponde": "si",
    "descripcion": "Un costillar de asado a la estaca cocinándose al aire libre"
   },
-  "huella": "23b138ec54d4c8d1"
+  "huella": "23b138ec54d4c8d1",
+  "ausenteDesde": "2026-11-09T18:02:29.856Z"
  },
  "7ssgnq": {
   "archivo": "fotos-notas/7ssgnq.jpg",
@@ -88511,7 +88510,8 @@
    "corresponde": "si",
    "descripcion": "Restos de animales muertos en zona afectada junto a un alambrado"
   },
-  "huella": "1b07060ecfe52abd"
+  "huella": "1b07060ecfe52abd",
+  "ausenteDesde": "2026-11-09T18:02:29.856Z"
  },
  "1lm62dw": {
   "archivo": "fotos-notas/1lm62dw.jpg",
@@ -90392,7 +90392,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "0933115637ab3311"
+  "huella": "0933115637ab3311",
+  "ausenteDesde": "2026-11-09T18:02:29.856Z"
  },
  "cwyl95": {
   "archivo": "fotos-notas/cwyl95.jpg",
@@ -99238,13 +99239,28 @@
   "huella": "e5d06252e80b3a93"
  },
  "8sz7y8": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/8sz7y8.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Pancho Chévez saluda a León XIV y conoce a tres papas en Claypole",
-  "razon": "Todas las opciones disponibles son collages que mezclan múltiples imágenes y fotos históricas, o no cumplen con los requisitos de nitidez y encuadre limpio.",
-  "cuando": "2026-11-09T15:32:23.952Z",
-  "intentos": 1,
-  "fuentes": 3
+  "enlace": "https://www.eldestapeweb.com/sociedad/musico-leon-gieco-conocio-juan-pablo-ii-francisco-ahora-saludo-leon-xiv-argentina-2026119122118",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/112026/1794237713161.jpg?&cw=1600&ch=900",
+  "razon": "Es la única foto válida que corresponde a la nota, sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-11-09T18:02:03.286Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Pancho Chévez sonriendo en primer plano y saludando al Papa"
+  },
+  "huella": "cde6eb7171d4a4f4"
  },
  "1cpw03j": {
   "archivo": "fotos-notas/1cpw03j.jpg",
@@ -99734,7 +99750,8 @@
    "corresponde": "si",
    "descripcion": "Vista general de la multitud frente al escenario en Palermo"
   },
-  "huella": "e4acad8dab755d6b"
+  "huella": "e4acad8dab755d6b",
+  "ausenteDesde": "2026-11-09T18:02:29.856Z"
  },
  "9nq4dy": {
   "archivo": "fotos-notas/9nq4dy.jpg",
@@ -99818,6 +99835,77 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "4c3f3bbbbbb3a7e6"
+  "huella": "4c3f3bbbbbb3a7e6",
+  "ausenteDesde": "2026-11-09T18:02:29.856Z"
+ },
+ "1tveim": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Lionel Messi integra el once ideal de 2026 elegido por futbolistas",
+  "razon": "La única imagen disponible es una ilustración digital (no una fotografía) y además lleva la marca de agua del medio 'Doble Amarilla'.",
+  "cuando": "2026-11-09T18:02:03.286Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "1lz4tts": {
+  "archivo": "fotos-notas/1lz4tts.jpg",
+  "medio": "Los Andes (Mendoza)",
+  "credito": "Foto: Los Andes (Mendoza)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "León XIV oficia su primera misa ante una multitud en Palermo",
+  "enlace": "https://www.losandes.com.ar/sociedad/la-homilia-completa-del-papa-leon-xiv-la-misa-palermo-la-familia-es-la-fuente-los-valores-fundamentales-n6013562",
+  "imagenOriginal": "https://media.losandes.com.ar/p/1a484a1e5d58bb3dbc4756eb19dd3810/adjuntos/368/imagenes/100/764/0100764798/1200x675/smart/el-papa-leon-xiv-la-misa-palermo.jpg",
+  "razon": "La foto B muestra claramente al religioso oficiando la misa sin marcas de agua ni elementos que la invaliden.",
+  "cuando": "2026-11-09T18:02:03.286Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "León XIV y otro religioso parados junto al altar durante la ceremonia."
+  },
+  "huella": "2b6b6b26a697979b"
+ },
+ "1o7vg8b": {
+  "archivo": "fotos-notas/1o7vg8b.webp",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Plata define a sus bandas finalistas en el festival La Plata Rock",
+  "enlace": "https://www.eldia.com/la-ciudad/la-plata-rock-2026-ya-tiene-a-todos-los-finalistas-la-ciudad_1794237504",
+  "imagenOriginal": "https://cdn1.eldia.com/112026/1794237539536.webp?&cw=1200&ch=630",
+  "razon": "La foto A muestra claramente a una banda tocando en vivo en el festival con buena nitidez y sin marcas de agua añadidas.",
+  "cuando": "2026-11-09T18:02:03.286Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Banda tocando en vivo en el escenario del festival La Plata Rock",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Banda de rock tocando en vivo en un escenario con humo y cartel de La Plata Rock al fondo."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "171e1e1e3e6e6e6f"
  }
 }

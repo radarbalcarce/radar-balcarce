@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-09T17:33:17.166Z",
- "portada": 103,
+ "generado": "2026-11-09T18:02:30.046Z",
+ "portada": 91,
  "archivo": 500,
  "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-11-09T17:33:17.638Z",
+  "generado": "2026-11-09T18:02:30.744Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -63,7 +63,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -113,41 +113,15 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 54,
+    "segundos": 51,
     "notas": [
      {
       "id": "17nu3vp",
       "titulo": "Emerson Fittipaldi visita el Museo Fangio por su aniversario",
       "seccion": "Automovilismo"
      },
-     {
-      "id": "1tpvs2y",
-      "titulo": "Abren los últimos cupos para la carrera de trail",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "1hado1m",
-      "titulo": "La Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "4zycxq",
-      "titulo": "Prohíben circular con vehículos en el Geoparque Pun Antú",
-      "seccion": "Balcarce"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 49,
-    "notas": [
      {
       "id": "1cpw03j",
       "titulo": "Camila Peralta actúa en la nueva serie de Netflix dirigida por Trapero",
@@ -162,11 +136,37 @@
       "id": "1su1zi1",
       "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
       "seccion": "Fútbol"
-     },
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 51,
+    "notas": [
      {
       "id": "1su15zm",
       "titulo": "Garantizan la continuidad del Registro del Automotor",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "1li6hf9",
+      "titulo": "Los Patos, Boca y San Manuel ganan por el torneo Clausura",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "1a30pz0",
+      "titulo": "Kicillof pide un endeudamiento de USD 1.000 millones y prevé un fondo municipal",
+      "seccion": "Política"
+     },
+     {
+      "id": "1n263sp",
+      "titulo": "Las ventas minoristas bajan 1,6% interanual en octubre",
+      "seccion": "Economía"
      }
     ]
    }
@@ -181,45 +181,45 @@
      "marcada": false
     },
     {
-     "id": "1tpvs2y",
-     "titulo": "Abren los últimos cupos para la carrera de trail",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "1hado1m",
-     "titulo": "La Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
-     "seccion": "Deportes",
-     "marcada": false
-    },
-    {
-     "id": "e9wwts",
-     "titulo": "Organizan la maratón Jaime Gosende tras el éxito de la carrera Luis Vildoza",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
      "id": "1cpw03j",
      "titulo": "Camila Peralta actúa en la nueva serie de Netflix dirigida por Trapero",
      "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
-     "id": "4zycxq",
-     "titulo": "Prohíben circular con vehículos en el Geoparque Pun Antú",
+     "id": "6qyz7u",
+     "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "1su1zi1",
+     "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1su15zm",
+     "titulo": "Garantizan la continuidad del Registro del Automotor",
      "seccion": "Balcarce",
      "marcada": false
     },
     {
-     "id": "8umlw9",
-     "titulo": "Los Pinos celebra su aniversario con una jornada de promoción vitivinícola",
-     "seccion": "Agro",
+     "id": "1li6hf9",
+     "titulo": "Los Patos, Boca y San Manuel ganan por el torneo Clausura",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
-     "id": "6qyz7u",
-     "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
-     "seccion": "Deportes",
+     "id": "15fqj6p",
+     "titulo": "FC Agrarias vence a San Lorenzo y escala al segundo puesto de la Zona C",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1e3wb39",
+     "titulo": "Fernando Bravo lee la profecía de Ezequiel en la misa del papa León XIV",
+     "seccion": "Argentina",
      "marcada": false
     }
    ],

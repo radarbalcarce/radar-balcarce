@@ -860,6 +860,23 @@
   "textos": 2,
   "numeradas": 3
  },
+ "14n9u2k": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T18:01:39.350Z",
+  "motivo": "título o bajada: 2 problemas (numero): el titulo dice 70 y la fuente no lo dice",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 4 problemas (forma, numero): el titulo trae un escape",
+   "título o bajada: 2 problemas (numero): el titulo dice 70 y la fuente n"
+  ],
+  "falla": [
+   "el titulo dice 70 y la fuente no lo dice",
+   "el cuerpo dice 70 y la fuente no lo dice",
+   "el cuerpo dice 40 y la fuente no lo dice",
+   "el guion dice 70 y la fuente no lo dice"
+  ]
+ },
  "14poxkf": {
   "intentos": 1,
   "ultimo": "2026-11-09T00:02:32.269Z",
@@ -1701,13 +1718,6 @@
   "textos": 3,
   "numeradas": 4
  },
- "1946d29": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T17:33:13.082Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
- },
  "1975r10": {
   "intentos": 1,
   "ultimo": "2026-11-04T11:31:31.524Z",
@@ -1904,13 +1914,6 @@
   "ultimo": "2026-11-03T12:02:34.749Z",
   "motivo": "con cuerpo",
   "textos": 1,
-  "numeradas": 3
- },
- "1a5jddn": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T17:33:13.082Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
   "numeradas": 3
  },
  "1a65ht0": {
@@ -3124,13 +3127,6 @@
    "título o bajada: 1 problema (relleno): el copete tiene una frase de re"
   ]
  },
- "1gvg0gy": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T17:33:13.082Z",
-  "motivo": "con cuerpo",
-  "textos": 5,
-  "numeradas": 12
- },
  "1h2i4lv": {
   "intentos": 1,
   "ultimo": "2026-11-05T21:31:40.921Z",
@@ -4135,6 +4131,13 @@
   "textos": 2,
   "numeradas": 3
  },
+ "1lz4tts": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T18:01:39.350Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
+ },
  "1m0tujp": {
   "intentos": 1,
   "ultimo": "2026-11-07T10:01:19.224Z",
@@ -4431,17 +4434,14 @@
   "numeradas": 4
  },
  "1o7vg8b": {
-  "intentos": 1,
-  "ultimo": "2026-11-09T17:31:51.536Z",
-  "motivo": "cuerpo: 1 problema (copia): copia 37 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 141 palabras",
+  "intentos": 2,
+  "ultimo": "2026-11-09T18:01:39.350Z",
+  "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 2,
   "motivos": [
    "cuerpo: 1 problema (promesa): el título dice 6 y el cuerpo no lo expli",
    "cuerpo: 1 problema (copia): copia 37 palabras seguidas del original: d"
-  ],
-  "falla": [
-   "copia 37 palabras seguidas del original (\"tendra lugar el lunes 16 de noviembre desde las 16 en plaza rocha con…\"): decilo con otras palabra"
   ]
  },
  "1o7z50": {
@@ -4637,13 +4637,6 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
- },
- "1pen8sj": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T17:33:13.082Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1
  },
  "1pgr9m8": {
   "intentos": 1,
@@ -5357,6 +5350,13 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
+ },
+ "1tveim": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T18:01:39.350Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 5
  },
  "1twtpm9": {
   "intentos": 1,
@@ -6294,13 +6294,6 @@
    "cuerpo: 1 problema (nombre): el cuerpo nombra a \"republica\" y la fuent"
   ]
  },
- "222bza": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T17:33:13.082Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1
- },
  "22xln7": {
   "intentos": 1,
   "ultimo": "2026-11-07T15:01:40.693Z",
@@ -6520,13 +6513,6 @@
    "título o bajada: 1 problema (forma): el copete dice \"en vivo\" y el sit",
    "cuerpo: 2 problemas (relleno, copia): el cuerpo tiene una frase de rel"
   ]
- },
- "3jhnaf": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T17:33:13.082Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1
  },
  "3nysc1": {
   "intentos": 1,
@@ -12402,16 +12388,6 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
- },
- "ztn4nn": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T17:33:13.082Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 4,
-  "motivos": [
-   "título o bajada: 1 problema (titulo): el título usa un adjetivo de gan"
-  ]
  },
  "zuh1lf": {
   "intentos": 1,
