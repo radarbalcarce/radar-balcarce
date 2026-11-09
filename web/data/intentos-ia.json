@@ -1101,6 +1101,16 @@
   "textos": 3,
   "numeradas": 4
  },
+ "165dd8j": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T12:01:21.649Z",
+  "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 908 (line 11 column 1)",
+  "textos": 6,
+  "numeradas": 6,
+  "motivos": [
+   "Gemini: Expected ',' or ']' after array element in JSON at position 90"
+  ]
+ },
  "1668yzv": {
   "intentos": 1,
   "ultimo": "2026-11-05T00:02:32.755Z",
@@ -3973,6 +3983,13 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
+ },
+ "1kz3aso": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T12:01:21.649Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 7
  },
  "1kz91kn": {
   "intentos": 3,
@@ -8487,6 +8504,13 @@
   "textos": 1,
   "numeradas": 2
  },
+ "ect9ll": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T12:01:21.649Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
+ },
  "efcm3v": {
   "intentos": 1,
   "ultimo": "2026-11-06T15:32:16.086Z",
@@ -8776,6 +8800,16 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 2
+ },
+ "fohjuq": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T12:01:21.649Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 4,
+  "motivos": [
+   "cuerpo: 1 problema (tildes): el texto está escrito sin tildes (suspens"
+  ]
  },
  "fp5729": {
   "intentos": 1,
@@ -9522,9 +9556,9 @@
   "numeradas": 3
  },
  "jtuxjo": {
-  "intentos": 2,
-  "ultimo": "2026-11-09T11:31:09.878Z",
-  "motivo": "título o bajada: 1 problema (numero): el copete dice 22 y la fuente no lo dice",
+  "intentos": 3,
+  "ultimo": "2026-11-09T12:01:21.649Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
@@ -9532,10 +9566,6 @@
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
    "título o bajada: 1 problema (forma): el copete trae letras rotas (letr",
    "título o bajada: 1 problema (numero): el copete dice 22 y la fuente no"
-  ],
-  "falla": [
-   "el copete dice 22 y la fuente no lo dice",
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "jv6v7i": {

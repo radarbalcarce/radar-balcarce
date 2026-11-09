@@ -61950,9 +61950,7 @@
   "ausenteDesde": "2026-11-03T11:03:16.908Z"
  },
  "dq9pmu": {
-  "archivo": "fotos-notas/dq9pmu.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Noviembre llega con aumentos en tarifas, transporte, prepagas y alquileres",
@@ -61984,12 +61982,11 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "169c597357171757",
-  "ausenteDesde": "2026-11-02T11:33:36.031Z"
+  "intentado": true,
+  "borrada": true
  },
  "1v3oanf": {
-  "archivo": "fotos-notas/1v3oanf.jpg",
   "medio": "Mi8 (Canal 8 Mar del Plata)",
-  "credito": "Foto: Mi8 (Canal 8 Mar del Plata)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Pronostican un fin de semana con lluvias y viento en la región",
@@ -62009,7 +62006,8 @@
    "descripcion": "Vista panorámica de la costa y el mar bajo un cielo gris y nublado."
   },
   "huella": "01010101010e0707",
-  "ausenteDesde": "2026-11-02T11:33:36.031Z"
+  "intentado": true,
+  "borrada": true
  },
  "f1parrilla2026r19": {
   "archivo": "fotos-notas/libre-f1parrilla2026r19.jpg",
@@ -66857,9 +66855,7 @@
   "ausenteDesde": "2026-11-04T03:08:15.608Z"
  },
  "rjdouh": {
-  "archivo": "fotos-notas/rjdouh.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "Anses publica el calendario de pagos de noviembre con aumento y bonos",
@@ -66879,7 +66875,8 @@
    "descripcion": "Fachada de una oficina de ANSES con un inserto circular de dinero"
   },
   "huella": "51c1c1f1f363a3e6",
-  "ausenteDesde": "2026-11-02T11:33:36.031Z"
+  "intentado": true,
+  "borrada": true
  },
  "153in3t": {
   "archivo": "fotos-notas/153in3t.jpg",
@@ -92502,11 +92499,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
-  "razon": "La única foto disponible muestra claramente a menores de edad (alumnos de la escuela técnica) con el rostro visible, lo que impide su publicación según las normas del medio.",
-  "cuando": "2026-11-07T17:02:19.296Z",
-  "intentos": 1,
-  "fuentes": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "razon": "No hay fotos elegibles porque ambas imágenes muestran menores de edad reconocibles.",
+  "cuando": "2026-11-09T12:01:58.710Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "1fygzpu": {
   "intentado": true,
@@ -93437,10 +93433,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Mateo López cierra el Parlamento Juvenil Bonaerense en La Plata",
-  "razon": "La única foto disponible muestra a menores reconocibles, por lo que no puede ser publicada.",
-  "cuando": "2026-11-07T22:02:20.593Z",
-  "intentos": 1,
-  "fuentes": 1
+  "razon": "Todas las fotos muestran menores de edad reconocibles, por lo que no pueden ser publicadas según la política del medio.",
+  "cuando": "2026-11-09T12:01:58.710Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "1j09vcf": {
   "archivo": "fotos-notas/1j09vcf.jpg",
@@ -98365,5 +98361,86 @@
    "descripcion": "Javier Milei sentado en un sillón"
   },
   "huella": "080e020a0a1a0b2b"
+ },
+ "ect9ll": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Anticipan temperaturas agradables y lluvias hacia el fin de semana",
+  "razon": "La foto de Radio Gabal (FM 104.1) ya se usó o se sacó (una persona sacó esa foto de \"El pronóstico anticipa una semana fresca con lluvias y mínimas bajas\": la misma foto ya ilustraba \"El martes llega con una máxima de 22 grados y posibles lluvias\" (i06m20), que es de otro tema (regla 204)) y no hay otra para comparar.",
+  "cuando": "2026-11-09T12:01:58.710Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "fohjuq": {
+  "archivo": "fotos-notas/fohjuq.webp",
+  "medio": "Agencia DIB",
+  "credito": "Foto: Agencia DIB",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Suspenden las licencias a una conductora a contramano y un motociclista en Panamericana",
+  "enlace": "https://dib.com.ar/sociedad/panamericana-suspenden-licencias-andar-contramano-y-hacer-la-maniobra-superman-n57162",
+  "imagenOriginal": "https://media.dib.com.ar/p/34805867317b45716a5f9403debff425/adjuntos/377/imagenes/100/060/0100060381/1200x675/smart/motociclista-peligroso.webp",
+  "razon": "Es la única foto nítida y con buen encuadre que ilustra directamente el hecho sin tener marcas de agua agregadas por el medio.",
+  "cuando": "2026-11-09T12:01:58.710Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Motociclista acostado sobre el asiento en la autopista"
+  },
+  "huella": "df6e376a191a2838"
+ },
+ "jtuxjo": {
+  "archivo": "fotos-notas/jtuxjo.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV inicia su visita oficial en la Argentina con actividades en Buenos Aires",
+  "enlace": "https://www.eldestapeweb.com/sociedad/ver-vivo-encuentro-papa-leon-xiv-milei-palacio-libertad-202611811025",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/112026/1793984777866.jpg?&cw=1600&ch=900",
+  "razon": "Es la foto más clara y representativa del encuentro oficial entre el Papa y el presidente, con buen encuadre y sin marcas ni menores.",
+  "cuando": "2026-11-09T12:01:58.710Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa y el presidente posando juntos sonrientes"
+  },
+  "huella": "4d55d8d8f8985814"
+ },
+ "1kz3aso": {
+  "archivo": "fotos-notas/1kz3aso.jpg",
+  "medio": "Solotc",
+  "credito": "Foto: Solotc",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Canapino gana en La Plata y extiende su ventaja en el TC Pick Up",
+  "enlace": "https://www.solotc.com.ar/tc-pick-up-gano-final-hoy-la-plata-fecha-10-2026/",
+  "imagenOriginal": "https://www.solotc.com.ar/wp-content/uploads/2026/11/Canapino-chevrolet-s10.webp",
+  "razon": "Es la mejor foto en pista de la pick up ganadora, sin marcas agregadas, menores ni problemas de calidad.",
+  "cuando": "2026-11-09T12:01:58.710Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Pick up de Canapino en plena pista"
+  },
+  "huella": "8c8d0d0f2f2db212"
  }
 }

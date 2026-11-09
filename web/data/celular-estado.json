@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-09T11:31:58.392Z",
- "portada": 79,
+ "generado": "2026-11-09T12:02:54.684Z",
+ "portada": 85,
  "archivo": 500,
  "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-11-09T11:31:58.645Z",
+  "generado": "2026-11-09T12:02:54.966Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -105,27 +105,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 53,
     "notas": [
+     {
+      "id": "1w8v4jx",
+      "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
+      "seccion": "Educación"
+     },
+     {
+      "id": "ect9ll",
+      "titulo": "Anticipan temperaturas agradables y lluvias hacia el fin de semana",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "1kowtv2",
+      "titulo": "Ferroviarios gana el clásico y continúan los triunfos en el torneo",
+      "seccion": "Fútbol"
+     },
      {
       "id": "1a30pz0",
       "titulo": "Kicillof pide un endeudamiento de USD 1.000 millones y prevé un fondo municipal",
       "seccion": "Política"
-     },
-     {
-      "id": "h4r3xq",
-      "titulo": "Modifican la actividad escolar y bancaria en Balcarce por la visita del Papa",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1y7jzkw",
-      "titulo": "Detienen a una persona por amenazas de muerte contra el papa León XIV",
-      "seccion": "Argentina"
-     },
-     {
-      "id": "1n263sp",
-      "titulo": "Las ventas minoristas bajan 1,6% interanual en octubre",
-      "seccion": "Economía"
      }
     ]
    },
@@ -136,27 +136,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 49,
     "notas": [
      {
-      "id": "12ejmmi",
-      "titulo": "Cinco monjas vuelcan en la Ruta 188 cuando viajaban hacia Luján",
-      "seccion": "Policiales"
+      "id": "nhniw",
+      "titulo": "Amigos Unidos, San Manuel y San Agustín lideran el Clausura femenino",
+      "seccion": "Fútbol"
      },
      {
-      "id": "1vn9y3q",
-      "titulo": "El papa Léon XIV llega hoy a la Argentina en su primera visita oficial",
+      "id": "h4r3xq",
+      "titulo": "Modifican la actividad escolar y bancaria en Balcarce por la visita del Papa",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "xiohnl",
+      "titulo": "El papa León XIV visita el Cottolengo Don Orione en Claypole",
       "seccion": "Argentina"
      },
      {
-      "id": "1mezi1z",
-      "titulo": "Jorge Macri entrega las llaves de la Ciudad al papa León XIV",
-      "seccion": "Política"
-     },
-     {
-      "id": "861rdk",
-      "titulo": "Liverpool vence 3 a 1 al Crystal Palace con un gol de Alexis Mac Allister",
-      "seccion": "Fútbol"
+      "id": "1n263sp",
+      "titulo": "Las ventas minoristas bajan 1,6% interanual en octubre",
+      "seccion": "Economía"
      }
     ]
    },
@@ -167,34 +167,53 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 52,
     "notas": [
      {
-      "id": "6o6ez1",
-      "titulo": "Karina Milei celebra la llegada del papa León XIV al país",
+      "id": "5wafjv",
+      "titulo": "Impulsan colecta de golosinas para la visita de Papá Noel a Protección a la Infancia",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "1y7jzkw",
+      "titulo": "Detienen a una persona por amenazas de muerte contra el papa León XIV",
       "seccion": "Argentina"
      },
      {
-      "id": "4qved0",
-      "titulo": "El papa León XIV encabeza un acto en el Palacio Libertad",
+      "id": "12ejmmi",
+      "titulo": "Cinco monjas vuelcan en la Ruta 188 cuando viajaban hacia Luján",
+      "seccion": "Policiales"
+     },
+     {
+      "id": "1mezi1z",
+      "titulo": "Jorge Macri entrega las llaves de la Ciudad al papa León XIV",
       "seccion": "Política"
-     },
-     {
-      "id": "4hqzww",
-      "titulo": "Luca Regiardo pide disculpas por los festejos de Newell's tras el gol de Boca",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "8gz70k",
-      "titulo": "Nvidia investiga a su CEO por una presunta red de espionaje chino",
-      "seccion": "Tecnología"
      }
     ]
    }
   ],
   "facebook": {
    "hoy": [],
-   "cola": [],
+   "cola": [
+    {
+     "id": "1w8v4jx",
+     "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
+     "seccion": "Educación",
+     "marcada": false
+    },
+    {
+     "id": "ect9ll",
+     "titulo": "Anticipan temperaturas agradables y lluvias hacia el fin de semana",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "xiohnl",
+     "titulo": "El papa León XIV visita el Cottolengo Don Orione en Claypole",
+     "seccion": "Argentina",
+     "marcada": false
+    }
+   ],
    "cupo": 5,
    "proximoDesde": "2026-11-03T16:06:05.155Z",
    "porDia": 5,
