@@ -3812,18 +3812,18 @@
   "2026-11-09": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 49,
+     "llamadas": 51,
      "errores": 12,
-     "entrada": 88749,
-     "salida": 39900,
+     "entrada": 93229,
+     "salida": 41794,
      "pensamiento": 0,
-     "total": 128649,
+     "total": 135023,
      "claves": {
-      "clasificacion": 49
+      "clasificacion": 51
      },
      "motivos": {
       "clasificacion": {
-       "ok": 37,
+       "ok": 39,
        "cupo-diario": 3,
        "saturado": 9
       }
@@ -3865,20 +3865,20 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 76,
+     "llamadas": 79,
      "errores": 12,
-     "entrada": 783973,
-     "salida": 9544,
+     "entrada": 820650,
+     "salida": 9588,
      "pensamiento": 0,
-     "total": 793517,
+     "total": 830238,
      "claves": {
-      "clasificacion": 76
+      "clasificacion": 79
      },
      "motivos": {
       "clasificacion": {
        "saturado": 4,
        "cupo-diario": 7,
-       "ok": 64,
+       "ok": 67,
        "otro": 1
       }
      }
@@ -3918,18 +3918,18 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 240,
+     "llamadas": 244,
      "errores": 61,
-     "entrada": 1103353,
-     "salida": 188709,
+     "entrada": 1124017,
+     "salida": 193249,
      "pensamiento": 0,
-     "total": 1292062,
+     "total": 1317266,
      "claves": {
-      "redaccion": 240
+      "redaccion": 244
      },
      "motivos": {
       "redaccion": {
-       "ok": 179,
+       "ok": 183,
        "cupo-diario": 17,
        "saturado": 44
       }
@@ -3960,19 +3960,19 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 153,
+     "llamadas": 155,
      "errores": 30,
-     "entrada": 733272,
-     "salida": 56886,
+     "entrada": 743734,
+     "salida": 57624,
      "pensamiento": 0,
-     "total": 790158,
+     "total": 801358,
      "claves": {
-      "clasificacion": 153
+      "clasificacion": 155
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 18,
-       "ok": 123,
+       "ok": 125,
        "saturado": 11,
        "velocidad": 1
       }
