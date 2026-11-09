@@ -53115,9 +53115,7 @@
   "ausenteDesde": "2026-11-01T18:04:13.787Z"
  },
  "1kz5p2j": {
-  "archivo": "fotos-notas/1kz5p2j.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "Alexander Zverev es el nuevo número uno del mundo del tenis",
@@ -53137,12 +53135,11 @@
    "descripcion": "Alexander Zverev parado junto a una gran figura con el número 1"
   },
   "huella": "4ec40d0d0c8f0f37",
-  "ausenteDesde": "2026-11-01T23:37:39.515Z"
+  "intentado": true,
+  "borrada": true
  },
  "sesoov": {
-  "archivo": "fotos-notas/sesoov.jpg",
   "medio": "Ámbito",
-  "credito": "Foto: Ámbito",
   "licencia": null,
   "origen": "medio",
   "titulo": "N5 gana el Premio a la Innovación con Impacto 2026 del Banco Nación",
@@ -53162,7 +53159,8 @@
    "descripcion": "Entrega del Premio a la Innovación con Impacto al ganador N5"
   },
   "huella": "9915113703561694",
-  "ausenteDesde": "2026-11-01T23:37:39.515Z"
+  "intentado": true,
+  "borrada": true
  },
  "1n99xw3": {
   "intentado": true,
@@ -53323,9 +53321,7 @@
   "borrada": true
  },
  "1ae2u4c": {
-  "archivo": "fotos-notas/1ae2u4c.jpg",
   "medio": "Agencia DIB",
-  "credito": "Foto: Agencia DIB",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Corte acepta la demanda bonaerense contra la Nación por los subsidios al transporte",
@@ -53357,7 +53353,8 @@
    "dudosa": "la primera IA vio gente muy joven"
   },
   "huella": "4723a3b4f54d088e",
-  "ausenteDesde": "2026-11-01T23:37:39.515Z"
+  "intentado": true,
+  "borrada": true
  },
  "45kdhz": {
   "medio": "La Nación",
@@ -56647,9 +56644,7 @@
   "borrada": true
  },
  "14xlc1s": {
-  "archivo": "fotos-notas/14xlc1s.jpg",
   "medio": "El Día",
-  "credito": "Foto: El Día",
   "licencia": null,
   "origen": "medio",
   "titulo": "Comienza el debate en el Senado bonaerense para regular a las apps de delivery",
@@ -56669,7 +56664,8 @@
    "descripcion": "Repartidor en moto con caja térmica en la calle."
   },
   "huella": "b9ad293dcb63e56a",
-  "ausenteDesde": "2026-11-01T23:37:39.515Z"
+  "intentado": true,
+  "borrada": true
  },
  "13el5q3": {
   "medio": "Olé",
@@ -83936,7 +83932,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "1ebb5dedce545b8b"
+  "huella": "1ebb5dedce545b8b",
+  "ausenteDesde": "2026-11-09T00:04:33.870Z"
  },
  "1xsiv6s": {
   "intentado": true,
@@ -84234,7 +84231,8 @@
    "corresponde": "si",
    "descripcion": "Retrato formal de tres jueces de la Corte Suprema de pie."
   },
-  "huella": "16125a5acece9d95"
+  "huella": "16125a5acece9d95",
+  "ausenteDesde": "2026-11-09T00:04:33.870Z"
  },
  "yv3uhr": {
   "archivo": "fotos-notas/yv3uhr.webp",
@@ -96813,10 +96811,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Establecen feriado nacional el lunes 9 de noviembre por la visita del papa León XIV",
-  "razon": "Ninguna de las fotos corresponde a la temática de la nota sobre la visita del papa León XIV y el feriado nacional.",
-  "cuando": "2026-11-08T23:02:16.360Z",
-  "intentos": 1,
-  "fuentes": 3
+  "razon": "Ninguna de las fotos corresponde a la visita del papa León XIV ni al feriado mencionado en la nota.",
+  "cuando": "2026-11-09T00:03:13.644Z",
+  "intentos": 2,
+  "fuentes": 4
  },
  "csdxz1": {
   "archivo": "fotos-notas/csdxz1.jpg",
@@ -97009,5 +97007,103 @@
    "descripcion": "Retrato medio de la princesa Ana en el acto."
   },
   "huella": "a410267273331387"
+ },
+ "13cbzqc": {
+  "archivo": "fotos-notas/13cbzqc.jpg",
+  "medio": "La Nueva",
+  "credito": "Foto: La Nueva",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Villarruel afirma que el Papa conoce la división del país y reclama diálogo",
+  "enlace": "https://www.lanueva.com/nota/2026-11-8-19-51-0-villarruel-advirtio-que-el-papa-sabe-que-en-la-argentina-no-somos-todos-hermanos-y-pidio-dialogo-politico",
+  "imagenOriginal": "https://pxcdn.lanueva.com/112026/1794179653312.jpg?&cw=600&ch=365",
+  "razon": "Es la única foto válida que corresponde a la nota, ya que la opción A tiene una marca de agua sobreimpresa del medio Noticias Argentinas.",
+  "cuando": "2026-11-09T00:03:13.644Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Victoria Villarruel saludando con la mano junto a una agente de seguridad."
+  },
+  "huella": "085a2a9a9b991838"
+ },
+ "1e15yz": {
+  "archivo": "fotos-notas/1e15yz.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Constituyen la Mesa Multisectorial de Inteligencia Artificial en La Plata",
+  "enlace": "https://www.eldia.com/politica-y-economia/se-constituyo-en-la-plata-la-primera-mesa-multisectorial-de-inteligencia-artificial-politica-y-economia_1794178671",
+  "imagenOriginal": "https://cdn1.eldia.com/112026/1794178721505.jpeg?&cw=1200&ch=630",
+  "razon": "La imagen muestra claramente a los participantes de la reunión, es una fotografía real, no tiene marcas de agua, ni menores, ni elementos gráficos.",
+  "cuando": "2026-11-09T00:03:13.644Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Grupo de personas sentadas alrededor de una mesa de reuniones en una oficina."
+  },
+  "huella": "d54cccadc98dadac"
+ },
+ "14poxkf": {
+  "archivo": "fotos-notas/14poxkf.jpg",
+  "medio": "Bolavip Argentina",
+  "credito": "Foto: Bolavip Argentina",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Barcelona le gana 2 a 1 a Atlético de Madrid y sigue como líder",
+  "enlace": "https://bolavip.com/ar/europa/por-que-cuti-romero-no-juega-para-atletico-de-madrid-contra-barcelona-por-laliga",
+  "imagenOriginal": "https://media.bolavip.com/wp-content/uploads/sites/18/2026/11/08134843/romero-1200x740.webp",
+  "razon": "Es la única imagen completa y nítida que muestra a un jugador del Atlético de Madrid, correspondiendo al equipo mencionado en la nota.",
+  "cuando": "2026-11-09T00:03:13.644Z",
+  "errorGemini": "The operation was aborted due to timeout",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador del Atlético de Madrid con la camiseta de la temporada, de cuerpo entero.",
+   "detalle": "No se observan marcas de agua del medio; los logos visibles (Riyadh Air, Nike, escudo del club) son parte de la indumentaria."
+  },
+  "huella": "642d4d069e0e8e1d"
+ },
+ "1jsbmaf": {
+  "archivo": "fotos-notas/1jsbmaf.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Irlanda supera a Los Pumas por 42 a 12 en Dublín por el Nations Championship",
+  "enlace": "https://www.eldia.com/deportes/los-pumas-no-estuvieron-a-la-altura-en-dublin-deportes_1794118970",
+  "imagenOriginal": "https://cdn1.eldia.com/6aeff69b163de5001f3185ec/1794120902934.jpg?&cw=1200&ch=630",
+  "razon": "Es la foto de mejor nitidez y encuadre que muestra claramente la jugada del partido sin marcas de agua ni menores.",
+  "cuando": "2026-11-09T00:03:13.644Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador con la pelota de Los Pumas rodeado por rivales irlandeses."
+  },
+  "huella": "3ea6961b1b3b2da6"
  }
 }

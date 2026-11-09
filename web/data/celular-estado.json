@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-08T23:34:41.322Z",
- "portada": 96,
+ "generado": "2026-11-09T00:04:34.096Z",
+ "portada": 89,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-11-08T23:34:41.799Z",
+  "generado": "2026-11-09T00:04:34.584Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -73,7 +73,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    }
   ],
@@ -103,15 +103,10 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 54,
+    "segundos": 55,
     "notas": [
-     {
-      "id": "nhniw",
-      "titulo": "Amigos Unidos, San Manuel y San Agustín lideran el Clausura femenino",
-      "seccion": "Fútbol"
-     },
      {
       "id": "1cny5nq",
       "titulo": "Chocan una moto y una camioneta en calles 12 y 25",
@@ -126,6 +121,11 @@
       "id": "h4r3xq",
       "titulo": "Modifican la actividad escolar y bancaria en Balcarce por la visita del Papa",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "uw3mgq",
+      "titulo": "Ferroviarios y Los Patos ganan en el inicio de la cuarta fecha del Clausura",
+      "seccion": "Fútbol"
      }
     ]
    }
@@ -134,26 +134,14 @@
    "hoy": [],
    "cola": [
     {
-     "id": "nhniw",
-     "titulo": "Amigos Unidos, San Manuel y San Agustín lideran el Clausura femenino",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "861rdk",
-     "titulo": "Liverpool vence 3 a 1 al Crystal Palace con un gol de Alexis Mac Allister",
-     "seccion": "Fútbol",
+     "id": "12ejmmi",
+     "titulo": "Cinco monjas vuelcan en la Ruta 188 cuando viajaban hacia Luján",
+     "seccion": "Policiales",
      "marcada": false
     },
     {
      "id": "1a0snlf",
      "titulo": "Detienen en Palermo a un falso bombero cerca del escenario del Papa",
-     "seccion": "Policiales",
-     "marcada": false
-    },
-    {
-     "id": "12ejmmi",
-     "titulo": "Cinco monjas vuelcan en la Ruta 188 cuando viajaban hacia Luján",
      "seccion": "Policiales",
      "marcada": false
     },
@@ -179,6 +167,12 @@
      "id": "kngsvm",
      "titulo": "La torre de control de Aeroparque saluda al papa León XIV en su llegada",
      "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "1j3ytpy",
+     "titulo": "River aguarda por la recuperación de sus lesionados para los playoffs",
+     "seccion": "Fútbol",
      "marcada": false
     }
    ],
