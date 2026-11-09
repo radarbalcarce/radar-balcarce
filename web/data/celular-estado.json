@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-09T18:02:30.046Z",
- "portada": 91,
+ "generado": "2026-11-09T18:33:53.506Z",
+ "portada": 103,
  "archivo": 500,
- "esperandoCuerpo": 2,
+ "esperandoCuerpo": 1,
  "redes": {
-  "generado": "2026-11-09T18:02:30.744Z",
+  "generado": "2026-11-09T18:33:54.074Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -115,7 +115,7 @@
     "voz": "locutora",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 51,
+    "segundos": 54,
     "notas": [
      {
       "id": "17nu3vp",
@@ -123,13 +123,13 @@
       "seccion": "Automovilismo"
      },
      {
-      "id": "1cpw03j",
-      "titulo": "Camila Peralta actúa en la nueva serie de Netflix dirigida por Trapero",
+      "id": "1tpvs2y",
+      "titulo": "Abren los últimos cupos para la carrera de trail",
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "6qyz7u",
-      "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
+      "id": "1hado1m",
+      "titulo": "La Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
       "seccion": "Deportes"
      },
      {
@@ -146,8 +146,13 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 48,
     "notas": [
+     {
+      "id": "6qyz7u",
+      "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
+      "seccion": "Deportes"
+     },
      {
       "id": "1su15zm",
       "titulo": "Garantizan la continuidad del Registro del Automotor",
@@ -159,14 +164,9 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "1a30pz0",
-      "titulo": "Kicillof pide un endeudamiento de USD 1.000 millones y prevé un fondo municipal",
-      "seccion": "Política"
-     },
-     {
-      "id": "1n263sp",
-      "titulo": "Las ventas minoristas bajan 1,6% interanual en octubre",
-      "seccion": "Economía"
+      "id": "1cpw03j",
+      "titulo": "Camila Peralta actúa en la nueva serie de Netflix dirigida por Trapero",
+      "seccion": "Cultura y agenda"
      }
     ]
    }
@@ -181,8 +181,20 @@
      "marcada": false
     },
     {
-     "id": "1cpw03j",
-     "titulo": "Camila Peralta actúa en la nueva serie de Netflix dirigida por Trapero",
+     "id": "1tpvs2y",
+     "titulo": "Abren los últimos cupos para la carrera de trail",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "1hado1m",
+     "titulo": "La Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "e9wwts",
+     "titulo": "Organizan la maratón Jaime Gosende tras el éxito de la carrera Luis Vildoza",
      "seccion": "Cultura y agenda",
      "marcada": false
     },
@@ -208,18 +220,6 @@
      "id": "1li6hf9",
      "titulo": "Los Patos, Boca y San Manuel ganan por el torneo Clausura",
      "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "15fqj6p",
-     "titulo": "FC Agrarias vence a San Lorenzo y escala al segundo puesto de la Zona C",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "1e3wb39",
-     "titulo": "Fernando Bravo lee la profecía de Ezequiel en la misa del papa León XIV",
-     "seccion": "Argentina",
      "marcada": false
     }
    ],
