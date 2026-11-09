@@ -2453,11 +2453,18 @@
   "numeradas": 3
  },
  "1ct1o11": {
-  "intentos": 1,
-  "ultimo": "2026-11-08T21:01:12.499Z",
-  "motivo": "con cuerpo",
-  "textos": 5,
-  "numeradas": 12
+  "intentos": 2,
+  "ultimo": "2026-11-09T00:31:17.973Z",
+  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 251 palabras",
+  "textos": 6,
+  "numeradas": 9,
+  "motivos": [
+   "cuerpo: 1 problema (promesa): el título dice 12 y el cuerpo no lo expl",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ],
+  "falla": [
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+  ]
  },
  "1cud4al": {
   "intentos": 3,
@@ -4579,13 +4586,6 @@
    "copia 20 palabras seguidas del original (\"una nacion debe preguntarse seriamente en que ha fallado cuando sus jovenes deben abandonar…\"): de"
   ]
  },
- "1oeiue6": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T00:31:36.741Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 5
- },
  "1of4uev": {
   "intentos": 2,
   "ultimo": "2026-11-05T10:32:07.640Z",
@@ -5778,6 +5778,13 @@
   "textos": 1,
   "numeradas": 3
  },
+ "1w7abir": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T00:31:17.973Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "1w8iw8b": {
   "intentos": 1,
   "ultimo": "2026-11-04T06:03:10.172Z",
@@ -6959,17 +6966,15 @@
   "numeradas": 23
  },
  "5wafjv": {
-  "intentos": 1,
-  "ultimo": "2026-11-08T23:31:29.856Z",
-  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "intentos": 2,
+  "ultimo": "2026-11-09T00:31:17.973Z",
+  "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1,
   "motivos": [
    "cuerpo: 2 problemas (fecha): el cuerpo menciona \"domingo\" y la fuente ",
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
-  ],
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo"
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
+   "cuerpo: 1 problema (fecha): el cuerpo menciona \"domingo\" y la fuente n"
   ]
  },
  "5wpmwc": {
@@ -7819,6 +7824,16 @@
   "textos": 2,
   "numeradas": 3
  },
+ "azz917": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T00:31:17.973Z",
+  "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 651 (line 10 column 1)",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "Gemini: Expected ',' or ']' after array element in JSON at position 65"
+  ]
+ },
  "b2uk9i": {
   "intentos": 1,
   "ultimo": "2026-11-05T08:01:29.164Z",
@@ -8348,6 +8363,13 @@
  "dd61fh": {
   "intentos": 1,
   "ultimo": "2026-11-06T22:32:08.758Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
+ },
+ "dd65l1": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T00:31:17.973Z",
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
@@ -10223,6 +10245,13 @@
   "textos": 6,
   "numeradas": 8
  },
+ "mwhkfn": {
+  "intentos": 1,
+  "ultimo": "2026-11-09T00:31:17.973Z",
+  "motivo": "con cuerpo",
+  "textos": 8,
+  "numeradas": 11
+ },
  "my1d4w": {
   "intentos": 1,
   "ultimo": "2026-11-02T20:31:54.719Z",
@@ -12035,18 +12064,15 @@
   "numeradas": 11
  },
  "wvx7dy": {
-  "intentos": 1,
-  "ultimo": "2026-11-09T00:02:32.269Z",
-  "motivo": "título o bajada: 1 problema (fecha): el copete menciona \"domingo\" y la fuente no",
+  "intentos": 2,
+  "ultimo": "2026-11-09T00:31:17.973Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 5,
   "motivos": [
    "cuerpo: 2 problemas (forma, relleno): el cuerpo trae letras rotas (let",
-   "título o bajada: 1 problema (fecha): el copete menciona \"domingo\" y la"
-  ],
-  "falla": [
-   "el copete menciona \"domingo\" y la fuente no",
-   "el cuerpo menciona \"domingo\" y la fuente no"
+   "título o bajada: 1 problema (fecha): el copete menciona \"domingo\" y la",
+   "título o bajada: 1 problema (nombre): el copete nombra a \"ciudad\" y la"
   ]
  },
  "wxjxt8": {
