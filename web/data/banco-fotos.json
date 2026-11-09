@@ -85141,7 +85141,8 @@
    "corresponde": "si",
    "descripcion": "Personas caminando bajo la lluvia con paraguas en una calle urbana."
   },
-  "huella": "ccadbc9e989afcbc"
+  "huella": "ccadbc9e989afcbc",
+  "ausenteDesde": "2026-11-09T04:02:52.458Z"
  },
  "1umgasr": {
   "intentado": true,
@@ -93831,7 +93832,8 @@
    "corresponde": "si",
    "descripcion": "El Papa caminando durante la ceremonia religiosa."
   },
-  "huella": "660e8fcbcbdb5622"
+  "huella": "660e8fcbcbdb5622",
+  "ausenteDesde": "2026-11-09T04:02:52.458Z"
  },
  "8utupe": {
   "archivo": "fotos-notas/8utupe.jpg",
@@ -95018,7 +95020,8 @@
    "corresponde": "si",
    "descripcion": "Auto de Fórmula 1 en pista de frente"
   },
-  "huella": "6af2acecec92d842"
+  "huella": "6af2acecec92d842",
+  "ausenteDesde": "2026-11-09T04:02:52.458Z"
  },
  "128dpdk": {
   "archivo": "fotos-notas/128dpdk.jpg",
@@ -97649,7 +97652,8 @@
    "corresponde": "si",
    "descripcion": "El Papa León XIV de pie frente a una bandera del Vaticano."
   },
-  "huella": "88888c8c8ecacfdb"
+  "huella": "88888c8c8ecacfdb",
+  "ausenteDesde": "2026-11-09T04:02:52.458Z"
  },
  "102hgcf": {
   "intentado": true,
@@ -97682,6 +97686,85 @@
    "corresponde": "si",
    "descripcion": "Auto de Fórmula 1 en pista."
   },
-  "huella": "6af2acecec92d842"
+  "huella": "6af2acecec92d842",
+  "ausenteDesde": "2026-11-09T04:02:52.458Z"
+ },
+ "1a3idp3": {
+  "archivo": "fotos-notas/1a3idp3.webp",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Milei responde al mensaje del Papa y cuestiona a la oposición",
+  "enlace": "https://www.eldia.com/politica-y-economia/milei-respondio-al-mensaje-de-dialogo-del-papa-leon-xiv-la-oposicion-voto-destruir-el-equilibrio-politica-y-economia_1794183832",
+  "imagenOriginal": "https://cdn1.eldia.com/112026/1794183881796.webp?&cw=1200&ch=630",
+  "razon": "La foto A muestra el encuentro central de la noticia con buena calidad y sin marcas, mientras que la B es una imagen genérica de archivo que no ilustra el hecho específico.",
+  "cuando": "2026-11-09T04:02:08.459Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei saludando al Papa Francisco."
+  },
+  "huella": "004161616171b797"
+ },
+ "5gecwu": {
+  "archivo": "fotos-notas/5gecwu.jpg",
+  "medio": "A24",
+  "credito": "Foto: A24",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Disponen feriados en distintas ciudades por la visita del Papa León XIV",
+  "enlace": "https://www.a24.com/actualidad/feriados-la-visita-del-papa-leon-xiv-que-servicios-funcionaran-y-cuales-estaran-cerrados-buenos-aires-n1614462",
+  "imagenOriginal": "https://media.a24.com/p/2be2e291201a682316ed73f2c201018f/adjuntos/296/imagenes/009/845/0009845035/1200x675/smart/papa-leon.jpg",
+  "razon": "Es la única imagen que ilustra directamente el hecho mencionado en la nota (la visita del Papa), mientras que las otras opciones muestran transporte público local sin relación con el evento.",
+  "cuando": "2026-11-09T04:02:08.459Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa saludando desde el papamóvil.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "El Papa León XIV saluda desde el Papamóvil ante una multitud que lo fotografía."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "4f2b2b272fab3b5b"
+ },
+ "1o86wqu": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Elizabeth Vernaci y Marta Fort ganan medallas en MasterChef Celebrity",
+  "razon": "La única imagen disponible es una captura de pantalla de una transmisión televisiva, lo cual la clasifica como gráfica.",
+  "cuando": "2026-11-09T04:02:08.459Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "ekf7ku": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Franco Colapinto termina decimotercero en el Gran Premio de Brasil",
+  "razon": "La foto A tiene una marca de agua sobreimpresa del medio (Doble Amarilla) y la foto B no corresponde al hecho, ya que muestra a otro piloto (Jack Doohan) y no a Franco Colapinto.",
+  "cuando": "2026-11-09T04:02:08.459Z",
+  "intentos": 1,
+  "fuentes": 2
  }
 }
