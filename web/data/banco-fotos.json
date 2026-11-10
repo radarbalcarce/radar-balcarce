@@ -70729,9 +70729,7 @@
   "ausenteDesde": "2026-11-03T10:11:45.295Z"
  },
  "tsw1li": {
-  "archivo": "fotos-notas/tsw1li.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "Habilitan la consulta del padrón provisorio para las elecciones de 2027",
@@ -70751,7 +70749,8 @@
    "descripcion": "Persona consultando un padrón electoral pegado en una pared."
   },
   "huella": "3d3535e3d13195a5",
-  "ausenteDesde": "2026-11-03T09:03:03.004Z"
+  "intentado": true,
+  "borrada": true
  },
  "1z04hy": {
   "archivo": "fotos-notas/1z04hy.jpg",
@@ -70956,9 +70955,7 @@
   "ausenteDesde": "2026-11-03T21:35:57.865Z"
  },
  "1a65ht0": {
-  "archivo": "fotos-notas/1a65ht0.webp",
   "medio": "El Día",
-  "credito": "Foto: El Día",
   "licencia": null,
   "origen": "medio",
   "titulo": "Noviembre llega con aumentos en transporte, servicios y medicina prepaga",
@@ -70990,7 +70987,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "ccccae8cacac8cbc",
-  "ausenteDesde": "2026-11-03T09:03:03.004Z"
+  "intentado": true,
+  "borrada": true
  },
  "rmesn7": {
   "archivo": "fotos-notas/rmesn7.jpg",
@@ -89954,7 +89952,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "8e8f052d4d4e4d4d"
+  "huella": "8e8f052d4d4e4d4d",
+  "ausenteDesde": "2026-11-10T10:04:21.516Z"
  },
  "wgd2zk": {
   "archivo": "fotos-notas/wgd2zk.jpg",
@@ -98143,7 +98142,8 @@
    "corresponde": "si",
    "descripcion": "Residentes adultos en el interior del Cottolengo Don Orione."
   },
-  "huella": "9d8aaaaea6868793"
+  "huella": "9d8aaaaea6868793",
+  "ausenteDesde": "2026-11-10T10:04:21.516Z"
  },
  "8gz70k": {
   "archivo": "fotos-notas/8gz70k.jpg",
@@ -101026,7 +101026,8 @@
    "corresponde": "si",
    "descripcion": "El Papa León XIV dando un discurso frente a un micrófono."
   },
-  "huella": "686e6c7676eeefd7"
+  "huella": "686e6c7676eeefd7",
+  "ausenteDesde": "2026-11-10T10:04:21.516Z"
  },
  "1gqvau3": {
   "archivo": "fotos-notas/1gqvau3.jpg",
@@ -102145,11 +102146,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Pablo Quirno asegura que el mensaje del papa León XIV interpela a todos",
-  "razon": "Ambas imágenes son capturas de pantalla de programas de televisión (graficas) y no fotografías originales del hecho.",
-  "cuando": "2026-11-10T05:02:32.459Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "razon": "Todas las fotos disponibles son capturas de televisión de programas de estudio que no corresponden directamente a la nota sobre declaraciones institucionales, o presentan elementos gráficos de transmisión televisiva.",
+  "cuando": "2026-11-10T10:02:58.986Z",
+  "intentos": 2,
+  "fuentes": 3
  },
  "ogv7up": {
   "intentado": true,
@@ -102295,7 +102295,8 @@
    "corresponde": "si",
    "descripcion": "Fachada exterior del Palacio San Martín con banderas ondeando."
   },
-  "huella": "7bf8e8f41c1cd4d4"
+  "huella": "7bf8e8f41c1cd4d4",
+  "ausenteDesde": "2026-11-10T10:04:21.516Z"
  },
  "110honl": {
   "archivo": "fotos-notas/110honl.jpg",
@@ -102320,5 +102321,131 @@
    "descripcion": "Cuatro personas adultas sentadas en una mesa institucional con banderas de fondo."
   },
   "huella": "767435342264655e"
+ },
+ "sz8b3v": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Celebran el Día de la Tradición en homenaje a José Hernández",
+  "razon": "La mejor foto era la de La Nación, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-11-10T10:02:58.986Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "1uua5g1": {
+  "archivo": "fotos-notas/1uua5g1.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV encabeza una misa multitudinaria y una vigilia en su tercera jornada",
+  "enlace": "https://www.lanacion.com.ar/sociedad/horarios-del-papa-leon-xiv-en-la-argentina-la-agenda-de-su-visita-a-caba-lujan-claypole-y-cordoba-nid08112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/horarios-del-papa-leon-xiv-en-la-argentina-la-PWLAWRJHKRCTLIMD2TMYTGH6AI.jpg?auth=3adf71791a9fcdffadeb4f51e8bfee61214fdcb07fc1dfee166810e5fe01e6f2&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la mejor foto disponible que cumple con todos los requisitos editoriales, con buen encuadre y nitidez, sin marcas agregadas ni menores.",
+  "cuando": "2026-11-10T10:02:58.986Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa León XIV hablando frente a un micrófono con los brazos abiertos.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "El papa León XIV predicando con las manos abiertas frente a un micrófono."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "07171616af8fef31"
+ },
+ "1cm8lfs": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El papa León XIV encabeza una masiva misa en Córdoba",
+  "razon": "Ninguna foto corresponde al evento en Córdoba (la A muestra al papa Juan Pablo II en el Vaticano, la B es un evento distinto o genérico con bandera papal, la C muestra gente en un micro que no es el hecho central, y la D es el Obelisco de Buenos Aires).",
+  "cuando": "2026-11-10T10:02:58.986Z",
+  "intentos": 1,
+  "fuentes": 4
+ },
+ "1pptr6g": {
+  "archivo": "fotos-notas/1pptr6g.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Selección Argentina se entrenan en Ezeiza para los amistosos",
+  "enlace": "https://www.ole.com.ar/seleccion/boxear-vez-video-chicana-chiqui-tapia-dibu-martinez-fractura-mandibula-entrenamientos-seleccion-argentina-amistosos-uruguay-costa-rica_0_qZHf18TWNd.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/11/09/sxm3wvp4s_2000x1500__1.jpg",
+  "razon": "Es la foto más nítida, con mejor encuadre donde se identifican claramente los protagonistas en el entrenamiento, sin marcas de agua ni menores.",
+  "cuando": "2026-11-10T10:02:58.986Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dibu Martínez conversando con Claudio Tapia en el predio"
+  },
+  "huella": "c4c4662e4c2c6c4a"
+ },
+ "1w3ql7l": {
+  "archivo": "fotos-notas/1w3ql7l.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Flor Torrente revela un problema de salud tras un chequeo médico",
+  "enlace": "https://radiomitre.cienradios.com/espectaculos/flor-torrente-revelo-el-problema-de-salud-que-padece-y-alerto-a-sus-seguidores-escuchen-su-cuerpo/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/RDFC4U3LVNDUBLUKYAXK75UORE.png?smart=true&auth=e5ba583e6b68fe5f142a8aad5b9fd6b88176a24cdd8e219e1f297d76777aebe5&width=1200&height=630",
+  "razon": "Es una fotografía clara y limpia de la protagonista que ilustra adecuadamente la nota de salud.",
+  "cuando": "2026-11-10T10:02:58.986Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de Flor Torrente con fondo rojo."
+  },
+  "huella": "b49c989c9c8c8c8e"
+ },
+ "l7kgho": {
+  "archivo": "fotos-notas/l7kgho.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto discute con su ingeniero por radio en el Gran Premio de Brasil",
+  "enlace": "https://www.lanacion.com.ar/deportes/automovilismo/el-tenso-cruce-entre-franco-colapinto-y-su-ingeniero-stuart-barlow-por-el-ingreso-a-los-boxes-en-el-nid09112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/franco-colapinto-tuvo-un-tenso-cruce-con-su-NB5LGU4EJNGCVD6ECESMO2JHKA.jpg?auth=139030efe13e9275f62bf6820ab321048511ff11275564a9f283c03d9487b529&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única foto nítida y bien encuadrada que corresponde al piloto protagonista, sin marcas de agua de medios ni menores de edad en primer plano.",
+  "cuando": "2026-11-10T10:02:58.986Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Colapinto con campera azul y gorra, sosteniendo un mate."
+  },
+  "huella": "1712c2aaa6a6958b"
  }
 }

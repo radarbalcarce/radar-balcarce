@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-10T09:02:48.466Z",
- "portada": 109,
- "archivo": 497,
- "esperandoCuerpo": 4,
+ "generado": "2026-11-10T10:04:21.630Z",
+ "portada": 110,
+ "archivo": 500,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-11-10T09:02:48.951Z",
+  "generado": "2026-11-10T10:04:22.005Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -184,7 +184,14 @@
   ],
   "facebook": {
    "hoy": [],
-   "cola": [],
+   "cola": [
+    {
+     "id": "1uua5g1",
+     "titulo": "El papa León XIV encabeza una misa multitudinaria y una vigilia en su tercera jornada",
+     "seccion": "Argentina",
+     "marcada": false
+    }
+   ],
    "cupo": 5,
    "proximoDesde": "2026-11-03T16:06:05.155Z",
    "porDia": 5,
