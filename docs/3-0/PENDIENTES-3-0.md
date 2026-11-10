@@ -2,6 +2,37 @@
 
 *Armado el 3/11/2026 a la noche, con todo lo que pidió Hernán ese día. Se retoma desde el jueves 5/11.*
 
+## 0. Al cierre del 10/11/2026: qué se hizo hoy y qué queda para mañana
+
+**Hecho y desplegado el 8–10/11** (todo con pruebas: 813 pasan; cada regla está en el REGLAS.md de su carpeta):
+- Notas propias por Telegram: el bot guarda hasta 10 fotos con dirección pública (carrusel de redes con 3 fotos o más).
+- SEO: `security.txt` (**vence el 7/11/2027: renovar**), `humans.txt`, JSON-LD de farmacias, clima y quiénes somos; Perfil Sociedad con feed al día; notas con consultas en paralelo.
+- **Lo del exterior sin vínculo con la Argentina no se publica** (la IA marca `noPublicar` «extranjero»; caso Russell Brand): `v3/nucleo/redactar/REDACCION.md`. Si vuelve a pasar, traer el ejemplo.
+- **Redes: una nota de Balcarce sin foto espera 150 min antes de salir con la placa** (`esperaDeLaFotoMin`, `v3/redes/elegir.mjs`).
+- **Criterio de fotos 2:** sólo se descarta una víctima menor, abuso o contenido gráfico; Policiales ya no se saltea; las notas sin foto por el criterio viejo se reabren una vez (`FOTO_CRITERIO`, `v3/nucleo/nucleo.mjs`). La foto de una fuente de Balcarce (Radio Gabal) pasa aunque tenga logo.
+- **Espera nacional de 60 min:** lo nacional se redacta recién cuando la historia lleva una hora en el sistema (`NUCLEO_ESPERA_NACIONAL_MIN`, 0 la apaga; motivo `madurando`). Lo muy contado y Balcarce no esperan.
+
+**Para mirar mañana (11/11), en este orden:**
+1. `/salud` del núcleo: ¿bajó `sinFoto7d` (estaba en 58 de 843, 17 recuperables)? ¿Cuántas historias en `madurando` y salieron notas nacionales a un ritmo razonable? Si salen muy tarde, bajar la espera a 30.
+2. El carrusel del domingo 8/11 («La semana en Balcarce», salió 11:44 con 10 láminas): no hay cifras propias del posteo, mirarlas en Instagram y Facebook. Medir una semana entera antes de decidir qué se recorta.
+3. Que las placas en redes ya no salgan antes de tiempo (los posteos de Balcarce sin foto deberían salir con foto o ilustración).
+4. Si Hernán pide la auditoría de todo lo hecho, empezar por los cambios de esta sección.
+
+**El lunes que no se hizo (siguen pendientes, con Hernán):**
+- **Efemérides de diciembre a marzo/abril:** simulación de diciembre dio 11 de 31 días con pieza. No hace falta que sean de Balcarce: fechas con datos curiosos de interés general. Correr la simulación por tramos, mostrar los días vacíos, proponer fuentes, y con su OK escribir las piezas y crear `EFEMERIDES_V3_ACTIVAS`. Decidir si llevan nota y con qué formato. Con eso resuelto se puede apagar el sistema viejo (primer paso: `RESPALDO_VIEJO = "no"`).
+- **Clima:** imágenes más lindas hechas con Gemini o Meta (hoy son fijas), otras fuentes de clima y una nota con más datos. Ver abajo lo del INTA.
+- **INTA Balcarce:** escribirles (mail o el canal que tengan) para pedir acceso a los datos de su estación (SIGA 242: temperatura, humedad y lluvia cada 10 min), con qué licencia y crédito, y si hay API. Hernán autorizó mandarlo desde radarbalcarce@gmail.com, pero **mostrarle el texto antes**. Las fuentes del SMN que se probaron: el endpoint `ws.smn.gob.ar/map_items/weather` dio 503; no sacar tokens de la home del SMN; los datos abiertos `tiepre` sirven sólo como contraste (Tandil y Mar del Plata). El pronóstico hoy sale de Open-Meteo para las coordenadas de Balcarce.
+- **Notas propias:** qué temas y cómo. Gacetillas de prensa (Cicaré Kan, La Oxidada, CAME, paritaria mercantil, Zentrix) podrían ser notas, sólo con OK de Hernán.
+
+**Ideas pospuestas (hasta que Hernán traiga contenido):** resumen de la semana (maqueta antes), newsletter, botón «Instalar», segundo carrusel de afuera, link en X, agenda de contactos, podcasts, avisos publicitarios (por ahora no hay; si aparecen, deben contarse). **Canal de WhatsApp de Radar:** Hernán lo crea (Novedades → «+» → Crear canal) y pasa el enlace; después el botón «Seguinos por WhatsApp» y el envío automático. **Descartado:** la línea «Contada por N medios» arriba de las notas.
+
+**Sólo puede hacerlo Hernán:** borrar el mapa viejo `/nota/sitemap-archivo.xml` en Search Console; revisar el logo en Publisher Center → Estilos visuales; revisar los inicios de sesión de Facebook de Córdoba (7/11) y San Vicente (5/11); en la PC, correr `scripts/pc/INSTALAR-LIMPIEZA.bat` y reiniciar; aprobar que el repositorio pase a privado; borrar los posteos de Meta de la nota de Russell Brand (ya los borró).
+
+**Sin seguimiento en git a propósito** (el repositorio es público; borradores): `docs/3-0/notas-propias/`, `docs/propuestas/MAPA-Y-CRONOGRAMA-25-10.html`, `scripts/pc/`. No perderlos.
+
+**Despliegues:** el permiso automático bloquea a veces `gh workflow run "Radar 3.0: desplegar"`; si pasa, pedirle el OK a Hernán en el chat y reintentar (siempre solo, sin juntarlo con un commit, y antes `gh api user` debe dar radarbalcarce).
+
+
 ## 1. Redes: que todo se vea prolijo (lo que ya sale al público)
 
 1. **La tapa de cada reel.** En la grilla de Reels de Facebook e Instagram cada video tiene que mostrar una tapa linda: el primer cuadro armado a propósito (con la lista pareja en los repasos), nunca un cuadro a medio animar ni con una tarjeta vacía. Usar la «portada» del reel en la API de Meta.
