@@ -109,6 +109,8 @@ Cada foto publicada tiene una **huella visual**: la misma foto (o casi) no puede
 siguiente. Nombre de archivo y texto alternativo descriptivos, generados de la ficha (`balcarce-camioneros-examen-licencia.jpg`), nunca
 el nombre original del medio. Nunca una foto real de un menor o una víctima.
 
+**Criterio de fotos 2 (10/11/2026, Hernán):** «si la foto ya la publicó un medio, no hace falta ser más estrictos». La visión sólo descarta por «menor o víctima» (a) a un menor identificable que es víctima o está involucrado en un hecho policial, judicial, de abuso, de salud grave o de una tragedia, (b) una escena de abuso, (c) contenido gráfico (cadáveres, sangre, heridas graves). Menores en actos, escuela o deporte, adultos en cualquier escena (aunque sea Policiales) y accidentes sin heridos a la vista **pasan**; la marca de agua y el nombre de otro medio pegado encima siguen descartando. **Policiales ya no se saltea** (ni en las migradas). Las notas que quedaron sin foto con el criterio viejo (`todas-con-menor-o-victima`, `todas-descartadas`, `policiales`) se vuelven a mirar **una vez** (marca `verificacion.fotoCriterio` = 2, `FOTO_CRITERIO` en `nucleo.mjs`), hasta 7 días atrás.
+
 ### 7 bis. La copia propia de la foto (5/11/2026, Hernán: «lo más importante, aplicalo todo»)
 
 - **Por qué.** La foto de una nota sale de las fuentes, pero mostrarla desde el servidor del otro medio es frágil: si la borra o la bloquea (Clarín y Olé ya rechazan pedidos sin cabeceras de navegador),

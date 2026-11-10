@@ -442,7 +442,8 @@ export async function contarFotosDeArchivo(env, desdeISO) {
 // Las migradas viven en `notas` con historia_id 'viejo-<id>' (no hay fila en `historias` ni artículos): sus fuentes son sólo [{ medio, url }].
 // Una nota «ya rehecha» lleva `verificacion.rehacerFoto` ('foto' | 'sin-foto' | 'saltada'); sin esa marca todavía le toca.
 const MIGRADA_SIN_FOTO = "estado = 'publicada' AND no_publicar IS NULL AND historia_id LIKE 'viejo-%' AND (foto IS NULL OR foto = 'null') AND id NOT LIKE 'clima-%'";
-const SIN_MARCA = "(verificacion IS NULL OR verificacion NOT LIKE '%\"rehacerFoto\"%')";
+// Pendiente = sin marca, o marcada «saltada»/«sin foto» por Policiales o por menor/víctima con el criterio viejo (10/11: ahora sólo bloquea la víctima menor, el abuso y lo gráfico).
+const SIN_MARCA = "(verificacion IS NULL OR verificacion NOT LIKE '%\"rehacerFoto\"%' OR (verificacion NOT LIKE '%\"fotoCriterio\":2%' AND (verificacion LIKE '%\"rehacerMotivo\":\"policiales\"%' OR verificacion LIKE '%\"rehacerMotivo\":\"todas-con-menor-o-victima\"%' OR verificacion LIKE '%\"rehacerMotivo\":\"todas-descartadas\"%')))";
 
 // Las migradas sin foto que todavía no se rehicieron, las más nuevas primero (la portada y las listas muestran primero lo nuevo).
 export async function migradasSinFotoPendientes(env, limite = 3) {

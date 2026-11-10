@@ -509,6 +509,29 @@ test('las notas publicadas sin foto se reintentan (hasta 5 por vuelta, 24 h, 45 
   assert.equal(v.fotoIntentos, 4);
 });
 
+test('criterio de fotos nuevo (10/11): una nota de días atrás sin foto por menor o víctima se vuelve a mirar una vez; con el criterio ya aplicado, no', { skip: sinSqlite }, async () => {
+  const env = envDe({ NUCLEO_PUBLICA: 'si' });
+  const m = mundo();
+  const n = nucleo();
+  await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(1) });
+  const primeras = filas(env, "SELECT id, historia_id FROM notas WHERE estado = 'publicada'");
+  assert.equal(primeras.length, 3);
+  const hace3dias = new Date(Date.parse(AHORA) - 3 * 24 * 3600_000).toISOString();
+  const [vieja, aplicada, otra] = primeras;
+  env.DB.sqlite.exec(`UPDATE notas SET foto = NULL, creada = '${hace3dias}'`);
+  env.DB.sqlite.exec(`UPDATE notas SET verificacion = '{"fotoMotivo":"todas-con-menor-o-victima","fotoIntentos":4}' WHERE id = '${vieja.id}'`);
+  env.DB.sqlite.exec(`UPDATE notas SET verificacion = '{"fotoMotivo":"todas-con-menor-o-victima","fotoIntentos":4,"fotoCriterio":2}' WHERE id = '${aplicada.id}'`);
+  env.DB.sqlite.exec(`UPDATE notas SET verificacion = '{"fotoMotivo":"sin-candidatas","fotoIntentos":1}' WHERE id = '${otra.id}'`);
+  for (const p of primeras) env.DB.sqlite.prepare('UPDATE articulos SET imagenes = ? WHERE historia_id = ?').run(JSON.stringify([{ url: 'https://img.test/nueva.png', ancho: 1200, alto: 800 }]), p.historia_id);
+  const r = await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(2) });
+  assert.deepEqual(r.errores, []);
+  const f = (id) => filas(env, 'SELECT foto, verificacion FROM notas WHERE id = ?', id)[0];
+  assert.equal(JSON.parse(f(vieja.id).foto).url, 'https://img.test/nueva.png', 'la reabierta por el criterio nuevo consigue su foto');
+  assert.equal(JSON.parse(f(vieja.id).verificacion).fotoCriterio, 2);
+  assert.ok(f(aplicada.id).foto === null || f(aplicada.id).foto === 'null', 'con el criterio ya aplicado no se reintenta');
+  assert.ok(f(otra.id).foto === null || f(otra.id).foto === 'null', 'una de más de 24 h sin ese motivo tampoco');
+});
+
 test('una nota sin foto de más de 24 h, o una que no es del núcleo (sin historia), no se reintenta', { skip: sinSqlite }, async () => {
   const env = envDe({ NUCLEO_PUBLICA: 'si' });
   const m = mundo();
@@ -593,17 +616,15 @@ test('rehacer migradas: de a pocas por vuelta, las más nuevas primero, con tope
   assert.deepEqual(salud.rehacerMigradas, { faltan: 0, conFoto: 3, sinFoto: 1, saltadas: 0, hechasHoy: 1, topePorDia: 3, diasQueFaltan: 0 });
 });
 
-test('rehacer migradas: Policiales y las notas sin fuentes con dirección quedan con placa, marcadas, sin pedirle nada a la IA', { skip: sinSqlite }, async () => {
+test('rehacer migradas: las notas sin fuentes con dirección quedan con placa, marcadas, sin pedirle nada a la IA; Policiales ya no se saltea (10/11)', { skip: sinSqlite }, async () => {
   const env = envDe({ NUCLEO_REHACER_POR_VUELTA: '5', NUCLEO_REHACER_POR_DIA: '10' });
   const m = mundoConMigradas();
   const n = nucleo();
-  sembrarMigrada(env, 'poli001', { creada: '2026-10-20T12:00:00Z', seccion: 'Policiales' });
   sembrarMigrada(env, 'sinfue1', { creada: '2026-10-21T12:00:00Z', fuentes: [{ medio: 'Propia', url: null }] });
   sembrarMigrada(env, 'clima-2026-10-10', { creada: '2026-10-10T12:00:00Z' });
   const r = await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(1) });
   assert.deepEqual(r.errores, []);
-  assert.deepEqual(r.rehacer, { intentadas: 2, conFoto: 0, sinFoto: 0, saltadas: 2 });
-  assert.equal(verif(env, 'poli001').rehacerMotivo, 'policiales');
+  assert.deepEqual(r.rehacer, { intentadas: 1, conFoto: 0, sinFoto: 0, saltadas: 1 });
   assert.equal(verif(env, 'sinfue1').rehacerMotivo, 'sin-fuentes');
   assert.equal(verif(env, 'clima-2026-10-10').rehacerFoto, undefined, 'la del clima no es migrada: no se toca');
   assert.equal(m.paginasRehacer.length, 0);

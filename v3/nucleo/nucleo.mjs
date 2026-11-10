@@ -32,7 +32,11 @@ const MAX_INTENTOS_DE_FOTO = 4; // contando el de la redacción
 const MINUTOS_ENTRE_INTENTOS_DE_FOTO = 45;const REHACER_POR_DIA = 60; // notas migradas sin foto que se rehacen por día (variable NUCLEO_REHACER_POR_DIA; 0 lo apaga; REGLAS § 7 ter)
 const REHACER_POR_VUELTA = 3; // y cuántas por vuelta (NUCLEO_REHACER_POR_VUELTA)
 const REHACER_INTENTOS = 3; // por si Gemini o la red fallan: un intento que no pudo decidir (error-vision) se repite hasta 3 veces
-const SECCIONES_SIN_FOTO_AJENA = new Set(['Policiales']); // nunca foto real de un menor o una víctima, ni en Policiales salvo fuente oficial: la migrada de Policiales queda con placa
+const SECCIONES_SIN_FOTO_AJENA = new Set(); // 10/11 (Hernán): Policiales ya no se saltea; sólo cuenta lo que ve la visión (víctima menor, abuso, contenido gráfico: fotos.mjs)
+/** Versión del criterio de fotos. Una nota sin foto por «menor o víctima» o «descartadas» con una versión anterior se vuelve a mirar con el criterio nuevo (10/11). */
+export const FOTO_CRITERIO = 2;
+const MOTIVOS_REABRIBLES = new Set(['todas-con-menor-o-victima', 'todas-descartadas', 'policiales']);
+const hayQueReabrir = (v) => v && v.fotoCriterio !== FOTO_CRITERIO && MOTIVOS_REABRIBLES.has(v.fotoMotivo || v.rehacerMotivo);
 const ILUSTRAR_POR_VUELTA = 2; // notas a las que se les hace una ilustración por vuelta (NUCLEO_ILUSTRAR_POR_VUELTA; 0 lo apaga; REGLAS § 7 paso 3)
 const ILUSTRAR_POR_DIA = 40; // imágenes por día (NUCLEO_ILUSTRAR_POR_DIA): ~77 neuronas cada una, ~3.100 de las 10.000 gratis
 const ILUSTRAR_MARCAS_POR_VUELTA = 20; // notas que no se pueden ilustrar y se marcan por vuelta para no volver a mirarlas
@@ -72,7 +76,7 @@ const usd = (n) => `US$ ${n.toFixed(2).replace('.', ',')}`;
 /** La marca de la foto en `verificacion` (la tabla no tiene columna para esto): por qué no hay (`fotoMotivo`, ver MOTIVOS_SIN_FOTO), cuántos intentos y cuándo fue el último. Con foto, se borra el motivo. */
 export function conMotivoDeFoto(verificacion, motivo, intentos, ahoraISO) {
   const { fotoMotivo, ...resto } = verificacion || {};
-  return { ...resto, ...(motivo ? { fotoMotivo: motivo } : {}), fotoIntentos: intentos, fotoIntentada: ahoraISO };
+  return { ...resto, ...(motivo ? { fotoMotivo: motivo } : {}), fotoIntentos: intentos, fotoIntentada: ahoraISO, fotoCriterio: FOTO_CRITERIO };
 }
 
 function idDeNota(azar = Math.random) {
@@ -483,11 +487,15 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
   // Las fuentes de la historia pueden haber crecido desde que se escribió la nota, y la página de una fuente que no se había mirado ahora sí se mira.
   async function reintentarFotos(env, c, gem, r, error) {
     let sinFoto;
-    try { sinFoto = await db.notasPublicadasSinFoto(env, new Date(c.ahora.getTime() - HORAS_PARA_REINTENTAR_FOTO * HORA).toISOString()); } catch (e) { error('notas sin foto', e); return; }
+    // Se miran 7 días para las que hay que reabrir por el criterio nuevo; las demás, sólo las de las últimas 24 h como siempre.
+    try { sinFoto = await db.notasPublicadasSinFoto(env, new Date(c.ahora.getTime() - 7 * 24 * HORA).toISOString(), 80); } catch (e) { error('notas sin foto', e); return; }
     const hace = c.ahora.getTime() - MINUTOS_ENTRE_INTENTOS_DE_FOTO * 60_000;
+    const desde24 = c.ahora.getTime() - HORAS_PARA_REINTENTAR_FOTO * HORA;
+    const intentosDe = (n) => (hayQueReabrir(n.verificacion) ? 0 : n.verificacion.fotoIntentos || 0);
     const toca = sinFoto
-      .filter((n) => (n.verificacion.fotoIntentos || 0) < MAX_INTENTOS_DE_FOTO && !(n.verificacion.fotoIntentada && new Date(n.verificacion.fotoIntentada).getTime() > hace))
-      .sort((x, y) => (x.verificacion.fotoIntentos || 0) - (y.verificacion.fotoIntentos || 0)) // las que menos se probaron primero (el orden es estable: adentro, las más nuevas)
+      .filter((n) => hayQueReabrir(n.verificacion)
+        || (new Date(n.creada).getTime() >= desde24 && (n.verificacion.fotoIntentos || 0) < MAX_INTENTOS_DE_FOTO && !(n.verificacion.fotoIntentada && new Date(n.verificacion.fotoIntentada).getTime() > hace)))
+      .sort((x, y) => intentosDe(x) - intentosDe(y)) // las que menos se probaron primero (el orden es estable: adentro, las más nuevas)
       .slice(0, FOTOS_REINTENTADAS_POR_VUELTA);
     if (!toca.length) return;
     const geminiFoto = gem.para('foto');
@@ -497,7 +505,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
         if (!arts.length) continue;
         const f = await elegirFotoConMotivo({ titulo: n.titulo, ficha: n.ficha }, arts, { gemini: geminiFoto, fetch: c.fetchFn });
         r.fotosReintentadas += 1;
-        const intentos = (n.verificacion.fotoIntentos || 0) + 1;
+        const intentos = intentosDe(n) + 1;
         if (f.foto) {
           await db.ponerFotoDeNota(env, n.id, f.foto, conMotivoDeFoto(n.verificacion, null, intentos, c.ahoraISO));
           r.fotosEncontradas += 1;

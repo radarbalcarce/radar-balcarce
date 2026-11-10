@@ -38,7 +38,7 @@ export const MOTIVOS_SIN_FOTO = [
 const PREGUNTA = `Mirá esta foto, que es candidata a ilustrar la noticia «{titulo}». Respondé SOLO un JSON:
 { "marca_de_agua_o_otro_medio": true|false, "menor_o_victima": true|false, "es_de_esta_noticia": "si"|"no"|"archivo" }
 - marca_de_agua_o_otro_medio: true si tiene marca de agua, logo o nombre de otro medio pegado encima de la imagen. Es false si la imagen está limpia o si el texto que se ve es parte de la escena (un cartel, una camiseta, un micrófono de radio, un estadio).
-- menor_o_victima: true si muestra a un menor de edad, o a una persona herida, muerta o víctima de un delito o de una tragedia, identificable. Es false para adultos en un retrato o en acción normal (un jugador en la cancha, un funcionario, una multitud).
+- menor_o_victima: true SOLO en estos casos (Hernán, 10/11: la foto ya la publicó un medio, no hace falta ser más estrictos): (a) un menor de edad identificable que es víctima o está involucrado en un hecho policial, judicial, de abuso, de salud grave o de una tragedia; (b) una escena de abuso; (c) contenido gráfico: cadáveres, sangre o heridas graves a la vista. Es false para menores en situaciones normales (escuela, deporte, fiestas, actos), para adultos en cualquier escena aunque la noticia sea policial (policías, patrulleros, detenidos, familiares, un retrato, una multitud) y para accidentes sin heridos ni sangre a la vista.
 - es_de_esta_noticia: "si" si ilustra este hecho, "archivo" si parece una foto de archivo o genérica, "no" si no tiene relación.`;
 
 function nombreDeArchivo(url) {
