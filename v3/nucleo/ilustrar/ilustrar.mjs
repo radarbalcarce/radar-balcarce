@@ -2,6 +2,7 @@
 // (web/scripts/ilustrar-notas.mjs, reglas 182, 185 y 206: «que TODAS las notas tengan», nunca personas) sin copiarle la parte de GitHub: acá todo corre dentro del Worker.
 //
 //   motivoParaSaltar(nota)                       por qué NO se ilustra (muerte, velorio, sepelio, lo rojo, ya tiene foto), o null
+//   motivoPorPersona(nota)                       una nota sobre una persona identificable no se ilustra (ilustrarUna la corta antes de gastar nada), o null
 //   busquedaAgotada(nota, ahora)                 ¿ya se probó todo lo de las fuentes? (4 intentos, 24 h, o un motivo final)
 //   armarInstruccion(nota) / promptFinal(...)    el pedido a Gemini (prompt corto en inglés, con el tono y la escena de la sección) y el prompt que va al generador
 //   problemaDelPrompt(prompt, nota)              un prompt que nombra gente, armas, marcas o la escena de un hecho se descarta
@@ -41,6 +42,13 @@ export const INTENTOS_CON_MOTIVO_FINAL = 2;
 export const REAL_INTENTOS_MAXIMOS = 3;
 export const REAL_HORAS_ENTRE_INTENTOS = 3;
 export const REAL_HORAS_DE_VIGENCIA = 72;
+
+// Revisión única (10/11, caso del Papa): una nota ilustrada con fuentes se vuelve a mirar UNA vez con el criterio de fotos de hoy (y el User-Agent arreglado), hasta 7 días atrás.
+// `verificacion.ilustracion.revisionFotoReal` lleva la versión; subirla las vuelve a abrir todas.
+export const REVISION_FOTO_REAL = 1;
+export const REVISION_DIAS_HACIA_ATRAS = 7;
+export const REVISION_POR_VUELTA = 3;
+export const REVISION_MINUTOS_ENTRE_REINTENTOS = 30;
 
 const HORA = 3600 * 1000;
 const plano = (t) => String(t ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
@@ -87,6 +95,15 @@ export function motivoParaSaltar(nota) {
   const rojo = normal.match(ROJO)?.[0];
   if (rojo) return `semáforo rojo: «${rojo}»`;
   return null;
+}
+
+/**
+ * Una persona pública identificable (10/11, caso del Papa): «el ámbito, sin nadie» daba un patio vacío sin relación con la nota; mejor la placa de la sección y seguir con la foto real.
+ * Sólo vale para ILUSTRAR (por eso no está en `motivoParaSaltar`, que también usa la foto de archivo: una foto del lugar de una nota sobre una persona sí sirve). Devuelve el motivo o null.
+ */
+export function motivoPorPersona(nota) {
+  const personas = nombresDePersona([nota?.titulo, nota?.bajada].filter(Boolean).join('. '));
+  return personas.length ? `gira en torno a una persona identificable: «${personas[0]}»` : null;
 }
 
 /** ¿La búsqueda de una foto real de las fuentes ya se agotó? Entonces toca la ilustración. Las notas viejas (nadie las vuelve a buscar) cuentan como agotadas. */
@@ -404,6 +421,8 @@ const tema = (nota) => (esPolitica(nota) ? 'politica' : esDeporte(nota) ? 'depor
  */
 export async function ilustrarUna(nota, { gemini, ai, cupo = async () => true, azar = Math.random } = {}) {
   let generadas = 0;
+  const persona = motivoPorPersona(nota);
+  if (persona) return { ok: false, final: true, motivo: `no se ilustra: ${persona}`, generadas }; // sin gastar Gemini ni imagen: queda la placa
   // 1) el prompt
   let prompt = null;
   let problema = null;
@@ -500,6 +519,17 @@ export function conIlustracionHecha(verificacion, { prompt, control, ahoraISO })
 export function sinIlustracion(verificacion, ahoraISO) {
   const { ilustracion, ...resto } = verificacion || {};
   return { ...resto, ilustracionReemplazada: ahoraISO };
+}
+
+/** ¿A esta ilustración con IA le toca la revisión única de foto real? Sólo notas del núcleo (con fuentes): no las de servicio (clima, media kit) ni las propias. */
+export function debeRevisarFotoRealUnaVez(nota, ahora = new Date()) {
+  const il = nota?.verificacion?.ilustracion;
+  if (!il?.hecha || !esIlustracion(nota?.foto)) return false;
+  if (nota?.ficha?.marca || /^(clima-|mediakit|efemeride|redaccion)/.test(String(nota?.id))) return false;
+  if (Number(il.revisionFotoReal) >= REVISION_FOTO_REAL) return false;
+  if (il.realIntentada && new Date(ahora).getTime() - new Date(il.realIntentada).getTime() < REVISION_MINUTOS_ENTRE_REINTENTOS * 60_000) return false; // la visión no pudo decidir: se espera para no atascar siempre las mismas
+  const creada = new Date(nota?.creada).getTime();
+  return Number.isFinite(creada) && new Date(ahora).getTime() - creada <= REVISION_DIAS_HACIA_ATRAS * 24 * HORA;
 }
 
 /** ¿Una ilustración hecha todavía debe seguir buscando una foto real? (hasta 3 intentos, cada 3 h, durante 72 h desde que se hizo.) */

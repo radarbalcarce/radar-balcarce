@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import {
   CREDITO, motivoParaSaltar, busquedaAgotada, leTocaIlustrar, tonoDeLaNota, armarInstruccion, promptFinal, problemaDelPrompt, interpretarControl, controlarImagen,
   ilustrarUna, guardarIlustracion, huellaDe, generarImagen, debeBuscarFotoReal, conIlustracionHecha, conEstadoDeIlustracion, sinIlustracion, esIlustracion,
-  tipoDeImagen, NEURONAS_POR_IMAGEN, NEURONAS_GRATIS_POR_DIA, POR_DIA, MODELO_DE_IMAGEN,
+  debeRevisarFotoRealUnaVez, REVISION_FOTO_REAL, motivoPorPersona, tipoDeImagen, NEURONAS_POR_IMAGEN, NEURONAS_GRATIS_POR_DIA, POR_DIA, MODELO_DE_IMAGEN,
 } from './ilustrar.mjs';
 import { conCopiaPropia, esCopiaPropia } from '../../sitio/fotos-copia.mjs';
 import { creditoConPrefijo } from '../../redes/texto.mjs';
@@ -61,6 +61,35 @@ test('motivoParaSaltar: una nota común se ilustra; foto, muerte, velorio, sepel
   assert.equal(motivoParaSaltar(nota({ id: 'clima-2026-11-06' })), 'nota de servicio');
   assert.equal(motivoParaSaltar(nota({ ficha: { marca: 'servicio' } })), 'nota de servicio');
   assert.equal(motivoParaSaltar({ titulo: 'sin id' }), 'sin id o título');
+});
+
+test('motivoPorPersona e ilustrarUna: una nota sobre una persona pública identificable no se ilustra (caso del Papa, 10/11: «sin nadie» daba un patio vacío) y no gasta Gemini ni imagen; sin persona, sí', async () => {
+  assert.match(motivoPorPersona(nota({ titulo: 'El Papa León XIV llegó a la Argentina para iniciar una visita de cuatro días', seccion: 'Argentina' })), /persona identificable.*Papa León/);
+  assert.match(motivoPorPersona(nota({ titulo: 'Colapinto largará desde el fondo en Interlagos' })), /persona identificable/);
+  assert.equal(motivoPorPersona(nota({ titulo: 'Cambian las luminarias de la plaza' })), null);
+  // motivoParaSaltar no la mira (la foto de archivo del lugar sí sirve para una nota sobre una persona)
+  assert.equal(motivoParaSaltar(nota({ titulo: 'El Papa León XIV llegó a la Argentina' })), null);
+  let pedidos = 0;
+  const gemini = { texto: async () => { pedidos += 1; return PROMPT_BUENO; } };
+  const ai = { run: async () => { pedidos += 1; return {}; } };
+  const r = await ilustrarUna(nota({ titulo: 'El Papa León XIV llegó a la Argentina para iniciar una visita de cuatro días' }), { gemini, ai });
+  assert.equal(r.ok, false);
+  assert.equal(r.final, true);
+  assert.match(r.motivo, /persona identificable/);
+  assert.equal(pedidos, 0);
+});
+
+test('debeRevisarFotoRealUnaVez: sólo ilustraciones con IA de notas del núcleo, de los últimos 7 días y una sola vez; no el clima ni lo propio', () => {
+  const foto = { url: 'https://radarbalcarce.com/foto/aaaaaaaaaaaaaaaaaaaaaaaa.jpg', ilustracion: true };
+  const il = (extra = {}) => nota({ id: 'abc1234', creada: hace(60), foto, verificacion: { ilustracion: { hecha: true, ...extra } } });
+  assert.equal(debeRevisarFotoRealUnaVez(il(), AHORA), true);
+  assert.equal(debeRevisarFotoRealUnaVez(il({ revisionFotoReal: REVISION_FOTO_REAL }), AHORA), false, 'ya se revisó una vez');
+  assert.equal(debeRevisarFotoRealUnaVez(il({ realIntentada: hace(0.1) }), AHORA), false, 'intento reciente');
+  assert.equal(debeRevisarFotoRealUnaVez({ ...il(), creada: hace(24 * 8) }, AHORA), false, 'más de 7 días');
+  assert.equal(debeRevisarFotoRealUnaVez({ ...il(), id: 'clima-2026-11-06' }, AHORA), false);
+  assert.equal(debeRevisarFotoRealUnaVez({ ...il(), id: 'redaccion-1' }, AHORA), false);
+  assert.equal(debeRevisarFotoRealUnaVez({ ...il(), ficha: { marca: 'servicio' } }, AHORA), false);
+  assert.equal(debeRevisarFotoRealUnaVez({ ...il(), foto: { url: 'https://x.test/a.jpg' } }, AHORA), false, 'una foto real no se revisa');
 });
 
 test('motivoParaSaltar: Policiales y Política con tono sobrio sí se ilustran (regla 185: la imagen nunca lleva personas)', () => {

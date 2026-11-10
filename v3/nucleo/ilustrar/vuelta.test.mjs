@@ -264,6 +264,59 @@ test('foto real siempre gana: una nota ilustrada que después consigue una foto 
   assert.equal(env.AI.llamadas, 0, 'no se generó nada nuevo');
 });
 
+const FOTO_IL = { url: 'https://radarbalcarce.com/foto/cccccccccccccccccccccccc.jpg', credito: 'Ilustración generada con IA', ilustracion: true };
+const fuenteReal = (env, id) => env.DB.sqlite.prepare("INSERT INTO articulos (id, url, fuente_id, medio, alcance, titulo, texto, fecha, leido, imagenes, historia_id) VALUES (?, ?, 'f', 'Medio Real', 'pais', 't', 'x', ?, ?, ?, ?)")
+  .run(`a-${id}`, `https://medio.test/${id}`, hace(60), hace(60), JSON.stringify([{ url: 'https://img.test/real.png', ancho: 1200, alto: 800 }]), `h-${id}`);
+
+test('revisión única (10/11, caso del Papa): una ilustrada de hace días con fuentes se vuelve a mirar y la foto real la reemplaza; si no hay, se marca y no se vuelve a mirar', { skip: sinSqlite }, async () => {
+  const env = entorno();
+  // vieja: la búsqueda real de 72 h ya se agotó (3 intentos), pero la revisión única igual la abre
+  sembrar(env, 'rv1', { creada: hace(24 * 4), foto: FOTO_IL, verificacion: { fotoIntentos: 4, ilustracion: { hecha: true, final: false, cuando: hace(24 * 4), realIntentos: 3 } } });
+  sembrar(env, 'rv2', { creada: hace(24 * 5), foto: FOTO_IL, verificacion: { fotoIntentos: 4, ilustracion: { hecha: true, final: false, cuando: hace(24 * 5), realIntentos: 3 } } });
+  fuenteReal(env, 'rv1');
+  const r = await vuelta(env, mundo({ imagenReal: true }));
+  assert.deepEqual(r.errores, []);
+  assert.equal(r.ilustraciones.reales, 1);
+  assert.equal(nota(env, 'rv1').foto.url, 'https://img.test/real.png');
+  assert.equal(nota(env, 'rv1').foto.credito, 'Foto: Medio Real');
+  assert.equal(nota(env, 'rv1').verificacion.ilustracion, undefined);
+  // rv2 no tiene imágenes en sus fuentes: queda ilustrada pero marcada como revisada
+  assert.equal(nota(env, 'rv2').foto.ilustracion, true);
+  assert.equal(nota(env, 'rv2').verificacion.ilustracion.revisionFotoReal, 1);
+  assert.equal(nota(env, 'rv2').verificacion.ilustracion.realIntentos, 3, 'la revisión no gasta los intentos de la búsqueda normal');
+  // la próxima vuelta no vuelve a mirar rv2 ni rv1
+  fuenteReal(env, 'rv2');
+  const r2 = await vuelta(env, mundo({ imagenReal: true }), {});
+  assert.equal(r2.ilustraciones.reales, 0);
+  assert.equal(nota(env, 'rv2').foto.ilustracion, true, 'una sola vez');
+});
+
+test('revisión única: una ilustrada propia (sin historia del núcleo o de servicio) no se revisa, y NUCLEO_REVISAR_ILUSTRADAS_POR_VUELTA=0 la apaga', { skip: sinSqlite }, async () => {
+  const env = entorno();
+  sembrar(env, 'clima-2026-11-04', { creada: hace(24 * 2), foto: FOTO_IL, verificacion: { ilustracion: { hecha: true, cuando: hace(24 * 2), realIntentos: 3 } } });
+  sembrar(env, 'pr1', { creada: hace(24 * 2), historia: 'redaccion-pr1', foto: FOTO_IL, verificacion: { ilustracion: { hecha: true, cuando: hace(24 * 2), realIntentos: 3 } } });
+  const r = await vuelta(env, mundo({ imagenReal: true }));
+  assert.equal(r.ilustraciones.reales, 0);
+  assert.equal(nota(env, 'clima-2026-11-04').verificacion.ilustracion.revisionFotoReal, undefined);
+  assert.equal(nota(env, 'pr1').verificacion.ilustracion.revisionFotoReal, undefined);
+  const apagada = entorno({ NUCLEO_REVISAR_ILUSTRADAS_POR_VUELTA: '0' });
+  sembrar(apagada, 'rv3', { creada: hace(24 * 4), foto: FOTO_IL, verificacion: { fotoIntentos: 4, ilustracion: { hecha: true, cuando: hace(24 * 4), realIntentos: 3 } } });
+  fuenteReal(apagada, 'rv3');
+  await vuelta(apagada, mundo({ imagenReal: true }));
+  assert.equal(nota(apagada, 'rv3').foto.ilustracion, true);
+});
+
+test('revisión única: como mucho NUCLEO_REVISAR_ILUSTRADAS_POR_VUELTA (3 por defecto) por vuelta, las más nuevas primero', { skip: sinSqlite }, async () => {
+  const env = entorno();
+  for (const [i, id] of ['t1', 't2', 't3', 't4', 't5'].entries()) {
+    sembrar(env, id, { creada: hace(24 * 3 + i), foto: FOTO_IL, verificacion: { fotoIntentos: 4, ilustracion: { hecha: true, cuando: hace(24 * 3 + i), realIntentos: 3 } } });
+    fuenteReal(env, id);
+  }
+  await vuelta(env, mundo({ imagenReal: true }));
+  const conReal = ['t1', 't2', 't3', 't4', 't5'].filter((id) => !nota(env, id).foto.ilustracion);
+  assert.deepEqual(conReal, ['t1', 't2', 't3']);
+});
+
 test('una ilustrada sin foto real a la vista cuenta sus intentos (3 como máximo, 3 horas entre uno y otro) y sigue ilustrada', { skip: sinSqlite }, async () => {
   const env = entorno();
   sembrar(env, 'g2', { creada: hace(4), foto: { url: 'https://radarbalcarce.com/foto/bbbbbbbbbbbbbbbbbbbbbbbb.jpg', credito: 'Ilustración generada con IA', ilustracion: true },

@@ -37,11 +37,15 @@ const SECCIONES_SIN_FOTO_AJENA = new Set(); // 10/11 (Hernán): Policiales ya no
 /** Versión del criterio de fotos. Una nota sin foto por «menor o víctima» o «descartadas» con una versión anterior se vuelve a mirar con el criterio nuevo (10/11). */
 export const FOTO_CRITERIO = 2;
 const MOTIVOS_REABRIBLES = new Set(['todas-con-menor-o-victima', 'todas-descartadas', 'policiales']);
-const hayQueReabrir = (v) => v && v.fotoCriterio !== FOTO_CRITERIO && MOTIVOS_REABRIBLES.has(v.fotoMotivo || v.rehacerMotivo);
+/** Revisión única de las sin foto por «marca» (10/11, caso del Papa: se descartaban por no poder bajar la imagen sin User-Agent). Marca aparte de FOTO_CRITERIO, para no reabrir de nuevo las de arriba. */
+export const FOTO_REVISION = 1;
+const hayQueReabrir = (v) => !!v && ((v.fotoCriterio !== FOTO_CRITERIO && MOTIVOS_REABRIBLES.has(v.fotoMotivo || v.rehacerMotivo))
+  || (v.fotoMotivo === 'todas-con-marca' && v.fotoRevision !== FOTO_REVISION));
 const ILUSTRAR_POR_VUELTA = 2; // notas a las que se les hace una ilustración por vuelta (NUCLEO_ILUSTRAR_POR_VUELTA; 0 lo apaga; REGLAS § 7 paso 3)
 const ILUSTRAR_POR_DIA = 40; // imágenes por día (NUCLEO_ILUSTRAR_POR_DIA): ~77 neuronas cada una, ~3.100 de las 10.000 gratis
 const ILUSTRAR_MARCAS_POR_VUELTA = 20; // notas que no se pueden ilustrar y se marcan por vuelta para no volver a mirarlas
 const ILUSTRADAS_CON_BUSQUEDA_REAL_POR_VUELTA = 2; // ilustradas a las que se les vuelve a buscar una foto real por vuelta
+const ILUSTRADAS_REVISION_POR_VUELTA = IL.REVISION_POR_VUELTA; // y las de la revisión única de 7 días (NUCLEO_REVISAR_ILUSTRADAS_POR_VUELTA; 0 la apaga)
 const ARCHIVO_POR_VUELTA = 2; // notas a las que se les busca una foto de archivo por vuelta (NUCLEO_ARCHIVO_POR_VUELTA; 0 lo apaga; REGLAS § 7 paso 2 bis)
 const HORAS_PARA_REDACTAR = 48; // una historia elegida que no se alcanzó a redactar en este plazo ya es vieja
 
@@ -77,7 +81,7 @@ const usd = (n) => `US$ ${n.toFixed(2).replace('.', ',')}`;
 /** La marca de la foto en `verificacion` (la tabla no tiene columna para esto): por qué no hay (`fotoMotivo`, ver MOTIVOS_SIN_FOTO), cuántos intentos y cuándo fue el último. Con foto, se borra el motivo. */
 export function conMotivoDeFoto(verificacion, motivo, intentos, ahoraISO) {
   const { fotoMotivo, ...resto } = verificacion || {};
-  return { ...resto, ...(motivo ? { fotoMotivo: motivo } : {}), fotoIntentos: intentos, fotoIntentada: ahoraISO, fotoCriterio: FOTO_CRITERIO };
+  return { ...resto, ...(motivo ? { fotoMotivo: motivo } : {}), fotoIntentos: intentos, fotoIntentada: ahoraISO, fotoCriterio: FOTO_CRITERIO, fotoRevision: FOTO_REVISION };
 }
 
 function idDeNota(azar = Math.random) {
@@ -629,9 +633,14 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
 
     // 1) foto real siempre gana: las ya ilustradas siguen buscando (pocas por vuelta; hasta 3 intentos, 3 horas entre uno y otro, durante 72 h).
     try {
-      const ilustradas = await db.notasIlustradas(env, new Date(c.ahora.getTime() - IL.REAL_HORAS_DE_VIGENCIA * HORA).toISOString());
+      const revisionPorVuelta = Math.max(0, Math.floor(numero(env.NUCLEO_REVISAR_ILUSTRADAS_POR_VUELTA, ILUSTRADAS_REVISION_POR_VUELTA)));
+      const ilustradas = await db.notasIlustradas(env, new Date(c.ahora.getTime() - (revisionPorVuelta ? IL.REVISION_DIAS_HACIA_ATRAS * 24 : IL.REAL_HORAS_DE_VIGENCIA) * HORA).toISOString(), revisionPorVuelta ? 300 : 40);
       const buscan = ilustradas.filter((n) => (AF.esFotoDeArchivo(n.foto) ? AF.debeBuscarFotoReal(n, c.ahora) : IL.debeBuscarFotoReal(n, c.ahora))).slice(0, ILUSTRADAS_CON_BUSQUEDA_REAL_POR_VUELTA);
-      for (const n of buscan) {
+      // La revisión única (10/11): las ilustradas con fuentes de los últimos 7 días que todavía no se miraron con el criterio de hoy; las más nuevas primero y pocas por vuelta.
+      const enBusqueda = new Set(buscan.map((n) => n.id));
+      const revisan = revisionPorVuelta ? ilustradas.filter((n) => !enBusqueda.has(n.id) && !AF.esFotoDeArchivo(n.foto) && IL.debeRevisarFotoRealUnaVez(n, c.ahora)).slice(0, revisionPorVuelta) : [];
+      const deRevision = new Set(revisan.map((n) => n.id));
+      for (const n of [...buscan, ...revisan]) {
         try {
           const arts = await db.articulosDeHistoria(env, n.historiaId);
           const deArchivo = AF.esFotoDeArchivo(n.foto);
@@ -643,7 +652,10 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
             il_.reales += 1;
           } else {
             const cuenta = f.motivo === 'error-vision' ? 0 : 1; // si la visión no pudo decidir (cupo, red), no gasta el intento: se espera y se vuelve a probar
-            const estadoReal = { realIntentos: (Number(il.realIntentos) || 0) + cuenta, realIntentada: c.ahoraISO };
+            // la revisión única se marca sólo si la visión pudo decidir: si no, se repite en otra vuelta
+            const estadoReal = deRevision.has(n.id)
+              ? { ...(f.motivo === 'error-vision' ? {} : { revisionFotoReal: IL.REVISION_FOTO_REAL }), realIntentada: c.ahoraISO }
+              : { realIntentos: (Number(il.realIntentos) || 0) + cuenta, realIntentada: c.ahoraISO };
             await db.reemplazarIlustracion(env, n.id, null, deArchivo ? AF.conEstadoDeArchivo(n.verificacion, estadoReal) : IL.conEstadoDeIlustracion(n.verificacion, estadoReal));
           }
         } catch (e) {

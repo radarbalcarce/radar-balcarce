@@ -84,7 +84,8 @@ export function candidatas(articulos) {
 }
 
 async function bajar(url, fetchFn) {
-  const res = await fetchFn(url);
+  // Con el agente del núcleo: Clarín y otros rechazan los pedidos de imagen sin User-Agent (10/11, caso del Papa: la nota quedó ilustrada por eso).
+  const res = await fetchFn(url, { headers: { 'user-agent': USER_AGENT, accept: 'image/*,*/*;q=0.5' } });
   if (!res.ok) return null;
   const mime = String(res.headers?.get?.('content-type') ?? '').split(';')[0].trim().toLowerCase();
   if (!TIPOS.has(mime)) return null;

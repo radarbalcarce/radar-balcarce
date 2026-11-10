@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { candidatas, elegirFoto, elegirFotoConMotivo } from './fotos.mjs';
+import { USER_AGENT } from '../leer/leer.mjs';
 import { medidasDeUrl } from '../leer/rss.mjs';
 
 const nota = { titulo: 'Examen de licencia', ficha: { que: 'Examen de licencia profesional', donde: 'Balcarce' } };
@@ -34,6 +35,15 @@ test('elegirFoto: descarta la que tiene marca de agua y elige la segunda', async
   const f = await elegirFoto(nota, arts, { gemini, fetch: async () => respuestaImagen() });
   assert.deepEqual(f, { url: 'https://b.com/dos.jpg', credito: 'Foto: Diario B', alt: 'Examen de licencia profesional en Balcarce', ancho: 1000, alto: 700 });
   assert.deepEqual(preguntas, [1, 1]);
+});
+
+test('elegirFoto: la imagen se baja con el User-Agent del núcleo (Clarín rechaza los pedidos sin agente; caso del Papa, 10/11)', async () => {
+  const pedidos = [];
+  const gemini = { texto: async () => ({ marca_de_agua_o_otro_medio: false, menor_o_victima: false, es_de_esta_noticia: 'si' }) };
+  const arts = [{ medio: 'Clarín', imagenes: [img('https://clarin.com/papa.jpg', 1600, 900)] }];
+  const f = await elegirFoto(nota, arts, { gemini, fetch: async (url, init) => { pedidos.push([String(url), init]); return respuestaImagen(); } });
+  assert.equal(f.url, 'https://clarin.com/papa.jpg');
+  assert.equal(pedidos[0][1]?.headers?.['user-agent'], USER_AGENT);
 });
 
 test('elegirFoto: la marca de agua no descarta la foto de una fuente de Balcarce (Radio Gabal con su logo de fondo, Hernán 10/11); la de otro medio sí', async () => {

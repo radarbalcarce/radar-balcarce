@@ -532,6 +532,26 @@ test('criterio de fotos nuevo (10/11): una nota de días atrás sin foto por men
   assert.ok(f(otra.id).foto === null || f(otra.id).foto === 'null', 'una de más de 24 h sin ese motivo tampoco');
 });
 
+test('revisión única (10/11, caso del Papa): una nota de días atrás sin foto por «todas-con-marca» se vuelve a mirar una sola vez; con la revisión hecha, no', { skip: sinSqlite }, async () => {
+  const env = envDe({ NUCLEO_PUBLICA: 'si' });
+  const m = mundo();
+  const n = nucleo();
+  await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(1) });
+  const primeras = filas(env, "SELECT id, historia_id FROM notas WHERE estado = 'publicada'");
+  const hace3dias = new Date(Date.parse(AHORA) - 3 * 24 * 3600_000).toISOString();
+  const [nueva, hecha] = primeras;
+  env.DB.sqlite.exec(`UPDATE notas SET foto = NULL, creada = '${hace3dias}'`);
+  env.DB.sqlite.exec(`UPDATE notas SET verificacion = '{"fotoMotivo":"todas-con-marca","fotoIntentos":4,"fotoCriterio":2}' WHERE id = '${nueva.id}'`);
+  env.DB.sqlite.exec(`UPDATE notas SET verificacion = '{"fotoMotivo":"todas-con-marca","fotoIntentos":4,"fotoCriterio":2,"fotoRevision":1}' WHERE id = '${hecha.id}'`);
+  for (const p of primeras) env.DB.sqlite.prepare('UPDATE articulos SET imagenes = ? WHERE historia_id = ?').run(JSON.stringify([{ url: 'https://img.test/nueva.png', ancho: 1200, alto: 800 }]), p.historia_id);
+  const r = await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(2) });
+  assert.deepEqual(r.errores, []);
+  const f = (id) => filas(env, 'SELECT foto, verificacion FROM notas WHERE id = ?', id)[0];
+  assert.equal(JSON.parse(f(nueva.id).foto).url, 'https://img.test/nueva.png');
+  assert.equal(JSON.parse(f(nueva.id).verificacion).fotoRevision, 1);
+  assert.ok(f(hecha.id).foto === null || f(hecha.id).foto === 'null', 'con la revisión ya hecha no se reintenta');
+});
+
 test('una nota sin foto de más de 24 h, o una que no es del núcleo (sin historia), no se reintenta', { skip: sinSqlite }, async () => {
   const env = envDe({ NUCLEO_PUBLICA: 'si' });
   const m = mundo();

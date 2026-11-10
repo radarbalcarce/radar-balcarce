@@ -152,7 +152,8 @@ test('un apellido no alcanza: sin lugar o institución en común la nota sigue a
   assert.deepEqual(r.errores, []);
   assert.equal(m.archivoMiradas, 0);
   assert.deepEqual(r.fotosDeArchivo, { intentadas: 0, hechas: 0, finales: 0, fallos: 0, miradas: 0 }, 'ni un pedido: sin coincidencia no se gasta nada');
-  assert.equal(nota(env, 'd1').foto.ilustracion, true);
+  assert.equal(nota(env, 'd1').foto, null, 'una nota sobre una persona (Fernández) no se ilustra desde el 10/11: queda la placa');
+  assert.match(nota(env, 'd1').verificacion.ilustracion.motivo, /persona identificable/);
   assert.equal(nota(env, 'd2').foto.ilustracion, true);
   assert.equal(nota(env, 'd1').verificacion.archivoFoto, undefined, 'sin coincidencia no se marca nada');
 });
