@@ -46,7 +46,7 @@ export async function planearEnlaces(env, { ahora = new Date(), simulado = true,
   const items = [];
   if (!enFacebook.length || !quienes.length) return { dia, simulado, items };
 
-  const conPlacas = quienes.includes('x') ? await placasDibujadas(env) : null;
+  const conPlacas = quienes.includes('x') || quienes.includes('threads') ? await placasDibujadas(env) : null;
   const baseDePlacas = env?.URL_DE_REDES || DIRECCION_DE_LAS_REDES;
   const notas = new Map((await notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - 48 * 3600_000).toISOString(), conBorradores: simulado })).map((n) => [n.id, n]));
   for (const red of quienes) {
@@ -65,7 +65,9 @@ export async function planearEnlaces(env, { ahora = new Date(), simulado = true,
       const id = await anotarIntento(env, { red, notaId: nota.id, seccion: nota.seccion, tipo: f.tipo, cuando: ahoraISO, dia, estado: simulado ? 'simulado' : 'enviando', simulado, texto });
       if (!id) continue; // otra corrida la tomó primero
       items.push({
-        id, red, simulado, enlace: enlaceDeNota(nota, sitio), texto, ...(red === 'x' ? { imagen: urlDePlaca(nota, baseDePlacas) } : {}),
+        // Threads lleva la placa de SU nota (10/11, caso del Papa: con sólo el enlace, Meta armó la tarjeta con una miniatura de «Seguí leyendo» de otra nota). Sin placa dibujada, sale como antes (texto + enlace).
+        id, red, simulado, enlace: enlaceDeNota(nota, sitio), texto,
+        ...(red === 'x' || (red === 'threads' && conPlacas?.has(nombreDePlaca(nota))) ? { imagen: urlDePlaca(nota, baseDePlacas) } : {}),
         nota: { id: nota.id, titulo: nota.titulo, bajada: nota.bajada, enDosLineas: nota.enDosLineas, seccion: nota.seccion, deBalcarce: tipoDeNota(nota) === 'local', foto: nota.foto, slug: nota.slug },
       });
       n += 1;

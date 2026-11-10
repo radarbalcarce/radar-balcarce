@@ -643,6 +643,62 @@ test('X (Worker): lleva la placa 4:5 de la nota; en real sólo si la placa ya es
   assert.match(pc.items[0].imagen, /^https:\/\/otro\.example\/placa\//);
 });
 
+test('Threads con la placa de SU nota (10/11, caso del Papa: Meta tomó una miniatura de otra nota): el Worker le pasa la placa de esa nota y sólo si está dibujada; sin placa, como antes', async () => {
+  const t = armarEnlaces({ activas: true });
+  t.env.PLACAS = placasDe(t, ['loc1111']); // sólo la de loc1111 está dibujada
+  const plan = await planearEnlaces(t.env, { ahora: t.ahora, simulado: false, redes: ['threads'] });
+  const de = Object.fromEntries(plan.items.map((i) => [i.nota.id, i]));
+  assert.match(de.loc1111.imagen, /^https:\/\/radar-redes\.radarbalcarce\.workers\.dev\/placa\/loc1111-[0-9a-f]{8}\.jpg$/);
+  assert.equal(de.loc2222.imagen, undefined, 'sin placa dibujada: texto + enlace como antes');
+  assert.ok(plan.items.every((i) => !i.imagen || i.imagen.includes(`/placa/${i.nota.id}-`)), 'nunca la placa de otra nota');
+  // sin el depósito de placas, ninguna lleva imagen y igual salen
+  const sin = armarEnlaces({ activas: true });
+  const planSin = await planearEnlaces(sin.env, { ahora: sin.ahora, simulado: false, redes: ['threads'] });
+  assert.equal(planSin.items.length, 2);
+  assert.ok(planSin.items.every((i) => i.imagen === undefined));
+});
+
+test('Threads (cliente): con la imagen de la placa crea un contenedor IMAGE con su image_url y el enlace en el texto (sin link_attachment), espera FINISHED y publica; sin imagen, TEXT como hoy', async () => {
+  const pedidos = [];
+  const fetchFn = async (url, init) => {
+    if (init.method === 'GET') return { ok: true, status: 200, json: async () => ({ status: 'FINISHED' }) };
+    pedidos.push({ url: String(url), cuerpo: Object.fromEntries(new URLSearchParams(init.body)) });
+    return { ok: true, status: 200, json: async () => ({ id: pedidos.length === 1 ? 'cont1' : 'post1' }) };
+  };
+  const c = crearClienteThreads({ token: 'TH-secreto', userId: '9', fetchFn, dormir: async () => {} });
+  const placa = 'https://radar-redes.radarbalcarce.workers.dev/placa/loc1111-0a1b2c3d.jpg';
+  const r = await c.publicarEnlace({ texto: 'Titular\n\nhttps://radarbalcarce.com/nota/x\n\n#Balcarce', enlace: 'https://radarbalcarce.com/nota/x', imagen: placa });
+  assert.equal(r.id, 'post1');
+  assert.equal(pedidos[0].cuerpo.media_type, 'IMAGE');
+  assert.equal(pedidos[0].cuerpo.image_url, placa);
+  assert.equal(pedidos[0].cuerpo.link_attachment, undefined);
+  assert.match(pedidos[0].cuerpo.text, /https:\/\/radarbalcarce\.com\/nota\/x/);
+  assert.equal(pedidos[1].cuerpo.creation_id, 'cont1');
+  pedidos.length = 0;
+  await c.publicarEnlace({ texto: 'Titular', enlace: 'https://radarbalcarce.com/nota/x', imagen: null });
+  assert.equal(pedidos[0].cuerpo.media_type, 'TEXT');
+  assert.equal(pedidos[0].cuerpo.link_attachment, 'https://radarbalcarce.com/nota/x');
+  assert.equal(pedidos[0].cuerpo.image_url, undefined);
+});
+
+test('Threads (programa): al cliente le llega la imagen de SU nota, nunca la de otra; la nota sin placa llega sin imagen', async () => {
+  const t = armarEnlaces({ activas: true });
+  t.env.PLACAS = placasDe(t, ['loc1111']);
+  const redes = crearRedes({ ahora: () => t.ahora });
+  const llamadas = [];
+  const deps = {
+    fetchFn: (url, init) => redes.manejar(new Request(url, init), t.env),
+    imagenDeEnlace: async () => ({ bytes: new Uint8Array([1]), mime: 'image/jpeg' }),
+    clienteThreads: () => ({ publicarEnlace: async (o) => { llamadas.push(o); return { id: `th${llamadas.length}` }; } }),
+    log: () => {},
+  };
+  const r = await correrEnlaces({ env: { TELEGRAM_TOKEN: TOKEN, THREADS_TOKEN: 'TH-secreto', THREADS_USER_ID: '7' }, ahora: t.ahora, carpeta: fs.mkdtempSync(path.join(os.tmpdir(), 'th-')), deps });
+  assert.deepEqual(r.posteos.map((p) => `${p.notaId}/${p.estado}`).sort(), ['loc1111/ok', 'loc2222/ok']);
+  const por = Object.fromEntries(llamadas.map((l) => [/(loc\d{4})/.exec(l.enlace)[1], l]));
+  assert.match(por.loc1111.imagen, /\/placa\/loc1111-/);
+  assert.equal(por.loc2222.imagen, null);
+});
+
 test('X (programa): redesConCredenciales suma X con BUFFER_API_KEY; real publica la imagen por Buffer y cuenta cómo salió; el error no deja la clave; ensayo no llama a nadie', async () => {
   assert.deepEqual(redesConCredenciales({ BUFFER_API_KEY: 'k' }), ['x']);
   assert.deepEqual(redesConCredenciales({ BUFFER_API_KEY: 'k', BUFFER_IMAGENES: 'no' }), []);

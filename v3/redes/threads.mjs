@@ -2,8 +2,9 @@
 // Secretos (los pega una persona, nunca en un chat ni en el código): THREADS_TOKEN (token de acceso de larga duración, vence a los 60 días: hay que renovarlo, ver REGLAS.md)
 // y THREADS_USER_ID (el número de la cuenta de Threads). El token viaja en el cuerpo del pedido y nunca en la dirección.
 //
-// La API de Threads sólo hace tarjeta de enlace en posteos de TEXTO (a un posteo con tarjeta no se le puede adjuntar una imagen): por eso el posteo es texto + enlace
-// (`link_attachment`) y la tarjeta la arma Threads con la imagen de la propia nota. Hasta 500 caracteres y UNA sola etiqueta de tema.
+// La API de Threads sólo hace tarjeta de enlace en posteos de TEXTO (a un posteo con tarjeta no se le puede adjuntar una imagen). Desde el 10/11 el posteo lleva la placa de la propia nota
+// (IMAGE, `image_url` pública, el enlace dentro del texto) para que Meta no elija una miniatura de la página; sin placa, sigue siendo texto + enlace (`link_attachment`).
+// Hasta 500 caracteres y UNA sola etiqueta de tema.
 import { enlaceDeNota, lineaDeCredito, SITIO } from './texto.mjs';
 import { acortarA, grafemas, sinSecretos, ErrorSocial } from './bluesky.mjs';
 
@@ -71,11 +72,14 @@ export function crearClienteThreads({ token, userId, fetchFn = fetch, base = BAS
   }
 
   return {
-    /** Crea el contenedor de texto con el enlace y lo publica. Devuelve { id }. */
-    async publicarEnlace({ texto, enlace }) {
+    /** Crea el contenedor y lo publica. Con `imagen` (dirección pública de la placa de la nota) es un posteo IMAGE con el enlace dentro del texto; sin ella, TEXT con la tarjeta de enlace. Devuelve { id }. */
+    async publicarEnlace({ texto, enlace, imagen }) {
       if (grafemas(texto) > MAXIMO_THREADS) throw new ErrorSocial(`el texto tiene ${grafemas(texto)} caracteres (el tope es ${MAXIMO_THREADS})`, { red: 'threads' });
       // Si el número cargado no es el de la cuenta del token (pasó el 5/11), Threads contesta «el objeto no existe»: se reintenta con «me», que es la cuenta dueña del token.
-      const crear = (quien) => pedir(`${quien}/threads`, { media_type: 'TEXT', text: texto, ...(enlace ? { link_attachment: enlace } : {}) });
+      // Con imagen no va `link_attachment` (la API sólo hace tarjeta en TEXT): el enlace ya está en el texto.
+      const crear = (quien) => pedir(`${quien}/threads`, imagen
+        ? { media_type: 'IMAGE', image_url: imagen, text: texto }
+        : { media_type: 'TEXT', text: texto, ...(enlace ? { link_attachment: enlace } : {}) });
       let quien = userId;
       let contenedor;
       try { contenedor = await crear(quien); } catch (e) {

@@ -79,7 +79,8 @@ export async function correrEnlaces({ env = {}, ahora = new Date(), carpeta, dep
         if (!r.ok) throw new Error(`Buffer/X: ${r.motivo ?? 'sin detalle'}`);
         await cuenta('ok', { idExterno: r.id });
       } else {
-        const r = await deps.clienteThreads().publicarEnlace({ texto: item.texto, enlace: item.enlace });
+        // Con la placa de su nota (item.imagen, pública en el Worker) Threads no elige imagen; sin ella, texto + enlace como antes.
+        const r = await deps.clienteThreads().publicarEnlace({ texto: item.texto, enlace: item.enlace, imagen: item.imagen ?? null });
         await cuenta('ok', { idExterno: r.id });
       }
     } catch (e) {
