@@ -31,8 +31,8 @@ ADSENSE_SLOT_NOTA = ""
 ADSENSE_SLOT_SECCION = ""
 # El sitio viejo, que sigue publicándose: lo que este sitio no maneja (panel, farmacias, clima, íconos…) y las notas que no están en la base se piden ahí. Nunca radarbalcarce.com (bucle). Vacío = sin respaldo.
 ORIGEN_VIEJO = "https://radar-balcarce.pages.dev"
-# La red de seguridad: lo que este sitio no maneja se pide al sitio viejo. Con "no" se apaga (404 propio) y el sitio viejo se puede apagar. Por defecto todavía "si".
-RESPALDO_VIEJO = "si"
+# La red de seguridad: lo que este sitio no maneja se pide al sitio viejo. Con "no" se apaga (404 propio) y el sitio viejo se puede apagar. Apagada el 10/11/2026 (paso 1 de docs/3-0/APAGAR-EL-VIEJO.md, después de copiar las fotos viejas a R2). Para volver: "si" y subir `sitio`.
+RESPALDO_VIEJO = "no"
 # El contador propio de lecturas y de avisos (REGLAS.md § 11): sin cookies, sin IP y sin User-Agent guardados; sólo sumas por día en las tablas lecturas_dia y avisos_dia de la base.
 # Cuenta las páginas servidas a personas (no robots), vengan de la base o de la caché, y los clics de los avisos propios (/ir/aviso/<id>). «si» por defecto; con "no" no cuenta nada
 # (los avisos siguen llevando al comercio por /ir/aviso/<id>, pero sin sumar el clic). Se lee con `node v3/sitio/scripts/lecturas.mjs`.
