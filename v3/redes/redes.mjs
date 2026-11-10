@@ -17,6 +17,7 @@ import { planear, registrarResultado, lineasDeLasPiezas } from './piezas-plan.mj
 import { planearEnlaces, registrarEnlace } from './enlaces.mjs';
 import { medirDia, compararSemanas, lineasDeLaComparacion } from './estadisticas.mjs';
 import { claveDeVideo, servirVideo } from './video-publico.mjs';
+import { esCronDeDisparo, dispararAcciones } from './disparar-acciones.mjs';
 
 /** El cron del resumen del día: 01:05 UTC = 22:05 de Balcarce. Cualquier otro cron es una vuelta. */
 export const CRON_DEL_RESUMEN = '5 1 * * *';
@@ -361,6 +362,10 @@ export function crearRedes(deps = {}) {
   }
 
   async function programado(evento, env) {
+    // Los crons que sólo despiertan un workflow de GitHub Actions (piezas y fotos propias; disparar-acciones.mjs): no son una vuelta de posteos.
+    if (esCronDeDisparo(evento?.cron)) {
+      return dispararAcciones(evento, env, { fetchFn: deps.fetchGithub ?? fetchFn, avisar: (t) => decirPorTelegram(env, t, fetchFn), esperar: deps.esperar });
+    }
     if (evento?.cron === CRON_DEL_RESUMEN) return resumen(env);
     return vuelta(env);
   }

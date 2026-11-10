@@ -7,7 +7,11 @@ workers_dev = true
 [triggers]
 # Cada 15 minutos de 8:00 a 21:45 de Balcarce (11:00 a 00:45 UTC) y a las 22:00 (01:00 UTC): elegir.mjs corta lo que cae fuera de 8:00 a 22:00.
 # El resumen del día por Telegram a las 22:05 (01:05 UTC).
-crons = ["*/15 0,11-23 * * *", "0 1 * * *", "5 1 * * *"]
+# Desde el 10/11/2026 (disparar-acciones.mjs) otros dos despiertan workflows de GitHub Actions, a la misma hora que tenían sus `schedule:` (GitHub dejó de lanzarlos ese día):
+#   "7 10-23,0-2 * * *"                  «Radar 3.0: piezas de redes», una vez por hora de 7:07 a 23:07 de Balcarce.
+#   "40 9,11,13,15,17,19,21,23,1 * * *"  «Radar 3.0: fotos propias», cada 2 horas a los :40 de 6:40 a 22:40 de Balcarce.
+# Una prueba controla que estas expresiones y las de disparar-acciones.mjs sean las mismas. Ninguna cae en los minutos 0, 15, 30, 45, 5 ni en el cron del resumen.
+crons = ["*/15 0,11-23 * * *", "0 1 * * *", "5 1 * * *", "7 10-23,0-2 * * *", "40 9,11,13,15,17,19,21,23,1 * * *"]
 
 # La misma base D1 del núcleo y del sitio: lee las notas publicadas y anota en `publicaciones`. El workflow la crea si no existe y reemplaza el marcador.
 [[d1_databases]]

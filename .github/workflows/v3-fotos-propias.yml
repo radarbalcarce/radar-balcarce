@@ -7,7 +7,7 @@ name: "Radar 3.0: fotos propias"
 #   simular   (por defecto SÍ) mira cuántas notas se copiarían y cuáles, sin bajar ni guardar nada. Probar siempre así primero.
 #   tope      cuántas notas se copian como mucho en esta corrida (por defecto 60). Para el relleno de las ~500 notas del sitio: tope 150 y repetir hasta que diga «Pendientes que había: 0».
 #   reintentar tilda para volver a probar las que ya fallaron 3 veces o fallaron hace menos de 3 horas.
-# Solo, cada 2 horas a los :40 (de 6:40 a 22:40 de Balcarce; antes cada hora: 6/11/2026, para bajar los minutos de Actions si el repositorio pasa a privado, 18 corridas de 1 minuto por día a 9; para volver, el cron anterior era '40 9-23,0-2 * * *'), PERO SÓLO si la variable de GitHub FOTOS_PROPIAS_ACTIVAS vale «si» (por defecto no existe: no corre solo). La prende una persona
+# Solo (lo dispara el Worker radar-redes con automatico = true), cada 2 horas a los :40 (de 6:40 a 22:40 de Balcarce; antes cada hora: 6/11/2026, para bajar los minutos de Actions si el repositorio pasa a privado, 18 corridas de 1 minuto por día a 9; para volver, el cron anterior era '40 9-23,0-2 * * *'), PERO SÓLO si la variable de GitHub FOTOS_PROPIAS_ACTIVAS vale «si» (por defecto no existe: no corre solo). La prende una persona
 # después de ver una corrida a mano con «simular» y otra de verdad.
 #
 # Secretos de GitHub (los pega una persona, nunca en un chat): CLOUDFLARE_API_TOKEN (con permiso de D1 «Edit» y de R2 «Edit»; el que ya usa «Radar 3.0: desplegar»), CLOUDFLARE_ACCOUNT_ID y,
@@ -15,10 +15,14 @@ name: "Radar 3.0: fotos propias"
 # Qué copió y qué falló: el resumen de la corrida y el adjunto «fotos-copia» (JSON con cada nota, el motivo de cada falla y los tamaños).
 
 on:
-  schedule:
-    - cron: '40 9-23/2,1 * * *'
+  # Desde el 10/11/2026 lo dispara el Worker radar-redes (v3/redes, disparar-acciones) a la misma hora; GitHub dejó de lanzar los horarios ese día.
+  # (La hora de antes, en UTC: '40 9-23/2,1 * * *'.) El Worker manda automatico = true, simular = false y el tope de siempre.
   workflow_dispatch:
     inputs:
+      automatico:
+        description: 'Lo manda solo el Worker radar-redes (el reloj): corre de verdad y sólo si FOTOS_PROPIAS_ACTIVAS vale «si». A mano, dejar como está'
+        type: string
+        default: 'false'
       simular:
         description: 'Sólo contar y listar, sin bajar ni guardar nada (recomendado la primera vez)'
         type: boolean
@@ -42,7 +46,7 @@ concurrency:
 jobs:
   copiar:
     # Solo (por horario) sólo si una persona lo prendió con la variable FOTOS_PROPIAS_ACTIVAS = si. A mano, siempre.
-    if: ${{ github.event_name != 'schedule' || vars.FOTOS_PROPIAS_ACTIVAS == 'si' }}
+    if: ${{ inputs.automatico != 'true' || vars.FOTOS_PROPIAS_ACTIVAS == 'si' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
@@ -68,7 +72,7 @@ jobs:
 
       - name: Copiar las fotos
         env:
-          SIMULAR: ${{ github.event_name == 'schedule' && 'false' || inputs.simular }}
+          SIMULAR: ${{ inputs.automatico == 'true' && 'false' || inputs.simular }}
           TOPE: ${{ inputs.tope || '60' }}
           REINTENTAR: ${{ inputs.reintentar || 'false' }}
         run: |

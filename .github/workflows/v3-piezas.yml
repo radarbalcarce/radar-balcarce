@@ -20,10 +20,15 @@ name: "Radar 3.0: piezas de redes"
 # (las dos primeras:) V3_AUDIOS_POR_DIA (cupo de audios del día en esta corrida; por defecto 10), V3_REDES_URL (la dirección del Worker).
 
 on:
-  schedule:
-    - cron: '7 10-23,0-2 * * *'
+  # Desde el 10/11/2026 lo dispara el Worker radar-redes (v3/redes, disparar-acciones) a la misma hora; GitHub dejó de lanzar los horarios ese día.
+  # (La hora de antes, en UTC: '7 10-23,0-2 * * *'.) Nada de este workflow distingue horario de a mano: con `solo`, `ahora` y `repetir` vacíos corre igual, y publica de verdad si
+  # las redes están prendidas. `automatico` sólo lo manda el Worker (queda en el nombre de la corrida); a mano se deja como está.
   workflow_dispatch:
     inputs:
+      automatico:
+        description: 'Lo manda solo el Worker radar-redes (el reloj). A mano, dejar como está'
+        type: string
+        default: 'false'
       solo:
         description: 'Ensayar sólo estas piezas, separadas por coma (clima-manana, clima-noche, farmacia, utiles, agenda, feriado, aviso-helada, aviso-granizo, aviso-viento, efemeride, participa-noticias, participa-evento, participa-reclamos, participa-nota, noticia1, noticia2, podcast). Vacío = lo que toca ahora'
         type: string

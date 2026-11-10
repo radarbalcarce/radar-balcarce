@@ -130,6 +130,17 @@ compuerta de tono** (R41). Todo lo que va a Instagram es video con voz, salvo el
 - Prueba: `v3/redes/servicios-nuevos.test.mjs` (los dos últimos bloques son los de X).
 - Prueba: `v3/redes/servicios-nuevos.test.mjs`.
 
+## 14. Quién dispara las piezas y las fotos propias (10/11)
+
+GitHub dejó de lanzar sus horarios (`schedule:`) durante horas el 10/11/2026, así que **el reloj de estos dos workflows es ahora el Worker `radar-redes`** (`disparar-acciones.mjs`): a cada hora le pide a la API de GitHub un `workflow_dispatch` (responde 204) y los dos workflows ya no tienen `schedule:`.
+- **Piezas de redes** (`v3-piezas.yml`): cron `7 10-23,0-2 * * *` (UTC), de 7:07 a 23:07 de Balcarce. Manda `automatico = true` y nada más: es lo que toca ahora, y publica de verdad si `REDES_ACTIVAS` es «si», igual que antes. El workflow no distingue horario de a mano.
+- **Fotos propias** (`v3-fotos-propias.yml`): cron `40 9,11,13,15,17,19,21,23,1 * * *` (UTC, lo mismo que `40 9-23/2,1`), de 6:40 a 22:40 de Balcarce. Manda `automatico = true`, `simular = false` y `tope = 60`: copia de verdad, pero el job sólo corre si la variable de GitHub `FOTOS_PROPIAS_ACTIVAS` vale «si» (como antes con el horario). A mano, `automatico` queda en `false` y manda `simular` (por defecto sí).
+- **Secreto:** `GITHUB_TOKEN_ACCIONES` (token de grano fino con «Actions: lectura y escritura» sobre este repositorio; el workflow de desplegar lo carga desde el secreto de GitHub `RELOJ_GITHUB_TOKEN`). Sin él no dispara y deja un aviso en el log.
+- **Si GitHub no contesta 204:** reintenta una vez a los 3 segundos; si vuelve a fallar, avisa por Telegram. Nunca frena el resto del `scheduled`.
+- Los otros crons (`*/15 0,11-23`, `0 1`, `5 1`) siguen haciendo lo de siempre: el `scheduled` decide por el cron exacto y sólo los dos nuevos disparan.
+- Para volver a los horarios de GitHub: sacar los dos crons de `wrangler.toml` y devolverle el `schedule:` a cada workflow (las horas de antes quedaron escritas en sus comentarios).
+- Pruebas: `v3/redes/disparar-acciones.test.mjs` (cron, cuerpo, reintento, aviso, sin token, horarios contra wrangler.toml y workflows).
+
 ## 13. Los carruseles (5/11)
 
 *Hernán, 5/11: «en todas las redes sale todo el material que se genere y la red lo permita, así medimos una semana qué sirve». Un carrusel son varias imágenes 4:5 (1080 × 1350) en un solo posteo: **álbum en Facebook** y **carrusel en Instagram** (hasta 10 imágenes). No tiene voz, así que no gasta ningún audio del cupo, y no pasa por Buffer. TikTok modo foto y X con fotos: no son de este apartado (ver `docs/3-0/PENDIENTES-3-0.md`, ítem 7).*

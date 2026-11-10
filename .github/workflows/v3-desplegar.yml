@@ -299,5 +299,7 @@ jobs:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           # Estadísticas diarias (visitas del sitio): sin estos dos, esa métrica se saltea. El token necesita el permiso Account Analytics: Read.
           CLOUDFLARE_ANALYTICS_TOKEN: ${{ secrets.CLOUDFLARE_ANALYTICS_TOKEN }}
+          # Para que el Worker despierte «piezas de redes» y «fotos propias» en GitHub Actions (v3/redes/disparar-acciones.mjs). Token de grano fino con «Actions: lectura y escritura» sobre este repositorio.
+          GITHUB_TOKEN_ACCIONES: ${{ secrets.RELOJ_GITHUB_TOKEN }}
         run: |
-          node -e 'const s={};for(const k of ["META_TOKEN","TELEGRAM_TOKEN","CLOUDFLARE_ANALYTICS_TOKEN","CLOUDFLARE_ACCOUNT_ID"])if(process.env[k])s[k]=process.env[k];process.stdout.write(JSON.stringify(s))' | npx --yes wrangler@4.139.0 secret bulk --config wrangler.generado.toml
+          node -e 'const s={};for(const k of ["META_TOKEN","TELEGRAM_TOKEN","CLOUDFLARE_ANALYTICS_TOKEN","CLOUDFLARE_ACCOUNT_ID","GITHUB_TOKEN_ACCIONES"])if(process.env[k])s[k]=process.env[k];process.stdout.write(JSON.stringify(s))' | npx --yes wrangler@4.139.0 secret bulk --config wrangler.generado.toml

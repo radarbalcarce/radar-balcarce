@@ -13,7 +13,7 @@ Radar 3.0 son **cinco piezas** que corren en Cloudflare (y una en GitHub). Ningu
 | **Las redes** | `radar-redes` | Decide qué nota va a Facebook e Instagram y qué pieza de video toca | Cada 15 min de 8 a 22 (posteos); las piezas, cada hora |
 | **El bot** | `radar-telegram` | Habla con Hernán: notas propias, administrar, avisos | Cuando escribís; revisa su conexión cada 15 min |
 | **La vigilancia** | `radar-vigilancia` | Mira que todo ande, avisa y manda dos informes | Cada 30 min; informes a las 8 y 20 |
-| **El dibujo de las piezas** | GitHub Actions («Radar 3.0: piezas de redes») | Dibuja los videos y pide la voz (no corre en un Worker) | Una vez por hora, de 7:07 a 23:07 |
+| **El dibujo de las piezas** | GitHub Actions («Radar 3.0: piezas de redes»), **lanzado por `radar-redes`** desde el 10/11 (GitHub dejó de cumplir sus propios horarios) | Dibuja los videos y pide la voz (no corre en un Worker) | Una vez por hora, de 7:07 a 23:07 |
 
 Todos comparten **una base de datos** (`radar-nucleo`) donde están las notas, las historias, los avisos y lo que se publicó en redes.
 
