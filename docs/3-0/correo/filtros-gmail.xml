@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns='http://www.w3.org/2005/Atom' xmlns:apps='http://schemas.google.com/apps/2006'>
+<title>Mail Filters</title>
+<entry>
+<category term='filter'></category>
+<title>Mail Filter</title>
+<content></content>
+<apps:property name='hasTheWord' value='subject:"[Radar Balcarce]"'/>
+<apps:property name='label' value='Informes'/>
+</entry>
+<entry>
+<category term='filter'></category>
+<title>Mail Filter</title>
+<content></content>
+<apps:property name='hasTheWord' value='from:(github.com OR cloudflare.com OR vercel.com OR google-cloud-compliance OR payments-noreply@google.com)'/>
+<apps:property name='label' value='Sistema'/>
+</entry>
+<entry>
+<category term='filter'></category>
+<title>Mail Filter</title>
+<content></content>
+<apps:property name='hasTheWord' value='from:(adsense OR "search console" OR sc-noreply@google.com OR "google analytics" OR "google news" OR "google ads" OR "publisher center")'/>
+<apps:property name='label' value='Google y publicidad'/>
+</entry>
+<entry>
+<category term='filter'></category>
+<title>Mail Filter</title>
+<content></content>
+<apps:property name='hasTheWord' value='{subject:"alerta de seguridad" subject:"iniciar sesión" subject:"inicio de sesión" subject:"security alert" subject:"llave de acceso" subject:"about to expire" subject:"verificación en 2 pasos"}'/>
+<apps:property name='label' value='Seguridad'/>
+<apps:property name='shouldAlwaysMarkAsImportant' value='true'/>
+</entry>
+<entry>
+<category term='filter'></category>
+<title>Mail Filter</title>
+<content></content>
+<apps:property name='hasTheWord' value='from:(facebookmail.com OR buffer.com OR tiktok.com OR bsky.app OR instagram.com OR threads.net OR youtube.com OR x.com)'/>
+<apps:property name='label' value='Redes'/>
+</entry>
+<entry>
+<category term='filter'></category>
+<title>Mail Filter</title>
+<content></content>
+<apps:property name='hasTheWord' value='{from:prensa from:comunicacion from:gacetilla subject:prensa subject:gacetilla subject:comunicado "información de prensa" "comunicado de prensa"}'/>
+<apps:property name='label' value='Prensa'/>
+<apps:property name='shouldNeverSpam' value='true'/>
+</entry>
+</feed>

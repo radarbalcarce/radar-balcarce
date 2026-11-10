@@ -2,6 +2,8 @@
 
 *Para Hernán y Andrés. Escrito el 3/11/2026 leyendo `v3/redes/` (REGLAS, `piezas-del-dia.mjs`, `piezas/REGLAS.md`, Facebook e Instagram), `docs/propuestas/REDES-3-0-FORMATOS.md`, la sección 10 del plan y los datos reales de `web/data/redes.json`. Lo que no se pudo confirmar en el código está marcado **a confirmar**. Si este documento y el programa no coinciden, manda el programa.*
 
+> **Aviso del 10/11/2026: esta sección 1 quedó vieja.** Desde el 3/11 las redes las publica **de verdad la 3.0** (`REDES_ACTIVAS = "si"` en `v3/redes/wrangler.toml`) y las del sistema viejo están apagadas (`REDES_ACTIVAS_NUBE` = No; su reloj quedó sin horarios el 10/11). Desde el 5/11 TikTok, YouTube y X salen por Buffer desde la 3.0, y Threads y Bluesky publican enlaces. Qué rindió y qué no, medido: lámina «Redes» de la auditoría del 10/11.
+
 ## 1. La foto de hoy en una pantalla
 
 Hay **dos sistemas de redes conviviendo**:

@@ -15,8 +15,9 @@
 ## Lo más importante en seis líneas
 
 1. **El sitio nuevo ya está en `radarbalcarce.com`** (corte del 3/11). El núcleo publica solo cada 15 minutos.
-2. **Las redes que ve el público las sigue publicando el sistema viejo.** Las de la 3.0 están **en ensayo**: arman y simulan, no publican.
-3. **TikTok, YouTube, X, Threads, Bluesky y el canal de Telegram todavía no tienen módulo en la 3.0**; las tres primeras hoy salen por el sistema viejo vía Buffer.
+2. **Las redes las publica la 3.0 desde el 3/11** (corregido el 10/11: antes decía «en ensayo»). Las del sistema viejo están apagadas.
+3. **TikTok, YouTube y X salen por Buffer desde la 3.0** (5/11); Threads y Bluesky publican enlaces. El canal de Telegram no tiene programa.
+3 bis. **El sistema viejo se está apagando** (10/11): su reloj y su vigilante quedaron sin horarios y 11 de sus workflows, desactivados. Qué falta: `APAGAR-EL-VIEJO.md` y `PASOS-PARA-USTEDES-10-11.md`.
 4. **El bot de Telegram** es la puerta para escribir notas propias y administrar lo publicado. Hoy lo usa solo Hernán.
 5. **La publicidad** está armada (lugares, planes, media kit y comando para cargar avisos); falta el **primer aviso real**.
 6. **Google Analytics recién empieza** (3/11): no hay datos para comparar todavía; la foto de hoy se hizo con las visitas de Cloudflare.
