@@ -60023,9 +60023,7 @@
   "fuentes": 2
  },
  "ckmtn": {
-  "archivo": "fotos-notas/ckmtn.jpg",
   "medio": "Agencia DIB",
-  "credito": "Foto: Agencia DIB",
   "licencia": null,
   "origen": "medio",
   "titulo": "Juan Carlos Pallarols muestra el cáliz destinado al papa León XIV",
@@ -60057,7 +60055,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "9199999892113123",
-  "ausenteDesde": "2026-11-03T01:34:10.276Z"
+  "intentado": true,
+  "borrada": true
  },
  "17d5cdt": {
   "medio": "La Verdad",
@@ -60177,9 +60176,7 @@
   "fuentes": 1
  },
  "14z5lkf": {
-  "archivo": "fotos-notas/14z5lkf.jpg",
   "medio": "Crónica",
-  "credito": "Foto: Crónica",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Banco Nación registra una baja del 55,4% en refinanciaciones",
@@ -60199,7 +60196,8 @@
    "descripcion": "Fachada y cartel principal del Banco de la Nación Argentina"
   },
   "huella": "f0480e27a8555555",
-  "ausenteDesde": "2026-11-03T01:34:10.276Z"
+  "intentado": true,
+  "borrada": true
  },
  "1n4xm9t": {
   "intentado": true,
@@ -60510,9 +60508,7 @@
   "borrada": true
  },
  "d8zkg2": {
-  "archivo": "fotos-notas/d8zkg2.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Manchester City recibe a Brighton por la Premier League",
@@ -60532,7 +60528,8 @@
    "descripcion": "Fachada del Etihad Stadium con el escudo del Manchester City."
   },
   "huella": "070f07080b4c1515",
-  "ausenteDesde": "2026-11-03T01:34:10.276Z"
+  "intentado": true,
+  "borrada": true
  },
  "dbup6y": {
   "medio": "La Nación",
@@ -64102,9 +64099,7 @@
   "fuentes": 2
  },
  "28qoem": {
-  "archivo": "fotos-notas/28qoem.jpg",
   "medio": "Radio Gabal (FM 104.1)",
-  "credito": "Foto: Radio Gabal (FM 104.1)",
   "licencia": null,
   "origen": "medio",
   "titulo": "El INTA efectiviza la exoneración de la investigadora Virginia Aparicio",
@@ -64124,7 +64119,8 @@
    "descripcion": "Virginia Aparicio hablando en una conferencia o panel con auriculares y micrófono"
   },
   "huella": "0404048747476764",
-  "ausenteDesde": "2026-11-03T01:34:10.276Z"
+  "intentado": true,
+  "borrada": true
  },
  "mkw4t0": {
   "archivo": "fotos-notas/mkw4t0.jpg",
@@ -70135,9 +70131,7 @@
   "ausenteDesde": "2026-11-04T21:39:01.029Z"
  },
  "15cqvjt": {
-  "archivo": "fotos-notas/15cqvjt.jpg",
   "medio": "Infocampo",
-  "credito": "Foto: Infocampo",
   "licencia": null,
   "origen": "medio",
   "titulo": "El papa León XIV visita la Argentina entre el 8 y el 11 de noviembre",
@@ -70157,7 +70151,8 @@
    "descripcion": "El Papa León XIV saludando."
   },
   "huella": "e47212527672e266",
-  "ausenteDesde": "2026-11-03T01:34:10.276Z"
+  "intentado": true,
+  "borrada": true
  },
  "1a3fmok": {
   "archivo": "fotos-notas/1a3fmok.jpg",
@@ -89442,7 +89437,8 @@
    "corresponde": "si",
    "descripcion": "Edificio en construcción rodeado de otras estructuras urbanas."
   },
-  "huella": "00203040604242e2"
+  "huella": "00203040604242e2",
+  "ausenteDesde": "2026-11-10T02:02:25.269Z"
  },
  "746y38": {
   "intentado": true,
@@ -101837,5 +101833,29 @@
    "descripcion": "Néstor Rubén Banegas en una peluquería siendo atendido."
   },
   "huella": "52ecfbdb59795555"
+ },
+ "18z6gu0": {
+  "archivo": "fotos-notas/18z6gu0.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Implementan cortes de tránsito en Buenos Aires por la misa del papa León XIV",
+  "enlace": "https://www.cronica.com.ar/sociedad/santa-misa-del-papa-leon-xiv-en-palermo-que-calles-estan-cortadas-y-como-llegar-al-monumento-de-los-espanoles/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1731/1731619/6af1ccfe7d42c_600_315!.jpg?s=23095dfe1d4f05e8871dbb6892e4f281&d=1794232093",
+  "razon": "Es la única imagen que muestra el lugar del hecho (el monumento vallado) y el contexto de la nota sin personas irreconocibles, sin marcas de agua y sin ser una captura de pantalla.",
+  "cuando": "2026-11-10T02:02:14.287Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Monumento vallado por los cortes de tránsito y primer plano del Papa."
+  },
+  "huella": "3a9a3a9915101800"
  }
 }
