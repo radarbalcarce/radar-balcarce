@@ -60422,9 +60422,7 @@
   "borrada": true
  },
  "74225p": {
-  "archivo": "fotos-notas/74225p.jpg",
   "medio": "Radio Gabal (FM 104.1)",
-  "credito": "Foto: Radio Gabal (FM 104.1)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Inician los preparativos para el verano en el Polideportivo Municipal",
@@ -60456,7 +60454,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "15b5b540b0e13344",
-  "ausenteDesde": "2026-11-03T06:05:09.306Z"
+  "intentado": true,
+  "borrada": true
  },
  "174tjt": {
   "medio": "Los Andes (Mendoza)",
@@ -64636,9 +64635,7 @@
   "borrada": true
  },
  "1gjjdy7": {
-  "archivo": "fotos-notas/1gjjdy7.jpg",
   "medio": "Olé",
-  "credito": "Foto: Olé",
   "licencia": null,
   "origen": "medio",
   "titulo": "Arsenal vence a Liverpool y trepa a la cima de la liga inglesa",
@@ -64658,7 +64655,8 @@
    "descripcion": "Jugadores disputando un balón en un partido de la liga inglesa."
   },
   "huella": "69144e85b586721f",
-  "ausenteDesde": "2026-11-03T06:05:09.306Z"
+  "intentado": true,
+  "borrada": true
  },
  "ptf7ku": {
   "archivo": "fotos-notas/ptf7ku.jpg",
@@ -90720,7 +90718,8 @@
    "corresponde": "si",
    "descripcion": "Camisetas de San Lorenzo colgadas en el vestuario."
   },
-  "huella": "d6d6d696d6d454d6"
+  "huella": "d6d6d696d6d454d6",
+  "ausenteDesde": "2026-11-10T07:02:24.390Z"
  },
  "wya79i": {
   "archivo": "fotos-notas/m58vt5.jpg",
@@ -101851,7 +101850,8 @@
    "corresponde": "si",
    "descripcion": "Monumento vallado por los cortes de tránsito y primer plano del Papa."
   },
-  "huella": "3a9a3a9915101800"
+  "huella": "3a9a3a9915101800",
+  "ausenteDesde": "2026-11-10T07:02:24.390Z"
  },
  "m22vye": {
   "archivo": "fotos-notas/m22vye.jpg",
@@ -102171,5 +102171,65 @@
   "intentos": 1,
   "fuentes": 3,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "g47dkg": {
+  "archivo": "fotos-notas/g47dkg.jpg",
+  "medio": "El Eco de Tandil",
+  "credito": "Foto: El Eco de Tandil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Etcheverry y Tirante se enfrentan en los octavos de final de Estocolmo",
+  "enlace": "https://www.eleco.com.ar/deportes/etcheverry-lo-saco-adelante-y-habra-duelo-de-argentinos",
+  "imagenOriginal": "https://cdnartic.ar/m_f1XJ0_Tttve2cCK94Yq-P26UU=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/11/etcheverry_1.webp",
+  "razon": "Es la única imagen que muestra al protagonista en acción, con buena calidad, sin marcas de agua sobreimpresas y sin elementos que impidan su publicación.",
+  "cuando": "2026-11-10T07:02:04.513Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Tenista en movimiento durante un partido."
+  },
+  "huella": "0804061717291e08"
+ },
+ "12s7vi0": {
+  "archivo": "fotos-notas/12s7vi0.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "River pierde a seis jugadores por la fecha FIFA y prepara los playoffs",
+  "enlace": "https://www.ole.com.ar/river-plate/river-fecha-fifa-seleccion-argentina-mayor-sub-20-bajas-ponzio-andrada-montiel-beltran-almada_0_Gy8VmIw2PO.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/09/05/jOszcwJ-l_2000x1500__1.jpg",
+  "razon": "Es la única imagen completa y nítida que muestra al entrenador de River Plate en el contexto de la nota, sin marcas de agua ni menores de edad.",
+  "cuando": "2026-11-10T07:02:04.513Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Entrenador de River Plate sosteniendo un balón durante un entrenamiento, con un futbolista al fondo.",
+   "segunda": {
+    "proveedor": "gemini",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "El director técnico de River Plate, Martín Demichelis, durante un entrenamiento del equipo."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "2b597b717554f0f9"
  }
 }
