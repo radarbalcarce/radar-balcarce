@@ -1,4 +1,5 @@
 import { test } from 'node:test';
+import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 import { crearGemini } from './gemini.mjs';
 import { armarPedido, redactar, MAX_POR_FUENTE, MAX_TOTAL } from './redactar.mjs';
@@ -107,4 +108,10 @@ test('redactar: noPublicar por menor no exige cuerpo', async () => {
   const n = await redactar(historia, [art('a')], { gemini: g });
   assert.deepEqual(n.noPublicar, { motivo: 'menor' });
   assert.equal(n.pedidos, 1);
+});
+
+test('las reglas de redacción mandan a no publicar lo del exterior sin vínculo con la Argentina (Russell Brand, 10/11)', () => {
+  const reglas = readFileSync(new URL('./REDACCION.md', import.meta.url), 'utf8');
+  assert.match(reglas, /"motivo": "extranjero"/);
+  assert.match(reglas, /No es una sección para lo del exterior/);
 });

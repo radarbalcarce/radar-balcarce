@@ -60,10 +60,15 @@ Menos de 70 palabras de cuerpo no se publica. Si el material no alcanza, no lo e
 - **Ciencia**: investigación, espacio, ambiente, descubrimientos.
 - **Cultura**: espectáculos, música, cine, muestras, fiestas y agenda cultural.
 - **Tecnología**: tecnología, internet, inteligencia artificial, aplicaciones.
-- **Argentina**: lo nacional que no entra en ninguna de las anteriores.
+- **Argentina**: lo nacional que no entra en ninguna de las anteriores. **No es una sección para lo del exterior**: una noticia que pasa afuera y no toca a la Argentina no va acá ni en ninguna (ver `noPublicar`, motivo `extranjero`).
 
 ## `noPublicar`
 
 Si la historia identifica a un menor o a una víctima que no es figura pública, es una lista de sepelios, o las fuentes no alcanzan para una
 nota que se sostenga, devolvé `noPublicar: { "motivo": "menor" | "victima" | "sepelios" | "sin-material" | "otro" }` y un cuerpo vacío o
 mínimo. Es mejor no publicar que publicar mal. Si no hay problema, `noPublicar` es `null`.
+
+**Lo del exterior sin vínculo con la Argentina no se publica** (Hernán, 10/11: una condena a un actor británico salió como «Argentina» y llegó a las redes). Si el hecho
+pasó en otro país y no hay un argentino involucrado, ni una consecuencia concreta para la Argentina o para Balcarce, devolvé `noPublicar: { "motivo": "extranjero" }`,
+aunque lo cuenten muchos medios y aunque la persona sea famosa. Nombrar a un país en el título no alcanza para decidirlo: fijate en qué pasó y dónde. Vale también para
+famosos, espectáculos y policiales de afuera. Si hay un argentino o un efecto en la Argentina, se publica en la sección que corresponda por el tema.
