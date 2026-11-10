@@ -60567,9 +60567,7 @@
   "borrada": true
  },
  "mlnw2g": {
-  "archivo": "fotos-notas/mlnw2g.jpg",
   "medio": "Motorsport",
-  "credito": "Foto: Motorsport",
   "licencia": null,
   "origen": "medio",
   "titulo": "Ryo Hirakawa reemplaza a Esteban Ocon en Haas para el Gran Premio de México",
@@ -60589,12 +60587,11 @@
    "descripcion": "Primer plano de Ryo Hirakawa ajustándose el casco con los colores de Haas"
   },
   "huella": "2a375919b9ad6ded",
-  "ausenteDesde": "2026-11-03T04:04:33.029Z"
+  "intentado": true,
+  "borrada": true
  },
  "9e2ta": {
-  "archivo": "fotos-notas/9e2ta.jpg",
   "medio": "Campeones",
-  "credito": "Foto: Campeones",
   "licencia": null,
   "origen": "medio",
   "titulo": "Julián Santero domina la última práctica de la Clase 3 en Concordia",
@@ -60614,7 +60611,8 @@
    "descripcion": "Auto de competición número 1 en una curva del circuito"
   },
   "huella": "22ace2d1d0d0feff",
-  "ausenteDesde": "2026-11-03T04:04:33.029Z"
+  "intentado": true,
+  "borrada": true
  },
  "faski2": {
   "medio": "El Día",
@@ -70541,9 +70539,7 @@
   "ausenteDesde": "2026-11-04T16:12:29.573Z"
  },
  "eo2n5": {
-  "archivo": "fotos-notas/eo2n5.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "Argentinos vence a Atlético Tucumán y se clasifica a la Libertadores 2027",
@@ -70563,7 +70559,8 @@
    "descripcion": "Jugador de Argentinos Juniors festejando un gol, plano medio."
   },
   "huella": "551f4f4dc6062c85",
-  "ausenteDesde": "2026-11-03T04:04:33.029Z"
+  "intentado": true,
+  "borrada": true
  },
  "qinpme": {
   "archivo": "fotos-notas/qinpme.jpg",
@@ -99806,7 +99803,8 @@
    "corresponde": "si",
    "descripcion": "Funcionarios y conocidos tomándose una selfie en la misa"
   },
-  "huella": "ce4ad5ace8756145"
+  "huella": "ce4ad5ace8756145",
+  "ausenteDesde": "2026-11-10T05:03:20.096Z"
  },
  "68w8hu": {
   "archivo": "fotos-notas/68w8hu.jpg",
@@ -100128,10 +100126,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Las exportaciones de yerba mate aumentan un 4 por ciento en 2026",
-  "razon": "La mejor foto era la de La Nueva, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-11-09T19:32:49.541Z",
-  "intentos": 1,
-  "fuentes": 3
+  "razon": "La segunda opinión (gemini, porque la nota habla de chicos o de categorías juveniles) descartó la de Infobrisas (Radio Brisas) (parece una foto de stock): no se elige ninguna.",
+  "cuando": "2026-11-10T05:02:32.459Z",
+  "intentos": 2,
+  "fuentes": 4,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "10qim63": {
   "archivo": "fotos-notas/10qim63.jpg",
@@ -101974,7 +101973,8 @@
    "corresponde": "si",
    "descripcion": "Valeria Mazza y su pareja bajo una sombrilla blanca en el evento."
   },
-  "huella": "035b4949cdc2aaae"
+  "huella": "035b4949cdc2aaae",
+  "ausenteDesde": "2026-11-10T05:03:20.096Z"
  },
  "1hgsnec": {
   "archivo": "fotos-notas/1hgsnec.jpg",
@@ -102081,7 +102081,8 @@
    "corresponde": "si",
    "descripcion": "Mariano Cascallares saluda al Papa en un acto oficial."
   },
-  "huella": "ccacae664ada989e"
+  "huella": "ccacae664ada989e",
+  "ausenteDesde": "2026-11-10T05:03:20.096Z"
  },
  "150p9og": {
   "archivo": "fotos-notas/150p9og.jpg",
@@ -102139,5 +102140,26 @@
   "cuando": "2026-11-10T04:02:15.115Z",
   "intentos": 1,
   "fuentes": 2
+ },
+ "1057omu": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Pablo Quirno asegura que el mensaje del papa León XIV interpela a todos",
+  "razon": "Ambas imágenes son capturas de pantalla de programas de televisión (graficas) y no fotografías originales del hecho.",
+  "cuando": "2026-11-10T05:02:32.459Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "ogv7up": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Papa León XIV visita el Cottolengo Don Orione en Claypole",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-10T05:02:32.459Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }
