@@ -186,7 +186,7 @@ test('programa de GitHub: dibuja sólo lo que falta, sube a R2, y con REPETIR vu
 
 test('una nota de Balcarce sin foto: sin placa espera; con la placa dibujada sale en Facebook e Instagram con la dirección de la placa; una de afuera sin foto no', async () => {
   const t = armar();
-  guardarNota(t.sqlite, { id: 'sinfoto', titulo: 'Titular sin foto', creada: hace(30), foto: null });
+  guardarNota(t.sqlite, { id: 'sinfoto', titulo: 'Titular sin foto', creada: hace(200), foto: null });
   guardarNota(t.sqlite, { id: 'afuera1', titulo: 'Nota de afuera sin foto', creada: hace(20), foto: null, seccion: 'Economía', motivo: 'nacional-3', medios: ['A', 'B', 'C', 'D', 'E', 'F'] });
   const plan = await t.redes.candidatas(t.env, { ahora: AHORA });
   assert.deepEqual(plan.notas.map((n) => [n.id, n.deBalcarce, n.foto]), [['sinfoto', true, null]], 'sólo la de Balcarce entra en el plan de placas');

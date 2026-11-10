@@ -251,7 +251,7 @@ test('una nota sale en UN formato: la que ya contó un repaso no va como posteo 
 });
 
 test('con placa, una nota de Balcarce SIN foto sale (va con la placa de su sección); lo de afuera sin foto, una foto pendiente o una dirección que no sirve, no (Hernán, 6/11)', () => {
-  const sinFoto = nota({ foto: null });
+  const sinFoto = nota({ foto: null, publicada: hace(200) });
   const sinFotoAfuera = nacional({ foto: null });
   const pendiente = nota({ foto: { url: null, r2: 'redaccion/x.jpg', pendiente: true } });
   const fotoHttp = nota({ foto: { ...FOTO, url: 'http://sitio.com/a.jpg' } });
@@ -262,7 +262,13 @@ test('con placa, una nota de Balcarce SIN foto sale (va con la placa de su secci
   assert.equal(motivoDeExclusion(sinFoto, { ahora: AHORA }), 'sin-foto', 'sin placa (la foto sola) nunca sale sin imagen');
   assert.equal(motivoDeExclusion(sinFotoAfuera, { ahora: AHORA, conPlaca: true }), 'sin-foto');
   // por el motivo del núcleo (no por la sección): una nota de Balcarce de Salud también
-  assert.equal(motivoDeExclusion(nota({ foto: null, seccion: 'Salud', motivo: 'balcarce' }), { ahora: AHORA, conPlaca: true }), null);
+  assert.equal(motivoDeExclusion(nota({ foto: null, seccion: 'Salud', motivo: 'balcarce', publicada: hace(200) }), { ahora: AHORA, conPlaca: true }), null);
+  // espera (10/11): recién publicada y sin foto, todavía no sale con placa: el núcleo sigue buscando foto o ilustrándola
+  assert.equal(motivoDeExclusion(nota({ foto: null, publicada: hace(30) }), { ahora: AHORA, conPlaca: true }), 'sin-foto');
+  assert.equal(motivoDeExclusion(nota({ foto: null, publicada: hace(149) }), { ahora: AHORA, conPlaca: true }), 'sin-foto');
+  assert.equal(motivoDeExclusion(nota({ foto: null, publicada: hace(150) }), { ahora: AHORA, conPlaca: true }), null);
+  // con foto sale enseguida, como siempre
+  assert.equal(motivoDeExclusion(nota({ publicada: hace(5) }), { ahora: AHORA, conPlaca: true }), null);
   // la ley y el tono valen igual sin foto
   assert.equal(motivoDeExclusion(nota({ foto: null, noPublicar: { motivo: 'menor' } }), { ahora: AHORA, conPlaca: true }), 'no-publicar');
   assert.equal(motivoDeExclusion(nota({ foto: null, titulo: 'Un niño de dos años muere tras caer a una pileta', seccion: 'Salud' }), { ahora: AHORA, conPlaca: true }), 'tono');

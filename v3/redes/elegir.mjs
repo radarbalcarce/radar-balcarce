@@ -16,6 +16,7 @@ export const REGLAS = {
   erroresPorNota: 2,         // después de dos intentos fallidos, esa nota no se reintenta
   erroresSeguidos: 3,        // tres fallos en las últimas dos horas frenan la vuelta (algo anda mal: no se insiste)
   ventanaDeErroresMinutos: 120,
+  esperaDeLaFotoMin: 150,    // una nota de Balcarce sin foto espera tanto antes de salir con la placa: el núcleo sigue buscando foto (4 intentos cada 45 min) y después ilustra (10/11)
   horasDelEspejo: 12,        // una nota que salió en Facebook y no en Instagram todavía puede espejarse durante tantas horas
 };
 
@@ -57,7 +58,13 @@ export function tieneFoto(nota) {
  * Una nota de Balcarce SIN ninguna foto (`foto` vacía; no una foto pendiente ni una dirección que no sirve) puede salir en el posteo de feed y en la imagen de enlace con la placa de su
  * sección (Hernán, 6/11). Lo de afuera sin foto sigue sin salir.
  */
-export const sePuedeConPlacaSola = (nota, reglas = REGLAS) => !nota.foto && tipoDeNota(nota, reglas) === 'local';
+export function sePuedeConPlacaSola(nota, reglas = REGLAS, ahora = new Date()) {
+  if (nota.foto || tipoDeNota(nota, reglas) !== 'local') return false;
+  // Espera a que el núcleo agote la búsqueda de foto y la ilustración (10/11: varias notas salieron con placa y la foto llegó después, ya con el posteo hecho).
+  const publicada = Date.parse(nota.publicada);
+  if (Number.isNaN(publicada)) return true;
+  return new Date(ahora).getTime() - publicada >= reglas.esperaDeLaFotoMin * MINUTO;
+}
 
 /**
  * ¿El título es la cotización del día del dólar, del euro o del real («dólar hoy», «a cuánto cotiza el dólar», «cotización del dólar»)? Es una nota de servicio: nunca sale a las redes, ni como
@@ -91,7 +98,7 @@ export function motivoDeExclusion(nota, { ahora, reglas = REGLAS, conPlaca = fal
   if (esListaDeSepelios(nota.titulo)) return 'sepelios';
   if (nota.deServicio || nota.id === 'mediakit' || esCotizacionDelDia(nota.titulo)) return 'de-servicio';
   if (esTragediaParaRedes({ titulo: nota.titulo, bajada: nota.bajada, resumen: nota.enDosLineas })) return 'tono';
-  if (!tieneFoto(nota) && !(conPlaca && sePuedeConPlacaSola(nota, reglas))) return 'sin-foto';
+  if (!tieneFoto(nota) && !(conPlaca && sePuedeConPlacaSola(nota, reglas, ahora))) return 'sin-foto';
   const tipo = tipoDeNota(nota, reglas);
   if (!tipo) return 'no-es-de-redes';
   if (tipo === 'nacional' && noEsNoticiaAunqueLaCuentenTodos(nota.titulo)) return 'no-es-noticia';
