@@ -1,7 +1,41 @@
 {
- "generado": "2026-11-10T11:33:43.679Z",
+ "generado": "2026-11-10T12:07:56.430Z",
  "intentosMaximos": 3,
  "notas": [
+  {
+   "id": "6nyrgi",
+   "titulo": "Una representante de Cáritas San José participó de la misa del papa León XIV",
+   "copete": "Valeria Gardey estuvo en el sector del altar durante la celebración encabezada por el Sumo Pontífice en el barrio porteño de Palermo, frente al Monumento de los Españoles, en el marco de su visita a la Argentina. Una representante de la comunida",
+   "seccion": "Balcarce",
+   "fecha": "2026-11-10T11:41:46.000Z",
+   "fuentes": [
+    {
+     "medio": "El Diario Balcarce",
+     "enlace": "https://eldiariobalcarce.com.ar/una-representante-de-caritas-san-jose-participo-de-la-misa-del-papa-leon-xiv-584",
+     "fecha": "2026-11-10T11:41:46.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "cuerpo: 2 problemas (nombre, tildes): el cuerpo nombra a \"republica\" y la fuente no; sin esas oraciones quedan 67 palabras",
+   "maximo": 3
+  },
+  {
+   "id": "al6yye",
+   "titulo": "Pato Naranja cayó en la final del Torneo Desarrollo",
+   "copete": "El conjunto balcarceño perdió 25-13 ante Camarones Azul de Pinamar. Pese al resultado, el equipo cerró una destacada participación y todavía tendrá un compromiso más antes de finalizar la temporada.",
+   "seccion": "Deportes",
+   "fecha": "2026-11-10T11:48:11.000Z",
+   "fuentes": [
+    {
+     "medio": "Radio Gabal (FM 104.1)",
+     "enlace": "https://www.radiogabal.com.ar/index.php/deportes/rugby-pato-naranja-cayo-en-la-final-del-torneo-desarrollo",
+     "fecha": "2026-11-10T11:48:11.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 405 (line 7 column 1)",
+   "maximo": 3
+  },
   {
    "id": "m1r20",
    "titulo": "El Hospital Municipal saluda a los técnicos radiólogos",
@@ -15,30 +49,8 @@
      "fecha": "2026-11-10T11:08:57.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
-   "maximo": 3
-  },
-  {
-   "id": "1uvwzfb",
-   "titulo": "Un laberinto de maíz de 10 hectáreas con un gol de Messi y Lautaro: desde el 10 de diciembre se podrá recorrer y tiene un fin solidario",
-   "copete": "CÓRDOBA.-Un original laberinto de maíz que combina tres grandes pasiones argentinas: el fútbol, el campo y la educación se realizó en Monte Buey , en el sudeste de Córdoba. Bajo el lema “sembramos un gol”, la propuesta se presentó durante la Expo ITAI y la Fiesta Nacional de la…",
-   "seccion": "Agro",
-   "fecha": "2026-11-10T00:33:00.000Z",
-   "fuentes": [
-    {
-     "medio": "Agrofy News",
-     "enlace": "https://news.agrofy.com.ar/noticia/216964/laberinto-maiz-10-hectareas-gol-messi-lautaro-10-diciembre-se-podra-recorrer-tiene-fin-solidario",
-     "fecha": "2026-11-10T00:33:00.000Z"
-    },
-    {
-     "medio": "La Nación",
-     "enlace": "https://www.lanacion.com.ar/economia/campo/centro-de-messi-lautaro-cabecea-y-es-gol-a-inglaterra-recrearon-en-un-laberinto-de-maiz-la-nid10112026/",
-     "fecha": "2026-11-10T11:10:01.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "título o bajada: 2 problemas (forma, exagera): el copete trae letras rotas (letras que no son del castellano en \"hectâreas\"): texto mal escrito, se",
+   "intentos": 2,
+   "motivo": "Gemini: Bad control character in string literal in JSON at position 1052 (line 1 column 1053)",
    "maximo": 3
   },
   {
@@ -170,5 +182,14 @@
    "maximo": 3
   }
  ],
- "descartadas": []
+ "descartadas": [
+  {
+   "id": "10g0hk8",
+   "titulo": "“Historia natural de los gliptodontes” se presentó MUHBA",
+   "seccion": "Cultura y agenda",
+   "fecha": "2026-11-09T15:20:10.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; sin material"
+  }
+ ]
 }

@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-10T11:33:43.679Z",
- "portada": 93,
+ "generado": "2026-11-10T12:07:56.430Z",
+ "portada": 114,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-10T11:33:44.126Z",
+  "generado": "2026-11-10T12:07:56.709Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -95,8 +95,18 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 49,
     "notas": [
+     {
+      "id": "f8fcrh",
+      "titulo": "Bautista Prieto gana el Provincial de Pesca en cadetes",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "39ovr9",
+      "titulo": "Se juegan seis partidos y se marcan 29 goles en el Clausura femenino",
+      "seccion": "Fútbol"
+     },
      {
       "id": "17nu3vp",
       "titulo": "Emerson Fittipaldi visita el Museo Fangio por su aniversario",
@@ -106,16 +116,6 @@
       "id": "1w8v4jx",
       "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
       "seccion": "Educación"
-     },
-     {
-      "id": "ryri8t",
-      "titulo": "Fallece a los 74 años Néstor Rubén Banegas",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1tcmuf9",
-      "titulo": "Unos 750 chicos participan del encuentro de fútbol Que ruede la redonda",
-      "seccion": "Fútbol"
      }
     ]
    },
@@ -128,6 +128,42 @@
     "salio": null,
     "segundos": 52,
     "notas": [
+     {
+      "id": "1tcmuf9",
+      "titulo": "Unos 750 chicos participan del encuentro de fútbol Que ruede la redonda",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "1cpw03j",
+      "titulo": "Camila Peralta actúa en la nueva serie de Netflix dirigida por Trapero",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "ryri8t",
+      "titulo": "Fallece a los 74 años Néstor Rubén Banegas",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "1hado1m",
+      "titulo": "La Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
+      "seccion": "Deportes"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 52,
+    "notas": [
+     {
+      "id": "1tpvs2y",
+      "titulo": "Abren los últimos cupos para la carrera de trail",
+      "seccion": "Cultura y agenda"
+     },
      {
       "id": "6qyz7u",
       "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
@@ -142,42 +178,6 @@
       "id": "1su15zm",
       "titulo": "Garantizan la continuidad del Registro del Automotor",
       "seccion": "Balcarce"
-     },
-     {
-      "id": "1cpw03j",
-      "titulo": "Camila Peralta actúa en la nueva serie de Netflix dirigida por Trapero",
-      "seccion": "Cultura y agenda"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 50,
-    "notas": [
-     {
-      "id": "1li6hf9",
-      "titulo": "Los Patos, Boca y San Manuel ganan por el torneo Clausura",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "1iw8ih",
-      "titulo": "Acumulan cubiertas y basura sobre la avenida Caseros",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "nhxwla",
-      "titulo": "Victoria Villarruel confirma que no fue invitada a la misa del papa León XIV",
-      "seccion": "Política"
-     },
-     {
-      "id": "8gz70k",
-      "titulo": "Nvidia investiga a su CEO por una presunta red de espionaje chino",
-      "seccion": "Tecnología"
      }
     ]
    }
@@ -186,9 +186,27 @@
    "hoy": [],
    "cola": [
     {
+     "id": "f8fcrh",
+     "titulo": "Bautista Prieto gana el Provincial de Pesca en cadetes",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "39ovr9",
+     "titulo": "Se juegan seis partidos y se marcan 29 goles en el Clausura femenino",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
      "id": "sz8b3v",
      "titulo": "Celebran el Día de la Tradición en homenaje a José Hernández",
      "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "12q02c6",
+     "titulo": "Argentina inicia su defensa ante el Tribunal del Mar por Sea Lion",
+     "seccion": "Argentina",
      "marcada": false
     }
    ],
