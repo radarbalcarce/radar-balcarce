@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-10T12:37:25.811Z",
- "portada": 86,
- "archivo": 496,
- "esperandoCuerpo": 26,
+ "generado": "2026-11-10T13:07:19.840Z",
+ "portada": 99,
+ "archivo": 500,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-10T12:37:26.062Z",
+  "generado": "2026-11-10T13:07:20.393Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -93,29 +93,29 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 51,
+    "segundos": 54,
     "notas": [
+     {
+      "id": "1w8v4jx",
+      "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
+      "seccion": "Educación"
+     },
+     {
+      "id": "6nyrgi",
+      "titulo": "Valeria Gardey participa de la misa del papa León XIV",
+      "seccion": "Balcarce"
+     },
      {
       "id": "f8fcrh",
       "titulo": "Bautista Prieto gana el Provincial de Pesca en cadetes",
       "seccion": "Deportes"
      },
      {
-      "id": "17nu3vp",
-      "titulo": "Emerson Fittipaldi visita el Museo Fangio por su aniversario",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "1tcmuf9",
-      "titulo": "Unos 750 chicos participan del encuentro de fútbol Que ruede la redonda",
+      "id": "39ovr9",
+      "titulo": "Se juegan seis partidos y se marcan 29 goles en el Clausura femenino",
       "seccion": "Fútbol"
-     },
-     {
-      "id": "1cpw03j",
-      "titulo": "Camila Peralta actúa en la nueva serie de Netflix dirigida por Trapero",
-      "seccion": "Cultura y agenda"
      }
     ]
    },
@@ -126,27 +126,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 53,
     "notas": [
+     {
+      "id": "17nu3vp",
+      "titulo": "Emerson Fittipaldi visita el Museo Fangio por su aniversario",
+      "seccion": "Automovilismo"
+     },
+     {
+      "id": "al6yye",
+      "titulo": "Pato Naranja cae ante Camarones Azul en la final del Torneo Desarrollo",
+      "seccion": "Deportes"
+     },
      {
       "id": "ryri8t",
       "titulo": "Fallece a los 74 años Néstor Rubén Banegas",
       "seccion": "Balcarce"
      },
      {
-      "id": "6qyz7u",
-      "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "1su1zi1",
-      "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
+      "id": "1tcmuf9",
+      "titulo": "Unos 750 chicos participan del encuentro de fútbol Que ruede la redonda",
       "seccion": "Fútbol"
-     },
-     {
-      "id": "nhxwla",
-      "titulo": "Victoria Villarruel confirma que no fue invitada a la misa del papa León XIV",
-      "seccion": "Política"
      }
     ]
    },
@@ -157,27 +157,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 47,
     "notas": [
      {
-      "id": "1li6hf9",
-      "titulo": "Los Patos, Boca y San Manuel ganan por el torneo Clausura",
+      "id": "1cpw03j",
+      "titulo": "Camila Peralta actúa en la nueva serie de Netflix dirigida por Trapero",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "m1r20",
+      "titulo": "El Hospital Municipal saluda a los técnicos radiólogos",
+      "seccion": "Salud"
+     },
+     {
+      "id": "6qyz7u",
+      "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1su1zi1",
+      "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
       "seccion": "Fútbol"
-     },
-     {
-      "id": "1iw8ih",
-      "titulo": "Acumulan cubiertas y basura sobre la avenida Caseros",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1tohclj",
-      "titulo": "Neuquén desdobla las elecciones y elegirá gobernador el 14 de febrero de 2027",
-      "seccion": "Política"
-     },
-     {
-      "id": "1e3wb39",
-      "titulo": "Fernando Bravo lee la profecía de Ezequiel en la misa del papa León XIV",
-      "seccion": "Argentina"
      }
     ]
    }
@@ -186,21 +186,51 @@
    "hoy": [],
    "cola": [
     {
+     "id": "6nyrgi",
+     "titulo": "Valeria Gardey participa de la misa del papa León XIV",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "f8fcrh",
      "titulo": "Bautista Prieto gana el Provincial de Pesca en cadetes",
      "seccion": "Deportes",
      "marcada": false
     },
     {
-     "id": "sz8b3v",
-     "titulo": "Celebran el Día de la Tradición en homenaje a José Hernández",
-     "seccion": "Cultura y agenda",
+     "id": "39ovr9",
+     "titulo": "Se juegan seis partidos y se marcan 29 goles en el Clausura femenino",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
-     "id": "12q02c6",
-     "titulo": "Argentina inicia su defensa ante el Tribunal del Mar por Sea Lion",
-     "seccion": "Argentina",
+     "id": "fwunix",
+     "titulo": "Cadetes de la Escuela Municipal cae ante Kimberley",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "al6yye",
+     "titulo": "Pato Naranja cae ante Camarones Azul en la final del Torneo Desarrollo",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "m1r20",
+     "titulo": "El Hospital Municipal saluda a los técnicos radiólogos",
+     "seccion": "Salud",
+     "marcada": false
+    },
+    {
+     "id": "1v2vi19",
+     "titulo": "La selección argentina inicia los entrenamientos para los amistosos",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "sz8b3v",
+     "titulo": "Celebran el Día de la Tradición en homenaje a José Hernández",
+     "seccion": "Cultura y agenda",
      "marcada": false
     }
    ],
