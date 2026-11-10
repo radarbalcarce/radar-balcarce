@@ -677,3 +677,96 @@ test('/salud cuenta las notas de los últimos 7 días sin foto por motivo (sinFo
   assert.equal(salud.sinFoto7d.conFoto, 1);
   assert.equal(salud.sinFoto7d.total, 5);
 });
+
+const DIA_PRUEBA = '2026-11-02';
+
+// ------------------------------------------------------------------ el respaldo de texto: Mistral (REGLAS § 5 bis)
+
+// Gemini de texto cae con 503; las imágenes (visión) siguen contestando; Mistral contesta con una nota o un veredicto de verificación.
+function mundoConGeminiCaido({ mistralOk = true } = {}) {
+  const m = mundo();
+  const base = m.fetch;
+  m.mistral = 0; m.geminiTexto = 0; m.geminiVision = 0; m.mistralCuerpos = [];
+  m.fetch = async (url, op = {}) => {
+    url = String(url);
+    if (url === 'https://api.mistral.ai/v1/chat/completions') {
+      m.mistral += 1;
+      const cuerpo = JSON.parse(op.body);
+      m.mistralCuerpos.push(cuerpo);
+      if (!mistralOk) return new Response('{"message":"caído"}', { status: 503 });
+      const prompt = cuerpo.messages[cuerpo.messages.length - 1].content;
+      const salida = prompt.includes('TEXTO A VERIFICAR') ? { oraciones_sin_respaldo: [] } : notaJson({ seccion: /Gobierno nacional/.test(prompt) ? 'Argentina' : 'Balcarce' });
+      return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(salida) } }], usage: { prompt_tokens: 800, completion_tokens: 400 } }), { status: 200 });
+    }
+    if (url.includes('generativelanguage.googleapis.com')) {
+      const partes = JSON.parse(op.body).contents[0].parts;
+      if (partes.length === 1) { m.geminiTexto += 1; return new Response('{"error":{"message":"saturado"}}', { status: 503 }); }
+      m.geminiVision += 1;
+    }
+    return base(url, op);
+  };
+  return m;
+}
+
+test('respaldo: con Gemini caído la nota sale por Mistral, la verifica igual y el uso queda aparte (sin tocar el de Gemini)', { skip: sinSqlite }, async () => {
+  const env = envDe({ MISTRAL_API_KEY: 'mistral-key-secreta', NUCLEO_REDACTAR_POR_VUELTA: '1' });
+  const m = mundoConGeminiCaido();
+  const r = await nucleo().vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(7) });
+  assert.equal(r.redactadas, 1);
+  assert.ok(m.mistral >= 2, 'redactar + verificar');
+  assert.equal(r.pedidosAMistral, m.mistral);
+  const nota = filas(env, 'SELECT * FROM notas')[0];
+  assert.equal(nota.pedidos, 2);
+  assert.equal(nota.firma, 'Redacción Radar Balcarce');
+  // el uso de Mistral está en su propio «día»; el de Gemini no lo cuenta ni el freno en dólares lo suma
+  const mistral = await db.usoDelDia(env, `mistral-${DIA_PRUEBA}`);
+  assert.ok(mistral.find((f) => f.tarea === 'redaccion').pedidos >= 2);
+  assert.equal((await db.usoDelDia(env, DIA_PRUEBA)).filter((f) => f.tarea === 'redaccion').length, 0);
+  assert.equal((await db.usoDelMes(env, '2026-11')).pedidos, (await db.usoDelDia(env, DIA_PRUEBA)).reduce((s, f) => s + f.pedidos, 0), 'el mes de Gemini no suma a Mistral');
+  // el JSON se le pidió a Mistral en su modo JSON, y la clave nunca viaja en el cuerpo
+  assert.ok(m.mistralCuerpos.every((c) => c.response_format.type === 'json_object' && !JSON.stringify(c).includes('mistral-key-secreta')));
+  // /salud lo muestra
+  const salud = await (await nucleo().manejar(new Request('https://radar-nucleo.test/salud'), env, { fetch: m.fetch, ahora: AHORA })).json();
+  assert.equal(salud.uso.mistral.activo, true);
+  assert.equal(salud.uso.mistral.pedidosHoy, mistral.reduce((s, f) => s + f.pedidos, 0));
+  assert.equal(salud.uso.mistral.topeDiario, 300);
+});
+
+test('respaldo: sin MISTRAL_API_KEY el núcleo hace lo de siempre (nada llega a Mistral)', { skip: sinSqlite }, async () => {
+  const env = envDe({ NUCLEO_REDACTAR_POR_VUELTA: '1' });
+  const m = mundoConGeminiCaido();
+  const r = await nucleo().vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(7) });
+  assert.equal(r.redactadas, 0);
+  assert.equal(m.mistral, 0);
+  assert.ok(r.errores.some((e) => /gemini-503/.test(e)));
+});
+
+test('respaldo: tope propio de Mistral alcanzado, no se llama', { skip: sinSqlite }, async () => {
+  const env = envDe({ MISTRAL_API_KEY: 'k', MISTRAL_TOPE_DIARIO: '1', NUCLEO_REDACTAR_POR_VUELTA: '1' });
+  await db.anotarUso(env, `mistral-${DIA_PRUEBA}`, 'redaccion', 10, 5);
+  const m = mundoConGeminiCaido();
+  const r = await nucleo().vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(7) });
+  assert.equal(r.redactadas, 0);
+  assert.equal(m.mistral, 0);
+});
+
+test('respaldo: la visión nunca va a Mistral (las fotos salen por Gemini)', { skip: sinSqlite }, async () => {
+  const env = envDe({ MISTRAL_API_KEY: 'k', NUCLEO_REDACTAR_POR_VUELTA: '1' });
+  const m = mundoConGeminiCaido();
+  await nucleo().vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(7) });
+  assert.ok(m.geminiVision >= 1, 'la foto se eligió con Gemini');
+  assert.ok(m.mistralCuerpos.every((c) => c.messages.every((x) => typeof x.content === 'string')), 'ningún pedido a Mistral lleva imágenes');
+});
+
+test('respaldo: con el freno mensual en dólares el texto sigue por Mistral, sin gastar Gemini', { skip: sinSqlite }, async () => {
+  const env = envDe({ MISTRAL_API_KEY: 'k', NUCLEO_REDACTAR_POR_VUELTA: '1' });
+  await db.anotarUso(env, '2026-11-01', 'redaccion', 150_000_000, 0);
+  const m = mundoConGeminiCaido();
+  const r = await nucleo().vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(3) });
+  assert.equal(r.frenoMensual, true);
+  assert.equal(r.redactadas, 1);
+  assert.equal(m.geminiTexto + m.geminiVision, m.pedidos.filter((u) => u.includes('generativelanguage')).length);
+  assert.equal(m.pedidos.filter((u) => u.includes('generativelanguage')).length - m.geminiTexto, 0, 'ni una foto a Gemini con el freno');
+  assert.equal(m.telegram.length, 1);
+  assert.match(m.telegram[0].cuerpo.textos[0], /sólo por el respaldo/);
+});

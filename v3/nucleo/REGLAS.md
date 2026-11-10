@@ -78,6 +78,20 @@ Automovilismo, Agro, Economía, Ciencia, Cultura, Tecnología y Argentina. Lo de
   pide Hernán: «Hernán Accomo».
 - Lo que nunca: inventar, agregar lo que ninguna fuente dice, copiar oraciones, adjetivar, «en las últimas horas», «según trascendió».
 
+### 5 bis. El respaldo de texto: Mistral (10/11/2026; `redactar/mistral.mjs`)
+
+- Si Gemini falla en un pedido de **texto** (redactar, verificar, la pregunta de «duda»), después de su reintento, el mismo pedido se hace por
+  Mistral (`mistral-large-2512`, plan gratis; variable `MISTRAL_MODELO`). Se prueba con Mistral cuando Gemini dio 429, 5xx, clave rechazada
+  (401/403), tope diario o red caída; **no** cuando dio 400/404 ni cuando la respuesta no es JSON (eso lo reintenta `redactar`).
+- Cuando el **freno mensual en dólares** de Gemini corta, el texto sigue sólo por Mistral (sin fotos nuevas: eso gastaría Gemini; `rehacer` las busca
+  después) hasta el tope de Mistral.
+- **Nunca para visión**: fotos, ilustraciones y la foto de archivo no pasan por Mistral. La nota del clima tampoco (tiene su plantilla).
+- **Sin `MISTRAL_API_KEY`, todo queda como antes.** Tope propio: `MISTRAL_TOPE_DIARIO` (300 por día; 0 lo apaga). Se cuenta en `uso_ia` con el
+  «día» `mistral-AAAA-MM-DD` (una fila por tarea): por eso no suma al tope diario ni al freno en dólares de Gemini, y no cambió el esquema. Su
+  gasto estimado es 0. Cuando Mistral no puede (tope o falla), vale el error de Gemini, como si no existiera.
+- Lo que escribe Mistral pasa por el mismo verificador y las mismas reglas; los prompts no cambian. `/salud` (`uso.mistral`), el resumen de las
+  21:30 y el resultado de la vuelta (`pedidosAMistral`) dicen cuántos pedidos fueron a Mistral.
+
 ## 6. Valor agregado (lo arma el programa, nunca la IA)
 
 De la ficha salen, sólo cuando hay con qué: **Los datos** (campos de la ficha), **Cronología** (3 fechas o más), **Cifras** (números con

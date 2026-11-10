@@ -57,7 +57,13 @@ NUCLEO_ARCHIVO_POR_VUELTA = "2"
 # Interruptor de publicar (REGLAS § 11): "no" deja las notas en borrador; "si" las publica. Lo cambia una persona el día del corte.
 NUCLEO_PUBLICA = "si"
 
-# Secretos GEMINI_API_KEY y TELEGRAM_TOKEN: los carga el workflow desde GitHub Secrets. Nunca acá.
+# Respaldo de texto (REGLAS § 5 bis): si Gemini falla o el freno mensual cortó, redactar, verificar y la duda siguen por Mistral (plan gratis).
+# Sólo texto: fotos e ilustraciones nunca van a Mistral. Sin el secreto MISTRAL_API_KEY no se llama a nadie y todo queda como antes.
+# MISTRAL_MODELO: el modelo (por defecto mistral-large-2512, el del sistema viejo; no hace falta ponerlo).
+# MISTRAL_TOPE_DIARIO: pedidos por día a Mistral (por defecto 300; 0 lo apaga). Se cuenta aparte del tope y del freno en dólares de Gemini.
+# MISTRAL_TOPE_DIARIO = "300"
+
+# Secretos GEMINI_API_KEY, TELEGRAM_TOKEN y MISTRAL_API_KEY: los carga el workflow desde GitHub Secrets. Nunca acá.
 
 # Enlace directo al bot (para el resumen por Telegram): un Worker no puede llamar a otro de la misma cuenta por workers.dev.
 [[services]]

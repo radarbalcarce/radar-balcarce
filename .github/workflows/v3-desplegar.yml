@@ -127,10 +127,12 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY_RESPALDO }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
         run: |
           [ -n "$GEMINI_API_KEY" ] || echo "GEMINI_API_KEY_RESPALDO no está en GitHub Secrets: el núcleo lee y agrupa pero no redacta."
           [ -n "$TELEGRAM_TOKEN" ] || echo "TELEGRAM_TOKEN no está en GitHub Secrets: el núcleo no puede avisar por Telegram."
-          node -e 'const s={};for(const k of ["GEMINI_API_KEY","TELEGRAM_TOKEN"])if(process.env[k])s[k]=process.env[k];if(!Object.keys(s).length)process.exit(3);process.stdout.write(JSON.stringify(s))' | npx --yes wrangler@4.139.0 secret bulk --config wrangler.generado.toml || echo "Ningún secreto para cargar."
+          [ -n "$MISTRAL_API_KEY" ] || echo "MISTRAL_API_KEY no está en GitHub Secrets: el núcleo no tiene respaldo de texto si Gemini falla."
+          node -e 'const s={};for(const k of ["GEMINI_API_KEY","TELEGRAM_TOKEN","MISTRAL_API_KEY"])if(process.env[k])s[k]=process.env[k];if(!Object.keys(s).length)process.exit(3);process.stdout.write(JSON.stringify(s))' | npx --yes wrangler@4.139.0 secret bulk --config wrangler.generado.toml || echo "Ningún secreto para cargar."
 
       # ------------------------------------------------------------------ sitio y migrar (comparten la base D1 del núcleo)
       - name: Buscar la base D1 del núcleo (para el sitio)

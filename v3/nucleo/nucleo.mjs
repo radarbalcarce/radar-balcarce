@@ -8,6 +8,7 @@ import { crearHuella } from './agrupar/huella.mjs';
 import { agrupar, textoParaDuda } from './agrupar/agrupar.mjs';
 import { elegir, cupoNacional, minimoDelDia } from './elegir/elegir.mjs';
 import { crearGemini } from './redactar/gemini.mjs';
+import { crearMistral, conRespaldo, MODELO_MISTRAL, TOPE_MISTRAL_POR_DEFECTO } from './redactar/mistral.mjs';
 import { verificarYReescribir } from './redactar/verificar.mjs';
 import { elegirFotoConMotivo } from './fotos/fotos.mjs';
 import * as db from './db/db.mjs';
@@ -170,7 +171,35 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
         await db.anotarUso(env, c.dia, tarea, entrada, salida);
       },
     });
-    return { estado, para, hayClave: !!env.GEMINI_API_KEY };
+    // El respaldo de texto (REGLAS § 5 bis): Mistral, sólo si hay clave. Su uso se anota en la base con el «día» `mistral-AAAA-MM-DD`: así no
+    // suma al tope diario ni al freno en dólares de Gemini (usoDelDia y usoDelMes de Gemini no lo ven) y no hace falta tocar el esquema.
+    const hayMistral = !!env.MISTRAL_API_KEY;
+    const topeMistral = Math.floor(numero(env.MISTRAL_TOPE_DIARIO, TOPE_MISTRAL_POR_DEFECTO));
+    const diaMistral = `mistral-${c.dia}`;
+    estado.mistralHoy = 0;
+    estado.mistralEstaVuelta = 0;
+    if (hayMistral) {
+      try { estado.mistralHoy = (await db.usoDelDia(env, diaMistral)).reduce((s, f) => s + (f.pedidos || 0), 0); } catch (e) { console.error(`uso de Mistral: ${e.message}`); }
+    }
+    const mistralPara = (tarea) => crearMistral({
+      clave: env.MISTRAL_API_KEY,
+      modelo: env.MISTRAL_MODELO || MODELO_MISTRAL,
+      fetch: c.fetchFn,
+      topeDiario: topeMistral,
+      usoDeHoy: async () => estado.mistralHoy,
+      contarUso: async ({ entrada, salida }) => {
+        estado.mistralHoy += 1;
+        await db.anotarUso(env, diaMistral, tarea, entrada, salida);
+      },
+    });
+    // Un Gemini de TEXTO con respaldo (redactar, verificar y la duda). Visión, fotos e ilustraciones siguen con `para`, que nunca va a Mistral.
+    const paraTexto = (tarea, { soloMistral = false } = {}) => conRespaldo({
+      gemini: para(tarea),
+      mistral: hayMistral && topeMistral > 0 ? mistralPara(tarea) : null,
+      soloMistral,
+      alUsarMistral: () => { estado.mistralEstaVuelta += 1; },
+    });
+    return { estado, para, paraTexto, hayClave: !!env.GEMINI_API_KEY, hayMistral: hayMistral && topeMistral > 0, topeMistral };
   }
 
   // ------------------------------------------------------------------------------------------ la vuelta
@@ -179,7 +208,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     const c = contexto(env, deps);
     const r = {
       cuando: c.ahoraISO, fuentesLeidas: 0, fuentesConError: [], articulosNuevos: 0, articulosPospuestos: 0, historiasNuevas: 0, unidas: 0, dudas: 0,
-      elegidas: 0, noSalen: {}, redactadas: 0, publicadas: 0, publicadasPendientes: 0, fotosReintentadas: 0, fotosEncontradas: 0, frenadasPorLey: 0, errores: [], sinClaveGemini: false, topeDiario: false, frenoMensual: false, clima: null,
+      elegidas: 0, noSalen: {}, pedidosAMistral: 0, redactadas: 0, publicadas: 0, publicadasPendientes: 0, fotosReintentadas: 0, fotosEncontradas: 0, frenadasPorLey: 0, errores: [], sinClaveGemini: false, topeDiario: false, frenoMensual: false, clima: null,
     };
     const error = (donde, e) => {
       const msg = `${donde}: ${String((e && e.message) || e).slice(0, 200)}`;
@@ -216,7 +245,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     // (b) agrupar contra las historias vivas (cargadas una vez; se actualizan en memoria)
     const vivas = (await db.historiasVivas(env, new Date(c.ahora.getTime() - umbrales.horasVivas * HORA).toISOString())).filter((h) => h.huella);
     const huellaDe = crearHuella(env.AI);
-    const dudaGemini = gem.hayClave ? gem.para('duda') : null;
+    const dudaGemini = gem.hayClave ? gem.paraTexto('duda') : null;
     const preguntarMismoHecho = async (articulo, historia) => {
       if (!dudaGemini) return false;
       try {
@@ -335,6 +364,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     await climaDelDia(env, c, gem, r, error);
 
     try { await db.anotarFuente(env, '_vuelta', true, null, c.ahoraISO); } catch (e) { error('anotar vuelta', e); }
+    r.pedidosAMistral = gem.estado.mistralEstaVuelta;
     return r;
   }
 
@@ -417,16 +447,21 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     const mes = c.dia.slice(0, 7);
     let gastoMes = 0;
     try { gastoMes = costoEstimado(await db.usoDelMes(env, mes)); } catch (e) { error('uso del mes', e); }
+    // Con el freno de Gemini cortado, el texto sigue por Mistral si hay clave y le queda tope del día (REGLAS § 5 bis); sin eso, se corta como siempre.
+    const soloMistral = gastoMes >= FRENO_MENSUAL_USD && gem.hayMistral && gem.estado.mistralHoy < gem.topeMistral;
     if (gastoMes >= FRENO_MENSUAL_USD) {
       r.frenoMensual = true;
       const marca = `aviso-freno-${mes}`;
       try {
         if (!(await db.usoDelDia(env, marca)).length) {
           await db.anotarUso(env, marca, 'aviso');
-          await decirPorTelegram(env, `Radar 3.0 (prueba): el núcleo dejó de redactar. El gasto estimado del mes en Gemini llegó a ${usd(gastoMes)} (freno: ${usd(FRENO_MENSUAL_USD)}). Sigue leyendo y agrupando; vuelve a redactar el mes que viene o si se sube el freno.`, c.fetchFn);
+          const sigue = gem.hayMistral
+            ? 'Sigue redactando con el respaldo (Mistral, gratis) hasta su tope del día, sin fotos nuevas, y leyendo y agrupando.'
+            : 'Sigue leyendo y agrupando; vuelve a redactar el mes que viene o si se sube el freno.';
+          await decirPorTelegram(env, `Radar 3.0 (prueba): el núcleo ${gem.hayMistral ? 'pasó a redactar sólo por el respaldo' : 'dejó de redactar'}. El gasto estimado del mes en Gemini llegó a ${usd(gastoMes)} (freno: ${usd(FRENO_MENSUAL_USD)}). ${sigue}`, c.fetchFn);
         }
       } catch (e) { error('aviso de freno', e); }
-      return;
+      if (!soloMistral) return;
     }
 
     const porVuelta = Math.max(0, Math.floor(numero(env.NUCLEO_REDACTAR_POR_VUELTA, 6)));
@@ -437,8 +472,9 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     const prioridad = (h) => (['pedido', 'balcarce', 'zona'].includes(h.motivo) ? 0 : 1);
     pendientes = pendientes.map((h, i) => ({ h, i })).sort((x, y) => prioridad(x.h) - prioridad(y.h) || x.i - y.i).map((x) => x.h);
 
-    const geminiTexto = gem.para('redaccion');
-    const geminiFoto = gem.para('foto');
+    const geminiTexto = gem.paraTexto('redaccion', { soloMistral });
+    // Con el freno cortado no se gasta Gemini ni en fotos: la nota sale sin foto (motivo error-vision) y «rehacer» se la busca cuando se pueda.
+    const geminiFoto = soloMistral ? { texto: async () => { throw new Error('freno-mensual'); } } : gem.para('foto');
     let hechas = 0;
     for (const h of pendientes) {
       if (hechas >= porVuelta) break;
@@ -749,11 +785,12 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
   async function resumen(env, deps = {}) {
     const c = contexto(env, deps);
     const { desde, hasta } = rangoDelDia(c.dia);
-    const [res, usoHoy, usoMes, falladasTodas] = await Promise.all([
+    const [res, usoHoy, usoMes, falladasTodas, usoMistral] = await Promise.all([
       db.resumenEntre(env, desde, hasta),
       db.usoDelDia(env, c.dia),
       db.usoDelMes(env, c.dia.slice(0, 7)),
       db.fuentesParaAvisar(env, c.ahoraISO),
+      env.MISTRAL_API_KEY ? db.usoDelDia(env, `mistral-${c.dia}`).catch(() => []) : Promise.resolve([]),
     ]);
     // Una fuente que nunca anduvo bien (ultimo_ok vacío) se avisa recién después de un día entero de fallas (96 vueltas), no por un tropiezo.
     const falladas = falladasTodas.filter((f) => f.ultimo_ok || f.fallas_seguidas >= 96);
@@ -778,6 +815,8 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     });
     lineas.push('');
     lineas.push(`Gasto estimado en Gemini: hoy ${usd(gastoHoy)} (${pedidosHoy} pedidos), en el mes ${usd(costoEstimado(usoMes))} (${usoMes.pedidos} pedidos).`);
+    const aMistral = usoMistral.reduce((s, f) => s + f.pedidos, 0);
+    if (aMistral) lineas.push(`Pedidos al respaldo (Mistral, gratis) hoy: ${aMistral}.`);
     const motivos = Object.entries(res.noSalen).sort((a, b) => b[1] - a[1]);
     lineas.push(motivos.length ? `No salieron: ${motivos.map(([m, n]) => `${m} ${n}`).join(', ')}.` : 'No salieron: ninguna historia descartada hoy.');
     if (falladas.length) {
@@ -816,6 +855,14 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     const [hoy, usoHoy, usoMes, estados] = await Promise.all([
       db.contarEntre(env, desde, hasta), db.usoDelDia(env, c.dia), db.usoDelMes(env, c.dia.slice(0, 7)), db.estadoDeFuentes(env),
     ]);
+    // El respaldo de texto (REGLAS § 5 bis): cuántos pedidos fueron a Mistral hoy, por tarea. Si la consulta falla, /salud sigue.
+    let mistral = { activo: !!env.MISTRAL_API_KEY, pedidosHoy: 0, porTarea: {}, topeDiario: Math.floor(numero(env.MISTRAL_TOPE_DIARIO, TOPE_MISTRAL_POR_DEFECTO)) };
+    if (mistral.activo) {
+      try {
+        const filas = await db.usoDelDia(env, `mistral-${c.dia}`);
+        mistral = { ...mistral, pedidosHoy: filas.reduce((s, f) => s + f.pedidos, 0), porTarea: Object.fromEntries(filas.map((f) => [f.tarea, f.pedidos])) };
+      } catch (e) { console.error(`uso de Mistral: ${e.message}`); }
+    }
     // Las migradas sin foto que faltan rehacer (REGLAS § 7 ter). Si la consulta falla, /salud sigue.
     let rehacer = null;
     try {
@@ -871,6 +918,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
         hoy: usoHoy,
         mes: { ...usoMes, gastoEstimadoUsd: Number(costoEstimado(usoMes).toFixed(4)), frenoUsd: FRENO_MENSUAL_USD },
         topeDiario: numero(env.NUCLEO_TOPE_DIARIO, 150),
+        mistral,
       },
       rehacerMigradas: rehacer,
       ilustraciones,
