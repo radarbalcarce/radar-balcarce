@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-09T23:32:51.751Z",
- "portada": 129,
+ "generado": "2026-11-10T00:03:01.630Z",
+ "portada": 114,
  "archivo": 500,
- "esperandoCuerpo": 1,
+ "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-11-09T23:32:52.216Z",
+  "generado": "2026-11-10T00:03:02.175Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -93,7 +93,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    }
   ],
@@ -123,9 +123,9 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 55,
+    "segundos": 47,
     "notas": [
      {
       "id": "17nu3vp",
@@ -138,14 +138,14 @@
       "seccion": "Educación"
      },
      {
-      "id": "1tcmuf9",
-      "titulo": "Unos 750 chicos participan del encuentro de fútbol Que ruede la redonda",
-      "seccion": "Fútbol"
+      "id": "6qyz7u",
+      "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
+      "seccion": "Deportes"
      },
      {
-      "id": "1tpvs2y",
-      "titulo": "Abren los últimos cupos para la carrera de trail",
-      "seccion": "Cultura y agenda"
+      "id": "1su1zi1",
+      "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
+      "seccion": "Fútbol"
      }
     ]
    }
@@ -157,12 +157,6 @@
      "id": "17nu3vp",
      "titulo": "Emerson Fittipaldi visita el Museo Fangio por su aniversario",
      "seccion": "Automovilismo",
-     "marcada": false
-    },
-    {
-     "id": "1tcmuf9",
-     "titulo": "Unos 750 chicos participan del encuentro de fútbol Que ruede la redonda",
-     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -184,20 +178,26 @@
      "marcada": false
     },
     {
-     "id": "135o3nw",
-     "titulo": "Soledad Pastorutti canta ante una multitud en la previa de la misa papal",
-     "seccion": "Argentina",
-     "marcada": false
-    },
-    {
      "id": "jjlzqq",
      "titulo": "Baja el riesgo país y suben las acciones argentinas en Nueva York",
      "seccion": "Economía",
      "marcada": false
     },
     {
+     "id": "1tohclj",
+     "titulo": "Neuquén desdobla las elecciones y elegirá gobernador el 14 de febrero de 2027",
+     "seccion": "Política",
+     "marcada": false
+    },
+    {
      "id": "1kfiwii",
      "titulo": "León XIV recibe una camiseta de Estudiantes durante su visita a Claypole",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "6041lf",
+     "titulo": "Una cartonera de Ensenada le habla al papa León XIV en la UCA",
      "seccion": "Argentina",
      "marcada": false
     }
