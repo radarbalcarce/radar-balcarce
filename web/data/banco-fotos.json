@@ -61104,9 +61104,7 @@
   "borrada": true
  },
  "x17gbl": {
-  "archivo": "fotos-notas/x17gbl.jpg",
   "medio": "Campeones",
-  "credito": "Foto: Campeones",
   "licencia": null,
   "origen": "medio",
   "titulo": "Valentín Yankelevich domina los ensayos del TC2000 en General Roca",
@@ -61126,7 +61124,8 @@
    "descripcion": "Auto de TC2000 número 5 de Valentín Yankelevich circulando por la pista en General Roca."
   },
   "huella": "60686edaeec4d0ab",
-  "ausenteDesde": "2026-11-03T07:04:27.064Z"
+  "intentado": true,
+  "borrada": true
  },
  "14cnssm": {
   "medio": "TN (Todo Noticias)",
@@ -62112,9 +62111,7 @@
   "ausenteDesde": "2026-11-03T11:03:16.908Z"
  },
  "734p1n": {
-  "archivo": "fotos-notas/734p1n.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "Rodolfo Arruabarrena dirige su décimo Superclásico como entrenador de Boca",
@@ -62134,7 +62131,8 @@
    "descripcion": "Primer plano de Rodolfo Arruabarrena sentado en el banco de suplentes."
   },
   "huella": "635b4b0d0dcc4ccc",
-  "ausenteDesde": "2026-11-03T07:04:27.064Z"
+  "intentado": true,
+  "borrada": true
  },
  "l97ncr": {
   "medio": "La Brújula 24",
@@ -97482,7 +97480,8 @@
    "corresponde": "si",
    "descripcion": "El papa León XIV dando un discurso en un atril."
   },
-  "huella": "6464666363e3cff1"
+  "huella": "6464666363e3cff1",
+  "ausenteDesde": "2026-11-10T08:02:05.707Z"
  },
  "253eef": {
   "archivo": "fotos-notas/253eef.jpg",
@@ -102163,14 +102162,28 @@
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "2rjjn2": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/2rjjn2.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El papa León XIV encabeza un encuentro interreligioso en Buenos Aires",
-  "razon": "La única foto disponible tiene una marca de agua del medio (Noticias Argentinas), por lo que no puede ser elegida.",
-  "cuando": "2026-11-10T06:02:12.002Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://tn.com.ar/sociedad/2026/11/09/el-discurso-completo-del-papa-leon-xiv-en-el-encuentro-interreligioso-en-el-palacio-san-martin/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/la-foto-del-papa-leon-xiv-junto-a-lideres-religiosos-en-el-palacio-san-martin-este-lunes-captura-de-pantalla-tn-46FDDFA7GJDIVDGSPVFIULSM5Y.jpg?auth=8f315fe8251d6e0e02a30b5e64f41d2309ff736ad1b0374c1015a9b3820ab378&width=1023",
+  "razon": "Es la mejor foto que ilustra el encuentro interreligioso con el Papa sin marcas de agua ni otros impedimentos.",
+  "cuando": "2026-11-10T08:01:34.421Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa y representantes de distintas religiones posando en las escalinatas"
+  },
+  "huella": "e9b5c7e6c6c48407"
  },
  "g47dkg": {
   "archivo": "fotos-notas/g47dkg.jpg",
@@ -102231,5 +102244,29 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "2b597b717554f0f9"
+ },
+ "144q2yk": {
+  "archivo": "fotos-notas/144q2yk.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Carmen Barbieri sigue internada en una clínica tras dar positivo de covid",
+  "enlace": "https://www.lagaceta.com.ar/nota/1161822/espectaculos/preocupacion-salud-carmen-barbieri-revelo-parte-medico-conductora.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/10/28/carmen-barbieri-conductora-sentada-estudio-programa-se-emite-cada-tarde-nueve-1160057-172302.jpg",
+  "razon": "Se eligió la foto A porque corresponde perfectamente al tema de la nota, tiene buena nitidez y no presenta marcas de agua, menores ni problemas de calidad.",
+  "cuando": "2026-11-10T08:01:34.421Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Carmen Barbieri sonriendo frente a la cámara con fondo urbano"
+  },
+  "huella": "4a19932d2cecccae"
  }
 }
