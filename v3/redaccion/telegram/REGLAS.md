@@ -9,10 +9,16 @@ de avisos y a la pestaña «pedir una nota» del panel viejo.
 
 ## Quién puede hablarle
 
-- **Un solo dueño**: el primer chat que le escribe al bot queda registrado como dueño (hoy, Hernán). A cualquier otro chat se le contesta
-  «Este bot es privado de Radar Balcarce» y no se hace nada más.
-- Para cambiar de dueño se borra la clave `dueno` del KV `ESTADO` (panel de Cloudflare) y el próximo que escriba queda como dueño.
-- Andrés u otra persona entran cuando se decida; hoy lo maneja Hernán solo (decisión del 1/11).
+- **Quién manda lo dice la variable `DUENO_CHAT`** (`wrangler.toml`, `[vars]`): el número de chat de Telegram del dueño; para sumar a otra persona
+  (Andrés), más números separados por comas. A cualquier otro chat se le contesta «Este bot es privado de Radar Balcarce» y nada más; los botones
+  también: sólo cuentan los de un chat permitido.
+- **Con `DUENO_CHAT` cargada**: si el KV `ESTADO` no tiene dueño (se vació, se recreó el bot) o tiene uno que no está en la lista, el primero de la lista
+  que escriba queda guardado como dueño: se recupera solo, sin que se adueñe un extraño. Cualquiera de la lista puede dar órdenes; las respuestas van al
+  chat que escribió, y los avisos automáticos (`/decir`, vencimiento de la pregunta de redes) al dueño guardado.
+- **Con `DUENO_CHAT` vacía y dueño en el KV**: como hasta ahora, sólo ese dueño (no rompe lo que anda).
+- **Con `DUENO_CHAT` vacía y sin dueño en el KV**: no se adueña nadie (antes lo hacía el primero que escribía). Se le responde «privado» y el número de
+  chat queda en el log del Worker (`Chat sin dueño configurado: …`) para que una persona lo copie en `DUENO_CHAT`.
+- Para cambiar de dueño: editar `DUENO_CHAT`. Pruebas en `dueno.test.mjs`.
 
 ## Qué hace hoy
 

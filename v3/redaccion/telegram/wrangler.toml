@@ -28,6 +28,10 @@ fallthrough = true
 
 [vars]
 GEMINI_MODELO = "gemini-3.1-flash-lite"
+# Quién manda en el bot: el número de chat de Telegram del dueño (queda en el log del Worker cuando alguien le escribe sin ser dueño, o se ve con @userinfobot).
+# Se puede poner más de uno separado por comas para sumar a otra persona (por ejemplo Andrés): "123456789,987654321".
+# Vacía = como antes si el KV ya tiene dueño; si no lo tiene, nadie se adueña del bot.
+DUENO_CHAT = "9027560275"
 
 # El depósito de fotos del sitio (el mismo de v3/sitio/wrangler.toml): las fotos de una nota propia se guardan como fotos-notas/redaccion-<id>-<n>.jpg.
 [[r2_buckets]]

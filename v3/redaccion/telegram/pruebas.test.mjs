@@ -8,8 +8,8 @@ const mensaje = (extra = {}, chat = 111, from = { first_name: 'Hernán', last_na
   message: { chat: { id: chat }, from, ...extra },
 });
 
-test('el primer chat que escribe queda como dueño y se lo saluda', () => {
-  const { respuesta, nuevoDueno } = decidir(mensaje({ text: 'Hola' }), null, ahora);
+test('con DUENO_CHAT y sin dueño guardado, el chat permitido queda como dueño y se lo saluda', () => {
+  const { respuesta, nuevoDueno } = decidir(mensaje({ text: 'Hola' }), null, ahora, [111]);
   assert.equal(nuevoDueno.chat, 111);
   assert.equal(nuevoDueno.nombre, 'Hernán Accomo');
   assert.equal(nuevoDueno.usuario, 'hernan');
@@ -45,6 +45,7 @@ test('un botón sólo cuenta si lo apretó el dueño', () => {
   assert.equal(decidir(cb(111), dueno, ahora).accion, 'nota');
   assert.deepEqual(decidir(cb(222), dueno, ahora), {});
   assert.deepEqual(decidir(cb(111), null, ahora), {});
+  assert.deepEqual(decidir(cb(222), null, ahora, [111]), {});
 });
 
 test('una actualización sin mensaje no hace nada', () => {

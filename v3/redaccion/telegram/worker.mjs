@@ -4,6 +4,7 @@
 //
 // Qué necesita (wrangler.toml):
 //   TELEGRAM_TOKEN   secreto: el token que dio BotFather. Lo pega una persona (GitHub Secrets o el panel de Cloudflare), nunca va en el código.
+//   DUENO_CHAT       variable (no secreta): número de chat de Telegram del dueño; con varios, separados por comas. Vacía y sin dueño en el KV, el bot no le hace caso a nadie.
 //   ESTADO           KV: quién es el dueño (`dueno`), cuándo se revisó el webhook (`webhook`) y el estado de la nota que se está armando.
 //   DB               D1 `radar-nucleo`: ahí se guardan las notas propias (tabla `notas`, origen `redaccion`).
 //   GEMINI_API_KEY   secreto: la clave paga de Gemini (transcribir audios y escribir la nota). Tope: 20 pedidos por día para este flujo.
@@ -60,8 +61,10 @@ async function recibir(pedido, env, ctx, textos) {
   try { actualizacion = await pedido.json(); } catch { return new Response('ok'); }
 
   const dueno = await env.ESTADO.get('dueno', 'json');
-  const decidido = decidir(actualizacion, dueno, new Date());
-  const { respuesta, nuevoDueno, entrada: lo } = decidido;
+  const decidido = decidir(actualizacion, dueno, new Date(), chatsPermitidos(env.DUENO_CHAT));
+  const { respuesta, nuevoDueno, entrada: lo, desconocido } = decidido;
+  // Sin DUENO_CHAT y sin dueño guardado no se adueña nadie: el número queda en el log para que una persona lo copie en DUENO_CHAT.
+  if (desconocido !== undefined) console.log(`Chat sin dueño configurado: ${desconocido}. Para que sea el dueño, ponerlo en DUENO_CHAT (wrangler.toml).`);
   let { accion } = decidido;
   // Un «sí», un «no» o un cambio mientras hay un /retirar o /corregir en curso le toca a administrar.mjs (salvo /nota y lo que no es texto).
   const t = actualizacion?.message?.text;
@@ -73,32 +76,49 @@ async function recibir(pedido, env, ctx, textos) {
   }
   if (respuesta) ctx.waitUntil(enviar(env.TELEGRAM_TOKEN, respuesta.chat, respuesta.texto));
   // La nota propia: armarla lleva un rato (audios, enlace, IA), así que se hace después de contestarle 200 a Telegram.
-  if (accion === 'nota') ctx.waitUntil(procesar(depDe(env, dueno.chat, textos), actualizacion));
-  if (accion === 'admin') ctx.waitUntil(procesarAdmin(depDe(env, dueno.chat, textos), actualizacion));
+  // La respuesta va al chat que dio la orden (decidido.chat); con un solo dueño es el mismo de siempre.
+  if (accion === 'nota') ctx.waitUntil(procesar(depDe(env, decidido.chat ?? dueno.chat, textos), actualizacion));
+  if (accion === 'admin') ctx.waitUntil(procesarAdmin(depDe(env, decidido.chat ?? dueno.chat, textos), actualizacion));
   // A Telegram siempre se le contesta 200 enseguida: si no, reintenta el mismo mensaje una y otra vez.
   return new Response('ok');
 }
 
 /**
  * Qué se contesta a una actualización de Telegram. Función pura, sin red: es lo que prueban las pruebas.
- * El primer chat que le escribe al bot queda como dueño; a cualquier otro se le dice que el bot es privado.
+ * `permitidos` = los chats de DUENO_CHAT (números, ver `chatsPermitidos`):
+ *   - con lista: sólo esos chats dan órdenes; si el KV no tiene dueño (o tiene uno que no está en la lista), el primero de la lista que escribe queda guardado como dueño;
+ *   - sin lista y con dueño guardado: como siempre, sólo el dueño;
+ *   - sin lista y sin dueño: no se adueña nadie (antes lo hacía el primero que escribía); devuelve `desconocido` (el chat) para dejarlo en el log.
+ * `chat` en el resultado es el chat que dio la orden: ahí van las respuestas.
  */
-export function decidir(actualizacion, dueno, ahora = new Date()) {
-  // Un botón de la pregunta de redes: sólo cuenta si lo apretó el dueño.
+export function decidir(actualizacion, dueno, ahora = new Date(), permitidos = []) {
+  const lista = Array.isArray(permitidos) ? permitidos : [];
+  const esPermitido = (chat) => (lista.length ? lista.includes(chat) : Boolean(dueno) && chat === dueno.chat);
+
+  // Un botón de la pregunta de redes: sólo cuenta si lo apretó un chat permitido.
   const cb = actualizacion?.callback_query;
-  if (cb) return dueno && cb.message?.chat?.id === dueno.chat ? { accion: 'nota' } : {};
+  if (cb) {
+    const chatCb = cb.message?.chat?.id;
+    return chatCb !== undefined && esPermitido(chatCb) ? { accion: 'nota', chat: chatCb } : {};
+  }
 
   const m = actualizacion?.message;
   if (!m?.chat?.id) return {};
   const chat = m.chat.id;
   const nombre = [m.from?.first_name, m.from?.last_name].filter(Boolean).join(' ') || 'sin nombre';
+  const privado = { respuesta: { chat, texto: 'Este bot es privado de Radar Balcarce.' } };
 
   let nuevoDueno = null;
-  if (!dueno) {
-    nuevoDueno = { chat, nombre, usuario: m.from?.username ?? null, desde: ahora.toISOString() };
-    dueno = nuevoDueno;
+  if (lista.length) {
+    if (!lista.includes(chat)) return privado;
+    if (!dueno || !lista.includes(dueno.chat)) {
+      nuevoDueno = { chat, nombre, usuario: m.from?.username ?? null, desde: ahora.toISOString() };
+      dueno = nuevoDueno;
+    }
+  } else {
+    if (!dueno) return { ...privado, desconocido: chat };
+    if (chat !== dueno.chat) return privado;
   }
-  if (chat !== dueno.chat) return { respuesta: { chat, texto: 'Este bot es privado de Radar Balcarce.' } };
 
   const texto = (m.text ?? '').trim();
   const comando = texto.split(/\s/)[0].replace(/@\w+$/, '').toLowerCase();
@@ -110,16 +130,21 @@ export function decidir(actualizacion, dueno, ahora = new Date()) {
   } else if (comando === '/estado') {
     r = `Conectado. Dueño: ${dueno.nombre}${dueno.usuario ? ` (@${dueno.usuario})` : ''}, desde el ${fechaCorta(dueno.desde)}. Armo notas propias: mandame texto, audios, fotos o un enlace y decí «armala» (o /nota). /cancelar descarta. /ayuda muestra todo lo que sé hacer.`;
   } else if (comando === '/nota' || comando === '/cancelar') {
-    return { accion: 'nota', entrada: entradaDe(m, ahora) };
+    return { accion: 'nota', chat, entrada: entradaDe(m, ahora) };
   } else if (COMANDOS_ADMIN.includes(comando)) {
-    return { accion: 'admin', entrada: entradaDe(m, ahora) };
+    return { accion: 'admin', chat, entrada: entradaDe(m, ahora) };
   } else if (texto.startsWith('/')) {
     r = 'Ese comando no lo conozco. Escribí /ayuda y te muestro todo lo que sé hacer.';
   } else {
     // Texto, audio, foto o enlace: es material para una nota (o la respuesta a una vista previa). Lo atiende nota-propia.mjs.
-    return { accion: 'nota', entrada: entradaDe(m, ahora) };
+    return { accion: 'nota', chat, entrada: entradaDe(m, ahora) };
   }
   return { respuesta: { chat, texto: r }, nuevoDueno, entrada: entradaDe(m, ahora) };
+}
+
+/** DUENO_CHAT ("123456" o "123456, 789012") → [123456, 789012]. Lo que no es un número de chat se ignora. */
+export function chatsPermitidos(texto) {
+  return String(texto ?? '').split(',').map((x) => x.trim()).filter((x) => /^-?\d+$/.test(x)).map(Number);
 }
 
 // ------------------------------------------------------------------------------------------------------------ lo que escribe el dueño
