@@ -101502,7 +101502,8 @@
    "corresponde": "si",
    "descripcion": "Petruccelli hablando frente a un micrófono en una mesa de trabajo."
   },
-  "huella": "6c5858f0f4e43c06"
+  "huella": "6c5858f0f4e43c06",
+  "ausenteDesde": "2026-11-10T09:02:48.317Z"
  },
  "6seez2": {
   "archivo": "fotos-notas/6seez2.jpg",
@@ -102183,7 +102184,8 @@
    "corresponde": "si",
    "descripcion": "El Papa y representantes de distintas religiones posando en las escalinatas"
   },
-  "huella": "e9b5c7e6c6c48407"
+  "huella": "e9b5c7e6c6c48407",
+  "ausenteDesde": "2026-11-10T09:02:48.317Z"
  },
  "g47dkg": {
   "archivo": "fotos-notas/g47dkg.jpg",
@@ -102267,6 +102269,56 @@
    "corresponde": "si",
    "descripcion": "Carmen Barbieri sonriendo frente a la cámara con fondo urbano"
   },
-  "huella": "4a19932d2cecccae"
+  "huella": "4a19932d2cecccae",
+  "ausenteDesde": "2026-11-10T09:02:48.317Z"
+ },
+ "1dwn7ue": {
+  "archivo": "fotos-notas/1dwn7ue.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa Léon XIV encabeza un encuentro interreligioso en el Palacio San Martín",
+  "enlace": "https://www.eldestapeweb.com/sociedad/donde-queda-palacio-san-martin-lugar-donde-duerme-papa-leon-xiv-caba-202611973052",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/112026/1793902510223/nunciatura-apostolica-jpg..jpg?&cw=1600&ch=900",
+  "razon": "Es la única opción disponible y muestra el Palacio San Martín, el lugar del hecho, sin marcas de agua ni menores.",
+  "cuando": "2026-11-10T09:02:25.803Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada exterior del Palacio San Martín con banderas ondeando."
+  },
+  "huella": "7bf8e8f41c1cd4d4"
+ },
+ "110honl": {
+  "archivo": "fotos-notas/110honl.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Los Pinos celebra su 126º aniversario con dos jornadas de festejos",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45287-los-pinos-celebrara-su-126-aniversario-con-dos-jornadas-de-musica-tradicion-y-actividades-para-toda-la-familia/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66309.png",
+  "razon": "La foto B muestra correctamente a las autoridades reunidas para el evento sin marcas de agua de ningún medio, a diferencia de la C que incluye un micrófono con el logo de un medio local.",
+  "cuando": "2026-11-10T09:02:25.803Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cuatro personas adultas sentadas en una mesa institucional con banderas de fondo."
+  },
+  "huella": "767435342264655e"
  }
 }
