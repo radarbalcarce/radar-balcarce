@@ -1,5 +1,5 @@
 // Lo único del sitio que habla con D1. Sólo notas publicadas: `estado = 'publicada'` está en TODAS las consultas.
-import { slugDe, jsonONull } from '../util.mjs';
+import { slugDe, jsonONull, conFotoHttps } from '../util.mjs';
 import { conCopiaPropia } from '../fotos-copia.mjs';
 import { noSeIndexa } from '../vistas/clima-diario.mjs';
 
@@ -27,8 +27,9 @@ export function aNota(f) {
     enDosLineas: f.en_dos_lineas || '',
     ficha: jsonONull(f.ficha),
     // Si la foto tiene copia propia (fotos-copia.mjs), el sitio muestra esa; si no, la original.
-    foto: conCopiaPropia(Array.isArray(crudaFoto) ? crudaFoto[0] ?? null : crudaFoto),
-    fotos,
+    // Todas las direcciones de foto pasan por acá antes de llegar al HTML (img, og:image, datos estructurados): las `http://` salen por https.
+    foto: conFotoHttps(conCopiaPropia(Array.isArray(crudaFoto) ? crudaFoto[0] ?? null : crudaFoto)),
+    fotos: fotos.map(conFotoHttps),
     fuentes: jsonONull(f.fuentes) || [],
     fechaHecho: f.fecha_hecho || null,
     firma: f.firma || '',
@@ -36,7 +37,7 @@ export function aNota(f) {
     slugFijado: !!f.s_slug,
     publicada: f.s_publicada || f.creada,
     origen: f.s_origen || 'nucleo',
-    extra,
+    extra: Array.isArray(extra.fotosEnCuerpo) ? { ...extra, fotosEnCuerpo: extra.fotosEnCuerpo.map(conFotoHttps) } : extra,
   };
 }
 

@@ -168,7 +168,7 @@ test('el auspicio del clima: con comercio, «El clima de hoy llega con» + su lo
   assert.match(con, /<span class="rotulo">Publicidad<\/span>/);
   assert.match(con, /El clima de hoy llega con<\/span><strong class="aviso-nombre">Panadería Sol<\/strong>/);
   assert.match(con, /<img src="https:\/\/fotos\.example\/logo\.png" alt="Panadería Sol"/);
-  assert.match(con, /href="https:\/\/instagram\.com\/panaderiasol" target="_blank" rel="sponsored noopener"/);
+  assert.match(con, /href="\/ir\/aviso\/a1\?l=C1" target="_blank" rel="sponsored nofollow noopener"/);
   const propio = avisoDelClima(null, 'C1');
   assert.match(propio, /¿Querés que el clima llegue con tu comercio\? Escribinos al WhatsApp/);
   assert.match(propio, /2266 51-1612/);

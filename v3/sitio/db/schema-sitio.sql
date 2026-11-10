@@ -25,3 +25,25 @@ CREATE TABLE IF NOT EXISTS avisos (
   activo INTEGER NOT NULL DEFAULT 1
 );
 CREATE INDEX IF NOT EXISTS idx_avisos_activo ON avisos (activo, desde, hasta);
+
+-- El contador propio (REGLAS.md § 11): sólo sumas por día, sin IP, sin User-Agent y sin ningún identificador de persona. Lo escribe db/lecturas.mjs.
+-- Páginas vistas por personas (no robots). `dia` es la fecha de Balcarce (AAAA-MM-DD).
+CREATE TABLE IF NOT EXISTS lecturas_dia (
+  dia TEXT NOT NULL,
+  tipo TEXT NOT NULL,              -- portada | nota | seccion | clima | farmacias | otra
+  ruta TEXT NOT NULL,              -- sin consulta, hasta 200 caracteres
+  zona TEXT NOT NULL,              -- balcarce | provincia | argentina | afuera | desconocido
+  origen TEXT NOT NULL,            -- directo | interno | google | facebook | instagram | x | otro-sitio
+  aparato TEXT NOT NULL,           -- celular | escritorio
+  vistas INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (dia, tipo, ruta, zona, origen, aparato)
+);
+-- Cuántas veces se mostró y se tocó cada aviso propio (los de AdSense los mide Google).
+CREATE TABLE IF NOT EXISTS avisos_dia (
+  dia TEXT NOT NULL,
+  aviso_id TEXT NOT NULL,
+  lugar TEXT NOT NULL,             -- T1, N2… o '' si no se sabe
+  impresiones INTEGER NOT NULL DEFAULT 0,
+  clics INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (dia, aviso_id, lugar)
+);

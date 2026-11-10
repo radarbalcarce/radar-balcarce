@@ -97,6 +97,7 @@ const PRIVACIDAD = {
 <p>El sitio funciona sobre <strong>Cloudflare</strong>. Cuando entrás, Cloudflare procesa tu dirección IP y datos técnicos del pedido para entregarte la página y protegerla de ataques. Para mostrarte el clima y la farmacia de turno, nuestro servidor consulta a Open-Meteo y al Colegio de Farmacéuticos: esas consultas las hace el servidor, no tu navegador, y no llevan datos tuyos.</p>
 <h2>Cómo medimos las visitas</h2>
 <p>Contamos cuánta gente entra y qué notas se leen con <strong>Cloudflare Web Analytics</strong>, que <strong>no usa cookies</strong>, no arma un perfil tuyo y no te sigue a otros sitios. Sabemos que alguien entró, desde qué tipo de aparato y qué página miró; nada más.</p>
+<p>Además llevamos un <strong>contador propio</strong>: sumamos cuántas veces se vio cada página y cada aviso, y cuántas veces se tocó un aviso, agrupado por día, por zona general (Balcarce, provincia, resto del país o exterior), por sitio de origen y por tipo de aparato. No guardamos tu dirección IP ni te identificamos, y no usa cookies.</p>
 <h2 id="cookies">Cookies</h2>
 <ul>
 <li><strong>Cookie propia, <code>radar_cookies</code>:</strong> sólo recuerda si aceptaste o no las cookies de terceros. Dura 6 meses. Es la única cookie que guardamos nosotros.</li>
@@ -104,7 +105,7 @@ const PRIVACIDAD = {
 </ul>
 <p>Más sobre cómo Google usa los datos: <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">policies.google.com/technologies/partner-sites</a>. Para elegir qué anuncios personalizados ver: <a href="https://adssettings.google.com" rel="noopener">adssettings.google.com</a>. También podés bloquear o borrar cookies desde tu navegador.</p>
 <h2>Publicidad local</h2>
-<p>Los avisos de comercios de Balcarce los cargamos nosotros: no usan cookies ni te siguen. Si tocás uno, vas al sitio o a la red del comercio, que tiene su propia política.</p>
+<p>Los avisos de comercios de Balcarce los cargamos nosotros: no usan cookies ni te siguen. Si tocás uno, pasás un instante por una dirección nuestra que suma un clic al total del aviso, sin guardar datos tuyos, y enseguida llegás al sitio o a la red del comercio, que tiene su propia política.</p>
 <h2>Tus derechos y cómo pedir que borremos tus datos</h2>
 <p>Tenés derecho a saber qué datos tuyos tenemos, a corregirlos y a pedir que los borremos. Escribinos por WhatsApp al ${enlaceWa} o por mail a ${enlaceMail} y lo hacemos. Si ya publicamos una nota que salió de un dato tuyo, borrar tu contacto no borra la nota; eso se resuelve aparte, hablando con la redacción.</p>
 <p>La Agencia de Acceso a la Información Pública es el órgano de control de la Ley 25.326 y puede recibir denuncias y reclamos por incumplimientos.</p>

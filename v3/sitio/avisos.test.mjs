@@ -106,7 +106,7 @@ test('avisos locales: el activo del día sale con el rótulo «Publicidad» y su
   poner('apagado', ['pie'], null, null, 0);
   const h = await html(env, '/');
   assert.match(h, /data-aviso="fijo" data-lugar="T1" data-anunciante="fijo1"/);
-  assert.match(h, /<span class="rotulo">Publicidad<\/span><a class="aviso-caja" href="https:\/\/fijo1\.example\/" target="_blank" rel="sponsored noopener">/);
+  assert.match(h, /<span class="rotulo">Publicidad<\/span><a class="aviso-caja" href="\/ir\/aviso\/fijo1\?l=T1" target="_blank" rel="sponsored nofollow noopener">/, 'el enlace pasa por /ir/aviso/<id> (contador propio, contador.test.mjs)');
   assert.match(h, /data-aviso="pie" data-lugar="T4" data-anunciante="pie1"/);
   assert.match(h, /data-aviso="columna" data-lugar="T3" data-anunciante="pie1"/);
   assert.match(h, /data-aviso="postales" data-lugar="T2" data-aviso-propio="1"/, 'sin aviso de postales, el propio');

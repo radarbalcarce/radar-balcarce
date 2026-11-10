@@ -8,6 +8,7 @@ import { PORTADA } from './vistas/portada.mjs';
 import { noSeIndexa } from './vistas/clima-diario.mjs';
 import { leerClima, leerFarmacia, leerDolar, leerRegion, leerHistoriaDolar } from './datos-del-dia.mjs';
 import { crearPublicidad, RUTA_MEDIA_KIT } from './vistas/avisos.mjs';
+// (el contador propio y el clic de los avisos: db/lecturas.mjs, REGLAS.md § 11)
 import { configDe, adsTxt } from './vistas/consentimiento.mjs';
 import { paginaDeTexto, RUTAS_DE_TEXTO } from './vistas/paginas.mjs';
 import { paginaClima, paginaFarmacias, paginaDolar } from './vistas/paginas-del-dia.mjs';
@@ -23,6 +24,8 @@ import { ultimasJson, indiceJson, serviciosJson, llmsTxt, securityTxt, humansTxt
 import { NOTAS as NOTAS_VIEJAS, SECCIONES as SECCIONES_VIEJAS } from './redirecciones-viejas.mjs';
 import { RUTA_DE_COPIA, PREFIJO_R2_DE_COPIAS } from './fotos-copia.mjs';
 import { destinoDeRestoViejo } from './restos-del-viejo.mjs';
+import { contarPedido, contarClic, enlaceDeAviso } from './db/lecturas.mjs';
+import { ID_DE_AVISO, NOMBRES_DE_LUGARES } from './vistas/avisos.mjs';
 
 // Cuánto vive cada cosa en caché (segundos): [lo que ve el navegador, lo que guarda Cloudflare].
 export const CACHE = {
@@ -221,12 +224,15 @@ async function recibirReporteCsp(pedido) {
   return new Response(null, { status: 204, headers: sin });
 }
 
+/** Atajo barato para no clonar lo que no se cuenta: contador prendido y respuesta HTML. */
+const contadorPrendidoYHtml = (env, r) => String(env?.CONTADOR_PROPIO ?? 'si').trim().toLowerCase() !== 'no' && /^text\/html/i.test(r.headers.get('content-type') ?? '');
+
 const noEncontrada = (contexto) => respuesta(paginaNoEncontrada({ contexto }), { estado: 404, indexar: false });
 
 /**
  * `traer`: el fetch para el clima y la farmacia (en las pruebas, uno falso). `ahora`: el reloj (en las pruebas, fijo).
  */
-export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = () => new Date() } = {}) {
+export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = () => new Date(), azar = Math.random } = {}) {
   async function armar(pedido, env, ctx, cache) {
     const url = new URL(pedido.url);
     const ruta = url.pathname.replace(/\/+$/, '') || '/';
@@ -450,6 +456,21 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       const url = new URL(pedido.url);
       // www.radarbalcarce.com redirige a radarbalcarce.com con la misma ruta (http → https lo hace Cloudflare).
       if (url.hostname === 'www.radarbalcarce.com') return new Response(null, { status: 301, headers: { location: BASE + url.pathname + url.search, 'cache-control': 'public, max-age=3600' } });
+      // El clic en un aviso propio: suma el clic y redirige (302) a la dirección que el aviso tiene guardada en la base. Nunca a una que venga en el pedido.
+      const clic = /^\/ir\/aviso\/([^/]+)$/.exec(url.pathname);
+      if (clic) {
+        const sin = { 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow' };
+        let id = '';
+        try { id = decodeURIComponent(clic[1]); } catch { /* queda vacío y da 404 */ }
+        const p = partesEnBalcarce(ahora());
+        const hoy = `${p.anio}-${String(p.mes).padStart(2, '0')}-${String(p.dia).padStart(2, '0')}`;
+        const destino = ID_DE_AVISO.test(id) ? await enlaceDeAviso(env, id, hoy) : null;
+        if (!destino) return new Response('No encontrado', { status: 404, headers: { ...sin, 'content-type': 'text/plain; charset=utf-8' } });
+        const lugar = url.searchParams.get('l') ?? '';
+        const contar = contarClic(env, pedido, id, Object.hasOwn(NOMBRES_DE_LUGARES, lugar) ? lugar : '', { ahora: ahora() });
+        if (ctx?.waitUntil) ctx.waitUntil(contar); else await contar;
+        return new Response(null, { status: 302, headers: { ...sin, location: destino } });
+      }
       // Las copias propias de las fotos de las notas (fotos-copia.mjs): /foto/<huella>.jpg sale de R2 (copias/<huella>.jpg); el nombre es la huella del contenido, por eso la caché es eterna.
       const copia = RUTA_DE_COPIA.exec(url.pathname);
       if (copia) return archivoEstatico(pedido, env, PREFIJO_R2_DE_COPIAS, copia[1]);
@@ -499,7 +520,15 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
         url.protocol = 'https:';
         return conCabecerasDeSeguridad(new Response(null, { status: 301, headers: { location: url.toString(), 'cache-control': 'public, max-age=3600' } }));
       }
-      return conCabecerasDeSeguridad(await manejarSinCabeceras(pedido, env, ctx, opciones));
+      const r = conCabecerasDeSeguridad(await manejarSinCabeceras(pedido, env, ctx, opciones));
+      // El contador propio (REGLAS.md § 11): se ve cada pedido acá, salga la página de la caché o recién armada. Nunca rompe ni demora la respuesta.
+      if (pedido.method === 'GET' && r.status === 200 && contadorPrendidoYHtml(env, r)) {
+        try {
+          const contar = contarPedido(env, pedido, r.clone(), { ahora: ahora(), azar });
+          if (ctx?.waitUntil) ctx.waitUntil(contar); else await contar;
+        } catch { /* si no se puede contar, no se cuenta */ }
+      }
+      return r;
     },
   };
 }

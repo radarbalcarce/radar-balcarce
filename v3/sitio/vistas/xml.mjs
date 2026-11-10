@@ -58,5 +58,5 @@ ${items}
 
 export function robots(indexar) {
   if (!indexar) return 'User-agent: *\nDisallow: /\n';
-  return `User-agent: *\nAllow: /\nDisallow: /buscar\nDisallow: /panel/\n\nSitemap: ${BASE}/sitemap.xml\nSitemap: ${BASE}/sitemap-news.xml\n`;
+  return `User-agent: *\nAllow: /\nDisallow: /buscar\nDisallow: /panel/\nDisallow: /ir/\n\nSitemap: ${BASE}/sitemap.xml\nSitemap: ${BASE}/sitemap-news.xml\n`;
 }

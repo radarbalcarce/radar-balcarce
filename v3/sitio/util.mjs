@@ -22,6 +22,15 @@ export function esc(x) {
   return String(x ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
+/** Una dirección de foto siempre por https: la del medio de origen que se guardó con `http://` (el navegador la bloquea o la degrada) pasa a `https://`. Las propias (/foto/…, /fotos-notas/…) y lo que no es texto quedan igual. */
+export const fotoHttps = (u) => (typeof u === 'string' && /^http:\/\//i.test(u) ? `https://${u.slice(7)}` : u);
+
+/** La misma foto ({ url, chica, … }) con sus direcciones por https; lo que no es un objeto vuelve igual. */
+export function conFotoHttps(f) {
+  if (!f || typeof f !== 'object' || Array.isArray(f)) return f;
+  return { ...f, ...(f.url !== undefined ? { url: fotoHttps(f.url) } : {}), ...(f.chica !== undefined ? { chica: fotoHttps(f.chica) } : {}) };
+}
+
 /** Sólo se enlazan direcciones http(s). */
 export const urlSegura = (u) => (/^https?:\/\//i.test(String(u ?? '')) ? String(u) : null);
 
