@@ -61832,9 +61832,7 @@
   "ausenteDesde": "2026-11-03T13:07:00.627Z"
  },
  "j9wvk7": {
-  "archivo": "fotos-notas/j9wvk7.jpg",
   "medio": "El Eco de Tandil",
-  "credito": "Foto: El Eco de Tandil",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Libertad Avanza propone limitar el cobro de tasas en municipios bonaerenses",
@@ -61866,7 +61864,8 @@
    "dudosa": "la primera IA vio gente muy joven"
   },
   "huella": "ff9fcfcd4d6dadb2",
-  "ausenteDesde": "2026-11-03T11:03:16.908Z"
+  "intentado": true,
+  "borrada": true
  },
  "dq9pmu": {
   "medio": "TN (Todo Noticias)",
@@ -62036,9 +62035,7 @@
   "ausenteDesde": "2026-11-03T13:07:00.627Z"
  },
  "zrmr5w": {
-  "archivo": "fotos-notas/zrmr5w.jpg",
   "medio": "Clarín",
-  "credito": "Foto: Clarín",
   "licencia": null,
   "origen": "medio",
   "titulo": "Pablo Quirno destaca la alianza estratégica entre Argentina y Estados Unidos",
@@ -62058,7 +62055,8 @@
    "descripcion": "Pablo Quirno y Marco Rubio posando juntos frente a banderas."
   },
   "huella": "6162020014149600",
-  "ausenteDesde": "2026-11-03T10:34:02.003Z"
+  "intentado": true,
+  "borrada": true
  },
  "cmz7am": {
   "archivo": "fotos-notas/cmz7am.jpg",
@@ -62086,9 +62084,7 @@
   "ausenteDesde": "2026-11-03T11:33:11.999Z"
  },
  "1k5g3x0": {
-  "archivo": "fotos-notas/1k5g3x0.jpg",
   "medio": "A24",
-  "credito": "Foto: A24",
   "licencia": null,
   "origen": "medio",
   "titulo": "Marco Rubio niega participación de Estados Unidos en la salida de Flávio Bolsonaro",
@@ -62108,7 +62104,8 @@
    "descripcion": "Primer plano de Flávio Bolsonaro hablando."
   },
   "huella": "114447474e6e443e",
-  "ausenteDesde": "2026-11-03T11:03:16.908Z"
+  "intentado": true,
+  "borrada": true
  },
  "734p1n": {
   "medio": "TyC Sports",
@@ -70421,9 +70418,7 @@
   "ausenteDesde": "2026-11-04T17:42:32.271Z"
  },
  "jnztmb": {
-  "archivo": "fotos-notas/jnztmb.jpg",
   "medio": "Crónica",
-  "credito": "Foto: Crónica",
   "licencia": null,
   "origen": "medio",
   "titulo": "Boca, Rosario Central y Argentinos definen la Tabla Anual el sábado 7",
@@ -70455,7 +70450,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "333c6b69e9e9d54c",
-  "ausenteDesde": "2026-11-03T11:03:16.908Z"
+  "intentado": true,
+  "borrada": true
  },
  "1gkdsuy": {
   "archivo": "fotos-notas/1gkdsuy.jpg",
@@ -71330,9 +71326,7 @@
   "ausenteDesde": "2026-11-04T05:05:37.216Z"
  },
  "12nps7q": {
-  "archivo": "fotos-notas/12nps7q.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Una marplatense muere en un choque en Nueva Zelanda y lanzan colectas solidarias",
@@ -71364,7 +71358,8 @@
    "dudosa": "la primera IA vio gente muy joven"
   },
   "huella": "ced7dfd4d55bf9d9",
-  "ausenteDesde": "2026-11-03T10:34:02.003Z"
+  "intentado": true,
+  "borrada": true
  },
  "sgq4v5": {
   "archivo": "fotos-notas/sgq4v5.jpg",
@@ -90456,7 +90451,8 @@
    "corresponde": "si",
    "descripcion": "Ariel Vallejo sentado en una oficina con Claudio Tapia al fondo"
   },
-  "huella": "a6a2222232523c9d"
+  "huella": "a6a2222232523c9d",
+  "ausenteDesde": "2026-11-10T11:03:49.502Z"
  },
  "yrfq7j": {
   "archivo": "fotos-notas/yrfq7j.jpg",
@@ -99698,13 +99694,28 @@
   "ausenteDesde": "2026-11-09T17:33:17.008Z"
  },
  "uhytwn": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/uhytwn.jpg",
+  "medio": "Punto Noticias",
+  "credito": "Foto: Punto Noticias",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Establecen las pautas para donar sangre en la región capital",
-  "razon": "La mejor foto era la de Infobrisas (Radio Brisas), pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-11-09T17:03:42.570Z",
-  "intentos": 1,
-  "fuentes": 2
+  "enlace": "https://puntonoticias.com/colegio-de-tecnicos-organiza-una-jornada-especial-en-el-marco-del-dia-nacional-del-donante-voluntario-de-sangre/",
+  "imagenOriginal": "https://puntonoticias.com/wp-content/uploads/2026/11/campana.webp",
+  "razon": "La foto B es stock genérico sin contexto real y la A es el logo gráfico del medio; la C muestra una donación de sangre real en un centro de salud regional sin marcas ni menores.",
+  "cuando": "2026-11-10T11:02:25.461Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Varias personas donando sangre en camillas asistidas por personal de salud"
+  },
+  "huella": "dcd4c4a6a6aba220"
  },
  "17nu3vp": {
   "archivo": "fotos-notas/17nu3vp.jpg",
@@ -102366,7 +102377,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "07171616af8fef31"
+  "huella": "07171616af8fef31",
+  "ausenteDesde": "2026-11-10T11:03:49.502Z"
  },
  "1cm8lfs": {
   "archivo": "fotos-notas/1uua5g1.jpg",
@@ -102522,7 +102534,8 @@
    "corresponde": "si",
    "descripcion": "Monoplaza de Fórmula 1 circulando por la pista con decoracion de naipes de Las Vegas"
   },
-  "huella": "38c05ceaf4554260"
+  "huella": "38c05ceaf4554260",
+  "ausenteDesde": "2026-11-10T11:03:49.502Z"
  },
  "1at8hmm": {
   "archivo": "fotos-notas/1at8hmm.jpg",
@@ -102570,7 +102583,8 @@
    "corresponde": "si",
    "descripcion": "El Papa hablando con un papel en la mano"
   },
-  "huella": "ca3d3d1b1b1fe7c7"
+  "huella": "ca3d3d1b1b1fe7c7",
+  "ausenteDesde": "2026-11-10T11:03:49.502Z"
  },
  "7trkbk": {
   "archivo": "fotos-notas/7trkbk.jpg",
@@ -102595,7 +102609,8 @@
    "corresponde": "si",
    "descripcion": "Fachada de la entrada del Cottolengo Don Orione con el nombre visible en el arco."
   },
-  "huella": "1024740d95b6f3f1"
+  "huella": "1024740d95b6f3f1",
+  "ausenteDesde": "2026-11-10T11:03:49.502Z"
  },
  "1jxpdei": {
   "archivo": "fotos-notas/1jxpdei.jpg",
@@ -102620,5 +102635,83 @@
    "descripcion": "Primer plano del Papa sonriendo y saludando con la mano"
   },
   "huella": "194dd9a56dcdc2a7"
+ },
+ "1gqkp1x": {
+  "archivo": "fotos-notas/1gqkp1x.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV encabeza una masiva misa en Córdoba y continúa su agenda en Buenos Aires",
+  "enlace": "https://tn.com.ar/sociedad/2026/11/10/como-va-a-estar-el-clima-en-cordoba-durante-la-visita-del-papa-leon-xiv/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/se-espera-mas-de-un-millon-de-personas-en-cordoba-para-la-misa-en-el-predio-de-las-fabrica-argentina-de-aviones-foto-pilar-olivaresreuters-VJUXARPYLRESPCVXTW3HLZTXCQ.jpg?auth=31a38511ed9bce98462ffd762039db6b8db358be3220ba688e21c8bd5211f11f&width=1023",
+  "razon": "Es la foto más clara y nítida del Papa León XIV saludando a la multitud, sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-11-10T11:02:25.461Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona con poncho y bandera caminando en un campo.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Una mujer envuelta en un poncho sostiene una bandera papal en un multitudinario evento al aire libre."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "5332120016153161"
+ },
+ "12q02c6": {
+  "archivo": "fotos-notas/12q02c6.jpg",
+  "medio": "Los Andes (Mendoza)",
+  "credito": "Foto: Los Andes (Mendoza)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Argentina inicia su defensa ante el Tribunal del Mar por Sea Lion",
+  "enlace": "https://www.losandes.com.ar/politica/argentina-inicio-su-reclamo-el-tribunal-del-mar-frenar-el-proyecto-petrolero-sea-lion-malvinas-n6013626",
+  "imagenOriginal": "https://media.losandes.com.ar/p/283f186c277bcccaae4b450840b2d941/adjuntos/368/imagenes/100/753/0100753515/1200x675/733x463:753x483/malvinas.avif",
+  "razon": "La foto B muestra con mayor claridad y mejor encuadre a la plataforma petrolera Sea Lion en alta mar.",
+  "cuando": "2026-11-10T11:02:25.461Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Plataforma petrolera Sea Lion en el mar"
+  },
+  "huella": "0404283061d5d5d4"
+ },
+ "146l3a5": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Gustavo Levine presenta su libro sobre Diego Maradona en Mar del Plata",
+  "razon": "Ninguna de las fotos sirve ya que ambas son gráficas (flyers promocionales) y no fotografías del evento.",
+  "cuando": "2026-11-10T11:02:25.461Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "g3o461": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Declaran feriado el miércoles 11 de noviembre en la provincia",
+  "razon": "Ninguna de las fotos corresponde al tema de la nota sobre el feriado provincial.",
+  "cuando": "2026-11-10T11:02:25.461Z",
+  "intentos": 1,
+  "fuentes": 2
  }
 }
