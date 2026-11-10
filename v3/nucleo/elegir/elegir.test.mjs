@@ -9,6 +9,19 @@ const art = (medio, titulo, o = {}) => ({ id: medio + titulo.length, medio, alca
 const hist = (titulo, o = {}) => ({ id: 'h1', titulo, fechaHecho: hace(2), medios: [], alcances: [], seccion: null, ...o });
 const opc = (o = {}) => ({ ahora: AHORA, nacionalesHoy: 0, ...o });
 
+test('espera nacional (10/11): lo nacional madura esperaNacionalMin minutos desde que la historia existe; Balcarce y lo muy contado no esperan', () => {
+  const nac = (n) => ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'].slice(0, n).map((m) => art(m, 'Aprobaron una ley importante'));
+  const joven = hist('Aprobaron una ley importante', { creada: new Date(AHORA.getTime() - 20 * 60e3).toISOString() });
+  const madura = hist('Aprobaron una ley importante', { creada: new Date(AHORA.getTime() - 61 * 60e3).toISOString() });
+  assert.deepEqual(elegir(joven, nac(3), opc({ esperaNacionalMin: 60 })), { sale: false, motivo: 'madurando' });
+  assert.equal(elegir(madura, nac(3), opc({ esperaNacionalMin: 60 })).sale, true);
+  assert.equal(elegir(joven, nac(3), opc({ esperaNacionalMin: 0 })).sale, true, 'sin espera, como antes');
+  assert.equal(elegir(joven, nac(3), opc()).sale, true, 'sin la opción, como antes');
+  assert.equal(elegir(joven, nac(8), opc({ esperaNacionalMin: 60 })).motivo, 'muy-contada', 'lo muy contado no espera');
+  const loc = [art('Diario Balcarce', 'El Concejo aprobó la nueva ordenanza', { alcance: 'balcarce' })];
+  assert.equal(elegir(hist(loc[0].titulo, { creada: joven.creada }), loc, opc({ esperaNacionalMin: 60 })).motivo, 'balcarce');
+});
+
 test('balcarce: alcance balcarce con una sola fuente', () => {
   const a = [art('Diario Balcarce', 'El Concejo aprobó la nueva ordenanza', { alcance: 'balcarce' })];
   assert.deepEqual(elegir(hist(a[0].titulo), a, opc()), { sale: true, motivo: 'balcarce' });

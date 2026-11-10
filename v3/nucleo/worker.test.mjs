@@ -117,7 +117,7 @@ function mundo({ respuestaDeDuda = 'NO' } = {}) {
 
 const envDe = (extra = {}) => ({
   DB: d1EnMemoria(), AI: aiFalso, GEMINI_API_KEY: 'gemini-key-secreta', TELEGRAM_TOKEN: TOKEN,
-  GEMINI_MODELO: 'gemini-3.1-flash-lite', NUCLEO_TOPE_DIARIO: '150', NUCLEO_REDACTAR_POR_VUELTA: '3', ...extra,
+  GEMINI_MODELO: 'gemini-3.1-flash-lite', NUCLEO_TOPE_DIARIO: '150', NUCLEO_REDACTAR_POR_VUELTA: '3', NUCLEO_ESPERA_NACIONAL_MIN: '0', ...extra,
 });
 const nucleo = () => crearNucleo({ fuentes: fuentesDePrueba, perfil: 'PERFIL', redaccion: 'REDACCION', umbrales });
 // azar determinístico pero variado (con un valor fijo todas las historias tendrían el mismo id)

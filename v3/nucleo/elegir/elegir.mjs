@@ -1,6 +1,7 @@
 // Decide si una historia sale (REGLAS § 4). Sin semáforo, sin puntajes, sin cupos por sección.
 
 const HORA = 3600 * 1000;
+const MINUTO = 60 * 1000;
 
 export function normalizarTexto(s) {
   return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
@@ -104,7 +105,7 @@ export function minimoDelDia(minimo, minimoFinde, ahora = new Date()) {
 }
 
 export function elegir(historia, articulos, {
-  minimoNacional = 3, minimoAreasChicas = 2, nacionalesHoy = 0, topeNacional = 100, pedida = false, ahora = new Date(),
+  minimoNacional = 3, minimoAreasChicas = 2, nacionalesHoy = 0, topeNacional = 100, pedida = false, ahora = new Date(), esperaNacionalMin = 0,
 } = {}) {
   const sale = (motivo) => ({ sale: true, motivo });
   const no = (motivo) => ({ sale: false, motivo });
@@ -136,6 +137,9 @@ export function elegir(historia, articulos, {
   else if (chica && cuantos >= minimoAreasChicas) motivo = 'area-chica-2';
   else return no('pocos-medios');
 
+  // Lo nacional madura: se escribe cuando la historia lleva `esperaNacionalMin` minutos en el sistema, con más fuentes y más fotos candidatas (Hernán, 10/11: «no hay apuro, que mejore la calidad»).
+  // No rige para lo muy contado (8 medios o más), que ya salió arriba, ni para Balcarce. Sin `creada` en la historia, no espera.
+  if (esperaNacionalMin > 0 && historia.creada && new Date(ahora).getTime() - new Date(historia.creada).getTime() < esperaNacionalMin * MINUTO) return no('madurando');
   if (nacionalesHoy >= topeNacional) return no('tope-nacional');
   return sale(motivo);
 }

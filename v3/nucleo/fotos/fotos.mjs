@@ -71,7 +71,7 @@ export function analizarCandidatas(articulos, vistas = new Set()) {
         alto = null;
       }
       if (ancho && alto && (ancho / alto > 2.2 || alto > ancho * 1.3)) { formas += 1; continue; }
-      lista.push({ url, ancho, alto, medio: a.medio });
+      lista.push({ url, ancho, alto, medio: a.medio, local: a.alcance === 'balcarce' });
     }
   }
   // las que traen medidas, de mayor a menor; las que no, al final y en el orden en que vinieron (el sort es estable)
@@ -103,11 +103,11 @@ async function imagenesDeLasPaginas(articulos, fetchFn) {
     const reloj = setTimeout(() => control.abort(), TOPE_MS_PAGINA);
     try {
       const r = await fetchFn(a.url, { signal: control.signal, redirect: 'follow', headers: { 'user-agent': USER_AGENT, accept: 'text/html,*/*;q=0.5' } });
-      if (!r?.ok) return { medio: a.medio, imagenes: [] };
+      if (!r?.ok) return { medio: a.medio, alcance: a.alcance, imagenes: [] };
       const html = String(await r.text()).slice(0, TOPE_BYTES_PAGINA);
-      return { medio: a.medio, imagenes: imagenesDePagina(html) };
+      return { medio: a.medio, alcance: a.alcance, imagenes: imagenesDePagina(html) };
     } catch {
-      return { medio: a.medio, imagenes: [] };
+      return { medio: a.medio, alcance: a.alcance, imagenes: [] };
     } finally {
       clearTimeout(reloj);
     }
@@ -148,7 +148,8 @@ export async function elegirFotoConMotivo(nota, articulos, { gemini, fetch: fetc
       est.erroresSeguidos = 0;
       est.miradas += 1;
       // Se descarta con marca, con menor o víctima, o si no tiene relación con la noticia; la de archivo sirve (2/11, Claude).
-      if (r?.marca_de_agua_o_otro_medio === true) { est.marca += 1; continue; }
+      // La foto de una fuente de Balcarce (Radio Gabal con su logo de fondo en una entrevista) pasa aunque tenga marca (Hernán, 10/11).
+      if (r?.marca_de_agua_o_otro_medio === true && !c.local) { est.marca += 1; continue; }
       if (r?.menor_o_victima === true) { est.menor += 1; continue; }
       if (r?.es_de_esta_noticia === 'no') { est.noEs += 1; continue; }
       return { url: c.url, credito: `Foto: ${c.medio}`, alt: altDeLaFicha(nota), ancho: c.ancho, alto: c.alto };

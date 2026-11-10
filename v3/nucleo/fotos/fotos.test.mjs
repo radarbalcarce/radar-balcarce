@@ -36,6 +36,16 @@ test('elegirFoto: descarta la que tiene marca de agua y elige la segunda', async
   assert.deepEqual(preguntas, [1, 1]);
 });
 
+test('elegirFoto: la marca de agua no descarta la foto de una fuente de Balcarce (Radio Gabal con su logo de fondo, Hernán 10/11); la de otro medio sí', async () => {
+  const gemini = { texto: async () => ({ marca_de_agua_o_otro_medio: true, menor_o_victima: false, es_de_esta_noticia: 'si' }) };
+  const local = [{ medio: 'Radio Gabal (FM 104.1)', alcance: 'balcarce', imagenes: [img('https://gabal.com/entrevista.jpg', 1200, 800)] }];
+  const f = await elegirFoto(nota, local, { gemini, fetch: async () => respuestaImagen() });
+  assert.equal(f.url, 'https://gabal.com/entrevista.jpg');
+  const afuera = [{ medio: 'Diario A', alcance: 'pais', imagenes: [img('https://a.com/foto.jpg', 1200, 800)] }];
+  const g = await elegirFotoConMotivo(nota, afuera, { gemini, fetch: async () => respuestaImagen(), paginas: false });
+  assert.deepEqual([g.foto, g.motivo], [null, 'todas-con-marca']);
+});
+
 test('elegirFoto: menor o víctima se descarta; sin candidatas buenas → null; mira hasta 6', async () => {
   const arts = [{ medio: 'A', imagenes: ['1', '2', '3', '4', '5', '6', '7', '8'].map((n) => img(`https://a.com/f${n}.jpg`, 1000 + Number(n), 700)) }];
   let n = 0;

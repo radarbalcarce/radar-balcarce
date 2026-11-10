@@ -248,9 +248,9 @@ export async function contarNacionalesEntre(env, desdeISO, hastaISO) {
 }
 
 // Las que el tope dejó afuera y todavía están a tiempo, primero las más contadas: cuando vuelve a haber cupo, salen.
-export async function historiasEsperandoCupo(env, desdeISO, limite = 20) {
+export async function historiasEsperandoCupo(env, desdeISO, limite = 40) {
   const r = await env.DB.prepare(
-    "SELECT * FROM historias WHERE estado = 'no_sale' AND motivo = 'tope-nacional' AND fecha_hecho >= ? ORDER BY n_articulos DESC, fecha_hecho DESC LIMIT ?",
+    "SELECT * FROM historias WHERE estado = 'no_sale' AND motivo IN ('tope-nacional', 'madurando') AND fecha_hecho >= ? ORDER BY n_articulos DESC, fecha_hecho DESC LIMIT ?",
   ).bind(desdeISO, limite).all();
   return lista(r).map((f) => ({
     id: f.id, creada: f.creada, fechaHecho: f.fecha_hecho, titulo: f.titulo, medios: analizar(f.medios, []),

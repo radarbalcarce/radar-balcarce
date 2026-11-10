@@ -111,6 +111,10 @@ el nombre original del medio. Nunca una foto real de un menor o una víctima.
 
 **Criterio de fotos 2 (10/11/2026, Hernán):** «si la foto ya la publicó un medio, no hace falta ser más estrictos». La visión sólo descarta por «menor o víctima» (a) a un menor identificable que es víctima o está involucrado en un hecho policial, judicial, de abuso, de salud grave o de una tragedia, (b) una escena de abuso, (c) contenido gráfico (cadáveres, sangre, heridas graves). Menores en actos, escuela o deporte, adultos en cualquier escena (aunque sea Policiales) y accidentes sin heridos a la vista **pasan**; la marca de agua y el nombre de otro medio pegado encima siguen descartando. **Policiales ya no se saltea** (ni en las migradas). Las notas que quedaron sin foto con el criterio viejo (`todas-con-menor-o-victima`, `todas-descartadas`, `policiales`) se vuelven a mirar **una vez** (marca `verificacion.fotoCriterio` = 2, `FOTO_CRITERIO` en `nucleo.mjs`), hasta 7 días atrás.
 
+**Excepción de la marca de agua (10/11, Hernán):** la foto de una fuente de Balcarce (`alcance: balcarce`, p. ej. Radio Gabal con su logo de fondo en una entrevista) **no se descarta por marca**; la de cualquier otro medio sí.
+
+**Espera nacional (10/11, Hernán: «no hay apuro, que mejore la calidad»):** una historia nacional (`nacional-3` o `area-chica-2`) no se redacta hasta llevar **60 minutos** en el sistema (`historia.creada`; variable `NUCLEO_ESPERA_NACIONAL_MIN`, 0 la apaga). Mientras tanto queda `no_sale` con motivo `madurando` y se retoma cada vuelta junto con las que esperan cupo (`historiasEsperandoCupo`). Así se escribe con más fuentes y más fotos candidatas. No rige para lo muy contado (8 medios o más) ni para Balcarce.
+
 ### 7 bis. La copia propia de la foto (5/11/2026, Hernán: «lo más importante, aplicalo todo»)
 
 - **Por qué.** La foto de una nota sale de las fuentes, pero mostrarla desde el servidor del otro medio es frágil: si la borra o la bloquea (Clarín y Olé ya rechazan pedidos sin cabeceras de navegador),

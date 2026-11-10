@@ -264,6 +264,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       minimoNacional: minimoDelDia(numero(env.NUCLEO_MINIMO_NACIONAL, 3), numero(env.NUCLEO_MINIMO_NACIONAL_FINDE, 0), c.ahora),
       minimoAreasChicas: numero(env.NUCLEO_MINIMO_AREAS_CHICAS, 2),
       topeNacional: cupoNacional(numero(env.NUCLEO_TOPE_NACIONAL, 100), c.ahora),
+      esperaNacionalMin: numero(env.NUCLEO_ESPERA_NACIONAL_MIN, 60), // 0 la apaga (REGLAS § 4)
     });
     for (const h of tocadas.values()) {
       try {
