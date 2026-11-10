@@ -1,22 +1,39 @@
 {
- "generado": "2026-11-10T13:07:19.840Z",
+ "generado": "2026-11-10T13:38:29.147Z",
  "intentosMaximos": 3,
  "notas": [
   {
-   "id": "gl4tko",
-   "titulo": "El Museo Fangio inaugurará un espacio dedicado el próximo 22 de noviembre",
-   "copete": "La nueva muestra permanente tendrá 250 metros cuadrados y abrirá al público el domingo 22 de noviembre. El recorrido incluirá dos autos originales de la máxima categoría, una recreación de boxes y homenajes a figuras como Ayrton Senna y Franco Colapinto.",
-   "seccion": "Automovilismo",
-   "fecha": "2026-11-10T12:46:42.000Z",
+   "id": "10ufqz1",
+   "titulo": "El Municipio presentó un presupuesto de más de $78.804 millones para 2027",
+   "copete": "El Departamento Ejecutivo elevó el proyecto de Presupuesto Municipal para el próximo año, que contempla fondos para el funcionamiento del Hospital Municipal, obras públicas, servicios municipales y asistencia social. También ingresaron las ordenanzas Fiscal e Impositiva, que…",
+   "seccion": "Balcarce",
+   "fecha": "2026-11-10T13:29:15.000Z",
    "fuentes": [
     {
      "medio": "Radio Gabal (FM 104.1)",
-     "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/formula-1-el-museo-fangio-inaugurara-un-espacio-dedicado-el-proximo-22-de-noviembre",
-     "fecha": "2026-11-10T12:46:42.000Z"
+     "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/exclusivo-el-municipio-presento-un-presupuesto-de-mas-de-78-804-millones-para-2027",
+     "fecha": "2026-11-10T13:29:15.000Z"
     }
    ],
    "intentos": 1,
-   "motivo": "sin material",
+   "motivo": "cuerpo: 2 problemas (nombre, copia): el cuerpo nombra a \"doctor\" y la fuente no; sin esas oraciones quedan 295 palabras",
+   "maximo": 3
+  },
+  {
+   "id": "qgzpbo",
+   "titulo": "Clausura: completan partidos postergados infanto-juveniles",
+   "copete": "Confirmó, la Liga Balcarceña este lunes, la reprogramación de los partidos postergados correspondientes al fútbol infanto-juvenil de la fase Clausura del Torneo Oficial 2026 , “Copa 75º Aniversario Asociación Bomberos Voluntarios” – Estos pleitos, que habían quedado sin disputa…",
+   "seccion": "Fútbol",
+   "fecha": "2026-11-10T12:52:38.000Z",
+   "fuentes": [
+    {
+     "medio": "Acción 5 (Balcarce)",
+     "enlace": "https://accion5.com/clausura-completan-partidos-postergados-infanto-juveniles/",
+     "fecha": "2026-11-10T12:52:38.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "título o bajada: 1 problema (numero): el copete dice 3 y la fuente no lo dice",
    "maximo": 3
   },
   {
@@ -67,6 +84,33 @@
    "maximo": 4
   },
   {
+   "id": "1bjri7l",
+   "titulo": "Un yaguareté de dos años murió tras ser atropellado por una camioneta: era parte de un programa de reintroducción a la especie",
+   "copete": "Un yaguareté de dos años y medio , identificado como Anguja , murió tras ser atropellado por una camioneta Volkswagen Amarok en la Ruta Provincial 6, en la provincia de Corrientes. El ejemplar formaba parte de un programa de reintroducción de la especie , que había desaparecido…",
+   "seccion": "Ciencia",
+   "fecha": "2026-11-09T23:50:22.000Z",
+   "fuentes": [
+    {
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/sociedad/2026/11/09/un-yaguarete-de-dos-anos-murio-tras-ser-atropellado-por-una-camioneta-era-parte-de-un-programa-de-reintroduccion-a-la-especie/",
+     "fecha": "2026-11-09T23:50:22.000Z"
+    },
+    {
+     "medio": "Perfil",
+     "enlace": "https://perfil.com/nea/conmocion-en-corrientes-por-la-muerte-de-anguja-un-yaguarete-atropellado-en-la-ruta-provincial-6-abiQo1S7eNSe",
+     "fecha": "2026-11-10T11:21:58.000Z"
+    },
+    {
+     "medio": "Canal 26",
+     "enlace": "https://www.canal26.com/planeta/2026/11/10/murio-anguja-el-yaguarete-de-dos-anos-que-formaba-parte-de-un-programa-de-reintroduccion-de-la-especie-fue-atropellado-por-una-camioneta-en-la-ruta-provincial-6/",
+     "fecha": "2026-11-10T13:09:36.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "con cuerpo",
+   "maximo": 3
+  },
+  {
    "id": "z56blh",
    "titulo": "En octubre se registraron un 50 % menos de horas de sol",
    "copete": "Durante octubre de 2026, el INTA Manfredi —Córdoba— registró un promedio de 4,1 horas diarias de sol, frente a las 8,3 históricas: una reducción del 50,5 %. Fue la mayor caída del período analizado, entre marzo y octubre, en un contexto climático marcado por el fenómeno de El…",
@@ -94,8 +138,8 @@
      "fecha": "2026-11-10T12:40:49.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "cuerpo: 1 problema (promesa): el título dice 50 y el cuerpo no lo explica; sin esas oraciones quedan 222 palabras",
+   "intentos": 2,
+   "motivo": "título o bajada: 1 problema (largo): el titulo tiene 100 caracteres, el máximo es 90",
    "maximo": 3
   },
   {
@@ -153,28 +197,6 @@
    "maximo": 3
   },
   {
-   "id": "1bjri7l",
-   "titulo": "Un yaguareté de dos años murió tras ser atropellado por una camioneta: era parte de un programa de reintroducción a la especie",
-   "copete": "",
-   "seccion": "Ciencia",
-   "fecha": "2026-11-09T23:50:22.000Z",
-   "fuentes": [
-    {
-     "medio": "TN (Todo Noticias)",
-     "enlace": "https://tn.com.ar/sociedad/2026/11/09/un-yaguarete-de-dos-anos-murio-tras-ser-atropellado-por-una-camioneta-era-parte-de-un-programa-de-reintroduccion-a-la-especie/",
-     "fecha": "2026-11-09T23:50:22.000Z"
-    },
-    {
-     "medio": "Perfil",
-     "enlace": "https://perfil.com/nea/conmocion-en-corrientes-por-la-muerte-de-anguja-un-yaguarete-atropellado-en-la-ruta-provincial-6-abiQo1S7eNSe",
-     "fecha": "2026-11-10T11:21:58.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "con cuerpo",
-   "maximo": 3
-  },
-  {
    "id": "12s7vi0",
    "titulo": "Los seis jugadores que perderá Ponzio en la fecha FIFA",
    "copete": "",
@@ -202,5 +224,22 @@
    "maximo": 3
   }
  ],
- "descartadas": []
+ "descartadas": [
+  {
+   "id": "10g0hk8",
+   "titulo": "“Historia natural de los gliptodontes” se presentó MUHBA",
+   "seccion": "Cultura y agenda",
+   "fecha": "2026-11-09T15:20:10.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; sin material"
+  },
+  {
+   "id": "olwize",
+   "titulo": "CRA cuestionó que los frigoríficos impongan la plataforma Visec",
+   "seccion": "Agro",
+   "fecha": "2026-11-09T18:13:03.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (título, bajada o texto para redes)"
+  }
+ ]
 }

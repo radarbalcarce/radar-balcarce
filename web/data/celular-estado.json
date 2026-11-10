@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-10T13:07:19.840Z",
- "portada": 99,
+ "generado": "2026-11-10T13:38:29.147Z",
+ "portada": 121,
  "archivo": 500,
- "esperandoCuerpo": 7,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-11-10T13:07:20.393Z",
+  "generado": "2026-11-10T13:38:29.532Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,17 +95,17 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 54,
+    "segundos": 50,
     "notas": [
      {
-      "id": "1w8v4jx",
-      "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
-      "seccion": "Educación"
+      "id": "1slb9eo",
+      "titulo": "Balcarce podá destinar fondos viales rurales a obras hídricas",
+      "seccion": "Balcarce"
      },
      {
-      "id": "6nyrgi",
-      "titulo": "Valeria Gardey participa de la misa del papa León XIV",
-      "seccion": "Balcarce"
+      "id": "m1r20",
+      "titulo": "El Hospital Municipal saluda a los técnicos radiólogos",
+      "seccion": "Salud"
      },
      {
       "id": "f8fcrh",
@@ -126,13 +126,39 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 52,
     "notas": [
+     {
+      "id": "6nyrgi",
+      "titulo": "Valeria Gardey participa de la misa del papa León XIV",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "1w8v4jx",
+      "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
+      "seccion": "Educación"
+     },
+     {
+      "id": "ui6yhu",
+      "titulo": "Choque de moto y camioneta estacionada en avenida Del Valle",
+      "seccion": "Policiales"
+     },
      {
       "id": "17nu3vp",
       "titulo": "Emerson Fittipaldi visita el Museo Fangio por su aniversario",
       "seccion": "Automovilismo"
-     },
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 54,
+    "notas": [
      {
       "id": "al6yye",
       "titulo": "Pato Naranja cae ante Camarones Azul en la final del Torneo Desarrollo",
@@ -147,37 +173,11 @@
       "id": "1tcmuf9",
       "titulo": "Unos 750 chicos participan del encuentro de fútbol Que ruede la redonda",
       "seccion": "Fútbol"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 47,
-    "notas": [
+     },
      {
       "id": "1cpw03j",
       "titulo": "Camila Peralta actúa en la nueva serie de Netflix dirigida por Trapero",
       "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "m1r20",
-      "titulo": "El Hospital Municipal saluda a los técnicos radiólogos",
-      "seccion": "Salud"
-     },
-     {
-      "id": "6qyz7u",
-      "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "1su1zi1",
-      "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
-      "seccion": "Fútbol"
      }
     ]
    }
@@ -185,6 +185,18 @@
   "facebook": {
    "hoy": [],
    "cola": [
+    {
+     "id": "1slb9eo",
+     "titulo": "Balcarce podá destinar fondos viales rurales a obras hídricas",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "m1r20",
+     "titulo": "El Hospital Municipal saluda a los técnicos radiólogos",
+     "seccion": "Salud",
+     "marcada": false
+    },
     {
      "id": "6nyrgi",
      "titulo": "Valeria Gardey participa de la misa del papa León XIV",
@@ -216,21 +228,9 @@
      "marcada": false
     },
     {
-     "id": "m1r20",
-     "titulo": "El Hospital Municipal saluda a los técnicos radiólogos",
-     "seccion": "Salud",
-     "marcada": false
-    },
-    {
      "id": "1v2vi19",
      "titulo": "La selección argentina inicia los entrenamientos para los amistosos",
      "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "sz8b3v",
-     "titulo": "Celebran el Día de la Tradición en homenaje a José Hernández",
-     "seccion": "Cultura y agenda",
      "marcada": false
     }
    ],
