@@ -63075,9 +63075,7 @@
   "ausenteDesde": "2026-11-03T15:53:46.405Z"
  },
  "1fixdy3": {
-  "archivo": "fotos-notas/1fixdy3.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "Defensa y Justicia e Independiente juegan el lunes por el Clausura",
@@ -63097,7 +63095,8 @@
    "descripcion": "Plantel de Independiente formado en la cancha"
   },
   "huella": "5a3b486e92e1a9bd",
-  "ausenteDesde": "2026-11-03T05:07:40.382Z"
+  "intentado": true,
+  "borrada": true
  },
  "xb5kj9": {
   "medio": "Perfil",
@@ -102106,7 +102105,8 @@
    "corresponde": "si",
    "descripcion": "El Papa Francisco abrazando a una persona durante un acto."
   },
-  "huella": "4ee6e6e6d64ec6c6"
+  "huella": "4ee6e6e6d64ec6c6",
+  "ausenteDesde": "2026-11-10T06:02:17.352Z"
  },
  "yydoph": {
   "archivo": "fotos-notas/yydoph.jpg",
@@ -102160,6 +102160,16 @@
   "intentos": 1,
   "fuentes": 2,
   "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "2rjjn2": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El papa León XIV encabeza un encuentro interreligioso en Buenos Aires",
+  "razon": "La única foto disponible tiene una marca de agua del medio (Noticias Argentinas), por lo que no puede ser elegida.",
+  "cuando": "2026-11-10T06:02:12.002Z",
+  "intentos": 1,
+  "fuentes": 3,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }
