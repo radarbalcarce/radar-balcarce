@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-09T22:03:05.686Z",
+ "consultado": "2026-11-10T00:32:38.150Z",
  "equipos": [
   "9739",
   "3",
@@ -70,90 +70,6 @@
  "equiposCuando": "2026-11-08T11:33:02.173Z",
  "partidos": {
   "liga": [
-   {
-    "id": "401841648",
-    "competencia": "liga",
-    "inicio": "2026-10-31T00:15:00.000Z",
-    "estado": "final",
-    "minuto": "90'+6'",
-    "local": {
-     "id": "15",
-     "nombre": "Racing Club",
-     "goles": 2
-    },
-    "visitante": {
-     "id": "9739",
-     "nombre": "Aldosivi",
-     "goles": 1
-    },
-    "penales": null,
-    "goles": [
-     {
-      "equipo": "visitante",
-      "jugador": "Andrés Vombergar",
-      "minuto": "20'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "local",
-      "jugador": "Adrián Martínez",
-      "minuto": "24'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "local",
-      "jugador": "Ignacio Agustin Rodríguez",
-      "minuto": "60'",
-      "tipo": "de penal"
-     }
-    ],
-    "estadio": "Presidente Perón (Cilindro de Avellaneda)",
-    "fase": null,
-    "partidoDeLaSerie": null,
-    "torneo": "torneo-clausura"
-   },
-   {
-    "id": "401841647",
-    "competencia": "liga",
-    "inicio": "2026-10-31T00:15:00.000Z",
-    "estado": "final",
-    "minuto": "90'+8'",
-    "local": {
-     "id": "10158",
-     "nombre": "Sarmiento (Junín)",
-     "goles": 1
-    },
-    "visitante": {
-     "id": "17",
-     "nombre": "Rosario Central",
-     "goles": 2
-    },
-    "penales": null,
-    "goles": [
-     {
-      "equipo": "local",
-      "jugador": "Manuel Garcia",
-      "minuto": "5'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Gastón Ávila",
-      "minuto": "29'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Gastón Ávila",
-      "minuto": "90'+5'",
-      "tipo": "gol"
-     }
-    ],
-    "estadio": "Eva Perón",
-    "fase": null,
-    "partidoDeLaSerie": null,
-    "torneo": "torneo-clausura"
-   },
    {
     "id": "401841656",
     "competencia": "liga",
