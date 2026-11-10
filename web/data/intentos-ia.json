@@ -770,12 +770,12 @@
   "textos": 1,
   "numeradas": 1
  },
- "13qgbmv": {
+ "13q0qzo": {
   "intentos": 1,
-  "ultimo": "2026-11-03T11:31:27.273Z",
+  "ultimo": "2026-11-10T11:31:39.230Z",
   "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 3
+  "textos": 4,
+  "numeradas": 4
  },
  "13qzp8t": {
   "intentos": 1,
@@ -5148,6 +5148,13 @@
   "textos": 1,
   "numeradas": 1
  },
+ "1syr9i3": {
+  "intentos": 1,
+  "ultimo": "2026-11-10T11:31:39.230Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
+ },
  "1t9xqnz": {
   "intentos": 1,
   "ultimo": "2026-11-05T20:32:15.471Z",
@@ -5422,6 +5429,23 @@
   "textos": 5,
   "numeradas": 21
  },
+ "1uvwzfb": {
+  "intentos": 1,
+  "ultimo": "2026-11-10T11:31:39.230Z",
+  "motivo": "título o bajada: 2 problemas (forma, exagera): el copete trae letras rotas (letras que no son del castellano en \"hectâreas\"): texto mal escrito, se",
+  "textos": 1,
+  "numeradas": 2,
+  "motivos": [
+   "título o bajada: 5 problemas (forma, numero, exagera): el titulo trae ",
+   "título o bajada: 2 problemas (forma, exagera): el copete trae letras r"
+  ],
+  "falla": [
+   "el copete trae letras rotas (letras que no son del castellano en \"hectâreas\"): texto mal escrito, se vuelve a pedir",
+   "el cuerpo trae letras rotas (letras que no son del castellano en \"hectâreas\"): texto mal escrito, se vuelve a pedir",
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
+   "el título dice \"inaugura\" y ninguna fuente dice que eso ya se decidió o se hizo: si es un pedido, un proyecto o algo que se estudia, va \"pid"
+  ]
+ },
  "1v006xs": {
   "intentos": 1,
   "ultimo": "2026-11-06T11:01:32.793Z",
@@ -5506,13 +5530,6 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 4
- },
- "1vdxfk4": {
-  "intentos": 2,
-  "ultimo": "2026-11-03T11:31:27.273Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1
  },
  "1vhy0jt": {
   "intentos": 1,
@@ -5993,6 +6010,13 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 5
+ },
+ "1y0u3cl": {
+  "intentos": 1,
+  "ultimo": "2026-11-10T11:31:39.230Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
  },
  "1y2d2s8": {
   "intentos": 1,
@@ -7847,13 +7871,6 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 7
- },
- "bzf6kw": {
-  "intentos": 1,
-  "ultimo": "2026-11-03T11:31:27.273Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
  },
  "c0b638": {
   "intentos": 1,
@@ -9765,6 +9782,20 @@
   "textos": 5,
   "numeradas": 7
  },
+ "m1r20": {
+  "intentos": 1,
+  "ultimo": "2026-11-10T11:31:39.230Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "título o bajada: 1 problema (relleno): el copete tiene una frase de re",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
+ },
  "m22vye": {
   "intentos": 1,
   "ultimo": "2026-11-10T03:01:29.791Z",
@@ -10145,6 +10176,16 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
+ },
+ "olwize": {
+  "intentos": 1,
+  "ultimo": "2026-11-10T11:31:39.230Z",
+  "motivo": "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (título, bajada o texto para redes)",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (t"
+  ]
  },
  "omh2cg": {
   "intentos": 1,
@@ -10808,17 +10849,6 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
- },
- "shyq3f": {
-  "intentos": 3,
-  "ultimo": "2026-11-03T11:31:27.273Z",
-  "motivo": "con cuerpo",
-  "textos": 5,
-  "numeradas": 5,
-  "motivos": [
-   "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re",
-   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez"
-  ]
  },
  "sl86ui": {
   "intentos": 1,
@@ -11499,13 +11529,6 @@
   "ultimo": "2026-11-05T22:31:56.671Z",
   "motivo": "con cuerpo",
   "textos": 4,
-  "numeradas": 5
- },
- "vy6cjy": {
-  "intentos": 1,
-  "ultimo": "2026-11-03T11:31:27.273Z",
-  "motivo": "con cuerpo",
-  "textos": 5,
   "numeradas": 5
  },
  "vyc7eh": {

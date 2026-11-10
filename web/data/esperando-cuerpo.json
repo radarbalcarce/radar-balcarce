@@ -1,7 +1,46 @@
 {
- "generado": "2026-11-10T10:33:55.614Z",
+ "generado": "2026-11-10T11:33:43.679Z",
  "intentosMaximos": 3,
  "notas": [
+  {
+   "id": "m1r20",
+   "titulo": "El Hospital Municipal saluda a los técnicos radiólogos",
+   "copete": "El pasado 8 de noviembre se conmemoró el “Día del Técnico Radiólogo” y, en ese contexto, desde el Hospital Municipal “Dr. Felipe Antonio Fossati” se hace llegar un especial reconocimiento a quienes desempeñan una tarea fundamental dentro del sistema de salud. Su labor…",
+   "seccion": "Salud",
+   "fecha": "2026-11-10T11:08:57.000Z",
+   "fuentes": [
+    {
+     "medio": "Municipalidad de Balcarce",
+     "enlace": "https://balcarce.gob.ar/2026/11/10/el-hospital-municipal-saluda-a-los-tecnicos-radiologos/",
+     "fecha": "2026-11-10T11:08:57.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+   "maximo": 3
+  },
+  {
+   "id": "1uvwzfb",
+   "titulo": "Un laberinto de maíz de 10 hectáreas con un gol de Messi y Lautaro: desde el 10 de diciembre se podrá recorrer y tiene un fin solidario",
+   "copete": "CÓRDOBA.-Un original laberinto de maíz que combina tres grandes pasiones argentinas: el fútbol, el campo y la educación se realizó en Monte Buey , en el sudeste de Córdoba. Bajo el lema “sembramos un gol”, la propuesta se presentó durante la Expo ITAI y la Fiesta Nacional de la…",
+   "seccion": "Agro",
+   "fecha": "2026-11-10T00:33:00.000Z",
+   "fuentes": [
+    {
+     "medio": "Agrofy News",
+     "enlace": "https://news.agrofy.com.ar/noticia/216964/laberinto-maiz-10-hectareas-gol-messi-lautaro-10-diciembre-se-podra-recorrer-tiene-fin-solidario",
+     "fecha": "2026-11-10T00:33:00.000Z"
+    },
+    {
+     "medio": "La Nación",
+     "enlace": "https://www.lanacion.com.ar/economia/campo/centro-de-messi-lautaro-cabecea-y-es-gol-a-inglaterra-recrearon-en-un-laberinto-de-maiz-la-nid10112026/",
+     "fecha": "2026-11-10T11:10:01.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "título o bajada: 2 problemas (forma, exagera): el copete trae letras rotas (letras que no son del castellano en \"hectâreas\"): texto mal escrito, se",
+   "maximo": 3
+  },
   {
    "id": "g47dkg",
    "titulo": "El platense Tirante logró una buena victoria en su debut en el ATP 250 de Estocolmo",
@@ -79,7 +118,7 @@
   {
    "id": "181a1m9",
    "titulo": "Cuándo es la gala de eliminación de MasterChef Celebrity 2026 de esta semana",
-   "copete": "Una nueva noche de última chance en MasterChef Celebrity volvió a poner a prueba a los participantes, que esta vez debieron preparar una torta rogel de 8 capas de dulce de leche con merengue suizo rosa. La propuesta fue presentada por Maru Botana. Después de probar y deliberar…",
+   "copete": "Una nueva noche de última chance en MasterChef Celebrity volvió a poner a prueba a los participantes, que esta vez debieron preparar una torta rogel de 8 capas de dulce de leche con merengue suizo rosa. La propuesta fue presentada por Maru Botana. Después de probar los pasteles…",
    "seccion": "Cultura y agenda",
    "fecha": "2026-11-09T18:21:05.471Z",
    "fuentes": [
@@ -131,14 +170,5 @@
    "maximo": 3
   }
  ],
- "descartadas": [
-  {
-   "id": "10g0hk8",
-   "titulo": "“Historia natural de los gliptodontes” se presentó MUHBA",
-   "seccion": "Cultura y agenda",
-   "fecha": "2026-11-09T15:20:10.000Z",
-   "intentos": 3,
-   "motivo": "agotó los 3 intentos; sin material"
-  }
- ]
+ "descartadas": []
 }
