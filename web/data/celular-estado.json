@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-10T02:02:25.477Z",
- "portada": 132,
+ "generado": "2026-11-10T03:03:29.462Z",
+ "portada": 139,
  "archivo": 500,
  "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-11-10T02:02:26.249Z",
+  "generado": "2026-11-10T03:03:29.908Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,17 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": null
-   },
-   {
-    "nombre": "feriado",
-    "tipo": "reel",
-    "hora": "08:00",
-    "que": "El feriado",
-    "voz": "locutora",
-    "ventana": 240,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -33,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -43,17 +33,17 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
-    "nombre": "participa-noticias",
+    "nombre": "participa-evento",
     "tipo": "reel",
     "hora": "12:00",
-    "que": "Participá: mandanos noticias",
-    "voz": "locutora",
+    "que": "Tu evento o emprendimiento",
+    "voz": "locutor",
     "ventana": 60,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -63,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -73,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -83,7 +73,7 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -93,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    }
   ],
@@ -103,35 +93,10 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
-   },
-   {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
-    "momento": "cerrada",
-    "salio": null,
-    "segundos": null,
-    "notas": []
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "en-hora",
-    "salio": null,
-    "segundos": 54,
+    "segundos": 52,
     "notas": [
-     {
-      "id": "1tcmuf9",
-      "titulo": "Unos 750 chicos participan del encuentro de fútbol Que ruede la redonda",
-      "seccion": "Fútbol"
-     },
      {
       "id": "17nu3vp",
       "titulo": "Emerson Fittipaldi visita el Museo Fangio por su aniversario",
@@ -143,9 +108,76 @@
       "seccion": "Educación"
      },
      {
+      "id": "1tcmuf9",
+      "titulo": "Unos 750 chicos participan del encuentro de fútbol Que ruede la redonda",
+      "seccion": "Fútbol"
+     },
+     {
       "id": "ryri8t",
       "titulo": "Fallece a los 74 años Néstor Rubén Banegas",
       "seccion": "Balcarce"
+     }
+    ]
+   },
+   {
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 52,
+    "notas": [
+     {
+      "id": "1tpvs2y",
+      "titulo": "Abren los últimos cupos para la carrera de trail",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "1hado1m",
+      "titulo": "La Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1iw8ih",
+      "titulo": "Acumulan cubiertas y basura sobre la avenida Caseros",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "1su1zi1",
+      "titulo": "Ferroviarios gana el clásico balcarceño ante Amigos Unidos",
+      "seccion": "Fútbol"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 50,
+    "notas": [
+     {
+      "id": "1cpw03j",
+      "titulo": "Camila Peralta actúa en la nueva serie de Netflix dirigida por Trapero",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "4zycxq",
+      "titulo": "Prohíben circular con vehículos en el Geoparque Pun Antú",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "6qyz7u",
+      "titulo": "Taja y Colucci completan con éxito el exigente San Juan Ironman",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1li6hf9",
+      "titulo": "Los Patos, Boca y San Manuel ganan por el torneo Clausura",
+      "seccion": "Fútbol"
      }
     ]
    }
@@ -166,12 +198,6 @@
      "marcada": false
     },
     {
-     "id": "nhxwla",
-     "titulo": "Victoria Villarruel confirma que no fue invitada a la misa del papa León XIV",
-     "seccion": "Política",
-     "marcada": false
-    },
-    {
      "id": "10e455q",
      "titulo": "El papa León XIV encabeza un encuentro con sindicalistas y empresarios en la UCA",
      "seccion": "Argentina",
@@ -184,9 +210,9 @@
      "marcada": false
     },
     {
-     "id": "jjlzqq",
-     "titulo": "Baja el riesgo país y suben las acciones argentinas en Nueva York",
-     "seccion": "Economía",
+     "id": "hnxxbz",
+     "titulo": "Muere un hombre de 73 años en el predio de FAdeA durante la vigilia papal",
+     "seccion": "Argentina",
      "marcada": false
     },
     {
@@ -199,6 +225,12 @@
      "id": "1oa1vmx",
      "titulo": "El papa León XIV advierte sobre el desempleo y la inteligencia artificial en la UCA",
      "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "1ney5jz",
+     "titulo": "Leandro Paredes está recuperado y será titular en Boca ante Banfield",
+     "seccion": "Fútbol",
      "marcada": false
     }
    ],
