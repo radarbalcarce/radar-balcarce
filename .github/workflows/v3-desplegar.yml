@@ -6,6 +6,7 @@ name: "Radar 3.0: desplegar"
 #   telegram   v3/redaccion/telegram/   el bot @radarbalcarce_bot (Worker radar-telegram)
 #   nucleo     v3/nucleo/               el núcleo: leer, agrupar, elegir, redactar (Worker radar-nucleo, base D1 radar-nucleo, Workers AI)
 #   sitio      v3/sitio/                el sitio (Worker radar-sitio, la misma base D1 radar-nucleo; aplica las tablas del núcleo y del sitio)
+#   fotos      v3/sitio/scripts/        sólo copia a radar-fotos las fotos viejas que falten (copiar-fotos.mjs); no toca las notas (10/11/2026, para apagar el viejo)
 #   migrar     v3/sitio/scripts/        pasa las notas del sistema viejo a la base (genera los .sql desde web/data/ y los corre; se puede repetir)
 #
 # Secretos de GitHub que usa (los pega una persona, nunca en un chat): CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID (los de siempre) y
@@ -18,7 +19,7 @@ on:
       que:
         description: 'Qué subir'
         type: choice
-        options: [telegram, nucleo, sitio, migrar, vigilancia, redes]
+        options: [telegram, nucleo, sitio, migrar, fotos, vigilancia, redes]
         default: telegram
 
 permissions:
@@ -216,7 +217,7 @@ jobs:
 
       # Fotos y tipografías al depósito (~1.450 archivos). Salta lo que ya está; si falla alguna, se corre de nuevo.
       - name: Copiar las fotos y tipografías a radar-fotos
-        if: env.QUE == 'migrar'
+        if: env.QUE == 'migrar' || env.QUE == 'fotos'
         run: node v3/sitio/scripts/copiar-fotos.mjs
 
       # El archivo permanente (~2.400 notas más), en tandas con INSERT OR IGNORE: se puede repetir sin duplicar.
