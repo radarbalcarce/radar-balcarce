@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-10T01:03:36.437Z",
+ "generado": "2026-11-10T01:32:47.766Z",
  "portada": 132,
  "archivo": 500,
  "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-11-10T01:03:37.286Z",
+  "generado": "2026-11-10T01:32:48.742Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -125,8 +125,13 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 55,
+    "segundos": 54,
     "notas": [
+     {
+      "id": "1tcmuf9",
+      "titulo": "Unos 750 chicos participan del encuentro de fútbol Que ruede la redonda",
+      "seccion": "Fútbol"
+     },
      {
       "id": "17nu3vp",
       "titulo": "Emerson Fittipaldi visita el Museo Fangio por su aniversario",
@@ -138,14 +143,9 @@
       "seccion": "Educación"
      },
      {
-      "id": "1tcmuf9",
-      "titulo": "Unos 750 chicos participan del encuentro de fútbol Que ruede la redonda",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "1tpvs2y",
-      "titulo": "Abren los últimos cupos para la carrera de trail",
-      "seccion": "Cultura y agenda"
+      "id": "ryri8t",
+      "titulo": "Fallece a los 74 años Néstor Rubén Banegas",
+      "seccion": "Balcarce"
      }
     ]
    }
@@ -154,21 +154,15 @@
    "hoy": [],
    "cola": [
     {
-     "id": "17nu3vp",
-     "titulo": "Emerson Fittipaldi visita el Museo Fangio por su aniversario",
-     "seccion": "Automovilismo",
-     "marcada": false
-    },
-    {
      "id": "1tcmuf9",
      "titulo": "Unos 750 chicos participan del encuentro de fútbol Que ruede la redonda",
      "seccion": "Fútbol",
      "marcada": false
     },
     {
-     "id": "1tveim",
-     "titulo": "Lionel Messi integra el once ideal de 2026 elegido por futbolistas",
-     "seccion": "Fútbol",
+     "id": "ryri8t",
+     "titulo": "Fallece a los 74 años Néstor Rubén Banegas",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
@@ -190,15 +184,21 @@
      "marcada": false
     },
     {
-     "id": "1tohclj",
-     "titulo": "Neuquén desdobla las elecciones y elegirá gobernador el 14 de febrero de 2027",
-     "seccion": "Política",
-     "marcada": false
-    },
-    {
      "id": "jjlzqq",
      "titulo": "Baja el riesgo país y suben las acciones argentinas en Nueva York",
      "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "6041lf",
+     "titulo": "Una cartonera de Ensenada le habla al papa León XIV en la UCA",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "1oa1vmx",
+     "titulo": "El papa León XIV advierte sobre el desempleo y la inteligencia artificial en la UCA",
+     "seccion": "Argentina",
      "marcada": false
     }
    ],
