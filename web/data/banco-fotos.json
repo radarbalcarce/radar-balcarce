@@ -92044,7 +92044,8 @@
    "corresponde": "si",
    "descripcion": "El papa León XIV sentado frente a un micrófono."
   },
-  "huella": "c21e13111d0f154f"
+  "huella": "c21e13111d0f154f",
+  "ausenteDesde": "2026-11-10T14:06:12.930Z"
  },
  "brw3a2": {
   "intentado": true,
@@ -102822,8 +102823,8 @@
   "origen": "ninguna",
   "titulo": "Bautista Prieto gana el Provincial de Pesca en cadetes",
   "razon": "sin fotos para comparar",
-  "cuando": "2026-11-10T12:04:55.939Z",
-  "intentos": 1,
+  "cuando": "2026-11-10T14:04:05.300Z",
+  "intentos": 2,
   "fuentes": 1
  },
  "39ovr9": {
@@ -102831,8 +102832,8 @@
   "origen": "ninguna",
   "titulo": "Se juegan seis partidos y se marcan 29 goles en el Clausura femenino",
   "razon": "sin fotos para comparar",
-  "cuando": "2026-11-10T12:04:55.939Z",
-  "intentos": 1,
+  "cuando": "2026-11-10T14:04:05.300Z",
+  "intentos": 2,
   "fuentes": 1
  },
  "70mw69": {
@@ -102889,10 +102890,10 @@
   "origen": "ninguna",
   "titulo": "Comienzan cortes y desvíos en Córdoba por la visita de León XIV",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-10T12:04:55.939Z",
+  "cuando": "2026-11-10T14:04:05.300Z",
   "intentos": 1,
   "fuentes": 3,
-  "intentosPorCupo": 1,
+  "intentosPorCupo": 2,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "dhac35": {
@@ -103019,12 +103020,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Registran 550 transfusiones diarias en la provincia de Buenos Aires",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: fetch failed): la foto de La Verdad no se usa todavía.",
-  "cuando": "2026-11-10T12:33:08.992Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again lat): la foto de QZ Noticias (Mar del Plata) no se usa todavía.",
+  "cuando": "2026-11-10T14:04:05.300Z",
   "intentos": 1,
   "fuentes": 3,
-  "intentosPorCupo": 1,
-  "errorGemini": "fetch failed"
+  "intentosPorCupo": 2,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "8kedmg": {
   "intentado": true,
@@ -103394,7 +103395,8 @@
    "corresponde": "si",
    "descripcion": "El papa bendiciendo a los fieles desde el altar principal"
   },
-  "huella": "a289aaac9e4e1f19"
+  "huella": "a289aaac9e4e1f19",
+  "ausenteDesde": "2026-11-10T14:06:12.930Z"
  },
  "iy1on0": {
   "archivo": "fotos-notas/iy1on0.jpg",
@@ -103491,5 +103493,138 @@
    "descripcion": "Axel Kicillof conversando con el Papa"
   },
   "huella": "951613333b333d2d"
+ },
+ "1ar6d16": {
+  "archivo": "fotos-notas/1ar6d16.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Municipio proyecta obras en avenida Centenario y el autódromo para 2027",
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/exclusivo-el-municipio-proyecta-obras-en-avenida-centenario-el-geoparque-pun-antu-el-microestadio-del-cef-no-119-y-el-autodromo-para-2027",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/noviembre/Senalizacion%20geoparque%201.jpeg",
+  "razon": "Es la única opción disponible, corresponde a la zona del autódromo mencionada en la nota, tiene buena calidad y no presenta marcas, menores ni problemas de archivo.",
+  "cuando": "2026-11-10T14:04:05.300Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Sendero pavimentado y espacios verdes en el predio del autódromo con cartelería y contenedores intervenidos"
+  },
+  "huella": "81c30f4b078e0e0c"
+ },
+ "14hf2yj": {
+  "archivo": "fotos-notas/14hf2yj.jpg",
+  "medio": "Página/12",
+  "credito": "Foto: Página/12",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Piden explicaciones al Gobierno nacional por la carpa VIP en la misa del papa León XIV",
+  "enlace": "https://www.pagina12.com.ar/2026/11/10/reclaman-explicaciones-en-diputados-por-la-carpa-vip-en-la-misa-del-papa/",
+  "imagenOriginal": "https://www.pagina12.com.ar/resizer/v2/2WT67ZDVNZCZRP6OU3DSJZVAPM.jpg?smart=true&auth=668e38ac4e5b79003c51757780f50f7ab0637d10fc52df1b4b287a5efee10dc1&width=1200&height=630",
+  "razon": "Es la única foto adecuada que muestra claramente a los involucrados en el hecho de la nota sin tener marcas de agua agregadas, menores ni problemas de formato.",
+  "cuando": "2026-11-10T14:04:05.300Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos personas sonrientes en primer plano frente a un escenario al aire libre."
+  },
+  "huella": "dcdd58943c6a6a6a"
+ },
+ "se1aro": {
+  "archivo": "fotos-notas/se1aro.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Obispos cantan el tango Volver al papa León XIV en Buenos Aires",
+  "enlace": "https://radiomitre.cienradios.com/videos/el-emotivo-momento-que-vivio-el-papa-leon-xiv-en-la-cena-con-obispos-le-cantaron-volver-de-carlos-gardel/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/CLCGGPWU2RFP3LDXMJX57CEJQY.png?smart=true&auth=669fcc66431fc1f67d3b77c24a44b6653150e83a13feec0ef4fccaef21a6110c&width=1200&height=630",
+  "razon": "Es la única foto de la lista que muestra claramente el hecho descripto en la nota y cumple con todos los requisitos de calidad y exclusiones.",
+  "cuando": "2026-11-10T14:04:05.300Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Obispos sentados a una mesa junto a León XIV en un salón",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "El Papa León XIV y obispos sentados en una mesa con un crucifijo al fondo, siendo aplaudidos por la congregación."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "3139293131193839"
+ },
+ "93wv8y": {
+  "archivo": "fotos-notas/93wv8y.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV encabeza una misa multitudinaria en Córdoba",
+  "enlace": "https://www.eldestapeweb.com/sociedad/ver-vivo-visita-papa-leon-xiv-cordoba-2026115154333",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/112026/1793712542821.jpeg?&cw=1600&ch=900",
+  "razon": "Es la mejor foto que ilustra claramente al papa León XIV saludando en primer plano, sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-11-10T14:04:05.300Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano del papa León XIV saludando a la multitud."
+  },
+  "huella": "a50d594517959224"
+ },
+ "7xy7dv": {
+  "archivo": "fotos-notas/7xy7dv.jpg",
+  "medio": "El Eco de Tandil",
+  "credito": "Foto: El Eco de Tandil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Indec difunde el jueves el dato de la inflación de octubre",
+  "enlace": "https://www.eleco.com.ar/economia/revelaran-el-dato-oficial-de-la-inflacion-de-octubre-cuales-son-las-expectativas-de-las-consultoras",
+  "imagenOriginal": "https://cdnartic.ar/pORJOQxJB9WliAPYhILvMHXPukg=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/07/inflacion_1.webp",
+  "razon": "Es la única opción que no parece una imagen de banco de stock y muestra una escena real de compra, aunque es genérica para el tema de la inflación.",
+  "cuando": "2026-11-10T14:04:05.300Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "generica",
+   "descripcion": "Mujer mayor revisando productos en un pasillo de supermercado."
+  },
+  "huella": "595d591959693939"
  }
 }
