@@ -483,3 +483,15 @@ test('plan: el reel con voz de una nota propia — sólo si lo eligió, una fila
   base.sqlite.prepare("UPDATE piezas SET estado = 'lista'").run();
   assert.ok(!(await planDe(base, new Date(MARTES_10.getTime() + 3600_000))).piezas.some((x) => x.arma === 'nota-propia'));
 });
+
+test('plan: el reel de una nota propia tal como la guarda el bot (origen en notas, sin fila en sitio_notas, redes con la elección vieja «todo»)', async () => {
+  const base = baseDePrueba();
+  const sql = fs.readFileSync(new URL('../redaccion/telegram/schema-redaccion.sql', import.meta.url), 'utf8');
+  for (const s of sql.split(String.fromCharCode(10)).map((l) => l.trim()).filter((l) => l && !l.startsWith('--'))) base.sqlite.exec(s);
+  const creada = hace(1, MARTES_10);
+  base.sqlite.prepare("INSERT INTO notas (id, historia_id, creada, titulo, bajada, cuerpo, seccion, estado, foto, origen, slug, publicada_en, redes, firma) VALUES ('bot0001', 'redaccion-bot0001', ?, 'Benjamín vuelve a representar al país', 'La bajada.', '[\"Uno.\",\"Dos.\"]', 'Argentina', 'publicada', ?, 'redaccion', 'benjamin', ?, ?, 'Hernán Accomo')")
+    .run(creada, JSON.stringify([foto(1), foto(2), foto(3), foto(4)]), creada, JSON.stringify({ eleccion: 'todo', confirmada: true, elegida: creada }));
+  const p = await planDe(base, MARTES_10, { solo: ['reel-nota'] });
+  assert.deepEqual(p.piezas.map((x) => x.id), ['reel-nota-bot0001']);
+  assert.equal(p.piezas[0].datos.nota.fotos.length, 3);
+});

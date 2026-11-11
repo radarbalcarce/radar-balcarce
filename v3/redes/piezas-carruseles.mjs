@@ -109,11 +109,16 @@ export function propiasConReel(notas, { ahora }) {
 /** La nota propia que sigue para su reel (una sola vez por nota). Devuelve { pieza, nota } o null. El id de la pieza es `reel-nota-<id de la nota>`. */
 export async function proximaNotaConReel(env, { ahora, simulado }) {
   const notas = await dbp.notasPropiasParaCarrusel(env, { desdeISO: new Date(new Date(ahora).getTime() - CARRUSEL_DE_NOTA.horasDespuesDePublicada * 3600_000).toISOString() });
-  for (const n of propiasConReel(notas, { ahora })) {
+  const elegibles = propiasConReel(notas, { ahora });
+  let yaSalieron = 0;
+  for (const n of elegibles) {
     const pieza = `reel-nota-${n.id}`;
+    if (await dbp.piezaYaSalio(env, pieza, simulado)) yaSalieron += 1;
     if (!(await dbp.piezaYaSalio(env, pieza, simulado)) && (await dbp.intentosFallidosDe(env, pieza, simulado)) < 3) {
       return { pieza, nota: { ...notaParaElCarrusel(n), bajada: n.bajada, cuerpo: n.cuerpo, fotos: fotosDeLaNota(n).slice(0, 3) } };
     }
   }
-  return null;
+  // Sin nota: se cuenta en qué filtro se cayeron, para que el plan lo diga (10/11: el primer reel no salió y no había forma de saber por qué).
+  const confirmadas = notas.filter((n) => n.redes?.confirmada === true).length;
+  return { motivo: `propias ${notas.length}, confirmadas ${confirmadas}, con reel y fotos ${elegibles.length}, ya salieron ${yaSalieron}` };
 }

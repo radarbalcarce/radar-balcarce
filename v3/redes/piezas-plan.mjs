@@ -147,7 +147,8 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
     const conVoz = !deNota.sinVoz;
     if (conVoz && tope - usados <= 0) { descartes.push({ pieza: deNota.id, motivo: 'sin-cupo-de-voz', quedan: 0 }); continue; }
     const siguiente = conVoz ? await proximaNotaConReel(env, { ahora, simulado }) : await proximaNotaConCarrusel(env, { ahora, simulado });
-    if (!siguiente) continue;
+    if (siguiente?.motivo && solo?.includes(deNota.id)) descartes.push({ pieza: deNota.id, motivo: `sin-nota (${siguiente.motivo})` });
+    if (!siguiente || siguiente.motivo) continue;
     const fila = await dbp.reservarPieza(env, { pieza: siguiente.pieza, dia, hora: deNota.hora, bloque: null, simulado, ahoraISO, notas: null, auspicio: null, vozPrevista: conVoz ? 1 : 0 });
     if (!fila) continue;
     if (conVoz) usados += 1;
