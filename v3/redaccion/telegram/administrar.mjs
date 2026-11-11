@@ -33,7 +33,7 @@ export const COMANDOS = ['/ayuda', '/ultimas', '/pendientes', '/retirar', '/corr
 export function partirComando(texto) {
   const t = String(texto ?? '').trim();
   const m = t.match(/^(\/[^\s@]+)(?:@\w+)?\s*([\s\S]*)$/);
-  return m ? { comando: m[1].toLowerCase(), resto: m[2].trim() } : { comando: '', resto: t };
+  return m ? { comando: m[1].toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''), resto: m[2].trim() } : { comando: '', resto: t };
 }
 
 /** Los ids posibles que salen de un enlace o de un id escrito, del más largo al más corto: «mi-nota-67zuqsi» → [mi-nota-67zuqsi, nota-67zuqsi, 67zuqsi]. */
@@ -173,12 +173,23 @@ async function pendientes(dep) {
 
 /** Cambia la sección de una nota publicada (se puede volver a cambiar). Sin confirmación: no borra nada. */
 export async function cambiarSeccion(dep, resto) {
-  const partes = String(resto ?? '').trim().split(/s+/);
-  const sec = partes.length > 1 ? SECCIONES.find((x) => normalizar(x) === normalizar(partes.slice(1).join(' '))) : null;
-  if (!partes[0] || !sec) return dep.enviar(`Decime cuál y a qué sección: /seccion <enlace o id> <sección>.
+  const texto = String(resto ?? '').trim();
+  const buscar = (t) => SECCIONES.find((x) => normalizar(x) === normalizar(t));
+  const partes = texto.split(/s+/).filter(Boolean);
+  // «/seccion Argentina» (sin enlace) = la última nota propia publicada.
+  let sec = buscar(texto);
+  let nota = null;
+  if (sec) {
+    const { results } = await dep.db.prepare("SELECT id, titulo FROM notas WHERE estado = 'publicada' AND origen = 'redaccion' ORDER BY COALESCE(publicada_en, creada) DESC LIMIT 1").bind().all();
+    nota = results?.[0] ?? null;
+    if (!nota) return dep.enviar('No encuentro ninguna nota propia publicada. Pasame el enlace: /seccion <enlace o id> <sección>.');
+  } else {
+    sec = partes.length > 1 ? buscar(partes.slice(1).join(' ')) : null;
+    if (!partes[0] || !sec) return dep.enviar(`Decime a qué sección: /seccion <sección> (cambia tu última nota) o /seccion <enlace o id> <sección>.
 Secciones: ${SECCIONES.join(', ')}.`);
-  const nota = await buscarNota(dep, partes[0]);
-  if (!nota) return dep.enviar('No encuentro esa nota. Pasame el enlace o el id (mirá /ultimas).');
+    nota = await buscarNota(dep, partes[0]);
+    if (!nota) return dep.enviar('No encuentro esa nota. Pasame el enlace o el id (mirá /ultimas).');
+  }
   await dep.db.prepare('UPDATE notas SET seccion = ? WHERE id = ?').bind(sec, nota.id).run();
   return dep.enviar(`Listo: «${corto(nota.titulo, 70)}» ahora está en ${sec}. El sitio la muestra ahí en unos minutos.`);
 }

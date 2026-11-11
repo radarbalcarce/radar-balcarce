@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import worker, { decidir, contrasenaDelWebhook, DIRECCION } from './worker.mjs';
-import { procesarAdmin, candidatosDeId, entenderCambio, reemplazarEnCuerpo, AYUDA } from './administrar.mjs';
+import { partirComando, cambiarSeccion, procesarAdmin, candidatosDeId, entenderCambio, reemplazarEnCuerpo, AYUDA } from './administrar.mjs';
 
 let DatabaseSync = null;
 try { ({ DatabaseSync } = await import('node:sqlite')); } catch { /* Node sin sqlite */ }
@@ -216,4 +216,20 @@ test('el Worker: un «sí» con un /retirar en curso va a administrar', { skip: 
     assert.match(enviados.at(-1).text, /retirada/);
     assert.equal(sqlite.prepare("SELECT estado FROM notas WHERE id='abc123'").get().estado, 'retirada');
   } finally { globalThis.fetch = original; }
+});
+
+test('«/sección» con tilde es el mismo comando; sin enlace cambia la última nota propia; con una sección que no existe no toca nada', async () => {
+  assert.equal(partirComando('/sección argentina').comando, '/seccion');
+  const corridas = [];
+  const dep = {
+    enviados: [],
+    enviar: async (t) => { dep.enviados.push(t); },
+    db: { prepare: (sql) => ({ bind: (...p) => ({ all: async () => ({ results: [{ id: 'abc', titulo: 'Benjamín vuelve a representar al país' }] }), run: async () => { corridas.push([sql, p]); } }) }) },
+  };
+  await cambiarSeccion(dep, 'argentina');
+  assert.deepEqual(corridas.at(-1)[1], ['Argentina', 'abc']);
+  assert.match(dep.enviados.at(-1), /ahora está en Argentina/);
+  const antes = corridas.length;
+  await cambiarSeccion(dep, 'inventada');
+  assert.equal(corridas.length, antes);
 });
