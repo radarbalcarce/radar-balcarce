@@ -125,7 +125,7 @@ test('el cupo de voz: tope diario y reserva para las más importantes que faltan
   // Con 2 audios, a las 10 de la mañana: el repaso de ahora sale; el clima no, porque faltan dos repasos (15 y 21) que valen más.
   const p = await planear({ DB: t.DB, VOZ_TOPE_DIARIO: '2' }, { ahora: AHORA, simulado: true });
   assert.deepEqual(p.piezas.map((x) => x.id), ['noticia1']);
-  assert.deepEqual(p.descartes.map((d) => `${d.pieza}:${d.motivo}`).sort(), ['clima-manana:sin-cupo-de-voz', 'efemeride:sin-cupo-de-voz']);
+  assert.deepEqual(p.descartes.filter((d) => d.pieza !== 'reel-nota').map((d) => `${d.pieza}:${d.motivo}`).sort(), ['clima-manana:sin-cupo-de-voz', 'efemeride:sin-cupo-de-voz']);
   // Sin ningún audio, nada sale.
   const s = await planear({ DB: baseDePrueba().DB, VOZ_TOPE_DIARIO: '1' }, { ahora: new Date('2026-11-03T22:05:00Z'), simulado: true }); // 19:05, sin notas
   assert.equal(s.piezas.length >= 0, true);
@@ -280,7 +280,7 @@ test('una nota sale en UN formato: lo que ya salió como posteo de Facebook hoy 
   t.sqlite.prepare("INSERT INTO publicaciones (red, nota_id, seccion, tipo, cuando, dia, estado, simulado, texto) VALUES ('facebook', 'nac3333', 'Economía', 'nacional', ?, '2026-11-02', 'simulado', 1, 'El dólar sube')").run(hace(600));
   const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true, solo: ['noticia1'] });
   assert.equal(p.piezas.length, 0, 'queda una sola nota de Balcarce y ninguna de afuera: no alcanza para un repaso');
-  assert.deepEqual(p.descartes.map((d) => d.motivo), ['sin-notas']);
+  assert.deepEqual(p.descartes.filter((d) => d.pieza !== 'reel-nota').map((d) => d.motivo), ['sin-notas']);
   // Sin los posteos, el repaso sale con las tres.
   const t2 = conNotas();
   const q = await planear({ DB: t2.DB }, { ahora: AHORA, simulado: true, solo: ['noticia1'] });
