@@ -175,7 +175,7 @@ async function pendientes(dep) {
 export async function cambiarSeccion(dep, resto) {
   const texto = String(resto ?? '').trim();
   const buscar = (t) => SECCIONES.find((x) => normalizar(x) === normalizar(t));
-  const partes = texto.split(/s+/).filter(Boolean);
+  const partes = texto.split(/\s+/).filter(Boolean);
   // «/seccion Argentina» (sin enlace) = la última nota propia publicada.
   let sec = buscar(texto);
   let nota = null;

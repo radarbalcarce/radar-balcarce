@@ -249,7 +249,11 @@ export function armarNotaPropia(nota, opciones = {}) {
   const n = fotos.length;
   const total = NOTA_PROPIA.segundosSegunFotos[n];
   const porPlaca = Number((total / n).toFixed(2));
-  const fr = frasesDeLaNota(nota, 3);
+  // 10/11: el titular ya dijo el nombre («Fulano de Tal: el modelo que…»): una frase que lo repite entero no se lee de nuevo (se oía tres veces el mismo nombre).
+  const nombreDelTitular = String(nota.titulo ?? '').split(':')[0].trim().toLowerCase();
+  const repiteElNombre = (x) => nombreDelTitular.split(' ').length >= 2 && x.toLowerCase().includes(nombreDelTitular);
+  const sinRepetir = frasesDeLaNota(nota, 3).filter((x) => !repiteElNombre(x));
+  const fr = sinRepetir.length >= 2 ? sinRepetir : frasesDeLaNota(nota, 3);
   const cierre = contarPalabras(CIERRE_NOTA_PROPIA);
   const tope = topeDeVoz(porPlaca, total);
   // 10/11: la primera placa dice el titular entero (antes sólo el nombre y duraba 1 s) y cada una de las otras, UNA frase corta y completa de la nota (antes, frases cortadas a media oración
@@ -257,7 +261,7 @@ export function armarNotaPropia(nota, opciones = {}) {
   const usadas = new Set();
   const enteras = (cap) => fr.filter((x) => !usadas.has(x) && contarPalabras(x) <= cap);
   const elegirFrase = (cap) => {
-    const cortas = enteras(cap).filter((x) => x.length <= 150);
+    const cortas = enteras(cap).filter((x) => x.length <= 200);
     const e = cortas[0] ?? enteras(cap)[0] ?? fr.find((x) => !usadas.has(x)) ?? fr.at(-1) ?? '';
     usadas.add(e);
     return e;
@@ -265,7 +269,7 @@ export function armarNotaPropia(nota, opciones = {}) {
   const escenas = fotos.map((f, i) => {
     const ultima = i === n - 1;
     // La voz manda: el video dura lo que dura la voz (ajustarALaVoz), así que cada placa puede decir una frase entera (hasta 28 palabras) y el cierre va aparte.
-    const cap = Math.max(tope, 28) - (i === 0 ? contarPalabras(saludo) : 0);
+    const cap = Math.max(tope, 34) - (i === 0 ? contarPalabras(saludo) : 0);
     let voz;
     let frase = '';
     if (i === 0) {
@@ -277,7 +281,7 @@ export function armarNotaPropia(nota, opciones = {}) {
       voz = partesQueEntran([frase], cap);
     }
     return escena('placa-nota', porPlaca, {
-      rotulo: 'Nota de Radar Balcarce', i, n, titulo: i === 0 ? acortarCaracteres(nota.titulo, 80) : acortarCaracteres(frase, 150), seccion: nota.seccion, foto: fotoDe(f), firma,
+      rotulo: 'Nota de Radar Balcarce', i, n, titulo: i === 0 ? acortarCaracteres(nota.titulo, 80) : acortarCaracteres(frase, 200), seccion: nota.seccion, foto: fotoDe(f), firma,
       marca: i === 0 ? null : frase,
     }, ultima ? unir(voz, CIERRE_NOTA_PROPIA) : voz);
   });

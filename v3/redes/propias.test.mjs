@@ -90,3 +90,14 @@ test('previa: lee título, cuerpo, fotos y sección de la página publicada', as
   assert.deepEqual(n.cuerpo, ['Uno.', 'Dos.']);
   assert.equal(n.fotos.length, 2);
 });
+
+test('reel de nota propia: el nombre que ya dijo el titular no se repite en las frases', () => {
+  const foto = { url: 'https://radarbalcarce.com/fotos-notas/a.jpg', credito: 'Radar Balcarce' };
+  const nota = {
+    id: 'abc', titulo: 'Benjamín Luque Cuenca: el modelo que vuelve a Brasil', seccion: 'Argentina', firma: 'Hernán Accomo', fotos: [foto, { ...foto, url: foto.url + '2' }, { ...foto, url: foto.url + '3' }],
+    bajada: 'A sus 19 años fue elegido otra vez Mister Teen Argentina.',
+    cuerpo: ['Benjamín Luque Cuenca, conocido como LUQUE CUENCA, consolida su trayectoria. Tuvo un gran 2025.', 'Hizo desfiles con figuras de renombre en distintas ciudades del país.'],
+  };
+  const voces = armarNotaPropia(nota).escenas.map((e) => e.voz ?? e.texto ?? '').join(' ');
+  assert.equal((voces.match(/Luque Cuenca/gi) ?? []).length, 1);
+});

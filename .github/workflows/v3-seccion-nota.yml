@@ -1,0 +1,42 @@
+# Cambia la sección de una nota publicada de Radar 3.0 desde GitHub (lo mismo que /seccion en el bot, para cuando no se puede mandar el comando). SÓLO A MANO.
+# Escribe una sola columna (notas.seccion) de la nota con ese id. El sitio la muestra en la sección nueva en unos minutos.
+name: 'Radar 3.0: cambiar la sección de una nota'
+
+on:
+  workflow_dispatch:
+    inputs:
+      id:
+        description: 'El id de la nota (lo último de su dirección, por ejemplo 3dff9bp)'
+        type: string
+        required: true
+      seccion:
+        description: 'La sección nueva, escrita igual que en el sitio (por ejemplo Argentina)'
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v3-seccion-nota
+  cancel-in-progress: false
+
+jobs:
+  cambiar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      NOTA_ID: ${{ inputs.id }}
+      SECCION: ${{ inputs.seccion }}
+    steps:
+      - name: Cambiar la sección
+        run: |
+          case "$NOTA_ID" in *[!a-z0-9]*|"") echo "id inválido"; exit 1;; esac
+          case "$SECCION" in *[!A-Za-zÁÉÍÓÚáéíóúñÑ\ ]*|"") echo "sección inválida"; exit 1;; esac
+          sql="UPDATE notas SET seccion = '$SECCION' WHERE id = '$NOTA_ID'; SELECT id, titulo, seccion FROM notas WHERE id = '$NOTA_ID';"
+          DB=$(npx --yes wrangler@4.139.0 d1 list --json | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const l=JSON.parse(s.slice(s.indexOf('[')));const x=l.find(n=>n.name==='radar-nucleo');process.stdout.write(x?x.uuid:'')})")
+          test -n "$DB" || { echo "No encuentro la base radar-nucleo"; exit 1; }
+          printf 'name = "seccion-nota"\ncompatibility_date = "2026-10-01"\n[[d1_databases]]\nbinding = "DB"\ndatabase_name = "radar-nucleo"\ndatabase_id = "%s"\n' "$DB" > wrangler.generado.toml
+          npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --command="$sql"
