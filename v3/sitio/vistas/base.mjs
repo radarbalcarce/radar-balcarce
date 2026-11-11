@@ -62,7 +62,7 @@ p.meta{margin:0 0 16px;font-size:14px}
 .dos-lineas{margin:0 0 18px;padding:10px 14px;background:#fff;border-left:4px solid var(--rojo)}
 .dos-lineas strong{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--suave)}
 figure{margin:0 0 18px}
-figure img{display:block;width:100%;height:auto;max-height:70vh;object-fit:contain;background:#14161A}
+figure img{display:block;width:auto;max-width:100%;height:auto;max-height:50vh;margin:0 auto}
 figcaption{margin-top:4px;font-size:13px;color:var(--suave)}
 article.nota{max-width:720px;margin:0 auto}
 article.nota .cuerpo{font-size:17px;line-height:1.6}

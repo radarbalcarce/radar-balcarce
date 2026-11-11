@@ -17,7 +17,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
   <rect x="0" y="616" width="1200" height="14" fill="${COLORES.rojo}"/>
   <text x="600" y="320" text-anchor="middle" font-family="Source Serif 4 60pt" font-size="150" font-weight="900" letter-spacing="-3" fill="${COLORES.tinta}">Radar <tspan fill="${COLORES.rojo}">Balcarce</tspan></text>
   <rect x="470" y="372" width="260" height="6" fill="${COLORES.rojo}"/>
-  <text x="600" y="450" text-anchor="middle" font-family="Inter" font-size="40" font-weight="600" fill="${COLORES.gris}">Noticias de Balcarce y la zona</text>
+  <text x="600" y="450" text-anchor="middle" font-family="Inter" font-size="36" font-weight="600" fill="${COLORES.gris}">Las noticias más importantes de Balcarce y del país</text>
   <text x="600" y="530" text-anchor="middle" font-family="Inter" font-size="30" font-weight="500" letter-spacing="3" fill="${COLORES.suave}">radarbalcarce.com</text>
 </svg>`;
 
