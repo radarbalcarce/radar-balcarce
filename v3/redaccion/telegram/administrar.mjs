@@ -1,7 +1,7 @@
-// Administrar lo ya publicado desde Telegram: /retirar, /corregir, /ultimas, /pendientes y /ayuda.
+// Administrar lo ya publicado desde Telegram: /retirar, /corregir, /ultimas, /pendientes, /ocultar, /mostrar, /ocultas, /redes, /repaso, /foto y /ayuda.
 // Reemplaza al panel del celular viejo. Nunca usa IA: sólo lee y escribe la tabla `notas` de la D1 (binding DB), con las consultas acá mismo.
 // Cada cambio muestra qué va a pasar y espera un «sí». El estado de lo que está en curso vive en el KV, clave `accion` (10 minutos).
-import { normalizar, esOk, esNo, slugDe, SITIO, mencionesDeTexto, conCuentaDelMedio } from './nota-propia.mjs';
+import { normalizar, esOk, esNo, slugDe, SITIO, mencionesDeTexto, conCuentaDelMedio, itemDe, MAX_FOTOS, nombreDeLaEleccion, REDES_ELEGIBLES } from './nota-propia.mjs';
 import { SECCIONES } from '../../nucleo/redactar/redactar.mjs';
 
 export const POR = 'Hernán (Telegram)';
@@ -19,6 +19,10 @@ Lo ya publicado
 • /pendientes: los borradores que esperan.
 • /retirar <enlace o id> <motivo>: saca una nota del sitio. Te muestro el título y espero tu «sí».
 • /seccion <enlace o id> <sección>: cambia la sección de una nota ya publicada (por ejemplo: /seccion radarbalcarce.com/nota/mi-nota-67zuqsi Argentina).
+• /ocultar <enlace o id>: la saca del sitio y de las redes sin borrarla; se puede volver atrás. /ocultas lista las que están ocultas y /mostrar <enlace o id> la vuelve a publicar.
+• /redes <enlace o id> <formatos>: manda una nota ya publicada a las redes. Formatos: posteo, carrusel, historia, reel o todo (por ejemplo: /redes mi-nota-67zuqsi reel posteo).
+• /repaso <enlace o id>: la pone primera en el próximo repaso en video (el de las 10, las 15 o las 21).
+• /foto <enlace o id>: cambia las fotos de una nota publicada (la primera es la portada; te pido las fotos y cerrás con «listo»). Con «ninguna» (/foto <id> ninguna) se las saco todas.
 • /menciones <enlace o id> @a @b: las cuentas que se nombran en las redes de esa nota (sin enlace, la última nota propia; «ninguna» las saca). Sumo @radarbalcarce.
 • /corregir <enlace o id>: cambiar el título, la bajada o una frase del cuerpo. Te muestro el antes y el después y espero tu «sí».
 
@@ -26,7 +30,7 @@ Otros
 • /estado: si el bot está conectado.
 • /ayuda: esta lista.`;
 
-export const COMANDOS = ['/ayuda', '/ultimas', '/pendientes', '/retirar', '/corregir', '/seccion', '/menciones'];
+export const COMANDOS = ['/ayuda', '/ultimas', '/pendientes', '/retirar', '/corregir', '/seccion', '/menciones', '/ocultar', '/mostrar', '/ocultas', '/redes', '/repaso', '/foto'];
 
 // ------------------------------------------------------------------------------------------------------------ entender lo que escribió
 
@@ -52,7 +56,7 @@ export function candidatosDeId(entrada) {
 export async function buscarNota(dep, entrada) {
   const cand = candidatosDeId(entrada);
   if (!cand.length) return null;
-  const { results } = await dep.db.prepare(`SELECT id, titulo, bajada, cuerpo, ficha, estado, no_publicar, slug FROM notas WHERE id IN (${cand.map(() => '?').join(',')})`).bind(...cand).all();
+  const { results } = await dep.db.prepare(`SELECT id, titulo, bajada, cuerpo, ficha, estado, no_publicar, slug, seccion, origen, redes, foto FROM notas WHERE id IN (${cand.map(() => '?').join(',')})`).bind(...cand).all();
   for (const c of cand) {
     const f = (results ?? []).find((r) => r.id === c);
     if (f) return f;
@@ -124,6 +128,12 @@ export async function hayAccionEnCurso(kv, ahora = new Date()) {
   return Boolean(a && (!a.vence || a.vence > ahora.toISOString()));
 }
 
+/** ¿Está esperando fotos un /foto? (El Worker lo mira para mandar a administrar.mjs las fotos que llegan, y no a la nota propia.) */
+export async function hayFotoEnCurso(kv, ahora = new Date()) {
+  const a = await kv.get('accion', 'json');
+  return Boolean(a && a.tipo === 'foto' && (!a.vence || a.vence > ahora.toISOString()));
+}
+
 export async function procesarAdmin(dep, actualizacion) {
   const m = actualizacion?.message;
   if (!m) return;
@@ -137,6 +147,13 @@ export async function procesarAdmin(dep, actualizacion) {
     if (comando === '/corregir') return await empezarCorreccion(dep, resto);
     if (comando === '/seccion') return await cambiarSeccion(dep, resto);
     if (comando === '/menciones') return await cambiarMenciones(dep, resto);
+    if (comando === '/ocultar') return await ocultar(dep, resto);
+    if (comando === '/mostrar') return await mostrar(dep, resto);
+    if (comando === '/ocultas') return await ocultas(dep);
+    if (comando === '/redes') return await mandarARedes(dep, resto);
+    if (comando === '/repaso') return await mandarAlRepaso(dep, resto);
+    if (comando === '/foto') return await empezarFotos(dep, resto);
+    if (!texto && (m.photo?.length || m.document)) return await recibirFoto(dep, m);
     return await continuar(dep, texto);
   } catch (e) {
     console.error(`administrar: ${String(e?.message ?? e)}`);
@@ -224,6 +241,182 @@ export async function cambiarMenciones(dep, resto) {
   return dep.enviar(menciones.length
     ? `Listo: «${corto(nota.titulo, 70)}» nombra en las redes a ${redes.menciones.join(' ')}. Vale para lo que todavía no salió.`
     : `Listo: «${corto(nota.titulo, 70)}» ya no nombra cuentas en las redes.`);
+}
+
+// ------------------------------------------------------------------------------------------------------------ /ocultar, /mostrar y /ocultas
+
+/** Saca una nota del sitio y de las redes SIN retirarla: estado «oculta» (no toca `no_publicar`). Se vuelve atrás con /mostrar. Sin confirmación: es reversible. */
+export async function ocultar(dep, resto) {
+  const que = String(resto ?? '').split(/\s+/).filter(Boolean)[0];
+  if (!que) return dep.enviar('Decime cuál: /ocultar <enlace o id>. Si te arrepentís, /mostrar <enlace o id> la vuelve a publicar.');
+  const nota = await buscarNota(dep, que);
+  if (!nota) return dep.enviar(`No encuentro ninguna nota con «${corto(que, 60)}». Probá con el enlace completo o con el id (mirá /ultimas).`);
+  if (nota.estado === 'oculta') return dep.enviar(`Esa nota ya está oculta: «${corto(nota.titulo)}». Para volver a mostrarla: /mostrar ${nota.id}.`);
+  if (nota.estado === 'retirada') return dep.enviar(`Esa nota está retirada («${corto(nota.titulo)}»): ya no se ve. Ocultar es sólo para lo que querés poder volver a mostrar.`);
+  if (nota.estado !== 'publicada') return dep.enviar(`Esa nota no está publicada («${corto(nota.titulo)}», estado: ${nota.estado}); no hay nada que ocultar.`);
+  await dep.db.prepare("UPDATE notas SET estado = 'oculta' WHERE id = ? AND estado = 'publicada'").bind(nota.id).run();
+  return dep.enviar(`Listo, oculta: «${corto(nota.titulo, 100)}». No se ve en el sitio ni sale en redes hasta que la vuelvas a mostrar con /mostrar ${nota.id}.`);
+}
+
+/** Vuelve a publicar una nota oculta (sólo desde «oculta»: una retirada no vuelve por acá). */
+export async function mostrar(dep, resto) {
+  const que = String(resto ?? '').split(/\s+/).filter(Boolean)[0];
+  if (!que) return dep.enviar('Decime cuál: /mostrar <enlace o id>. Las ocultas están en /ocultas.');
+  const nota = await buscarNota(dep, que);
+  if (!nota) return dep.enviar(`No encuentro ninguna nota con «${corto(que, 60)}». Probá con el enlace completo o con el id (mirá /ocultas).`);
+  if (nota.estado === 'publicada') return dep.enviar(`Esa nota ya se ve: «${corto(nota.titulo)}». ${enlaceDe(nota)}`);
+  if (nota.estado !== 'oculta') return dep.enviar(`Esa nota no está oculta («${corto(nota.titulo)}», estado: ${nota.estado}); por acá sólo vuelven las que ocultaste con /ocultar.`);
+  await dep.db.prepare("UPDATE notas SET estado = 'publicada' WHERE id = ? AND estado = 'oculta'").bind(nota.id).run();
+  return dep.enviar(`Listo, se vuelve a ver: «${corto(nota.titulo, 100)}». El sitio la muestra en unos minutos.\n${enlaceDe(nota)}`);
+}
+
+async function ocultas(dep) {
+  const { results } = await dep.db.prepare(
+    "SELECT id, titulo, slug FROM notas WHERE estado = 'oculta' ORDER BY COALESCE(publicada_en, creada) DESC LIMIT 10",
+  ).bind().all();
+  if (!results?.length) return dep.enviar('No hay notas ocultas.');
+  return dep.enviar(`Las últimas ${results.length} ocultas (/mostrar <id> la vuelve a publicar):\n\n${results.map((n, i) => `${i + 1}. ${corto(n.titulo, 70)}\nid: ${n.id}`).join('\n\n')}`);
+}
+
+// ------------------------------------------------------------------------------------------------------------ /redes y /repaso
+
+const FORMATOS = { reel: 'reel', reels: 'reel', historia: 'historia', historias: 'historia', posteo: 'posteo', posteos: 'posteo', post: 'posteo', carrusel: 'carrusel', carruseles: 'carrusel' };
+const TODOS_LOS_FORMATOS = REDES_ELEGIBLES.map((r) => r.clave);
+
+/** «reel, posteo y historia» / «todo» → { lista (en el orden de siempre), desconocidos }. Sin tildes ni mayúsculas. */
+export function entenderFormatos(texto) {
+  const palabras = normalizar(texto).split(' ').filter((p) => p && !['y', 'e'].includes(p));
+  const pedidos = new Set();
+  const desconocidos = [];
+  for (const p of palabras) {
+    if (p === 'todo' || p === 'todos' || p === 'todas') TODOS_LOS_FORMATOS.forEach((c) => pedidos.add(c));
+    else if (FORMATOS[p]) pedidos.add(FORMATOS[p]);
+    else desconocidos.push(p);
+  }
+  return { lista: TODOS_LOS_FORMATOS.filter((c) => pedidos.has(c)), desconocidos };
+}
+
+const objeto = (v) => (v && typeof v === 'object' && !Array.isArray(v) ? { ...v } : {});
+const fotosConDireccion = (nota) => { const f = analizar(nota.foto, null); return (Array.isArray(f) ? f : f ? [f] : []).filter((x) => /^https:\/\//i.test(String(x?.url ?? x?.copia ?? ''))).length; };
+
+/** Una nota a la que se le puede pedir algo de las redes: publicada y sin freno. Devuelve la nota o null (y ya contestó). */
+async function notaParaPedirRedes(dep, que, comando) {
+  const nota = await buscarNota(dep, que);
+  if (!nota) { await dep.enviar(`No encuentro ninguna nota con «${corto(que, 60)}». Probá con el enlace completo o con el id (mirá /ultimas).`); return null; }
+  if (nota.estado !== 'publicada') { await dep.enviar(`Esa nota no está publicada («${corto(nota.titulo)}», estado: ${nota.estado}); ${comando} sólo vale para lo que se ve en el sitio.`); return null; }
+  if (analizar(nota.no_publicar, null)) { await dep.enviar(`Esa nota tiene un freno puesto («${corto(nota.titulo)}»): no la mando a ningún lado.`); return null; }
+  return nota;
+}
+
+/** /redes <enlace o id> <formatos>: suma esos formatos a lo que ya tenía la nota y la marca como pedida a mano (`forzada`): sale aunque no la cuenten otros medios. La ley, el tono y la foto siguen valiendo. */
+export async function mandarARedes(dep, resto) {
+  const [que, ...demas] = String(resto ?? '').split(/\s+/).filter(Boolean);
+  const ayuda = 'Decime cuál y en qué formato: /redes <enlace o id> posteo, carrusel, historia, reel o todo (se pueden juntar: /redes mi-nota-67zuqsi reel posteo).';
+  if (!que) return dep.enviar(ayuda);
+  const { lista: pedidos, desconocidos } = entenderFormatos(demas.join(' '));
+  if (desconocidos.length) return dep.enviar(`No entendí «${desconocidos.join(' ')}». Los formatos son posteo, carrusel, historia, reel o todo.`);
+  if (!pedidos.length) return dep.enviar(ayuda);
+  const nota = await notaParaPedirRedes(dep, que, '/redes');
+  if (!nota) return;
+  const base = objeto(analizar(nota.redes, {}));
+  const previos = Array.isArray(base.lista) ? base.lista : [];
+  const lista = TODOS_LOS_FORMATOS.filter((c) => previos.includes(c) || pedidos.includes(c));
+  const redes = { ...base, lista, eleccion: nombreDeLaEleccion(lista), confirmada: true, forzada: true, pedida: dep.ahora().toISOString() };
+  await dep.db.prepare('UPDATE notas SET redes = ? WHERE id = ?').bind(JSON.stringify(redes), nota.id).run();
+  const etiqueta = (c) => REDES_ELEGIBLES.find((r) => r.clave === c).etiqueta;
+  const lineas = [`Listo: «${corto(nota.titulo, 80)}» va a las redes como: ${lista.map(etiqueta).join(', ')}.`];
+  if (pedidos.includes('posteo')) lineas.push('• Posteo: sale en la próxima vuelta de las redes (de 8 a 22).');
+  const piezas = pedidos.filter((c) => c !== 'posteo');
+  if (piezas.length) lineas.push(`• ${piezas.map(etiqueta).join(', ')}: los arma el reloj de 8 a 23, una vez por nota.`);
+  const fotos = fotosConDireccion(nota);
+  if (pedidos.includes('carrusel') && fotos < 3) lineas.push(`(Ojo: el carrusel necesita 3 fotos o más y esta nota tiene ${fotos}; sin ellas no se arma. Podés sumarlas con /foto ${nota.id}.)`);
+  if ((pedidos.includes('reel') || pedidos.includes('historia')) && !fotos) lineas.push(`(Ojo: sin foto con dirección pública el reel no se arma. Podés sumarla con /foto ${nota.id}.)`);
+  if (nota.origen !== 'redaccion') lineas.push('Sale con la firma «Radar Balcarce» y el crédito de cada foto.');
+  return dep.enviar(lineas.join('\n'));
+}
+
+/** /repaso <enlace o id>: la nota va primera en el próximo repaso en video (vale 24 horas desde el pedido; pasa igual por la ley, el tono y la foto). */
+export async function mandarAlRepaso(dep, resto) {
+  const que = String(resto ?? '').split(/\s+/).filter(Boolean)[0];
+  if (!que) return dep.enviar('Decime cuál: /repaso <enlace o id>. Entra primera en el próximo repaso en video.');
+  const nota = await notaParaPedirRedes(dep, que, '/repaso');
+  if (!nota) return;
+  const redes = { ...objeto(analizar(nota.redes, {})), repaso: true, pedida: dep.ahora().toISOString() };
+  await dep.db.prepare('UPDATE notas SET redes = ? WHERE id = ?').bind(JSON.stringify(redes), nota.id).run();
+  return dep.enviar(`Listo: «${corto(nota.titulo, 80)}» entra primera en el próximo repaso (los de las 10, las 15 y las 21; el primero que salga en las próximas 24 horas). Una vez que lo cuenta un repaso no se repite.`);
+}
+
+// ------------------------------------------------------------------------------------------------------------ /foto
+
+const claveDeFoto = (item) => `fotoacc:${item.cuando}:${String(item.id).padStart(10, '0')}`;
+async function clavesDeFotos(kv) {
+  const claves = [];
+  let cursor;
+  do {
+    const l = await kv.list({ prefix: 'fotoacc:', cursor });
+    for (const k of l.keys) claves.push(k.name);
+    cursor = l.list_complete ? undefined : l.cursor;
+  } while (cursor);
+  return claves.sort();
+}
+
+/** /foto <enlace o id>: empieza a juntar las fotos nuevas de una nota publicada. Con «ninguna» las saca todas (el motor la ilustra después). */
+async function empezarFotos(dep, resto) {
+  const [que, ...demas] = String(resto ?? '').split(/\s+/).filter(Boolean);
+  if (!que) return dep.enviar('Decime cuál: /foto <enlace o id> (después mandás las fotos y escribís «listo»), o /foto <enlace o id> ninguna para sacarlas todas.');
+  const nota = await buscarNota(dep, que);
+  if (!nota) return dep.enviar(`No encuentro ninguna nota con «${corto(que, 60)}». Probá con el enlace completo o con el id (mirá /ultimas).`);
+  if (nota.estado === 'retirada') return dep.enviar(`Esa nota está retirada («${corto(nota.titulo)}»); no le cambio las fotos.`);
+  if (demas.length && normalizar(demas.join(' ')) === 'ninguna') {
+    await dep.db.prepare('UPDATE notas SET foto = NULL WHERE id = ?').bind(nota.id).run();
+    return dep.enviar(`Listo: «${corto(nota.titulo, 80)}» quedó sin fotos. Sale así hasta que el motor le consiga o le ilustre una (o le pongas otras con /foto ${nota.id}).`);
+  }
+  for (const c of await clavesDeFotos(dep.kv)) await dep.kv.delete(c);
+  await guardarAccion(dep, { tipo: 'foto', id: nota.id });
+  return dep.enviar('Mandame la foto (o varias). La primera queda de portada. Cuando termines, escribí «listo». Para sacar todas las fotos: /foto <id> ninguna.');
+}
+
+/** Una foto que llega mientras hay un /foto en curso: se guarda aparte (un álbum llega como varios mensajes a la vez) hasta el «listo». */
+async function recibirFoto(dep, m) {
+  const a = await dep.kv.get('accion', 'json');
+  if (!a || a.tipo !== 'foto' || (a.vence && a.vence <= dep.ahora().toISOString())) return dep.enviar('No estoy esperando fotos. Para cambiar las fotos de una nota: /foto <enlace o id>.');
+  const item = itemDe(m, dep.ahora());
+  if (item.tipo !== 'foto') return dep.enviar('Eso no es una foto. Mandame las fotos o escribí «listo».');
+  await dep.kv.put(claveDeFoto(item), JSON.stringify(item), { expirationTtl: TTL_ACCION });
+  await guardarAccion(dep, a); // sigue vivo 10 minutos desde la última foto
+  if (item.grupo) {
+    if (await dep.kv.get(`grupo:${item.grupo}`)) return;
+    await dep.kv.put(`grupo:${item.grupo}`, '1', { expirationTtl: 120 });
+  }
+  return dep.enviar('Recibida. Mandá más o escribí «listo».');
+}
+
+/** El «listo»: baja las fotos, las guarda en el depósito del sitio y deja la lista nueva (la primera de portada). El crédito es el pie de la foto si lo tiene, y si no «Radar Balcarce». */
+async function guardarFotos(dep, a) {
+  const nota = await buscarNota(dep, a.id);
+  if (!nota) { await borrarAccion(dep); return dep.enviar('Ya no encuentro esa nota; no cambié nada.'); }
+  const claves = await clavesDeFotos(dep.kv);
+  const items = [];
+  for (const c of claves) { const v = await dep.kv.get(c, 'json'); if (v) items.push(v); }
+  if (!items.length) return dep.enviar('Todavía no me mandaste ninguna foto. Mandalas y escribí «listo» (o «no» para dejarlo como está).');
+  if (!dep.fotos) { await borrarAccion(dep); return dep.enviar('Este bot no tiene dónde guardar las fotos (falta el depósito). No cambié nada.'); }
+  const sello = dep.ahora().getTime().toString(36);
+  const guardadas = [];
+  for (const f of items.slice(0, MAX_FOTOS)) {
+    try {
+      const { bytes, mime } = await dep.descargar(f.file_id);
+      const nombre = `redaccion-${nota.id}-f${sello}-${guardadas.length + 1}.jpg`;
+      const clave = `fotos-notas/${nombre}`;
+      await dep.fotos.put(clave, bytes, { httpMetadata: { contentType: mime || f.mime || 'image/jpeg' } });
+      guardadas.push({ url: `${SITIO}/fotos-notas/${nombre}`, credito: f.texto ? corto(f.texto, 120) : 'Radar Balcarce', alt: nota.titulo, ancho: null, alto: null, r2: clave, pendiente: false });
+    } catch { /* una foto que no baja no frena a las demás */ }
+  }
+  if (!guardadas.length) { await borrarAccion(dep); for (const c of claves) await dep.kv.delete(c); return dep.enviar('No pude bajar ninguna de las fotos. No cambié nada; probá de nuevo con /foto.'); }
+  await dep.db.prepare('UPDATE notas SET foto = ? WHERE id = ?').bind(JSON.stringify(guardadas), nota.id).run();
+  await borrarAccion(dep);
+  for (const c of claves) await dep.kv.delete(c);
+  const perdidas = Math.min(items.length, MAX_FOTOS) - guardadas.length;
+  return dep.enviar(`Listo: «${corto(nota.titulo, 80)}» tiene ${guardadas.length} foto${guardadas.length > 1 ? 's' : ''} (la primera de portada).${perdidas ? ` (${perdidas} no se pudo${perdidas > 1 ? 'ieron' : ''} bajar.)` : ''}${items.length > MAX_FOTOS ? ` Pasaste el máximo de ${MAX_FOTOS}: las demás quedaron afuera.` : ''} El sitio la muestra en unos minutos.`);
 }
 
 // ------------------------------------------------------------------------------------------------------------ /retirar
@@ -324,6 +517,10 @@ async function continuar(dep, texto) {
   if (esNo(texto)) {
     await borrarAccion(dep);
     return dep.enviar('Listo, no cambié nada.');
+  }
+  if (a.tipo === 'foto') {
+    if (esOk(texto) || /^(termine|ya esta|eso es todo)$/.test(normalizar(texto))) return guardarFotos(dep, a);
+    return dep.enviar('Estoy esperando las fotos de la nota. Mandalas y escribí «listo» (o «no» para dejarlo como está).');
   }
   if (a.tipo === 'retirar') {
     if (!esOk(texto)) return dep.enviar('Respondé «sí» para retirarla o «no» para dejarla.');

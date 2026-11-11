@@ -38,17 +38,35 @@ export function auspicioDelDia(avisos, dia) {
  * Las notas de un repaso: lo de Balcarce primero (hasta 2, las más nuevas), completado con lo más contado del país (la nota de afuera con más medios), hasta 3. Cada nota pasa por
  * la misma compuerta que los posteos (ley, tono R41, foto) y no se repite en un repaso del mismo día. Devuelve [] si no alcanza para un repaso (2 notas, una de Balcarce).
  */
-export function notasDelRepaso(notas, { ahora, yaUsadas = [], reglas = REGLAS_PIEZAS } = {}) {
+export function notasDelRepaso(notas, { ahora, yaUsadas = [], yaContadas = [], reglas = REGLAS_PIEZAS } = {}) {
   const usadas = new Set(yaUsadas);
   const regla = { ...REGLAS_DE_NOTAS, edadMaximaHoras: reglas.edadDeLasNotasHoras };
+  // Una nota que una persona mandó al repaso con /repaso en Telegram (`alRepaso`) vale 24 horas desde el pedido: va primero y no necesita que la cuenten tantos medios (la ley, el tono y la foto valen igual).
+  const pedida = (n) => n.alRepaso === true && Number.isFinite(Date.parse(n.pedida)) && new Date(ahora).getTime() - Date.parse(n.pedida) <= 24 * 3600_000;
+  const comoEs = (n) => (pedida(n) ? { ...n, forzada: true } : n);
+  // `yaContadas` (ya salió como posteo: «una nota, un formato») no frena a la que una persona pidió a mano para el repaso; lo que ya contó otro repaso sí cuenta siempre (va en `yaUsadas`).
+  for (const id of yaContadas) if (!notas.some((n) => n.id === id && pedida(n))) usadas.add(id);
   // Lo de Balcarce no necesita foto (va con la placa de su sección); lo de afuera sí. La ley y el tono valen para todo.
-  const validas = notas.filter((n) => !usadas.has(n.id) && !motivoDeExclusion(tipoDeNota(n) === 'local' && !tieneFoto(n) ? { ...n, foto: { url: 'https://placa.local/sin-foto' } } : n, { ahora, reglas: regla }));
+  const validas = notas.filter((n) => !usadas.has(n.id) && !motivoDeExclusion(tipoDeNota(comoEs(n)) === 'local' && !tieneFoto(n) ? { ...comoEs(n), foto: { url: 'https://placa.local/sin-foto' } } : comoEs(n), { ahora, reglas: regla }));
+  const primeras = validas.filter(pedida).sort((a, b) => String(b.pedida).localeCompare(String(a.pedida))).slice(0, reglas.notasPorRepaso);
+  if (primeras.length) {
+    const rest = validas.filter((n) => !primeras.includes(n));
+    const localesYa = primeras.filter((n) => tipoDeNota(n) === 'local').length;
+    return completarRepaso(rest, { primeras, localesYa, reglas });
+  }
+  return completarRepaso(validas, { primeras: [], localesYa: 0, reglas });
+}
+
+/** Completa un repaso: `primeras` (las pedidas a mano) ya están; se suman lo de Balcarce (hasta el tope, contando las que ya hay) y lo más contado. Devuelve [] si no llega a 2 notas. */
+function completarRepaso(validas, { primeras, localesYa, reglas }) {
   const locales = validas.filter((n) => tipoDeNota(n) === 'local').sort((a, b) => String(b.publicada).localeCompare(String(a.publicada)));
   const nacionales = validas.filter((n) => tipoDeNota(n) === 'nacional').sort((a, b) => (Number(!!b.propia) - Number(!!a.propia)) || (b.medios - a.medios) || String(b.publicada).localeCompare(String(a.publicada)));
   const localesConFoto = locales.filter(tieneFoto);
   const localesSinFoto = locales.filter((n) => !tieneFoto(n));
   // Lo de Balcarce con foto primero; una sin foto (con placa) sólo si no hay ninguna con foto, así Balcarce sigue estando.
-  const elegidas = localesConFoto.length ? localesConFoto.slice(0, reglas.deBalcarcePorRepaso) : localesSinFoto.slice(0, 1);
+  const elegidas = [...primeras];
+  const deBalcarce = localesConFoto.length ? localesConFoto.slice(0, Math.max(0, reglas.deBalcarcePorRepaso - localesYa)) : localesYa ? [] : localesSinFoto.slice(0, 1);
+  for (const n of deBalcarce) { if (elegidas.length < reglas.notasPorRepaso) elegidas.push(n); }
   const resto = [...nacionales, ...localesConFoto, ...localesSinFoto].filter((n) => !elegidas.includes(n));
   for (const n of resto) { if (elegidas.length >= reglas.notasPorRepaso) break; elegidas.push(n); }
   return elegidas.length >= 2 ? elegidas : [];
@@ -95,14 +113,15 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
   const notasDeHoy = filas.filter((f) => cuentanComoHecha.has(f.estado)).flatMap((f) => f.notas ?? []);
   // Una nota sale en UN formato (Hernán, 23/10: «la misma nota como posteo y en los resúmenes aburre»): lo que ya salió como posteo de Facebook hoy o ayer y lo que contó un repaso de ayer no entra en un repaso.
   const ayer = diaDeBalcarce(new Date(ahora.getTime() - 24 * 3600_000));
-  const yaContadas = [];
+  const yaContadas = []; // ya salieron como posteo de Facebook (no frena a la que una persona mandó a un repaso con /repaso)
+  const repasosDeAyer = [];
   if (pendientes.some((p) => p.arma === 'repaso')) {
     for (const d of [dia, ayer]) {
       const posteos = await publicacionesDelDia(env, d, simulado).catch(() => []);
       for (const h of posteos) if (h.red === 'facebook' && ['ok', 'enviando', 'simulado'].includes(h.estado)) yaContadas.push(h.notaId);
     }
     const deAyer = await dbp.piezasDelDia(env, ayer, simulado).catch(() => []);
-    for (const f of deAyer) if (cuentanComoHecha.has(f.estado)) yaContadas.push(...(f.notas ?? []));
+    for (const f of deAyer) if (cuentanComoHecha.has(f.estado)) repasosDeAyer.push(...(f.notas ?? []));
   }
   let notasCargadas = null;
   const salen = [];
@@ -116,8 +135,8 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
     let notas = null;
     let auspicio = null;
     if (p.arma === 'repaso') {
-      notasCargadas ??= (await notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - reglas.edadDeLasNotasHoras * 3600_000).toISOString(), conBorradores: simulado })).filter((n) => !n.propia); // las notas propias no entran en los repasos (Hernán, 10/11)
-      const elegidas = notasDelRepaso(notasCargadas, { ahora, yaUsadas: [...notasDeHoy, ...yaContadas, ...salen.flatMap((s) => s.datos.notasIds ?? [])], reglas });
+      notasCargadas ??= (await notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - reglas.edadDeLasNotasHoras * 3600_000).toISOString(), conBorradores: simulado })).filter((n) => !n.propia || n.alRepaso); // las notas propias no entran en los repasos (Hernán, 10/11), salvo la que una persona mandó con /repaso
+      const elegidas = notasDelRepaso(notasCargadas, { ahora, yaUsadas: [...notasDeHoy, ...repasosDeAyer, ...salen.flatMap((s) => s.datos.notasIds ?? [])], yaContadas, reglas });
       if (!elegidas.length) { descartes.push({ pieza: p.id, motivo: 'sin-notas' }); continue; }
       datos = { notas: elegidas.map(paraElArmador), notasIds: elegidas.map((n) => n.id), sinBalcarce: !elegidas.some((n) => tipoDeNota(n) === 'local') };
       notas = datos.notasIds;

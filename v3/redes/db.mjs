@@ -40,22 +40,49 @@ export async function notasPropiasParaRedes(env, { desdeISO }) {
       deServicio: esNotaDeServicio({ id: f.id, ficha: analizar(f.ficha, null) }), slug: f.s_slug || slugDe(f.titulo), publicada: f.s_publicada || f.creada,
       motivo: 'propia', medios: 0, propia: true, redesElegidas: elegidas,
       menciones: Array.isArray(redes?.menciones) ? redes.menciones : [],
+      alRepaso: redes?.repaso === true, pedida: redes?.pedida ?? null, // /repaso en Telegram: va primera en el próximo repaso (sólo vale 24 h desde `pedida`)
     };
-  }).filter((n) => n.redesElegidas.length);
+  }).filter((n) => n.redesElegidas.length || n.alRepaso);
 }
 
+/**
+ * Las notas del motor. Con la columna `redes` (la suma el bot de Telegram) también leen lo que pidió una persona a mano:
+ *   /redes  → `forzada: true` y `redesElegidas` (formatos pedidos): la nota sale aunque no la cuenten tantos medios; entra aunque sea más vieja que `desdeISO` si el pedido es más nuevo;
+ *   /repaso → `alRepaso: true`: va primera en el próximo repaso.
+ * En una base sin esa columna todo sigue como antes.
+ */
 async function notasDelNucleo(env, { desdeISO, conBorradores = false }) {
   const estados = conBorradores ? "('publicada', 'borrador')" : "('publicada')";
-  const r = await env.DB.prepare(
-    `SELECT n.id, n.titulo, n.bajada, n.en_dos_lineas, n.seccion, n.foto, n.no_publicar, n.creada, n.ficha, n.historia_id,
+  const sql = (extra, filtro) => `SELECT n.id, n.titulo, n.bajada, n.en_dos_lineas, n.seccion, n.foto, n.no_publicar, n.creada, n.ficha, n.historia_id${extra},
             s.slug AS s_slug, s.publicada_en AS s_publicada, h.motivo, h.medios
      FROM notas n
      JOIN historias h ON h.id = n.historia_id
      LEFT JOIN sitio_notas s ON s.id = n.id
-     WHERE n.estado IN ${estados} AND n.historia_id IS NOT NULL AND n.historia_id <> '' AND COALESCE(s.publicada_en, n.creada) >= ? AND (s.origen IS NULL OR s.origen = 'nucleo')
-     ORDER BY COALESCE(s.publicada_en, n.creada) DESC`,
-  ).bind(desdeISO).all();
-  return lista(r).map((f) => ({
+     WHERE n.estado IN ${estados} AND n.historia_id IS NOT NULL AND n.historia_id <> '' AND ${filtro} AND (s.origen IS NULL OR s.origen = 'nucleo')
+     ORDER BY COALESCE(s.publicada_en, n.creada) DESC`;
+  let r;
+  let conRedes = true;
+  try { r = await env.DB.prepare(sql(', n.redes', 'COALESCE(s.publicada_en, n.creada) >= ?')).bind(desdeISO).all(); } catch { conRedes = false; r = await env.DB.prepare(sql('', 'COALESCE(s.publicada_en, n.creada) >= ?')).bind(desdeISO).all(); }
+  let filas = lista(r);
+  if (conRedes) {
+    // Las pedidas a mano que se publicaron antes de `desdeISO` pero se pidieron después.
+    try {
+      const antes = await env.DB.prepare(sql(', n.redes', "COALESCE(s.publicada_en, n.creada) < ? AND (n.redes LIKE '%\"forzada\":true%' OR n.redes LIKE '%\"repaso\":true%')")).bind(desdeISO).all();
+      const vistas = new Set(filas.map((f) => f.id));
+      for (const f of lista(antes)) {
+        const redes = analizar(f.redes, null);
+        if (!vistas.has(f.id) && redes?.pedida && redes.pedida >= desdeISO) filas.push(f);
+      }
+    } catch { /* sin la columna: nada que sumar */ }
+  }
+  return filas.map((f) => {
+    const redes = conRedes ? analizar(f.redes, null) : null;
+    const forzada = redes?.forzada === true && redes.confirmada === true && Array.isArray(redes.lista) && redes.lista.length > 0;
+    return { ...nucleoDeFila(f), ...(forzada ? { forzada: true, redesElegidas: redes.lista, pedida: redes.pedida ?? null } : {}), ...(redes?.repaso === true ? { alRepaso: true, pedida: redes.pedida ?? null } : {}), ...(Array.isArray(redes?.menciones) && redes.menciones.length ? { menciones: redes.menciones } : {}) };
+  });
+}
+
+const nucleoDeFila = (f) => ({
     id: f.id,
     titulo: f.titulo || '',
     bajada: f.bajada || '',
@@ -68,8 +95,7 @@ async function notasDelNucleo(env, { desdeISO, conBorradores = false }) {
     publicada: f.s_publicada || f.creada,
     motivo: f.motivo || '',
     medios: analizar(f.medios, []).length,
-  }));
-}
+  });
 
 /** Lo que se hizo en el día de Balcarce `dia` en el modo (simulado o real) que se pide. */
 export async function publicacionesDelDia(env, dia, simulado) {

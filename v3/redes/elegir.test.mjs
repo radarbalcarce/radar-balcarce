@@ -273,3 +273,28 @@ test('con placa, una nota de Balcarce SIN foto sale (va con la placa de su secci
   assert.equal(motivoDeExclusion(nota({ foto: null, noPublicar: { motivo: 'menor' } }), { ahora: AHORA, conPlaca: true }), 'no-publicar');
   assert.equal(motivoDeExclusion(nota({ foto: null, titulo: 'Un niño de dos años muere tras caer a una pileta', seccion: 'Salud' }), { ahora: AHORA, conPlaca: true }), 'tono');
 });
+
+// ------------------------------------------------------------------------------------------------ lo pedido a mano con /redes (nota del motor con `forzada`)
+
+test('una nota del motor pedida a mano (/redes) sale aunque no la cuenten tantos medios, sin esperar cupos ni intervalo; la ley, el tono y la foto siguen valiendo', () => {
+  const pedida = (extra = {}) => nota({ seccion: 'Política', motivo: 'popular', medios: 1, forzada: true, redesElegidas: ['posteo'], pedida: hace(5), ...extra });
+  assert.equal(tipoDeNota(nota({ seccion: 'Política', motivo: 'popular', medios: 1 })), null);
+  assert.equal(tipoDeNota(pedida()), 'nacional');
+  assert.equal(motivoDeExclusion(pedida(), { ahora: AHORA }), null);
+  // la ley, el tono, la foto: nunca
+  assert.equal(motivoDeExclusion(pedida({ noPublicar: { motivo: 'menor' } }), { ahora: AHORA }), 'no-publicar');
+  assert.equal(motivoDeExclusion(pedida({ titulo: 'Muere un niño de 3 años en un accidente' }), { ahora: AHORA }), 'tono');
+  assert.equal(motivoDeExclusion(pedida({ foto: null }), { ahora: AHORA }), 'sin-foto');
+  // una nota publicada hace días vale 8 horas desde el pedido, no desde que salió
+  assert.equal(motivoDeExclusion(pedida({ publicada: hace(3 * 24 * 60), pedida: hace(30) }), { ahora: AHORA }), null);
+  assert.equal(motivoDeExclusion(pedida({ publicada: hace(3 * 24 * 60), pedida: hace(10 * 60) }), { ahora: AHORA }), 'vieja');
+  // sin el pedido, una nota de afuera con un solo medio no entra
+  assert.equal(elegirParaFacebook({ notas: [nota({ seccion: 'Política', motivo: 'popular', medios: 1 })], ahora: AHORA }).nota, null);
+  // con cupos llenos y un posteo reciente, la pedida sale igual y va antes que lo de Balcarce
+  const hechas = [...Array(5)].map((_, i) => hecha({ notaId: `l${i}`, tipo: 'local', cuando: hace(10) })).concat([...Array(5)].map((_, i) => hecha({ notaId: `c${i}`, tipo: 'nacional', seccion: 'Economía', cuando: hace(20) })));
+  const la = pedida();
+  const r = elegirParaFacebook({ notas: [nota(), la], hechas, ahora: AHORA });
+  assert.equal(r.nota.id, la.id);
+  // una pedida que la ley frena no abre los cupos
+  assert.equal(elegirParaFacebook({ notas: [pedida({ noPublicar: { motivo: 'menor' } })], hechas, ahora: AHORA }).motivo, 'cupo-completo');
+});

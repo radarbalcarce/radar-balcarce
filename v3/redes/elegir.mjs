@@ -45,13 +45,14 @@ export function rangoDelDia(dia) {
 export function tipoDeNota(nota, reglas = REGLAS) {
   if (nota.propia) return 'nacional'; // una nota propia que su autor mandó a las redes sale aunque no la cuenten otros medios (10/11)
   if (nota.seccion === 'Balcarce' || nota.motivo === 'balcarce') return 'local';
+  if (nota.forzada) return 'nacional'; // una nota del motor que una persona mandó a las redes a mano (/redes en Telegram): sale aunque no la cuenten tantos medios
   if (nota.motivo === 'zona') return null; // otra ciudad de la zona: no es de acá ni es lo más contado del país
   return Number(nota.medios) >= reglas.mediosParaNacional ? 'nacional' : null;
 }
 
-/** ¿La nota puede salir en esa red? Las del núcleo, siempre; las propias, sólo en las que eligió su autor (`reel` = los repasos con voz). */
+/** ¿La nota puede salir en esa red? Las del núcleo, siempre (salvo las que una persona mandó a mano con /redes: `forzada`, sólo en lo que pidió); las propias, sólo en las que eligió su autor (`reel` = los repasos con voz). */
 const REDES_DEL_POSTEO = ['facebook', 'instagram', 'threads', 'bluesky', 'x'];
-export const saleEn = (nota, red) => !nota?.propia || (nota.redesElegidas ?? []).includes(red) || (REDES_DEL_POSTEO.includes(red) && (nota.redesElegidas ?? []).includes('posteo'));
+export const saleEn = (nota, red) => !(nota?.propia || nota?.forzada) || (nota.redesElegidas ?? []).includes(red) || (REDES_DEL_POSTEO.includes(red) && (nota.redesElegidas ?? []).includes('posteo'));
 
 /** ¿Tiene una foto que se pueda mandar? La foto sale de nota.foto.url; sin foto no hay posteo (R: todo lo que va a redes lleva imagen). */
 export function tieneFoto(nota) {
@@ -106,8 +107,10 @@ export function motivoDeExclusion(nota, { ahora, reglas = REGLAS, conPlaca = fal
   if (!tieneFoto(nota) && !(conPlaca && sePuedeConPlacaSola(nota, reglas, ahora))) return 'sin-foto';
   const tipo = tipoDeNota(nota, reglas);
   if (!tipo) return 'no-es-de-redes';
-  if (tipo === 'nacional' && !nota.propia && noEsNoticiaAunqueLaCuentenTodos(nota.titulo)) return 'no-es-noticia';
-  const edad = (new Date(ahora) - new Date(nota.publicada)) / 3600_000;
+  if (tipo === 'nacional' && !nota.propia && !nota.forzada && noEsNoticiaAunqueLaCuentenTodos(nota.titulo)) return 'no-es-noticia';
+  // Una nota pedida a mano cuenta su edad desde el pedido (si es más nuevo que la nota): se puede mandar a las redes algo publicado hace días.
+  const desde = nota.forzada && Date.parse(nota.pedida) > Date.parse(nota.publicada) ? nota.pedida : nota.publicada;
+  const edad = (new Date(ahora) - new Date(desde)) / 3600_000;
   if (!(edad <= reglas.edadMaximaHoras)) return 'vieja';
   return null;
 }
@@ -160,10 +163,12 @@ export function elegirParaFacebook({ notas, hechas = [], enRepasos = [], ahora =
   const fb = hechasDe(hechas, 'facebook');
   const locales = fb.filter((h) => h.tipo === 'local').length;
   const nacionales = fb.filter((h) => h.tipo === 'nacional').length;
-  if (locales >= reglas.localesPorDia && nacionales >= reglas.nacionalesPorDia) return { nota: null, motivo: 'cupo-completo' };
+  // Lo pedido a mano con /redes (`forzada`) no cuenta contra los cupos ni espera el intervalo: una persona lo mandó a propósito.
+  const hayForzada = notas.some((n) => n.forzada && !fb.some((h) => h.notaId === n.id) && !motivoDeExclusion(n, { ahora, reglas, conPlaca }));
+  if (!hayForzada && locales >= reglas.localesPorDia && nacionales >= reglas.nacionalesPorDia) return { nota: null, motivo: 'cupo-completo' };
 
   const ultimo = fb.map((h) => new Date(h.cuando).getTime()).sort((a, b) => b - a)[0];
-  if (ultimo !== undefined && (new Date(ahora).getTime() - ultimo) / MINUTO < reglas.minutosEntre) return { nota: null, motivo: 'esperando-intervalo' };
+  if (!hayForzada && ultimo !== undefined && (new Date(ahora).getTime() - ultimo) / MINUTO < reglas.minutosEntre) return { nota: null, motivo: 'esperando-intervalo' };
 
   const yaSalieron = new Set(fb.map((h) => h.notaId));
   const contadas = new Set(enRepasos);
@@ -176,13 +181,14 @@ export function elegirParaFacebook({ notas, hechas = [], enRepasos = [], ahora =
 
   const descartes = {};
   const sumar = (m) => { descartes[m] = (descartes[m] || 0) + 1; };
-  const candidatas = { local: [], nacional: [] };
+  const candidatas = { local: [], nacional: [], forzadas: [] };
   for (const n of notas) {
     if (yaSalieron.has(n.id)) { sumar('ya-salio'); continue; }
     if ((fallos.get(n.id) || 0) >= reglas.erroresPorNota) { sumar('fallo-dos-veces'); continue; }
-    if (contadas.has(n.id)) { sumar('ya-en-un-repaso'); continue; }
+    if (contadas.has(n.id) && !n.forzada) { sumar('ya-en-un-repaso'); continue; }
     const m = motivoDeExclusion(n, { ahora, reglas, conPlaca });
     if (m) { sumar(m); continue; }
+    if (n.forzada) { candidatas.forzadas.push(n); continue; }
     if (titularesDeHoy.some((t) => mismoTema(t, n.titulo))) { sumar('tema-repetido'); continue; }
     const tipo = tipoDeNota(n, reglas);
     if (tipo === 'local' && locales >= reglas.localesPorDia) { sumar('cupo-locales'); continue; }
@@ -197,6 +203,12 @@ export function elegirParaFacebook({ notas, hechas = [], enRepasos = [], ahora =
   const nuevaPrimero = (a, b) => new Date(b.publicada) - new Date(a.publicada);
   candidatas.local.sort(nuevaPrimero);
   candidatas.nacional.sort((a, b) => (Number(b.medios) - Number(a.medios)) || nuevaPrimero(a, b));
+
+  // Lo pedido a mano va antes que todo (la más nueva primero).
+  if (candidatas.forzadas.length) {
+    const f = candidatas.forzadas.sort(nuevaPrimero)[0];
+    return { nota: f, tipo: tipoDeNota(f, reglas), descartes };
+  }
 
   // Se alterna: va primero el tipo que lleva menos posteos del día (a igualdad, lo de Balcarce); si de ése no hay, el otro.
   const orden = locales <= nacionales ? ['local', 'nacional'] : ['nacional', 'local'];

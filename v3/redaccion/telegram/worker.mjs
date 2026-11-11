@@ -21,8 +21,8 @@
 
 import { crearGemini } from '../../nucleo/redactar/gemini.mjs';
 import { anotarUso } from '../../nucleo/db/db.mjs';
-import { procesar, vencerPreguntaDeRedes, TOPE_PEDIDOS_IA } from './nota-propia.mjs';
-import { procesarAdmin, hayAccionEnCurso, COMANDOS as COMANDOS_ADMIN } from './administrar.mjs';
+import { procesar, vencerPreguntaDeRedes, TOPE_PEDIDOS_IA, itemDe } from './nota-propia.mjs';
+import { procesarAdmin, hayAccionEnCurso, hayFotoEnCurso, COMANDOS as COMANDOS_ADMIN } from './administrar.mjs';
 
 const API = 'https://api.telegram.org';
 
@@ -69,6 +69,8 @@ async function recibir(pedido, env, ctx, textos) {
   // Un «sí», un «no» o un cambio mientras hay un /retirar o /corregir en curso le toca a administrar.mjs (salvo /nota y lo que no es texto).
   const t = actualizacion?.message?.text;
   if (accion === 'nota' && typeof t === 'string' && !/^\/nota\b/i.test(t.trim()) && (await hayAccionEnCurso(env.ESTADO))) accion = 'admin';
+  // Una foto mientras hay un /foto esperándolas es de ese /foto (administrar.mjs), no material de una nota propia. Sin /foto en curso, sigue yendo a la nota propia como siempre.
+  if (accion === 'nota' && actualizacion?.message && typeof t !== 'string' && itemDe(actualizacion.message).tipo === 'foto' && (await hayFotoEnCurso(env.ESTADO))) accion = 'admin';
   if (nuevoDueno) ctx.waitUntil(env.ESTADO.put('dueno', JSON.stringify(nuevoDueno)));
   // Lo que escribió el dueño queda guardado para que Claude lo lea; si el KV falla, igual se le contesta.
   if (lo) {

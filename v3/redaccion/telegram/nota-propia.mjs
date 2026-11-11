@@ -418,7 +418,7 @@ async function descartar(dep) {
 
 // ------------------------------------------------------------------------------------------------------------ publicar
 
-const MAX_FOTOS = 10;
+export const MAX_FOTOS = 10;
 
 // Guarda todas las fotos de la nota (hasta 10) en el depósito del sitio, con dirección pública: la primera es la de portada. Si una descarga falla, se guardan las demás.
 async function guardarFoto(dep, pedido, nota, id) {
@@ -496,7 +496,7 @@ export function botonesDeRedes(id, marcadas = TODAS) {
 
 // ------------------------------------------------------------------------------------------------------------ redes
 
-const nombreDeLaEleccion = (l) => (!l.length ? 'solo-web' : l.length === TODAS.length ? 'todo' : l.length === 3 && !l.includes('reel') ? 'posteo-historia' : 'elegidas');
+export const nombreDeLaEleccion = (l) => (!l.length ? 'solo-web' : l.length === TODAS.length ? 'todo' : l.length === 3 && !l.includes('reel') ? 'posteo-historia' : 'elegidas');
 
 /** Guarda dónde sale la nota. `lista` = las claves de REDES_ELEGIBLES; vacía = sólo la web. */
 async function elegirRedes(dep, pedido, lista, { porDefecto = false } = {}) {

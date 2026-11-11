@@ -153,3 +153,65 @@ test('menciones: llegan de la base a la nota, al carrusel y al reel, y a los tex
   const itemSin = { ...item, datos: { nota: { ...nota, menciones: undefined } } };
   assert.ok(!textoDeCarrusel({}, itemSin, 'facebook').includes('@'));
 });
+
+// ------------------------------------------------------------------------------------------------ notas del motor pedidas a mano en Telegram (/redes y /repaso)
+
+function delMotor(sqlite, id, redes, extra = {}) {
+  const publicada = extra.publicada ?? new Date(AHORA.getTime() - 3 * 24 * 3600_000).toISOString(); // publicada hace 3 días
+  sqlite.prepare("INSERT INTO historias (id, creada, fecha_hecho, titulo, medios, alcances, estado, motivo, seccion, nota_id) VALUES (?, ?, ?, 'h', '[\"A\"]', '[]', 'redactada', 'popular', 'Política', ?)").run(`h-${id}`, publicada, publicada, id);
+  sqlite.prepare("INSERT INTO notas (id, historia_id, creada, titulo, bajada, cuerpo, seccion, estado, foto, origen, firma, redes) VALUES (?, ?, ?, ?, 'La bajada.', '[\"p\"]', 'Política', ?, ?, 'nucleo', 'Redacción Radar Balcarce', ?)")
+    .run(id, `h-${id}`, publicada, `Titular del motor ${id}`, extra.estado ?? 'publicada', JSON.stringify({ url: 'https://otro.com/foto.jpg', credito: 'Foto: Otro Medio' }), redes ? JSON.stringify(redes) : null);
+}
+
+test('una nota del motor pedida con /redes entra a las redes aunque tenga un solo medio y sea vieja; sin pedido o con el pedido viejo, no; lleva sus formatos, su foto con crédito y la firma «Radar Balcarce» en el reel', async () => {
+  const { sqlite, DB } = baseDePrueba();
+  conColumnasDelBot(sqlite);
+  const pedida = new Date(AHORA.getTime() - 20 * 60_000).toISOString();
+  delMotor(sqlite, 'm1', { eleccion: 'elegidas', lista: ['posteo', 'reel'], confirmada: true, forzada: true, pedida, menciones: ['@x', '@radarbalcarce'] });
+  delMotor(sqlite, 'm2', null);
+  delMotor(sqlite, 'm3', { eleccion: 'elegidas', lista: ['posteo'], confirmada: true, forzada: true, pedida: new Date(AHORA.getTime() - 5 * 24 * 3600_000).toISOString() });
+  delMotor(sqlite, 'm4', { eleccion: 'elegidas', lista: ['posteo'], confirmada: true, forzada: true, pedida }, { estado: 'oculta' });
+  const desde = new Date(AHORA.getTime() - 24 * 3600_000).toISOString();
+  const lista = await notasParaRedes({ DB }, { desdeISO: desde });
+  assert.deepEqual(lista.map((n) => n.id), ['m1']);
+  const [m] = lista;
+  assert.equal(m.forzada, true);
+  assert.equal(m.propia, undefined);
+  assert.deepEqual(m.redesElegidas, ['posteo', 'reel']);
+  assert.deepEqual(m.menciones, ['@x', '@radarbalcarce']);
+  assert.equal(m.medios, 1);
+  assert.equal(tipoDeNota(m), 'nacional');
+  assert.equal(saleEn(m, 'facebook'), true);
+  assert.equal(saleEn(m, 'threads'), true); // el posteo va a todas
+  assert.equal(motivoDeExclusion(m, { ahora: AHORA }), null);
+  // el reel: sale con la firma del medio y el crédito de la foto (no la firma de Hernán)
+  const propias = await notasPropiasParaCarrusel({ DB }, { desdeISO: desde });
+  assert.deepEqual(propias.map((n) => n.id), ['m1']);
+  assert.equal(propias[0].firma, 'Radar Balcarce');
+  assert.equal(propias[0].fotos[0].credito, 'Foto: Otro Medio');
+  const reels = propiasConReel(propias, { ahora: AHORA });
+  assert.equal(reels.length, 1);
+  const video = armarNotaPropia({ ...reels[0], fotos: reels[0].fotos.slice(0, 3) });
+  assert.equal(video.firma, 'Radar Balcarce');
+  assert.doesNotMatch(JSON.stringify(video.escenas), /Hern[aá]n Accomo/);
+  assert.match(JSON.stringify(video.escenas), /Foto: Otro Medio|Otro Medio/);
+});
+
+test('/repaso: la nota del motor llega con alRepaso y pedida; una nota propia con /repaso entra en la lista de las redes sin ningún formato (no sale como posteo)', async () => {
+  const { sqlite, DB } = baseDePrueba();
+  conColumnasDelBot(sqlite);
+  const pedida = new Date(AHORA.getTime() - 60 * 60_000).toISOString();
+  const publicada = new Date(AHORA.getTime() - 3600_000).toISOString();
+  delMotor(sqlite, 'r1', { repaso: true, pedida }, { publicada });
+  delMotor(sqlite, 'r2', null, { publicada });
+  propia(sqlite, 'rp', { eleccion: 'solo-web', lista: [], confirmada: false, repaso: true, pedida });
+  const lista = await notasParaRedes({ DB }, { desdeISO: new Date(AHORA.getTime() - 86_400_000).toISOString() });
+  const porId = Object.fromEntries(lista.map((n) => [n.id, n]));
+  assert.deepEqual(Object.keys(porId).sort(), ['r1', 'r2', 'rp']);
+  assert.equal(porId.r1.alRepaso, true);
+  assert.equal(porId.r1.pedida, pedida);
+  assert.equal(porId.r1.forzada, undefined); // /repaso no manda el posteo
+  assert.equal(porId.r2.alRepaso, undefined);
+  assert.equal(porId.rp.alRepaso, true);
+  assert.equal(saleEn(porId.rp, 'facebook'), false);
+});

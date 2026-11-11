@@ -297,3 +297,26 @@ test('el posteo no repite lo que contó un repaso de hoy: la vuelta le pasa a la
   assert.equal(r.facebook, null, 'las tres notas ya las contó el repaso');
   assert.equal(r.descartes['ya-en-un-repaso'], 3);
 });
+
+test('/repaso: la nota pedida va primera en el repaso (aunque la cuente un solo medio), vale 24 horas desde el pedido, y la ley, el tono y la foto siguen valiendo', () => {
+  const n = (id, extra = {}) => ({ id, titulo: id, bajada: 'b', enDosLineas: '', seccion: 'Balcarce', motivo: 'balcarce', medios: 1, publicada: hace(30), noPublicar: null, foto: { url: 'https://x/y.jpg', credito: 'c' }, ...extra });
+  const nac = (id, medios, extra = {}) => n(id, { seccion: 'Política', motivo: 'popular', medios, ...extra });
+  const pedida = (id, extra = {}) => nac(id, 1, { alRepaso: true, pedida: hace(60), publicada: hace(3 * 24 * 60), ...extra });
+  const r = notasDelRepaso([n('L1'), n('L2'), nac('N9', 9), pedida('PEDIDA')], { ahora: AHORA });
+  assert.deepEqual(r.map((x) => x.id), ['PEDIDA', 'L1', 'L2']); // primera; completa con lo de Balcarce
+  assert.deepEqual(notasDelRepaso([nac('N9', 9), nac('N8', 8), pedida('PEDIDA')], { ahora: AHORA }).map((x) => x.id), ['PEDIDA', 'N9', 'N8']);
+  // sin el pedido, esa misma nota (un solo medio, de afuera) no entra
+  assert.deepEqual(notasDelRepaso([n('L1'), n('L2'), nac('N9', 9), { ...pedida('PEDIDA'), alRepaso: false }], { ahora: AHORA }).map((x) => x.id), ['L1', 'L2', 'N9']);
+  // pasadas 24 horas del pedido, el pedido no vale
+  assert.deepEqual(notasDelRepaso([n('L1'), n('L2'), pedida('PEDIDA', { pedida: hace(25 * 60) })], { ahora: AHORA }).map((x) => x.id), ['L1', 'L2']);
+  // la ley, el tono y la foto
+  assert.deepEqual(notasDelRepaso([n('L1'), n('L2'), pedida('P', { noPublicar: { motivo: 'menor' } })], { ahora: AHORA }).map((x) => x.id), ['L1', 'L2']);
+  assert.deepEqual(notasDelRepaso([n('L1'), n('L2'), pedida('P', { titulo: 'Muere un niño de 3 años' })], { ahora: AHORA }).map((x) => x.id), ['L1', 'L2']);
+  assert.deepEqual(notasDelRepaso([n('L1'), n('L2'), pedida('P', { foto: null })], { ahora: AHORA }).map((x) => x.id), ['L1', 'L2']);
+  // lo que ya contó un repaso (hoy o ayer) no se repite; lo que salió como posteo no frena al pedido a mano
+  assert.deepEqual(notasDelRepaso([n('L1'), n('L2'), pedida('PEDIDA')], { ahora: AHORA, yaUsadas: ['PEDIDA'] }).map((x) => x.id), ['L1', 'L2']);
+  assert.deepEqual(notasDelRepaso([n('L1'), n('L2'), pedida('PEDIDA')], { ahora: AHORA, yaContadas: ['PEDIDA'] }).map((x) => x.id), ['PEDIDA', 'L1', 'L2']);
+  assert.deepEqual(notasDelRepaso([n('L1'), n('L2'), n('L3')], { ahora: AHORA, yaContadas: ['L1'] }).map((x) => x.id), ['L2', 'L3']);
+  // no pasa de 3 notas
+  assert.equal(notasDelRepaso([pedida('A'), pedida('B'), pedida('C'), pedida('D'), n('L1')], { ahora: AHORA }).length, 3);
+});
