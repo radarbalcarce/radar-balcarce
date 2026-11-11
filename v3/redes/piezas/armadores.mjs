@@ -194,7 +194,7 @@ export function armarEfemeride(efemeride, { fecha = null, anioActual = new Date(
 // ------------------------------------------------------------------ las placas de una nota (nota de Balcarce y nota propia)
 
 const CIERRE_NOTA = 'La nota completa, en Radar Balcarce punto com.';
-const CIERRE_NOTA_PROPIA = 'La nota completa, con todas las fotos, en Radar Balcarce punto com.';
+const CIERRE_NOTA_PROPIA = 'La nota completa, en Radar Balcarce punto com.';
 
 /** Las frases de una nota para contarla en placas: la bajada y las dos primeras oraciones de cada párrafo, sin repetir. */
 const frasesDeLaNota = (nota, porParrafo = 1) => [...frases(nota.bajada ?? ''), ...parrafos(nota).flatMap((p) => frases(p).slice(0, porParrafo))].filter((f, i, a) => a.indexOf(f) === i);
@@ -249,18 +249,35 @@ export function armarNotaPropia(nota, opciones = {}) {
   const n = fotos.length;
   const total = NOTA_PROPIA.segundosSegunFotos[n];
   const porPlaca = Number((total / n).toFixed(2));
-  const fr = frasesDeLaNota(nota, 2);
+  const fr = frasesDeLaNota(nota, 3);
   const cierre = contarPalabras(CIERRE_NOTA_PROPIA);
   const tope = topeDeVoz(porPlaca, total);
+  // 10/11: la primera placa dice el titular entero (antes sólo el nombre y duraba 1 s) y cada una de las otras, UNA frase corta y completa de la nota (antes, frases cortadas a media oración
+  // que además se leían cortadas en pantalla). Se prefieren las que entran enteras en la placa (90 caracteres) y en la voz; no se repite ninguna.
+  const usadas = new Set();
+  const enteras = (cap) => fr.filter((x) => !usadas.has(x) && contarPalabras(x) <= cap);
+  const elegirFrase = (cap) => {
+    const cortas = enteras(cap).filter((x) => x.length <= 150);
+    const e = cortas[0] ?? enteras(cap)[0] ?? fr.find((x) => !usadas.has(x)) ?? fr.at(-1) ?? '';
+    usadas.add(e);
+    return e;
+  };
   const escenas = fotos.map((f, i) => {
     const ultima = i === n - 1;
-    const frase = i === 0 ? '' : (fr[i] ?? fr.at(-1) ?? '');
-    const cap = Math.max(6, tope - (ultima ? cierre : 0) - (i === 0 ? contarPalabras(saludo) : 0));
-    const voz = i === 0
-      ? unir(saludo, partesQueEntran(n === 1 ? [ganchoDe(nota.titulo), fr[0], fr[1]] : [ganchoDe(nota.titulo), fr[0]], cap))
-      : partesQueEntran([frase, fr[i + n] ?? ''], cap);
+    // La voz manda: el video dura lo que dura la voz (ajustarALaVoz), así que cada placa puede decir una frase entera (hasta 28 palabras) y el cierre va aparte.
+    const cap = Math.max(tope, 28) - (i === 0 ? contarPalabras(saludo) : 0);
+    let voz;
+    let frase = '';
+    if (i === 0) {
+      const titular = conPunto(nota.titulo);
+      voz = unir(saludo, contarPalabras(titular) <= cap ? titular : ganchoDe(nota.titulo));
+      if (n === 1) { const extra = elegirFrase(cap - contarPalabras(voz)); if (extra && contarPalabras(unir(voz, extra)) <= cap) voz = unir(voz, extra); }
+    } else {
+      frase = elegirFrase(cap);
+      voz = partesQueEntran([frase], cap);
+    }
     return escena('placa-nota', porPlaca, {
-      rotulo: 'Nota de Radar Balcarce', i, n, titulo: i === 0 ? acortarCaracteres(nota.titulo, 80) : acortarCaracteres(frase, 90), seccion: nota.seccion, foto: fotoDe(f), firma,
+      rotulo: 'Nota de Radar Balcarce', i, n, titulo: i === 0 ? acortarCaracteres(nota.titulo, 80) : acortarCaracteres(frase, 150), seccion: nota.seccion, foto: fotoDe(f), firma,
       marca: i === 0 ? null : frase,
     }, ultima ? unir(voz, CIERRE_NOTA_PROPIA) : voz);
   });

@@ -295,6 +295,17 @@ const Y_CREDITO = FOTO.y + FOTO.alto + 44;
 export function placaDeNota(d) {
   const nota = { titulo: d.titulo, seccion: d.seccion, foto: d.foto?.datos ? { datos: d.foto.datos, credito: d.foto.credito ?? '' } : null };
   let svg = placaDeNotaDelRepaso({ nota, i: d.i, n: d.n, titulo: d.rotulo });
+  // La foto de una nota propia entera (10/11: una foto vertical en la caja horizontal salía recortada, sin la cara): la foto completa al centro y, a los costados, ella misma difuminada.
+  if (d.firma && d.foto?.datos) {
+    const marca = `<image href="${d.foto.datos}"`;
+    const ini = svg.indexOf(marca);
+    const fin = ini < 0 ? -1 : svg.indexOf('/>', ini);
+    if (ini >= 0 && fin > ini) {
+      const resto = svg.slice(ini + marca.length, fin).replace(' preserveAspectRatio="xMidYMid slice"', '');
+      const dos = `<defs><filter id="difuminada" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="30"/></filter></defs>${marca}${resto} preserveAspectRatio="xMidYMid slice" filter="url(#difuminada)"/>${marca}${resto} preserveAspectRatio="xMidYMid meet"/>`;
+      svg = svg.slice(0, ini) + dos + svg.slice(fin + 2);
+    }
+  }
   if (d.firma) {
     const firma = `<text x="${DERECHA}" y="${Y_CREDITO}" font-family="${TEXTO}" font-size="24" font-weight="700" text-anchor="end" fill="${GRIS}">Por ${esc(d.firma)}</text>`;
     svg = svg.includes('<g id="rp-credito">')

@@ -301,7 +301,12 @@ test('nota propia: de 1 a 3 fotos, una placa por foto, 14 / 22 / 30 s', () => {
   const tres = armarNotaPropia(propia(), {});
   assert.equal(tres.escenas.length, 3); assert.equal(tres.duracion, 30);
   assert.ok(tres.escenas.every((e) => e.tipo === 'placa-nota'));
-  assert.match(tres.guion, /La nota completa, con todas las fotos, en Radar Balcarce punto com/);
+  assert.match(tres.guion, /La nota completa, en Radar Balcarce punto com/);
+  // 10/11: la primera placa dice el titular entero (antes sólo el nombre y duraba 1 s) y cada placa una frase completa, sin repetir ninguna.
+  assert.ok(tres.escenas[0].voz.includes(propia().titulo.replace(/[.]+$/, '')), 'la primera dice el titular entero');
+  const voces = tres.escenas.slice(1).map((e) => e.voz.replace(' La nota completa, en Radar Balcarce punto com.', ''));
+  assert.equal(new Set(voces).size, voces.length, 'ninguna frase repetida');
+  assert.ok(voces.every((v) => /[.!?]$/.test(v)), 'cada placa termina una frase entera');
   const dos = armarNotaPropia(propia({ fotos: [foto(1)] }), {});
   assert.equal(dos.escenas.length, 2); assert.equal(dos.duracion, 22);
   const una = armarNotaPropia(propia({ portada: null, fotos: [foto(1)] }), {});
