@@ -112,5 +112,6 @@ ${lugarRotativo(contexto, 'postales', 'T2')}
 ${bloqueAdsense(contexto, 'tapa')}
 ${p.masDeHoy.length ? `<div class="mt"><h2 class="sec-t">Más de hoy</h2>${lista(p.masDeHoy, ahora)}</div>` : ''}`;
   }
-  return pagina({ lugarPie: 'T4', titulo: 'Radar Balcarce, las noticias de Balcarce y la zona', sinSufijo: true, descripcion, canonico: '/', indexar, cuerpo, contexto, imagen: p.principal && tieneFoto(p.principal) ? urlSegura(p.principal.foto.url) : undefined });
+  return pagina({ lugarPie: 'T4', titulo: 'Radar Balcarce, las noticias de Balcarce y la zona', sinSufijo: true, descripcion, canonico: '/', indexar, cuerpo, contexto });
+  // Sin `imagen`: al compartir la portada sale siempre la placa del medio (og-default.png), no la foto de la nota principal del momento (Hernán, 10/11).
 }

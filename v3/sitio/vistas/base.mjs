@@ -62,7 +62,7 @@ p.meta{margin:0 0 16px;font-size:14px}
 .dos-lineas{margin:0 0 18px;padding:10px 14px;background:#fff;border-left:4px solid var(--rojo)}
 .dos-lineas strong{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--suave)}
 figure{margin:0 0 18px}
-figure img{display:block;width:100%;height:auto}
+figure img{display:block;width:100%;height:auto;max-height:70vh;object-fit:contain;background:#14161A}
 figcaption{margin-top:4px;font-size:13px;color:var(--suave)}
 article.nota{max-width:720px;margin:0 auto}
 article.nota .cuerpo{font-size:17px;line-height:1.6}
@@ -335,7 +335,7 @@ position:relative;max-width:640px;margin:14px 0 4px;border:1px solid var(--sol-b
 .hero .placa{--pt:clamp(20px,3.4vw,30px);padding:20px 22px 16px 26px;border-left-width:12px}
 .hero img,.hero .placa{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px}.hero img{background:#ddd}
 img.fotopropia{object-fit:contain!important;background:#14161A!important}
-.hero img.fotopropia,.card img.fotopropia{height:auto;aspect-ratio:auto}
+.hero img.fotopropia,.card img.fotopropia{height:auto;aspect-ratio:auto;max-height:70vh}
 .hero h1{margin:12px 0 8px;font:800 30px/1.1 var(--serif);letter-spacing:-.015em;color:var(--tinta)}
 .hero p{margin:0 0 6px;font-size:16px;color:#343841}
 .cred{margin-top:5px;font-size:11px;color:var(--suave)}

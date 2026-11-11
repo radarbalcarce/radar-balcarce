@@ -475,7 +475,9 @@ test('fotos: la destacada y las tarjetas son 16:9 en todos los anchos y las foto
   // El recuadro mide lo que mide la imagen: sin `height:auto` el atributo height de la etiqueta la estiraba (en el celular, casi cuadrada, con franjas negras).
   assert.match(ESTILOS, /\.hero img,\.hero \.placa\{[^}]*height:auto/);
   assert.match(ESTILOS, /\.card img,\.card \.placa\{[^}]*height:auto/);
-  assert.match(ESTILOS, /\.hero img\.fotopropia,\.card img\.fotopropia\{height:auto;aspect-ratio:auto\}/);
+  assert.match(ESTILOS, /\.hero img\.fotopropia,\.card img\.fotopropia\{height:auto;aspect-ratio:auto;max-height:70vh\}/);
+  // La foto propia vertical no ocupa toda la pantalla del celular (Hernán, 10/11): ni en la tapa ni adentro de la nota.
+  assert.match(ESTILOS, /figure img\{[^}]*max-height:70vh;object-fit:contain/);
   const { imagenODePlaca } = await import('./vistas/portada.mjs');
   const propia = imagenODePlaca({ foto: { url: 'https://radarbalcarce.com/fotos-notas/media-kit-portada.jpg', alt: 'x' }, seccion: 'Balcarce' }, { ancho: 640, alto: 400 });
   assert.match(propia, /^<img class="fotopropia" /);
