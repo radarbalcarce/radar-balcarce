@@ -31,8 +31,8 @@ export const PIEZAS_DEL_DIA = Object.freeze([
   { id: 'carrusel-finde', nombre: 'El finde en Balcarce', arma: 'carrusel-finde', formato: 'carrusel', hora: '18:00', ventana: 120, dias: [4], voz: 5, sinVoz: true, hashtag: 'Agenda', condicional: true, pausada: true },
   // El carrusel de una nota propia con 3 fotos o más no tiene hora: sale apenas se publica la nota (una sola vez por nota). Cada nota es una fila `carrusel-nota-<id>`; esta fila sólo dice que existe y cuándo se mira.
   { id: 'carrusel-nota', nombre: 'Las fotos de la nota', arma: 'carrusel-nota', formato: 'carrusel', hora: '08:00', ventana: 840, dias: TODOS, voz: 5, sinVoz: true, porNota: true, hashtag: 'Fotos' },
-  // El reel de una nota propia (con su historia): la persona lo elige en el bot («Reel»), con 1 a 3 fotos (14, 22 o 30 s). Sin hora fija: sale apenas se publica la nota, una vez por nota, de 8:00 a 22:00. Cada nota es una fila `reel-nota-<id>`; con voz.
-  { id: 'reel-nota', nombre: 'El reel de la nota', arma: 'nota-propia', formato: 'reel', hora: '08:00', ventana: 840, dias: TODOS, voz: 1, porNota: true, hashtag: 'Noticias' },
+  // El reel de una nota propia (con su historia): la persona lo elige en el bot («Reel»), con 1 a 3 fotos (14, 22 o 30 s). Sin hora fija: sale apenas se publica la nota, una vez por nota, de 8:00 a 23:00 (las notas se escriben de noche). Cada nota es una fila `reel-nota-<id>`; con voz.
+  { id: 'reel-nota', nombre: 'El reel de la nota', arma: 'nota-propia', formato: 'reel', hora: '08:00', ventana: 900, dias: TODOS, voz: 1, porNota: true, hashtag: 'Noticias' },
   // Los avisos de clima no tienen hora ni día fijos: salen apenas hay uno grave (de 7:00 a 22:00), en una historia con voz. Una sola vez al día cada tipo.
   { id: 'aviso-helada', nombre: 'Aviso de helada', arma: 'aviso', variante: 'helada', formato: 'historia', hora: '07:00', ventana: 900, dias: TODOS, voz: 2, hashtag: 'Clima', condicional: true },
   { id: 'aviso-granizo', nombre: 'Aviso de granizo', arma: 'aviso', variante: 'granizo', formato: 'historia', hora: '07:00', ventana: 900, dias: TODOS, voz: 2, hashtag: 'Clima', condicional: true },
