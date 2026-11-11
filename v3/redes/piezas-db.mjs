@@ -77,7 +77,7 @@ export async function notasPropiasParaCarrusel(env, { desdeISO }) {
      WHERE n.estado = 'publicada' AND COALESCE(s.publicada_en, n.creada) >= ? ORDER BY COALESCE(s.publicada_en, n.creada) DESC`;
   let r;
   try { r = await env.DB.prepare(sql(', n.origen AS n_origen, n.slug AS n_slug, n.redes AS n_redes')).bind(desdeISO).all(); } catch { r = await env.DB.prepare(sql('')).bind(desdeISO).all(); }
-  return lista(r).filter((f) => (f.s_origen || f.n_origen) === 'redaccion').map((f) => {
+  return lista(r).filter((f) => f.n_origen === 'redaccion' || f.s_origen === 'redaccion').map((f) => {
     const foto = analizar(f.foto, null);
     const extra = analizar(f.s_extra, {});
     const fotos = [

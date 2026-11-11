@@ -491,7 +491,9 @@ test('plan: el reel de una nota propia tal como la guarda el bot (origen en nota
   const creada = hace(1, MARTES_10);
   base.sqlite.prepare("INSERT INTO notas (id, historia_id, creada, titulo, bajada, cuerpo, seccion, estado, foto, origen, slug, publicada_en, redes, firma) VALUES ('bot0001', 'redaccion-bot0001', ?, 'Benjamín vuelve a representar al país', 'La bajada.', '[\"Uno.\",\"Dos.\"]', 'Argentina', 'publicada', ?, 'redaccion', 'benjamin', ?, ?, 'Hernán Accomo')")
     .run(creada, JSON.stringify([foto(1), foto(2), foto(3), foto(4)]), creada, JSON.stringify({ eleccion: 'todo', confirmada: true, elegida: creada }));
-  const p = await planDe(base, MARTES_10, { solo: ['reel-nota'] });
-  assert.deepEqual(p.piezas.map((x) => x.id), ['reel-nota-bot0001']);
-  assert.equal(p.piezas[0].datos.nota.fotos.length, 3);
+  // El sitio le arma su propia fila a cada nota y le pone origen «nucleo» por defecto: eso no tiene que tapar el origen «redaccion» de la nota (10/11: el primer reel no salía por eso).
+  base.sqlite.prepare("INSERT INTO sitio_notas (id, slug, publicada_en) VALUES ('bot0001', 'benjamin', ?)").run(creada);
+  const p = await planDe(base, MARTES_10);
+  assert.deepEqual(p.piezas.filter((x) => x.id.endsWith('-bot0001')).map((x) => x.id).sort(), ['carrusel-nota-bot0001', 'reel-nota-bot0001']);
+  assert.equal(p.piezas.find((x) => x.id === 'reel-nota-bot0001').datos.nota.fotos.length, 3);
 });
