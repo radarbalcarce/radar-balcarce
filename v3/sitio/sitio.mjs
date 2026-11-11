@@ -31,7 +31,8 @@ import { ID_DE_AVISO, NOMBRES_DE_LUGARES } from './vistas/avisos.mjs';
 export const CACHE = {
   portada: [60, 300],
   seccion: [60, 300],
-  nota: [300, 3600],
+  // 10/11: 5 minutos como mucho (antes una hora): un cambio de sección, título o texto hecho desde el bot o el panel se ve enseguida.
+  nota: [120, 300],
   mapa: [600, 3600],
   rss: [300, 600],
   robots: [3600, 86400],

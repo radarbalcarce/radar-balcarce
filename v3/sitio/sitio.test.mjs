@@ -195,7 +195,8 @@ test('caché: la segunda visita sale de la caché sin tocar la base; las notas v
   const ruta = '/nota/se-inauguro-la-nueva-sala-del-hospital-abc1234';
   const a = await ir(env, ruta, cache);
   assert.equal(a.status, 200);
-  assert.match(a.headers.get('cache-control'), /s-maxage=3600/);
+  // 10/11: la copia de una nota dura 5 minutos como mucho, así un cambio de sección o de texto se ve enseguida.
+  assert.match(a.headers.get('cache-control'), /s-maxage=300\b/);
   sqlite.prepare("UPDATE notas SET estado = 'retirada'").run();
   assert.equal((await ir(env, ruta, cache)).status, 200, 'sirve la copia guardada');
   const por = await ir(env, '/', cache);
