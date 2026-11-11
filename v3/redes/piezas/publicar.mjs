@@ -41,6 +41,8 @@ export function textoDePieza(pieza, item, red) {
     }
   }
   else lineas.push(resumenDelGuion(pieza.guion));
+  // Las cuentas que se nombran en el texto (la persona de la nota y la nuestra), si se pidieron: «@fulano @radarbalcarce» (10/11, reel de Benjamín Luque Cuenca).
+  if (item.datos?.menciones?.length) lineas.push('', item.datos.menciones.join(' '));
   if (pieza.auspicio) lineas.push('', `El clima de hoy lo auspicia ${pieza.auspicio.comercio}${pieza.auspicio.cuenta ? ` (${pieza.auspicio.cuenta})` : ''}.`);
   const servicio = SERVICIOS_CON_PAGINA[item.arma];
   if (item.arma === 'nota-propia' && item.datos?.nota?.id) lineas.push('', red === 'instagram' ? 'La nota completa: link en la bio.' : `La nota completa: ${ponerOrigen(enlaceDeNota(item.datos.nota), { fuente: red === 'youtube' ? 'youtube' : 'facebook', campana: 'reel-nota', contenido: item.datos.nota.id })}`);
@@ -98,7 +100,8 @@ export function textoParaBuffer(pieza, item, red) {
   if (red === 'tiktok') return textoDePieza(pieza, item, 'instagram');
   if (red === 'youtube') return textoDePieza(pieza, item, 'youtube');
   const cuenta = item.arma === 'repaso' ? (item.datos.notas ?? []).slice(0, 3).map((n) => limpiar(n.titulo)).join(' · ') : resumenDelGuion(pieza.guion, 150);
-  return `${item.nombre}: ${cuenta}\n\n${HASHTAGS_FIJOS} #${item.hashtag}`;
+  const menciones = item.datos?.menciones?.length ? `\n\n${item.datos.menciones.join(' ')}` : '';
+  return `${item.nombre}: ${cuenta}${menciones}\n\n${HASHTAGS_FIJOS} #${item.hashtag}`;
 }
 
 /** Lo que se hace en Buffer de una pieza: una acción por canal. */

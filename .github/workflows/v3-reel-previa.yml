@@ -13,6 +13,15 @@ on:
         description: 'La sección con que se arma, si la de la página no es la que va (por ejemplo Argentina). Vacío = la de la página'
         type: string
         default: ''
+      menciones:
+        description: 'Cuentas a nombrar en el texto, separadas por coma (por ejemplo @fulano, @radarbalcarce). Vacío = ninguna'
+        type: string
+        default: ''
+      publicar:
+        description: 'PUBLICAR DE VERDAD (reel e historia en Facebook e Instagram; TikTok, YouTube y X por Buffer). Sólo después de ver la previa y con el OK de una persona'
+        type: choice
+        options: ['no', 'si']
+        default: 'no'
 
 permissions:
   contents: read
@@ -48,7 +57,16 @@ jobs:
         env:
           NOTA_URL: ${{ inputs.nota }}
           SECCION: ${{ inputs.seccion }}
+          MENCIONES: ${{ inputs.menciones }}
+          PUBLICAR: ${{ inputs.publicar }}
           GEMINI_API_KEY_REDES_V3: ${{ secrets.GEMINI_API_KEY_REDES }}
+          GEMINI_API_KEY_REDES: ${{ secrets.GEMINI_API_KEY_REDES }}
+          META_TOKEN: ${{ inputs.publicar == 'si' && secrets.META_TOKEN || '' }}
+          BUFFER_API_KEY: ${{ inputs.publicar == 'si' && secrets.BUFFER_API_KEY || '' }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          R2_RENDER: ${{ vars.R2_RENDER }}
           VOZ_CACHE: ${{ github.workspace }}/.cache/voz-v3
           SALIDA_PIEZAS: ${{ github.workspace }}/salida-previa
       - name: Guardar la memoria de voces

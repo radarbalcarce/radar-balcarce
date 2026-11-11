@@ -32,13 +32,17 @@ if (esElPrograma) {
   const r = await fetch(env.NOTA_URL, { headers: { 'user-agent': 'RadarBalcarce-previa' } });
   if (!r.ok) throw new Error(`la nota respondió ${r.status}`);
   const nota = notaDeLaPagina(await r.text(), { url: env.NOTA_URL, seccion: env.SECCION });
-  const item = { fila: 0, id: `reel-nota-${nota.id}`, nombre: nota.titulo, arma: 'nota-propia', variante: null, momento: null, formato: 'reel', hora: '08:00', horaDelDia: 22, bloque: 'noche', saluda: false, buffer: [], voz: 1, hashtag: 'Noticias', primeraDelBloque: false, datos: { nota } };
-  const plan = { dia: '2026-01-01', activas: false, vozTope: 10, vozQuedan: 10, piezas: [item], descartes: [] };
+  // PUBLICAR=si: lo publica de verdad (reel e historia en Facebook e Instagram, y TikTok, YouTube y X por Buffer), con el mismo video y la misma voz de la previa (la memoria de voces).
+  // Es para cuando una persona vio la previa y dio el OK. No pasa por el Worker: la fila del plan no se toca. MENCIONES: cuentas separadas por coma o espacio (@fulano, @radarbalcarce).
+  const publicar = /^s[ií]$/i.test(String(env.PUBLICAR ?? '').trim());
+  const menciones = String(env.MENCIONES ?? '').split(/[\s,]+/).filter(Boolean).map((m) => (m.startsWith('@') ? m : `@${m}`));
+  const item = { fila: 0, id: `reel-nota-${nota.id}`, nombre: nota.titulo, arma: 'nota-propia', variante: null, momento: null, formato: 'reel', hora: '08:00', horaDelDia: 22, bloque: 'noche', saluda: false, buffer: publicar ? ['tiktok', 'youtube', 'x'] : [], voz: 1, hashtag: 'Noticias', primeraDelBloque: false, datos: { nota, menciones } };
+  const plan = { dia: new Date().toISOString().slice(0, 10), activas: publicar, vozTope: 10, vozQuedan: 10, piezas: [item], descartes: [] };
   const fetchFn = async (u) => ({ ok: true, status: 200, json: async () => (String(u).endsWith('/piezas/plan') ? plan : { ok: true }), text: async () => '{}' });
   const entorno = { ...env, TELEGRAM_TOKEN: env.TELEGRAM_TOKEN || 'previa', GEMINI_API_KEY_REDES_V3: env.GEMINI_API_KEY_REDES_V3 };
   const deps = await dependenciasReales(entorno);
   const salida = await correr({ env: entorno, carpeta: path.resolve(env.SALIDA_PIEZAS || 'salida-previa'), deps: { ...deps, fetchFn, log: console.log } });
   const p = salida.piezas[0];
-  console.log(JSON.stringify({ estado: p?.estado, error: p?.error, duracion: p?.duracion, aviso: p?.aviso, guion: p?.guion }, null, 1));
+  console.log(JSON.stringify({ estado: p?.estado, error: p?.error, duracion: p?.duracion, aviso: p?.aviso, guion: p?.guion, texto: p?.texto, acciones: p?.acciones }, null, 1));
   if (!p || p.estado === 'error') process.exitCode = 1;
 }

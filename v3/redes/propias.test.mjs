@@ -101,3 +101,12 @@ test('reel de nota propia: el nombre que ya dijo el titular no se repite en las 
   const voces = armarNotaPropia(nota).escenas.map((e) => e.voz ?? e.texto ?? '').join(' ');
   assert.equal((voces.match(/Luque Cuenca/gi) ?? []).length, 1);
 });
+
+test('reel de nota propia: las menciones pedidas van en el texto de cada red', async () => {
+  const { textoDePieza, textoParaBuffer } = await import('./piezas/publicar.mjs');
+  const item = { nombre: 'Un título', arma: 'nota-propia', hashtag: 'Noticias', datos: { nota: { id: 'abc', slug: 'un-titulo' }, menciones: ['@fulano', '@radarbalcarce'] } };
+  const pieza = { guion: 'Un título. Algo que pasó.' };
+  for (const red of ['facebook', 'instagram', 'youtube']) assert.match(textoDePieza(pieza, item, red), /@fulano @radarbalcarce/);
+  assert.match(textoParaBuffer(pieza, item, 'x'), /@fulano @radarbalcarce/);
+  assert.doesNotMatch(textoDePieza(pieza, { ...item, datos: { nota: item.datos.nota } }, 'facebook'), /@/);
+});
