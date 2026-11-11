@@ -24,7 +24,7 @@ function propia(sqlite, id, redes, extra = {}) {
 test('una nota propia confirmada entra a las redes con la foto de portada, de sección Argentina, y se trata como nota de afuera', async () => {
   const { sqlite, DB } = baseDePrueba();
   conColumnasDelBot(sqlite);
-  propia(sqlite, 'aaa', { eleccion: 'todo', lista: ['facebook', 'instagram', 'threads', 'bluesky', 'x', 'reel'], confirmada: true });
+  propia(sqlite, 'aaa', { eleccion: 'todo', lista: ['posteo', 'carrusel', 'historia', 'reel'], confirmada: true });
   const [n] = await notasParaRedes({ DB }, { desdeISO: new Date(AHORA.getTime() - 86_400_000).toISOString() });
   assert.equal(n.propia, true);
   assert.equal(n.seccion, 'Argentina');
@@ -42,11 +42,14 @@ test('sin confirmar, sin redes o «sólo la web» no entra; una elección vieja 
   const lista = await notasParaRedes({ DB }, { desdeISO: new Date(AHORA.getTime() - 86_400_000).toISOString() });
   assert.deepEqual(lista.map((n) => n.id), ['vie']);
   assert.equal(saleEn(lista[0], 'facebook'), true);
+  assert.equal(saleEn(lista[0], 'x'), true);
   assert.equal(saleEn(lista[0], 'reel'), false);
 });
 
 test('saleEn: lo del núcleo sale en todas; lo propio, sólo en lo elegido', () => {
   assert.equal(saleEn({ id: 'x' }, 'threads'), true);
   assert.equal(saleEn({ propia: true, redesElegidas: ['facebook'] }, 'threads'), false);
+  assert.equal(saleEn({ propia: true, redesElegidas: ['posteo'] }, 'bluesky'), true);
+  assert.equal(saleEn({ propia: true, redesElegidas: ['carrusel'] }, 'facebook'), false);
   assert.equal(saleEn({ propia: true, redesElegidas: ['facebook', 'reel'] }, 'reel'), true);
 });

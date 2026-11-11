@@ -32,7 +32,7 @@ export async function notasPropiasParaRedes(env, { desdeISO }) {
   } catch { return []; }
   return lista(r).map((f) => {
     const redes = analizar(f.redes, null);
-    const elegidas = redes?.confirmada !== true ? [] : Array.isArray(redes.lista) ? redes.lista : redes.eleccion === 'todo' ? ['facebook', 'instagram', 'threads', 'bluesky', 'x', 'reel'] : redes.eleccion === 'posteo-historia' ? ['facebook', 'instagram', 'threads', 'bluesky', 'x'] : [];
+    const elegidas = redes?.confirmada !== true ? [] : Array.isArray(redes.lista) ? redes.lista : redes.eleccion === 'todo' ? ['posteo', 'carrusel', 'historia', 'reel'] : redes.eleccion === 'posteo-historia' ? ['posteo', 'carrusel', 'historia'] : [];
     const foto = analizar(f.foto, null);
     return {
       id: f.id, titulo: f.titulo || '', bajada: f.bajada || '', enDosLineas: f.en_dos_lineas || '', seccion: f.seccion || '',

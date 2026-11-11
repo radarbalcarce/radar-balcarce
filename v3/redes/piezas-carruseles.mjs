@@ -41,7 +41,7 @@ export function propiasConCarrusel(notas, { ahora }) {
   const limite = new Date(ahora).getTime() - CARRUSEL_DE_NOTA.horasDespuesDePublicada * 3600_000;
   return notas.filter((n) => !n.deServicio && n.titulo
     && new Date(n.publicada).getTime() >= limite
-    && !(n.redes?.confirmada === true && n.redes?.eleccion === 'solo-web')
+    && !(n.redes?.confirmada === true && (n.redes?.eleccion === 'solo-web' || (Array.isArray(n.redes?.lista) && !n.redes.lista.includes('carrusel'))))
     && !esTragediaParaRedes({ titulo: n.titulo, bajada: n.bajada })
     && fotosDeLaNota(n).length >= CARRUSEL_DE_NOTA.fotosMin)
     .sort((a, b) => String(b.publicada).localeCompare(String(a.publicada)));

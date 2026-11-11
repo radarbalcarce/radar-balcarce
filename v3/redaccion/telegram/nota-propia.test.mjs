@@ -242,7 +242,7 @@ test('«ok» guarda la nota en D1 (publicada, origen redaccion, firma de Hernán
   assert.match(aviso.texto, /sitio nuevo esté en línea/);
   const pregunta = t.enviados.at(-1);
   assert.match(pregunta.texto, /redes/);
-  assert.deepEqual(pregunta.botones.map((f) => f[0].text), ['✅ Facebook', '✅ Instagram', '✅ Threads', '✅ Bluesky', '✅ X', '✅ Reel e historia', 'Confirmar']);
+  assert.deepEqual(pregunta.botones.map((f) => f[0].text), ['✅ Posteo', '✅ Carrusel de fotos', '✅ Historia', '✅ Reel', 'Todo', 'Confirmar']);
   assert.ok(pregunta.botones.every((f) => f.every((b) => b.callback_data.includes(`:${fila.id}`) && b.callback_data.length <= 64)));
   assert.equal(JSON.parse(t.kv.datos.get('pedido')).fase, 'redes');
 });
@@ -317,7 +317,7 @@ test('los botones de redes: «Todo» queda anotado en la nota y se sacan los bot
   const redes = JSON.parse(t.sqlite.prepare('SELECT redes FROM notas').get().redes);
   assert.equal(redes.eleccion, 'todo');
   assert.equal(redes.confirmada, true);
-  assert.match(t.ultimo(), /sale en Facebook, Instagram, Threads, Bluesky, X, Reel e historia/);
+  assert.match(t.ultimo(), /sale como: Posteo, Carrusel de fotos, Historia, Reel/);
   assert.equal(t.kv.datos.has('pedido'), false);
 });
 
@@ -541,7 +541,7 @@ test('por el Worker: un extraño no arma nada (sólo «privado»); el dueño arm
     await Promise.all(esperas.splice(0));
     assert.equal(sqlite.prepare('SELECT estado FROM notas').get().estado, 'publicada');
     const preguntaDeRedes = enTelegram.at(-1).cuerpo;
-    assert.equal(preguntaDeRedes.reply_markup.inline_keyboard.length, 7);
+    assert.equal(preguntaDeRedes.reply_markup.inline_keyboard.length, 6);
     assert.ok(!JSON.stringify(enTelegram).includes('clave'));
   } finally { globalThis.fetch = original; }
 });
@@ -580,13 +580,13 @@ test('las redes se marcan una por una y se confirman; sin tocar nada «Confirmar
   await t.dice('ok');
   const { id } = t.sqlite.prepare('SELECT id FROM notas').get();
   const boton = (data) => procesar(t.dep, { callback_query: { id: 'c', data, message: { chat: { id: 111 }, message_id: 9 } } });
-  await boton(`rt:${id}:instagram`); // desmarca Instagram
-  await boton(`rt:${id}:bluesky`); // desmarca Bluesky
+  await boton(`rt:${id}:historia`); // desmarca la historia
+  await boton(`rt:${id}:carrusel`); // desmarca el carrusel
   await boton(`rc:${id}`);
   const redes = JSON.parse(t.sqlite.prepare('SELECT redes FROM notas').get().redes);
-  assert.deepEqual(redes.lista, ['facebook', 'threads', 'x', 'reel']);
+  assert.deepEqual(redes.lista, ['posteo', 'reel']);
   assert.equal(redes.eleccion, 'elegidas');
-  assert.match(t.ultimo(), /sale en Facebook, Threads, X, Reel e historia/);
+  assert.match(t.ultimo(), /sale como: Posteo, Reel/);
 
   await t.dice('Segundo tema');
   await t.dice('armala');

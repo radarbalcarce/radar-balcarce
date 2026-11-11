@@ -116,7 +116,7 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
     let notas = null;
     let auspicio = null;
     if (p.arma === 'repaso') {
-      notasCargadas ??= (await notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - reglas.edadDeLasNotasHoras * 3600_000).toISOString(), conBorradores: simulado })).filter((n) => saleEn(n, 'reel'));
+      notasCargadas ??= (await notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - reglas.edadDeLasNotasHoras * 3600_000).toISOString(), conBorradores: simulado })).filter((n) => !n.propia); // las notas propias no entran en los repasos (Hernán, 10/11)
       const elegidas = notasDelRepaso(notasCargadas, { ahora, yaUsadas: [...notasDeHoy, ...yaContadas, ...salen.flatMap((s) => s.datos.notasIds ?? [])], reglas });
       if (!elegidas.length) { descartes.push({ pieza: p.id, motivo: 'sin-notas' }); continue; }
       datos = { notas: elegidas.map(paraElArmador), notasIds: elegidas.map((n) => n.id), sinBalcarce: !elegidas.some((n) => tipoDeNota(n) === 'local') };

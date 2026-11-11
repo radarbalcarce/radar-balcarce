@@ -25,19 +25,18 @@ const MAX_AUDIOS = 8;
 const MAX_ENLACES = 2;
 const MAX_TEXTO_ENLACE = 6000;
 
-// Dónde puede salir una nota propia (10/11: Hernán elige red por red). «reel» = el reel y la historia de los repasos con voz; el resto, el posteo con foto de cada red.
+// Cómo sale una nota propia (10/11, Hernán: «no hace falta que sean individuales para cada red social»; y no entra en los repasos).
+// posteo = el posteo con foto en todas las redes; carrusel = el diseño con las fotos de la nota (3 o más); historia y reel = las piezas de esa nota.
 export const REDES_ELEGIBLES = [
-  { clave: 'facebook', etiqueta: 'Facebook' },
-  { clave: 'instagram', etiqueta: 'Instagram' },
-  { clave: 'threads', etiqueta: 'Threads' },
-  { clave: 'bluesky', etiqueta: 'Bluesky' },
-  { clave: 'x', etiqueta: 'X' },
-  { clave: 'reel', etiqueta: 'Reel e historia' },
+  { clave: 'posteo', etiqueta: 'Posteo' },
+  { clave: 'carrusel', etiqueta: 'Carrusel de fotos' },
+  { clave: 'historia', etiqueta: 'Historia' },
+  { clave: 'reel', etiqueta: 'Reel' },
 ];
 const TODAS = REDES_ELEGIBLES.map((r) => r.clave);
 export const REDES = {
-  todo: { etiqueta: 'Todo', detalle: 'posteo con foto en todas las redes, historia con la tarjeta y reel con voz', lista: TODAS },
-  'posteo-historia': { etiqueta: 'Posteo e historia', detalle: 'posteo con foto e historia con la tarjeta, sin reel', lista: TODAS.filter((c) => c !== 'reel') },
+  todo: { etiqueta: 'Todo', detalle: 'posteo, carrusel de fotos, historia y reel', lista: TODAS },
+  'posteo-historia': { etiqueta: 'Posteo e historia', detalle: 'posteo con foto e historia, sin reel', lista: ['posteo', 'carrusel', 'historia'] },
   'solo-web': { etiqueta: 'Sólo la web', detalle: 'nada en las redes', lista: [] },
 };
 export const REDES_POR_DEFECTO = 'solo-web';
@@ -356,7 +355,7 @@ export function textoDeVistaPrevia(pedido) {
   return [
     'VISTA PREVIA',
     `Sección: ${n.seccion} (tocá otra abajo si va en otra) · Firma: ${FIRMA}`,
-    f ? `Foto: la primera que mandaste (${f} en total)` : 'Foto: ninguna (saldría la placa)',
+    f > 1 ? `Fotos: ${pedido.fotosModo === 'portada' ? 'sólo la portada' : `las ${Math.min(f, 10)} (la primera de portada; con 3 o más sale también el carrusel)`}` : f ? 'Foto: la primera que mandaste (1 en total)' : 'Foto: ninguna (saldría la placa)',
     '',
     n.titulo,
     n.bajada,
@@ -373,6 +372,7 @@ export function botonesDeSeccion(pedido) {
     if (i % 3 === 0) filas.push([]);
     filas.at(-1).push({ text: sec === pedido.nota.seccion ? `✅ ${sec}` : sec, callback_data: `sec:${pedido.id}:${i}` });
   });
+  if ((pedido.material.fotos?.length ?? 0) > 1) filas.push([{ text: `${pedido.fotosModo === 'portada' ? '⬜' : '✅'} Todas las fotos (${Math.min(pedido.material.fotos.length, MAX_FOTOS)})`, callback_data: `fo:${pedido.id}:t` }, { text: `${pedido.fotosModo === 'portada' ? '✅' : '⬜'} Sólo la portada`, callback_data: `fo:${pedido.id}:p` }]);
   return filas;
 }
 
@@ -416,7 +416,7 @@ const MAX_FOTOS = 10;
 
 // Guarda todas las fotos de la nota (hasta 10) en el depósito del sitio, con dirección pública: la primera es la de portada. Si una descarga falla, se guardan las demás.
 async function guardarFoto(dep, pedido, nota, id) {
-  const lista = (pedido.material.fotos ?? []).slice(0, MAX_FOTOS);
+  const lista = (pedido.material.fotos ?? []).slice(0, pedido.fotosModo === 'portada' ? 1 : MAX_FOTOS);
   if (!lista.length) return null;
   const base = { url: null, credito: 'Radar Balcarce', alt: nota.titulo, ancho: null, alto: null };
   if (!dep.fotos) return [{ ...base, telegram_file_id: lista[0].file_id, mime: lista[0].mime, pendiente: true }];
@@ -463,17 +463,18 @@ async function publicar(dep, pedido) {
   return dep.enviar(textoDeRedes(), { botones: botonesDeRedes(id, nuevo.marcadas) });
 }
 
-export const textoDeRedes = () => '¿En qué redes sale esta nota? Tocá cada red para marcarla o desmarcarla y después «Confirmar». Si no elegís en 1 hora, queda sólo en la web.';
+export const textoDeRedes = () => '¿Cómo sale esta nota en las redes? Tocá cada formato para marcarlo o desmarcarlo y después «Confirmar» (no hace falta elegir red por red: el posteo va a todas). Si no elegís en 1 hora, queda sólo en la web.';
 
 export function botonesDeRedes(id, marcadas = TODAS) {
   const filas = REDES_ELEGIBLES.map((r) => [{ text: `${marcadas.includes(r.clave) ? '✅' : '⬜'} ${r.etiqueta}`, callback_data: `rt:${id}:${r.clave}` }]);
+  filas.push([{ text: 'Todo', callback_data: `rt:${id}:todo` }]);
   filas.push([{ text: 'Confirmar', callback_data: `rc:${id}` }, { text: 'Sólo la web', callback_data: `rw:${id}` }]);
   return filas;
 }
 
 // ------------------------------------------------------------------------------------------------------------ redes
 
-const nombreDeLaEleccion = (l) => (!l.length ? 'solo-web' : l.length === TODAS.length ? 'todo' : l.length === TODAS.length - 1 && !l.includes('reel') ? 'posteo-historia' : 'elegidas');
+const nombreDeLaEleccion = (l) => (!l.length ? 'solo-web' : l.length === TODAS.length ? 'todo' : l.length === 3 && !l.includes('reel') ? 'posteo-historia' : 'elegidas');
 
 /** Guarda dónde sale la nota. `lista` = las claves de REDES_ELEGIBLES; vacía = sólo la web. */
 async function elegirRedes(dep, pedido, lista, { porDefecto = false } = {}) {
@@ -481,10 +482,10 @@ async function elegirRedes(dep, pedido, lista, { porDefecto = false } = {}) {
   const redes = { eleccion: nombreDeLaEleccion(limpia), lista: limpia, confirmada: true, elegida: dep.ahora().toISOString(), ...(porDefecto ? { por: 'defecto' } : {}) };
   await dep.db.prepare('UPDATE notas SET redes = ? WHERE id = ?').bind(JSON.stringify(redes), pedido.id).run();
   await dep.kv.delete('pedido');
-  const donde = limpia.length ? `sale en ${nombresDe(limpia)}` : 'queda sólo en la web';
+  const donde = limpia.length ? `sale como: ${nombresDe(limpia)}` : 'queda sólo en la web';
   return dep.enviar(porDefecto
     ? `No elegiste a tiempo: «Sólo la web», ${donde}.`
-    : `Anotado: ${donde}. Las redes la toman en la próxima vuelta (el posteo y los repasos de las próximas horas).`);
+    : `Anotado: ${donde}. El posteo sale en la próxima vuelta de las redes; el carrusel apenas lo arma el reloj. Esta nota no entra en los repasos.`);
 }
 
 async function alApretarBoton(dep, cb) {
@@ -502,6 +503,14 @@ async function alApretarBoton(dep, cb) {
     return dep.enviar(`Sección: ${pedido.nota.seccion}. Respondé «ok» para publicarla.`);
   }
 
+  if (tipo === 'fo') {
+    if (pedido?.fase !== 'vista' || pedido.id !== id) return dep.enviar('Esa nota ya no está esperando.');
+    pedido.fotosModo = dato === 'p' ? 'portada' : 'todas';
+    await dep.kv.put('pedido', JSON.stringify(pedido), { expirationTtl: TTL_PEDIDO });
+    if (mensaje && dep.editarBotones) await dep.editarBotones(mensaje, botonesDeSeccion(pedido));
+    return dep.enviar(pedido.fotosModo === 'portada' ? 'Va sólo la foto de portada.' : `Van todas las fotos (${Math.min(pedido.material.fotos?.length ?? 0, MAX_FOTOS)}): la primera de portada y el resto dentro de la nota.`);
+  }
+
   // Los botones viejos («redes:<id>:todo») siguen andando por si quedó alguno en el chat.
   if (tipo === 'redes' && REDES[dato]) {
     if (mensaje) await dep.quitarBotones(mensaje);
@@ -515,9 +524,10 @@ async function alApretarBoton(dep, cb) {
   }
   if (tipo === 'rw') { if (mensaje) await dep.quitarBotones(mensaje); return elegirRedes(dep, pedido, []); }
   if (tipo === 'rc') { if (mensaje) await dep.quitarBotones(mensaje); return elegirRedes(dep, pedido, pedido.marcadas ?? []); }
-  if (!TODAS.includes(dato)) return;
+  if (dato !== 'todo' && !TODAS.includes(dato)) return;
   const marcadas = new Set(pedido.marcadas ?? []);
-  if (marcadas.has(dato)) marcadas.delete(dato); else marcadas.add(dato);
+  if (dato === 'todo') TODAS.forEach((c) => marcadas.add(c));
+  else if (marcadas.has(dato)) marcadas.delete(dato); else marcadas.add(dato);
   pedido.marcadas = [...marcadas];
   await dep.kv.put('pedido', JSON.stringify(pedido), { expirationTtl: ESPERA_REDES_MS / 1000 + 3600 });
   if (mensaje && dep.editarBotones) return dep.editarBotones(mensaje, botonesDeRedes(id, pedido.marcadas));

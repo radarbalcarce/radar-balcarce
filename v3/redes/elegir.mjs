@@ -50,7 +50,8 @@ export function tipoDeNota(nota, reglas = REGLAS) {
 }
 
 /** ¿La nota puede salir en esa red? Las del núcleo, siempre; las propias, sólo en las que eligió su autor (`reel` = los repasos con voz). */
-export const saleEn = (nota, red) => !nota?.propia || (nota.redesElegidas ?? []).includes(red);
+const REDES_DEL_POSTEO = ['facebook', 'instagram', 'threads', 'bluesky', 'x'];
+export const saleEn = (nota, red) => !nota?.propia || (nota.redesElegidas ?? []).includes(red) || (REDES_DEL_POSTEO.includes(red) && (nota.redesElegidas ?? []).includes('posteo'));
 
 /** ¿Tiene una foto que se pueda mandar? La foto sale de nota.foto.url; sin foto no hay posteo (R: todo lo que va a redes lleva imagen). */
 export function tieneFoto(nota) {
