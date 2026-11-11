@@ -26,6 +26,7 @@ import { RUTA_DE_COPIA, PREFIJO_R2_DE_COPIAS } from './fotos-copia.mjs';
 import { destinoDeRestoViejo } from './restos-del-viejo.mjs';
 import { contarPedido, contarClic, enlaceDeAviso } from './db/lecturas.mjs';
 import { ID_DE_AVISO, NOMBRES_DE_LUGARES } from './vistas/avisos.mjs';
+import { esRutaDelPanel, manejarPanel } from './panel.mjs';
 
 // Cuánto vive cada cosa en caché (segundos): [lo que ve el navegador, lo que guarda Cloudflare].
 export const CACHE = {
@@ -488,7 +489,6 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
         const bytes = Uint8Array.from(atob(OG_DEFAULT_BASE64), (c) => c.charCodeAt(0));
         return new Response(pedido.method === 'HEAD' ? null : bytes, { status: 200, headers: { 'content-type': 'image/png', 'cache-control': 'public, max-age=86400, s-maxage=604800', 'content-length': String(bytes.length) } });
       }
-      if (url.pathname === '/panel') return new Response(null, { status: 301, headers: { location: '/panel/', 'cache-control': 'public, max-age=3600' } });
       // Direcciones sueltas del sitio viejo (índice de notas, imágenes de vista previa): 301 a lo que las reemplaza (restos-del-viejo.mjs).
       const resto = destinoDeRestoViejo(url.pathname);
       if (resto) return new Response(null, { status: 301, headers: { location: resto, 'cache-control': 'public, max-age=3600' } });
@@ -520,6 +520,11 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       if (url.protocol === 'http:' && !esLocal(url.hostname) && (pedido.method === 'GET' || pedido.method === 'HEAD')) {
         url.protocol = 'https:';
         return conCabecerasDeSeguridad(new Response(null, { status: 301, headers: { location: url.toString(), 'cache-control': 'public, max-age=3600' } }));
+      }
+      // El panel privado (panel.mjs): antes que todo lo demás, nunca por la caché pública ni por el contador; acepta POST.
+      if (esRutaDelPanel(url.pathname) && url.hostname !== 'www.radarbalcarce.com') {
+        const cache = opciones && 'cache' in opciones ? opciones.cache : (typeof caches !== 'undefined' ? caches.default : null);
+        return conCabecerasDeSeguridad(await manejarPanel(pedido, env, { ahora: ahora(), cache }));
       }
       const r = conCabecerasDeSeguridad(await manejarSinCabeceras(pedido, env, ctx, opciones));
       // El contador propio (REGLAS.md § 11): se ve cada pedido acá, salga la página de la caché o recién armada. Nunca rompe ni demora la respuesta.

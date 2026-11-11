@@ -70,7 +70,7 @@ Primero pone las del sitio y recién después saca las del archivo; si una ruta 
 
 **El respaldo al sitio viejo.** El sistema viejo sigue publicándose en `https://radar-balcarce.pages.dev` (variable `ORIGEN_VIEJO`; sin ella o apuntando a radarbalcarce.com no hay respaldo).
 Todo lo que este sitio no maneja se le pide allá y vuelve tal cual (estado, encabezados útiles, cuerpo; sin cookies; redirecciones sin seguir; caché corta de 60 s):
-`/panel/…`, `/farmacias`, `/clima`, `/dolar`, `/agenda`, `/hoy`, `/llms.txt`, `/agentes/…`, `/compartir/…`, `/escudos/…`, `/tema/…`, `/tablas/…`, el `.txt` de verificación, el manifiesto, los íconos,
+`/farmacias`, `/clima`, `/dolar`, `/agenda`, `/hoy`, `/llms.txt`, `/agentes/…`, `/compartir/…`, `/escudos/…`, `/tema/…`, `/tablas/…`, el `.txt` de verificación, el manifiesto, los íconos,
 `/sitemap-news.xml`… También las **notas que no están en la base** y las **fotos** que R2 no tiene. Lo que este sitio sí sirve (`/`, `/seccion/<x>`, `/nota/…` de la base, `/buscar`, los mapas, `/rss.xml`, `/feed.xml`, `/robots.txt`, `/fotos-notas/` de R2) **nunca** se pide al viejo.
 Sólo GET y HEAD. Si el viejo también da 404, el 404 de acá; si no responde o da 5xx, un 502 que no se guarda. El pedido va a `pages.dev` (nunca a radarbalcarce.com) y lleva `x-radar-respaldo`: un pedido con ese encabezado no se reenvía, así no hay bucles.
 El `wrangler.toml` lleva `global_fetch_strictly_public` (sin eso, pedirle a otro sitio de Cloudflare desde acá da error 1019).
@@ -98,9 +98,9 @@ Pruebas: `corte.test.mjs` (respaldo, feed, www, indexación) y `corte-script.tes
 - **Páginas nuevas** (`vistas/cierre.mjs`): `/agenda` y cada evento (`/agenda/<nombre>-muniNNNN`, con `.ics`, datos para Google, la fiesta suspendida avisada), `/hoy`, `/util` (teléfonos), `/tablas` con `/tablas/liga-profesional` y `/tablas/formula-1`, `/compartir` (no se indexa) y la página «ya no está» (410).
 - **La agenda** sale **sólo del municipio** (API de balcarce.gob.ar, `agenda.mjs`), se lee en el momento y se guarda 30 minutos en la caché. Si no contesta, la agenda lo dice y no se guarda; la página de un evento da 503 (no 410). Un evento que ya terminó da 410 (la API sólo trae lo que viene). Los suspendidos a mano están en `AGENDA_SUSPENDIDOS` (`agenda.mjs`, con motivo, cuándo y quién); `eventos.mjs` es copia de `web/lib/eventos.js`. Las fichas de eventos ya no guardan nada: no hay lista de eventos pasados.
 - **Las tablas** se piden en el momento a ESPN y Jolpica (`tablas.mjs`), una hora de caché; sin respuesta, la página lo dice.
-- **Para máquinas:** `/llms.txt`, `/agentes/{ultimas,indice,servicios}.json` (CORS abierto, no se indexan), `/sitemap-news.xml` (48 horas), `/sitemap-paginas.xml` (páginas fijas, secciones y eventos; entra en `/sitemap.xml`), `/seccion/<x>/feed.xml`. El `robots.txt` pide no entrar a `/panel/`.
+- **Para máquinas:** `/llms.txt`, `/agentes/{ultimas,indice,servicios}.json` (CORS abierto, no se indexan), `/sitemap-news.xml` (48 horas), `/sitemap-paginas.xml` (páginas fijas, secciones y eventos; entra en `/sitemap.xml`), `/seccion/<x>/feed.xml`. El `robots.txt` pide no entrar a `/panel`.
 - **Direcciones del viejo que se conservan:** `/sitemap-index.xml` y `/sitemap-notas/AAAA-MM/sitemap.xml` (301 a los mapas de acá), `/seccion/<x>-<n>` (301 a `?pagina=n`), `/seccion/servicios` y `/seccion/pais` (301), y las notas que el viejo había unido a otra o retirado (`redirecciones-viejas.mjs`, generado por `scripts/generar-redirecciones.mjs` desde `web/public/_redirects`; 301 a la nota que quedó o a su sección). Una nota que no está en la base ni en esa tabla da **410** con una búsqueda con las palabras del titular: **nunca se le pide al viejo**. Las tarjetas `/…/opengraph-image` dan 404 (la foto de cada página va en su `og:image`). `/tema/…` da 410.
-- **Archivos fijos** (`estaticos.mjs`): el panel del celular (`/panel/`, con su CSP propia y `noindex`), los escudos, los videos de `/compartir`, los íconos, el manifiesto y el archivo de verificación de Google salen del depósito R2 `radar-fotos` con clave `estaticos/<misma ruta>`. Los sube el workflow «Radar 3.0: desplegar» (opción sitio) desde `web/public/`. Si el depósito no tiene uno, cae al viejo (o 404 propio si `RESPALDO_VIEJO = "no"`).
+- **Archivos fijos** (`estaticos.mjs`): los escudos, los videos de `/compartir`, los íconos, el manifiesto y el archivo de verificación de Google salen del depósito R2 `radar-fotos` con clave `estaticos/<misma ruta>`. Los sube el workflow «Radar 3.0: desplegar» (opción sitio) desde `web/public/` (los archivos del panel viejo que ese paso todavía sube a `estaticos/panel/` ya no se sirven: `/panel` es el panel nuevo, § 13). Si el depósito no tiene uno, cae al viejo (o 404 propio si `RESPALDO_VIEJO = "no"`).
 - **`RESPALDO_VIEJO`** (`wrangler.toml`, hoy `"si"`): con `"no"`, nada sale hacia el sitio viejo: lo que nadie maneja y las fotos que R2 no tiene dan 404 propio. Con `"si"`, sólo van allá las rutas que nadie maneja y los archivos que el depósito no tiene todavía.
 - **SEO chico (7/11):** `/.well-known/security.txt` (RFC 9116, `securityTxt` en `vistas/agentes.mjs`; **vence el 7/11/2027, renovar** el `Expires`) y `/security.txt` (301 a ese). Datos estructurados: `/farmacias` y `/clima` llevan un `WebPage` (`paginaLd`; la farmacia de turno como `Pharmacy` sólo si hay datos) y `/quienes-somos` un `AboutPage` con el medio (`organizacionDelMedio`) sin `WebSite`. Pruebas: `marcado.test.mjs` y `cierre.test.mjs`.
 - Pruebas: `cierre.test.mjs` (incluye el inventario: ninguna ruta del viejo sale hacia él) y `corte.test.mjs`.
@@ -125,3 +125,42 @@ La página de una nota sin foto muestra una placa de su sección (`placaDeNota` 
 ## 12. Las fotos siempre por https (10/11)
 
 Algunas notas guardan la foto del medio de origen con `http://…` y el navegador la bloquea o la degrada. Todas las direcciones de foto pasan por `aNota` (`db/consultas.mjs`) antes de llegar al HTML (img, `og:image`, datos estructurados), y ahí `conFotoHttps` (`util.mjs`) convierte `http://` en `https://` (foto de portada, `chica`, `fotos` y `fotosEnCuerpo`). No toca las propias (`/foto/…`, `/fotos-notas/…`). Prueba: `contador.test.mjs`.
+
+## 13. El panel (`/panel`, 11/11)
+
+**Qué es.** Una página privada para Hernán, pensada para el celular, en `https://radarbalcarce.com/panel`: la lista de notas y, en cada una, lo mismo que hacen los comandos del bot
+(`/corregir`, `/seccion`, `/ocultar`, `/mostrar`, `/retirar`, `/redes`, `/repaso`, `/menciones`, `/foto`), con la misma forma de escribir en la base. Reemplaza al panel del celular viejo,
+que ya no se sirve (lo que el despliegue todavía sube a `estaticos/panel/` en R2 queda sin uso). Código: `panel.mjs` (sesión, base, depósito) y `vistas/panel.mjs` (el HTML); sin JavaScript
+salvo el «¿seguro?» de Retirar; nada de afuera.
+
+**Cómo se entra (sin secretos nuevos).**
+1. En Telegram, `/panel` al bot: da un enlace `https://radarbalcarce.com/panel/entrar?t=<token>` que **sirve una vez y vence en 15 minutos** (el mensaje sale sin vista previa).
+2. El enlace abre una página con el botón «Entrar al panel» (un `POST`: así ningún programa que sólo mire el enlace lo gasta). Al tocarlo, el enlace queda usado y se abre una sesión de
+   **30 días**: cookie `panel` (`Path=/panel; HttpOnly; Secure; SameSite=Strict`). Un enlace usado, vencido o inventado dice que se pida otro.
+3. Sin sesión, cualquier `/panel/…` muestra «pedí /panel al bot» (200, `noindex`) y ningún dato. «Salir» (`POST /panel/salir`) borra la sesión.
+- **En la base sólo quedan huellas SHA-256** (hex) de los tokens: `panel_accesos (token, vence, usado)` y `panel_sesiones (token, creada, vence, ultima)`, en `db/schema-sitio.sql`
+  (el bot también crea `panel_accesos`, por si se sube antes). Al entrar se borran las sesiones vencidas y los enlaces de más de un día.
+- **CSRF:** todo cambio es un `POST` con el campo oculto `csrf` = SHA-256 de `csrf:<token de la sesión>`; si no coincide, 403 y no se cambia nada. Más `SameSite=Strict`.
+- **Cabeceras:** toda respuesta del panel lleva `cache-control: no-store`, `x-robots-tag: noindex, nofollow`, `x-frame-options: DENY`, `referrer-policy: no-referrer` y una CSP estricta
+  (`CSP_PANEL`: sólo lo propio, fotos de cualquier https, sin marcos, formularios sólo acá). El panel se atiende **antes** que la caché pública y que el contador: nunca se guarda ni se cuenta.
+
+**Qué se ve y qué se cambia.**
+- **`/panel`:** las notas (todas menos los borradores), de la más nueva a la más vieja, 50 por página (`?p=2`), con foto chica (o el color de la sección), título, sección, estado y fecha.
+  Filtros: título (`?q=`), estado (publicada, oculta, retirada), sección (las 14 del sitio) y origen (propias = `origen = 'redaccion'`, automáticas).
+- **`/panel/nota/<id>`:** la vista (título, bajada, portada) con el enlace a la nota pública, y cuatro formularios. Después de cada uno vuelve a la nota con un aviso arriba
+  (`?ok=…` o `?error=…`; sólo se muestran textos fijos).
+  - **Texto** (`…/texto`): título (3 a 300), bajada (hasta 600), cuerpo (párrafos separados por una línea en blanco; se guarda como lista JSON en `notas.cuerpo`) y sección (una de las 14).
+    Cada cambio de título, bajada o cuerpo se anota en `ficha.correcciones[]` (`cuando`, `campo`, `antes`, `despues`, `por: "Hernán (panel)"`), como `/corregir`. **La dirección no cambia:**
+    si la nota todavía no tenía su titular fijado en `sitio_notas`, se fija con el de antes de cambiar el título.
+  - **Estado** (`…/estado`): Ocultar (de publicada a `oculta`, no toca `no_publicar`), Mostrar (sólo desde oculta) y Retirar (pide motivo, hasta 300; `estado = retirada` y
+    `no_publicar = {motivo, cuando, por}`), igual que el bot.
+  - **Redes** (`…/redes`): casillas posteo, carrusel, historia y reel (son la `lista` que se quiere: reemplazan a la anterior), «Al próximo repaso» y las menciones. Si se suma un formato que
+    no estaba: `forzada: true` y `pedida` (como `/redes`); repaso marcado y antes no: `repaso: true` y `pedida` (como `/repaso`; desmarcado se saca); siempre `confirmada: true` y `eleccion`;
+    menciones con `@` y `@radarbalcarce` al final (vacío las saca), como `/menciones`. Pedir algo nuevo sólo vale para una nota publicada y sin freno; sacar, siempre. Debajo, lo que ya salió
+    (tabla `publicaciones` de las redes, si existe).
+  - **Fotos** (`…/fotos`): las que tiene, con su crédito; se elige la de portada, se cambia el crédito (vacío deja el que estaba) y se saca una (sin ninguna, `foto = NULL`). Subir: hasta 10 por
+    nota, 8 MB cada una, sólo JPG, PNG o WEBP **por sus primeros bytes**; si una no sirve no se sube ninguna. Van al depósito `FOTOS` como `fotos-notas/redaccion-<id>-p<sello>-<n>.<ext>`
+    (el sitio las sirve en `https://radarbalcarce.com/fotos-notas/…`) y se suman al final de `notas.foto` (lista; la primera es la portada) con `{url, credito, alt: título}`. No se achican.
+- Después de cada cambio se borra de la caché de Cloudflare (la de ese centro de datos) la página de la nota, la portada y su sección; en los demás, la nota se ve como mucho a los 5 minutos.
+- Pruebas: `panel.test.mjs` (entrada, enlace gastado y vencido, cookie, sin sesión, CSRF, cabeceras, texto y escape, sección, estado, redes, fotos con depósito falso, filtros, salir) y la de `/panel`
+  en `v3/redaccion/telegram/administrar.test.mjs`.

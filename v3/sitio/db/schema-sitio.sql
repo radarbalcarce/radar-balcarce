@@ -47,3 +47,9 @@ CREATE TABLE IF NOT EXISTS avisos_dia (
   clics INTEGER NOT NULL DEFAULT 0,
   PRIMARY KEY (dia, aviso_id, lugar)
 );
+
+-- El panel privado (/panel, REGLAS.md «El panel»). Sólo se guardan huellas SHA-256 (hex) de los tokens, nunca el token.
+-- Los enlaces de un solo uso que da el bot de Telegram (/panel): vencen a los 15 minutos. (El bot también crea esta tabla, por si se sube antes que el sitio.)
+CREATE TABLE IF NOT EXISTS panel_accesos (token TEXT PRIMARY KEY, vence TEXT NOT NULL, usado TEXT);
+-- Las sesiones abiertas (cookie `panel`, 30 días).
+CREATE TABLE IF NOT EXISTS panel_sesiones (token TEXT PRIMARY KEY, creada TEXT NOT NULL, vence TEXT NOT NULL, ultima TEXT);

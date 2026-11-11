@@ -58,10 +58,10 @@ test('una ruta que el nuevo no maneja se pide al viejo y vuelve tal cual (status
   assert.ok(pedidos[0].opciones.cf.cacheTtl > 0 && pedidos[0].opciones.cf.cacheTtl <= 120, 'caché corta');
 });
 
-test('las rutas del viejo que el depósito todavía no tiene (panel, íconos…) o que nadie maneja salen del viejo; /panel/ conserva la barra final', async () => {
+test('las rutas del viejo que el depósito todavía no tiene (escudos, íconos…) o que nadie maneja salen del viejo; /panel ya no (es el panel nuevo)', async () => {
   // Desde el cierre (REGLAS.md § 10) casi todo lo de la lista original es de acá: /agenda, /hoy, /llms.txt, /tema, /sitemap-news.xml y los feeds de sección. Los archivos fijos
-  // (panel, escudos, íconos, manifiesto) los sirve el depósito R2; si el depósito todavía no los tiene, caen al viejo (con RESPALDO_VIEJO = "no", 404 propio).
-  const rutas = ['/panel/', '/panel/app.js', '/agentes/notas.json', '/compartir/abc', '/escudos/river.png', '/tablas/liga', '/googleabc123.txt', '/manifest.webmanifest', '/icon-192.png'];
+  // (escudos, íconos, manifiesto) los sirve el depósito R2; si el depósito todavía no los tiene, caen al viejo (con RESPALDO_VIEJO = "no", 404 propio).
+  const rutas = ['/agentes/notas.json', '/compartir/abc', '/escudos/river.png', '/tablas/liga', '/googleabc123.txt', '/manifest.webmanifest', '/icon-192.png'];
   const { ir, pedidos } = conViejo(Object.fromEntries(rutas.map((x) => [x, () => new Response(`viejo:${x}`, { status: 200 })])));
   for (const x of rutas) {
     assert.equal(esRutaPropia(x), false, x);
@@ -70,7 +70,9 @@ test('las rutas del viejo que el depósito todavía no tiene (panel, íconos…)
     assert.equal(await r.text(), `viejo:${x}`);
   }
   assert.equal(pedidos.length, rutas.length);
-  assert.ok(pedidos.some((p) => p.url === `${VIEJO}/panel/`), 'no se le saca la barra final');
+  assert.equal((await ir('/panel/')).status, 200);
+  assert.equal((await ir('/panel/app.js')).status, 200);
+  assert.equal(pedidos.length, rutas.length, 'el panel nunca se le pide al viejo');
 });
 
 test('una nota que no está en la base NUNCA se pide al viejo: 301 si el viejo la había unido a otra, 410 si no', async () => {

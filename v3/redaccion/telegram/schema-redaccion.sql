@@ -6,3 +6,4 @@ ALTER TABLE notas ADD COLUMN slug TEXT;
 ALTER TABLE notas ADD COLUMN publicada_en TEXT;
 ALTER TABLE notas ADD COLUMN redes TEXT;
 CREATE INDEX IF NOT EXISTS idx_notas_slug ON notas (slug);
+CREATE TABLE IF NOT EXISTS panel_accesos (token TEXT PRIMARY KEY, vence TEXT NOT NULL, usado TEXT);

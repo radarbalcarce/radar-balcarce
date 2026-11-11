@@ -457,3 +457,50 @@ test('el Worker: una foto con un /foto en curso va a administrar; sin /foto en c
     assert.equal(materiales(), 2);
   } finally { globalThis.fetch = original; }
 });
+
+test('/panel: guarda sólo la huella del token (15 minutos) y manda el enlace con el token, sin vista previa', { skip: sinSqlite }, async () => {
+  const { dep, sqlite } = entorno();
+  const opciones = [];
+  const dichos = [];
+  dep.enviar = async (t, o) => { dichos.push(t); opciones.push(o); };
+  await procesarAdmin(dep, { message: { text: '/panel' } });
+  const m = /https:\/\/radarbalcarce\.com\/panel\/entrar\?t=([A-Za-z0-9_-]{43})\n/.exec(dichos.at(-1));
+  assert.ok(m, dichos.at(-1));
+  assert.match(dichos.at(-1), /Sirve una vez y vence en 15 minutos/);
+  assert.match(dichos.at(-1), /30 días/);
+  assert.deepEqual(opciones.at(-1), { sinVistaPrevia: true });
+  const filas = sqlite.prepare('SELECT * FROM panel_accesos').all();
+  assert.equal(filas.length, 1);
+  const huella = [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(m[1])))].map((b) => b.toString(16).padStart(2, '0')).join('');
+  assert.equal(filas[0].token, huella);
+  assert.notEqual(filas[0].token, m[1]);
+  assert.equal(filas[0].vence, new Date(AHORA.getTime() + 15 * 60000).toISOString());
+  assert.equal(filas[0].usado, null);
+  // Otro /panel da otro enlace.
+  await procesarAdmin(dep, { message: { text: '/panel' } });
+  assert.equal(sqlite.prepare('SELECT COUNT(*) AS n FROM panel_accesos').get().n, 2);
+  assert.ok(AYUDA.includes('/panel'));
+  // Sin la tabla (el sitio todavía no se subió): lo dice y no da enlace.
+  sqlite.exec('DROP TABLE panel_accesos');
+  await procesarAdmin(dep, { message: { text: '/panel' } });
+  assert.match(dichos.at(-1), /todavía no está instalado/);
+  assert.doesNotMatch(dichos.at(-1), /entrar\?t=/);
+});
+
+test('/panel por el Worker: va a administrar y el mensaje sale sin vista previa del enlace', { skip: sinSqlite }, async () => {
+  const { db } = entorno();
+  const kv = kvFalso();
+  await kv.put('dueno', JSON.stringify({ chat: 1, nombre: 'H', desde: AHORA.toISOString() }));
+  const env = { TELEGRAM_TOKEN: 'tok', ESTADO: kv, DB: db };
+  const original = globalThis.fetch;
+  const enviados = [];
+  globalThis.fetch = async (_url, o) => { enviados.push(JSON.parse(o.body)); return new Response(JSON.stringify({ ok: true, result: {} })); };
+  try {
+    const esperas = [];
+    await worker.fetch(new Request(`${DIRECCION}/telegram`, { method: 'POST', headers: { 'x-telegram-bot-api-secret-token': await contrasenaDelWebhook('tok') }, body: JSON.stringify({ message: { message_id: 1, chat: { id: 1 }, from: { first_name: 'H' }, date: Math.floor(Date.now() / 1000), text: '/panel' } }) }), env, { waitUntil: (p) => esperas.push(p) });
+    await Promise.all(esperas);
+    const mensaje = enviados.find((e) => /panel\/entrar\?t=/.test(e.text ?? ''));
+    assert.ok(mensaje, JSON.stringify(enviados));
+    assert.deepEqual(mensaje.link_preview_options, { is_disabled: true });
+  } finally { globalThis.fetch = original; }
+});

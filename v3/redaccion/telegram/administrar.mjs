@@ -1,4 +1,4 @@
-// Administrar lo ya publicado desde Telegram: /retirar, /corregir, /ultimas, /pendientes, /ocultar, /mostrar, /ocultas, /redes, /repaso, /foto y /ayuda.
+// Administrar lo ya publicado desde Telegram: /retirar, /corregir, /ultimas, /pendientes, /ocultar, /mostrar, /ocultas, /redes, /repaso, /foto, /panel y /ayuda.
 // Reemplaza al panel del celular viejo. Nunca usa IA: sólo lee y escribe la tabla `notas` de la D1 (binding DB), con las consultas acá mismo.
 // Cada cambio muestra qué va a pasar y espera un «sí». El estado de lo que está en curso vive en el KV, clave `accion` (10 minutos).
 import { normalizar, esOk, esNo, slugDe, SITIO, mencionesDeTexto, conCuentaDelMedio, itemDe, MAX_FOTOS, nombreDeLaEleccion, REDES_ELEGIBLES } from './nota-propia.mjs';
@@ -27,10 +27,11 @@ Lo ya publicado
 • /corregir <enlace o id>: cambiar el título, la bajada o una frase del cuerpo. Te muestro el antes y el después y espero tu «sí».
 
 Otros
+• /panel: te mando el enlace para entrar al panel web (radarbalcarce.com/panel), donde se ve y se cambia todo esto desde el navegador.
 • /estado: si el bot está conectado.
 • /ayuda: esta lista.`;
 
-export const COMANDOS = ['/ayuda', '/ultimas', '/pendientes', '/retirar', '/corregir', '/seccion', '/menciones', '/ocultar', '/mostrar', '/ocultas', '/redes', '/repaso', '/foto'];
+export const COMANDOS = ['/ayuda', '/ultimas', '/pendientes', '/retirar', '/corregir', '/seccion', '/menciones', '/ocultar', '/mostrar', '/ocultas', '/redes', '/repaso', '/foto', '/panel'];
 
 // ------------------------------------------------------------------------------------------------------------ entender lo que escribió
 
@@ -153,6 +154,7 @@ export async function procesarAdmin(dep, actualizacion) {
     if (comando === '/redes') return await mandarARedes(dep, resto);
     if (comando === '/repaso') return await mandarAlRepaso(dep, resto);
     if (comando === '/foto') return await empezarFotos(dep, resto);
+    if (comando === '/panel') return await enlaceDelPanel(dep);
     if (!texto && (m.photo?.length || m.document)) return await recibirFoto(dep, m);
     return await continuar(dep, texto);
   } catch (e) {
@@ -417,6 +419,28 @@ async function guardarFotos(dep, a) {
   for (const c of claves) await dep.kv.delete(c);
   const perdidas = Math.min(items.length, MAX_FOTOS) - guardadas.length;
   return dep.enviar(`Listo: «${corto(nota.titulo, 80)}» tiene ${guardadas.length} foto${guardadas.length > 1 ? 's' : ''} (la primera de portada).${perdidas ? ` (${perdidas} no se pudo${perdidas > 1 ? 'ieron' : ''} bajar.)` : ''}${items.length > MAX_FOTOS ? ` Pasaste el máximo de ${MAX_FOTOS}: las demás quedaron afuera.` : ''} El sitio la muestra en unos minutos.`);
+}
+
+// ------------------------------------------------------------------------------------------------------------ /panel
+
+const MINUTOS_DEL_ENLACE = 15;
+const huellaHex = async (t) => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t)))].map((b) => b.toString(16).padStart(2, '0')).join('');
+
+/**
+ * /panel: un enlace de un solo uso para entrar al panel web (v3/sitio/panel.mjs). En la base (tabla panel_accesos) queda sólo la huella SHA-256 del token,
+ * con 15 minutos de vida; el token va únicamente en el mensaje. Sin vista previa del enlace, para que Telegram no lo abra solo.
+ */
+export async function enlaceDelPanel(dep) {
+  const bytes = crypto.getRandomValues(new Uint8Array(32));
+  const token = btoa(String.fromCharCode(...bytes)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  const vence = new Date(dep.ahora().getTime() + MINUTOS_DEL_ENLACE * 60 * 1000).toISOString();
+  try {
+    await dep.db.prepare('INSERT INTO panel_accesos (token, vence) VALUES (?, ?)').bind(await huellaHex(token), vence).run();
+  } catch (e) {
+    if (/no such table/i.test(String(e?.message ?? e))) return dep.enviar('El panel todavía no está instalado en la base: hay que subir el sitio («Radar 3.0: desplegar» con sitio). No generé ningún enlace.');
+    throw e;
+  }
+  return dep.enviar(`Tu enlace para entrar al panel:\n${SITIO}/panel/entrar?t=${token}\n\nSirve una vez y vence en ${MINUTOS_DEL_ENLACE} minutos. Al entrar, este teléfono queda adentro 30 días. No lo reenvíes: con él se entra al panel.`, { sinVistaPrevia: true });
 }
 
 // ------------------------------------------------------------------------------------------------------------ /retirar

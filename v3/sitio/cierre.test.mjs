@@ -3,7 +3,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { crearSitio, esRutaPropia } from './sitio.mjs';
-import { rutaEstatica, CSP_DEL_PANEL } from './estaticos.mjs';
+import { rutaEstatica } from './estaticos.mjs';
 import { eventoDeMunicipio, leerAgenda } from './agenda.mjs';
 import { icsDeEvento } from './eventos.mjs';
 import { NOTAS, SECCIONES } from './redirecciones-viejas.mjs';
@@ -202,7 +202,7 @@ test('/llms.txt, los datos para agentes, el mapa de noticias y el mapa de págin
   const indice = await (await ir('/sitemap.xml')).text();
   assert.match(indice, /sitemap-news\.xml/);
   assert.match(indice, /sitemap-paginas\.xml/);
-  assert.match(await (await ir('/robots.txt')).text(), /Disallow: \/panel\//);
+  assert.match(await (await ir('/robots.txt')).text(), /Disallow: \/panel\n/);
 });
 
 test('/humans.txt: quiénes hacen el sitio, en texto plano', async () => {
@@ -274,41 +274,39 @@ test('las 688 redirecciones de notas unidas o retiradas del viejo: están, apunt
   assert.equal(pedidos.length, 0);
 });
 
-test('los archivos fijos salen del depósito con los encabezados del sitio viejo; el panel lleva su política propia', async () => {
+test('los archivos fijos salen del depósito con los encabezados del sitio viejo; el panel viejo ya no sale del depósito', async () => {
   const objetos = {
-    'estaticos/panel/index.html': { body: '<h1>panel</h1>', httpEtag: '"p1"' },
+    'estaticos/panel/index.html': { body: '<h1>panel viejo</h1>', httpEtag: '"p1"' },
     'estaticos/panel/app.js': { body: 'js', httpEtag: '"p2"' },
     'estaticos/escudos/5.png': { body: 'png', httpEtag: '"e1"' },
     'estaticos/favicon.ico': { body: 'ico' },
     'estaticos/manifest.webmanifest': { body: '{}' },
   };
   const { ir, pedidos } = montar({ objetos });
+  // /panel es el panel nuevo (panel.mjs): sin sesión muestra cómo entrar; nunca los archivos del panel viejo.
   const p = await ir('/panel/');
   assert.equal(p.status, 200);
-  assert.equal(p.headers.get('content-security-policy'), CSP_DEL_PANEL);
+  assert.doesNotMatch(await p.text(), /panel viejo/);
   assert.equal(p.headers.get('x-robots-tag'), 'noindex, nofollow');
-  assert.equal(p.headers.get('cache-control'), 'no-cache');
-  assert.match(p.headers.get('content-type'), /text\/html/);
-  assert.equal((await ir('/panel')).headers.get('location'), '/panel/');
-  assert.match((await ir('/panel/app.js')).headers.get('content-type'), /javascript/);
+  assert.equal(p.headers.get('cache-control'), 'no-store');
+  assert.equal((await ir('/panel/app.js')).status, 200);
+  assert.doesNotMatch(await (await ir('/panel/app.js')).text(), /^js$/);
   assert.match((await ir('/escudos/5.png')).headers.get('cache-control'), /immutable/);
   assert.match((await ir('/manifest.webmanifest')).headers.get('content-type'), /manifest\+json/);
   assert.equal((await ir('/favicon.ico')).headers.get('content-type'), 'image/vnd.microsoft.icon');
-  assert.equal((await ir('/panel/app.js', { metodo: 'HEAD' })).status, 200);
   assert.equal(pedidos.length, 0);
-  assert.equal(rutaEstatica('/panel/../x'), null);
+  assert.equal(rutaEstatica('/panel/'), null);
+  assert.equal(rutaEstatica('/panel/app.js'), null);
   assert.equal(rutaEstatica('/escudos/%2e%2e'), null);
-  assert.match(CSP_DEL_PANEL, /connect-src 'self' https:\/\/api\.github\.com https:\/\/radar-balcarce-reloj\.radarbalcarce\.workers\.dev/);
-  assert.match(CSP_DEL_PANEL, /script-src 'self'/);
 });
 
 test('RESPALDO_VIEJO: con "si" lo que nadie maneja y el depósito no tiene va al viejo; con "no" nada sale hacia el viejo y es 404 propio', async () => {
   const con = montar({ respaldo: 'si' });
   assert.equal(await (await con.ir('/ruta-que-nadie-maneja')).text(), 'viejo');
-  assert.equal((await con.ir('/panel/')).status, 200, 'el depósito está vacío: cae al viejo mientras tanto');
+  assert.equal((await con.ir('/escudos/5.png')).status, 200, 'el depósito está vacío: cae al viejo mientras tanto');
   assert.ok(con.pedidos.length >= 2);
   const sin = montar({ respaldo: 'no' });
-  for (const ruta of ['/ruta-que-nadie-maneja', '/panel/', '/escudos/5.png', '/fotos-notas/inexistente.jpg', '/icon-192.png']) {
+  for (const ruta of ['/ruta-que-nadie-maneja', '/escudos/5.png', '/fotos-notas/inexistente.jpg', '/icon-192.png']) {
     const r = await sin.ir(ruta);
     assert.equal(r.status, 404, ruta);
   }

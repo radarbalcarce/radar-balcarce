@@ -357,11 +357,12 @@ export function depDe(env, chat, textos = {}, ahora = () => new Date()) {
     redaccion: textos.redaccion ?? '',
     iaHoy,
     descargar: (fileId) => descargarDeTelegram(token, fileId),
-    enviar: async (texto, { botones } = {}) => {
+    // `sinVistaPrevia`: Telegram no abre el enlace para armar la vista previa (el de /panel sirve una sola vez).
+    enviar: async (texto, { botones, sinVistaPrevia = false } = {}) => {
       const trozos = partirTexto(texto);
       for (let i = 0; i < trozos.length; i++) {
         const ultimo = i === trozos.length - 1;
-        await enviar(token, chat, trozos[i], ultimo && botones ? { reply_markup: { inline_keyboard: botones } } : {});
+        await enviar(token, chat, trozos[i], { ...(ultimo && botones ? { reply_markup: { inline_keyboard: botones } } : {}), ...(sinVistaPrevia ? { link_preview_options: { is_disabled: true } } : {}) });
       }
     },
     responderBoton: (id) => api(token, 'answerCallbackQuery', { callback_query_id: id }),
