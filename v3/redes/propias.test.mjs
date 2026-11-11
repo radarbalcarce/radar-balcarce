@@ -80,3 +80,13 @@ test('el texto del reel de una nota propia lleva el enlace a la nota (Facebook y
   assert.match(textoDePieza(pieza, item, 'facebook'), /La nota completa: https:\/\/radarbalcarce\.com\/nota\/benjamin-abc/);
   assert.match(textoDePieza(pieza, item, 'instagram'), /La nota completa: link en la bio/);
 });
+
+test('previa: lee título, cuerpo, fotos y sección de la página publicada', async () => {
+  const { notaDeLaPagina } = await import('./piezas/previa.mjs');
+  const html = '<a class="etiqueta">Cultura</a><h1>Un título</h1><p class="bajada">La bajada</p><span class="por">Hernán Accomo</span><div class="cuerpo"><p>Uno.</p><p>Dos.</p><div id="los-datos"><p>afuera</p></div></div><img src="https://radarbalcarce.com/fotos-notas/a.jpg"><img src="https://radarbalcarce.com/fotos-notas/a.jpg"><img src="https://radarbalcarce.com/fotos-notas/b.jpg">';
+  const n = notaDeLaPagina(html, { url: 'https://radarbalcarce.com/nota/un-titulo-abc123', seccion: 'Argentina' });
+  assert.equal(n.id, 'abc123');
+  assert.equal(n.seccion, 'Argentina');
+  assert.deepEqual(n.cuerpo, ['Uno.', 'Dos.']);
+  assert.equal(n.fotos.length, 2);
+});

@@ -1,0 +1,66 @@
+# La previa del reel de una nota propia: arma el video con voz como lo haría el reloj, pero NO publica nada (ni Meta, ni Buffer, ni el Worker). Deja el mp4 y el mp3 como archivo de la corrida.
+# Guarda la voz en la memoria de voces: si después se publica el reel, el reloj reusa ese mismo audio (suena exactamente igual que la previa). Ver v3/redes/piezas/previa.mjs.
+name: 'Radar 3.0: previa del reel de una nota'
+
+on:
+  workflow_dispatch:
+    inputs:
+      nota:
+        description: 'La dirección de la nota publicada (https://radarbalcarce.com/nota/...)'
+        type: string
+        required: true
+      seccion:
+        description: 'La sección con que se arma, si la de la página no es la que va (por ejemplo Argentina). Vacío = la de la página'
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v3-reel-previa
+  cancel-in-progress: false
+
+jobs:
+  previa:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      TZ: America/Argentina/Buenos_Aires
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Instalar
+        run: npm ci --no-audit --no-fund
+      - name: Restaurar la memoria de voces
+        uses: actions/cache/restore@v4
+        with:
+          path: .cache/voz-v3
+          key: voz-v3-${{ github.run_id }}
+          restore-keys: |
+            voz-v3-
+      - name: Armar la previa (sin publicar)
+        run: node v3/redes/piezas/previa.mjs
+        env:
+          NOTA_URL: ${{ inputs.nota }}
+          SECCION: ${{ inputs.seccion }}
+          GEMINI_API_KEY_REDES_V3: ${{ secrets.GEMINI_API_KEY_REDES }}
+          VOZ_CACHE: ${{ github.workspace }}/.cache/voz-v3
+          SALIDA_PIEZAS: ${{ github.workspace }}/salida-previa
+      - name: Guardar la memoria de voces
+        if: always() && hashFiles('.cache/voz-v3/*.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: .cache/voz-v3
+          key: voz-v3-${{ hashFiles('.cache/voz-v3/*.json') }}
+      - name: Dejar la previa para ver
+        if: always() && hashFiles('salida-previa/*.mp4') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: previa-reel
+          path: salida-previa/
+          retention-days: 3
