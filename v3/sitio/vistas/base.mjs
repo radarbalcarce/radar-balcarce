@@ -82,6 +82,10 @@ article.nota .cuerpo{font-size:17px;line-height:1.6}
 .compartir span{font:600 13px var(--sans);color:var(--suave);margin-right:4px}
 .compartir a{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border:1.5px solid var(--linea);border-radius:50%;color:var(--tinta);background:var(--papel);transition:background .15s ease,color .15s ease,border-color .15s ease}
 .compartir a:hover,.compartir a:active,.compartir a:focus-visible{background:var(--rojo);border-color:var(--rojo);color:#fff}
+.compartir button{display:inline-flex;align-items:center;justify-content:center;position:relative;width:42px;height:42px;padding:0;border:1.5px solid var(--linea);border-radius:50%;color:var(--tinta);background:var(--papel);cursor:pointer;font:inherit}
+.compartir button:hover,.compartir button:focus-visible,.compartir button.copiado{background:var(--rojo);border-color:var(--rojo);color:#fff}
+.compartir .comp-ok{display:none;position:absolute;left:50%;top:-30px;transform:translateX(-50%);white-space:nowrap;font:600 12px var(--sans);color:#fff;background:var(--tinta);padding:3px 8px;border-radius:6px;margin:0}
+.compartir button.copiado .comp-ok{display:block}
 .seguir{margin:26px 0 8px;padding-top:6px;border-top:3px solid var(--tinta)}
 .seguir h2{margin:14px 0 4px;font:800 22px var(--serif);color:var(--tinta)}
 .seguir-mas{margin:12px 0 4px;font:600 15px var(--sans)}
@@ -505,7 +509,7 @@ export function menu() {
 }
 
 // Si hay JavaScript, el menú arranca cerrado en el celular y el botón lo abre; si no, queda a la vista.
-const GUION_DEL_MENU = `<script>document.documentElement.className+=' js';(function(){var b=document.getElementById('mb'),m=document.getElementById('menu');if(!b||!m)return;b.addEventListener('click',function(){var o=m.classList.toggle('abierto');b.setAttribute('aria-expanded',o)})})()</script>`;
+const GUION_DEL_MENU = `<script>document.documentElement.className+=' js';(function(){var b=document.getElementById('mb'),m=document.getElementById('menu');if(!b||!m)return;b.addEventListener('click',function(){var o=m.classList.toggle('abierto');b.setAttribute('aria-expanded',o)})})();(function(){var c=document.querySelector('.comp-copiar');if(!c||!navigator.clipboard)return;c.addEventListener('click',function(){navigator.clipboard.writeText(c.dataset.url).then(function(){c.classList.add('copiado');setTimeout(function(){c.classList.remove('copiado')},2500)})})})()</script>`;
 
 /** Un script de datos estructurados: se escapa "<" para que nada cierre la etiqueta. */
 export const jsonLd = (obj) => `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, '\\u003c')}</script>`;

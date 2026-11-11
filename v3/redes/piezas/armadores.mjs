@@ -281,7 +281,7 @@ export function armarNotaPropia(nota, opciones = {}) {
       voz = partesQueEntran([frase], cap);
     }
     return escena('placa-nota', porPlaca, {
-      rotulo: 'Nota de Radar Balcarce', i, n, titulo: i === 0 ? acortarCaracteres(nota.titulo, 80) : acortarCaracteres(frase, 200), seccion: nota.seccion, foto: fotoDe(f), firma,
+      rotulo: 'Nota de Radar Balcarce', i, n, titulo: i === 0 ? nota.titulo : acortarCaracteres(frase, 200), seccion: nota.seccion, foto: fotoDe(f), firma,
       marca: i === 0 ? null : frase,
     }, ultima ? unir(voz, CIERRE_NOTA_PROPIA) : voz);
   });

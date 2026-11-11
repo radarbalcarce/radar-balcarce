@@ -274,7 +274,8 @@ test('el gancho de la voz es corto y los títulos largos se acortan en pantalla'
   assert.equal(ganchoDe('Un título corto'), 'Un título corto.');
   const largo = nota({ titulo: 'Un título larguísimo que sigue y sigue y no termina nunca porque quien lo escribió se olvidó de ponerle punto final a tiempo' });
   assert.ok(armarNotaReel(largo, {}).escenas[0].datos.titulo.length <= 90, 'el titular en pantalla no pasa de 90 caracteres');
-  assert.ok(armarNotaPropia(propia({ titulo: largo.titulo }), {}).escenas[0].datos.titulo.length <= 80);
+  // La nota propia muestra el titular ENTERO (Hernán, 10/11): la placa achica la letra hasta 5 renglones (repartir, reels/placa.mjs) en vez de cortarlo con «…».
+  assert.equal(armarNotaPropia(propia({ titulo: largo.titulo }), {}).escenas[0].datos.titulo, largo.titulo);
 });
 
 test('nota propia: la sección que le corresponde, nunca «Nota propia», y la firma de Hernán en cada placa', () => {

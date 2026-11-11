@@ -133,6 +133,8 @@ export function compartirHtml(n, canonico) {
   ];
   return '<nav class="compartir" aria-label="Compartir esta nota"><span>Compartir</span>'
     + redes.map(([id, nombre, href]) => '<a class="comp-' + id + '" href="' + href + '" target="_blank" rel="noopener nofollow" aria-label="Compartir en ' + nombre + '" title="' + nombre + '"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">' + ICONOS[id] + '</svg></a>').join('')
+    // Copiar el enlace (Hernán, 10/11): un botón que lo copia y avisa «¡Copiado!» unos segundos; sin JavaScript no hace nada (los demás botones siguen andando).
+    + '<button type="button" class="comp-copiar" data-url="' + esc(BASE + canonico) + '" aria-label="Copiar el enlace" title="Copiar el enlace"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg><span class="comp-ok">¡Copiado!</span></button>'
     + '</nav>';
 }
 
