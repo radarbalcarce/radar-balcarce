@@ -150,6 +150,10 @@ export function partirEnMensajes(lineas, max = LARGO_DE_MENSAJE) {
 // El interruptor: sólo "si" publica; cualquier otra cosa (o nada) deja todo en borrador. Lo cambia una persona el día del corte.
 export const publica = (env) => /^s*s[ií]s*$/i.test(String((env && env.NUCLEO_PUBLICA) || 'no'));
 
+// Lo que se le guarda a redactar y a las fotos: la duda sólo gasta hasta el 60 % del tope del día.
+export const RESERVA_PARA_REDACTAR = 0.4;
+const reserva = (tope) => Math.floor(tope * RESERVA_PARA_REDACTAR);
+
 export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
   const nombreDeFuente = new Map(fuentes.map((f) => [f.id, f.nombre]));
 
@@ -169,7 +173,8 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       modelo: env.GEMINI_MODELO || 'gemini-3.1-flash-lite',
       fetch: c.fetchFn,
       topeDiario,
-      usoDeHoy: async () => estado.pedidosHoy,
+      // La «duda» (¿es el mismo hecho?) no puede comerse todo el tope: cuenta con la reserva sumada, así corta antes y deja lugar para redactar y las fotos (caso real 11/11: 403 dudas, redacción frenada desde las 13:15).
+      usoDeHoy: async () => estado.pedidosHoy + (tarea === 'duda' ? reserva(topeDiario) : 0),
       contarUso: async ({ entrada, salida }) => {
         estado.pedidosHoy += 1;
         await db.anotarUso(env, c.dia, tarea, entrada, salida);
@@ -190,7 +195,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       modelo: env.MISTRAL_MODELO || MODELO_MISTRAL,
       fetch: c.fetchFn,
       topeDiario: topeMistral,
-      usoDeHoy: async () => estado.mistralHoy,
+      usoDeHoy: async () => estado.mistralHoy + (tarea === 'duda' ? reserva(topeMistral) : 0),
       contarUso: async ({ entrada, salida }) => {
         estado.mistralHoy += 1;
         await db.anotarUso(env, diaMistral, tarea, entrada, salida);
@@ -212,7 +217,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     const c = contexto(env, deps);
     const r = {
       cuando: c.ahoraISO, fuentesLeidas: 0, fuentesConError: [], articulosNuevos: 0, articulosPospuestos: 0, historiasNuevas: 0, unidas: 0, dudas: 0,
-      elegidas: 0, noSalen: {}, pedidosAMistral: 0, redactadas: 0, publicadas: 0, publicadasPendientes: 0, fotosReintentadas: 0, fotosEncontradas: 0, frenadasPorLey: 0, errores: [], sinClaveGemini: false, topeDiario: false, frenoMensual: false, clima: null,
+      elegidas: 0, noSalen: {}, pedidosAMistral: 0, redactadas: 0, publicadas: 0, publicadasPendientes: 0, fotosReintentadas: 0, fotosEncontradas: 0, frenadasPorLey: 0, errores: [], sinClaveGemini: false, topeDiario: false, topeDeDudas: false, frenoMensual: false, clima: null,
     };
     const error = (donde, e) => {
       const msg = `${donde}: ${String((e && e.message) || e).slice(0, 200)}`;
@@ -256,7 +261,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
         const respuesta = await dudaGemini.texto(textoParaDuda(articulo, historia));
         return /^\s*s[ií]\b/i.test(String(respuesta));
       } catch (e) {
-        if (e.message === 'tope-diario') r.topeDiario = true; else error('pregunta de duda', e);
+        if (e.message === 'tope-diario') r.topeDeDudas = true; else error('pregunta de duda', e); // no frena el resto de la vuelta
         return false; // ante la duda, historia aparte
       }
     };

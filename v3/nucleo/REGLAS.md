@@ -363,3 +363,7 @@ Recomendación: hacer el paso 2 sólo cuando las copias propias cubran todas las
 ## /salud: notas sin foto por motivo (6/11)
 
 `/salud` trae `sinFoto7d` = { total, conFoto, sinFoto, porMotivo } de las notas de los últimos 7 días, con `porMotivo` según `verificacion.fotoMotivo` (MOTIVOS_SIN_FOTO; «sin-marca» si no quedó el motivo): una consulta agrupada (`db.contarSinFotoPorMotivo`). Prueba: `worker.test.mjs`.
+
+## La duda no se come el tope (11/11)
+
+El 11/11 la tarea «duda» gastó 403 de los 700 pedidos del día y la redacción quedó frenada desde las 13:15. Ahora la duda cuenta con una reserva (`RESERVA_PARA_REDACTAR`, 40 % del tope, en Gemini y en Mistral): corta al 60 % y marca `topeDeDudas`, que no frena la redacción ni las fotos. El tope diario subió de 700 a 1.500 (gasto real del mes: US$ 0,76 de 7). Prueba: «la duda no se come todo el tope» (`worker.test.mjs`).

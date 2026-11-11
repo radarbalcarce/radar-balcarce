@@ -250,6 +250,23 @@ test('la banda de duda le pregunta a Gemini, anota la duda y cuenta para el tope
   assert.equal(filas(env2, 'SELECT respuesta FROM dudas')[0].respuesta, 0);
 });
 
+test('la duda no se come todo el tope: corta al 60 % y no frena la redacción (caso 11/11: 403 dudas, nada redactado desde las 13:15)', { skip: sinSqlite }, async () => {
+  const env = envDe({ NUCLEO_TOPE_DIARIO: '10', NUCLEO_REDACTAR_POR_VUELTA: '0' });
+  for (let i = 0; i < 6; i += 1) await db.anotarUso(env, '2026-11-02', 'redaccion', 10, 10); // 6 de 10 gastados: a la duda sólo le quedan 0 (10 - reserva de 4)
+  const base = 'Un incendio destruyó una fábrica textil en el puerto de Mar del Plata y dos obreros fueron hospitalizados con quemaduras. ';
+  const bs = 'Un incendio destruyó una fábrica textil en el puerto de Mar del Plata. ';
+  const df = 'Los peritos revisan el edificio y la fiscalía ordenó la detención del dueño del galpón. ';
+  const a = rss([{ titulo: 'Incendio en una fábrica de Mar del Plata dejó dos heridos graves', url: 'https://diario-uno.test/a', texto: base.repeat(3) }]);
+  const b = rss([{ titulo: 'Incendio en una fábrica de Mar del Plata: investigan las causas y hay un detenido', url: 'https://diario-dos.test/b', texto: bs + bs + df }]);
+  const m = mundo({ respuestaDeDuda: 'SI' });
+  const fetchBase = m.fetch;
+  m.fetch = async (url, op) => (String(url) === 'https://diario-uno.test/feed' ? new Response(a, { status: 200 }) : String(url) === 'https://diario-dos.test/feed' ? new Response(b, { status: 200 }) : fetchBase(url, op));
+  const r = await nucleo().vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(7) });
+  assert.equal(r.topeDeDudas, true, 'la duda chocó con su límite');
+  assert.equal(r.topeDiario, false, 'pero el día no se da por lleno: redactar y las fotos siguen');
+  assert.equal((await db.usoDelDia(env, '2026-11-02')).find((f) => f.tarea === 'duda'), undefined);
+});
+
 test('el tope diario corta la redacción de la vuelta sin error', { skip: sinSqlite }, async () => {
   const env = envDe({ NUCLEO_TOPE_DIARIO: '3', NUCLEO_REDACTAR_POR_VUELTA: '6' });
   const m = mundo();
