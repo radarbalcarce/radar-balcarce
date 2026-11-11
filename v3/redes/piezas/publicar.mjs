@@ -40,6 +40,8 @@ export function textoDePieza(pieza, item, red) {
       if (red !== 'instagram' && n.id) lineas.push(ponerOrigen(enlaceDeNota(n), { fuente: red === 'youtube' ? 'youtube' : 'facebook', campana: 'repaso', contenido: n.id }));
     }
   }
+  // La nota propia: la bajada (el resumen del guion arrancaba con el mismo titular de la primera línea: se leía dos veces, 10/11).
+  else if (item.arma === 'nota-propia' && item.datos?.nota?.bajada) lineas.push(limpiar(item.datos.nota.bajada));
   else lineas.push(resumenDelGuion(pieza.guion));
   // Las cuentas que se nombran en el texto (la persona de la nota y la nuestra), si se pidieron: «@fulano @radarbalcarce» (10/11, reel de Benjamín Luque Cuenca).
   if (item.datos?.menciones?.length) lineas.push('', item.datos.menciones.join(' '));
