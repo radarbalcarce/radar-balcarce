@@ -7,7 +7,7 @@ import { PIEZAS_DEL_DIA, piezasDeHoy, piezasQueTocan, minutoDe, bloqueDe, bloque
 import { diaDeBalcarce, motivoDeExclusion, tipoDeNota, tieneFoto, saleEn, REGLAS as REGLAS_DE_NOTAS } from './elegir.mjs';
 import { notasParaRedes, publicacionesDelDia } from './db.mjs';
 import * as dbp from './piezas-db.mjs';
-import { datosDeLaSemana, proximaNotaConCarrusel } from './piezas-carruseles.mjs';
+import { datosDeLaSemana, proximaNotaConCarrusel, proximaNotaConReel } from './piezas-carruseles.mjs';
 
 export const REGLAS_PIEZAS = Object.freeze({
   audiosPorDia: 10,        // el cupo de voz (CRITERIO-REDES.md § 6). Se cambia con la variable VOZ_TOPE_DIARIO
@@ -141,14 +141,19 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
     if (buffer.includes('youtube')) youtubeHoy += 1;
     salen.push({ fila, id: p.id, nombre: p.nombre, arma: p.arma, variante: p.variante ?? null, momento: p.momento ?? null, formato: p.formato, hora: p.hora, horaDelDia: p.arma === 'aviso' ? Math.floor(minuto / 60) : Math.floor(minutoDe(p.hora) / 60), bloque, saluda, buffer, voz: p.voz, hashtag: p.hashtag, primeraDelBloque: !otraHablo, datos });
   }
-  // El carrusel de una nota propia con 3 fotos o más: no tiene hora, sale apenas se publica la nota, una por vuelta y una sola vez por nota. Sin voz: no gasta audios.
-  const deNota = PIEZAS_DEL_DIA.find((x) => x.porNota);
-  if (deNota && (solo?.length ? solo.includes(deNota.id) : piezasQueTocan(ahora).some((x) => x.id === deNota.id))) {
-    const siguiente = await proximaNotaConCarrusel(env, { ahora, simulado });
-    if (siguiente) {
-      const fila = await dbp.reservarPieza(env, { pieza: siguiente.pieza, dia, hora: deNota.hora, bloque: null, simulado, ahoraISO, notas: null, auspicio: null, vozPrevista: 0 });
-      if (fila) salen.push({ fila, id: siguiente.pieza, nombre: siguiente.nota.titulo, arma: deNota.arma, variante: null, momento: null, formato: deNota.formato, hora: deNota.hora, horaDelDia: Math.floor(minutoDe(deNota.hora) / 60), bloque: null, saluda: false, buffer: [], voz: deNota.voz, hashtag: deNota.hashtag, primeraDelBloque: false, datos: { nota: siguiente.nota } });
-    }
+  // Lo de una nota propia, sin hora: sale apenas se publica la nota, una por vuelta y una sola vez por nota. El carrusel (3 fotos o más) no gasta audios; el reel con voz sí y respeta el cupo.
+  for (const deNota of PIEZAS_DEL_DIA.filter((x) => x.porNota)) {
+    if (!(solo?.length ? solo.includes(deNota.id) : piezasQueTocan(ahora).some((x) => x.id === deNota.id))) continue;
+    const conVoz = !deNota.sinVoz;
+    if (conVoz && tope - usados <= 0) { descartes.push({ pieza: deNota.id, motivo: 'sin-cupo-de-voz', quedan: 0 }); continue; }
+    const siguiente = conVoz ? await proximaNotaConReel(env, { ahora, simulado }) : await proximaNotaConCarrusel(env, { ahora, simulado });
+    if (!siguiente) continue;
+    const fila = await dbp.reservarPieza(env, { pieza: siguiente.pieza, dia, hora: deNota.hora, bloque: null, simulado, ahoraISO, notas: null, auspicio: null, vozPrevista: conVoz ? 1 : 0 });
+    if (!fila) continue;
+    if (conVoz) usados += 1;
+    const buffer = deNota.formato === 'carrusel' ? [] : redesDeBuffer(deNota, { youtubeHoy, tope: topeDeYoutube(env) });
+    if (buffer.includes('youtube')) youtubeHoy += 1;
+    salen.push({ fila, id: siguiente.pieza, nombre: siguiente.nota.titulo, arma: deNota.arma, variante: null, momento: null, formato: deNota.formato, hora: deNota.hora, horaDelDia: Math.floor(minutoDe(deNota.hora) / 60), bloque: null, saluda: false, buffer, voz: deNota.voz, hashtag: deNota.hashtag, primeraDelBloque: false, datos: { nota: siguiente.nota } });
   }
   return { dia, simulado, vozTope: tope, vozQuedan: Math.max(0, tope - usados), piezas: salen, descartes };
 }
@@ -169,7 +174,7 @@ export function lineasDeLasPiezas(filas, simulado) {
   if (!filas.length) return [];
   const listas = filas.filter((f) => f.estado === 'lista' || f.estado === 'publicada');
   const fallas = filas.filter((f) => f.estado === 'error');
-  const nombre = (id) => PIEZAS_DEL_DIA.find((p) => p.id === (id.startsWith('carrusel-nota-') ? 'carrusel-nota' : id))?.nombre ?? id;
+  const nombre = (id) => PIEZAS_DEL_DIA.find((p) => p.id === (id.startsWith('carrusel-nota-') ? 'carrusel-nota' : id.startsWith('reel-nota-') ? 'reel-nota' : id))?.nombre ?? id;
   const lineas = [simulado
     ? `Piezas de video (ENSAYO, nada se publicó): ${listas.length} armadas con voz y guardadas.`
     : `Piezas de video: ${listas.length} publicadas.`];

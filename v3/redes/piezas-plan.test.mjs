@@ -26,7 +26,7 @@ function conNotas() {
 test('la tabla de horarios es la de hoy: mismas piezas, horas, ventanas, días y prioridad que redes/piezas-del-dia.mjs (mientras exista el viejo)', async (t) => {
   let viejo;
   try { ({ PIEZAS_DEL_DIA: viejo } = await import('../../redes/piezas-del-dia.mjs')); } catch { t.skip('el sistema viejo ya no está'); return; }
-  for (const p of PIEZAS_DEL_DIA.filter((x) => !x.id.startsWith('aviso-') && x.formato !== 'carrusel')) {
+  for (const p of PIEZAS_DEL_DIA.filter((x) => !x.id.startsWith('aviso-') && x.formato !== 'carrusel' && !x.porNota)) {
     const v = viejo.find((x) => x.id === p.id);
     assert.ok(v, `${p.id} no está en la tabla vieja`);
     assert.deepEqual([p.hora, p.ventana, [...p.dias], p.voz, p.hashtag], [v.hora, v.ventana, [...v.dias], v.voz, v.hashtag], p.id);
@@ -38,7 +38,7 @@ test('la tabla de horarios es la de hoy: mismas piezas, horas, ventanas, días y
 });
 
 test('qué toca a cada hora: respeta la hora, la ventana, el día de la semana y la medianoche', () => {
-  const piezasQueTocan = (x) => piezasQueTocanConCondicionales(x).filter((p) => !p.condicional && p.formato !== 'carrusel'); // las condicionales se prueban aparte
+  const piezasQueTocan = (x) => piezasQueTocanConCondicionales(x).filter((p) => !p.condicional && p.formato !== 'carrusel' && !p.porNota); // las condicionales se prueban aparte
   assert.deepEqual(ids(piezasQueTocan(AHORA)).sort(), ['clima-manana', 'efemeride', 'noticia1']); // martes 10:00: Participá es a las 12
   assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-03T15:05:00Z'))).sort(), ['noticia1', 'participa-evento']); // martes 12:05 (el repaso de las 10 dura hasta las 13)
   assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-04T15:05:00Z'))), ['participa-reclamos', 'noticia1']); // miércoles 12:05

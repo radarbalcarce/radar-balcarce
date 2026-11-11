@@ -90,3 +90,30 @@ export async function proximaNotaConCarrusel(env, { ahora, simulado }) {
   }
   return null;
 }
+
+/**
+ * Las notas propias que hoy pueden tener su reel con voz: las que su autor mandó a propósito a «Reel» o «Historia» en el bot (sin confirmar no cuenta: la voz gasta cupo), con 1 a 3 fotos
+ * con dirección pública, de servicio no, sin tono triste (R41) y publicadas hace menos de 72 horas. Las más nuevas primero.
+ */
+export function propiasConReel(notas, { ahora }) {
+  const limite = new Date(ahora).getTime() - CARRUSEL_DE_NOTA.horasDespuesDePublicada * 3600_000;
+  return notas.filter((n) => !n.deServicio && n.titulo
+    && new Date(n.publicada).getTime() >= limite
+    && n.redes?.confirmada === true
+    && (Array.isArray(n.redes?.lista) ? n.redes.lista.some((c) => c === 'reel' || c === 'historia') : ['todo', 'posteo-historia'].includes(n.redes?.eleccion))
+    && !esTragediaParaRedes({ titulo: n.titulo, bajada: n.bajada })
+    && fotosDeLaNota(n).length >= 1)
+    .sort((a, b) => String(b.publicada).localeCompare(String(a.publicada)));
+}
+
+/** La nota propia que sigue para su reel (una sola vez por nota). Devuelve { pieza, nota } o null. El id de la pieza es `reel-nota-<id de la nota>`. */
+export async function proximaNotaConReel(env, { ahora, simulado }) {
+  const notas = await dbp.notasPropiasParaCarrusel(env, { desdeISO: new Date(new Date(ahora).getTime() - CARRUSEL_DE_NOTA.horasDespuesDePublicada * 3600_000).toISOString() });
+  for (const n of propiasConReel(notas, { ahora })) {
+    const pieza = `reel-nota-${n.id}`;
+    if (!(await dbp.piezaYaSalio(env, pieza, simulado)) && (await dbp.intentosFallidosDe(env, pieza, simulado)) < 3) {
+      return { pieza, nota: { ...notaParaElCarrusel(n), bajada: n.bajada, cuerpo: n.cuerpo, fotos: fotosDeLaNota(n).slice(0, 3) } };
+    }
+  }
+  return null;
+}

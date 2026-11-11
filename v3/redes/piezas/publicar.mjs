@@ -43,7 +43,8 @@ export function textoDePieza(pieza, item, red) {
   else lineas.push(resumenDelGuion(pieza.guion));
   if (pieza.auspicio) lineas.push('', `El clima de hoy lo auspicia ${pieza.auspicio.comercio}${pieza.auspicio.cuenta ? ` (${pieza.auspicio.cuenta})` : ''}.`);
   const servicio = SERVICIOS_CON_PAGINA[item.arma];
-  if (red === 'instagram') lineas.push('', 'Todo en Radar Balcarce: link en la bio.');
+  if (item.arma === 'nota-propia' && item.datos?.nota?.id) lineas.push('', red === 'instagram' ? 'La nota completa: link en la bio.' : `La nota completa: ${ponerOrigen(enlaceDeNota(item.datos.nota), { fuente: red === 'youtube' ? 'youtube' : 'facebook', campana: 'reel-nota', contenido: item.datos.nota.id })}`);
+  else if (red === 'instagram') lineas.push('', 'Todo en Radar Balcarce: link en la bio.');
   else if (servicio) lineas.push('', `${servicio.frase}: ${ponerOrigen(`${SITIO}${servicio.camino}`, { fuente: 'facebook', campana: 'servicio', contenido: item.id ?? item.arma })}`);
   else lineas.push('', `Todo en ${DIRECCION_DEL_SITIO}`);
   if (pieza.aviso) lineas.push('', pieza.aviso || AVISO_DE_IA_TEXTO);

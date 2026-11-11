@@ -15,7 +15,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import {
-  armarClima, armarRepaso, armarEfemeride, armarFarmacia, armarParticipa, armarAgenda, armarUtiles, armarFeriado, armarAviso, armarCarrusel, armarCarruselSemana, armarCarruselFinde,
+  armarClima, armarRepaso, armarEfemeride, armarFarmacia, armarParticipa, armarAgenda, armarUtiles, armarFeriado, armarAviso, armarNotaPropia, armarCarrusel, armarCarruselSemana, armarCarruselFinde,
 } from './armadores.mjs';
 import {
   avisoDelClima, datosDelFeriado, efemerideDelDia, eventosParaLaAgenda, fechaLarga, feriadoDelDia, leerClima, leerFarmaciaDeTurno,
@@ -75,6 +75,9 @@ export function armarDelPlan(item, {
     case 'carrusel-finde':
       if (!finde?.length) throw new SinDatos('no hay eventos en la agenda de los próximos días');
       return armarCarruselFinde(finde, { fechaTexto: `Desde el ${fechaLarga(ahora).toLowerCase()}` });
+    case 'nota-propia':
+      if (!item.datos?.nota) throw new SinDatos('falta la nota del reel');
+      return armarNotaPropia(item.datos.nota, op);
     case 'carrusel-nota':
       if (!item.datos?.nota) throw new SinDatos('falta la nota del carrusel');
       return armarCarrusel(item.datos.nota);

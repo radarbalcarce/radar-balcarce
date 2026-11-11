@@ -72,7 +72,7 @@ export async function intentosFallidosDe(env, pieza, simulado) {
  * Las columnas `origen`, `slug` y `redes` de `notas` las suma el bot de Telegram; en una base que no las tiene se usa sólo `sitio_notas`.
  */
 export async function notasPropiasParaCarrusel(env, { desdeISO }) {
-  const sql = (extra) => `SELECT n.id, n.titulo, n.bajada, n.seccion, n.foto, n.ficha, n.firma, n.creada, s.slug AS s_slug, s.publicada_en AS s_publicada, s.origen AS s_origen, s.extra AS s_extra${extra}
+  const sql = (extra) => `SELECT n.id, n.titulo, n.bajada, n.cuerpo, n.seccion, n.foto, n.ficha, n.firma, n.creada, s.slug AS s_slug, s.publicada_en AS s_publicada, s.origen AS s_origen, s.extra AS s_extra${extra}
      FROM notas n LEFT JOIN sitio_notas s ON s.id = n.id
      WHERE n.estado = 'publicada' AND COALESCE(s.publicada_en, n.creada) >= ? ORDER BY COALESCE(s.publicada_en, n.creada) DESC`;
   let r;
@@ -86,7 +86,7 @@ export async function notasPropiasParaCarrusel(env, { desdeISO }) {
       ...(Array.isArray(extra?.fotosEnCuerpo) ? extra.fotosEnCuerpo : []),
     ];
     return {
-      id: f.id, titulo: f.titulo || '', bajada: f.bajada || '', seccion: f.seccion || '', firma: f.firma || '', slug: f.s_slug || f.n_slug || '', publicada: f.s_publicada || f.creada,
+      id: f.id, titulo: f.titulo || '', bajada: f.bajada || '', cuerpo: analizar(f.cuerpo, []), seccion: f.seccion || '', firma: f.firma || '', slug: f.s_slug || f.n_slug || '', publicada: f.s_publicada || f.creada,
       deServicio: f.id === 'mediakit' || !!analizar(f.ficha, null)?.marca, fotos, redes: analizar(f.n_redes, null),
     };
   });

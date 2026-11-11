@@ -485,7 +485,7 @@ async function elegirRedes(dep, pedido, lista, { porDefecto = false } = {}) {
   const donde = limpia.length ? `sale como: ${nombresDe(limpia)}` : 'queda sólo en la web';
   return dep.enviar(porDefecto
     ? `No elegiste a tiempo: «Sólo la web», ${donde}.`
-    : `Anotado: ${donde}. El posteo sale en la próxima vuelta de las redes; el carrusel apenas lo arma el reloj. Esta nota no entra en los repasos.`);
+    : `Anotado: ${donde}. El posteo sale en la próxima vuelta de las redes; el carrusel (con 3 fotos o más) y el reel con voz y su historia (con 1 a 3 fotos) los arma el reloj de 8 a 22 h, una vez por nota. Esta nota no entra en los repasos.`);
 }
 
 async function alApretarBoton(dep, cb) {

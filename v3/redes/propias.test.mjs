@@ -4,6 +4,8 @@ import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 import { baseDePrueba } from './ayuda-pruebas.mjs';
 import { notasParaRedes } from './db.mjs';
+import { propiasConReel } from './piezas-carruseles.mjs';
+import { armarNotaPropia } from './piezas/armadores.mjs';
 import { tipoDeNota, motivoDeExclusion, saleEn } from './elegir.mjs';
 
 const AHORA = new Date('2026-11-10T15:00:00.000Z');
@@ -52,4 +54,29 @@ test('saleEn: lo del núcleo sale en todas; lo propio, sólo en lo elegido', () 
   assert.equal(saleEn({ propia: true, redesElegidas: ['posteo'] }, 'bluesky'), true);
   assert.equal(saleEn({ propia: true, redesElegidas: ['carrusel'] }, 'facebook'), false);
   assert.equal(saleEn({ propia: true, redesElegidas: ['facebook', 'reel'] }, 'reel'), true);
+});
+
+const fotoHttps = (n) => ({ url: `https://radarbalcarce.com/fotos-notas/redaccion-abc-${n}.jpg`, credito: 'Radar Balcarce' });
+const propiaPlan = (extra = {}) => ({ id: 'abc', titulo: 'Benjamín vuelve a representar al país', bajada: 'Mister Teen Argentina.', cuerpo: ['Benjamín fue elegido otra vez.', 'Compite a fines de noviembre.'], seccion: 'Argentina', firma: 'Hernán Accomo', slug: 'benjamin', publicada: new Date(AHORA.getTime() - 3600_000).toISOString(), fotos: [fotoHttps(1)], deServicio: false, redes: { confirmada: true, lista: ['posteo', 'reel'] }, ...extra });
+
+test('el reel de una nota propia sólo sale si su autor lo eligió («Reel» o «Historia»), con 1 a 3 fotos, y se arma con la sección de la nota y la firma', () => {
+  assert.equal(propiasConReel([propiaPlan()], { ahora: AHORA }).length, 1);
+  assert.equal(propiasConReel([propiaPlan({ redes: { confirmada: true, lista: ['posteo'] } })], { ahora: AHORA }).length, 0);
+  assert.equal(propiasConReel([propiaPlan({ redes: { confirmada: false, lista: ['reel'] } })], { ahora: AHORA }).length, 0);
+  assert.equal(propiasConReel([propiaPlan({ redes: null })], { ahora: AHORA }).length, 0);
+  assert.equal(propiasConReel([propiaPlan({ redes: { confirmada: true, eleccion: 'todo' } })], { ahora: AHORA }).length, 1);
+  assert.equal(propiasConReel([propiaPlan({ fotos: [] })], { ahora: AHORA }).length, 0);
+  const uno = armarNotaPropia({ ...propiaPlan(), fotos: [fotoHttps(1)] });
+  const tres = armarNotaPropia({ ...propiaPlan(), fotos: [fotoHttps(1), fotoHttps(2), fotoHttps(3)] });
+  assert.equal(uno.escenas.length, 1);
+  assert.equal(tres.escenas.length, 3);
+  assert.ok(tres.duracion > uno.duracion);
+});
+
+test('el texto del reel de una nota propia lleva el enlace a la nota (Facebook y YouTube) o «link en la bio» (Instagram)', async () => {
+  const { textoDePieza } = await import('./piezas/publicar.mjs');
+  const item = { id: 'reel-nota-abc', nombre: 'Benjamín vuelve a representar al país', arma: 'nota-propia', hashtag: 'Noticias', datos: { nota: { id: 'abc', slug: 'benjamin', titulo: 'x' } } };
+  const pieza = { guion: 'Benjamín vuelve a representar al país en Brasil.', aviso: '' };
+  assert.match(textoDePieza(pieza, item, 'facebook'), /La nota completa: https:\/\/radarbalcarce\.com\/nota\/benjamin-abc/);
+  assert.match(textoDePieza(pieza, item, 'instagram'), /La nota completa: link en la bio/);
 });

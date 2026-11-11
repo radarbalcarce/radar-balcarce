@@ -464,3 +464,22 @@ test('el crédito de la lámina no duplica el prefijo: «Foto: Foto: X» nunca (
   assert.equal(creditoConPrefijo('Diario La Vanguardia'), 'Foto: Diario La Vanguardia');
   assert.equal(creditoConPrefijo(''), '');
 });
+
+test('plan: el reel con voz de una nota propia — sólo si lo eligió, una fila por nota, gasta un audio y no entra en los repasos', async () => {
+  const base = baseDePrueba();
+  const sql = fs.readFileSync(new URL('../redaccion/telegram/schema-redaccion.sql', import.meta.url), 'utf8');
+  for (const s of sql.split(String.fromCharCode(10)).map((l) => l.trim()).filter((l) => l && !l.startsWith('--'))) base.sqlite.exec(s);
+  guardarNota(base.sqlite, { id: 'rel001', titulo: 'Benjamín vuelve a representar al país', seccion: 'Argentina', motivo: 'propia', creada: hace(1, MARTES_10), estado: 'publicada', origen: 'redaccion', foto: [foto(1), foto(2)] });
+  guardarNota(base.sqlite, { id: 'rel002', titulo: 'Otra nota propia que sólo va al posteo', seccion: 'Argentina', motivo: 'propia', creada: hace(2, MARTES_10), estado: 'publicada', origen: 'redaccion', foto: [foto(1)] });
+  base.sqlite.prepare("UPDATE notas SET redes = ? WHERE id = 'rel001'").run(JSON.stringify({ confirmada: true, lista: ['posteo', 'reel'] }));
+  base.sqlite.prepare("UPDATE notas SET redes = ? WHERE id = 'rel002'").run(JSON.stringify({ confirmada: true, lista: ['posteo'] }));
+  const p = await planDe(base, MARTES_10);
+  const r = p.piezas.filter((x) => x.arma === 'nota-propia');
+  assert.deepEqual(r.map((x) => x.id), ['reel-nota-rel001']);
+  assert.equal(r[0].datos.nota.fotos.length, 2);
+  assert.equal(r[0].datos.nota.seccion, 'Argentina');
+  assert.equal(base.sqlite.prepare("SELECT voz_usada FROM piezas WHERE pieza = 'reel-nota-rel001'").get().voz_usada, 1);
+  assert.ok(p.piezas.filter((x) => x.arma === 'repaso').every((x) => !(x.datos.notasIds ?? []).includes('rel001')));
+  base.sqlite.prepare("UPDATE piezas SET estado = 'lista'").run();
+  assert.ok(!(await planDe(base, new Date(MARTES_10.getTime() + 3600_000))).piezas.some((x) => x.arma === 'nota-propia'));
+});
