@@ -26,6 +26,9 @@ decisiones de `docs/propuestas/PLAN-RADAR-3-0.md` (§ 3.12 y sección 10). Si el
    - hay una nota publicada en las últimas 4 horas (sólo se cuenta el tiempo de 7:00 a 24:00 de Balcarce: de madrugada no avisa);
    - ninguna de las 5 notas más recientes del feed da error 5xx.
    Todo se avisa recién cuando se ve en dos chequeos seguidos (una hora), salvo «sin notas nuevas», que avisa de entrada.
+8 bis. **El tope de pedidos de IA del día** (11/11, después de que el tope de 700 se llenó a las 13:15 y la redacción se frenó cuatro horas sin aviso):
+   avisa cuando los pedidos de hoy llegan al 80 % del tope diario (una vez por día), y avisa si hay 12 notas o más elegidas esperando redacción
+   durante dos chequeos seguidos (una hora). Además, «sin notas nuevas» ahora avisa a las 2 horas de ventana (antes 4).
 9. **Las redes** (Facebook, Instagram, Bluesky, Threads y X), con lo que registra `radar-redes` en `GET /actividad` (publicaciones reales de las últimas 24 horas):
    - **una red lleva demasiado sin publicar**: 6 horas Facebook e Instagram, 8 Bluesky, Threads y X (salen detrás de Facebook). Se cuentan sólo
      las horas dentro del horario de publicación, de 8:00 a 22:00 de Balcarce: la noche no cuenta. Si no publicó nada en 24 horas, también avisa;

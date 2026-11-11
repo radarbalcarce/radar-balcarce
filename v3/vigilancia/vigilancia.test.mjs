@@ -87,6 +87,42 @@ test('gasto al 80 % del freno: avisa una vez, no avisa de vuelta, y el mes sigui
   assert.equal(e.dichos.length, 2);
 });
 
+test('pedidos de IA del día al 80 % del tope (caso 11/11: 700 de 700 y nadie avisó): avisa una vez y el día siguiente es otro problema', async () => {
+  const e = escenario();
+  const dia = (pedidos, d) => sano({ dia: d, uso: { hoy: [{ tarea: 'duda', pedidos }], mes: { gastoEstimadoUsd: 1, frenoUsd: 15 }, topeDiario: 700 } });
+  e.foto = dia(559, '2026-11-11'); // 79,9 %
+  await e.chequear();
+  assert.equal(e.dichos.length, 0);
+  e.foto = dia(560, '2026-11-11'); // 80 %
+  await e.chequear(30);
+  assert.equal(e.dichos.length, 1);
+  assert.match(e.dichos[0], /pedidos a la IA de hoy llegaron a 560 de 700 \(80 %\)/);
+  e.foto = dia(700, '2026-11-11');
+  await e.chequear(60);
+  assert.equal(e.dichos.length, 1, 'no insiste');
+  e.foto = dia(600, '2026-11-12');
+  await e.chequear(90);
+  assert.equal(e.dichos.length, 2, 'otro día, otro aviso');
+});
+
+test('12 notas elegidas sin redactar durante dos chequeos seguidos avisan; y avisa cuando vuelve a andar', async () => {
+  const e = escenario();
+  const atraso = (n) => sano({ seleccion: { notasPublicadas: 60, elegidasSinRedactar: n } });
+  e.foto = atraso(11);
+  await e.chequear();
+  assert.equal(e.dichos.length, 0);
+  e.foto = atraso(14);
+  await e.chequear(30);
+  assert.equal(e.dichos.length, 0, 'un solo chequeo no alcanza');
+  await e.chequear(60);
+  assert.equal(e.dichos.length, 1);
+  assert.match(e.dichos[0], /14 notas elegidas esperando/);
+  e.foto = atraso(2);
+  await e.chequear(90);
+  assert.equal(e.dichos.length, 2);
+  assert.match(e.dichos[1], /redacción volvió a avanzar/);
+});
+
 test('el gasto de un mes y la llegada del mes siguiente con el gasto todavía alto avisan de nuevo', () => {
   const p = evaluar({ ahora: AHORA, direccionDelBot: DIRECCION, ...sano({ dia: '2026-11-02', uso: { hoy: [], mes: { gastoEstimadoUsd: 13, frenoUsd: 15 } } }) });
   const { estado } = decidirAvisos({}, p, AHORA);

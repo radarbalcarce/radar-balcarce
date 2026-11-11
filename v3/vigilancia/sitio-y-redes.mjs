@@ -6,7 +6,7 @@ export const REDES = Object.freeze(['facebook', 'instagram', 'bluesky', 'threads
 export const NOMBRE_DE_RED = Object.freeze({ facebook: 'Facebook', instagram: 'Instagram', bluesky: 'Bluesky', threads: 'Threads', x: 'X' });
 
 // El sitio: el núcleo publica de día y de noche, pero de noche bastante menos. Se cuenta sólo el tiempo de la ventana 7:00 a 24:00 de Balcarce.
-export const HORAS_SIN_NOTAS = 4;              // horas «de ventana» sin una nota nueva en el sitio
+export const HORAS_SIN_NOTAS = 2;              // horas «de ventana» sin una nota nueva en el sitio
 export const VENTANA_DEL_SITIO = Object.freeze([7, 24]);
 export const MUESTRA_DE_NOTAS = 5;             // cuántas notas recientes del feed se piden para ver que no den 5xx
 export const CONFIRMAR_WEB = 2;                // un tropiezo suelto no es un problema: tiene que verse en dos chequeos seguidos (una hora)

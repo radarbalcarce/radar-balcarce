@@ -3,6 +3,8 @@
 import { evaluarWeb, evaluarRedes, arregloDeSitioYRedes } from './sitio-y-redes.mjs';
 
 export const MINUTOS_SIN_VUELTA = 40;        // el núcleo tiene que haber hecho una vuelta en los últimos 40 minutos
+export const UMBRAL_DE_PEDIDOS_DEL_DIA = 0.8;  // se avisa cuando los pedidos de IA del día llegan al 80 % del tope diario (caso 11/11: el tope se llenó a las 13:15 y nadie se enteró)
+export const NOTAS_ELEGIDAS_SIN_REDACTAR = 12;  // se avisa si hay tantas notas elegidas esperando redacción durante dos chequeos seguidos (una hora)
 export const UMBRAL_DE_GASTO = 0.8;          // se avisa al 80 % del freno mensual de IA
 export const FALLAS_DE_TRES_DIAS = 288;      // 3 días × 96 vueltas (una cada 15 minutos)
 export const FALLAS_SI_NUNCA_ANDUVO = 96;    // una fuente que nunca anduvo bien: un día entero de fallas
@@ -82,6 +84,20 @@ export function evaluar({ ahora, nucleo, bot, sitio = null, direccionDelBot, web
       }
     }
 
+    const pedidosHoy = (s.uso?.hoy ?? []).reduce((t, f) => t + (Number(f.pedidos) || 0), 0);
+    const topeDelDia = Number(s.uso?.topeDiario) || 0;
+    if (topeDelDia > 0 && pedidosHoy >= topeDelDia * UMBRAL_DE_PEDIDOS_DEL_DIA) {
+      problemas.push({
+        clave: 'ia-tope-del-dia',
+        texto: `Los pedidos a la IA de hoy llegaron a ${pedidosHoy} de ${topeDelDia} (${Math.round((pedidosHoy / topeDelDia) * 100)} %). Al llegar al tope el núcleo deja de redactar notas hasta mañana.`,
+        confirmar: 1, silencioso: true, mes: String(s.dia || ahora).slice(0, 10),
+      });
+    }
+    const sinRedactar = Number(s.seleccion?.elegidasSinRedactar) || 0;
+    if (sinRedactar >= NOTAS_ELEGIDAS_SIN_REDACTAR) {
+      problemas.push({ clave: 'redaccion-atrasada', texto: `Hay ${sinRedactar} notas elegidas esperando que se redacten (la redacción no avanza: mirar el tope de pedidos de IA y las claves).`, confirmar: 2 });
+    }
+
     for (const f of s.fuentes?.conFalla ?? []) {
       const tope = f.ultimoOk ? FALLAS_DE_TRES_DIAS : FALLAS_SI_NUNCA_ANDUVO;
       if (f.fallasSeguidas >= tope) {
@@ -151,6 +167,7 @@ export function decidirAvisos(previo, problemas, ahoraISO) {
 const ARREGLOS = {
   'nucleo-no-responde': 'el núcleo contesta de nuevo.',
   'nucleo-vuelta': 'el núcleo volvió a hacer vueltas.',
+  'redaccion-atrasada': 'la redacción volvió a avanzar.',
   bot: 'el bot de Telegram responde de nuevo.',
   webhook: 'el webhook del bot está registrado de nuevo.',
   sitio: 'el sitio contesta de nuevo.',
