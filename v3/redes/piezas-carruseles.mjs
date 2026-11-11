@@ -119,6 +119,7 @@ export async function proximaNotaConReel(env, { ahora, simulado }) {
     }
   }
   // Sin nota: se cuenta en qué filtro se cayeron, para que el plan lo diga (10/11: el primer reel no salió y no había forma de saber por qué).
+  if (!notas.length) return null; // ninguna nota propia reciente: nada que explicar
   const confirmadas = notas.filter((n) => n.redes?.confirmada === true).length;
   return { motivo: `propias ${notas.length}, confirmadas ${confirmadas}, con reel y fotos ${elegibles.length}, ya salieron ${yaSalieron}` };
 }
