@@ -177,8 +177,8 @@ const rutasAPurgar = (f, ...secciones) => [rutaPublica(f), '/', ...secciones.fil
 
 // ------------------------------------------------------------------------------------------------------------ las redes (mismas reglas que el bot)
 
-export const REDES_ELEGIBLES = ['posteo', 'carrusel', 'historia', 'reel'];
-export const nombreDeLaEleccion = (l) => (!l.length ? 'solo-web' : l.length === REDES_ELEGIBLES.length ? 'todo' : l.length === 3 && !l.includes('reel') ? 'posteo-historia' : 'elegidas');
+export const REDES_ELEGIBLES = ['posteo', 'historia', 'reel'];
+export const nombreDeLaEleccion = (l) => (!l.length ? 'solo-web' : l.length === REDES_ELEGIBLES.length ? 'todo' : l.length === 2 && !l.includes('reel') ? 'posteo-historia' : 'elegidas');
 /** «@fulano, @otra.» → ['@fulano', '@otra'] sin repetir (igual que mencionesDeTexto del bot). */
 export function mencionesDeTexto(texto) {
   const vistas = new Set();

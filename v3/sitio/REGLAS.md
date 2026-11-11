@@ -155,6 +155,7 @@ salvo el «¿seguro?» de Retirar; nada de afuera.
   - **Estado** (`…/estado`): Ocultar (de publicada a `oculta`, no toca `no_publicar`), Mostrar (sólo desde oculta) y Retirar (pide motivo, hasta 300; `estado = retirada` y
     `no_publicar = {motivo, cuando, por}`), igual que el bot.
   - **Redes** (`…/redes`): casillas posteo, carrusel, historia y reel (son la `lista` que se quiere: reemplazan a la anterior), «Al próximo repaso» y las menciones. Si se suma un formato que
+    Desde el 11/11 sin carrusel de nota propia; sólo el del domingo: las casillas son posteo, historia y reel.
     no estaba: `forzada: true` y `pedida` (como `/redes`); repaso marcado y antes no: `repaso: true` y `pedida` (como `/repaso`; desmarcado se saca); siempre `confirmada: true` y `eleccion`;
     menciones con `@` y `@radarbalcarce` al final (vacío las saca), como `/menciones`. Pedir algo nuevo sólo vale para una nota publicada y sin freno; sacar, siempre. Debajo, lo que ya salió
     (tabla `publicaciones` de las redes, si existe).

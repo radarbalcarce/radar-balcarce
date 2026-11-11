@@ -20,7 +20,7 @@ Lo ya publicado
 • /retirar <enlace o id> <motivo>: saca una nota del sitio. Te muestro el título y espero tu «sí».
 • /seccion <enlace o id> <sección>: cambia la sección de una nota ya publicada (por ejemplo: /seccion radarbalcarce.com/nota/mi-nota-67zuqsi Argentina).
 • /ocultar <enlace o id>: la saca del sitio y de las redes sin borrarla; se puede volver atrás. /ocultas lista las que están ocultas y /mostrar <enlace o id> la vuelve a publicar.
-• /redes <enlace o id> <formatos>: manda una nota ya publicada a las redes. Formatos: posteo, carrusel, historia, reel o todo (por ejemplo: /redes mi-nota-67zuqsi reel posteo).
+• /redes <enlace o id> <formatos>: manda una nota ya publicada a las redes. Formatos: posteo, historia, reel o todo (por ejemplo: /redes mi-nota-67zuqsi reel posteo).
 • /repaso <enlace o id>: la pone primera en el próximo repaso en video (el de las 10, las 15 o las 21).
 • /foto <enlace o id>: cambia las fotos de una nota publicada (la primera es la portada; te pido las fotos y cerrás con «listo»). Con «ninguna» (/foto <id> ninguna) se las saco todas.
 • /menciones <enlace o id> @a @b: las cuentas que se nombran en las redes de esa nota (sin enlace, la última nota propia; «ninguna» las saca). Sumo @radarbalcarce.
@@ -282,7 +282,7 @@ async function ocultas(dep) {
 
 // ------------------------------------------------------------------------------------------------------------ /redes y /repaso
 
-const FORMATOS = { reel: 'reel', reels: 'reel', historia: 'historia', historias: 'historia', posteo: 'posteo', posteos: 'posteo', post: 'posteo', carrusel: 'carrusel', carruseles: 'carrusel' };
+const FORMATOS = { reel: 'reel', reels: 'reel', historia: 'historia', historias: 'historia', posteo: 'posteo', posteos: 'posteo', post: 'posteo' };
 const TODOS_LOS_FORMATOS = REDES_ELEGIBLES.map((r) => r.clave);
 
 /** «reel, posteo y historia» / «todo» → { lista (en el orden de siempre), desconocidos }. Sin tildes ni mayúsculas. */
@@ -313,10 +313,10 @@ async function notaParaPedirRedes(dep, que, comando) {
 /** /redes <enlace o id> <formatos>: suma esos formatos a lo que ya tenía la nota y la marca como pedida a mano (`forzada`): sale aunque no la cuenten otros medios. La ley, el tono y la foto siguen valiendo. */
 export async function mandarARedes(dep, resto) {
   const [que, ...demas] = String(resto ?? '').split(/\s+/).filter(Boolean);
-  const ayuda = 'Decime cuál y en qué formato: /redes <enlace o id> posteo, carrusel, historia, reel o todo (se pueden juntar: /redes mi-nota-67zuqsi reel posteo).';
+  const ayuda = 'Decime cuál y en qué formato: /redes <enlace o id> posteo, historia, reel o todo (se pueden juntar: /redes mi-nota-67zuqsi reel posteo).';
   if (!que) return dep.enviar(ayuda);
   const { lista: pedidos, desconocidos } = entenderFormatos(demas.join(' '));
-  if (desconocidos.length) return dep.enviar(`No entendí «${desconocidos.join(' ')}». Los formatos son posteo, carrusel, historia, reel o todo.`);
+  if (desconocidos.length) return dep.enviar(`No entendí «${desconocidos.join(' ')}». Los formatos son posteo, historia, reel o todo.`);
   if (!pedidos.length) return dep.enviar(ayuda);
   const nota = await notaParaPedirRedes(dep, que, '/redes');
   if (!nota) return;
@@ -331,7 +331,6 @@ export async function mandarARedes(dep, resto) {
   const piezas = pedidos.filter((c) => c !== 'posteo');
   if (piezas.length) lineas.push(`• ${piezas.map(etiqueta).join(', ')}: los arma el reloj de 8 a 23, una vez por nota.`);
   const fotos = fotosConDireccion(nota);
-  if (pedidos.includes('carrusel') && fotos < 3) lineas.push(`(Ojo: el carrusel necesita 3 fotos o más y esta nota tiene ${fotos}; sin ellas no se arma. Podés sumarlas con /foto ${nota.id}.)`);
   if ((pedidos.includes('reel') || pedidos.includes('historia')) && !fotos) lineas.push(`(Ojo: sin foto con dirección pública el reel no se arma. Podés sumarla con /foto ${nota.id}.)`);
   if (nota.origen !== 'redaccion') lineas.push('Sale con la firma «Radar Balcarce» y el crédito de cada foto.');
   return dep.enviar(lineas.join('\n'));

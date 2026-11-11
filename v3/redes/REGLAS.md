@@ -151,6 +151,8 @@ GitHub dejó de lanzar sus horarios (`schedule:`) durante horas el 10/11/2026, a
 
 ## 13. Los carruseles (5/11)
 
+*Desde el 11/11 sin carrusel de nota propia; sólo el del domingo (Hernán): la pieza `carrusel-nota` está `pausada: true` y el plan sólo la arma si se la pide con `solo`.*
+
 *Hernán, 5/11: «en todas las redes sale todo el material que se genere y la red lo permita, así medimos una semana qué sirve». Un carrusel son varias imágenes 4:5 (1080 × 1350) en un solo posteo: **álbum en Facebook** y **carrusel en Instagram** (hasta 10 imágenes). No tiene voz, así que no gasta ningún audio del cupo, y no pasa por Buffer. TikTok modo foto y X con fotos: no son de este apartado (ver `docs/3-0/PENDIENTES-3-0.md`, ítem 7).*
 
 **Los tres carruseles**

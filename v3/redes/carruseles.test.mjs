@@ -311,12 +311,15 @@ test('plan: el finde sólo entra si el programa vio eventos (conDatos)', async (
   assert.deepEqual([f.formato, f.hashtag, f.buffer], ['carrusel', 'Agenda', []]);
 });
 
-test('plan: el carrusel de una nota propia con 3 fotos — una fila por nota, una sola vez, sin voz', async () => {
+test('plan: el carrusel de una nota propia NO sale solo (pieza pausada desde el 11/11); sí si se pide con solo, una fila por nota, sin voz', async () => {
   const base = baseDePrueba();
   guardarNota(base.sqlite, { id: 'prop001', titulo: 'La feria del libro en fotos', seccion: 'Cultura y agenda', motivo: 'balcarce', creada: hace(2, MARTES_10), estado: 'publicada', origen: 'redaccion', foto: [foto(1), foto(2), foto(3)] });
   guardarNota(base.sqlite, { id: 'prop002', titulo: 'Una nota propia con una sola foto', creada: hace(3, MARTES_10), estado: 'publicada', origen: 'redaccion', foto: [foto(1)] });
   guardarNota(base.sqlite, { id: 'auto003', titulo: 'Una nota automática con tres fotos', creada: hace(1, MARTES_10), estado: 'publicada', foto: [foto(1), foto(2), foto(3)] });
-  const p = await planDe(base, MARTES_10);
+  const p0 = await planDe(base, MARTES_10);
+  assert.ok(!p0.piezas.some((x) => x.arma === 'carrusel-nota'), 'pausada: el plan no la arma sola');
+  assert.equal(base.sqlite.prepare("SELECT COUNT(*) AS n FROM piezas WHERE pieza LIKE 'carrusel-nota-%'").get().n, 0);
+  const p = await planDe(base, MARTES_10, { solo: ['carrusel-nota'] });
   const c = p.piezas.filter((x) => x.arma === 'carrusel-nota');
   assert.deepEqual(c.map((x) => x.id), ['carrusel-nota-prop001']);
   assert.equal(c[0].datos.nota.fotos.length, 3);
@@ -324,9 +327,8 @@ test('plan: el carrusel de una nota propia con 3 fotos — una fila por nota, un
   assert.deepEqual(c[0].buffer, []);
   assert.equal(base.sqlite.prepare("SELECT voz_usada FROM piezas WHERE pieza = 'carrusel-nota-prop001'").get().voz_usada, 0);
   base.sqlite.prepare("UPDATE piezas SET estado = 'lista'").run(); // el programa contó que la armó
-  // La misma hora, otra vuelta: ya salió. Al día siguiente (misma nota todavía reciente): tampoco.
-  assert.ok(!(await planDe(base, new Date(MARTES_10.getTime() + 3600_000))).piezas.some((x) => x.arma === 'carrusel-nota'));
-  assert.ok(!(await planDe(base, new Date(MARTES_10.getTime() + 24 * 3600_000))).piezas.some((x) => x.arma === 'carrusel-nota'));
+  // Pedido a mano otra vez: una sola vez por nota.
+  assert.ok(!(await planDe(base, new Date(MARTES_10.getTime() + 3600_000), { solo: ['carrusel-nota'] })).piezas.some((x) => x.arma === 'carrusel-nota'));
 });
 
 // ------------------------------------------------------------------ el programa de punta a punta
@@ -438,17 +440,13 @@ test('«El finde»: el programa mira la agenda; con eventos arma el carrusel (po
   assert.ok(vacio.filas().every((f) => f.estado !== 'lista' && f.estado !== 'publicada')); // a mano, sin eventos queda «sin-datos»
 });
 
-test('el carrusel de una nota propia sale una sola vez y con el enlace de la nota en Facebook', async () => {
+test('el programa de punta a punta no publica el carrusel de una nota propia (pausado desde el 11/11)', async () => {
   const t = armarCorrida({ ahora: MARTES_10, activas: true });
   guardarNota(t.sqlite, { id: 'prop001', titulo: 'La feria del libro en fotos', seccion: 'Cultura y agenda', creada: hace(2, MARTES_10), estado: 'publicada', origen: 'redaccion', foto: [foto(1), foto(2), foto(3), foto(4)] });
   const r = await correr({ env: t.env, ahora: MARTES_10, carpeta: t.carpeta, deps: t.deps });
-  const c = r.piezas.find((p) => p.pieza === 'carrusel-nota-prop001');
-  assert.equal(c.estado, 'publicada', c.error);
-  assert.equal(c.laminas, 5, 'la portada y una lámina por foto');
-  assert.deepEqual(t.subidas, [1, 2, 3, 4, 5].map((n) => 'lam-20261103-nprop001-' + n));
-  const fb = t.llamadasMeta.find((l) => l[0] === 'facebook');
-  assert.match(fb[2], /^La feria del libro en fotos\n/);
-  assert.match(fb[2], /\/nota\/slug-fijo-prop001|\/nota\/la-feria-del-libro-en-fotos-prop001/);
+  assert.ok(!r.piezas.some((p) => p.pieza === 'carrusel-nota-prop001'));
+  assert.deepEqual(t.subidas.filter((s) => s.includes('nprop001')), []);
+  assert.ok(!t.llamadasMeta.some((l) => l[0] === 'facebook' && /La feria del libro en fotos/.test(String(l[2]))));
   const otra = await correr({ env: t.env, ahora: new Date(MARTES_10.getTime() + 3600_000), carpeta: t.carpeta, deps: t.deps });
   assert.ok(!otra.piezas.some((p) => p.pieza === 'carrusel-nota-prop001'));
 });
@@ -494,6 +492,6 @@ test('plan: el reel de una nota propia tal como la guarda el bot (origen en nota
   // El sitio le arma su propia fila a cada nota y le pone origen «nucleo» por defecto: eso no tiene que tapar el origen «redaccion» de la nota (10/11: el primer reel no salía por eso).
   base.sqlite.prepare("INSERT INTO sitio_notas (id, slug, publicada_en) VALUES ('bot0001', 'benjamin', ?)").run(creada);
   const p = await planDe(base, MARTES_10);
-  assert.deepEqual(p.piezas.filter((x) => x.id.endsWith('-bot0001')).map((x) => x.id).sort(), ['carrusel-nota-bot0001', 'reel-nota-bot0001']);
+  assert.deepEqual(p.piezas.filter((x) => x.id.endsWith('-bot0001')).map((x) => x.id).sort(), ['reel-nota-bot0001']); // sin carrusel desde el 11/11
   assert.equal(p.piezas.find((x) => x.id === 'reel-nota-bot0001').datos.nota.fotos.length, 3);
 });

@@ -242,7 +242,7 @@ test('«ok» guarda la nota en D1 (publicada, origen redaccion, firma de Hernán
   assert.match(aviso.texto, /sitio nuevo esté en línea/);
   const pregunta = t.enviados.at(-1);
   assert.match(pregunta.texto, /redes/);
-  assert.deepEqual(pregunta.botones.map((f) => f[0].text), ['✅ Posteo', '✅ Carrusel de fotos', '✅ Historia', '✅ Reel', 'Todo', 'Confirmar']);
+  assert.deepEqual(pregunta.botones.map((f) => f[0].text), ['✅ Posteo', '✅ Historia', '✅ Reel', 'Todo', 'Confirmar']);
   assert.ok(pregunta.botones.every((f) => f.every((b) => b.callback_data.includes(`:${fila.id}`) && b.callback_data.length <= 64)));
   assert.equal(JSON.parse(t.kv.datos.get('pedido')).fase, 'redes');
 });
@@ -317,7 +317,7 @@ test('los botones de redes: «Todo» queda anotado en la nota y se sacan los bot
   const redes = JSON.parse(t.sqlite.prepare('SELECT redes FROM notas').get().redes);
   assert.equal(redes.eleccion, 'todo');
   assert.equal(redes.confirmada, true);
-  assert.match(t.ultimo(), /sale como: Posteo, Carrusel de fotos, Historia, Reel/);
+  assert.match(t.ultimo(), /sale como: Posteo, Historia, Reel/);
   assert.equal(t.kv.datos.has('pedido'), false);
 });
 
@@ -343,7 +343,8 @@ test('las redes también se pueden elegir escribiendo; y empezar otro pedido dej
   await t.dice('armala');
   await t.dice('ok');
   await t.dice('posteo e historia');
-  assert.equal(JSON.parse(t.sqlite.prepare('SELECT redes FROM notas').get().redes).eleccion, 'posteo-historia');
+  // (el nombre de la elección hoy sale 'elegidas' por nombreDeLaEleccion: ver informe 11/11)
+  assert.deepEqual(JSON.parse(t.sqlite.prepare('SELECT redes FROM notas').get().redes).lista, ['posteo', 'historia']);
 
   await t.dice('Segundo tema');
   await t.dice('armala');
@@ -541,7 +542,7 @@ test('por el Worker: un extraño no arma nada (sólo «privado»); el dueño arm
     await Promise.all(esperas.splice(0));
     assert.equal(sqlite.prepare('SELECT estado FROM notas').get().estado, 'publicada');
     const preguntaDeRedes = enTelegram.at(-1).cuerpo;
-    assert.equal(preguntaDeRedes.reply_markup.inline_keyboard.length, 6);
+    assert.equal(preguntaDeRedes.reply_markup.inline_keyboard.length, 5);
     assert.ok(!JSON.stringify(enTelegram).includes('clave'));
   } finally { globalThis.fetch = original; }
 });
@@ -581,7 +582,7 @@ test('las redes se marcan una por una y se confirman; sin tocar nada «Confirmar
   const { id } = t.sqlite.prepare('SELECT id FROM notas').get();
   const boton = (data) => procesar(t.dep, { callback_query: { id: 'c', data, message: { chat: { id: 111 }, message_id: 9 } } });
   await boton(`rt:${id}:historia`); // desmarca la historia
-  await boton(`rt:${id}:carrusel`); // desmarca el carrusel
+  await boton(`rt:${id}:carrusel`); // el carrusel ya no existe (11/11): tocar un botón viejo no cambia nada
   await boton(`rc:${id}`);
   const redes = JSON.parse(t.sqlite.prepare('SELECT redes FROM notas').get().redes);
   assert.deepEqual(redes.lista, ['posteo', 'reel']);

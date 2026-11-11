@@ -26,17 +26,16 @@ const MAX_ENLACES = 2;
 const MAX_TEXTO_ENLACE = 6000;
 
 // Cómo sale una nota propia (10/11, Hernán: «no hace falta que sean individuales para cada red social»; y no entra en los repasos).
-// posteo = el posteo con foto en todas las redes; carrusel = el diseño con las fotos de la nota (3 o más); historia y reel = las piezas de esa nota.
+// posteo = el posteo con foto en todas las redes; historia y reel = las piezas de esa nota. Sin carrusel (Hernán, 11/11: el único carrusel aprobado es el resumen del domingo).
 export const REDES_ELEGIBLES = [
   { clave: 'posteo', etiqueta: 'Posteo' },
-  { clave: 'carrusel', etiqueta: 'Carrusel de fotos' },
   { clave: 'historia', etiqueta: 'Historia' },
   { clave: 'reel', etiqueta: 'Reel' },
 ];
 const TODAS = REDES_ELEGIBLES.map((r) => r.clave);
 export const REDES = {
-  todo: { etiqueta: 'Todo', detalle: 'posteo, carrusel de fotos, historia y reel', lista: TODAS },
-  'posteo-historia': { etiqueta: 'Posteo e historia', detalle: 'posteo con foto e historia, sin reel', lista: ['posteo', 'carrusel', 'historia'] },
+  todo: { etiqueta: 'Todo', detalle: 'posteo, historia y reel', lista: TODAS },
+  'posteo-historia': { etiqueta: 'Posteo e historia', detalle: 'posteo con foto e historia, sin reel', lista: ['posteo', 'historia'] },
   'solo-web': { etiqueta: 'Sólo la web', detalle: 'nada en las redes', lista: [] },
 };
 export const REDES_POR_DEFECTO = 'solo-web';
@@ -361,7 +360,7 @@ export function textoDeVistaPrevia(pedido) {
   return [
     'VISTA PREVIA',
     `Sección: ${n.seccion} (tocá otra abajo si va en otra) · Firma: ${FIRMA}`,
-    f > 1 ? `Fotos: ${pedido.fotosModo === 'portada' ? 'sólo la portada' : `las ${Math.min(f, 10)} (la primera de portada; con 3 o más sale también el carrusel)`}` : f ? 'Foto: la primera que mandaste (1 en total)' : 'Foto: ninguna (saldría la placa)',
+    f > 1 ? `Fotos: ${pedido.fotosModo === 'portada' ? 'sólo la portada' : `las ${Math.min(f, 10)} (la primera de portada)`}` : f ? 'Foto: la primera que mandaste (1 en total)' : 'Foto: ninguna (saldría la placa)',
     '',
     n.titulo,
     n.bajada,
@@ -496,7 +495,7 @@ export function botonesDeRedes(id, marcadas = TODAS) {
 
 // ------------------------------------------------------------------------------------------------------------ redes
 
-export const nombreDeLaEleccion = (l) => (!l.length ? 'solo-web' : l.length === TODAS.length ? 'todo' : l.length === 3 && !l.includes('reel') ? 'posteo-historia' : 'elegidas');
+export const nombreDeLaEleccion = (l) => (!l.length ? 'solo-web' : l.length === TODAS.length ? 'todo' : l.length === 2 && !l.includes('reel') ? 'posteo-historia' : 'elegidas');
 
 /** Guarda dónde sale la nota. `lista` = las claves de REDES_ELEGIBLES; vacía = sólo la web. */
 async function elegirRedes(dep, pedido, lista, { porDefecto = false } = {}) {
@@ -507,7 +506,7 @@ async function elegirRedes(dep, pedido, lista, { porDefecto = false } = {}) {
   const donde = limpia.length ? `sale como: ${nombresDe(limpia)}` : 'queda sólo en la web';
   return dep.enviar(porDefecto
     ? `No elegiste a tiempo: «Sólo la web», ${donde}.`
-    : `Anotado: ${donde}. El posteo sale en la próxima vuelta de las redes; el carrusel (con 3 fotos o más) y el reel con voz y su historia (con 1 a 3 fotos) los arma el reloj de 8 a 22 h, una vez por nota. Esta nota no entra en los repasos.`);
+    : `Anotado: ${donde}. El posteo sale en la próxima vuelta de las redes; el reel con voz y su historia (con 1 a 3 fotos) los arma el reloj de 8 a 22 h, una vez por nota. Esta nota no entra en los repasos.`);
 }
 
 async function alApretarBoton(dep, cb) {

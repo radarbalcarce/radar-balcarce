@@ -162,6 +162,7 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
   }
   // Lo de una nota propia, sin hora: sale apenas se publica la nota, una por vuelta y una sola vez por nota. El carrusel (3 fotos o más) no gasta audios; el reel con voz sí y respeta el cupo.
   for (const deNota of PIEZAS_DEL_DIA.filter((x) => x.porNota)) {
+    if (deNota.pausada && !solo?.includes(deNota.id)) continue; // pausada: sólo se arma si se la pide a mano
     if (!(solo?.length ? solo.includes(deNota.id) : piezasQueTocan(ahora).some((x) => x.id === deNota.id))) continue;
     const conVoz = !deNota.sinVoz;
     if (conVoz && tope - usados <= 0) { descartes.push({ pieza: deNota.id, motivo: 'sin-cupo-de-voz', quedan: 0 }); continue; }

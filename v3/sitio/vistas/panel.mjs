@@ -171,7 +171,7 @@ function aviso(ok, error) {
   return '';
 }
 
-const REDES = [['posteo', 'Posteo'], ['carrusel', 'Carrusel de fotos'], ['historia', 'Historia'], ['reel', 'Reel']];
+const REDES = [['posteo', 'Posteo'], ['historia', 'Historia'], ['reel', 'Reel']];
 
 /**
  * La página de una nota. `nota`: { id, titulo, bajada, parrafos, seccion, estado, noPublicar, fotos: [{url, credito}], redes: { lista, repaso, menciones }, url, origen, fecha, firma }.
@@ -219,7 +219,7 @@ ${REDES.map(([clave, etiqueta]) => `<label><input type="checkbox" name="lista" v
 <label><input type="checkbox" name="repaso" value="si"${nota.redes.repaso ? ' checked' : ''}> Al próximo repaso en video (10, 15 o 21 h)</label>
 <label for="menciones" style="display:block;font-weight:600;font-size:14px">Cuentas que se nombran (@fulano @otra)</label>
 <input type="text" id="menciones" name="menciones" value="${esc(nota.redes.menciones.join(' '))}" maxlength="400">
-<p class="nota-chica">Lo que marques sale aunque no la cuenten otros medios; la ley, el tono y la foto siguen valiendo. El carrusel pide 3 fotos o más y el reel, al menos una. Se suma @radarbalcarce.</p>
+<p class="nota-chica">Lo que marques sale aunque no la cuenten otros medios; la ley, el tono y la foto siguen valiendo. El reel pide al menos una foto. Se suma @radarbalcarce.</p>
 <button type="submit">Guardar redes</button>
 </form>
 ${salidas}</section>`;

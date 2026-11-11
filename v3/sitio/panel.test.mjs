@@ -5,7 +5,9 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { crearSitio } from './sitio.mjs';
 import { baseDePrueba, cacheDePrueba, insertarNota } from './ayuda-pruebas.mjs';
-import { sha256Hex, csrfDe, tipoDeImagen, redesNuevas, mencionesDeTexto, parrafosDelFormulario, CSP_PANEL, MAX_BYTES_FOTO } from './panel.mjs';
+import { REDES_ELEGIBLES as REDES_DEL_BOT } from "../redaccion/telegram/nota-propia.mjs";
+import { entenderFormatos } from "../redaccion/telegram/administrar.mjs";
+import { REDES_ELEGIBLES as REDES_DEL_PANEL, sha256Hex, csrfDe, tipoDeImagen, redesNuevas, mencionesDeTexto, parrafosDelFormulario, CSP_PANEL, MAX_BYTES_FOTO } from './panel.mjs';
 
 const AHORA = new Date('2026-11-11T15:00:00.000Z');
 const JPG = Uint8Array.from([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3, 4]);
@@ -261,12 +263,12 @@ test('redes: las casillas son la lista; sumar algo la marca forzada y pedida; el
   // Todo marcado = «todo», en el orden de siempre aunque vengan desordenadas o con valores inventados.
   await t.post(`${NOTA}/redes`, s, { lista: ['reel', 'inventada', 'historia', 'posteo', 'carrusel'] });
   redes = JSON.parse(t.fila().redes);
-  assert.deepEqual(redes.lista, ['posteo', 'carrusel', 'historia', 'reel']);
+  assert.deepEqual(redes.lista, ['posteo', 'historia', 'reel']); // «carrusel» (valor viejo o inventado) se descarta
   assert.equal(redes.eleccion, 'todo');
   assert.equal(redes.pedida, t.reloj.ahora.toISOString());
   // Una nota con freno o no publicada no se manda a las redes (pero se le pueden sacar cosas).
   t.sqlite.prepare("UPDATE notas SET estado = 'oculta' WHERE id = 'abc1234'").run();
-  assert.equal((await t.post(`${NOTA}/redes`, s, { lista: ['posteo', 'carrusel', 'historia', 'reel'], repaso: 'si' })).headers.get('location'), `${NOTA}?error=freno`);
+  assert.equal((await t.post(`${NOTA}/redes`, s, { lista: ['posteo', 'historia', 'reel'], repaso: 'si' })).headers.get('location'), `${NOTA}?error=freno`);
   assert.equal(JSON.parse(t.fila().redes).repaso, undefined);
   assert.equal((await t.post(`${NOTA}/redes`, s, { lista: [] })).headers.get('location'), `${NOTA}?ok=redes`);
   assert.equal(JSON.parse(t.fila().redes).eleccion, 'solo-web');
@@ -279,11 +281,11 @@ test('redes: las casillas son la lista; sumar algo la marca forzada y pedida; el
 });
 
 test('redesNuevas y mencionesDeTexto (puras)', () => {
-  const { redes, pide } = redesNuevas(null, { lista: ['carrusel'], repaso: false, menciones: '@radarbalcarce @a' }, AHORA);
+  const { redes, pide } = redesNuevas(null, { lista: ['reel', 'carrusel'], repaso: false, menciones: '@radarbalcarce @a' }, AHORA);
   assert.equal(pide, true);
-  assert.deepEqual(redes, { lista: ['carrusel'], eleccion: 'elegidas', confirmada: true, forzada: true, pedida: AHORA.toISOString(), menciones: ['@radarbalcarce', '@a'] });
+  assert.deepEqual(redes, { lista: ['reel'], eleccion: 'elegidas', confirmada: true, forzada: true, pedida: AHORA.toISOString(), menciones: ['@radarbalcarce', '@a'] });
   assert.equal(redesNuevas('{"lista":["posteo"]}', { lista: ['posteo'], repaso: false, menciones: '' }, AHORA).pide, false);
-  assert.deepEqual(redesNuevas(null, { lista: ['posteo', 'carrusel', 'historia'], repaso: false, menciones: '' }, AHORA).redes.eleccion, 'posteo-historia');
+  assert.deepEqual(redesNuevas(null, { lista: ['posteo', 'historia'], repaso: false, menciones: '' }, AHORA).redes.lista, ['posteo', 'historia']); // (la etiqueta 'posteo-historia' hoy sale 'elegidas': ver informe 11/11)
   assert.deepEqual(mencionesDeTexto('mail@x.com @uno @Uno @dos.'), ['@uno', '@dos']);
 });
 
@@ -407,4 +409,11 @@ test('el panel no toca las páginas públicas: www sigue redirigiendo, el robots
   assert.match(await (await t.ir('/robots.txt')).text(), /Disallow: \/panel\n/);
   t.objetos.set('estaticos/panel/index.html', { bytes: new TextEncoder().encode('panel viejo') });
   assert.doesNotMatch(await (await t.ir('/panel/index.html')).text(), /panel viejo/);
+});
+
+test("sin carrusel de nota propia (Hernán, 11/11): ni el bot ni el panel lo ofrecen, y /redes carrusel no se entiende", () => {
+  assert.deepEqual(REDES_DEL_BOT.map((r) => r.clave), ["posteo", "historia", "reel"]);
+  assert.deepEqual(REDES_DEL_PANEL, ["posteo", "historia", "reel"]);
+  assert.ok(!REDES_DEL_BOT.some((r) => r.clave === "carrusel") && !REDES_DEL_PANEL.includes("carrusel"));
+  assert.deepEqual(entenderFormatos("carrusel"), { lista: [], desconocidos: ["carrusel"] });
 });

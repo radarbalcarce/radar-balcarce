@@ -293,8 +293,9 @@ test('/ocultar y /mostrar: la nota pasa a «oculta» y vuelve a «publicada», s
 
 test('entenderFormatos: sin tildes ni mayúsculas, plurales, «todo» y lo que no entiende', () => {
   assert.deepEqual(entenderFormatos('Reel, POSTEO y Historia'), { lista: ['posteo', 'historia', 'reel'], desconocidos: [] });
-  assert.deepEqual(entenderFormatos('todo').lista, ['posteo', 'carrusel', 'historia', 'reel']);
-  assert.deepEqual(entenderFormatos('carruseles reels'), { lista: ['carrusel', 'reel'], desconocidos: [] });
+  assert.deepEqual(entenderFormatos('todo').lista, ['posteo', 'historia', 'reel']);
+  // Sin carrusel desde el 11/11: «carrusel» ya no se entiende.
+  assert.deepEqual(entenderFormatos('carruseles reels'), { lista: ['reel'], desconocidos: ['carruseles'] });
   assert.deepEqual(entenderFormatos('reel tiktok'), { lista: ['reel'], desconocidos: ['tiktok'] });
   assert.deepEqual(entenderFormatos(''), { lista: [], desconocidos: [] });
 });
@@ -317,12 +318,15 @@ test('/redes: suma los formatos a lo que había (conserva las menciones), marca 
   assert.equal(redes.pedida, AHORA.toISOString());
   assert.deepEqual(redes.menciones, ['@alguien', '@radarbalcarce']);
   // Otro pedido suma, no pisa; «todo» las cuatro.
+  await t.dice('/redes mot1 historia');
+  assert.deepEqual(JSON.parse(t.fila('mot1').redes).lista, ['posteo', 'historia', 'reel']);
+  // /redes carrusel ya no existe (11/11): no entiende y no toca lo elegido.
   await t.dice('/redes mot1 carrusel');
-  assert.deepEqual(JSON.parse(t.fila('mot1').redes).lista, ['posteo', 'carrusel', 'reel']);
-  assert.match(t.dichos.at(-1), /necesita 3 fotos o más y esta nota tiene 1/);
+  assert.match(t.dichos.at(-1), /No entendí/);
+  assert.deepEqual(JSON.parse(t.fila('mot1').redes).lista, ['posteo', 'historia', 'reel']);
   await t.dice('/redes mot1 todo');
   const f = JSON.parse(t.fila('mot1').redes);
-  assert.deepEqual(f.lista, ['posteo', 'carrusel', 'historia', 'reel']);
+  assert.deepEqual(f.lista, ['posteo', 'historia', 'reel']);
   assert.equal(f.eleccion, 'todo');
 });
 
