@@ -120,10 +120,16 @@ function armar(partes) {
   return partes.filter(Boolean).join('\n\n');
 }
 
+/** Las cuentas que se nombran en el texto (la persona de la nota y la nuestra), como «@fulano @radarbalcarce»; '' si la nota no trae. Sólo las notas propias las traen. */
+export function lineaDeMenciones(nota) {
+  return Array.isArray(nota?.menciones) ? nota.menciones.map(limpiar).filter(Boolean).join(' ') : '';
+}
+
 export function textoFacebook(nota, sitio = SITIO) {
   return armar([
     limpiar(nota.titulo),
     dosLineas(nota),
+    lineaDeMenciones(nota),
     `${fraseDelEnlace(nota.id)} ${ponerOrigen(enlaceDeNota(nota, sitio), { fuente: 'facebook', campana: 'posteo', contenido: nota.id })}`,
     hashtagsDe(nota),
     lineaDeCredito(nota),
@@ -135,6 +141,7 @@ export function textoInstagram(nota, sitio = SITIO) {
   return armar([
     limpiar(nota.titulo),
     dosLineas(nota),
+    lineaDeMenciones(nota),
     `La nota completa, en ${dominio} (link en la bio)`,
     hashtagsDe(nota),
     lineaDeCredito(nota),

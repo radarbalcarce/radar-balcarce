@@ -1,7 +1,7 @@
 // Administrar lo ya publicado desde Telegram: /retirar, /corregir, /ultimas, /pendientes y /ayuda.
 // Reemplaza al panel del celular viejo. Nunca usa IA: sólo lee y escribe la tabla `notas` de la D1 (binding DB), con las consultas acá mismo.
 // Cada cambio muestra qué va a pasar y espera un «sí». El estado de lo que está en curso vive en el KV, clave `accion` (10 minutos).
-import { normalizar, esOk, esNo, slugDe, SITIO } from './nota-propia.mjs';
+import { normalizar, esOk, esNo, slugDe, SITIO, mencionesDeTexto, conCuentaDelMedio } from './nota-propia.mjs';
 import { SECCIONES } from '../../nucleo/redactar/redactar.mjs';
 
 export const POR = 'Hernán (Telegram)';
@@ -19,13 +19,14 @@ Lo ya publicado
 • /pendientes: los borradores que esperan.
 • /retirar <enlace o id> <motivo>: saca una nota del sitio. Te muestro el título y espero tu «sí».
 • /seccion <enlace o id> <sección>: cambia la sección de una nota ya publicada (por ejemplo: /seccion radarbalcarce.com/nota/mi-nota-67zuqsi Argentina).
+• /menciones <enlace o id> @a @b: las cuentas que se nombran en las redes de esa nota (sin enlace, la última nota propia; «ninguna» las saca). Sumo @radarbalcarce.
 • /corregir <enlace o id>: cambiar el título, la bajada o una frase del cuerpo. Te muestro el antes y el después y espero tu «sí».
 
 Otros
 • /estado: si el bot está conectado.
 • /ayuda: esta lista.`;
 
-export const COMANDOS = ['/ayuda', '/ultimas', '/pendientes', '/retirar', '/corregir', '/seccion'];
+export const COMANDOS = ['/ayuda', '/ultimas', '/pendientes', '/retirar', '/corregir', '/seccion', '/menciones'];
 
 // ------------------------------------------------------------------------------------------------------------ entender lo que escribió
 
@@ -135,6 +136,7 @@ export async function procesarAdmin(dep, actualizacion) {
     if (comando === '/retirar') return await empezarRetiro(dep, resto);
     if (comando === '/corregir') return await empezarCorreccion(dep, resto);
     if (comando === '/seccion') return await cambiarSeccion(dep, resto);
+    if (comando === '/menciones') return await cambiarMenciones(dep, resto);
     return await continuar(dep, texto);
   } catch (e) {
     console.error(`administrar: ${String(e?.message ?? e)}`);
@@ -192,6 +194,36 @@ Secciones: ${SECCIONES.join(', ')}.`);
   }
   await dep.db.prepare('UPDATE notas SET seccion = ? WHERE id = ?').bind(sec, nota.id).run();
   return dep.enviar(`Listo: «${corto(nota.titulo, 70)}» ahora está en ${sec}. El sitio la muestra ahí en unos minutos.`);
+}
+
+// ------------------------------------------------------------------------------------------------------------ /menciones
+
+/** Cambia las cuentas que se nombran en las redes de una nota (clave `menciones` dentro de `redes`). Sin confirmación: no borra nada. */
+export async function cambiarMenciones(dep, resto) {
+  const texto = String(resto ?? '').trim();
+  const ninguna = /(^|\s)ninguna\s*$/i.test(texto);
+  const menciones = mencionesDeTexto(texto);
+  const ayuda = 'Decime las cuentas: /menciones @fulano @otra (en tu última nota) o /menciones <enlace o id> @fulano @otra. Con «ninguna» las saco.';
+  if (!menciones.length && !ninguna) return dep.enviar(ayuda);
+  const primero = texto.split(/\s+/)[0] ?? '';
+  let nota;
+  if (primero.startsWith('@') || /^ninguna$/i.test(primero)) {
+    const { results } = await dep.db.prepare("SELECT id, titulo, redes FROM notas WHERE estado = 'publicada' AND origen = 'redaccion' ORDER BY COALESCE(publicada_en, creada) DESC LIMIT 1").bind().all();
+    nota = results?.[0] ?? null;
+    if (!nota) return dep.enviar('No encuentro ninguna nota propia publicada. Pasame el enlace: /menciones <enlace o id> @fulano.');
+  } else {
+    const hallada = await buscarNota(dep, primero);
+    if (!hallada) return dep.enviar('No encuentro esa nota. Pasame el enlace o el id (mirá /ultimas).');
+    const { results } = await dep.db.prepare('SELECT redes FROM notas WHERE id = ?').bind(hallada.id).all();
+    nota = { ...hallada, redes: results?.[0]?.redes };
+  }
+  const base = analizar(nota.redes, {});
+  const redes = base && typeof base === 'object' && !Array.isArray(base) ? { ...base } : {};
+  if (menciones.length) redes.menciones = conCuentaDelMedio(menciones); else delete redes.menciones;
+  await dep.db.prepare('UPDATE notas SET redes = ? WHERE id = ?').bind(JSON.stringify(redes), nota.id).run();
+  return dep.enviar(menciones.length
+    ? `Listo: «${corto(nota.titulo, 70)}» nombra en las redes a ${redes.menciones.join(' ')}. Vale para lo que todavía no salió.`
+    : `Listo: «${corto(nota.titulo, 70)}» ya no nombra cuentas en las redes.`);
 }
 
 // ------------------------------------------------------------------------------------------------------------ /retirar

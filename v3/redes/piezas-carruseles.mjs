@@ -31,7 +31,7 @@ export function fotosDeLaNota(nota) {
 }
 
 /** La nota propia como la necesita `armarCarrusel`: portada, fotos y firma. */
-export const notaParaElCarrusel = (n) => ({ id: n.id, slug: n.slug, titulo: n.titulo, seccion: n.seccion || 'Balcarce', firma: n.firma ? n.firma.replace(/^(por|revisad[ao] por)\s+/i, '') : undefined, fotos: fotosDeLaNota(n) });
+export const notaParaElCarrusel = (n) => ({ id: n.id, slug: n.slug, titulo: n.titulo, seccion: n.seccion || 'Balcarce', firma: n.firma ? n.firma.replace(/^(por|revisad[ao] por)\s+/i, '') : undefined, fotos: fotosDeLaNota(n), ...(Array.isArray(n.redes?.menciones) && n.redes.menciones.length ? { menciones: n.redes.menciones } : {}) });
 
 /**
  * Las notas propias que hoy pueden tener su carrusel: con 3 fotos o más, de servicio no, sin tono triste (R41), publicadas hace menos de 72 horas y que su autor no haya dejado «sólo la web»

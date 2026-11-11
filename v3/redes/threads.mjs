@@ -5,7 +5,7 @@
 // La API de Threads sólo hace tarjeta de enlace en posteos de TEXTO (a un posteo con tarjeta no se le puede adjuntar una imagen). Desde el 10/11 el posteo lleva la placa de la propia nota
 // (IMAGE, `image_url` pública, el enlace dentro del texto) para que Meta no elija una miniatura de la página; sin placa, sigue siendo texto + enlace (`link_attachment`).
 // Hasta 500 caracteres y UNA sola etiqueta de tema.
-import { enlaceDeNota, lineaDeCredito, SITIO } from './texto.mjs';
+import { enlaceDeNota, lineaDeCredito, lineaDeMenciones, SITIO } from './texto.mjs';
 import { acortarA, grafemas, sinSecretos, ErrorSocial } from './bluesky.mjs';
 
 export const BASE_THREADS = 'https://graph.threads.net/v1.0';
@@ -19,7 +19,10 @@ const CODIGO_NO_LISTO = 24; // «el recurso no existe / no terminó de procesars
 export function textoDeThreads(nota, sitio = SITIO) {
   const enlace = enlaceDeNota(nota, sitio);
   const credito = lineaDeCredito(nota);
-  const cola = `\n\n${enlace}\n\n${ETIQUETA_THREADS}`;
+  const menciones = lineaDeMenciones(nota);
+  const base = `\n\n${enlace}\n\n${ETIQUETA_THREADS}`;
+  // Las menciones van antes del enlace, sólo si entran dejando lugar para el titular.
+  const cola = menciones && grafemas(`x\n\n${menciones}${base}`) < MAXIMO_THREADS - 120 ? `\n\n${menciones}${base}` : base;
   const conCredito = credito && grafemas(`x${cola}\n${credito}`) < MAXIMO_THREADS - 40 ? `${cola}\n${credito}` : cola;
   return `${acortarA(nota.titulo, MAXIMO_THREADS - grafemas(conCredito))}${conCredito}`;
 }

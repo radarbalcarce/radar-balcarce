@@ -158,6 +158,8 @@ export function textoDeCarrusel(pieza, item, red) {
   } else if (item.arma === 'carrusel-nota') {
     lineas.push(`Todas las fotos, en el carrusel. La nota completa está en el sitio.`);
   }
+  // Las cuentas que se nombran (la persona de la nota y la nuestra), si se pidieron.
+  if (item.datos?.menciones?.length) lineas.push('', item.datos.menciones.join(' '));
   lineas.push('');
   if (red === 'instagram') lineas.push(item.arma === 'carrusel-nota' ? 'La nota completa: link en la bio.' : 'Todo en Radar Balcarce: link en la bio.');
   else {

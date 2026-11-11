@@ -154,7 +154,7 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
     if (conVoz) usados += 1;
     const buffer = deNota.formato === 'carrusel' ? [] : redesDeBuffer(deNota, { youtubeHoy, tope: topeDeYoutube(env) });
     if (buffer.includes('youtube')) youtubeHoy += 1;
-    salen.push({ fila, id: siguiente.pieza, nombre: siguiente.nota.titulo, arma: deNota.arma, variante: null, momento: null, formato: deNota.formato, hora: deNota.hora, horaDelDia: Math.floor(minutoDe(deNota.hora) / 60), bloque: null, saluda: false, buffer, voz: deNota.voz, hashtag: deNota.hashtag, primeraDelBloque: false, datos: { nota: siguiente.nota } });
+    salen.push({ fila, id: siguiente.pieza, nombre: siguiente.nota.titulo, arma: deNota.arma, variante: null, momento: null, formato: deNota.formato, hora: deNota.hora, horaDelDia: Math.floor(minutoDe(deNota.hora) / 60), bloque: null, saluda: false, buffer, voz: deNota.voz, hashtag: deNota.hashtag, primeraDelBloque: false, datos: { nota: siguiente.nota, ...(siguiente.nota.menciones?.length ? { menciones: siguiente.nota.menciones } : {}) } });
   }
   return { dia, simulado, vozTope: tope, vozQuedan: Math.max(0, tope - usados), piezas: salen, descartes };
 }

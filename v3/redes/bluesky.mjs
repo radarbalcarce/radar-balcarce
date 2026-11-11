@@ -7,7 +7,7 @@
 //   crearClienteBluesky(...)      iniciar sesión, subir la imagen y publicar el posteo con su tarjeta
 //
 // Quién decide QUÉ nota va y cuándo es `enlaces.mjs` (el Worker de redes); quién dibuja la imagen y llama a esta API es `piezas/enlaces.mjs` (GitHub Actions).
-import { enlaceDeNota, dosLineas, lineaDeCredito, HASHTAGS, SITIO } from './texto.mjs';
+import { enlaceDeNota, dosLineas, lineaDeCredito, lineaDeMenciones, HASHTAGS, SITIO } from './texto.mjs';
 
 export const SERVICIO_BLUESKY = 'https://bsky.social';
 export const HANDLE_BLUESKY = 'radarbalcarce.bsky.social';
@@ -33,7 +33,10 @@ export function acortarA(texto, max) {
 export function textoDeBluesky(nota, sitio = SITIO) {
   const enlace = enlaceDeNota(nota, sitio);
   const credito = lineaDeCredito(nota);
-  const cola = `\n\n${enlace}\n\n${HASHTAGS}`;
+  const menciones = lineaDeMenciones(nota);
+  const base = `\n\n${enlace}\n\n${HASHTAGS}`;
+  // Las menciones van antes del enlace, pero sólo si entran dejando lugar para el titular (nunca se corta una cuenta a la mitad).
+  const cola = menciones && grafemas(`x\n\n${menciones}${base}`) < MAXIMO_BLUESKY - 80 ? `\n\n${menciones}${base}` : base;
   const conCredito = credito && grafemas(`x${cola}\n${credito}`) < MAXIMO_BLUESKY - 20 ? `${cola}\n${credito}` : cola;
   const titular = acortarA(nota.titulo, MAXIMO_BLUESKY - grafemas(conCredito));
   return `${titular}${conCredito}`;

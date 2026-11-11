@@ -5,7 +5,7 @@ import { readFileSync } from 'node:fs';
 import { aNota } from '../../sitio/db/consultas.mjs';
 import worker, { depDe, DIRECCION, contrasenaDelWebhook } from './worker.mjs';
 import {
-  procesar, vencerPreguntaDeRedes, esOk, esNo, esArmar, redesDeTexto, slugDe, enlacesDe, itemDe, normalizar, TOPE_PEDIDOS_IA, FIRMA,
+  procesar, vencerPreguntaDeRedes, mencionesDeTexto, esOk, esNo, esArmar, redesDeTexto, slugDe, enlacesDe, itemDe, normalizar, TOPE_PEDIDOS_IA, FIRMA,
 } from './nota-propia.mjs';
 
 let DatabaseSync = null;
@@ -594,4 +594,28 @@ test('las redes se marcan una por una y se confirman; sin tocar nada «Confirmar
   const id2 = t.sqlite.prepare('SELECT id FROM notas WHERE titulo = ?').get('Otra nota distinta').id;
   await boton(`rw:${id2}`);
   assert.deepEqual(JSON.parse(t.sqlite.prepare('SELECT redes FROM notas WHERE id = ?').get(id2).redes).lista, []);
+});
+
+test('menciones: en la pregunta de redes se anotan las cuentas con @, no se pierde el pedido, y al confirmar quedan con @radarbalcarce; sin menciones no hay clave', { skip: sinSqlite }, async () => {
+  assert.deepEqual(mencionesDeTexto('Nombrá a @benjaluquecuenc y a @Otra.Cuenta, o a @benjaluquecuenc de nuevo; mail a a@b.com'), ['@benjaluquecuenc', '@Otra.Cuenta']);
+  assert.deepEqual(mencionesDeTexto('sin cuentas'), []);
+  const t = armar({ respuestas: [respuestaDeNota(), respuestaDeNota({ titulo: 'Otra nota distinta' })] });
+  await t.dice('Algo pasó');
+  await t.dice('armala');
+  await t.dice('ok');
+  assert.match(t.ultimo(), /@fulano/);
+  const { id } = t.sqlite.prepare('SELECT id FROM notas').get();
+  await t.dice('@benjaluquecuenc @otra');
+  assert.match(t.ultimo(), /Anotado para las redes: @benjaluquecuenc @otra\. Ahora elegí el formato y tocá «Confirmar»\./);
+  assert.equal((await t.dep.kv.get('pedido', 'json')).fase, 'redes');
+  await procesar(t.dep, { callback_query: { id: 'c', data: `rc:${id}`, message: { chat: { id: 111 }, message_id: 9 } } });
+  const redes = JSON.parse(t.sqlite.prepare('SELECT redes FROM notas').get().redes);
+  assert.deepEqual(redes.menciones, ['@benjaluquecuenc', '@otra', '@radarbalcarce']);
+
+  await t.dice('Segundo tema');
+  await t.dice('armala');
+  await t.dice('ok');
+  await t.dice('todo');
+  const sin = JSON.parse(t.sqlite.prepare('SELECT redes FROM notas WHERE titulo = ?').get('Otra nota distinta').redes);
+  assert.equal('menciones' in sin, false);
 });

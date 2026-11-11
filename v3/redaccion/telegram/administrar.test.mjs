@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import worker, { decidir, contrasenaDelWebhook, DIRECCION } from './worker.mjs';
-import { partirComando, cambiarSeccion, procesarAdmin, candidatosDeId, entenderCambio, reemplazarEnCuerpo, AYUDA } from './administrar.mjs';
+import { partirComando, cambiarSeccion, cambiarMenciones, procesarAdmin, candidatosDeId, entenderCambio, reemplazarEnCuerpo, AYUDA } from './administrar.mjs';
 
 let DatabaseSync = null;
 try { ({ DatabaseSync } = await import('node:sqlite')); } catch { /* Node sin sqlite */ }
@@ -231,5 +231,33 @@ test('«/sección» con tilde es el mismo comando; sin enlace cambia la última 
   assert.match(dep.enviados.at(-1), /ahora está en Argentina/);
   const antes = corridas.length;
   await cambiarSeccion(dep, 'inventada');
+  assert.equal(corridas.length, antes);
+});
+
+test('«/menciones»: sin enlace usa la última nota propia, con id busca esa nota; suma @radarbalcarce, respeta el resto del JSON y «ninguna» las saca', async () => {
+  assert.equal(partirComando('/menciones @a').comando, '/menciones');
+  assert.match(AYUDA, /\/menciones/);
+  const corridas = [];
+  const redesActuales = JSON.stringify({ eleccion: 'todo', lista: ['posteo'], confirmada: true });
+  const dep = {
+    enviados: [],
+    enviar: async (t) => { dep.enviados.push(t); },
+    db: { prepare: (sql) => ({ bind: (...p) => ({ all: async () => ({ results: [{ id: 'abc', titulo: 'Benjamín vuelve', slug: 'benjamin-vuelve', redes: redesActuales }] }), run: async () => { corridas.push([sql, p]); } }) }) },
+  };
+  await cambiarMenciones(dep, '@benjaluquecuenc @benjaluquecuenc');
+  const [sql, [json, id]] = corridas.at(-1);
+  assert.match(sql, /UPDATE notas SET redes/);
+  assert.equal(id, 'abc');
+  assert.deepEqual(JSON.parse(json), { eleccion: 'todo', lista: ['posteo'], confirmada: true, menciones: ['@benjaluquecuenc', '@radarbalcarce'] });
+  assert.match(dep.enviados.at(-1), /@benjaluquecuenc @radarbalcarce/);
+
+  await cambiarMenciones(dep, 'radarbalcarce.com/nota/benjamin-vuelve-abc @radarbalcarce @otra');
+  assert.deepEqual(JSON.parse(corridas.at(-1)[1][0]).menciones, ['@radarbalcarce', '@otra']);
+
+  await cambiarMenciones(dep, 'abc ninguna');
+  assert.equal('menciones' in JSON.parse(corridas.at(-1)[1][0]), false);
+
+  const antes = corridas.length;
+  await cambiarMenciones(dep, 'abc');
   assert.equal(corridas.length, antes);
 });

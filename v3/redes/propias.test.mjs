@@ -4,7 +4,13 @@ import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 import { baseDePrueba } from './ayuda-pruebas.mjs';
 import { notasParaRedes } from './db.mjs';
-import { propiasConReel } from './piezas-carruseles.mjs';
+import { propiasConReel, notaParaElCarrusel } from './piezas-carruseles.mjs';
+import { notasPropiasParaCarrusel } from './piezas-db.mjs';
+import { textoFacebook, textoInstagram } from './texto.mjs';
+import { textoDeThreads } from './threads.mjs';
+import { textoDeBluesky, grafemas, MAXIMO_BLUESKY } from './bluesky.mjs';
+import { textoDeX } from './x.mjs';
+import { textoDeCarrusel } from './piezas/publicar.mjs';
 import { armarNotaPropia } from './piezas/armadores.mjs';
 import { tipoDeNota, motivoDeExclusion, saleEn } from './elegir.mjs';
 
@@ -109,4 +115,41 @@ test('reel de nota propia: las menciones pedidas van en el texto de cada red', a
   for (const red of ['facebook', 'instagram', 'youtube']) assert.match(textoDePieza(pieza, item, red), /@fulano @radarbalcarce/);
   assert.match(textoParaBuffer(pieza, item, 'x'), /@fulano @radarbalcarce/);
   assert.doesNotMatch(textoDePieza(pieza, { ...item, datos: { nota: item.datos.nota } }, 'facebook'), /@/);
+});
+
+test('menciones: llegan de la base a la nota, al carrusel y al reel, y a los textos de cada red; sin menciones no cambia nada', async () => {
+  const { sqlite, DB } = baseDePrueba();
+  conColumnasDelBot(sqlite);
+  propia(sqlite, 'men', { eleccion: 'todo', lista: ['posteo', 'carrusel', 'historia', 'reel'], confirmada: true, menciones: ['@benjaluquecuenc', '@radarbalcarce'] });
+  propia(sqlite, 'sin', { eleccion: 'todo', lista: ['posteo'], confirmada: true });
+  const lista = await notasParaRedes({ DB }, { desdeISO: new Date(AHORA.getTime() - 86_400_000).toISOString() });
+  const con = lista.find((n) => n.id === 'men');
+  const sin = lista.find((n) => n.id === 'sin');
+  assert.deepEqual(con.menciones, ['@benjaluquecuenc', '@radarbalcarce']);
+  assert.deepEqual(sin.menciones, []);
+
+  // Facebook e Instagram: una línea antes del enlace y los hashtags.
+  assert.match(textoFacebook(con), /\n\n@benjaluquecuenc @radarbalcarce\n\n/);
+  assert.match(textoInstagram(con), /\n\n@benjaluquecuenc @radarbalcarce\n\n/);
+  assert.ok(!textoFacebook(sin).includes('@'));
+
+  // Threads, Bluesky y X las llevan y siguen dentro de su límite; si no entran, se saca la línea entera.
+  for (const t of [textoDeThreads(con), textoDeBluesky(con), textoDeX(con)]) assert.match(t, /@benjaluquecuenc @radarbalcarce/);
+  assert.ok(grafemas(textoDeBluesky(con)) <= MAXIMO_BLUESKY);
+  assert.ok(textoDeX(con).length <= 270);
+  const larga = { ...con, menciones: Array.from({ length: 12 }, (_, i) => `@cuenta_numero_${i}`) };
+  assert.ok(!textoDeBluesky(larga).includes('@cuenta'));
+  assert.ok(!textoDeX(larga).includes('@cuenta'));
+  assert.ok(grafemas(textoDeBluesky(larga)) <= MAXIMO_BLUESKY);
+  assert.ok(!textoDeThreads(sin).includes('@') && !textoDeBluesky(sin).includes('@') && !textoDeX(sin).includes('@'));
+
+  // El carrusel y el reel: la nota del armador trae las menciones y el texto del carrusel las imprime.
+  const notasP = await notasPropiasParaCarrusel({ DB }, { desdeISO: new Date(AHORA.getTime() - 86_400_000).toISOString() });
+  const nota = notaParaElCarrusel(notasP.find((n) => n.id === 'men'));
+  assert.deepEqual(nota.menciones, ['@benjaluquecuenc', '@radarbalcarce']);
+  assert.equal('menciones' in notaParaElCarrusel(notasP.find((n) => n.id === 'sin')), false);
+  const item = { id: 'carrusel-nota-men', nombre: nota.titulo, arma: 'carrusel-nota', formato: 'carrusel', hashtag: 'Noticias', datos: { nota, menciones: nota.menciones } };
+  for (const red of ['facebook', 'instagram']) assert.match(textoDeCarrusel({}, item, red), /\n\n@benjaluquecuenc @radarbalcarce\n\n/);
+  const itemSin = { ...item, datos: { nota: { ...nota, menciones: undefined } } };
+  assert.ok(!textoDeCarrusel({}, itemSin, 'facebook').includes('@'));
 });

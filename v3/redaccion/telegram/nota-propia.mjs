@@ -171,6 +171,12 @@ async function alLlegarUnMensaje(dep, m) {
   }
 
   if (pedido?.fase === 'redes') {
+    const menciones = item.tipo === 'texto' ? mencionesDeTexto(texto) : [];
+    if (menciones.length) {
+      pedido.menciones = menciones;
+      await dep.kv.put('pedido', JSON.stringify(pedido), { expirationTtl: ESPERA_REDES_MS / 1000 + 3600 });
+      return dep.enviar(`Anotado para las redes: ${menciones.join(' ')}. Ahora elegí el formato y tocá «Confirmar».`);
+    }
     const r = item.tipo === 'texto' ? redesDeTexto(texto) : null;
     if (r) return elegirRedes(dep, pedido, REDES[r].lista);
     if (item.tipo === 'texto' && esNo(texto)) return elegirRedes(dep, pedido, []);
@@ -463,7 +469,23 @@ async function publicar(dep, pedido) {
   return dep.enviar(textoDeRedes(), { botones: botonesDeRedes(id, nuevo.marcadas) });
 }
 
-export const textoDeRedes = () => '¿Cómo sale esta nota en las redes? Tocá cada formato para marcarlo o desmarcarlo y después «Confirmar» (no hace falta elegir red por red: el posteo va a todas). Si no elegís en 1 hora, queda sólo en la web.';
+export const textoDeRedes = () => '¿Cómo sale esta nota en las redes? Tocá cada formato para marcarlo o desmarcarlo y después «Confirmar» (no hace falta elegir red por red: el posteo va a todas). Si querés nombrar cuentas en las redes (por ejemplo la de la persona de la nota), mandámelas en un mensaje con @ antes de confirmar: @fulano @otra. Si no elegís en 1 hora, queda sólo en la web.';
+
+/** Las cuentas (@usuario, estilo Instagram) que hay en un texto, sin repetir y como se escribieron. */
+export function mencionesDeTexto(texto) {
+  const vistas = new Set();
+  const salida = [];
+  for (const m of String(texto ?? '').matchAll(/(?<![\w.@])@([A-Za-z0-9._]{1,30})/g)) {
+    const h = `@${m[1].replace(/\.+$/, '')}`;
+    if (h.length < 2 || vistas.has(h.toLowerCase())) continue;
+    vistas.add(h.toLowerCase());
+    salida.push(h);
+  }
+  return salida;
+}
+
+/** Las menciones que se guardan con la nota: las pedidas más la cuenta del medio. */
+export const conCuentaDelMedio = (lista) => (lista.some((h) => h.toLowerCase() === '@radarbalcarce') ? lista : [...lista, '@radarbalcarce']);
 
 export function botonesDeRedes(id, marcadas = TODAS) {
   const filas = REDES_ELEGIBLES.map((r) => [{ text: `${marcadas.includes(r.clave) ? '✅' : '⬜'} ${r.etiqueta}`, callback_data: `rt:${id}:${r.clave}` }]);
@@ -479,7 +501,7 @@ const nombreDeLaEleccion = (l) => (!l.length ? 'solo-web' : l.length === TODAS.l
 /** Guarda dónde sale la nota. `lista` = las claves de REDES_ELEGIBLES; vacía = sólo la web. */
 async function elegirRedes(dep, pedido, lista, { porDefecto = false } = {}) {
   const limpia = TODAS.filter((c) => lista.includes(c));
-  const redes = { eleccion: nombreDeLaEleccion(limpia), lista: limpia, confirmada: true, elegida: dep.ahora().toISOString(), ...(porDefecto ? { por: 'defecto' } : {}) };
+  const redes = { eleccion: nombreDeLaEleccion(limpia), lista: limpia, confirmada: true, elegida: dep.ahora().toISOString(), ...(porDefecto ? { por: 'defecto' } : {}), ...(pedido.menciones?.length ? { menciones: conCuentaDelMedio(pedido.menciones) } : {}) };
   await dep.db.prepare('UPDATE notas SET redes = ? WHERE id = ?').bind(JSON.stringify(redes), pedido.id).run();
   await dep.kv.delete('pedido');
   const donde = limpia.length ? `sale como: ${nombresDe(limpia)}` : 'queda sólo en la web';

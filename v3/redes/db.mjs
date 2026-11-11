@@ -39,6 +39,7 @@ export async function notasPropiasParaRedes(env, { desdeISO }) {
       foto: Array.isArray(foto) ? foto[0] ?? null : foto, noPublicar: analizar(f.no_publicar, null),
       deServicio: esNotaDeServicio({ id: f.id, ficha: analizar(f.ficha, null) }), slug: f.s_slug || slugDe(f.titulo), publicada: f.s_publicada || f.creada,
       motivo: 'propia', medios: 0, propia: true, redesElegidas: elegidas,
+      menciones: Array.isArray(redes?.menciones) ? redes.menciones : [],
     };
   }).filter((n) => n.redesElegidas.length);
 }
