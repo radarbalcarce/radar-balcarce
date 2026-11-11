@@ -50,7 +50,7 @@ NUCLEO_REDACTAR_POR_VUELTA = "6"
 NUCLEO_REHACER_POR_DIA = "30"
 NUCLEO_REHACER_POR_VUELTA = "3"
 # Ilustraciones con IA para las notas sin foto real (REGLAS § 7, paso 3; Workers AI FLUX.1 schnell, dentro de las neuronas gratis): notas por vuelta e imágenes por día (0 lo apaga).
-NUCLEO_ILUSTRAR_POR_VUELTA = "2"
+NUCLEO_ILUSTRAR_POR_VUELTA = "4"
 NUCLEO_ILUSTRAR_POR_DIA = "40"
 # Foto de archivo (REGLAS § 7, paso 2 bis): antes de ilustrar, notas por vuelta a las que se les busca una foto real propia de otra nota con el mismo lugar o institución (0 lo apaga).
 NUCLEO_ARCHIVO_POR_VUELTA = "2"

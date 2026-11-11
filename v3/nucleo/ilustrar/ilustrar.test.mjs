@@ -97,7 +97,7 @@ test('motivoParaSaltar: Policiales y Política con tono sobrio sí se ilustran (
   assert.equal(motivoParaSaltar(nota({ seccion: 'Política', titulo: 'El Concejo aprobó el presupuesto' })), null);
 });
 
-test('busquedaAgotada: 4 intentos, un motivo final con 2 intentos, o una nota de más de 24 h; mientras, no', () => {
+test('busquedaAgotada: 2 intentos (11/11; antes 4), un motivo final con 2 intentos, o una nota de más de 3 h (antes 24); mientras, no', () => {
   assert.equal(busquedaAgotada(nota({ creada: hace(2), verificacion: { fotoIntentos: 4 } }), AHORA), true);
   assert.equal(busquedaAgotada(nota({ creada: hace(2), verificacion: { fotoIntentos: 3, fotoMotivo: 'error-vision' } }), AHORA), false);
   assert.equal(busquedaAgotada(nota({ creada: hace(2), verificacion: { fotoIntentos: 2, fotoMotivo: 'todas-con-marca' } }), AHORA), true);

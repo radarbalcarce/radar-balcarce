@@ -41,7 +41,7 @@ const MOTIVOS_REABRIBLES = new Set(['todas-con-menor-o-victima', 'todas-descarta
 export const FOTO_REVISION = 1;
 const hayQueReabrir = (v) => !!v && ((v.fotoCriterio !== FOTO_CRITERIO && MOTIVOS_REABRIBLES.has(v.fotoMotivo || v.rehacerMotivo))
   || (v.fotoMotivo === 'todas-con-marca' && v.fotoRevision !== FOTO_REVISION));
-const ILUSTRAR_POR_VUELTA = 2; // notas a las que se les hace una ilustración por vuelta (NUCLEO_ILUSTRAR_POR_VUELTA; 0 lo apaga; REGLAS § 7 paso 3)
+const ILUSTRAR_POR_VUELTA = 4; // notas a las que se les hace una ilustración por vuelta (NUCLEO_ILUSTRAR_POR_VUELTA; 0 lo apaga; REGLAS § 7 paso 3)
 const ILUSTRAR_POR_DIA = 40; // imágenes por día (NUCLEO_ILUSTRAR_POR_DIA): ~77 neuronas cada una, ~3.100 de las 10.000 gratis
 const ILUSTRAR_MARCAS_POR_VUELTA = 20; // notas que no se pueden ilustrar y se marcan por vuelta para no volver a mirarlas
 const ILUSTRADAS_CON_BUSQUEDA_REAL_POR_VUELTA = 2; // ilustradas a las que se les vuelve a buscar una foto real por vuelta

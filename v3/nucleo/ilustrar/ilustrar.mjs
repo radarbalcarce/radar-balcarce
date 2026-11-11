@@ -21,7 +21,7 @@ export const PASOS = 6;
 export const NEURONAS_POR_IMAGEN = Math.ceil(4 * 4.8 + PASOS * 9.6);
 export const NEURONAS_GRATIS_POR_DIA = 10_000;
 
-export const POR_VUELTA = 2;
+export const POR_VUELTA = 4; // 11/11: 4 (antes 2), para que ninguna nota pase horas con la placa
 export const POR_DIA = 40;
 export const DIAS_HACIA_ATRAS = 7;
 /** Cuántas notas se leen de la base para elegir las que toca (las más nuevas primero). */
@@ -33,8 +33,8 @@ export const MINUTOS_ENTRE_FALLOS = 20;
 export const GENERACIONES_POR_NOTA = 2;
 
 // La búsqueda de foto real (nucleo.mjs): 4 intentos, y sólo las de las últimas 24 h se reintentan. Con un motivo final, 2 intentos alcanzan.
-export const MAX_INTENTOS_DE_FOTO = 4;
-export const HORAS_DE_REINTENTO_DE_FOTO = 24;
+export const MAX_INTENTOS_DE_FOTO = 2; // 11/11 (Hernán): 2 intentos o 3 horas y se ilustra (antes 4 o 24 h); la foto real sigue buscándose y reemplaza
+export const HORAS_DE_REINTENTO_DE_FOTO = 3;
 export const MOTIVOS_FINALES = ['sin-candidatas', 'chicas', 'logo-o-forma', 'todas-con-marca', 'todas-con-menor-o-victima', 'todas-descartadas'];
 export const INTENTOS_CON_MOTIVO_FINAL = 2;
 
@@ -110,7 +110,8 @@ export function motivoPorPersona(nota) {
 export function busquedaAgotada(nota, ahora = new Date()) {
   const v = nota?.verificacion || {};
   const intentos = Number(v.fotoIntentos) || 0;
-  if (intentos >= MAX_INTENTOS_DE_FOTO) return true;
+  // Si la visión no pudo decidir (cupo, red), esos intentos no cuentan como búsqueda hecha: se espera a las 3 horas.
+  if (intentos >= MAX_INTENTOS_DE_FOTO && v.fotoMotivo !== 'error-vision') return true;
   if (MOTIVOS_FINALES.includes(v.fotoMotivo) && intentos >= INTENTOS_CON_MOTIVO_FINAL) return true;
   const creada = new Date(nota?.creada).getTime();
   return Number.isFinite(creada) && new Date(ahora).getTime() - creada > HORAS_DE_REINTENTO_DE_FOTO * HORA;
