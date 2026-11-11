@@ -2,6 +2,7 @@
 // Reemplaza al panel del celular viejo. Nunca usa IA: sólo lee y escribe la tabla `notas` de la D1 (binding DB), con las consultas acá mismo.
 // Cada cambio muestra qué va a pasar y espera un «sí». El estado de lo que está en curso vive en el KV, clave `accion` (10 minutos).
 import { normalizar, esOk, esNo, slugDe, SITIO } from './nota-propia.mjs';
+import { SECCIONES } from '../../nucleo/redactar/redactar.mjs';
 
 export const POR = 'Hernán (Telegram)';
 const TTL_ACCION = 10 * 60;
@@ -17,13 +18,14 @@ Lo ya publicado
 • /ultimas: las 10 últimas notas publicadas, con su enlace.
 • /pendientes: los borradores que esperan.
 • /retirar <enlace o id> <motivo>: saca una nota del sitio. Te muestro el título y espero tu «sí».
+• /seccion <enlace o id> <sección>: cambia la sección de una nota ya publicada (por ejemplo: /seccion radarbalcarce.com/nota/mi-nota-67zuqsi Argentina).
 • /corregir <enlace o id>: cambiar el título, la bajada o una frase del cuerpo. Te muestro el antes y el después y espero tu «sí».
 
 Otros
 • /estado: si el bot está conectado.
 • /ayuda: esta lista.`;
 
-export const COMANDOS = ['/ayuda', '/ultimas', '/pendientes', '/retirar', '/corregir'];
+export const COMANDOS = ['/ayuda', '/ultimas', '/pendientes', '/retirar', '/corregir', '/seccion'];
 
 // ------------------------------------------------------------------------------------------------------------ entender lo que escribió
 
@@ -132,6 +134,7 @@ export async function procesarAdmin(dep, actualizacion) {
     if (comando === '/pendientes') return await pendientes(dep);
     if (comando === '/retirar') return await empezarRetiro(dep, resto);
     if (comando === '/corregir') return await empezarCorreccion(dep, resto);
+    if (comando === '/seccion') return await cambiarSeccion(dep, resto);
     return await continuar(dep, texto);
   } catch (e) {
     console.error(`administrar: ${String(e?.message ?? e)}`);
@@ -164,6 +167,20 @@ async function pendientes(dep) {
     return `${i + 1}. ${corto(n.titulo, 70)}${freno ? ` (frenada: ${corto(freno.motivo ?? freno.razon ?? 'sin motivo', 50)})` : ''}\nid: ${n.id}`;
   });
   return dep.enviar(`Borradores que esperan (${results.length}):\n\n${lineas.join('\n\n')}`);
+}
+
+// ------------------------------------------------------------------------------------------------------------ /seccion
+
+/** Cambia la sección de una nota publicada (se puede volver a cambiar). Sin confirmación: no borra nada. */
+export async function cambiarSeccion(dep, resto) {
+  const partes = String(resto ?? '').trim().split(/s+/);
+  const sec = partes.length > 1 ? SECCIONES.find((x) => normalizar(x) === normalizar(partes.slice(1).join(' '))) : null;
+  if (!partes[0] || !sec) return dep.enviar(`Decime cuál y a qué sección: /seccion <enlace o id> <sección>.
+Secciones: ${SECCIONES.join(', ')}.`);
+  const nota = await buscarNota(dep, partes[0]);
+  if (!nota) return dep.enviar('No encuentro esa nota. Pasame el enlace o el id (mirá /ultimas).');
+  await dep.db.prepare('UPDATE notas SET seccion = ? WHERE id = ?').bind(sec, nota.id).run();
+  return dep.enviar(`Listo: «${corto(nota.titulo, 70)}» ahora está en ${sec}. El sitio la muestra ahí en unos minutos.`);
 }
 
 // ------------------------------------------------------------------------------------------------------------ /retirar

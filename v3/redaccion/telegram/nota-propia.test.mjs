@@ -146,7 +146,7 @@ test('junta texto, audio, foto y enlace; «armala» transcribe, lee el enlace y 
   const vista = t.ultimo();
   assert.match(vista, /VISTA PREVIA/);
   assert.match(vista, /La escuela fantasma y el reclamo de los vecinos/);
-  assert.match(vista, /Sección: Balcarce · Firma: Hernán Accomo/);
+  assert.match(vista, /Sección: Balcarce.*Firma: Hernán Accomo/);
   assert.match(vista, /Foto: la primera que mandaste \(1 en total\)/);
   assert.match(vista, /«ok»/);
   // el material usado se borra y queda esperando el ok
@@ -232,7 +232,7 @@ test('«ok» guarda la nota en D1 (publicada, origen redaccion, firma de Hernán
   assert.equal(fila.historia_id, `redaccion-${fila.id}`);
   assert.equal(fila.seccion, 'Balcarce');
   assert.equal(JSON.parse(fila.cuerpo).length, 2);
-  assert.deepEqual(JSON.parse(fila.redes), { eleccion: 'solo-web', confirmada: false, preguntada: '2026-11-02T15:00:00.000Z' });
+  assert.deepEqual(JSON.parse(fila.redes), { eleccion: 'solo-web', lista: [], confirmada: false, preguntada: '2026-11-02T15:00:00.000Z' });
   const foto = JSON.parse(fila.foto)[0];
   assert.equal(foto.pendiente, true);
   assert.equal(foto.telegram_file_id, 'FOTO1');
@@ -242,8 +242,8 @@ test('«ok» guarda la nota en D1 (publicada, origen redaccion, firma de Hernán
   assert.match(aviso.texto, /sitio nuevo esté en línea/);
   const pregunta = t.enviados.at(-1);
   assert.match(pregunta.texto, /redes/);
-  assert.deepEqual(pregunta.botones.map((f) => f[0].text), ['Todo', 'Posteo e historia', 'Sólo la web']);
-  assert.ok(pregunta.botones.every((f) => f[0].callback_data.startsWith(`redes:${fila.id}:`) && f[0].callback_data.length <= 64));
+  assert.deepEqual(pregunta.botones.map((f) => f[0].text), ['✅ Facebook', '✅ Instagram', '✅ Threads', '✅ Bluesky', '✅ X', '✅ Reel e historia', 'Confirmar']);
+  assert.ok(pregunta.botones.every((f) => f.every((b) => b.callback_data.includes(`:${fila.id}`) && b.callback_data.length <= 64)));
   assert.equal(JSON.parse(t.kv.datos.get('pedido')).fase, 'redes');
 });
 
@@ -317,7 +317,7 @@ test('los botones de redes: «Todo» queda anotado en la nota y se sacan los bot
   const redes = JSON.parse(t.sqlite.prepare('SELECT redes FROM notas').get().redes);
   assert.equal(redes.eleccion, 'todo');
   assert.equal(redes.confirmada, true);
-  assert.match(t.ultimo(), /«Todo»/);
+  assert.match(t.ultimo(), /sale en Facebook, Instagram, Threads, Bluesky, X, Reel e historia/);
   assert.equal(t.kv.datos.has('pedido'), false);
 });
 
@@ -541,7 +541,7 @@ test('por el Worker: un extraño no arma nada (sólo «privado»); el dueño arm
     await Promise.all(esperas.splice(0));
     assert.equal(sqlite.prepare('SELECT estado FROM notas').get().estado, 'publicada');
     const preguntaDeRedes = enTelegram.at(-1).cuerpo;
-    assert.equal(preguntaDeRedes.reply_markup.inline_keyboard.length, 3);
+    assert.equal(preguntaDeRedes.reply_markup.inline_keyboard.length, 7);
     assert.ok(!JSON.stringify(enTelegram).includes('clave'));
   } finally { globalThis.fetch = original; }
 });
@@ -553,4 +553,45 @@ test('schema-redaccion.sql suma las columnas y correrlo dos veces sólo da «dup
   for (const sentencia of lee('./schema-redaccion.sql').split('\n').filter((l) => l.trim() && !l.startsWith('--'))) {
     try { sqlite.exec(sentencia); } catch (e) { assert.match(e.message, /duplicate column/i); }
   }
+});
+
+// ------------------------------------------------------------------------------------------------------------ sección y redes una por una (10/11)
+
+test('la vista previa ofrece las 14 secciones con la sugerida marcada; tocar una la cambia y queda en la nota publicada', { skip: sinSqlite }, async () => {
+  const t = armar({ respuestas: [respuestaDeNota()] });
+  await t.dice('Algo pasó');
+  await t.dice('armala');
+  const vista = t.enviados.at(-1);
+  const botones = vista.botones.flat();
+  assert.equal(botones.length, 14);
+  assert.ok(botones.every((b) => b.callback_data.length <= 64));
+  assert.ok(botones.find((b) => b.text.startsWith('✅')).text.includes('Balcarce'));
+  const argentina = botones.find((b) => b.text === 'Argentina');
+  await procesar(t.dep, { callback_query: { id: 'c1', data: argentina.callback_data, message: { chat: { id: 111 }, message_id: 7 } } });
+  assert.match(t.ultimo(), /Sección: Argentina/);
+  await t.dice('ok');
+  assert.equal(t.sqlite.prepare('SELECT seccion FROM notas').get().seccion, 'Argentina');
+});
+
+test('las redes se marcan una por una y se confirman; sin tocar nada «Confirmar» las deja todas; «Sólo la web» no deja ninguna', { skip: sinSqlite }, async () => {
+  const t = armar({ respuestas: [respuestaDeNota(), respuestaDeNota({ titulo: 'Otra nota distinta' })] });
+  await t.dice('Algo pasó');
+  await t.dice('armala');
+  await t.dice('ok');
+  const { id } = t.sqlite.prepare('SELECT id FROM notas').get();
+  const boton = (data) => procesar(t.dep, { callback_query: { id: 'c', data, message: { chat: { id: 111 }, message_id: 9 } } });
+  await boton(`rt:${id}:instagram`); // desmarca Instagram
+  await boton(`rt:${id}:bluesky`); // desmarca Bluesky
+  await boton(`rc:${id}`);
+  const redes = JSON.parse(t.sqlite.prepare('SELECT redes FROM notas').get().redes);
+  assert.deepEqual(redes.lista, ['facebook', 'threads', 'x', 'reel']);
+  assert.equal(redes.eleccion, 'elegidas');
+  assert.match(t.ultimo(), /sale en Facebook, Threads, X, Reel e historia/);
+
+  await t.dice('Segundo tema');
+  await t.dice('armala');
+  await t.dice('ok');
+  const id2 = t.sqlite.prepare('SELECT id FROM notas WHERE titulo = ?').get('Otra nota distinta').id;
+  await boton(`rw:${id2}`);
+  assert.deepEqual(JSON.parse(t.sqlite.prepare('SELECT redes FROM notas WHERE id = ?').get(id2).redes).lista, []);
 });

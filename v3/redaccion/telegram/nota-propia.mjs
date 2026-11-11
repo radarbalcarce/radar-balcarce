@@ -25,12 +25,23 @@ const MAX_AUDIOS = 8;
 const MAX_ENLACES = 2;
 const MAX_TEXTO_ENLACE = 6000;
 
+// Dónde puede salir una nota propia (10/11: Hernán elige red por red). «reel» = el reel y la historia de los repasos con voz; el resto, el posteo con foto de cada red.
+export const REDES_ELEGIBLES = [
+  { clave: 'facebook', etiqueta: 'Facebook' },
+  { clave: 'instagram', etiqueta: 'Instagram' },
+  { clave: 'threads', etiqueta: 'Threads' },
+  { clave: 'bluesky', etiqueta: 'Bluesky' },
+  { clave: 'x', etiqueta: 'X' },
+  { clave: 'reel', etiqueta: 'Reel e historia' },
+];
+const TODAS = REDES_ELEGIBLES.map((r) => r.clave);
 export const REDES = {
-  todo: { etiqueta: 'Todo', detalle: 'posteo con foto en todas las redes, historia con la tarjeta y reel con voz' },
-  'posteo-historia': { etiqueta: 'Posteo e historia', detalle: 'posteo con foto e historia con la tarjeta, sin reel' },
-  'solo-web': { etiqueta: 'Sólo la web', detalle: 'nada en las redes' },
+  todo: { etiqueta: 'Todo', detalle: 'posteo con foto en todas las redes, historia con la tarjeta y reel con voz', lista: TODAS },
+  'posteo-historia': { etiqueta: 'Posteo e historia', detalle: 'posteo con foto e historia con la tarjeta, sin reel', lista: TODAS.filter((c) => c !== 'reel') },
+  'solo-web': { etiqueta: 'Sólo la web', detalle: 'nada en las redes', lista: [] },
 };
 export const REDES_POR_DEFECTO = 'solo-web';
+const nombresDe = (lista) => REDES_ELEGIBLES.filter((r) => lista.includes(r.clave)).map((r) => r.etiqueta).join(', ');
 
 // ------------------------------------------------------------------------------------------------------------ cosas chicas
 
@@ -162,9 +173,9 @@ async function alLlegarUnMensaje(dep, m) {
 
   if (pedido?.fase === 'redes') {
     const r = item.tipo === 'texto' ? redesDeTexto(texto) : null;
-    if (r) return elegirRedes(dep, pedido, r);
-    if (item.tipo === 'texto' && esNo(texto)) return elegirRedes(dep, pedido, 'solo-web');
-    if (item.tipo === 'texto' && esOk(texto)) return dep.enviar('Elegí qué hacer en redes con los botones (o escribí «todo», «posteo e historia» o «sólo la web»).');
+    if (r) return elegirRedes(dep, pedido, REDES[r].lista);
+    if (item.tipo === 'texto' && esNo(texto)) return elegirRedes(dep, pedido, []);
+    if (item.tipo === 'texto' && esOk(texto)) return dep.enviar('Elegí en qué redes sale con los botones y tocá «Confirmar» (o escribí «todo», «posteo e historia» o «sólo la web»).');
     await dep.kv.delete('pedido'); // empezó otro pedido: la pregunta de redes queda como estaba («Sólo la web»)
   }
 
@@ -274,7 +285,8 @@ const REGLAS_DE_LA_NOTA_PROPIA = `# Esta es una NOTA PROPIA (manda sobre lo ante
 - La postura se apoya SOLO en lo que él contó o en el enlace. No inventes datos, nombres, cifras, fechas, cargos, citas ni lugares que no estén en el material, y no completes de memoria: si algo no está, no lo digas. Si dijo una opinión, es suya; si el material no tiene postura, informá con tono propio sin inventarle una.
 - Un «según la denuncia» o «dicen» no se convierte en hecho. Nada con malicia contra un tercero. Nunca identificar a un menor ni a una víctima que no sea pública.
 - Si el material cita a otro medio o al enlace, atribuilo. No copies frases del enlace: contalas con tus palabras.
-- Si lo que mandó no alcanza para una nota que se sostenga, devolvé noPublicar con motivo "sin-material".`;
+- Si lo que mandó no alcanza para una nota que se sostenga, devolvé noPublicar con motivo "sin-material".
+- Sección: «Balcarce» sólo si pasa en Balcarce o su zona. Una noticia de otro lugar del país que no encaja en una sección temática clara (deportes, salud, economía…) va a «Argentina»; la gente de otro pueblo que viaja o compite en algo cultural o social, también.`;
 
 const ESQUEMA = `{
   "titulo": "string, propio, informa qué pasó",
@@ -343,7 +355,7 @@ export function textoDeVistaPrevia(pedido) {
   const f = pedido.material.fotos?.length;
   return [
     'VISTA PREVIA',
-    `Sección: ${n.seccion} · Firma: ${FIRMA}`,
+    `Sección: ${n.seccion} (tocá otra abajo si va en otra) · Firma: ${FIRMA}`,
     f ? `Foto: la primera que mandaste (${f} en total)` : 'Foto: ninguna (saldría la placa)',
     '',
     n.titulo,
@@ -355,7 +367,16 @@ export function textoDeVistaPrevia(pedido) {
   ].join('\n');
 }
 
-const mostrarVistaPrevia = (dep, pedido) => dep.enviar(textoDeVistaPrevia(pedido));
+export function botonesDeSeccion(pedido) {
+  const filas = [];
+  SECCIONES.forEach((sec, i) => {
+    if (i % 3 === 0) filas.push([]);
+    filas.at(-1).push({ text: sec === pedido.nota.seccion ? `✅ ${sec}` : sec, callback_data: `sec:${pedido.id}:${i}` });
+  });
+  return filas;
+}
+
+const mostrarVistaPrevia = (dep, pedido) => dep.enviar(textoDeVistaPrevia(pedido), { botones: botonesDeSeccion(pedido) });
 
 async function corregir(dep, pedido, item) {
   // Una foto sola (sin texto): pasa a ser la de portada. No gasta IA.
@@ -423,14 +444,14 @@ async function publicar(dep, pedido) {
   const slug = slugDe(n.titulo);
   const foto = await guardarFoto(dep, pedido, n, id);
   const fuentes = (pedido.material.enlaces ?? []).map((e) => ({ medio: new URL(e.url).hostname.replace(/^www\./, ''), url: e.url }));
-  const redes = { eleccion: REDES_POR_DEFECTO, confirmada: false, preguntada: ahora };
+  const redes = { eleccion: REDES_POR_DEFECTO, lista: [], confirmada: false, preguntada: ahora };
   await dep.db.prepare(SQL_NOTA).bind(
     id, `redaccion-${id}`, ahora, n.titulo, n.bajada, JSON.stringify(n.cuerpo), n.seccion, n.enDosLineas, JSON.stringify(n.ficha), null,
     JSON.stringify({ oracionesQuitadas: [], reescrita: false, propia: true }), foto ? JSON.stringify(foto) : null, JSON.stringify(fuentes), ahora, FIRMA,
     pedido.pedidos ?? 0, 'publicada', 'redaccion', slug, ahora, JSON.stringify(redes),
   ).run();
 
-  const nuevo = { fase: 'redes', id, titulo: n.titulo, preguntada: ahora };
+  const nuevo = { fase: 'redes', id, titulo: n.titulo, preguntada: ahora, marcadas: [...TODAS] };
   await dep.kv.put('pedido', JSON.stringify(nuevo), { expirationTtl: ESPERA_REDES_MS / 1000 + 3600 });
   const enlace = `${SITIO}/nota/${slug}-${id}`;
   await dep.enviar([
@@ -439,33 +460,68 @@ async function publicar(dep, pedido) {
     '(Todavía no hay corte: el enlace se va a ver cuando el sitio nuevo esté en línea.)',
     foto?.[0]?.pendiente ? '(La foto quedó guardada en Telegram, pendiente de subir al sitio.)' : '',
   ].filter(Boolean).join('\n'));
-  return dep.enviar('¿Qué hago en las redes con esta nota? Si no elegís en 1 hora, queda sólo en la web.', { botones: botonesDeRedes(id) });
+  return dep.enviar(textoDeRedes(), { botones: botonesDeRedes(id, nuevo.marcadas) });
 }
 
-export function botonesDeRedes(id) {
-  return Object.entries(REDES).map(([clave, r]) => [{ text: r.etiqueta, callback_data: `redes:${id}:${clave}` }]);
+export const textoDeRedes = () => '¿En qué redes sale esta nota? Tocá cada red para marcarla o desmarcarla y después «Confirmar». Si no elegís en 1 hora, queda sólo en la web.';
+
+export function botonesDeRedes(id, marcadas = TODAS) {
+  const filas = REDES_ELEGIBLES.map((r) => [{ text: `${marcadas.includes(r.clave) ? '✅' : '⬜'} ${r.etiqueta}`, callback_data: `rt:${id}:${r.clave}` }]);
+  filas.push([{ text: 'Confirmar', callback_data: `rc:${id}` }, { text: 'Sólo la web', callback_data: `rw:${id}` }]);
+  return filas;
 }
 
 // ------------------------------------------------------------------------------------------------------------ redes
 
-async function elegirRedes(dep, pedido, eleccion, { porDefecto = false } = {}) {
-  const redes = { eleccion, confirmada: true, elegida: dep.ahora().toISOString(), ...(porDefecto ? { por: 'defecto' } : {}) };
+const nombreDeLaEleccion = (l) => (!l.length ? 'solo-web' : l.length === TODAS.length ? 'todo' : l.length === TODAS.length - 1 && !l.includes('reel') ? 'posteo-historia' : 'elegidas');
+
+/** Guarda dónde sale la nota. `lista` = las claves de REDES_ELEGIBLES; vacía = sólo la web. */
+async function elegirRedes(dep, pedido, lista, { porDefecto = false } = {}) {
+  const limpia = TODAS.filter((c) => lista.includes(c));
+  const redes = { eleccion: nombreDeLaEleccion(limpia), lista: limpia, confirmada: true, elegida: dep.ahora().toISOString(), ...(porDefecto ? { por: 'defecto' } : {}) };
   await dep.db.prepare('UPDATE notas SET redes = ? WHERE id = ?').bind(JSON.stringify(redes), pedido.id).run();
   await dep.kv.delete('pedido');
-  const r = REDES[eleccion];
+  const donde = limpia.length ? `sale en ${nombresDe(limpia)}` : 'queda sólo en la web';
   return dep.enviar(porDefecto
-    ? `No elegiste a tiempo: «${r.etiqueta}» (${r.detalle}). Las redes de la 3.0 todavía no existen; queda anotado en la nota.`
-    : `Anotado: «${r.etiqueta}» (${r.detalle}). Las redes de la 3.0 todavía no existen; queda anotado en la nota para cuando estén.`);
+    ? `No elegiste a tiempo: «Sólo la web», ${donde}.`
+    : `Anotado: ${donde}. Las redes la toman en la próxima vuelta (el posteo y los repasos de las próximas horas).`);
 }
 
 async function alApretarBoton(dep, cb) {
   const pedido = await dep.kv.get('pedido', 'json');
-  const [tipo, id, eleccion] = String(cb.data ?? '').split(':');
+  const [tipo, id, dato] = String(cb.data ?? '').split(':');
   await dep.responderBoton(cb.id);
-  if (tipo !== 'redes' || !REDES[eleccion]) return;
-  if (cb.message?.message_id) await dep.quitarBotones(cb.message.message_id);
-  if (pedido?.fase !== 'redes' || pedido.id !== id) return dep.enviar('Esa pregunta de las redes ya está contestada o venció.');
-  return elegirRedes(dep, pedido, eleccion);
+  const mensaje = cb.message?.message_id;
+
+  if (tipo === 'sec') {
+    if (pedido?.fase !== 'vista' || pedido.id !== id || !SECCIONES[Number(dato)]) return dep.enviar('Esa nota ya no está esperando su sección.');
+    pedido.nota.seccion = SECCIONES[Number(dato)];
+    await dep.kv.put('pedido', JSON.stringify(pedido), { expirationTtl: TTL_PEDIDO });
+    const nuevos = botonesDeSeccion(pedido);
+    if (mensaje && dep.editarBotones) await dep.editarBotones(mensaje, nuevos);
+    return dep.enviar(`Sección: ${pedido.nota.seccion}. Respondé «ok» para publicarla.`);
+  }
+
+  // Los botones viejos («redes:<id>:todo») siguen andando por si quedó alguno en el chat.
+  if (tipo === 'redes' && REDES[dato]) {
+    if (mensaje) await dep.quitarBotones(mensaje);
+    if (pedido?.fase !== 'redes' || pedido.id !== id) return dep.enviar('Esa pregunta de las redes ya está contestada o venció.');
+    return elegirRedes(dep, pedido, REDES[dato].lista);
+  }
+  if (!['rt', 'rc', 'rw'].includes(tipo)) return;
+  if (pedido?.fase !== 'redes' || pedido.id !== id) {
+    if (mensaje) await dep.quitarBotones(mensaje);
+    return dep.enviar('Esa pregunta de las redes ya está contestada o venció.');
+  }
+  if (tipo === 'rw') { if (mensaje) await dep.quitarBotones(mensaje); return elegirRedes(dep, pedido, []); }
+  if (tipo === 'rc') { if (mensaje) await dep.quitarBotones(mensaje); return elegirRedes(dep, pedido, pedido.marcadas ?? []); }
+  if (!TODAS.includes(dato)) return;
+  const marcadas = new Set(pedido.marcadas ?? []);
+  if (marcadas.has(dato)) marcadas.delete(dato); else marcadas.add(dato);
+  pedido.marcadas = [...marcadas];
+  await dep.kv.put('pedido', JSON.stringify(pedido), { expirationTtl: ESPERA_REDES_MS / 1000 + 3600 });
+  if (mensaje && dep.editarBotones) return dep.editarBotones(mensaje, botonesDeRedes(id, pedido.marcadas));
+  return dep.enviar(`Marcadas: ${nombresDe(pedido.marcadas) || 'ninguna'}. Tocá «Confirmar» cuando estén.`);
 }
 
 /** Lo corre el cron: si pasó más de una hora sin elegir las redes, queda «Sólo la web». */
@@ -473,6 +529,6 @@ export async function vencerPreguntaDeRedes(dep) {
   const pedido = await dep.kv.get('pedido', 'json');
   if (pedido?.fase !== 'redes') return false;
   if (dep.ahora() - new Date(pedido.preguntada) < ESPERA_REDES_MS) return false;
-  await elegirRedes(dep, pedido, REDES_POR_DEFECTO, { porDefecto: true });
+  await elegirRedes(dep, pedido, [], { porDefecto: true });
   return true;
 }

@@ -43,10 +43,14 @@ export function rangoDelDia(dia) {
 
 /** 'local' si es de Balcarce, 'nacional' si es de afuera y lo cuentan muchos medios, null si no va a las redes por lo que es. */
 export function tipoDeNota(nota, reglas = REGLAS) {
+  if (nota.propia) return 'nacional'; // una nota propia que su autor mandó a las redes sale aunque no la cuenten otros medios (10/11)
   if (nota.seccion === 'Balcarce' || nota.motivo === 'balcarce') return 'local';
   if (nota.motivo === 'zona') return null; // otra ciudad de la zona: no es de acá ni es lo más contado del país
   return Number(nota.medios) >= reglas.mediosParaNacional ? 'nacional' : null;
 }
+
+/** ¿La nota puede salir en esa red? Las del núcleo, siempre; las propias, sólo en las que eligió su autor (`reel` = los repasos con voz). */
+export const saleEn = (nota, red) => !nota?.propia || (nota.redesElegidas ?? []).includes(red);
 
 /** ¿Tiene una foto que se pueda mandar? La foto sale de nota.foto.url; sin foto no hay posteo (R: todo lo que va a redes lleva imagen). */
 export function tieneFoto(nota) {
@@ -101,7 +105,7 @@ export function motivoDeExclusion(nota, { ahora, reglas = REGLAS, conPlaca = fal
   if (!tieneFoto(nota) && !(conPlaca && sePuedeConPlacaSola(nota, reglas, ahora))) return 'sin-foto';
   const tipo = tipoDeNota(nota, reglas);
   if (!tipo) return 'no-es-de-redes';
-  if (tipo === 'nacional' && noEsNoticiaAunqueLaCuentenTodos(nota.titulo)) return 'no-es-noticia';
+  if (tipo === 'nacional' && !nota.propia && noEsNoticiaAunqueLaCuentenTodos(nota.titulo)) return 'no-es-noticia';
   const edad = (new Date(ahora) - new Date(nota.publicada)) / 3600_000;
   if (!(edad <= reglas.edadMaximaHoras)) return 'vieja';
   return null;

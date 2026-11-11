@@ -13,6 +13,37 @@ const analizar = (s, def) => { try { return s ? JSON.parse(s) : def; } catch { r
  * sin eso la simulación no vería nada.
  */
 export async function notasParaRedes(env, { desdeISO, conBorradores = false }) {
+  return [...(await notasDelNucleo(env, { desdeISO, conBorradores })), ...(await notasPropiasParaRedes(env, { desdeISO }))];
+}
+
+/**
+ * Las notas que escribe una persona por Telegram (origen `redaccion`) y mandó a las redes: con `redes.confirmada` y al menos una red elegida. Van con `propia: true` y `redesElegidas`.
+ * Las columnas `origen` y `redes` las suma el bot; en una base que no las tiene no hay ninguna.
+ */
+export async function notasPropiasParaRedes(env, { desdeISO }) {
+  let r;
+  try {
+    r = await env.DB.prepare(
+      `SELECT n.id, n.titulo, n.bajada, n.en_dos_lineas, n.seccion, n.foto, n.no_publicar, n.creada, n.ficha, n.redes, s.slug AS s_slug, s.publicada_en AS s_publicada
+       FROM notas n LEFT JOIN sitio_notas s ON s.id = n.id
+       WHERE n.estado = 'publicada' AND n.origen = 'redaccion' AND COALESCE(s.publicada_en, n.creada) >= ?
+       ORDER BY COALESCE(s.publicada_en, n.creada) DESC`,
+    ).bind(desdeISO).all();
+  } catch { return []; }
+  return lista(r).map((f) => {
+    const redes = analizar(f.redes, null);
+    const elegidas = redes?.confirmada !== true ? [] : Array.isArray(redes.lista) ? redes.lista : redes.eleccion === 'todo' ? ['facebook', 'instagram', 'threads', 'bluesky', 'x', 'reel'] : redes.eleccion === 'posteo-historia' ? ['facebook', 'instagram', 'threads', 'bluesky', 'x'] : [];
+    const foto = analizar(f.foto, null);
+    return {
+      id: f.id, titulo: f.titulo || '', bajada: f.bajada || '', enDosLineas: f.en_dos_lineas || '', seccion: f.seccion || '',
+      foto: Array.isArray(foto) ? foto[0] ?? null : foto, noPublicar: analizar(f.no_publicar, null),
+      deServicio: esNotaDeServicio({ id: f.id, ficha: analizar(f.ficha, null) }), slug: f.s_slug || slugDe(f.titulo), publicada: f.s_publicada || f.creada,
+      motivo: 'propia', medios: 0, propia: true, redesElegidas: elegidas,
+    };
+  }).filter((n) => n.redesElegidas.length);
+}
+
+async function notasDelNucleo(env, { desdeISO, conBorradores = false }) {
   const estados = conBorradores ? "('publicada', 'borrador')" : "('publicada')";
   const r = await env.DB.prepare(
     `SELECT n.id, n.titulo, n.bajada, n.en_dos_lineas, n.seccion, n.foto, n.no_publicar, n.creada, n.ficha, n.historia_id,

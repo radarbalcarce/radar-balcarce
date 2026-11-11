@@ -4,7 +4,7 @@
 // Qué nota va: las MISMAS que salieron en Facebook hoy (así ya pasaron la ley, el tono R41, la foto y los cupos: nada nuevo que cuidar), una vez por red, la más vieja primero, hasta
 // 3 por red en cada corrida, y mientras no hayan pasado 12 horas desde que salieron en Facebook. Una nota que falló dos veces en una red no se reintenta en esa red.
 // Ensayo (REDES_ACTIVAS «no»): se anota como `simulado` y el programa no llama a nadie. Real: se anota `enviando` y el programa cuenta `ok` o `error` con `/enlaces/resultado`.
-import { diaDeBalcarce, hechasDe, tipoDeNota, sePuedeConPlacaSola } from './elegir.mjs';
+import { diaDeBalcarce, hechasDe, tipoDeNota, sePuedeConPlacaSola, saleEn } from './elegir.mjs';
 import { notasParaRedes, publicacionesDelDia, anotarIntento, cerrarIntento, vencerEnviando } from './db.mjs';
 import { textoDeBluesky } from './bluesky.mjs';
 import { textoDeThreads } from './threads.mjs';
@@ -58,7 +58,7 @@ export async function planearEnlaces(env, { ahora = new Date(), simulado = true,
       if (n >= reglas.porRedYCorrida) break;
       if (yaEstan.has(f.notaId) || (fallos.get(f.notaId) || 0) >= reglas.erroresPorNota) continue;
       const nota = notas.get(f.notaId);
-      if (!nota || (!nota.foto?.url && !sePuedeConPlacaSola(nota))) continue; // la imagen de enlace necesita la foto (las de Facebook ya la tienen), salvo una nota de Balcarce sin foto: va con la placa de su sección
+      if (!nota || !saleEn(nota, red) || (!nota.foto?.url && !sePuedeConPlacaSola(nota))) continue; // la imagen de enlace necesita la foto (las de Facebook ya la tienen), salvo una nota de Balcarce sin foto: va con la placa de su sección
       // X lleva la placa: si todavía no está dibujada (o el Worker no ve el depósito, en real), espera a la corrida siguiente. En ensayo se anota igual.
       if (red === 'x' && !simulado && !(conPlacas && conPlacas.has(nombreDePlaca(nota)))) continue;
       const texto = textoDe[red](nota, sitio, env);

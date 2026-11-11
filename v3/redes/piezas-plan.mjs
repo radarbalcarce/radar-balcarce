@@ -4,7 +4,7 @@
 
 import { redesDeBuffer, topeDeYoutube } from './piezas-del-dia.mjs';
 import { PIEZAS_DEL_DIA, piezasDeHoy, piezasQueTocan, minutoDe, bloqueDe, bloqueDeLaHora, relojDeBalcarce } from './piezas-del-dia.mjs';
-import { diaDeBalcarce, motivoDeExclusion, tipoDeNota, tieneFoto, REGLAS as REGLAS_DE_NOTAS } from './elegir.mjs';
+import { diaDeBalcarce, motivoDeExclusion, tipoDeNota, tieneFoto, saleEn, REGLAS as REGLAS_DE_NOTAS } from './elegir.mjs';
 import { notasParaRedes, publicacionesDelDia } from './db.mjs';
 import * as dbp from './piezas-db.mjs';
 import { datosDeLaSemana, proximaNotaConCarrusel } from './piezas-carruseles.mjs';
@@ -44,7 +44,7 @@ export function notasDelRepaso(notas, { ahora, yaUsadas = [], reglas = REGLAS_PI
   // Lo de Balcarce no necesita foto (va con la placa de su sección); lo de afuera sí. La ley y el tono valen para todo.
   const validas = notas.filter((n) => !usadas.has(n.id) && !motivoDeExclusion(tipoDeNota(n) === 'local' && !tieneFoto(n) ? { ...n, foto: { url: 'https://placa.local/sin-foto' } } : n, { ahora, reglas: regla }));
   const locales = validas.filter((n) => tipoDeNota(n) === 'local').sort((a, b) => String(b.publicada).localeCompare(String(a.publicada)));
-  const nacionales = validas.filter((n) => tipoDeNota(n) === 'nacional').sort((a, b) => (b.medios - a.medios) || String(b.publicada).localeCompare(String(a.publicada)));
+  const nacionales = validas.filter((n) => tipoDeNota(n) === 'nacional').sort((a, b) => (Number(!!b.propia) - Number(!!a.propia)) || (b.medios - a.medios) || String(b.publicada).localeCompare(String(a.publicada)));
   const localesConFoto = locales.filter(tieneFoto);
   const localesSinFoto = locales.filter((n) => !tieneFoto(n));
   // Lo de Balcarce con foto primero; una sin foto (con placa) sólo si no hay ninguna con foto, así Balcarce sigue estando.
@@ -116,7 +116,7 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
     let notas = null;
     let auspicio = null;
     if (p.arma === 'repaso') {
-      notasCargadas ??= await notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - reglas.edadDeLasNotasHoras * 3600_000).toISOString(), conBorradores: simulado });
+      notasCargadas ??= (await notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - reglas.edadDeLasNotasHoras * 3600_000).toISOString(), conBorradores: simulado })).filter((n) => saleEn(n, 'reel'));
       const elegidas = notasDelRepaso(notasCargadas, { ahora, yaUsadas: [...notasDeHoy, ...yaContadas, ...salen.flatMap((s) => s.datos.notasIds ?? [])], reglas });
       if (!elegidas.length) { descartes.push({ pieza: p.id, motivo: 'sin-notas' }); continue; }
       datos = { notas: elegidas.map(paraElArmador), notasIds: elegidas.map((n) => n.id), sinBalcarce: !elegidas.some((n) => tipoDeNota(n) === 'local') };

@@ -5,7 +5,7 @@
 //   REDES_ACTIVAS = «no» (por defecto): simula. Elige, arma el texto, lo anota en `publicaciones` con simulado = 1 y NO llama a Meta.
 //   Secretos: META_TOKEN (para publicar de verdad) y TELEGRAM_TOKEN (para avisar). Binding DB (D1) y TELEGRAM (service binding a radar-telegram).
 
-import { elegirParaFacebook, elegirEspejo, diaDeBalcarce, minutoDelDia, rangoDelDia, motivoDeExclusion, tipoDeNota, sePuedeConPlacaSola } from './elegir.mjs';
+import { elegirParaFacebook, elegirEspejo, diaDeBalcarce, minutoDelDia, rangoDelDia, motivoDeExclusion, tipoDeNota, sePuedeConPlacaSola, saleEn } from './elegir.mjs';
 import { conPlaca, nombreDePlaca, claveR2DePlaca, urlDePlaca, bajadaDeLaPlaca, PREFIJO_DE_PLACAS, NOMBRE_VALIDO, DIRECCION_DE_LAS_REDES } from './placa-clave.mjs';
 import { textoFacebook, textoInstagram, SITIO } from './texto.mjs';
 import { publicarEnFacebook } from './facebook/publicar.mjs';
@@ -148,6 +148,8 @@ export function crearRedes(deps = {}) {
     const dia = diaDeBalcarce(ahora);
     if (!posteosActivos(env)) return { simulado, dia, notasMiradas: 0, facebook: null, instagram: null, motivo: 'posteos-apagados' };
     let notas = await db.notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - 24 * 3600 * 1000).toISOString(), conBorradores: simulado });
+    const todas = notas;
+    notas = todas.filter((n) => saleEn(n, 'facebook'));
     const miradas = notas.length;
     if (!simulado && posteosConPlaca(env)) notas = await notasConLaPlaca(env, notas);
     let hechas = await db.publicacionesDelDia(env, dia, simulado);
@@ -163,7 +165,7 @@ export function crearRedes(deps = {}) {
     }
 
     if (espejoActivo(env)) {
-      const esp = elegirEspejo({ notas, hechas, ahora });
+      const esp = elegirEspejo({ notas: notas.filter((n) => saleEn(n, 'instagram')), hechas, ahora });
       if (esp.nota) resultado.instagram = await publicarUna(env, { red: 'instagram', nota: esp.nota, tipo: esp.tipo, simulado, ahora, hechas });
     }
     return resultado;

@@ -363,6 +363,7 @@ export function depDe(env, chat, textos = {}, ahora = () => new Date()) {
       }
     },
     responderBoton: (id) => api(token, 'answerCallbackQuery', { callback_query_id: id }),
+    editarBotones: (messageId, botones) => api(token, 'editMessageReplyMarkup', { chat_id: chat, message_id: messageId, reply_markup: { inline_keyboard: botones } }),
     quitarBotones: (messageId) => api(token, 'editMessageReplyMarkup', { chat_id: chat, message_id: messageId, reply_markup: { inline_keyboard: [] } }),
   };
 }
