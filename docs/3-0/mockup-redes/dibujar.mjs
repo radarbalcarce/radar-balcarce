@@ -42,10 +42,12 @@ function desdePortada(id) {
     foto: n.foto ? { ruta: path.join('web', 'public', n.foto.archivo), credito: n.foto.credito, alt: n.titulo } : null,
   };
 }
-const SECCIONES_EJEMPLO = {
-  Balcarce: '81mpvn', Política: '1wphsfy', Fútbol: '1qtpqas', Deportes: '1d0gbk6', Automovilismo: 'yko3zc', Agro: '1favj63', Economía: '1858pwy',
-  'Cultura y agenda': 'slokez', Tecnología: 'jm4xhz', Salud: 'ywp9x3', Argentina: 'ly4st3',
-};
+// Una nota de ejemplo por sección: la primera con foto que tenga la portada de hoy (así el ejemplo nunca queda viejo).
+const SECCIONES_EJEMPLO = {};
+for (const s of ['Balcarce', 'Política', 'Fútbol', 'Deportes', 'Automovilismo', 'Agro', 'Economía', 'Cultura y agenda', 'Tecnología', 'Salud', 'Argentina']) {
+  const n = portada.notas.find((x) => x.seccion === s && x.foto?.archivo);
+  if (n) SECCIONES_EJEMPLO[s] = n.id;
+}
 const notaDe = (seccion) => desdePortada(SECCIONES_EJEMPLO[seccion]);
 
 function notaPropia() {
@@ -55,7 +57,7 @@ function notaPropia() {
 }
 
 const clima = { ahora: portada.clima.ahora, dias: portada.clima.dias };
-const HOY = '2026-11-05';
+const HOY = new Date(Date.now() - 3 * 3600_000).toISOString().slice(0, 10);
 
 // ------------------------------------------------------------------ cada pieza: { clave, titulo, armada, stills a mostrar }
 async function video(clave, armada, { cuales = null, ancho = 270 } = {}) {
@@ -95,7 +97,7 @@ for (const [base, cielo] of Object.entries(CIELOS)) {
 }
 // avisos de clima
 const AVISOS = {
-  helada: { tipo: 'helada', titulo: 'Helada fuerte esta noche', texto: 'Se esperan -3° de mínima esta noche en Balcarce. Cubrí las plantas y cuidá las cañerías.', dia: '2026-11-06' },
+  helada: { tipo: 'helada', titulo: 'Helada fuerte esta noche', texto: 'Se esperan -3° de mínima esta noche en Balcarce. Cubrí las plantas y cuidá las cañerías.', dia: new Date(Date.now() + 21 * 3600_000).toISOString().slice(0, 10) },
   granizo: { tipo: 'granizo', titulo: 'Tormenta con granizo hoy', texto: 'El pronóstico da tormenta con granizo para hoy en Balcarce. Guardá los autos bajo techo.', dia: HOY },
   viento: { tipo: 'viento', titulo: 'Viento fuerte hoy', texto: 'Se esperan ráfagas de hasta 70 km/h hoy en Balcarce. Asegurá lo que pueda volarse.', dia: HOY },
 };
@@ -160,9 +162,9 @@ for (const s of Object.keys(SECCIONES_EJEMPLO)) {
 await imagenes('enlace', armarEnlace(notaDe('Balcarce')), 432);
 await imagenes('carrusel-nota', armarCarrusel(notaPropia()), 270);
 await imagenes('carrusel-semana', armarCarruselSemana(['Balcarce', 'Balcarce', 'Cultura y agenda', 'Deportes', 'Agro'].map((s, i) => {
-  const n = i === 1 ? desdePortada('ywp9x3') : notaDe(s);
+  const n = i === 1 ? notaDe('Salud') : notaDe(s);
   return { id: n.id, titulo: n.titulo, seccion: n.seccion, foto: i === 3 ? null : n.foto };
-}), { desde: '2026-11-02', hasta: '2026-11-08' }), 270);
+}), { desde: new Date(Date.now() - 9 * 86400000).toISOString().slice(0, 10), hasta: new Date(Date.now() - 3 * 86400000).toISOString().slice(0, 10) }), 270);
 await imagenes('carrusel-finde', armarCarruselFinde([
   { nombre: 'Primera Feria del Vino', cuando: 'sábado 11:00', lugar: 'Plaza Mitre' }, { nombre: 'Cine bajo las estrellas', cuando: 'sábado 21:00', lugar: 'Parque Cardenal Samoré' },
   { nombre: 'Torneo de pádel', cuando: 'domingo 10:00', lugar: 'Club Atlético' }, { nombre: 'Feria de artesanos', cuando: 'domingo', lugar: 'Paseo de la Estación' },

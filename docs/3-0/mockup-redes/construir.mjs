@@ -20,7 +20,7 @@ const finDe = (p) => { const m = Math.min(1440, Number(p.hora.slice(0, 2)) * 60 
 const FORMATO = { video: '1080×1920 (9:16) video', imagen: '1080×1350 (4:5)', carrusel: '1080×1350 (4:5) por lámina' };
 
 // nota de ejemplo para los textos
-const n = portada.notas.find((x) => x.id === '81mpvn');
+const n = portada.notas.find((x) => x.seccion === 'Balcarce' && x.foto);
 const nota = { id: n.id, titulo: n.titulo, bajada: n.copete, enDosLineas: n.copete, seccion: n.seccion, foto: { credito: n.foto.credito, url: 'x' } };
 
 // ------------------------------------------------------------------ piezas del día: textos reales por red
@@ -141,18 +141,16 @@ const porRed = REDES.map((r) => `<section class="red" id="red-${r}"><h3>${NOMBRE
 
 // ------------------------------------------------------------------ lo que falta
 const FALTA = [
-  ['Carruseles sólo en Facebook e Instagram', '`redesDeBuffer` y `enlaces.mjs` sólo mandan video o nota. «La semana», «El finde» y «Las fotos de la nota» no tienen versión para TikTok (modo foto), X (hasta 4 imágenes), Threads (hasta 10) ni Bluesky (hasta 4), aunque Hernán pidió «todo el material en todas las redes».'],
-  ['Bluesky y Threads no reciben nada de servicio', 'Sólo reciben enlaces a notas (3 por corrida). Clima, farmacia, efeméride, feriado, repasos y avisos no tienen versión de imagen/texto para ellas, ni para X salvo el video por Buffer. Falta una «tarjeta de servicio» 1080×565 o 4:5 estática (clima, farmacia, efeméride).'],
-  ['Efeméride, feriado, clima, farmacia y útiles son sólo video vertical', 'No hay versión 4:5 para el feed de Facebook/Instagram ni para carrusel: un posteo de feed con el clima del día o la farmacia de turno ocuparía los huecos de la tarde y permitiría reciclar el diseño existente.'],
-  ['Hay armadores sin fila en la tabla del día', 'Nota de Balcarce en reel, nota propia en reel e historia de una nota existen en `armadores.mjs` pero no figuran en `PIEZAS_DEL_DIA` (sin hora, sin prioridad de voz, sin hashtag). Hay que definir quién las dispara y cuándo.'],
-  ['Participá «encuesta» no tiene día', 'La variante «¿Qué querés que contemos?» está dibujada pero ninguna fila de la tabla la usa; sábado y domingo no tienen Participá y el jueves a las 12:00 no sale nada porque la agenda está pausada.'],
-  ['Agenda y finde pausados', '`agenda` y `carrusel-finde` están con `pausada: true` hasta tener los eventos al día: el jueves queda sin pieza de mediodía ni de tarde.'],
-  ['Un solo diseño de posteo para todas las secciones', 'Las 11 secciones sólo cambian el color del rótulo. No hay variante sin foto (el posteo «sin foto no va»), ni versión «dato/cifra», ni cita, ni urgente. En la muestra faltan Policiales, Educación y Ciencia (hoy no hay nota con foto en esas secciones; sus colores existen en COLOR_SECCION).'],
-  ['Agujero horario', 'Entre las 10:00 y las 15:00 y entre las 15:00 y las 19:00 sólo salen Participá (4 días) y los útiles (sábado 17:00); a las 7:00 se juntan clima y los tres avisos, y de 19:00 a 21:00 hay tres piezas con voz. Se podrían repartir los reels de servicio.'],
-  ['Crédito doble en las láminas', 'En el carrusel de la semana la lámina muestra «Foto: Foto: Diario La Vanguardia»: el crédito de `portada.json` ya trae «Foto:» y la lámina lo vuelve a anteponer (`lineaDeCredito` sí lo evita en el texto).'],
-  ['Inconsistencia en el ejemplo de avisos', 'El aviso de helada muestra abajo «mínima prevista 11°» (el clima de hoy) mientras el texto dice −3°: el recuadro no sale del aviso sino del día. Conviene que la escena use la mínima del aviso.'],
-  ['Canal de Telegram sin programa', 'No hay armador ni fila para el canal: podría reusar el mismo mp4 y los textos de Facebook (clima y farmacia fijados).'],
-  ['Lo que este mockup no muestra', 'Los subtítulos con la palabra resaltada, la barra roja de avance, el audio y la animación (se ve un cuadro quieto por escena); en ejemplos de feriados, efemérides y agenda se usaron datos reales o de ejemplo según se indica. Las historias de Instagram/Facebook son el mismo mp4 que el reel (no hay diseño propio de historia salvo la historia de nota).'],
+  ['Carruseles sólo en Facebook e Instagram', '«La semana», «El finde» y «Las fotos de la nota» no tienen versión para TikTok (modo foto), X (hasta 4 imágenes), Threads (hasta 10) ni Bluesky (hasta 4). TikTok modo foto sigue sin probarse con Buffer.'],
+  ['Bluesky y Threads sólo reciben notas', 'Reciben enlaces a notas (hasta 3 por corrida, con la placa de cada una). Clima, farmacia, efeméride, feriado y repasos no tienen versión de imagen/texto para ellas: serviría una «tarjeta de servicio» estática 1080×565 o 4:5.'],
+  ['Clima, farmacia, efeméride y útiles son sólo video vertical', 'No hay versión 4:5 para el feed de Facebook/Instagram: un posteo de feed con el clima o la farmacia de turno llenaría los huecos del mediodía y la tarde.'],
+  ['Agenda y finde pausados', '`agenda` y `carrusel-finde` tienen `pausada: true`: la Municipalidad sacó su calendario (13/11). Vuelven cuando haya una agenda propia (mails o WhatsApp semanales a instituciones). El jueves queda sin pieza de mediodía ni de tarde.'],
+  ['Participá «encuesta» sin día', 'La variante «¿Qué querés que contemos?» está dibujada pero ninguna fila la usa; sábado, domingo y jueves a las 12:00 no sale Participá.'],
+  ['Un solo diseño de posteo', 'Las secciones sólo cambian el color del rótulo. No hay variante «dato/cifra», cita ni urgente.'],
+  ['Huecos horarios', 'Entre las 10:00 y las 19:00 sólo salen los repasos, Participá y útiles; a las 7:00 se juntan clima y avisos; de 19:00 a 21:00 hay tres piezas con voz. Se podrían repartir.'],
+  ['Los avisos del ejemplo son inventados', 'En este mockup los números del aviso son de prueba (el recuadro «mínima prevista» muestra el clima de hoy). En producción salen del pronóstico real y sólo si hay aviso grave.'],
+  ['Canal de Telegram sin programa de publicación', 'No hay armador ni fila para un canal público: podría reusar el mismo mp4 y los textos de Facebook (clima y farmacia fijados).'],
+  ['Lo que este mockup no muestra', 'Los subtítulos con la palabra resaltada, la barra de avance, el audio y la animación (se ve un cuadro quieto por escena). Las historias son el mismo mp4 que el reel, salvo la historia de nota. La nota de «Un día como hoy» con enlace («La nota completa») aparece en los textos de cada red.'],
 ];
 
 const html = `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mockup de las redes de Radar Balcarce</title>
@@ -177,7 +175,7 @@ pre{white-space:pre-wrap;word-break:break-word;font:12px/1.4 Inter,system-ui,san
 @media (prefers-color-scheme:dark){:root{--papel:#14161A;--tinta:#FAF8F3;--gris:#b9bec6;--linea:#3a3f47;--card:#1d2026}th{background:#2a2e36}code{background:#2a2e36}.nota td{background:#2b2620}}
 </style></head><body>
 <header><h1>Radar <b>Balcarce</b> · las redes en un solo lugar</h1>
-<p class="baj">Mockup generado el 5/11/2026 con las funciones reales de <code>v3/redes/piezas/</code> (armadores + escenas + resvg), los horarios de <code>piezas-del-dia.mjs</code> y los textos reales de cada red. Cada imagen es un cuadro de la pieza (los videos se ven quietos, sin subtítulos ni barra de avance). No publica nada.</p>
+<p class="baj">Mockup generado el ${new Date(Date.now() - 3 * 3600_000).toISOString().slice(0, 10).split('-').reverse().join('/')} con las funciones reales de <code>v3/redes/piezas/</code> (armadores + escenas + resvg), los horarios de <code>piezas-del-dia.mjs</code> y los textos reales de cada red. Cada imagen es un cuadro de la pieza (los videos se ven quietos, sin subtítulos ni barra de avance). No publica nada.</p>
 <nav><a href="#horario">Horario del día</a><a href="#matriz">Qué sale en cada red</a><a href="#catalogo">Catálogo por pieza</a><a href="#redes">Por red</a>${REDES.map((r) => `<a href="#red-${r}">${NOMBRES[r]}</a>`).join('')}<a href="#falta">Lo que falta o se podría mejorar</a></nav></header>
 <main>
 <h2 id="colores">Colores por sección y tipografía</h2><p class="baj">Source Serif 4 (titulares) e Inter (resto); logo escrito «Radar <span style="color:var(--rojo)">Balcarce</span>» en la firma de cada placa; fondo papel #FAF8F3, tinta #14161A, rojo de marca #C7381C.</p><div>${paleta}</div>
