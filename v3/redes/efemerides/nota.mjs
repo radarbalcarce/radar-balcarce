@@ -115,15 +115,26 @@ export async function fotoDeCommons(hecho, { json, bajar, ancho = 960 } = {}) {
   return fotoDeCommonsPorBusqueda(hecho, { json, bajar, ancho });
 }
 
-/** Segundo intento (siempre tiene que haber foto): busca en Commons archivos con el título del hecho y toma el primero que sirve. */
+/** Las búsquedas para la foto de un hecho: primero los nombres propios (personas, obras, lugares: «Tim Berners-Lee»), después el título sin el «En los Estados Unidos,» del comienzo. */
+export function consultasDeFoto(hecho) {
+  const t = String(hecho?.titulo ?? '').replace(/[«»"]/g, ' ').trim();
+  if (!t) return [];
+  const sinLugar = t.replace(/^En [^,]{3,40},\s*/, '');
+  const txt = `${sinLugar}. ${hecho?.texto ?? ""}`;
+  const PAL = "[A-ZÁÉÍÓÚÑ][\\wáéíóúñ'-]+";
+  const nombres = [...txt.matchAll(new RegExp(`${PAL}(?:\\s+(?:(?:de|del|la|von|van|a)\\s+)?${PAL})+`, 'g'))].map((m) => m[0].trim()).filter((n) => !/^(En|El|La|Los|Las|Un|Una)\\s/.test(n) || n.split(/\\s+/).length > 2);
+  return [...new Set([...nombres.slice(0, 3), sinLugar, t])];
+}
+
+/** Segundo intento (siempre tiene que haber foto): busca en Commons con cada consulta y toma el primer archivo que sirve. */
 export async function fotoDeCommonsPorBusqueda(hecho, { json, bajar, ancho = 960 } = {}) {
-  const titulo = String(hecho?.titulo ?? '').replace(/[«»"]/g, ' ').trim();
-  if (!titulo) return null;
-  const r = await json(`https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&list=search&srnamespace=6&srlimit=8&srsearch=${encodeURIComponent(titulo)}`);
-  for (const x of r?.query?.search ?? []) {
-    const nombre = String(x.title ?? '').replace(/^File:/, '');
-    const f = await archivoDeCommons(nombre, titulo, { json, bajar, ancho });
-    if (f) return f;
+  for (const consulta of consultasDeFoto(hecho)) {
+    const r = await json(`https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&list=search&srnamespace=6&srlimit=8&srsearch=${encodeURIComponent(consulta)}`);
+    for (const x of r?.query?.search ?? []) {
+      const nombre = String(x.title ?? '').replace(/^File:/, '');
+      const f = await archivoDeCommons(nombre, consulta, { json, bajar, ancho });
+      if (f) return f;
+    }
   }
   return null;
 }
@@ -191,7 +202,7 @@ export function notaDeEfemeride({ dia, hechos, fotosPublicas = {} }) {
   if (!hechos?.length) throw new Error('una nota de efemérides necesita al menos un hecho');
   const f = fechaDelDia(dia);
   const lista = hechos.map((h) => ({
-    id: h.id, anio: h.anio, titulo: h.titulo, texto: h.texto, enlace: h.enlace, datos: datosDelHecho(h, f.anio),
+    id: h.id, anio: h.anio, titulo: h.titulo, texto: h.texto, enlace: h.enlace, datos: [],
     foto: imagenDelHecho(h, fotosPublicas[h.id]),
   }));
   const masNueva = Math.max(...lista.map((h) => h.anio)); const masVieja = Math.min(...lista.map((h) => h.anio));

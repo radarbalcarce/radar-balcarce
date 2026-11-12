@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  hechosDelDia, datosDelHecho, tituloDeLaNota, notaDeEfemeride, sqlDeEfemeride, fotoDeCommons, paginaDeWikipedia, creditoDeCommons, slugDeLaNota, ID_DE_NOTA,
+  hechosDelDia, datosDelHecho, tituloDeLaNota, notaDeEfemeride, sqlDeEfemeride, fotoDeCommons, consultasDeFoto, paginaDeWikipedia, creditoDeCommons, slugDeLaNota, ID_DE_NOTA,
 } from './nota.mjs';
 import { armarNotaDelDia } from './publicar-nota.mjs';
 import { esEfemerides, efemeridesHtml, ejeDelTiempo } from '../../sitio/vistas/efemerides-nota.mjs';
@@ -143,13 +143,17 @@ test('la vista: línea del tiempo y todas las historias iguales, cada una con su
   assert.equal((html.match(/class="ef-hecho"/g) || []).length, 4);
   assert.equal((html.match(/class="ef-img"/g) || []).length, 4); assert.equal((html.match(/ download="radarbalcarce-un-dia-como-hoy-[0-9]{4}[.]png"/g) || []).length, 4);
   assert.ok(!html.includes('Ana, CC BY') && !html.includes('ef-pie'), 'el crédito va en Fuentes, no en la página');
-  assert.match(html, /<ul class="ef-datos"><li><b>/);
+  assert.ok(!html.includes('ef-datos') && !html.includes('ef-pt'), 'formal: sin datos arbitrarios ni línea del tiempo');
   assert.ok(!html.includes('<b>x</b>') && html.includes('&lt;b&gt;x&lt;/b&gt;'));
   assert.match(html, /Jueves 12 de noviembre|jueves 12 de noviembre/); assert.match(html, /width="900" height="900"/);
-  assert.equal((html.match(/class="ef-pt[ "]/g) || []).length, 4);
 });
 
 test('ejeDelTiempo: del comienzo de la década del más viejo a hoy, con posiciones entre 0 y 100', () => {
   const e = ejeDelTiempo([1965, 2014], 2026);
   assert.equal(e.desde, 1960); assert.equal(e.pos(1960), 0); assert.ok(e.pos(2014) < 100 && e.pos(2014) > 50); assert.ok(e.marcas.length >= 2 && e.marcas[0] === 1960);
+});
+
+test('consultasDeFoto: primero los nombres propios, después el título sin el lugar del comienzo', () => {
+  const q = consultasDeFoto({ titulo: 'En los Estados Unidos, Tim Berners-Lee publica la idea de la red de Internet', texto: 'Tim Berners-Lee presenta la propuesta formal de la World Wide Web.' });
+  assert.equal(q[0], 'Tim Berners-Lee'); assert.ok(q.includes('World Wide Web')); assert.ok(q.includes('Tim Berners-Lee publica la idea de la red de Internet'));
 });
