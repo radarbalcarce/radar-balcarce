@@ -10,7 +10,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { UA, clienteJson } from './armar.mjs';
 import { placaPng } from './placas.mjs';
-import { hechosDelDia, fotoDeCommons, notaDeEfemeride, sqlDeEfemeride, slugDeLaNota, BASE_DEL_SITIO, ID_DE_NOTA } from './nota.mjs';
+import { hechosDelDia, fotoDeCommons, detalleDeWikipedia, clavesDelHecho, fechaDelDia, notaDeEfemeride, sqlDeEfemeride, slugDeLaNota, BASE_DEL_SITIO, ID_DE_NOTA } from './nota.mjs';
 
 const RAIZ = path.join(import.meta.dirname, '..', '..', '..');
 const DATOS = path.join(RAIZ, 'web', 'data');
@@ -44,7 +44,10 @@ export async function armarNotaDelDia({ dia, piezas, candidatas, json, bajar, di
   for (const h of hechos) {
     let foto = null;
     try { foto = await fotoDeCommons(h, { json, bajar }); } catch { foto = null; } // sin foto, va la placa del año: una foto que falla nunca frena la nota
-    const placa = await (dibujar ?? placaPng)({ anio: h.anio, foto });
+    let detalle = [];
+    try { detalle = await detalleDeWikipedia(h, { json }); } catch { detalle = []; } // sin artículo, va el texto corto: el detalle nunca frena la nota
+    const f = fechaDelDia(dia);
+    const placa = await (dibujar ?? placaPng)({ anio: h.anio, titulo: h.titulo, claves: clavesDelHecho({ ...h, detalle }), fecha: `${f.dia} de ${f.mes}`, foto, credito: foto?.credito ?? '' });
     if (!placa.conFoto) foto = null;
     const archivo = `efemeride-${dia}-${h.id}.png`;
     fotos.push({ archivo, bytes: placa.bytes, mime: 'image/png' });
@@ -54,7 +57,7 @@ export async function armarNotaDelDia({ dia, piezas, candidatas, json, bajar, di
       fotos.push({ archivo: original, bytes: foto.bytes, mime: foto.mime });
       fotosPublicas[h.id].original = `${BASE_DEL_SITIO}/fotos-notas/${original}`;
     }
-    conFoto.push({ ...h, foto });
+    conFoto.push({ ...h, foto, detalle });
   }
   const nota = notaDeEfemeride({ dia, hechos: conFoto, fotosPublicas });
   return { nota, sql: sqlDeEfemeride(nota, ahora), fotos, hechos: conFoto.map((h) => ({ anio: h.anio, titulo: h.titulo, foto: !!h.foto })), slug: slugDeLaNota(nota), id: ID_DE_NOTA(dia) };

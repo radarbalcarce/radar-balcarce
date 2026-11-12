@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  hechosDelDia, datosDelHecho, tituloDeLaNota, notaDeEfemeride, sqlDeEfemeride, fotoDeCommons, consultasDeFoto, paginaDeWikipedia, creditoDeCommons, slugDeLaNota, ID_DE_NOTA,
+  hechosDelDia, datosDelHecho, tituloDeLaNota, notaDeEfemeride, sqlDeEfemeride, fotoDeCommons, consultasDeFoto, paginaDeWikipedia, creditoDeCommons, slugDeLaNota, ID_DE_NOTA, detalleDeWikipedia, clavesDelHecho, acortarFrase,
 } from './nota.mjs';
 import { armarNotaDelDia } from './publicar-nota.mjs';
 import { esEfemerides, efemeridesHtml, ejeDelTiempo } from '../../sitio/vistas/efemerides-nota.mjs';
@@ -145,7 +145,7 @@ test('la vista: línea del tiempo y todas las historias iguales, cada una con su
   assert.ok(!html.includes('Ana, CC BY') && !html.includes('ef-pie'), 'el crédito va en Fuentes, no en la página');
   assert.ok(!html.includes('ef-datos') && !html.includes('ef-pt'), 'formal: sin datos arbitrarios ni línea del tiempo');
   assert.ok(!html.includes('<b>x</b>') && html.includes('&lt;b&gt;x&lt;/b&gt;'));
-  assert.match(html, /Jueves 12 de noviembre|jueves 12 de noviembre/); assert.match(html, /width="900" height="900"/);
+  assert.match(html, /Jueves 12 de noviembre|jueves 12 de noviembre/); assert.match(html, /width="1080" height="1350"/);
 });
 
 test('ejeDelTiempo: del comienzo de la década del más viejo a hoy, con posiciones entre 0 y 100', () => {
@@ -156,4 +156,16 @@ test('ejeDelTiempo: del comienzo de la década del más viejo a hoy, con posicio
 test('consultasDeFoto: primero los nombres propios, después el título sin el lugar del comienzo', () => {
   const q = consultasDeFoto({ titulo: 'En los Estados Unidos, Tim Berners-Lee publica la idea de la red de Internet', texto: 'Tim Berners-Lee presenta la propuesta formal de la World Wide Web.' });
   assert.equal(q[0], 'Tim Berners-Lee'); assert.ok(q.includes('World Wide Web')); assert.ok(q.includes('Tim Berners-Lee publica la idea de la red de Internet'));
+});
+
+test('detalleDeWikipedia y clavesDelHecho: párrafos del artículo sin paréntesis; las claves empiezan por lo que pasó ese día', async () => {
+  const extract = 'Saturno (símbolo) es el sexto planeta del sistema solar contando desde el Sol, el segundo en tamaño y masa después de Júpiter y uno de los pocos con anillos.\nSu nombre proviene del dios romano Saturno y fue visto desde la antigüedad.\ncorto';
+  const json = async () => ({ query: { pages: [{ extract }] } });
+  const detalle = await detalleDeWikipedia({ enlace: 'https://es.wikipedia.org/wiki/Saturno_(planeta)' }, { json });
+  assert.equal(detalle.length, 2); assert.ok(!detalle[0].includes('(símbolo)'));
+  assert.deepEqual(await detalleDeWikipedia({ enlace: null }, { json }), []);
+  const claves = clavesDelHecho({ titulo: 'La Voyager 1 pasa junto a Saturno', texto: 'La sonda Voyager 1 envía imágenes de los anillos de Saturno desde menos de 125.000 kilómetros.', detalle });
+  assert.match(claves[0], /^La sonda Voyager 1/); assert.ok(claves.length >= 2);
+  assert.ok(claves.every((c) => c.length <= 171));
+  assert.equal(acortarFrase('x'.repeat(200)), null);
 });

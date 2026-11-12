@@ -122,7 +122,7 @@ export function consultasDeFoto(hecho) {
   const sinLugar = t.replace(/^En [^,]{3,40},\s*/, '');
   const txt = `${sinLugar}. ${hecho?.texto ?? ""}`;
   const PAL = "[A-ZÁÉÍÓÚÑ][\\wáéíóúñ'-]+";
-  const nombres = [...txt.matchAll(new RegExp(`${PAL}(?:\\s+(?:(?:de|del|la|von|van|a)\\s+)?${PAL})+`, 'g'))].map((m) => m[0].trim()).filter((n) => !/^(En|El|La|Los|Las|Un|Una)\\s/.test(n) || n.split(/\\s+/).length > 2);
+  const nombres = [...txt.matchAll(new RegExp(`${PAL}(?:\\s+(?:(?:de|del|la|von|van|a)\\s+)?${PAL})+`, 'g'))].map((m) => m[0].trim()).filter((n) => !/^(En|El|La|Los|Las|Un|Una)\s/.test(n) || n.split(/\s+/).length > 2);
   return [...new Set([...nombres.slice(0, 3), sinLugar, t])];
 }
 
@@ -161,6 +161,46 @@ async function archivoDeCommons(nombre, tituloDePagina, { json, bajar, ancho }) 
   };
 }
 
+// ------------------------------------------------------------------ el detalle (el artículo de Wikipedia)
+
+const sinParentesis = (t) => String(t).replace(/[​-‍﻿]/g, '').replace(/\s*\([^()]*\)/g, '').replace(/\s*\[[^\]]*\]/g, '').replace(/\s+/g, ' ').trim();
+const frasesDe = (t) => sinParentesis(t).split(/(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÑ¿¡"«])/).map((x) => x.trim()).filter(Boolean);
+
+/** Los párrafos del comienzo del artículo de Wikipedia del hecho (hasta ~1.100 letras, sin paréntesis de fechas ni pronunciaciones, cortado en una frase entera). [] si no hay. */
+export async function detalleDeWikipedia(hecho, { json } = {}) {
+  const pagina = paginaDeWikipedia(hecho?.enlace);
+  if (!pagina) return [];
+  const r = await json(`https://es.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&redirects=1&prop=extracts&exintro=1&explaintext=1&exsectionformat=plain&titles=${encodeURIComponent(pagina)}`);
+  const texto = String(r?.query?.pages?.[0]?.extract ?? '');
+  const parrafos = texto.split(/\n+/).map(sinParentesis).filter((x) => x.length > 40);
+  const salida = []; let largo = 0;
+  for (const p of parrafos) {
+    if (salida.length >= 3 || largo >= 1100) break;
+    let t = p;
+    if (largo + t.length > 1250) { // el último párrafo se corta en una frase entera
+      t = ''; for (const f of frasesDe(p)) { if (largo + (t + f).length > 1250) break; t += (t ? ' ' : '') + f; }
+      if (!t) break;
+    }
+    salida.push(t); largo += t.length;
+  }
+  return salida;
+}
+
+/** Una frase de hasta 170 letras: si es más larga, se corta en la última coma o punto y coma que entre y se cierra con punto (sin coma que sirva, null). */
+export function acortarFrase(f) {
+  const t = String(f ?? '').trim();
+  if (t.length <= 170) return t;
+  const corte = Math.max(t.lastIndexOf(', ', 170), t.lastIndexOf('; ', 170));
+  return corte >= 60 ? t.slice(0, corte).replace(/[\s.,;:]+$/, '') + '.' : null;
+}
+
+/** Hasta tres frases cortas para la infografía: las primeras del detalle (o del texto del hecho) que no repiten el título. */
+export function clavesDelHecho(h, max = 3) {
+  const base = [h.texto, ...(h.detalle ?? [])].filter(Boolean).join(' '); // primero lo que pasó ese día; después el contexto del artículo
+  const titulo = String(h.titulo ?? '').toLowerCase().slice(0, 30);
+  return frasesDe(base).map(acortarFrase).filter((f) => f && f.length >= 35 && !(titulo && f.toLowerCase().startsWith(titulo))).slice(0, max);
+}
+
 // ------------------------------------------------------------------ la nota
 
 /** El título de la nota: la fecha y los tres primeros hechos, cada uno en una frase corta; si no entra en 110 letras, con menos. */
@@ -180,7 +220,7 @@ export function tituloDeLaNota(dia, hechos) {
 }
 
 /**
- * La imagen de un hecho: la placa cuadrada que dibujamos nosotros (900 × 900: foto, año y radarbalcarce.com, sin texto del hecho), o la placa del año si no hay foto libre.
+ * La imagen de un hecho: la placa cuadrada que dibujamos nosotros (infografía 1080 × 1350: foto, año, título, claves y radarbalcarce.com), o con el año grande si no hay foto libre.
  * `publica` es la dirección (un texto, o { placa, original }); sin ella, sin imagen.
  */
 export function imagenDelHecho(h, publica) {
@@ -188,7 +228,7 @@ export function imagenDelHecho(h, publica) {
   if (!placa) return null;
   const conFoto = !!h.foto;
   return {
-    url: placa, ancho: 900, alto: 900, sinFoto: !conFoto, alt: conFoto ? h.foto.alt : `Placa del año ${h.anio}`, credito: conFoto ? h.foto.credito : '',
+    url: placa, ancho: 1080, alto: 1350, sinFoto: !conFoto, alt: conFoto ? h.foto.alt : `Placa del año ${h.anio}`, credito: conFoto ? h.foto.credito : '',
     pagina: conFoto ? h.foto.paginaDeCommons : undefined,
     original: conFoto ? publica?.original : undefined, anchoOriginal: conFoto ? h.foto.ancho : undefined, altoOriginal: conFoto ? h.foto.alto : undefined,
   };
@@ -202,12 +242,12 @@ export function notaDeEfemeride({ dia, hechos, fotosPublicas = {} }) {
   if (!hechos?.length) throw new Error('una nota de efemérides necesita al menos un hecho');
   const f = fechaDelDia(dia);
   const lista = hechos.map((h) => ({
-    id: h.id, anio: h.anio, titulo: h.titulo, texto: h.texto, enlace: h.enlace, datos: [],
+    id: h.id, anio: h.anio, titulo: h.titulo, texto: h.texto, detalle: h.detalle ?? [], enlace: h.enlace, datos: [],
     foto: imagenDelHecho(h, fotosPublicas[h.id]),
   }));
   const masNueva = Math.max(...lista.map((h) => h.anio)); const masVieja = Math.min(...lista.map((h) => h.anio));
   const bajada = lista.length > 1 ? `${lista.length === 4 ? 'Cuatro' : lista.length === 3 ? 'Tres' : 'Dos'} historias de un mismo día, entre ${masVieja} y ${masNueva}.` : `Una historia de un día como hoy, de ${masNueva}.`;
-  const cuerpo = [`Un día como hoy, ${diaLargo(dia)}, pasaron estas cosas.`, ...lista.map((h) => `En ${h.anio}: ${h.titulo}.${h.texto ? ` ${h.texto}` : ''}`), 'Un día como hoy sale todos los días en Radar Balcarce, también en video en nuestras redes.'];
+  const cuerpo = [`Un día como hoy, ${diaLargo(dia)}, pasaron estas cosas.`, ...lista.flatMap((h) => [`En ${h.anio}: ${h.titulo}.${h.detalle?.length ? '' : h.texto ? ` ${h.texto}` : ''}`, ...(h.detalle ?? [])]), 'Un día como hoy sale todos los días en Radar Balcarce, también en video en nuestras redes.'];
   const primera = lista.find((h) => h.foto && !h.foto.sinFoto)?.foto ?? lista.find((h) => h.foto)?.foto ?? null;
   const fuentesDeFotos = lista.filter((h) => h.foto && !h.foto.sinFoto && h.foto.credito).map((h) => ({ medio: `Foto de ${h.anio}: ${h.foto.credito}`, url: h.foto.pagina || 'https://commons.wikimedia.org/' }));
   return {
@@ -220,7 +260,7 @@ export function notaDeEfemeride({ dia, hechos, fotosPublicas = {} }) {
       indexar: false, // sale en el sitio pero no se indexa (como el clima): son datos de Wikipedia armados por reglas, sin segunda fuente
       efemerides: { dia, hechos: lista },
     },
-    fuentes: [{ medio: 'Wikipedia: un día como hoy', url: `https://es.wikipedia.org/wiki/${f.dia}_de_${f.mes}` }, ...fuentesDeFotos],
+    fuentes: [{ medio: 'Wikipedia: un día como hoy', url: `https://es.wikipedia.org/wiki/${f.dia}_de_${f.mes}` }, ...lista.filter((h) => h.detalle?.length && h.enlace).map((h) => ({ medio: `Wikipedia: ${h.titulo}`.slice(0, 90), url: h.enlace })), ...fuentesDeFotos],
     // la portada y las redes llevan la foto original (horizontal, sin recorte previo); sin ninguna, la placa cuadrada del primer hecho
     foto: primera ? { url: primera.original || primera.url, alt: primera.alt, credito: primera.credito, ancho: primera.original ? primera.anchoOriginal : primera.ancho, alto: primera.original ? primera.altoOriginal : primera.alto, cubrir: true } : null,
   };
