@@ -43,7 +43,7 @@ export const ESTILOS_EFEMERIDES = `
 .ef-intro{font-size:1.1em;margin:0 0 18px}
 .ef-hecho{background:var(--papel);border:1px solid var(--linea);border-radius:14px;margin:0 0 20px;overflow:hidden;opacity:0;transform:translateY(12px);animation:ef-sube .6s ease-out calc(.3s + var(--i) * .25s) forwards}
 .ef-fig{position:relative;margin:0}
-.ef-img{display:block;width:100%;max-width:640px;height:auto;aspect-ratio:4/5;object-fit:cover}
+.ef-fig .ef-img{display:block;width:100%;max-width:640px;height:auto;max-height:none;aspect-ratio:4/5;object-fit:contain;margin:0 auto}
 .ef-baja{position:absolute;right:12px;bottom:12px;display:none;background:rgba(20,22,26,.78);color:#fff;font:700 13px var(--sans);padding:8px 12px;border-radius:999px;text-decoration:none}
 .ef-fig:hover .ef-baja,.ef-baja:focus-visible{display:inline-block}
 @media (hover:none){.ef-baja{display:inline-block;position:static;margin:8px 0 0 12px;background:none;color:var(--suave);padding:4px 0;font-weight:600;text-decoration:underline}}
