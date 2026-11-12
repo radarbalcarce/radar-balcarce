@@ -11,7 +11,7 @@ const FUENTES = path.join(RAIZ, 'reels', 'marca', 'fuentes');
 export const ANCHO = 1080;
 export const ALTO = 1350;
 export const LADO = ANCHO; // compatibilidad con quien importaba el lado
-const ROJO = '#C7381C'; const TINTA = '#14161A'; const PAPEL = '#F7F2E8'; const SUAVE = '#4A4F57'; const SALMON = '#FFB199';
+const ROJO = '#C7381C'; const TINTA = '#14161A'; const PAPEL = '#F7F2E8'; const SUAVE = '#4A4F57'; const SALMON = '#FFFFFF'; // los rótulos sobre tinta van en blanco (el rojo queda para el año y las viñetas)
 const MARGEN = 56;
 const archivosDeFuente = () => ['Inter-400.ttf', 'Inter-600.ttf', 'Inter-700.ttf', 'SourceSerif4-700.ttf', 'SourceSerif4-900.ttf'].map((f) => path.join(FUENTES, f)).filter((f) => fs.existsSync(f));
 
@@ -45,12 +45,10 @@ export function svgDePlaca({ anio, titulo = '', claves = [], fecha = '', foto = 
   let fondo; let rotulo;
   if (foto) {
     const b64 = Buffer.from(foto.bytes).toString('base64');
-    const alta = Number(foto.alto) > Number(foto.ancho); // un retrato se recorta desde arriba para no cortar la cabeza
-    // la foto ocupa todo el ancho; un retrato se corre para que la cara (cerca del tercio de arriba) quede en el centro de la ventana
-    const hFoto = Math.max(altoFoto, Math.round(ANCHO * Number(foto.alto) / Number(foto.ancho)));
-    const corrimiento = alta ? Math.min(Math.max(0, Math.round(hFoto * 0.3 - altoFoto / 2)), hFoto - altoFoto) : Math.round((hFoto - altoFoto) / 2);
-    fondo = `<image href="data:${foto.mime};base64,${b64}" x="0" y="${y0 - corrimiento}" width="${ANCHO}" height="${hFoto}" preserveAspectRatio="none" clip-path="url(#recorteFoto)"/>
-<rect x="0" y="${y0 + altoFoto - 170}" width="${ANCHO}" height="170" fill="url(#sombra)"/>`;
+    // la foto entra ENTERA (sin recortar caras): se ve completa y centrada sobre una copia suya desenfocada y oscurecida que llena la ventana
+    fondo = `<image href="data:${foto.mime};base64,${b64}" x="0" y="${y0}" width="${ANCHO}" height="${altoFoto}" preserveAspectRatio="xMidYMid slice" filter="url(#desenfoque)" clip-path="url(#recorteFoto)"/>
+<rect x="0" y="${y0}" width="${ANCHO}" height="${altoFoto}" fill="#000" opacity=".45"/>
+<image href="data:${foto.mime};base64,${b64}" x="0" y="${y0}" width="${ANCHO}" height="${altoFoto}" preserveAspectRatio="xMidYMid meet"/>`;
     const w = 70 + anioTxt.length * 52;
     rotulo = `<rect x="${MARGEN}" y="${y0 + altoFoto - 70}" width="${w}" height="124" rx="18" fill="${ROJO}"/>
 <text x="${MARGEN + w / 2}" y="${y0 + altoFoto + 20}" text-anchor="middle" font-family="Source Serif 4" font-weight="900" font-size="88" fill="#fff">${xml(anioTxt)}</text>`;
@@ -80,10 +78,12 @@ export function svgDePlaca({ anio, titulo = '', claves = [], fecha = '', foto = 
   return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${ANCHO}" height="${ALTO}" viewBox="0 0 ${ANCHO} ${ALTO}">
 <defs>
 <linearGradient id="sombra" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".6"/></linearGradient>
+<filter id="desenfoque" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur stdDeviation="28"/></filter>
 <clipPath id="recorteFoto"><rect x="0" y="${y0}" width="${ANCHO}" height="${altoFoto}"/></clipPath>
 </defs>
 <rect width="${ANCHO}" height="${ALTO}" fill="${PAPEL}"/>
 <rect width="${ANCHO}" height="${y0}" fill="${TINTA}"/>
+<rect y="${y0 - 6}" width="${ANCHO}" height="6" fill="${ROJO}"/>
 <text x="${MARGEN}" y="66" font-family="Inter" font-weight="700" font-size="30" letter-spacing="6" fill="${SALMON}">UN DÍA COMO HOY</text>
 <text x="${ANCHO - MARGEN}" y="66" text-anchor="end" font-family="Inter" font-weight="700" font-size="30" letter-spacing="2" fill="#fff">${xml(String(fecha).toUpperCase())}</text>
 ${fondo}
