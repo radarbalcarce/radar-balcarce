@@ -51,8 +51,11 @@ jobs:
         with:
           node-version: '24'
 
+      - name: Instalar (resvg dibuja las placas)
+        run: npm ci --no-audit --no-fund
+
       - name: Pruebas
-        run: node --test v3/redes/efemerides/nota.test.mjs
+        run: node --test v3/redes/efemerides/nota.test.mjs v3/redes/efemerides/placas.test.mjs
 
       - name: Armar la nota
         run: |

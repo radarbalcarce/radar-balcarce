@@ -103,27 +103,49 @@ test('paginaDeWikipedia y creditoDeCommons', () => {
   assert.equal(creditoDeCommons({ autor: '', licencia: 'CC0' }), 'CC0, vía Wikimedia Commons');
 });
 
-test('armarNotaDelDia: una foto que falla no frena la nota (va la placa); sin hechos, null; las fotos salen con nombre propio por día y hecho', async () => {
+test('armarNotaDelDia: cada hecho tiene su placa cuadrada (con foto o la del año); la foto original va aparte; sin hechos, null', async () => {
   const piezas = { dias: { '2026-11-12': PIEZA } }; const candidatas = { dias: { '2026-11-12': { candidatas: CANDIDATAS } } };
-  const r = await armarNotaDelDia({ dia: '2026-11-12', piezas, candidatas, json: respuestas(), bajar });
-  assert.equal(r.fotos.length, 4); assert.match(r.fotos[0].archivo, /^efemeride-2026-11-12-[a-z0-9]+\.jpg$/);
+  const dibujar = ({ foto }) => ({ bytes: new Uint8Array([1, 2, 3]), conFoto: !!foto });
+  const r = await armarNotaDelDia({ dia: '2026-11-12', piezas, candidatas, json: respuestas(), bajar, dibujar });
+  const placas = r.fotos.filter((f) => /.png$/.test(f.archivo)); const originales = r.fotos.filter((f) => /-foto.jpg$/.test(f.archivo));
+  assert.equal(placas.length, 4); assert.equal(originales.length, 4); assert.match(placas[0].archivo, /^efemeride-2026-11-12-[a-z0-9]+.png$/);
   assert.ok(r.sql.includes('/fotos-notas/efemeride-2026-11-12-'));
-  const caida = await armarNotaDelDia({ dia: '2026-11-12', piezas, candidatas, json: async () => { throw new Error('red'); }, bajar });
-  assert.equal(caida.fotos.length, 0); assert.equal(caida.nota.ficha.efemerides.hechos.length, 4);
-  assert.equal(await armarNotaDelDia({ dia: '2026-11-13', piezas, candidatas, json: respuestas(), bajar }), null);
+  assert.ok(r.nota.fuentes.some((f) => /^Foto de [0-9]{4}: /.test(f.medio)), 'los créditos van en Fuentes');
+  assert.match(r.nota.foto.url, /-foto.jpg$/); assert.equal(r.nota.foto.cubrir, true);
+  // sin red: no hay foto pero cada hecho igual tiene su placa del año, y la portada usa la primera placa
+  const caida = await armarNotaDelDia({ dia: '2026-11-12', piezas, candidatas, json: async () => { throw new Error('red'); }, bajar, dibujar });
+  assert.equal(caida.fotos.length, 4); assert.ok(caida.fotos.every((f) => /.png$/.test(f.archivo)));
+  assert.equal(caida.nota.ficha.efemerides.hechos.every((h) => h.foto?.sinFoto === true), true); assert.match(caida.nota.foto.url, /.png$/);
+  assert.equal(await armarNotaDelDia({ dia: '2026-11-13', piezas, candidatas, json: respuestas(), bajar, dibujar }), null);
+});
+
+test('fotoDeCommonsPorBusqueda: si la página no tiene foto libre, busca en Commons por el título', async () => {
+  const llamadas = [];
+  const json = async (url) => {
+    llamadas.push(url);
+    if (url.includes('list=search')) return { query: { search: [{ title: 'File:Mapa de algo.svg' }, { title: 'File:Cometa 67P.jpg' }] } };
+    if (url.includes('prop=imageinfo')) return { query: { pages: [{ title: 'File:Cometa 67P.jpg', imageinfo: [{ url: 'https://u/x.jpg', thumburl: 'https://u/t.jpg', width: 2000, height: 1500, thumbwidth: 960, thumbheight: 720, mime: 'image/jpeg', extmetadata: { LicenseShortName: { value: 'CC BY-SA 4.0' }, Artist: { value: 'Ana' } } }] }] } };
+    return { query: { pages: [{ title: 'X' }] } }; // la página de Wikipedia no trae imagen
+  };
+  const f = await fotoDeCommons({ enlace: 'https://es.wikipedia.org/wiki/X', titulo: 'Aterrizaje en un cometa' }, { json, bajar });
+  assert.ok(f); assert.equal(f.archivoDeOrigen, 'Cometa 67P.jpg'); assert.match(f.paginaDeCommons, /commons[.]wikimedia[.]org[/]wiki[/]File:Cometa_67P[.]jpg/);
+  assert.equal(llamadas.some((u) => /Mapa/.test(u) && u.includes('imageinfo')), false, 'un mapa ni se consulta');
 });
 
 // ---------------------------------------------------------------- la vista del sitio
 
-test('la vista: línea del tiempo y todas las historias iguales, con foto y crédito o con placa; texto escapado; sin foto principal aparte', () => {
+test('la vista: línea del tiempo y todas las historias iguales, cada una con su imagen descargable y sus datos como texto; texto escapado; créditos fuera de la página', () => {
   const hechos = hechosDelDia(PIEZA, CANDIDATAS).map((h, i) => ({ ...h, titulo: i === 1 ? '<b>x</b> "y"' : h.titulo, foto: i === 0 ? { alt: 'Imagen de «Cometa»', credito: 'Ana, CC BY 2.0, vía Wikimedia Commons', ancho: 960, alto: 1252 } : null }));
-  const n = notaDeEfemeride({ dia: '2026-11-12', hechos, fotosPublicas: { a: 'https://radarbalcarce.com/fotos-notas/x.jpg' } });
+  const fotosPublicas = Object.fromEntries(hechos.map((h) => [h.id, { placa: `https://radarbalcarce.com/fotos-notas/p-${h.id}.png` }]));
+  const n = notaDeEfemeride({ dia: '2026-11-12', hechos, fotosPublicas });
   assert.equal(esEfemerides(n), true); assert.equal(esEfemerides({ ficha: {} }), false);
   const html = efemeridesHtml(n);
   assert.equal((html.match(/class="ef-hecho"/g) || []).length, 4);
-  assert.equal((html.match(/class="ef-placa"/g) || []).length, 3); assert.match(html, /Foto: Ana, CC BY 2\.0, vía Wikimedia Commons/);
+  assert.equal((html.match(/class="ef-img"/g) || []).length, 4); assert.equal((html.match(/ download="radarbalcarce-un-dia-como-hoy-[0-9]{4}[.]png"/g) || []).length, 4);
+  assert.ok(!html.includes('Ana, CC BY') && !html.includes('ef-pie'), 'el crédito va en Fuentes, no en la página');
+  assert.match(html, /<ul class="ef-datos"><li><b>/);
   assert.ok(!html.includes('<b>x</b>') && html.includes('&lt;b&gt;x&lt;/b&gt;'));
-  assert.match(html, /Jueves 12 de noviembre|jueves 12 de noviembre/); assert.match(html, /width="960" height="1252"/);
+  assert.match(html, /Jueves 12 de noviembre|jueves 12 de noviembre/); assert.match(html, /width="900" height="900"/);
   assert.equal((html.match(/class="ef-pt[ "]/g) || []).length, 4);
 });
 

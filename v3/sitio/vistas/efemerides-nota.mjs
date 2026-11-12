@@ -22,13 +22,14 @@ export function ejeDelTiempo(anios, anioActual) {
 
 function hechoHtml(h, i) {
   const foto = h.foto && urlSegura(h.foto.url) ? h.foto : null;
-  const medidas = foto?.ancho && foto?.alto ? ` width="${Number(foto.ancho)}" height="${Number(foto.alto)}"` : '';
+  const medidas = foto?.ancho && foto?.alto ? ` width="${Number(foto.ancho)}" height="${Number(foto.alto)}"` : ' width="900" height="900"';
+  const nombre = `radarbalcarce-un-dia-como-hoy-${String(h.anio).replace(/[^0-9a-z]/gi, '')}${String(foto?.url ?? '').endsWith('.png') ? '.png' : '.jpg'}`;
   const imagen = foto
-    ? `<img class="ef-img" src="${esc(foto.url)}" alt="${esc(foto.alt || h.titulo)}"${medidas} ${i === 0 ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"'}>`
-    : `<div class="ef-placa" aria-hidden="true"><b>${esc(h.anio)}</b><span>Radar Balcarce</span></div>`;
-  const pie = foto ? esc(foto.credito ? `Foto: ${foto.credito}` : '') : 'Sin una foto libre que sirva, va la placa del medio.';
-  const datos = (h.datos ?? []).slice(0, 3).map((d) => `<div class="ef-dato"><b>${esc(d.b)}</b><span>${esc(d.s)}</span></div>`).join('');
-  return `<article class="ef-hecho" style="--i:${i}">${imagen}${pie ? `<p class="ef-pie">${pie}</p>` : ''}<div class="ef-cuerpo"><p class="ef-anio">${esc(h.anio)}</p><h2>${esc(h.titulo)}</h2>${h.texto ? `<p>${esc(h.texto)}</p>` : ''}${datos ? `<div class="ef-datos">${datos}</div>` : ''}</div></article>`;
+    ? `<figure class="ef-fig"><img class="ef-img" src="${esc(foto.url)}" alt="${esc(foto.alt || h.titulo)}"${medidas} ${i === 0 ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"'}><a class="ef-baja" href="${esc(foto.url)}" download="${esc(nombre)}" aria-label="Descargar la imagen de ${esc(h.anio)}">Descargar imagen</a></figure>`
+    : '';
+  // los datos van como texto (se leen, se copian y los lee Google); los créditos de las fotos, en «Fuentes»
+  const datos = (h.datos ?? []).slice(0, 3).map((d) => `<li><b>${esc(d.b)}</b> <span>${esc(d.s)}</span></li>`).join('');
+  return `<article class="ef-hecho" style="--i:${i}">${imagen}<div class="ef-cuerpo"><p class="ef-anio">${esc(h.anio)}</p><h2>${esc(h.titulo)}</h2>${h.texto ? `<p>${esc(h.texto)}</p>` : ''}${datos ? `<ul class="ef-datos">${datos}</ul>` : ''}</div></article>`;
 }
 
 /** El cuerpo de la nota de efemérides (reemplaza al de párrafos). Lo único que pide: `n.ficha.efemerides = { dia, hechos: [{ anio, titulo, texto, datos, foto }] }`. */
@@ -56,19 +57,18 @@ export const ESTILOS_EFEMERIDES = `
 .ef-abajo b{top:26px}
 .ef-ticks{display:flex;justify-content:space-between;margin:8px 10px 0;font:600 13px var(--sans);color:var(--suave)}
 .ef-hecho{background:var(--papel);border:1px solid var(--linea);border-radius:14px;margin:0 0 20px;overflow:hidden;opacity:0;transform:translateY(12px);animation:ef-sube .6s ease-out calc(.3s + var(--i) * .25s) forwards}
-.ef-img{display:block;width:100%;height:auto;max-height:340px;object-fit:cover}
-.ef-placa{display:flex;flex-direction:column;align-items:center;justify-content:center;height:190px;background:var(--tinta);color:#fff}
-.ef-placa b{font:900 64px/1 var(--serif)}
-.ef-placa span{font:700 14px var(--sans);letter-spacing:.14em;text-transform:uppercase}
-.ef-pie{margin:0;padding:8px 18px 0;font-size:12.5px;color:var(--suave)}
+.ef-fig{position:relative;margin:0}
+.ef-img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+.ef-baja{position:absolute;right:12px;bottom:12px;display:none;background:rgba(20,22,26,.78);color:#fff;font:700 13px var(--sans);padding:8px 12px;border-radius:999px;text-decoration:none}
+.ef-fig:hover .ef-baja,.ef-baja:focus-visible{display:inline-block}
+@media (hover:none){.ef-baja{display:inline-block;position:static;margin:8px 0 0 12px;background:none;color:var(--suave);padding:4px 0;font-weight:600;text-decoration:underline}}
 .ef-cuerpo{padding:14px 18px 18px}
 .ef-anio{margin:0;font:900 clamp(48px,12vw,64px)/1 var(--serif);color:var(--rojo)}
 .ef-cuerpo h2{margin:6px 0 10px;font:900 clamp(22px,5vw,28px)/1.15 var(--serif);color:var(--tinta)}
 .ef-cuerpo p{margin:0 0 12px}
-.ef-datos{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:12px 0 0}
-.ef-dato{padding:10px 3px;border:1px solid var(--linea);border-radius:10px;background:var(--crema);text-align:center}
-.ef-dato b{display:block;font:900 clamp(14px,3.9vw,21px)/1.15 var(--serif);color:var(--tinta);overflow-wrap:normal;word-break:normal}
-.ef-dato span{font-size:12.5px;color:var(--suave)}
+.ef-datos{display:flex;flex-wrap:wrap;gap:6px 8px;list-style:none;margin:12px 0 0;padding:0}
+.ef-datos li{padding:5px 11px;border:1px solid var(--linea);border-radius:999px;background:var(--crema);font:700 13.5px var(--sans);color:var(--tinta)}
+.ef-datos li span{font-weight:500;color:var(--suave)}
 @keyframes ef-crece{to{width:100%}}@keyframes ef-viaja{to{left:100%}}@keyframes ef-aparece{to{opacity:1;background:var(--rojo)}}@keyframes ef-sube{to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.ef-prog{animation:none;width:100%}.ef-marca{animation:none;left:100%}.ef-pt{animation:none;opacity:1;background:var(--rojo)}.ef-hecho{animation:none;opacity:1;transform:none}}
 `;

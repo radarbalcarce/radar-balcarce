@@ -106,10 +106,30 @@ export function creditoDeCommons({ autor, licencia }) {
  */
 export async function fotoDeCommons(hecho, { json, bajar, ancho = 960 } = {}) {
   const pagina = paginaDeWikipedia(hecho?.enlace);
-  if (!pagina) return null;
-  const a = await json(`https://es.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&redirects=1&prop=pageimages&piprop=name&titles=${encodeURIComponent(pagina)}`);
-  const p = a?.query?.pages?.[0];
-  const nombre = p?.pageimage;
+  if (pagina) {
+    const a = await json(`https://es.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&redirects=1&prop=pageimages&piprop=name&titles=${encodeURIComponent(pagina)}`);
+    const p = a?.query?.pages?.[0];
+    const f = await archivoDeCommons(p?.pageimage, p?.title, { json, bajar, ancho });
+    if (f) return f;
+  }
+  return fotoDeCommonsPorBusqueda(hecho, { json, bajar, ancho });
+}
+
+/** Segundo intento (siempre tiene que haber foto): busca en Commons archivos con el título del hecho y toma el primero que sirve. */
+export async function fotoDeCommonsPorBusqueda(hecho, { json, bajar, ancho = 960 } = {}) {
+  const titulo = String(hecho?.titulo ?? '').replace(/[«»"]/g, ' ').trim();
+  if (!titulo) return null;
+  const r = await json(`https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&list=search&srnamespace=6&srlimit=8&srsearch=${encodeURIComponent(titulo)}`);
+  for (const x of r?.query?.search ?? []) {
+    const nombre = String(x.title ?? '').replace(/^File:/, '');
+    const f = await archivoDeCommons(nombre, titulo, { json, bajar, ancho });
+    if (f) return f;
+  }
+  return null;
+}
+
+/** Un archivo de Commons por su nombre: sólo licencia libre, nunca bandera, mapa ni logo. */
+async function archivoDeCommons(nombre, tituloDePagina, { json, bajar, ancho }) {
   if (!nombre || NO_SIRVE.test(nombre)) return null;
   const c = await json(`https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&iiprop=url|size|mime|extmetadata&iiurlwidth=${ancho}&titles=${encodeURIComponent(`File:${nombre}`)}`);
   const info = c?.query?.pages?.[0]?.imageinfo?.[0];
@@ -122,10 +142,11 @@ export async function fotoDeCommons(hecho, { json, bajar, ancho = 960 } = {}) {
   const bajada = await bajar(url);
   if (!bajada?.bytes?.length) return null;
   const mime = bajada.mime && /^image\//.test(bajada.mime) ? bajada.mime : info.mime;
-  const titulo = sinEtiquetas(p.title);
+  const titulo = sinEtiquetas(tituloDePagina);
   return {
     mime, bytes: bajada.bytes, ancho: info.thumbwidth ?? info.width, alto: info.thumbheight ?? info.height, titulo,
     credito: creditoDeCommons({ autor: sinEtiquetas(meta.Artist?.value), licencia }), alt: `Imagen de «${titulo}»`, archivoDeOrigen: nombre,
+    paginaDeCommons: `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(nombre.replace(/ /g, '_'))}`,
   };
 }
 
@@ -148,6 +169,21 @@ export function tituloDeLaNota(dia, hechos) {
 }
 
 /**
+ * La imagen de un hecho: la placa cuadrada que dibujamos nosotros (900 × 900: foto, año y radarbalcarce.com, sin texto del hecho), o la placa del año si no hay foto libre.
+ * `publica` es la dirección (un texto, o { placa, original }); sin ella, sin imagen.
+ */
+export function imagenDelHecho(h, publica) {
+  const placa = typeof publica === 'string' ? publica : publica?.placa;
+  if (!placa) return null;
+  const conFoto = !!h.foto;
+  return {
+    url: placa, ancho: 900, alto: 900, sinFoto: !conFoto, alt: conFoto ? h.foto.alt : `Placa del año ${h.anio}`, credito: conFoto ? h.foto.credito : '',
+    pagina: conFoto ? h.foto.paginaDeCommons : undefined,
+    original: conFoto ? publica?.original : undefined, anchoOriginal: conFoto ? h.foto.ancho : undefined, altoOriginal: conFoto ? h.foto.alto : undefined,
+  };
+}
+
+/**
  * La fila de la nota. `hechos` ya traen su `foto` (o null) y sus `datos`. Si `anioActual` no viene, el de `dia`.
  * @returns {{ id, titulo, bajada, seccion, firma, enDosLineas, cuerpo, ficha, fuentes, foto }}
  */
@@ -156,12 +192,13 @@ export function notaDeEfemeride({ dia, hechos, fotosPublicas = {} }) {
   const f = fechaDelDia(dia);
   const lista = hechos.map((h) => ({
     id: h.id, anio: h.anio, titulo: h.titulo, texto: h.texto, enlace: h.enlace, datos: datosDelHecho(h, f.anio),
-    foto: h.foto && fotosPublicas[h.id] ? { url: fotosPublicas[h.id], alt: h.foto.alt, credito: h.foto.credito, ancho: h.foto.ancho, alto: h.foto.alto } : null,
+    foto: imagenDelHecho(h, fotosPublicas[h.id]),
   }));
   const masNueva = Math.max(...lista.map((h) => h.anio)); const masVieja = Math.min(...lista.map((h) => h.anio));
   const bajada = lista.length > 1 ? `${lista.length === 4 ? 'Cuatro' : lista.length === 3 ? 'Tres' : 'Dos'} historias de un mismo día, entre ${masVieja} y ${masNueva}.` : `Una historia de un día como hoy, de ${masNueva}.`;
   const cuerpo = [`Un día como hoy, ${diaLargo(dia)}, pasaron estas cosas.`, ...lista.map((h) => `En ${h.anio}: ${h.titulo}.${h.texto ? ` ${h.texto}` : ''}`), 'Un día como hoy sale todos los días en Radar Balcarce, también en video en nuestras redes.'];
-  const primera = lista.find((h) => h.foto)?.foto ?? null;
+  const primera = lista.find((h) => h.foto && !h.foto.sinFoto)?.foto ?? lista.find((h) => h.foto)?.foto ?? null;
+  const fuentesDeFotos = lista.filter((h) => h.foto && !h.foto.sinFoto && h.foto.credito).map((h) => ({ medio: `Foto de ${h.anio}: ${h.foto.credito}`, url: h.foto.pagina || 'https://commons.wikimedia.org/' }));
   return {
     id: ID_DE_NOTA(dia),
     titulo: tituloDeLaNota(dia, lista), bajada, seccion: SECCION_EFEMERIDES, firma: FIRMA_EFEMERIDES,
@@ -172,8 +209,9 @@ export function notaDeEfemeride({ dia, hechos, fotosPublicas = {} }) {
       indexar: false, // sale en el sitio pero no se indexa (como el clima): son datos de Wikipedia armados por reglas, sin segunda fuente
       efemerides: { dia, hechos: lista },
     },
-    fuentes: [{ medio: 'Wikipedia: un día como hoy', url: `https://es.wikipedia.org/wiki/${f.dia}_de_${f.mes}` }],
-    foto: primera ? { url: primera.url, alt: primera.alt, credito: primera.credito, ancho: primera.ancho, alto: primera.alto, cubrir: true } : null,
+    fuentes: [{ medio: 'Wikipedia: un día como hoy', url: `https://es.wikipedia.org/wiki/${f.dia}_de_${f.mes}` }, ...fuentesDeFotos],
+    // la portada y las redes llevan la foto original (horizontal, sin recorte previo); sin ninguna, la placa cuadrada del primer hecho
+    foto: primera ? { url: primera.original || primera.url, alt: primera.alt, credito: primera.credito, ancho: primera.original ? primera.anchoOriginal : primera.ancho, alto: primera.original ? primera.altoOriginal : primera.alto, cubrir: true } : null,
   };
 }
 

@@ -9,6 +9,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { UA, clienteJson } from './armar.mjs';
+import { placaPng } from './placas.mjs';
 import { hechosDelDia, fotoDeCommons, notaDeEfemeride, sqlDeEfemeride, slugDeLaNota, BASE_DEL_SITIO, ID_DE_NOTA } from './nota.mjs';
 
 const RAIZ = path.join(import.meta.dirname, '..', '..', '..');
@@ -34,7 +35,7 @@ export function bajarImagen(traer = fetch) {
  * Arma todo. `piezas` y `candidatas` son web/data/efemerides-piezas.json y efemerides-candidatas.json; `json` y `bajar` traen de la red. Devuelve
  * { nota, sql, fotos: [{ archivo, bytes, mime }], hechos } o null si ese día no hay con qué.
  */
-export async function armarNotaDelDia({ dia, piezas, candidatas, json, bajar, ahora = new Date().toISOString() }) {
+export async function armarNotaDelDia({ dia, piezas, candidatas, json, bajar, dibujar, ahora = new Date().toISOString() }) {
   const pieza = piezas?.dias?.[dia] ?? null;
   const delDia = candidatas?.dias?.[dia]?.candidatas ?? [];
   const hechos = hechosDelDia(pieza, delDia);
@@ -42,11 +43,16 @@ export async function armarNotaDelDia({ dia, piezas, candidatas, json, bajar, ah
   const fotosPublicas = {}; const fotos = []; const conFoto = [];
   for (const h of hechos) {
     let foto = null;
-    try { foto = await fotoDeCommons(h, { json, bajar }); } catch { foto = null; } // sin foto, va la placa: una foto que falla nunca frena la nota
-    if (foto) {
-      const archivo = `efemeride-${dia}-${h.id}.${EXTENSION[foto.mime] ?? 'jpg'}`;
-      fotosPublicas[h.id] = `${BASE_DEL_SITIO}/fotos-notas/${archivo}`;
-      fotos.push({ archivo, bytes: foto.bytes, mime: foto.mime });
+    try { foto = await fotoDeCommons(h, { json, bajar }); } catch { foto = null; } // sin foto, va la placa del año: una foto que falla nunca frena la nota
+    const placa = (dibujar ?? placaPng)({ anio: h.anio, foto });
+    if (!placa.conFoto) foto = null;
+    const archivo = `efemeride-${dia}-${h.id}.png`;
+    fotos.push({ archivo, bytes: placa.bytes, mime: 'image/png' });
+    fotosPublicas[h.id] = { placa: `${BASE_DEL_SITIO}/fotos-notas/${archivo}` };
+    if (foto) { // la foto original, sin recorte: la usan la portada y las redes (horizontal)
+      const original = `efemeride-${dia}-${h.id}-foto.${EXTENSION[foto.mime] ?? 'jpg'}`;
+      fotos.push({ archivo: original, bytes: foto.bytes, mime: foto.mime });
+      fotosPublicas[h.id].original = `${BASE_DEL_SITIO}/fotos-notas/${original}`;
     }
     conFoto.push({ ...h, foto });
   }
