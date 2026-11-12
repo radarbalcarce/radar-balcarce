@@ -11,17 +11,20 @@ const salida = path.resolve(aca, '../media-kit');
 const { Resvg } = await import(pathToFileURL(path.join(raiz, 'node_modules/@resvg/resvg-js/index.js')).href);
 const { archivosDeFuente } = await import(pathToFileURL(path.join(raiz, 'reels/placa.mjs')).href);
 
-const C = { fondo: '#F4F1EA', tinta: '#14161A', texto: '#3B403C', rojo: '#C7381C', gris: '#B9B3A4', linea: '#E4DFD2', suave: '#6B6F6A' };
+const C = { fondo: '#FAF8F3', tinta: '#14161A', texto: '#3B403C', rojo: '#C7381C', gris: '#B9B3A4', linea: '#E4DFD2', suave: '#6B6F6A' };
 const SERIF = 'Source Serif 4 60pt';
 const SANS = 'Inter';
 const esc = (t) => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;');
 const miles = (n) => n.toLocaleString('es-AR');
 
-const marco = (W, H, cuerpo) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-<rect width="${W}" height="${H}" fill="${C.fondo}"/>
+const PIE = 96; // alto del cierre de la marca (manual de marca: raya de tinta, «Radar Balcarce» a la izquierda, radarbalcarce.com a la derecha)
+const marco = (W, H, cuerpo) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H + PIE}" viewBox="0 0 ${W} ${H + PIE}">
+<rect width="${W}" height="${H + PIE}" fill="${C.fondo}"/>
 ${cuerpo}
-<text x="56" y="${H - 28}" font-family="${SANS}" font-size="20" font-weight="500" fill="${C.suave}">Fuente: relevamiento de la CAME, fin de semana largo del 6 al 11 de noviembre de 2026</text>
-<text x="${W - 56}" y="${H - 26}" text-anchor="end" font-family="${SERIF}" font-size="26" font-weight="900" fill="${C.tinta}">Radar <tspan fill="${C.rojo}">Balcarce</tspan></text>
+<text x="56" y="${H - 6}" font-family="${SANS}" font-size="20" font-weight="500" fill="${C.suave}">Fuente: relevamiento de la CAME, fin de semana largo del 6 al 11 de noviembre de 2026</text>
+<rect x="56" y="${H + 14}" width="${W - 112}" height="3" fill="${C.tinta}"/>
+<text x="56" y="${H + PIE - 24}" font-family="${SERIF}" font-size="34" font-weight="900" fill="${C.tinta}">Radar <tspan fill="${C.rojo}">Balcarce</tspan></text>
+<text x="${W - 56}" y="${H + PIE - 24}" text-anchor="end" font-family="${SANS}" font-size="24" font-weight="700" fill="${C.tinta}">radarbalcarce.com</text>
 </svg>`;
 
 // 1. Ocupación por destino (en rojo, la provincia de Buenos Aires).
