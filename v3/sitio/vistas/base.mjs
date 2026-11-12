@@ -4,6 +4,7 @@ import { BASE, NOMBRE, SECCIONES, esc } from '../util.mjs';
 import { barraSuperior } from './dia.mjs';
 import { guionDeConsentimiento, avisoDeCookies, cambiarCookies } from './consentimiento.mjs';
 import { lugarRotativo } from './avisos.mjs';
+import { ESTILOS_EFEMERIDES } from './efemerides-nota.mjs';
 
 const FUENTES = 'https://radarbalcarce.com/fuentes';
 const LATIN = 'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122';
@@ -461,6 +462,7 @@ a.etiqueta::after,.migas a::after{content:"";position:absolute;left:-6px;right:-
  .part{flex-direction:row;align-items:center;justify-content:space-between}
  aside.lado{position:sticky;top:12px}
 }
+${ESTILOS_EFEMERIDES}
 `;
 
 // Las secciones en el menú; «Tecnología» se lee «Tecnología e IA».

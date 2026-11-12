@@ -11,7 +11,12 @@ export const RAMA = 'main';
 /** Qué workflow despierta cada cron (los mismos horarios que tenía su `schedule:` en GitHub; los crons de Cloudflare también son UTC). */
 export const DISPAROS = {
   // Piezas de video, una vez por hora de 7:07 a 23:07 de Balcarce. Sin inputs = «lo que toca ahora». `automatico` lo marca como disparo del reloj.
-  '7 10-23,0-2 * * *': { archivo: 'v3-piezas.yml', nombre: 'piezas de redes', inputs: { automatico: 'true' } },
+  // `ademas`: otros workflows que despierta ESTE mismo cron sólo en una hora (UTC), para no gastar un cron más (en el plan gratis de Cloudflare son cinco por Worker).
+  // La primera vuelta del día (7:07 de Balcarce, 10:07 UTC) también despierta la nota del diario de «Un día como hoy» (12/11/2026): sale a primera hora y las piezas de las 9 la enlazan.
+  '7 10-23,0-2 * * *': {
+    archivo: 'v3-piezas.yml', nombre: 'piezas de redes', inputs: { automatico: 'true' },
+    ademas: [{ archivo: 'v3-nota-efemeride.yml', nombre: 'nota de Un día como hoy', aLasUTC: 10, inputs: { automatico: 'true' } }],
+  },
   // Copia de fotos, cada 2 horas a los :40 de 6:40 a 22:40 de Balcarce (9-23/2 y 1 en UTC, escrito en lista porque es lo más seguro para Cloudflare).
   // Copia de verdad (simular = false) y con el tope de siempre; el workflow sólo corre si la variable FOTOS_PROPIAS_ACTIVAS de GitHub vale «si».
   '40 9,11,13,15,17,19,21,23,1 * * *': { archivo: 'v3-fotos-propias.yml', nombre: 'fotos propias', inputs: { automatico: 'true', simular: 'false', tope: '60' } },
@@ -71,5 +76,17 @@ export async function dispararAcciones(evento, env, { fetchFn = fetch, avisar = 
       }
     }
   }
-  return { disparo: disparo.archivo, ok: r.ok, estado: r.estado, intentos };
+  // Lo que este cron despierta además, sólo a su hora. Una falla acá se avisa pero no cambia lo que se devuelve de lo principal.
+  const ademas = [];
+  const hora = Number.isFinite(Number(evento?.scheduledTime)) ? new Date(Number(evento.scheduledTime)).getUTCHours() : null;
+  for (const otro of disparo.ademas ?? []) {
+    if (hora === null || hora !== otro.aLasUTC) continue;
+    let o = await despertar(otro, token, fetchFn);
+    if (!o.ok) { await esperar(3000); o = await despertar(otro, token, fetchFn); }
+    if (!o.ok && avisar) {
+      try { await avisar(`No se pudo lanzar «${otro.nombre}» en GitHub Actions (respondió ${o.estado || 'sin respuesta'}, dos intentos).`); } catch { /* sin aviso, igual se sigue */ }
+    }
+    ademas.push({ disparo: otro.archivo, ok: o.ok, estado: o.estado });
+  }
+  return { disparo: disparo.archivo, ok: r.ok, estado: r.estado, intentos, ...(ademas.length ? { ademas } : {}) };
 }

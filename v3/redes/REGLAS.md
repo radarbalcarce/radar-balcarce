@@ -169,3 +169,12 @@ GitHub dejó de lanzar sus horarios (`schedule:`) durante horas el 10/11/2026, a
 **Qué falta confirmar con Meta de verdad** (no se pudo probar sin publicar): que Instagram acepte los JPEG de `/placa/` como hijos del carrusel y que el álbum de Facebook salga con las fotos en el orden de las láminas. Mirar el primer posteo real.
 
 **Código y pruebas.** Armadores `armarCarruselSemana` y `armarCarruselFinde` (`piezas/armadores.mjs`), láminas `lamina-portada|nota|eventos|cierre` (`piezas/escenas.mjs`), filas `carrusel-semana`, `carrusel-finde` y `carrusel-nota` de `piezas-del-dia.mjs` (`sinVoz: true`). Pruebas: `v3/redes/carruseles.test.mjs`.
+
+## 16. La nota del diario de «Un día como hoy» (12/11, Hernán)
+
+- Primero la nota y después las piezas: a las 7:07 (primera vuelta del día) el Worker `radar-redes` despierta el workflow `v3-nota-efemeride.yml` (`ademas` de `disparar-acciones.mjs`, sin un cron más) y a las 9 salen el reel, la historia y el posteo con su enlace (las piezas con enlace: pendiente de la segunda etapa).
+- La arma un programa sin IA (`v3/redes/efemerides/nota.mjs` y `publicar-nota.mjs`): hasta CUATRO hechos tratados por igual (la principal y «Y además» de la pieza y, si faltan, las mejores candidatas que `esUsable` deja pasar), de la más nueva a la más vieja; firma «Radar Balcarce», sección Cultura, `ficha.indexar = false` (no se indexa: son datos de Wikipedia armados por reglas), redes «sólo la web» (el carrusel no existe).
+- Los tres datos de cada hecho se calculan (años desde entonces, década o siglo, tema); nunca se inventan.
+- Foto: sólo la imagen de la página de Wikipedia del hecho si está en Wikimedia Commons con licencia libre (dominio público, CC0, CC BY, CC BY-SA); nunca bandera, mapa, logo, svg ni imagen chica; con el crédito del autor y «vía Wikimedia Commons» al pie, y el epígrafe dice de qué página es. Sin foto que sirva, la placa del medio. Es la excepción que Hernán autorizó SÓLO para las efemérides (la regla de fotos de las notas con fuentes sigue igual).
+- Idempotente: si la nota del día ya existe no se toca (salvo `forzar`, que actualiza texto, fotos y ficha, nunca su fecha, su estado ni su dirección). Sin hechos publicables ese día, no sale nota y no es una falla.
+- Pruebas: `v3/redes/efemerides/nota.test.mjs` y `disparar-acciones.test.mjs`.

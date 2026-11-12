@@ -164,3 +164,8 @@ salvo el «¿seguro?» de Retirar; nada de afuera.
 - Después de cada cambio se borra de la caché de Cloudflare (la de ese centro de datos) la página de la nota, la portada y su sección; en los demás, la nota se ve como mucho a los 5 minutos.
 - Pruebas: `panel.test.mjs` (entrada, enlace gastado y vencido, cookie, sin sesión, CSRF, cabeceras, texto y escape, sección, estado, redes, fotos con depósito falso, filtros, salir) y la de `/panel`
   en `v3/redaccion/telegram/administrar.test.mjs`.
+
+## 14. La nota de «Un día como hoy» (12/11)
+
+- Se reconoce por `ficha.efemerides.hechos` (`esEfemerides`, `vistas/efemerides-nota.mjs`). Reemplaza al cuerpo de párrafos por una línea del tiempo que se anima y las historias iguales (año, título, texto, tres datos y foto con crédito o placa); sin foto principal aparte, sin «En dos líneas» ni «Los datos».
+- Sólo CSS (sin JavaScript); con «reducir movimiento» queda quieta. Los años de la línea se escalonan para que no se pisen. Va con `noindex` (`ficha.indexar = false`).

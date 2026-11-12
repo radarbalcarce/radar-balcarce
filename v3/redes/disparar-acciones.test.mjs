@@ -53,7 +53,34 @@ test('los inputs que manda el Worker existen en los workflows (GitHub rechaza co
     const t = leer(`../../.github/workflows/${d.archivo}`);
     const declarados = new Set([...t.slice(t.indexOf('workflow_dispatch:'), t.indexOf('permissions:')).matchAll(/^      ([a-z]+):\n        description:/gm)].map((m) => m[1]));
     for (const k of Object.keys(d.inputs)) assert.ok(declarados.has(k), `${d.archivo}: el input «${k}» no está declarado`);
+    for (const o of d.ademas ?? []) {
+      const u = leer(`../../.github/workflows/${o.archivo}`);
+      const dec = new Set([...u.slice(u.indexOf('workflow_dispatch:'), u.indexOf('permissions:')).matchAll(/^      ([a-z]+):\n        description:/gm)].map((m) => m[1]));
+      for (const k of Object.keys(o.inputs)) assert.ok(dec.has(k), `${o.archivo}: el input «${k}» no está declarado`);
+    }
   }
+});
+
+test('la primera vuelta del día (10 UTC) despierta también la nota de Un día como hoy; las demás horas, no', async () => {
+  const g = githubDeMentira(204);
+  const env = { GITHUB_TOKEN_ACCIONES: 'x' };
+  const r10 = await dispararAcciones({ cron: CRON_PIEZAS, scheduledTime: Date.UTC(2026, 10, 12, 10, 7) }, env, { fetchFn: g.fetchFn, esperar: sinEsperar });
+  assert.deepEqual(g.pedidos.map((p) => p.url.split('/workflows/')[1]), ['v3-piezas.yml/dispatches', 'v3-nota-efemeride.yml/dispatches']);
+  assert.deepEqual(r10.ademas, [{ disparo: 'v3-nota-efemeride.yml', ok: true, estado: 204 }]);
+  g.pedidos.length = 0;
+  const r13 = await dispararAcciones({ cron: CRON_PIEZAS, scheduledTime: Date.UTC(2026, 10, 12, 13, 7) }, env, { fetchFn: g.fetchFn, esperar: sinEsperar });
+  assert.equal(g.pedidos.length, 1); assert.equal(r13.ademas, undefined);
+  g.pedidos.length = 0;
+  await dispararAcciones({ cron: CRON_PIEZAS }, env, { fetchFn: g.fetchFn, esperar: sinEsperar });
+  assert.equal(g.pedidos.length, 1, 'sin hora del evento no se despierta lo de «además»');
+});
+
+test('si falla la nota de efemérides se avisa, pero lo principal (las piezas) ya se disparó y se devuelve igual', async () => {
+  let n = 0;
+  const fetchFn = async (url) => { n += 1; return { status: String(url).includes('v3-nota-efemeride') ? 502 : 204 }; };
+  const avisos = [];
+  const r = await dispararAcciones({ cron: CRON_PIEZAS, scheduledTime: Date.UTC(2026, 10, 12, 10, 7) }, { GITHUB_TOKEN_ACCIONES: 'x' }, { fetchFn, esperar: sinEsperar, avisar: async (t) => { avisos.push(t); } });
+  assert.equal(r.ok, true); assert.equal(r.ademas[0].ok, false); assert.equal(n, 3, 'piezas 1 vez, nota 2 veces'); assert.equal(avisos.length, 1); assert.match(avisos[0], /nota de Un día como hoy/);
 });
 
 test('un cron que no es de disparo no dispara nada; sin token tampoco, y no rompe', async () => {

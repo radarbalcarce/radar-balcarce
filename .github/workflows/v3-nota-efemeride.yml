@@ -1,0 +1,85 @@
+# Publica en el diario la nota de «Un día como hoy» del día (12/11/2026): cuatro historias tratadas por igual, con sus datos y, cuando hay una libre, su foto de Wikimedia Commons con crédito.
+# La arma un programa, sin IA ni claves (v3/redes/efemerides/publicar-nota.mjs); sale a primera hora y el reel, la historia y el posteo de las 9 la enlazan.
+#
+# Lo dispara el Worker radar-redes en la primera vuelta del día (7:07 de Balcarce; v3/redes/disparar-acciones.mjs, `ademas`). GitHub no lanza horarios solo. A mano: Actions → «Radar 3.0: nota de Un día
+# como hoy» → Run workflow (`dia` para otro día; `forzar` para volver a armar una nota que ya salió: actualiza el texto y las fotos, no su fecha ni su dirección; `simular` arma y muestra, sin guardar).
+# Si ese día no hay un hecho que se pueda publicar, no sale nota y no es una falla. Si ya existe la nota del día y no se pide `forzar`, no hace nada.
+# Usa los mismos secretos de Cloudflare que «cargar una nota a mano» (CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID).
+name: 'Radar 3.0: nota de Un día como hoy'
+
+on:
+  workflow_dispatch:
+    inputs:
+      automatico:
+        description: 'Lo manda solo el Worker radar-redes (el reloj). A mano, dejar como está'
+        type: string
+        default: ''
+      dia:
+        description: 'Otro día (AAAA-MM-DD). Vacío = hoy en Balcarce'
+        type: string
+        default: ''
+      forzar:
+        description: 'Volver a armar la nota aunque ya exista'
+        type: boolean
+        default: false
+      simular:
+        description: 'Sólo armar y mostrar el resumen, sin subir fotos ni guardar'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v3-nota-efemeride
+  cancel-in-progress: false
+
+jobs:
+  nota:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      TZ: America/Argentina/Buenos_Aires
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      DIA: ${{ inputs.dia }}
+      FORZAR: ${{ inputs.forzar }}
+      SIMULAR: ${{ inputs.simular }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Pruebas
+        run: node --test v3/redes/efemerides/nota.test.mjs
+
+      - name: Armar la nota
+        run: |
+          if [ -z "$DIA" ]; then DIA=$(date +%F); fi
+          case "$DIA" in [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;; *) echo "día inválido"; exit 1;; esac
+          echo "DIA=$DIA" >> "$GITHUB_ENV"
+          node v3/redes/efemerides/publicar-nota.mjs --dia="$DIA" --salida=efemeride-salida
+          if [ -f efemeride-salida/nota.sql ]; then echo "HAY_NOTA=si" >> "$GITHUB_ENV"; else echo "HAY_NOTA=no" >> "$GITHUB_ENV"; fi
+
+      - name: Ver si ya existe y preparar la base
+        if: env.HAY_NOTA == 'si' && env.SIMULAR != 'true'
+        run: |
+          DB=$(npx --yes wrangler@4.139.0 d1 list --json | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const l=JSON.parse(s.slice(s.indexOf('[')));const x=l.find(n=>n.name==='radar-nucleo');process.stdout.write(x?x.uuid:'')})")
+          test -n "$DB" || { echo "No encuentro la base radar-nucleo"; exit 1; }
+          printf 'name = "nota-efemeride"\ncompatibility_date = "2026-10-01"\n[[d1_databases]]\nbinding = "DB"\ndatabase_name = "radar-nucleo"\ndatabase_id = "%s"\n' "$DB" > wrangler.generado.toml
+          npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --json --command="SELECT id FROM notas WHERE id = 'efemeride-$DIA';" > existe.json
+          if grep -q "efemeride-$DIA" existe.json && [ "$FORZAR" != "true" ]; then echo "YA_ESTA=si" >> "$GITHUB_ENV"; echo "La nota de $DIA ya existe: no se hace nada (usar «forzar» para volver a armarla)."; else echo "YA_ESTA=no" >> "$GITHUB_ENV"; fi
+
+      - name: Subir las fotos libres al depósito del sitio
+        if: env.HAY_NOTA == 'si' && env.SIMULAR != 'true' && env.YA_ESTA == 'no'
+        run: |
+          node -e "const f=JSON.parse(require('fs').readFileSync('efemeride-salida/fotos.json','utf8'));for(const x of f)console.log(x.archivo+' '+x.mime)" | while read archivo mime; do
+            npx --yes wrangler@4.139.0 r2 object put "radar-fotos/fotos-notas/$archivo" --file "efemeride-salida/$archivo" --content-type "$mime" --cache-control "public, max-age=31536000" --remote
+          done
+
+      - name: Guardar la nota
+        if: env.HAY_NOTA == 'si' && env.SIMULAR != 'true' && env.YA_ESTA == 'no'
+        run: |
+          npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --file=efemeride-salida/nota.sql
+          npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --command="SELECT id, titulo, seccion, estado, slug FROM notas WHERE id = 'efemeride-$DIA';"

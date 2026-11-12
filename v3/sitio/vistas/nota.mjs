@@ -4,6 +4,7 @@ import { pagina, colorDe, IMAGEN_DEL_MEDIO, migasHtml, migasLd } from './base.mj
 import { lugarFijo, lugarRotativo, bloqueAdsense } from './avisos.mjs';
 import { filaDeLista } from './portada.mjs';
 import { esClimaDiario, fotoDelClima, actualizadaHtml, enlacesDelVideoHtml } from './clima-diario.mjs';
+import { esEfemerides, efemeridesHtml } from './efemerides-nota.mjs';
 
 export const FIRMA_IA = 'Redacción Radar Balcarce';
 
@@ -207,13 +208,13 @@ ${migasHtml([['Inicio', '/'], [n.seccion, '/seccion/' + ranura]])}
 <h1>${esc(n.titulo)}</h1>
 ${n.bajada ? `<p class="bajada">${esc(n.bajada)}</p>` : ''}
 <p class="meta"><time datetime="${esc(n.publicada)}">${esc(fechaLarga(n.publicada))}</time> · <span class="por">${esc(firmaCorta(n))}</span>${actualizadaHtml(n)}</p>
-${n.enDosLineas ? `<div class="dos-lineas"><strong>En dos líneas</strong>${esc(n.enDosLineas)}</div>` : ''}
-${foto ? figura({ url: foto.url, alt: foto.alt || n.titulo, ancho: foto.ancho, alto: foto.alto, credito: foto.credito, principal: true, grafico: foto.grafico }) : placaDeNota(n, ranura)}
+${n.enDosLineas && !esEfemerides(n) ? `<div class="dos-lineas"><strong>En dos líneas</strong>${esc(n.enDosLineas)}</div>` : ''}
+${esEfemerides(n) ? '' : foto ? figura({ url: foto.url, alt: foto.alt || n.titulo, ancho: foto.ancho, alto: foto.alto, credito: foto.credito, principal: true, grafico: foto.grafico }) : placaDeNota(n, ranura)}
 <div class="cuerpo">
-${esClimaDiario(n) ? lugarRotativo(contexto, 'clima', 'C1') : ''}${cuerpoHtml(n, parrafos, contexto)}
+${esClimaDiario(n) ? lugarRotativo(contexto, 'clima', 'C1') : ''}${esEfemerides(n) ? efemeridesHtml(n) : cuerpoHtml(n, parrafos, contexto)}
 </div>
 ${enlacesDelVideoHtml(n)}
-${bloquesDeFicha(n.ficha)}
+${esEfemerides(n) ? '' : bloquesDeFicha(n.ficha)}
 ${firmaHtml(n) ? `<p class="firma">${firmaHtml(n)}</p>` : ''}
 ${fuentesHtml(n.fuentes || [])}
 ${compartirHtml(n, canonico)}
