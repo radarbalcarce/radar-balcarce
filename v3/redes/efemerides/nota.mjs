@@ -173,7 +173,7 @@ export function notaDeEfemeride({ dia, hechos, fotosPublicas = {} }) {
       efemerides: { dia, hechos: lista },
     },
     fuentes: [{ medio: 'Wikipedia: un día como hoy', url: `https://es.wikipedia.org/wiki/${f.dia}_de_${f.mes}` }],
-    foto: primera ? { url: primera.url, alt: primera.alt, credito: primera.credito, ancho: primera.ancho, alto: primera.alto } : null,
+    foto: primera ? { url: primera.url, alt: primera.alt, credito: primera.credito, ancho: primera.ancho, alto: primera.alto, cubrir: true } : null,
   };
 }
 

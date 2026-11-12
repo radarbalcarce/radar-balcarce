@@ -50,7 +50,8 @@ export function imagenODePlaca(n, { ancho, alto, cargar = 'lazy', prioridad = fa
   // Con copia propia, la portada y las listas usan la versión chica (640 px, fotos-copia.mjs); la grande queda para la nota y lo que se comparte.
   const url = tieneFoto(n) ? urlSegura((n.foto.chica && Number(ancho) <= 640 && urlSegura(n.foto.chica)) || n.foto.url) : null;
   if (url) {
-    const propia = /\/fotos-notas\//.test(url) ? ' class="fotopropia"' : '';
+    // `foto.cubrir`: una foto propia (no un gráfico) que se recorta 16:9 como las demás (la vertical del cometa de «Un día como hoy» se veía altísima: 12/11).
+    const propia = /\/fotos-notas\//.test(url) && !n.foto.cubrir ? ' class="fotopropia"' : '';
     return `<img${propia} src="${esc(url)}" alt="${esc(n.foto.alt || '')}" width="${ancho}" height="${alto}" loading="${cargar}" decoding="async"${prioridad ? ' fetchpriority="high"' : ''}>`;
   }
   return `<div class="placa" style="--pc:${colorDe(ranuraDe(n.seccion))}" aria-hidden="true"><em>${esc(nombreDe(n))}</em><strong>${esc(recorte(n.titulo, 120))}</strong><b>Radar<i>Balcarce</i></b></div>`;

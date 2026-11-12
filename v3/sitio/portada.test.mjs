@@ -483,6 +483,8 @@ test('fotos: la destacada y las tarjetas son 16:9 en todos los anchos y las foto
   assert.match(propia, /^<img class="fotopropia" /);
   const ajena = imagenODePlaca({ foto: { url: 'https://otro.example/a.jpg', alt: 'x' }, seccion: 'Balcarce' }, { ancho: 640, alto: 400 });
   assert.ok(!/fotopropia/.test(ajena));
+  const recortada = imagenODePlaca({ foto: { url: 'https://radarbalcarce.com/fotos-notas/efemeride-x.jpg', alt: 'x', cubrir: true }, seccion: 'Cultura' }, { ancho: 640, alto: 400 });
+  assert.ok(!/fotopropia/.test(recortada), 'una foto propia con cubrir se recorta como las demás');
 });
 
 test('la nota sin foto muestra una placa de su sección (color y nombre) en vez de nada; con foto no hay placa; el clima diario no la lleva', async () => {
