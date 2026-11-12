@@ -485,6 +485,8 @@ test('fotos: la destacada y las tarjetas son 16:9 en todos los anchos y las foto
   assert.ok(!/fotopropia/.test(ajena));
   const recortada = imagenODePlaca({ foto: { url: 'https://radarbalcarce.com/fotos-notas/efemeride-x.jpg', alt: 'x', cubrir: true }, seccion: 'Cultura' }, { ancho: 640, alto: 400 });
   assert.ok(!/fotopropia/.test(recortada), 'una foto propia con cubrir se recorta como las demás');
+  const clima = imagenODePlaca({ id: 'clima-2026-11-12', ficha: { marca: { tipo: 'clima-diario' }, estadoDelCielo: 'tormenta' }, seccion: 'Balcarce', titulo: 'Cómo viene el jueves' }, { ancho: 640, alto: 360 });
+  assert.match(clima, /^<img [^>]*src="https:\/\/radarbalcarce\.com\/fotos-notas\/clima-tormenta-[123]\.jpg"/, 'la nota del clima lleva su ilustración también en las tarjetas');
 });
 
 test('la nota sin foto muestra una placa de su sección (color y nombre) en vez de nada; con foto no hay placa; el clima diario no la lleva', async () => {

@@ -5,6 +5,7 @@ import { esc, rutaDeNota, ranuraDe, urlSegura, hace, normalizarSeccion } from '.
 import { pagina, colorDe, rotuloDe } from './base.mjs';
 import { lugarFijo, lugarRotativo, bloqueAdsense } from './avisos.mjs';
 import { cuadroDelDia } from './dia.mjs';
+import { fotoDelClima } from './clima-diario.mjs';
 
 export const PORTADA = { horas: 36, minimoDeNotas: 8, laterales: 3, grilla: 6, ultimaHora: 12, masDeHoy: 8, lateralDeBalcarce: 6 };
 
@@ -48,11 +49,13 @@ const cuando = (n, ahora) => `<span class="hora">· <time datetime="${esc(n.publ
 /** La foto de la nota, o la placa con el color de su sección. `proporcion` es el ancho/alto que se reserva. */
 export function imagenODePlaca(n, { ancho, alto, cargar = 'lazy', prioridad = false } = {}) {
   // Con copia propia, la portada y las listas usan la versión chica (640 px, fotos-copia.mjs); la grande queda para la nota y lo que se comparte.
-  const url = tieneFoto(n) ? urlSegura((n.foto.chica && Number(ancho) <= 640 && urlSegura(n.foto.chica)) || n.foto.url) : null;
+  // La nota del clima trae su ilustración del estado del cielo (de la ficha, no de `n.foto`): también en las tarjetas y listas, no sólo adentro de la nota (12/11).
+  const foto = tieneFoto(n) ? n.foto : fotoDelClima(n);
+  const url = foto ? urlSegura((foto.chica && Number(ancho) <= 640 && urlSegura(foto.chica)) || foto.url) : null;
   if (url) {
     // `foto.cubrir`: una foto propia (no un gráfico) que se recorta 16:9 como las demás (la vertical del cometa de «Un día como hoy» se veía altísima: 12/11).
-    const propia = /\/fotos-notas\//.test(url) && !n.foto.cubrir ? ' class="fotopropia"' : '';
-    return `<img${propia} src="${esc(url)}" alt="${esc(n.foto.alt || '')}" width="${ancho}" height="${alto}" loading="${cargar}" decoding="async"${prioridad ? ' fetchpriority="high"' : ''}>`;
+    const propia = /\/fotos-notas\//.test(url) && !foto.cubrir ? ' class="fotopropia"' : '';
+    return `<img${propia} src="${esc(url)}" alt="${esc(foto.alt || '')}" width="${ancho}" height="${alto}" loading="${cargar}" decoding="async"${prioridad ? ' fetchpriority="high"' : ''}>`;
   }
   return `<div class="placa" style="--pc:${colorDe(ranuraDe(n.seccion))}" aria-hidden="true"><em>${esc(nombreDe(n))}</em><strong>${esc(recorte(n.titulo, 120))}</strong><b>Radar<i>Balcarce</i></b></div>`;
 }
