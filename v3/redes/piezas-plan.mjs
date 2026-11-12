@@ -158,7 +158,7 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
     if (!p.sinVoz) usados += 1;
     const buffer = p.formato === 'carrusel' ? [] : redesDeBuffer(p, { youtubeHoy, tope: topeDeYoutube(env) });
     if (buffer.includes('youtube')) youtubeHoy += 1;
-    salen.push({ fila, id: p.id, nombre: p.nombre, arma: p.arma, variante: p.variante ?? null, momento: p.momento ?? null, formato: p.formato, hora: p.hora, horaDelDia: p.arma === 'aviso' ? Math.floor(minuto / 60) : Math.floor(minutoDe(p.hora) / 60), bloque, saluda, buffer, voz: p.voz, hashtag: p.hashtag, primeraDelBloque: !otraHablo, datos });
+    salen.push({ fila, dia, id: p.id, nombre: p.nombre, arma: p.arma, variante: p.variante ?? null, momento: p.momento ?? null, formato: p.formato, hora: p.hora, horaDelDia: p.arma === 'aviso' ? Math.floor(minuto / 60) : Math.floor(minutoDe(p.hora) / 60), bloque, saluda, buffer, voz: p.voz, hashtag: p.hashtag, primeraDelBloque: !otraHablo, datos });
   }
   // Lo de una nota propia, sin hora: sale apenas se publica la nota, una por vuelta y una sola vez por nota. El carrusel (3 fotos o más) no gasta audios; el reel con voz sí y respeta el cupo.
   for (const deNota of PIEZAS_DEL_DIA.filter((x) => x.porNota)) {

@@ -15,6 +15,15 @@ const SERVICIOS_CON_PAGINA = {
   farmacia: { camino: '/farmacias', frase: 'Las farmacias de turno de toda la semana, con dirección, acá' },
 };
 
+/** La dirección de la nota del día de una pieza (efeméride, clima de mañana) o null. */
+export function notaDeLaPiezaEnLaWeb(item) {
+  const dia = item?.dia;
+  if (!dia) return null;
+  if (item.arma === 'efemeride') return enlaceDeNota({ slug: 'un-dia-como-hoy', id: `efemeride-${dia}` });
+  if (item.id === 'clima-manana') return enlaceDeNota({ slug: 'el-clima', id: `clima-${dia}` });
+  return null;
+}
+
 const limpiar = (t) => String(t ?? '').replace(/\s+/g, ' ').trim();
 
 /** Las primeras oraciones del guion hasta `max` caracteres (sin cortar una oración a la mitad; si la primera sola no entra, se corta en una palabra). */
@@ -47,7 +56,10 @@ export function textoDePieza(pieza, item, red) {
   if (item.datos?.menciones?.length) lineas.push('', item.datos.menciones.join(' '));
   if (pieza.auspicio) lineas.push('', `El clima de hoy lo auspicia ${pieza.auspicio.comercio}${pieza.auspicio.cuenta ? ` (${pieza.auspicio.cuenta})` : ''}.`);
   const servicio = SERVICIOS_CON_PAGINA[item.arma];
+  // Si la pieza tiene su nota del día (la efeméride, el clima de mañana), el enlace va a la nota: el sitio acepta cualquier título delante del id y redirige a la dirección de siempre.
+  const notaDelDia = notaDeLaPiezaEnLaWeb(item);
   if (item.arma === 'nota-propia' && item.datos?.nota?.id) lineas.push('', red === 'instagram' ? 'La nota completa: link en la bio.' : `La nota completa: ${ponerOrigen(enlaceDeNota(item.datos.nota), { fuente: red === 'youtube' ? 'youtube' : 'facebook', campana: 'reel-nota', contenido: item.datos.nota.id })}`);
+  else if (notaDelDia) lineas.push('', red === 'instagram' ? 'La nota completa: link en la bio.' : `La nota completa: ${ponerOrigen(notaDelDia, { fuente: red === 'youtube' ? 'youtube' : 'facebook', campana: 'nota', contenido: item.id ?? item.arma })}`);
   else if (red === 'instagram') lineas.push('', 'Todo en Radar Balcarce: link en la bio.');
   else if (servicio) lineas.push('', `${servicio.frase}: ${ponerOrigen(`${SITIO}${servicio.camino}`, { fuente: 'facebook', campana: 'servicio', contenido: item.id ?? item.arma })}`);
   else lineas.push('', `Todo en ${DIRECCION_DEL_SITIO}`);

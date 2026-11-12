@@ -53,3 +53,13 @@ test('la nota muestra «Mirá el video de esta nota» sólo si tiene reel; la de
   assert.equal(enlacesDelVideoHtml({ id: 'x', ficha: { reels: { facebook: 'javascript:alert(1)' } } }), '');
   assert.match(enlacesDelVideoHtml({ id: 'clima-2026-11-12', ficha: { marca: { tipo: 'clima-diario' } } }), /el clima de hoy en video/);
 });
+
+test('el reel de la efeméride y el del clima de mañana enlazan a SU nota del día (Facebook con enlace, Instagram con «link en la bio»)', async () => {
+  const { textoDePieza, notaDeLaPiezaEnLaWeb } = await import('./piezas/publicar.mjs');
+  const item = { arma: 'efemeride', id: 'efemeride', nombre: 'Un día como hoy', hashtag: 'UnDíaComoHoy', dia: '2026-11-12', datos: {} };
+  assert.equal(notaDeLaPiezaEnLaWeb(item), 'https://radarbalcarce.com/nota/un-dia-como-hoy-efemeride-2026-11-12');
+  assert.match(textoDePieza({ guion: 'Hola.' }, item, 'facebook'), /La nota completa: https:\/\/radarbalcarce\.com\/nota\/un-dia-como-hoy-efemeride-2026-11-12/);
+  assert.match(textoDePieza({ guion: 'Hola.' }, item, 'instagram'), /La nota completa: link en la bio/);
+  assert.equal(notaDeLaPiezaEnLaWeb({ arma: 'clima', id: 'clima-manana', dia: '2026-11-12' }), 'https://radarbalcarce.com/nota/el-clima-clima-2026-11-12');
+  assert.equal(notaDeLaPiezaEnLaWeb({ arma: 'repaso', id: 'repaso', dia: '2026-11-12' }), null);
+});
