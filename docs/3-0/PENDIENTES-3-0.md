@@ -71,3 +71,9 @@
 - **Notas en el sitio**: unas 2.900 migradas del sistema viejo más las de la 3.0 (unas 100 por día).
 
 - **Agenda en pausa (Hernán, 5/11):** el reel «Qué hacer este fin de semana» y el carrusel «El finde en Balcarce» no salen hasta que los eventos estén al día. Para prenderlos de nuevo, sacar `pausada: true` de sus dos filas en `v3/redes/piezas-del-dia.mjs`.
+
+## 0 bis. 13/11/2026: lo que se hizo y lo que sigue
+
+- **Hecho:** efemérides de diciembre a marzo armadas y verificadas (121 días, ver `v3/redes/REGLAS.md` § 18; sin audios); el reel de la efeméride y el del clima llevan el enlace «La nota completa»; la nota de efemérides no pierde los enlaces de sus reels al volver a correr; botones de Descargar/Compartir unificados y gráficos con el cierre de la marca; sitemaps viejos sacados y eventos de la agenda con 410.
+- **Con Hernán:** la agenda (la Municipalidad sacó su calendario): armar una propia con los mails/WhatsApp semanales a instituciones, junto con el mapa comercial. Mientras, las páginas de evento dan 410.
+- **Para mirar:** el primer reel con «La nota completa» (viernes 13/11 a las 9:00); los 4 días de efemérides con `verificar`; abril en adelante (el día 20 de cada mes hay que armar el mes siguiente a mano, como esta vez).

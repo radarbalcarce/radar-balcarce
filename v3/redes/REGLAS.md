@@ -178,3 +178,15 @@ GitHub dejó de lanzar sus horarios (`schedule:`) durante horas el 10/11/2026, a
 - Foto: sólo la imagen de la página de Wikipedia del hecho si está en Wikimedia Commons con licencia libre (dominio público, CC0, CC BY, CC BY-SA); nunca bandera, mapa, logo, svg ni imagen chica; con el crédito del autor y «vía Wikimedia Commons» al pie, y el epígrafe dice de qué página es. Sin foto que sirva, la placa del medio. Es la excepción que Hernán autorizó SÓLO para las efemérides (la regla de fotos de las notas con fuentes sigue igual).
 - Idempotente: si la nota del día ya existe no se toca (salvo `forzar`, que actualiza texto, fotos y ficha, nunca su fecha, su estado ni su dirección). Sin hechos publicables ese día, no sale nota y no es una falla.
 - Pruebas: `v3/redes/efemerides/nota.test.mjs` y `disparar-acciones.test.mjs`.
+
+## 17. El reel enlaza a su nota y la efeméride no pierde los enlaces (13/11)
+
+- El reel/historia/posteo de «Un día como hoy» y el del clima de mañana llevan «La nota completa: <enlace con origen>» (Instagram: «link en la bio»): `notaDeLaPiezaEnLaWeb` (`piezas/publicar.mjs`). El enlace es `/nota/un-dia-como-hoy-efemeride-<día>` o `/nota/el-clima-clima-<día>` (el sitio redirige cualquier slug con el id correcto). La pieza lleva `dia` desde `piezas-plan.mjs`.
+- Volver a correr la nota de una efeméride (`forzar`) **conserva `ficha.reels`** (los enlaces a los reels ya publicados): `sqlDeEfemeride` hace `json_set` sobre la ficha nueva con los reels de la vieja. Prueba en `efemerides/nota.test.mjs`.
+
+## 18. Efemérides de diciembre a marzo: armadas y verificadas a mano (13/11, Hernán: «armar hasta marzo, los guiones, todo; sin audios hasta que salga»)
+
+- Las 121 fechas del 1/12/2026 al 31/3/2027 tienen pieza en `web/data/efemerides-piezas.json` (guion con el formato de siempre, un principal y tres «y además»). El programa por reglas (`generar.mjs`) sólo dio 55 y la revisión las marcó casi todas (frases cortadas tipo «en 1901: Nace…», errores de fecha, temas fuera de criterio): **se sacaron y se rehicieron todas**, con cada hecho confirmado con la misma fecha en Wikipedia en español e inglés (o una fuente seria). `web/data/efemerides-candidatas.json` quedó con las candidatas del 12/11 al 31/3 (las usa la nota del día para completar hasta cuatro historias).
+- Criterio: interés general (inventos, ciencia, deportes, cultura, música, cine, historia); sin política, religión, dictaduras, policiales ni tragedias; guion de 60 a 110 palabras, sin siglas raras ni paréntesis. Quedan 4 días con una nota en `verificar` (un dato con una sola fuente fuerte): mirarlos antes de salir. Sin audios: la voz se pone el día que sale la pieza (cupo de voz).
+- Cuando haga falta el mes siguiente: `generar.mjs` sirve para las candidatas, pero sus piezas automáticas **no alcanzan** para salir solas; hay que revisarlas como en esta tanda (workflow `v3-efemerides.yml` sigue apagado: `EFEMERIDES_V3_ACTIVAS`).
+- El título de la nota baja la primera letra sólo de un verbo o artículo (`PRIMERAS_PALABRAS_COMUNES`), nunca de un nombre propio («y amelia Earhart»).

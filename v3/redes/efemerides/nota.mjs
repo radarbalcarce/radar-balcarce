@@ -27,7 +27,8 @@ const ETIQUETA_DE_ESTILO = {
 export const fechaDelDia = (dia) => { const d = new Date(`${dia}T12:00:00Z`); return { dia: d.getUTCDate(), mes: MESES[d.getUTCMonth()], semana: DIAS[d.getUTCDay()], anio: d.getUTCFullYear() }; };
 export const diaLargo = (dia) => { const f = fechaDelDia(dia); return `${f.semana} ${f.dia} de ${f.mes}`; };
 
-const minuscula1 = (t) => (/^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]/.test(t) ? t.charAt(0).toLowerCase() + t.slice(1) : t); // «La NASA» queda; «Nace Amelia» → «nace Amelia»
+const PRIMERAS_PALABRAS_COMUNES = /^(Nace|Nacen|Muere|Mueren|Empieza|Comienza|Termina|Finaliza|Descubre|Inventa|Crea|Funda|Inaugura|Publica|Estrena|Gana|Vence|Logra|Llega|Sale|Patenta|Presenta|Firma|Fabrica|Realiza|Obtiene|Parte|Lanza|Abre|Aparece|Se|El|La|Los|Las|Un|Una|En|Primer|Primera|Primeros|Primeras|Nuevo|Nueva)$/;
+const minuscula1 = (t) => (PRIMERAS_PALABRAS_COMUNES.test(String(t).split(' ')[0]) ? t.charAt(0).toLowerCase() + t.slice(1) : t); // «Nace Amelia Earhart» → «nace Amelia Earhart»; «Amelia Earhart vuela…» y «Argentina vence…» quedan (un nombre propio al principio no se baja)
 const sinPunto = (t) => String(t).replace(/\s+/g, ' ').trim().replace(/[.;:,\s]+$/, '');
 const recortar = (t, max) => { const x = sinPunto(t); return x.length <= max ? x : x.slice(0, max).replace(/\s+\S*$/, ''); };
 
@@ -288,6 +289,6 @@ export function sqlDeEfemeride(nota, ahora = new Date().toISOString()) {
     j({ oracionesQuitadas: [], reescrita: false, propia: true, armadaPorReglas: true }), nota.foto ? j(nota.foto) : 'NULL', j(nota.fuentes), q(ahora), q(nota.firma), '0', q('publicada'), q('redaccion'),
     q(slugDeLaNota(nota)), q(ahora), j(redes),
   ].join(', ');
-  const actualiza = 'bajada = excluded.bajada, cuerpo = excluded.cuerpo, en_dos_lineas = excluded.en_dos_lineas, ficha = excluded.ficha, foto = excluded.foto, fuentes = excluded.fuentes';
+  const actualiza = "bajada = excluded.bajada, cuerpo = excluded.cuerpo, en_dos_lineas = excluded.en_dos_lineas, ficha = CASE WHEN json_extract(notas.ficha, '$.reels') IS NULL THEN excluded.ficha ELSE json_set(excluded.ficha, '$.reels', json(json_extract(notas.ficha, '$.reels'))) END, foto = excluded.foto, fuentes = excluded.fuentes";
   return `INSERT INTO notas (${columnas}) VALUES (${valores}) ON CONFLICT(id) DO UPDATE SET ${actualiza};`;
 }

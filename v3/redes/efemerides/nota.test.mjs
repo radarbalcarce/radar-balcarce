@@ -44,6 +44,13 @@ test('el título entra en 110 letras, con la fecha y, si no caben tres, «y otra
   assert.ok(largo.length <= 110, largo);
 });
 
+test('el título baja la primera letra sólo de un verbo o un artículo, nunca de un nombre propio (caso «y amelia Earhart»)', () => {
+  const t = tituloDeLaNota('2027-01-11', [{ titulo: 'Empieza el primer Rock in Rio', anio: 1985 }, { titulo: 'Amelia Earhart vuela sola de Hawái a California', anio: 1935 }]);
+  assert.ok(t.includes('Amelia Earhart') && t.includes(': empieza el primer Rock in Rio'), t);
+  const t2 = tituloDeLaNota('2027-01-11', [{ titulo: 'Argentina vence a Francia', anio: 2022 }, { titulo: 'Nace Amelia Earhart', anio: 1897 }]);
+  assert.ok(t2.includes('Argentina vence') && t2.includes('nace Amelia Earhart'), t2);
+});
+
 test('notaDeEfemeride: firmada Radar Balcarce, sección Cultura, sin indexar, con una foto de portada sólo si algún hecho la tiene, y con su ficha de hechos', () => {
   const hechos = hechosDelDia(PIEZA, CANDIDATAS).map((h, i) => ({ ...h, foto: i === 0 ? { alt: 'Imagen de «Cometa»', credito: 'X, CC BY 2.0, vía Wikimedia Commons', ancho: 960, alto: 1252 } : null }));
   const n = notaDeEfemeride({ dia: '2026-11-12', hechos, fotosPublicas: { a: 'https://radarbalcarce.com/fotos-notas/efemeride-2026-11-12-a.jpg' } });
@@ -66,6 +73,7 @@ test('sqlDeEfemeride: redes «sólo la web» (sin carrusel ni nada), publicada, 
   for (const prohibida of ['creada', 'publicada_en', 'estado', 'slug', 'redes', 'titulo =']) assert.ok(!actualiza.includes(prohibida), prohibida);
   assert.equal(slugDeLaNota(n).length <= 70, true); assert.equal(ID_DE_NOTA('2026-11-12'), 'efemeride-2026-11-12');
   assert.ok(!sql.includes("''efemeride"), 'comillas bien escapadas');
+  assert.ok(actualiza.includes("json_set(excluded.ficha, '$.reels', json(json_extract(notas.ficha, '$.reels')))"), 'al volver a correr, los links de los reels (ficha.reels) se conservan');
 });
 
 // ---------------------------------------------------------------- Commons
