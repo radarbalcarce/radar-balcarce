@@ -175,10 +175,10 @@ export async function detalleDeWikipedia(hecho, { json } = {}) {
   const parrafos = texto.split(/\n+/).map(sinParentesis).filter((x) => x.length > 40);
   const salida = []; let largo = 0;
   for (const p of parrafos) {
-    if (salida.length >= 5 || largo >= 2000) break;
+    if (salida.length >= 2 || largo >= 700) break;
     let t = p;
-    if (largo + t.length > 2300) { // el último párrafo se corta en una frase entera
-      t = ''; for (const f of frasesDe(p)) { if (largo + (t + f).length > 2300) break; t += (t ? ' ' : '') + f; }
+    if (largo + t.length > 900) { // el último párrafo se corta en una frase entera
+      t = ''; for (const f of frasesDe(p)) { if (largo + (t + f).length > 900) break; t += (t ? ' ' : '') + f; }
       if (!t) break;
     }
     salida.push(t); largo += t.length;
