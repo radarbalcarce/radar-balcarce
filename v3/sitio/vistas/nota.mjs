@@ -73,7 +73,9 @@ function figura(f) {
   const leyenda = f.leyenda || f.credito || '';
   // La foto principal se pide ya (es lo más grande que se ve primero: auditoría del 5/11); las de adentro, cuando se acercan.
   const carga = f.principal ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"';
-  return `<figure><img src="${esc(url)}" alt="${esc(f.alt || '')}"${medidas} ${carga}>${leyenda ? `<figcaption>${esc(leyenda)}</figcaption>` : ''}</figure>`;
+  // Un gráfico (grafico: true) trae sus botones: bajarlo y compartirlo (el de compartir sólo se muestra si el aparato sabe compartir archivos: lo prende el guion de base.mjs).
+  const acciones = f.grafico ? `<div class="graf-acciones"><a class="graf-bajar" href="${esc(url)}" download="radar-balcarce-${esc(String(url).split('/').pop().split('?')[0] || 'grafico.png')}">Descargar gráfico</a><button type="button" class="graf-compartir" data-url="${esc(url)}" data-titulo="${esc(f.alt || 'Gráfico de Radar Balcarce')}" hidden>Compartir gráfico</button></div>` : '';
+  return `<figure><img src="${esc(url)}" alt="${esc(f.alt || '')}"${medidas} ${carga}>${leyenda ? `<figcaption>${esc(leyenda)}</figcaption>` : ''}${acciones}</figure>`;
 }
 
 /** Las fotos de una nota además de la de portada (nota.fotos, si es una lista), sin repetir la de portada y sólo con dirección válida. */
@@ -206,7 +208,7 @@ ${migasHtml([['Inicio', '/'], [n.seccion, '/seccion/' + ranura]])}
 ${n.bajada ? `<p class="bajada">${esc(n.bajada)}</p>` : ''}
 <p class="meta"><time datetime="${esc(n.publicada)}">${esc(fechaLarga(n.publicada))}</time> · <span class="por">${esc(firmaCorta(n))}</span>${actualizadaHtml(n)}</p>
 ${n.enDosLineas ? `<div class="dos-lineas"><strong>En dos líneas</strong>${esc(n.enDosLineas)}</div>` : ''}
-${foto ? figura({ url: foto.url, alt: foto.alt || n.titulo, ancho: foto.ancho, alto: foto.alto, credito: foto.credito, principal: true }) : placaDeNota(n, ranura)}
+${foto ? figura({ url: foto.url, alt: foto.alt || n.titulo, ancho: foto.ancho, alto: foto.alto, credito: foto.credito, principal: true, grafico: foto.grafico }) : placaDeNota(n, ranura)}
 <div class="cuerpo">
 ${esClimaDiario(n) ? lugarRotativo(contexto, 'clima', 'C1') : ''}${cuerpoHtml(n, parrafos, contexto)}
 </div>

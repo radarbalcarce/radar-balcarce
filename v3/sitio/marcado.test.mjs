@@ -82,3 +82,16 @@ test('/farmacias y /clima: WebPage con nombre, dirección y el sitio; la farmaci
   assert.equal(clima.url, 'https://radarbalcarce.com/clima');
   assert.equal(clima.isPartOf['@id'], 'https://radarbalcarce.com/#sitio');
 });
+
+test('un gráfico (grafico: true) trae los botones de descargar y compartir; una foto común no', async () => {
+  const { sqlite, env } = baseDePrueba();
+  insertarNota(sqlite, { foto: JSON.stringify({ url: 'https://radarbalcarce.com/fotos-notas/came-papa-ocupacion.png?v=1', credito: 'Gráfico: Radar Balcarce', alt: 'Barras de ocupación', ancho: 1200, alto: 700, grafico: true }) });
+  const html = await (await ir(env, '/nota/se-inauguro-la-nueva-sala-del-hospital-abc1234')).text();
+  assert.match(html, /<a class="graf-bajar" href="https:\/\/radarbalcarce\.com\/fotos-notas\/came-papa-ocupacion\.png\?v=1" download="radar-balcarce-came-papa-ocupacion\.png">Descargar gráfico<\/a>/);
+  assert.match(html, /<button type="button" class="graf-compartir"[^>]* hidden>Compartir gráfico<\/button>/);
+  assert.match(html, /navigator\.share/, 'el botón de compartir lo prende el guion sólo si el aparato sabe compartir');
+  const { sqlite: s2, env: e2 } = baseDePrueba();
+  insertarNota(s2);
+  const comun = await (await ir(e2, '/nota/se-inauguro-la-nueva-sala-del-hospital-abc1234')).text();
+  assert.ok(!/graf-bajar/.test(comun), 'una foto común no lleva botones');
+});

@@ -64,6 +64,9 @@ p.meta{margin:0 0 16px;font-size:14px}
 figure{margin:0 0 18px}
 figure img{display:block;width:auto;max-width:100%;height:auto;max-height:50vh;margin:0 auto}
 figcaption{margin-top:4px;font-size:13px;color:var(--suave)}
+.graf-acciones{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.graf-acciones a,.graf-acciones button{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border:1.5px solid var(--linea);border-radius:20px;background:var(--papel);color:var(--tinta);font:600 14px var(--sans);cursor:pointer;text-decoration:none}
+.graf-acciones a:hover,.graf-acciones button:hover,.graf-acciones a:focus-visible,.graf-acciones button:focus-visible{background:var(--rojo);border-color:var(--rojo);color:#fff}
 article.nota{max-width:720px;margin:0 auto}
 article.nota .cuerpo{font-size:17px;line-height:1.6}
 .cuerpo p{margin:0 0 1em}
@@ -509,7 +512,7 @@ export function menu() {
 }
 
 // Si hay JavaScript, el menú arranca cerrado en el celular y el botón lo abre; si no, queda a la vista.
-const GUION_DEL_MENU = `<script>document.documentElement.className+=' js';(function(){var b=document.getElementById('mb'),m=document.getElementById('menu');if(!b||!m)return;b.addEventListener('click',function(){var o=m.classList.toggle('abierto');b.setAttribute('aria-expanded',o)})})();(function(){var c=document.querySelector('.comp-copiar');if(!c||!navigator.clipboard)return;c.addEventListener('click',function(){navigator.clipboard.writeText(c.dataset.url).then(function(){c.classList.add('copiado');setTimeout(function(){c.classList.remove('copiado')},2500)})})})()</script>`;
+const GUION_DEL_MENU = `<script>document.documentElement.className+=' js';(function(){var b=document.getElementById('mb'),m=document.getElementById('menu');if(!b||!m)return;b.addEventListener('click',function(){var o=m.classList.toggle('abierto');b.setAttribute('aria-expanded',o)})})();(function(){var g=document.querySelectorAll('.graf-compartir');for(var i=0;i<g.length;i++)(function(b){if(!navigator.share){return}b.hidden=false;b.addEventListener('click',function(){fetch(b.dataset.url).then(function(r){return r.blob()}).then(function(bl){var f=new File([bl],'radar-balcarce-grafico.png',{type:bl.type||'image/png'});var d={title:b.dataset.titulo,text:b.dataset.titulo+' · radarbalcarce.com'};if(navigator.canShare&&navigator.canShare({files:[f]}))d.files=[f];else d.url=location.href;return navigator.share(d)}).catch(function(){})})})(g[i])})();(function(){var c=document.querySelector('.comp-copiar');if(!c||!navigator.clipboard)return;c.addEventListener('click',function(){navigator.clipboard.writeText(c.dataset.url).then(function(){c.classList.add('copiado');setTimeout(function(){c.classList.remove('copiado')},2500)})})})()</script>`;
 
 /** Un script de datos estructurados: se escapa "<" para que nada cierre la etiqueta. */
 export const jsonLd = (obj) => `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, '\\u003c')}</script>`;

@@ -32,7 +32,8 @@
     "alt": "Gráfico de barras: ocupación en el fin de semana largo por destino. Chascomús 98 %, Mar de las Pampas 86 %, Mar Azul 80 %, Las Gaviotas 76 %, Mar del Plata más de 75 %, Villa Gesell 65 %, San Luis 62,7 %, Jujuy 62 %, Córdoba 60 % y Catamarca 36 %",
     "credito": "Gráfico: Radar Balcarce, con datos de la CAME",
     "ancho": 1200,
-    "alto": 700
+    "alto": 700,
+    "grafico": true
   },
   "fotosEnCuerpo": [
     {
@@ -41,7 +42,8 @@
       "credito": "Gráfico: Radar Balcarce, con datos de la CAME",
       "ancho": 1200,
       "alto": 520,
-      "despuesDe": 5
+      "despuesDe": 5,
+      "grafico": true
     }
   ]
 }
