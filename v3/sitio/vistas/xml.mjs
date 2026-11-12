@@ -28,11 +28,19 @@ ${rutas.map((r) => `<url><loc>${xml(BASE + (r === '/' ? '' : r))}</loc></url>`).
 </urlset>`;
 }
 
-/** El mapa de un mes: una dirección por nota publicada ese mes. */
+/** La imagen de portada de una nota para el mapa (Google Imágenes): su dirección propia y, si es corto, el crédito como título. Sin foto o sin dirección http(s), nada. */
+export function imagenDeMapa(n) {
+  const u = n?.foto?.url;
+  if (typeof u !== 'string' || !/^https?:\/\//i.test(u)) return '';
+  const credito = String(n.foto.credito ?? '').replace(/\s+/g, ' ').trim();
+  return `<image:image><image:loc>${xml(u)}</image:loc>${credito && credito.length <= 160 ? `<image:title>${xml(credito)}</image:title>` : ''}</image:image>`;
+}
+
+/** El mapa de un mes: una dirección por nota publicada ese mes, con la imagen de portada de la nota (`xmlns:image`). */
 export function sitemapDelMes(notas) {
   return `${CABECERA}
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${notas.filter((n) => !noSeIndexa(n)).map((n) => `<url><loc>${xml(BASE + rutaDeNota(n))}</loc><lastmod>${fecha(n.publicada)}</lastmod></url>`).join('\n')}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${notas.filter((n) => !noSeIndexa(n)).map((n) => `<url><loc>${xml(BASE + rutaDeNota(n))}</loc><lastmod>${fecha(n.publicada)}</lastmod>${imagenDeMapa(n)}</url>`).join('\n')}
 </urlset>`;
 }
 

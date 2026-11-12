@@ -89,7 +89,7 @@ test('la portada: principal grande con foto y crédito, tres titulares, grilla c
   const h = await r.text();
   assert.match(h, /<article class="hero"><a href="\/nota\/la-principal-de-balcarce-pri1">/);
   assert.match(h, /<h1>La principal de Balcarce<\/h1>/);
-  assert.match(h, /<img src="https:\/\/fotos\.example\/pri1\.jpg" alt="Foto de pri1"[^>]*fetchpriority="high">/);
+  assert.match(h, /<img src="https:\/\/radarbalcarce\.com\/foto-nota\/pri1\.jpg" alt="Foto de pri1"[^>]*fetchpriority="high">/);
   assert.match(h, /<div class="cred">Foto: pri1<\/div>/);
   assert.equal((h.match(/<div class="lat3">(.*?)<\/div><\/div>/s)[1].match(/<h3>/g) || []).length, 3, 'tres titulares al costado');
   assert.match(h, /<h2 class="sec-t">Más noticias<\/h2><div class="grid3">/);

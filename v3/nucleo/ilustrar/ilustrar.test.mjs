@@ -6,6 +6,7 @@ import {
   CREDITO, motivoParaSaltar, busquedaAgotada, leTocaIlustrar, tonoDeLaNota, armarInstruccion, promptFinal, problemaDelPrompt, interpretarControl, controlarImagen,
   ilustrarUna, guardarIlustracion, huellaDe, generarImagen, debeBuscarFotoReal, conIlustracionHecha, conEstadoDeIlustracion, sinIlustracion, esIlustracion,
   debeRevisarFotoRealUnaVez, REVISION_FOTO_REAL, motivoPorPersona, tipoDeImagen, NEURONAS_POR_IMAGEN, NEURONAS_GRATIS_POR_DIA, POR_DIA, MODELO_DE_IMAGEN,
+  nombresDePersona, debeReabrirseLaIlustracion, estadoDeReapertura, REVISION_ILUSTRACION, varianteDeLaNota,
 } from './ilustrar.mjs';
 import { conCopiaPropia, esCopiaPropia } from '../../sitio/fotos-copia.mjs';
 import { creditoConPrefijo } from '../../redes/texto.mjs';
@@ -110,7 +111,7 @@ test('busquedaAgotada: 2 intentos (11/11; antes 4), un motivo final con 2 intent
 test('leTocaIlustrar: sólo con la búsqueda agotada; lo resuelto, lo saltado y un intento reciente no', () => {
   assert.deepEqual(leTocaIlustrar(nota(), AHORA), { toca: true, motivo: null });
   assert.equal(leTocaIlustrar(nota({ creada: hace(2), verificacion: { fotoIntentos: 1 } }), AHORA).toca, false);
-  assert.equal(leTocaIlustrar(nota({ verificacion: { fotoIntentos: 4, ilustracion: { final: true, motivo: 'x' } } }), AHORA).toca, false);
+  assert.equal(leTocaIlustrar(nota({ verificacion: { fotoIntentos: 4, ilustracion: { final: true, motivo: 'x', revisionIlustracion: REVISION_ILUSTRACION } } }), AHORA).toca, false);
   const saltada = leTocaIlustrar(nota({ titulo: 'Falleció un vecino' }), AHORA);
   assert.equal(saltada.toca, false);
   assert.equal(saltada.saltar, true);
@@ -212,9 +213,10 @@ test('PNG (lo que devuelve FLUX schnell): tipo, mime para el control de Gemini y
   assert.equal(esCopiaPropia(foto.copia), true);
 });
 
-test('el costo: ~77 neuronas por imagen y el tope de 40 por día entra holgado en las 10.000 gratis', () => {
+test('el costo: ~77 neuronas por imagen y el tope de 120 por día entra en las 10.000 gratis', () => {
   assert.equal(NEURONAS_POR_IMAGEN, 77);
-  assert.ok(POR_DIA * NEURONAS_POR_IMAGEN < NEURONAS_GRATIS_POR_DIA / 2);
+  assert.equal(POR_DIA, 120);
+  assert.ok(POR_DIA * NEURONAS_POR_IMAGEN < NEURONAS_GRATIS_POR_DIA);
 });
 
 // ------------------------------------------------------------------ una nota
@@ -337,4 +339,51 @@ test('debeBuscarFotoReal: sólo una ilustración hecha, hasta 3 intentos, cada 3
   assert.equal(debeBuscarFotoReal(il({ realIntentada: hace(4) }), AHORA), true);
   assert.equal(debeBuscarFotoReal(il({ cuando: hace(80) }), AHORA), false);
   assert.equal(debeBuscarFotoReal(nota(), AHORA), false);
+});
+
+test('los lugares con dos mayúsculas no son una persona (12/11, nota del Turismo Carretera en Río Cuarto)', async () => {
+  for (const titulo of ['El Turismo Carretera tendrá 51 pilotos en la fecha de Río Cuarto', 'Llueve fuerte en San Pablo', 'Un fin de semana en Sierra de la Ventana', 'Viajan hacia Mar del Plata',
+    'Cortan la Ruta Nacional por obras', 'Inauguran el Parque Cívico', 'Se juega la Copa Argentina', 'Festejan en Villa Gesell']) {
+    assert.deepEqual(nombresDePersona(titulo), [], titulo);
+    assert.equal(motivoPorPersona(nota({ titulo })), null, titulo);
+  }
+  // y la nota se ilustra: no se corta con `final` antes de gastar nada
+  const r = await ilustrarUna(nota({ titulo: 'El Turismo Carretera tendrá 51 pilotos en la fecha de Río Cuarto', seccion: 'Automovilismo' }), { gemini: geminiFalso(), ai: aiFalso() });
+  assert.equal(r.ok, true);
+});
+
+test('un nombre de persona común ya no corta: se ilustra el ámbito; una figura pública conocida y el Papa sí cortan', async () => {
+  assert.ok(nombresDePersona('Juan Pérez ganó el torneo').length > 0);
+  assert.equal(motivoPorPersona(nota({ titulo: 'Juan Pérez ganó el torneo de truco' })), null);
+  const r = await ilustrarUna(nota({ titulo: 'Juan Pérez ganó el torneo de truco' }), { gemini: geminiFalso(), ai: aiFalso() });
+  assert.equal(r.ok, true);
+  assert.match(motivoPorPersona(nota({ titulo: 'Lionel Messi volvió a entrenar' })), /persona identificable.*Messi/);
+  assert.match(motivoPorPersona(nota({ titulo: 'Milei anunció medidas' })), /persona identificable/);
+  assert.match(motivoPorPersona(nota({ titulo: 'El Papa León XIV llegó a la Argentina' })), /Papa León/);
+});
+
+test('muerte, velorio y rojo siguen saltándose (no se tocan)', () => {
+  assert.match(motivoParaSaltar(nota({ titulo: 'Velatorio de un vecino de Balcarce' })), /muerte o un velorio/);
+  assert.match(motivoParaSaltar(nota({ titulo: 'Murió un histórico dirigente' })), /muerte/);
+  assert.match(motivoParaSaltar(nota({ titulo: 'Condenan por abuso sexual a un hombre' })), /rojo/);
+});
+
+test('reapertura única: las `final` (persona, control, técnico) vuelven una vez; las saltadas, las hechas y las ya reabiertas no', () => {
+  const con = (il) => nota({ verificacion: { fotoIntentos: 4, fotoMotivo: 'sin-candidatas', ilustracion: il } });
+  assert.equal(debeReabrirseLaIlustracion(con({ final: true, motivo: 'no se ilustra: gira en torno a una persona identificable: «Río Cuarto»' })), true);
+  assert.equal(debeReabrirseLaIlustracion(con({ final: true, motivo: 'técnico: Workers AI: 3000', fallos: 3 })), true);
+  assert.equal(debeReabrirseLaIlustracion(con({ final: true, motivo: 'control vio personas' })), true);
+  assert.equal(debeReabrirseLaIlustracion(con({ final: true, motivo: 'saltada: toca una muerte o un velorio' })), false);
+  assert.equal(debeReabrirseLaIlustracion(con({ final: true, motivo: 'x', revisionIlustracion: REVISION_ILUSTRACION })), false, 'idempotente');
+  assert.equal(debeReabrirseLaIlustracion(con({ final: false })), false);
+  assert.equal(leTocaIlustrar(con({ final: true, motivo: 'no se ilustra: gira en torno a una persona identificable' }), AHORA).toca, true);
+  assert.equal(leTocaIlustrar(con({ final: true, motivo: 'saltada: x' }), AHORA).toca, false);
+  const reabierta = conEstadoDeIlustracion(con({ final: true, fallos: 3, motivo: 'x' }).verificacion, estadoDeReapertura());
+  assert.equal(reabierta.ilustracion.revisionIlustracion, REVISION_ILUSTRACION);
+  assert.equal(reabierta.ilustracion.final, false);
+  assert.equal(reabierta.ilustracion.fallos, 0);
+});
+
+test('una nota reabierta usa otra variante de toma', () => {
+  assert.notEqual(varianteDeLaNota(nota()), varianteDeLaNota({ ...nota(), reintento: 1 }));
 });

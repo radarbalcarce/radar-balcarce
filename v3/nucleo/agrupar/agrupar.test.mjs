@@ -130,3 +130,79 @@ test('huella: usa la forma documentada de Workers AI y falla claro', async () =>
   await assert.rejects(crearHuella({ run: async () => ({ response: 'x' }) })('hola'), /no devolvió/);
   assert.equal(textoDeHuella(art({ bajada: 'baj', texto: 'x'.repeat(1000) })).length <= 600, true);
 });
+
+// ---- El nombre propio (REGLAS § 3, 11/11): coseno medio + nombre de persona en común + de acá + menos de 24 h => se le pregunta al juez.
+import { nombresPropiosDe, nombreEnComun } from './nombres.mjs';
+
+const GAITAN = 'La oficial Pamela Gaitán, del Comando de Prevención Rural de Balcarce, participó del operativo de seguridad por la visita del Papa León XIV.';
+const artNombre = (o = {}) => art({ id: 'a2', medio: 'Diario B', alcance: 'balcarce', titulo: 'Una agente balcarceña integró el operativo de seguridad', texto: GAITAN, fecha: '2026-11-11T14:00:00Z', ...o });
+const histNombre = (o = {}) => historia({ id: 'hgaitan000', alcances: ['balcarce'], fechaHecho: '2026-11-11T13:00:00Z', titulo: 'Formó parte del operativo del Papa', nombres: ['pamela gaitan'], ...o });
+const AHORA_N = new Date('2026-11-11T15:00:00Z');
+const opN = (preguntar, extra = {}) => ({ huellaDe: huellaFalsa(52), preguntarMismoHecho: preguntar, umbrales: { ...umbrales, pisoNombres: 0.55 }, ahora: AHORA_N, ...extra });
+
+test('nombresPropiosDe: Nombre Apellido sin tildes; ignora Papa, León XIV, Balcarce, cargos e instituciones', () => {
+  const n = nombresPropiosDe(art({ titulo: 'Concejo Deliberante de Balcarce', texto: GAITAN }));
+  assert.deepEqual(n, ['pamela gaitan']);
+  assert.deepEqual(nombresPropiosDe(art({ titulo: 'El Papa León XIV visitó Balcarce', texto: '' })), []);
+  assert.deepEqual(nombresPropiosDe(art({ titulo: 'Javier Milei habló con Axel Kicillof', texto: '' })), [], 'los muy famosos no cuentan');
+  assert.equal(nombreEnComun(['a b'], ['c d', 'a b']), true);
+  assert.equal(nombreEnComun([], ['a b']), false);
+});
+
+test('el caso real: coseno ~0,62 y «Pamela Gaitán» en las dos: se le pregunta al juez y, si dice SI, se unen', async () => {
+  let preguntas = 0;
+  const r = await agrupar(artNombre(), [histNombre()], opN(async () => { preguntas++; return true; }));
+  assert.equal(preguntas, 1);
+  assert.equal(r.nueva, false);
+  assert.equal(r.historia.id, 'hgaitan000');
+  assert.deepEqual(r.duda, { historiaId: 'hgaitan000', respuesta: true, porNombre: true });
+  assert.deepEqual(r.historia.nombres, ['pamela gaitan']);
+});
+
+test('el juez tiene la última palabra: con nombre en común y coseno 0,55 a 0,78, si dice NO queda historia aparte', async () => {
+  const r = await agrupar(artNombre(), [histNombre()], opN(async () => false));
+  assert.equal(r.nueva, true);
+  assert.deepEqual(r.duda, { historiaId: 'hgaitan000', respuesta: false, porNombre: true });
+  assert.deepEqual(r.historia.nombres, ['pamela gaitan'], 'la historia nueva guarda los nombres de su artículo');
+});
+
+test('NO pregunta: mismo apellido de personas distintas', async () => {
+  const r = await agrupar(artNombre({ texto: 'El concejal Juan Gaitán presentó un proyecto.', titulo: 'Proyecto de ordenanza en Balcarce' }), [histNombre()], opN(sinPregunta));
+  assert.equal(r.nueva, true);
+  assert.equal(r.duda, null);
+});
+
+test('NO pregunta: las dos sólo nombran a León XIV (no hay otro nombre)', async () => {
+  const a = artNombre({ titulo: 'León XIV visita Balcarce', texto: 'El Papa León XIV llegó a Balcarce.' });
+  const h = histNombre({ nombres: nombresPropiosDe({ titulo: 'Papa León XIV en Balcarce', texto: '' }) });
+  const r = await agrupar(a, [h], opN(sinPregunta));
+  assert.equal(r.nueva, true);
+});
+
+test('NO pregunta: nombre en común pero de afuera (ni el artículo ni la historia son de acá)', async () => {
+  const r = await agrupar(artNombre({ alcance: 'pais' }), [histNombre({ alcances: ['pais'] })], opN(sinPregunta));
+  assert.equal(r.nueva, true);
+  assert.equal(r.duda, null);
+});
+
+test('NO pregunta: nombre en común pero hace más de 24 h, o coseno bajo el piso', async () => {
+  const vieja = await agrupar(artNombre({ fecha: '2026-11-11T14:00:00Z' }), [histNombre({ fechaHecho: '2026-11-10T09:00:00Z' })], opN(sinPregunta));
+  assert.equal(vieja.nueva, true);
+  const lejos = await agrupar(artNombre(), [histNombre()], opN(sinPregunta, { huellaDe: huellaFalsa(70) }));
+  assert.equal(lejos.nueva, true, 'cos(70°) = 0,34 < 0,55');
+});
+
+test('textoParaDuda suma bajada e inicio del cuerpo de los dos, con tamaño acotado', () => {
+  const t = textoParaDuda(art({ titulo: 'T1', bajada: 'Baja 1', texto: 'x'.repeat(5000) }), historia({ titulo: 'T2', bajada: 'Baja 2', inicio: 'y'.repeat(5000) }));
+  assert.match(t, /Baja 1/);
+  assert.match(t, /Baja 2/);
+  assert.ok(t.length < 1200);
+});
+
+test('detallesDeHistoria: se lee una sola vez y completa nombres e inicio', async () => {
+  let lecturas = 0;
+  const h = histNombre({ nombres: undefined });
+  const r = await agrupar(artNombre(), [h], opN(async (_a, hist) => { assert.match(hist.inicio, /Comando/); return true; }, { detallesDeHistoria: async () => { lecturas++; return { nombres: ['pamela gaitan'], bajada: 'b', inicio: 'Comando de Prevención Rural' }; } }));
+  assert.equal(r.nueva, false);
+  assert.equal(lecturas, 1);
+});

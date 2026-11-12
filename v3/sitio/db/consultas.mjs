@@ -1,6 +1,7 @@
 // Lo único del sitio que habla con D1. Sólo notas publicadas: `estado = 'publicada'` está en TODAS las consultas.
 import { slugDe, jsonONull, conFotoHttps } from '../util.mjs';
 import { conCopiaPropia } from '../fotos-copia.mjs';
+import { conDireccionPropia } from '../foto-proxy.mjs';
 import { noSeIndexa } from '../vistas/clima-diario.mjs';
 
 const CAMPOS = `n.id, n.titulo, n.bajada, n.cuerpo, n.seccion, n.en_dos_lineas, n.ficha, n.foto, n.fuentes, n.fecha_hecho, n.firma, n.creada,
@@ -12,10 +13,20 @@ const SIN_SERVICIO = `AND n.id != 'mediakit' AND (n.ficha IS NULL OR n.ficha NOT
 /** Igual, pero deja pasar la nota del clima del día (`clima-AAAA-MM-DD` de `climaDe`): va en la tapa y en Balcarce como una nota más, sólo la de hoy; las de días anteriores y el media kit quedan fuera. */
 const servicioSin = (climaDe) => (climaDe && /^\d{4}-\d{2}-\d{2}$/.test(climaDe) ? `AND n.id != 'mediakit' AND (n.ficha IS NULL OR n.ficha NOT LIKE '%"marca":%' OR n.id = 'clima-${climaDe}')` : SIN_SERVICIO);
 
+/**
+ * La foto de portada como la muestra el sitio: con copia propia, la copia (`/foto/<huella>.jpg`); sin copia todavía, `/foto-nota/<id>.jpg` (foto-proxy.mjs: la bajamos nosotros y la servimos de acá,
+ * nunca la dirección del otro medio en el HTML); el crédito y el alt no cambian. Todo por https.
+ */
+export function fotoParaMostrar(crudaFoto, id) {
+  const f = Array.isArray(crudaFoto) ? crudaFoto[0] ?? null : crudaFoto;
+  return conFotoHttps(conDireccionPropia(conCopiaPropia(f), id));
+}
+
 /** Una fila de la base → la nota que usan las vistas (JSON leído; slug, fecha y origen con su valor de reserva). */
 export function aNota(f) {
   if (!f) return null;
   const crudaFoto = jsonONull(f.foto);
+  const portada = fotoParaMostrar(crudaFoto, f.id);
   const extra = jsonONull(f.s_extra) || {};
   const fotos = Array.isArray(crudaFoto) ? crudaFoto : Array.isArray(extra.fotos) ? extra.fotos : Array.isArray(crudaFoto?.fotos) ? crudaFoto.fotos : [];
   return {
@@ -28,8 +39,9 @@ export function aNota(f) {
     ficha: jsonONull(f.ficha),
     // Si la foto tiene copia propia (fotos-copia.mjs), el sitio muestra esa; si no, la original.
     // Todas las direcciones de foto pasan por acá antes de llegar al HTML (img, og:image, datos estructurados): las `http://` salen por https.
-    foto: conFotoHttps(conCopiaPropia(Array.isArray(crudaFoto) ? crudaFoto[0] ?? null : crudaFoto)),
-    fotos: fotos.map(conFotoHttps),
+    foto: portada,
+    // La portada también está en la lista `fotos`: va con la misma dirección que se le muestra (la copia o /foto-nota/), así la nota no la repite entre párrafos.
+    fotos: fotos.map((x) => (portada?.original && x && typeof x === 'object' && x.url === portada.original ? { ...conFotoHttps(x), url: portada.url } : conFotoHttps(x))),
     fuentes: jsonONull(f.fuentes) || [],
     fechaHecho: f.fecha_hecho || null,
     firma: f.firma || '',
@@ -39,6 +51,12 @@ export function aNota(f) {
     origen: f.s_origen || 'nucleo',
     extra: Array.isArray(extra.fotosEnCuerpo) ? { ...extra, fotosEnCuerpo: extra.fotosEnCuerpo.map(conFotoHttps) } : extra,
   };
+}
+
+/** La foto cruda (tal cual está en la base) de una nota publicada, o null. Es lo que usa /foto-nota/<id>.jpg para saber qué bajar. */
+export async function fotoCrudaDeNota(env, id) {
+  const f = await env.DB.prepare("SELECT foto FROM notas WHERE id = ? AND estado = 'publicada'").bind(id).first();
+  return f ? jsonONull(f.foto) : null;
 }
 
 export async function notaPorId(env, id) {
@@ -100,10 +118,10 @@ export async function mesesConNotas(env) {
 }
 
 export async function notasDelMes(env, mes) {
-  const r = await env.DB.prepare(`SELECT n.id, n.titulo, n.seccion, n.ficha, s.slug AS s_slug, ${PUBLICADA} AS publicada ${DESDE} AND substr(${PUBLICADA}, 1, 7) = ? ORDER BY ${PUBLICADA} DESC`)
+  const r = await env.DB.prepare(`SELECT n.id, n.titulo, n.seccion, n.ficha, n.foto, s.slug AS s_slug, ${PUBLICADA} AS publicada ${DESDE} AND substr(${PUBLICADA}, 1, 7) = ? ORDER BY ${PUBLICADA} DESC`)
     .bind(mes).all();
   // Las que no se indexan (la nota diaria del clima, por ejemplo) no van al mapa: antes se colaban porque no se traía la ficha (auditoría del 5/11).
-  return (r.results || []).filter((f) => !noSeIndexa({ id: f.id, ficha: jsonONull(f.ficha) })).map((f) => ({ id: f.id, titulo: f.titulo, seccion: f.seccion, slug: f.s_slug || slugDe(f.titulo), publicada: f.publicada }));
+  return (r.results || []).filter((f) => !noSeIndexa({ id: f.id, ficha: jsonONull(f.ficha) })).map((f) => ({ id: f.id, titulo: f.titulo, seccion: f.seccion, slug: f.s_slug || slugDe(f.titulo), publicada: f.publicada, foto: fotoParaMostrar(jsonONull(f.foto), f.id) }));
 }
 
 /** Fija el titular de la dirección (y la fecha) de las notas que todavía no lo tienen: se hace una vez y no cambia más. */

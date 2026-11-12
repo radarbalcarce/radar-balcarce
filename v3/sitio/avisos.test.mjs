@@ -189,7 +189,7 @@ test('la nota muestra todas sus fotos: la de portada arriba y las demás entre p
   assert.match(h, /<figcaption>Crédito portada<\/figcaption>/);
   assert.match(h, /<figcaption>Epígrafe uno<\/figcaption>/);
   assert.match(h, /<figcaption>Crédito dos<\/figcaption>/);
-  const ordenes = ['portada', 'P1.', 'uno.jpg', 'P2.', 'P3.', 'dos.jpg', 'P4.'].map((t) => h.indexOf(t.endsWith('.jpg') ? `fotos.example/${t}` : t === 'portada' ? 'fotos.example/portada' : `<p>${t}</p>`));
+  const ordenes = ['portada', 'P1.', 'uno.jpg', 'P2.', 'P3.', 'dos.jpg', 'P4.'].map((t) => h.indexOf(t.endsWith('.jpg') ? `fotos.example/${t}` : t === 'portada' ? '/foto-nota/multi01.jpg' : `<p>${t}</p>`));
   assert.deepEqual([...ordenes].sort((a, b) => a - b), ordenes, 'las fotos van intercaladas entre párrafos, en orden');
   assert.equal(((await html(env, '/nota/una-foto-solo001')).match(/<figure>/g) || []).length, 1);
 });

@@ -22,10 +22,15 @@ export const NEURONAS_POR_IMAGEN = Math.ceil(4 * 4.8 + PASOS * 9.6);
 export const NEURONAS_GRATIS_POR_DIA = 10_000;
 
 export const POR_VUELTA = 4; // 11/11: 4 (antes 2), para que ninguna nota pase horas con la placa
-export const POR_DIA = 40;
+export const POR_DIA = 120; // 12/11 (Hernán: «siempre tiene que haber fotos»): 120 × 77 = ~9.200 de las 10.000 neuronas gratis; con ~120 notas por día, casi todas las sin foto alcanzan
 export const DIAS_HACIA_ATRAS = 7;
-/** Cuántas notas se leen de la base para elegir las que toca (las más nuevas primero). */
-export const NOTAS_A_MIRAR = 150;
+/** Cuántas notas se leen de la base para elegir las que toca (las más nuevas primero). 12/11: 250 (antes 150), porque las `final` también vuelven en la consulta y le comían la ventana a las nuevas. */
+export const NOTAS_A_MIRAR = 250;
+
+// Reapertura única (12/11): las ilustraciones que quedaron `final` (persona identificable, control que rechazó, fallos técnicos, prompt descartado) se vuelven a intentar UNA vez,
+// con otra variante de toma. `verificacion.ilustracion.revisionIlustracion` lleva la versión; subirla las vuelve a abrir. Las «saltadas» (muerte, velorio, rojo) NUNCA se reabren.
+export const REVISION_ILUSTRACION = 1;
+export const REABRIR_POR_VUELTA = 2;
 /** Un fallo técnico (Gemini o Workers AI no contestaron) no gasta el intento de la nota; con este tope se da por perdida. */
 export const FALLOS_TECNICOS_MAXIMOS = 3;
 export const MINUTOS_ENTRE_FALLOS = 20;
@@ -102,9 +107,22 @@ export function motivoParaSaltar(nota) {
  * Sólo vale para ILUSTRAR (por eso no está en `motivoParaSaltar`, que también usa la foto de archivo: una foto del lugar de una nota sobre una persona sí sirve). Devuelve el motivo o null.
  */
 export function motivoPorPersona(nota) {
+  // 12/11: sólo corta una FIGURA PÚBLICA reconocible (FIGURAS o el Papa). Cualquier otro nombre, o un falso positivo, se ilustra igual con el ámbito sin nadie (regla 12 del pedido).
   const personas = nombresDePersona([nota?.titulo, nota?.bajada].filter(Boolean).join('. '));
-  return personas.length ? `gira en torno a una persona identificable: «${personas[0]}»` : null;
+  const figura = personas.find((n) => /^papa\b/.test(plano(n)) || plano(n).split(' ').some((t) => FIGURAS.has(t)));
+  return figura ? `gira en torno a una persona identificable: «${figura}»` : null;
 }
+
+/** ¿Esta nota quedó `final` y todavía no se reabrió con la versión de hoy? (nunca las saltadas por muerte, velorio o rojo.) */
+export function debeReabrirseLaIlustracion(nota) {
+  const il = nota?.verificacion?.ilustracion;
+  if (!il?.final || il.hecha) return false;
+  if (/^saltada:/.test(String(il.motivo ?? ''))) return false;
+  return !(Number(il.revisionIlustracion) >= REVISION_ILUSTRACION);
+}
+
+/** El estado que se le suma a una nota al reabrirla (idempotente: queda la versión, así no vuelve a abrirse). */
+export const estadoDeReapertura = () => ({ final: false, fallos: 0, revisionIlustracion: REVISION_ILUSTRACION });
 
 /** ¿La búsqueda de una foto real de las fuentes ya se agotó? Entonces toca la ilustración. Las notas viejas (nadie las vuelve a buscar) cuentan como agotadas. */
 export function busquedaAgotada(nota, ahora = new Date()) {
@@ -123,7 +141,7 @@ export function busquedaAgotada(nota, ahora = new Date()) {
  */
 export function leTocaIlustrar(nota, ahora = new Date()) {
   const il = nota?.verificacion?.ilustracion;
-  if (il?.final) return { toca: false, motivo: 'ya resuelta' };
+  if (il?.final && !debeReabrirseLaIlustracion(nota)) return { toca: false, motivo: 'ya resuelta' };
   const salto = motivoParaSaltar(nota);
   if (salto) return { toca: false, motivo: salto, saltar: true };
   if (!busquedaAgotada(nota, ahora)) return { toca: false, motivo: 'todavía se busca foto real' };
@@ -204,7 +222,7 @@ export const VARIANTES = [
 export function varianteDeLaNota(nota) {
   let h = 0;
   for (const c of String(nota?.id ?? '')) h = (h * 31 + c.charCodeAt(0)) >>> 0;
-  return VARIANTES[h % VARIANTES.length];
+  return VARIANTES[(h + (Number(nota?.reintento) || 0)) % VARIANTES.length]; // `reintento`: otra toma para una nota reabierta
 }
 
 // Nombres de persona: dos palabras seguidas con mayúscula que no son una institución ni un lugar, y las figuras conocidas por el apellido.
@@ -213,9 +231,13 @@ const NO_PERSONA = new Set(('municipalidad municipal concejo club banco senado c
   + 'torneo fiesta dia radio tecnica universidad facultad bomberos policia camara ley plaza campo desarrollo proyecto sociedad cooperativa asociacion federacion consejo secretaria direccion centro '
   + 'casa palacio teatro cine museo biblioteca iglesia parroquia estadio autodromo circuito gran premio turismo formula super mundial sudamericana libertadores argentino argentinos rural '
   + 'maxivoley voley basquet rugby tenis mesa futbol atletismo patin natacion gimnasia ciclismo trail enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre '
+  + 'rio cuarto san santa santo sierra sierras ventana villa puerto parque laguna lago ruta cerro cerros mar costa gran premio bahia isla valle pampa pampas monte arroyo pueblo ciudad barrio '
+  + 'avenida calle paso punta cabo salta jujuy tucuman chaco chubut neuquen formosa misiones corrientes entre rios santiago estero '
   + 'lunes martes miercoles jueves viernes sabado domingo anses indec afip arca bcra pami inteligencia artificial banco central bolsa comercio expo feria exposicion festival nacional').split(' '));
 const DETERMINANTES = new Set(['el', 'la', 'los', 'las', 'un', 'una', 'en', 'con', 'por', 'para', 'tras', 'desde', 'hasta', 'ante', 'sobre', 'se', 'su', 'sus', 'nuevo', 'nueva', 'llega', 'llegan', 'este', 'esta']);
 const CONECTORES = new Set(['de', 'del', 'la', 'las', 'los', 'van', 'von', 'da', 'di']);
+// Una corrida de mayúsculas que sigue a estas palabras es un lugar («en Río Cuarto», «hacia Mar del Plata»), no una persona.
+const ANTES_DE_LUGAR = new Set(['en', 'hacia', 'desde', 'hasta', 'rumbo', 'cerca']);
 const FIGURAS = new Set(('milei caputo kicillof macri bullrich villarruel messi colapinto canapino scaloni riquelme tapia fernandez cristina sturzenegger francos adorni menem massa larreta posse zamora '
   + 'maradona fangio pichetto santilli').split(' '));
 const esMayuscula = (t) => /^\p{Lu}[\p{L}'’-]*$/u.test(t) && !/^\p{Lu}{3,}$/u.test(t);
@@ -224,16 +246,19 @@ export function nombresDePersona(texto) {
   const tokens = String(texto ?? '').split(/\s+/).map((t) => t.replace(/^[«"'“”‘’(\[¿¡]+|[»"'“”‘’),.:;!?\]]+$/g, '')).filter(Boolean);
   const nombres = [];
   let corrida = [];
+  let previa = ''; // la palabra que venía antes de la corrida: «en Río Cuarto» es un lugar, no una persona
   const cerrar = () => {
     while (corrida.length && (DETERMINANTES.has(plano(corrida[0])) || CONECTORES.has(plano(corrida[0])))) corrida.shift();
     while (corrida.length && CONECTORES.has(plano(corrida.at(-1)))) corrida.pop();
-    if (corrida.filter(esMayuscula).length >= 2 && !corrida.some((t) => NO_PERSONA.has(plano(t)))) nombres.push(corrida.join(' '));
+    if (corrida.filter(esMayuscula).length >= 2 && !corrida.some((t) => NO_PERSONA.has(plano(t))) && !ANTES_DE_LUGAR.has(previa)) nombres.push(corrida.join(' '));
     corrida = [];
   };
+  let anterior = '';
   for (const t of tokens) {
-    if (esMayuscula(t)) corrida.push(t);
+    if (esMayuscula(t)) { if (!corrida.length) previa = anterior; corrida.push(t); }
     else if (corrida.length && CONECTORES.has(plano(t))) corrida.push(t);
     else cerrar();
+    anterior = plano(t);
   }
   cerrar();
   for (const t of tokens) if (FIGURAS.has(plano(t)) && !nombres.some((n) => plano(n).includes(plano(t)))) nombres.push(t);

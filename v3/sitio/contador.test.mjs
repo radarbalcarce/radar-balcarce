@@ -271,11 +271,11 @@ test('una nota con fotos http:// sale con https:// en img, og:image y datos estr
     JSON.stringify({ fotos: [{ url: 'http://imagenes.eldiariobalcarce.com.ar/2026/11/otra.jpg', credito: 'Foto: El Diario' }] }));
   for (const ruta of [RUTA_NOTA, '/']) {
     const h = await (await sitio.manejar(pedido(ruta), env, null, { cache: null })).text();
-    assert.ok(h.includes('https://imagenes.eldiariobalcarce.com.ar/2026/11/sala.jpg'), ruta);
+    assert.ok(h.includes('https://radarbalcarce.com/foto-nota/abc1234.jpg'), `${ruta}: la portada sale por nuestra dirección (foto-proxy.mjs), que baja la http:// por https://`);
     assert.ok(!h.includes('http://imagenes.eldiariobalcarce'), `${ruta}: nada de http:// en las fotos`);
   }
   const nota = await (await sitio.manejar(pedido(RUTA_NOTA), env, null, { cache: null })).text();
-  assert.match(nota, /<meta property="og:image" content="https:\/\/imagenes\.eldiariobalcarce\.com\.ar\/2026\/11\/sala\.jpg"/);
-  assert.ok(nota.includes('"image":["https://imagenes.eldiariobalcarce.com.ar/2026/11/sala.jpg"]') || nota.includes('https://imagenes.eldiariobalcarce.com.ar/2026/11/sala.jpg"'), 'datos estructurados');
+  assert.match(nota, /<meta property="og:image" content="https:\/\/radarbalcarce\.com\/foto-nota\/abc1234\.jpg"/);
+  assert.ok(nota.includes('"image":["https://radarbalcarce.com/foto-nota/abc1234.jpg"]') || nota.includes('https://radarbalcarce.com/foto-nota/abc1234.jpg"'), 'datos estructurados');
   assert.ok(nota.includes('https://imagenes.eldiariobalcarce.com.ar/2026/11/otra.jpg'), 'la foto de adentro también');
 });

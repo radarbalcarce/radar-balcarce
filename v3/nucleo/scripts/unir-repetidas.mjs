@@ -10,6 +10,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { slugDe } from '../../sitio/util.mjs';
+import { nombresPropiosDe, nombreEnComun } from '../agrupar/nombres.mjs';
 import { idDeLaBase, diaDeBalcarce, DEPOSITO_POR_DEFECTO } from './respaldo-d1.mjs';
 
 export const DIAS_A_MIRAR = 45;
@@ -85,10 +86,18 @@ export function esUnible(n) {
   return true;
 }
 
+const nombresDeNota = (n) => nombresPropiosDe({ titulo: n.titulo, bajada: n.bajada, texto: n.cuerpo });
+/** Palabras de título (raíz de 5 letras) que tienen en común dos notas. */
+const palabrasEnComun = (a, b) => { const B = palabrasDe(b); let k = 0; for (const p of palabrasDe(a)) if (B.has(p)) k++; return k; };
+/** Palabras de título en común que se piden, además del nombre de una persona, para el motivo `nombre`. */
+export const PALABRAS_EN_COMUN_CON_NOMBRE = 2;
+
 /**
- * ¿Son la misma noticia? Devuelve el motivo (`direccion` o `titulo`) o null. Conservador: las dos tienen que ser unibles y salir el mismo día o el siguiente, y además
+ * ¿Son la misma noticia? Devuelve el motivo (`direccion`, `titulo` o `nombre`) o null. Conservador: las dos tienen que ser unibles y salir el mismo día o el siguiente, y además
  * - la misma dirección sin el código final Y títulos con 70 % o más de palabras en común, o
- * - títulos con 70 % de palabras en común, la misma sección y una fuente (url) en común; y siempre: menos de 24 h entre una y otra, mismos números en el título y que no sea de servicio (clima, repasos, dólar…).
+ * - títulos con 70 % de palabras en común, la misma sección y una fuente (url) en común, o
+ * - `nombre` (11/11): la misma sección, UNA sola fuente cada una, 2 palabras de título o más en común y el nombre de la misma persona (Nombre Apellido) en título, bajada o primer párrafo
+ *   (los títulos de dos medios casi nunca comparten palabras: «agente»/«oficial», «formó parte»/«participó»); y siempre: menos de 24 h entre una y otra, mismos números en el título y que no sea de servicio (clima, repasos, dólar…).
  */
 export function sonRepetidas(a, b) {
   if (!esUnible(a) || !esUnible(b) || a.id === b.id) return null;
@@ -101,15 +110,34 @@ export function sonRepetidas(a, b) {
   if (slugDeNota(a) === slugDeNota(b) && (iguales || parecido >= UMBRAL_DE_TITULO)) return 'direccion';
   // Título casi igual: misma sección Y una fuente (url) en común sí o sí.
   if (a.seccion && a.seccion === b.seccion && parecido >= UMBRAL_DE_TITULO && fuenteEnComun(a, b)) return 'titulo';
+  // Mismo nombre de persona: sin fuente en común (son medios distintos), pero una sola fuente cada una y algo de título en común.
+  if (a.seccion && a.seccion === b.seccion && urlsDe(a).size === 1 && urlsDe(b).size === 1
+    && palabrasEnComun(a.titulo, b.titulo) >= PALABRAS_EN_COMUN_CON_NOMBRE && nombreEnComun(nombresDeNota(a), nombresDeNota(b))) return 'nombre';
   return null;
 }
 
 /**
- * Arma los grupos. Cada nota nueva se compara sólo con la que quedó de cada grupo (nunca A-B y B-C encadenadas). Queda la que salió primero, salvo que ella no tenga
- * foto y la repetida sí: entonces queda la repetida (y la primera pasa a ser una más de las que se retiran).
+ * Cuál de las dos queda (REGLAS § 3 bis, 11/11). `a` es la que salió primero. Función pura.
+ * 1) Si una sola salió en redes (Facebook/Instagram o un repaso publicado), queda ESA: el enlace compartido tiene que seguir andando.
+ * 2) Si las dos salieron en redes, NO se unen (devuelve null): retirar una rompería un enlace ya compartido.
+ * 3) Si ninguna, queda la primera, salvo que ella no tenga foto y la otra sí.
+ * Devuelve { queda, retira, razon } o null.
+ */
+export function elegirCual(a, b, enRedes = new Set()) {
+  const ra = enRedes.has(a.id), rb = enRedes.has(b.id);
+  if (ra && rb) return null;
+  if (ra) return { queda: a, retira: b, razon: 'ya salió en redes' };
+  if (rb) return { queda: b, retira: a, razon: 'ya salió en redes' };
+  if (!tieneFoto(a) && tieneFoto(b)) return { queda: b, retira: a, razon: 'tiene foto' };
+  return { queda: a, retira: b, razon: 'salió primero' };
+}
+
+/**
+ * Arma los grupos. Cada nota nueva se compara sólo con la que quedó de cada grupo (nunca A-B y B-C encadenadas). Cuál queda lo decide `elegirCual`: la que ya salió en redes (`enRedes`, un Set de ids),
+ * si no, la primera, salvo que ella no tenga foto y la repetida sí.
  * Devuelve [{ queda, retirar: [{ nota, motivo }] }] sólo de los grupos con algo para retirar.
  */
-export function agruparRepetidas(notas) {
+export function agruparRepetidas(notas, { enRedes = new Set() } = {}) {
   const orden = [...(notas ?? [])].filter(esUnible).sort((x, y) => (cuandoSalio(x) < cuandoSalio(y) ? -1 : cuandoSalio(x) > cuandoSalio(y) ? 1 : x.id < y.id ? -1 : 1));
   const grupos = [];
   for (const n of orden) {
@@ -117,10 +145,10 @@ export function agruparRepetidas(notas) {
     for (const g of grupos) {
       const motivo = sonRepetidas(g.queda, n);
       if (!motivo) continue;
-      if (!tieneFoto(g.queda) && tieneFoto(n)) {
-        g.retirar.push({ nota: g.queda, motivo });
-        g.queda = n;
-      } else g.retirar.push({ nota: n, motivo });
+      const e = elegirCual(g.queda, n, enRedes);
+      if (!e) continue; // las dos ya están en redes: no se tocan
+      g.retirar.push({ nota: e.retira, motivo, razon: e.razon });
+      g.queda = e.queda;
       puesta = true;
       break;
     }
@@ -138,18 +166,19 @@ export const noPublicarDe = (queda, motivoDeDeteccion, ahora = new Date()) => ({
   deteccion: motivoDeDeteccion,
 });
 
+const MOTIVOS = { direccion: 'misma dirección', titulo: 'título casi igual', nombre: 'mismo nombre propio' };
 const dirDe = (n) => `/nota/${slugDeNota(n)}-${n.id}`;
 
 /** El texto de la simulación (y del resumen del job): un bloque por grupo. */
-export function informeEnTexto(grupos, { simulado = true, total = 0 } = {}) {
+export function informeEnTexto(grupos, { simulado = true, total = 0, enRedes = new Set() } = {}) {
   const retiros = grupos.reduce((s, g) => s + g.retirar.length, 0);
   const l = [`${simulado ? 'SIMULACIÓN (no se tocó nada)' : 'CORRIDA REAL'}: ${total} notas publicadas revisadas, ${grupos.length} grupos de repetidas, ${retiros} para retirar.`, ''];
   grupos.forEach((g, i) => {
     l.push(`Grupo ${i + 1} (${g.queda.seccion ?? '?'})`);
-    l.push(`  QUEDA   ${cuandoSalio(g.queda).slice(0, 16)}  ${tieneFoto(g.queda) ? 'con foto' : 'sin foto'}  ${g.queda.titulo}`);
+    l.push(`  QUEDA   ${cuandoSalio(g.queda).slice(0, 16)}  ${tieneFoto(g.queda) ? 'con foto' : 'sin foto'}  ${enRedes.has(g.queda.id) ? 'EN REDES  ' : ''}${g.queda.titulo}`);
     l.push(`          ${dirDe(g.queda)}`);
     for (const r of g.retirar) {
-      l.push(`  RETIRA  ${cuandoSalio(r.nota).slice(0, 16)}  ${tieneFoto(r.nota) ? 'con foto' : 'sin foto'}  ${r.nota.titulo}  [por ${r.motivo === 'direccion' ? 'misma dirección' : 'título casi igual'}]`);
+      l.push(`  RETIRA  ${cuandoSalio(r.nota).slice(0, 16)}  ${tieneFoto(r.nota) ? 'con foto' : 'sin foto'}  ${enRedes.has(r.nota.id) ? 'EN REDES  ' : ''}${r.nota.titulo}  [por ${MOTIVOS[r.motivo] ?? r.motivo}; queda la otra porque ${r.razon ?? 'salió primero'}]`);
       l.push(`          ${dirDe(r.nota)}  →  ${dirDe(g.queda)}`);
     }
     l.push('');
@@ -167,9 +196,10 @@ export async function correr(deps, { simular = true } = {}) {
   const ahora = deps.ahora ? deps.ahora() : new Date();
   const desde = new Date(ahora.getTime() - DIAS_A_MIRAR * 86400000).toISOString();
   const notas = await deps.leerNotas(desde);
-  const grupos = agruparRepetidas(notas);
+  const enRedes = deps.leerEnRedes ? await deps.leerEnRedes(desde) : new Set(); // ids de notas que ya salieron en Facebook/Instagram/repasos; si no se puede leer, falla (no se adivina)
+  const grupos = agruparRepetidas(notas, { enRedes });
   const retiros = grupos.flatMap((g) => g.retirar.map((r) => ({ id: r.nota.id, queda: g.queda, motivo: r.motivo })));
-  const base = { revisadas: notas.length, grupos, retiros: retiros.length, simulado: simular, respaldo: null, retiradas: [] };
+  const base = { revisadas: notas.length, grupos, enRedes, retiros: retiros.length, simulado: simular, respaldo: null, retiradas: [] };
   if (simular || !retiros.length) return base;
   if (retiros.length > TOPE_DE_RETIROS) throw new Error(`se encontraron ${retiros.length} notas para retirar (el tope es ${TOPE_DE_RETIROS}): algo cambió en el criterio o en los datos; no se escribe nada`);
   const clave = await deps.respaldar(retiros.map((r) => r.id));
@@ -192,7 +222,7 @@ export async function consultarD1({ uuid, sql, params = [], env = process.env, f
   return j.result?.[0]?.results ?? [];
 }
 
-const SELECT_NOTAS = `SELECT n.id, n.historia_id, n.creada, n.titulo, n.seccion, n.foto, n.fuentes, n.ficha, s.slug AS slug, s.publicada_en AS publicada_en, s.origen AS origen
+const SELECT_NOTAS = `SELECT n.id, n.historia_id, n.creada, n.titulo, n.bajada, substr(n.cuerpo, 1, 700) AS cuerpo, n.seccion, n.foto, n.fuentes, n.ficha, s.slug AS slug, s.publicada_en AS publicada_en, s.origen AS origen
   FROM notas n LEFT JOIN sitio_notas s ON s.id = n.id
   WHERE n.estado = 'publicada' AND COALESCE(s.publicada_en, n.creada) >= ?`;
 
@@ -204,6 +234,13 @@ export async function depsDeVerdad(env = process.env, { simular = true } = {}) {
   const q = (sql, params) => consultarD1({ uuid, sql, params, env });
   return {
     leerNotas: (desde) => q(SELECT_NOTAS, [desde]),
+    // Las notas que ya salieron de verdad en redes: posteos (ok o enviando, no simulados) y repasos/piezas publicadas (columna `notas`, JSON con ids). Si las tablas no están, falla: sin saberlo no se retira.
+    leerEnRedes: async (desde) => {
+      const ids = new Set();
+      for (const f of await q("SELECT DISTINCT nota_id FROM publicaciones WHERE simulado = 0 AND estado IN ('ok', 'enviando') AND cuando >= ?", [desde])) ids.add(f.nota_id);
+      for (const f of await q("SELECT notas FROM piezas WHERE simulado = 0 AND estado = 'publicada' AND notas IS NOT NULL AND creada >= ?", [desde])) for (const id of json(f.notas) ?? []) ids.add(String(id?.id ?? id));
+      return ids;
+    },
     respaldar: async (ids) => {
       const { clienteR2 } = await import('../../../infra/compartido/r2-s3.mjs');
       const r2 = clienteR2({ cuenta: env.CLOUDFLARE_ACCOUNT_ID, bucket: env.R2_RESPALDOS || DEPOSITO_POR_DEFECTO, accessKey: env.R2_ACCESS_KEY_ID, secretKey: env.R2_SECRET_ACCESS_KEY });
@@ -230,7 +267,7 @@ async function principal() {
   const ocultar = (t) => [process.env.CLOUDFLARE_API_TOKEN, process.env.R2_SECRET_ACCESS_KEY, process.env.R2_ACCESS_KEY_ID].filter(Boolean).reduce((x, s) => x.split(s).join('***'), String(t));
   try {
     const r = await correr(await depsDeVerdad(process.env, { simular }), { simular });
-    const texto = informeEnTexto(r.grupos, { simulado: r.simulado, total: r.revisadas })
+    const texto = informeEnTexto(r.grupos, { simulado: r.simulado, total: r.revisadas, enRedes: r.enRedes })
       + (r.simulado ? '' : `\nRespaldo: ${r.respaldo ?? '(nada que retirar)'}\nRetiradas: ${r.retiradas.length}\n`);
     console.log(texto);
     if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `### Unir repetidas\n\n\`\`\`\n${texto}\n\`\`\`\n`);

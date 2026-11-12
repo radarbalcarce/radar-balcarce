@@ -183,3 +183,63 @@ test('casos reales que SÍ se marcan: el mismo hecho con otro verbo o tiempo y u
   pares.forEach(([x, y], i) => assert.equal(sonRepetidas(A("p" + i + "a", x, '10', { fuentes: COMUN }), A("p" + i + "b", y, '15', { fuentes: COMUN })), 'titulo', x));
   assert.equal(sonRepetidas(A('d1', 'Senado debate la reforma laboral', '10'), A('d2', 'Senado debate la reforma laboral', '13')), 'direccion');
 });
+
+// ---- El motivo `nombre` y cuál queda (REGLAS § 3 bis, 11/11)
+import { elegirCual } from './unir-repetidas.mjs';
+
+const CUERPO_PG = 'La oficial Pamela Gaitán, del Comando de Prevención Rural de Balcarce, formó parte del operativo de seguridad.';
+const par = (o1 = {}, o2 = {}) => [
+  A('n1', 'Una policía de Balcarce integró el operativo de seguridad por la visita del Papa', '10', { seccion: 'Balcarce', cuerpo: CUERPO_PG, fuentes: JSON.stringify([{ url: 'https://uno.example/a' }]), ...o1 }),
+  A('n2', 'Oficial balcarceña participó del operativo de seguridad que cubrió la visita papal', '11', { seccion: 'Balcarce', cuerpo: CUERPO_PG, fuentes: JSON.stringify([{ url: 'https://dos.example/b' }]), ...o2 }),
+];
+
+test('nombre: el par real (otras palabras, medios distintos, «Pamela Gaitán» en el cuerpo) da motivo nombre', () => {
+  const [a, b] = par();
+  assert.equal(sonRepetidas(a, b), 'nombre');
+});
+
+test('nombre: mismo apellido pero otra persona, o sin nombre en común, da null', () => {
+  const [a, b] = par({}, { cuerpo: 'El oficial Juan Gaitán, de otra comisaría, participó del operativo.' });
+  assert.equal(sonRepetidas(a, b), null);
+  const [c, d] = par({ cuerpo: 'Sin nombres.' }, { cuerpo: 'Tampoco.' });
+  assert.equal(sonRepetidas(c, d), null);
+});
+
+test('nombre: pide misma sección, una sola fuente cada una, menos de 24 h y mismos números', () => {
+  const dos = JSON.stringify([{ url: 'https://uno.example/a' }, { url: 'https://tres.example/c' }]);
+  assert.equal(sonRepetidas(...par({}, { seccion: 'Política' })), null);
+  assert.equal(sonRepetidas(...par({ fuentes: dos })), null);
+  assert.equal(sonRepetidas(...par({}, { creada: '2026-11-04T12:00:00.000Z' })), null);
+  assert.equal(sonRepetidas(...par({ titulo: 'Una policía de Balcarce integró el operativo de seguridad por 3 visitas del Papa' })), null);
+});
+
+test('nombre: con sólo una palabra de título en común no alcanza', () => {
+  const [a, b] = par({}, { titulo: 'Oficial balcarceña estuvo en el despliegue que acompañó al pontífice' });
+  assert.equal(sonRepetidas(a, b), null);
+});
+
+test('elegirCual: queda la que salió en redes aunque sea la más nueva; si las dos, no se unen; si ninguna, foto y antigüedad', () => {
+  const [a, b] = par();
+  assert.equal(elegirCual(a, b, new Set(['n2'])).queda.id, 'n2');
+  assert.equal(elegirCual(a, b, new Set(['n2'])).retira.id, 'n1');
+  assert.equal(elegirCual(a, b, new Set(['n1'])).queda.id, 'n1');
+  assert.equal(elegirCual(a, b, new Set(['n1', 'n2'])), null);
+  assert.equal(elegirCual(a, b, new Set()).queda.id, 'n1', 'la primera');
+  assert.equal(elegirCual(a, { ...b, foto: FOTO }, new Set()).queda.id, 'n2', 'la que tiene foto');
+  assert.equal(elegirCual(a, { ...b, foto: FOTO }, new Set(['n1'])).queda.id, 'n1', 'redes pesa más que la foto');
+});
+
+test('agruparRepetidas con enRedes: queda la de redes y el informe lo dice; con las dos en redes no se toca nada', async () => {
+  const [a, b] = par();
+  const g = agruparRepetidas([a, b], { enRedes: new Set(['n2']) });
+  assert.equal(g[0].queda.id, 'n2');
+  assert.equal(g[0].retirar[0].nota.id, 'n1');
+  assert.equal(g[0].retirar[0].motivo, 'nombre');
+  const t = informeEnTexto(g, { enRedes: new Set(['n2']) });
+  assert.match(t, /QUEDA .*EN REDES/);
+  assert.match(t, /RETIRA .*\[por mismo nombre propio; queda la otra porque ya salió en redes\]/);
+  assert.deepEqual(agruparRepetidas([a, b], { enRedes: new Set(['n1', 'n2']) }), []);
+  // correr() lee las redes por la dependencia y lo usa
+  const r = await correr({ leerNotas: async () => [a, b], leerEnRedes: async () => new Set(['n2']), ahora: () => AHORA }, { simular: true });
+  assert.equal(r.grupos[0].queda.id, 'n2');
+});

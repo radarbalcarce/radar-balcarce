@@ -42,7 +42,7 @@ test('una nota con foto propia sigue usando su foto', async () => {
   insertarNota(sqlite, { id: 'confoto' });
   const r = await ir(env, '/nota/se-inauguro-la-nueva-sala-del-hospital-confoto');
   const html = await r.text();
-  assert.ok(html.includes('og:image" content="https://fotos.example/a.jpg"'));
+  assert.ok(html.includes('og:image" content="https://radarbalcarce.com/foto-nota/confoto.jpg"'));
   assert.ok(!html.includes('og-default.png'));
 });
 
@@ -60,7 +60,9 @@ test('caso real (7/11): foto de resizer.glanacion.com con copia propia: og:image
   assert.ok(cabeza.includes(`og:image" content="${propia}"`));
   assert.ok(cabeza.includes(`twitter:image" content="${propia}"`));
   assert.ok(cabeza.includes(`"image":["${propia}"]`));
-  assert.ok((await hacer(resizer)).includes('og:image" content="https://resizer.glanacion.com/'));
+  const sin = await hacer(resizer);
+  assert.ok(sin.includes('og:image" content="https://radarbalcarce.com/foto-nota/boca.jpg"'), 'sin copia, la tarjeta sale con nuestra dirección (que baja la foto), no con la del otro medio');
+  assert.ok(!sin.includes('glanacion.com'));
 });
 
 test('el clima diario viejo (sin indexar:false en la ficha) va con noindex y fuera de sitemap-news y del mapa del mes; las demás notas siguen', async () => {

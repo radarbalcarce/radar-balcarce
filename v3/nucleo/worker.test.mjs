@@ -19,7 +19,7 @@ const aca = dirname(fileURLToPath(import.meta.url));
 const leer = (...r) => readFileSync(join(aca, ...r), 'utf8');
 // Umbrales fijos de prueba: los vectores de juguete de estas pruebas están pensados para estos números, no para los calibrados
 // de producción (agrupar/umbrales.json cambia con cada calibración).
-const umbrales = { ...JSON.parse(leer('agrupar', 'umbrales.json')), unir: 0.86, duda: 0.78 };
+const umbrales = { ...JSON.parse(leer('agrupar', 'umbrales.json')), unir: 0.86, duda: 0.78, pisoNombres: 1 }; // pisoNombres 1 = sin la regla del nombre propio: el AI falso da cercanías altas entre textos sin relación (esa regla se prueba en agrupar.test.mjs)
 const fuentesReales = JSON.parse(leer('fuentes.json')).fuentes;
 const TOKEN = 'token-de-prueba';
 const AHORA = '2026-11-02T23:00:00Z'; // 20:00 en Balcarce

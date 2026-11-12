@@ -18,7 +18,7 @@ test('la nota publicada se ve completa: título, bajada, en dos líneas, foto co
   assert.match(h, /<h1>Se inauguró la nueva sala del hospital<\/h1>/);
   assert.match(h, /La obra tardó dos años\./);
   assert.match(h, /En dos líneas<\/strong>Abrió la sala/);
-  assert.match(h, /<img src="https:\/\/fotos\.example\/a\.jpg" alt="La sala nueva"/);
+  assert.match(h, /<img src="https:\/\/radarbalcarce\.com\/foto-nota\/abc1234\.jpg" alt="La sala nueva"/);
   assert.match(h, /<figcaption>Foto: Municipalidad<\/figcaption>/);
   assert.match(h, /<p>Primer párrafo de la nota\.<\/p>/);
   assert.ok(!h.includes('Escrita con IA'), 'la línea de la IA no va en la nota');

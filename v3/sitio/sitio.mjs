@@ -23,6 +23,7 @@ import { paginaAgenda, paginaDeEvento, paginaHoy, paginaUtil, paginaTablas, pagi
 import { ultimasJson, indiceJson, serviciosJson, llmsTxt, securityTxt, humansTxt, sitemapNoticias } from './vistas/agentes.mjs';
 import { NOTAS as NOTAS_VIEJAS, SECCIONES as SECCIONES_VIEJAS } from './redirecciones-viejas.mjs';
 import { RUTA_DE_COPIA, PREFIJO_R2_DE_COPIAS } from './fotos-copia.mjs';
+import { RUTA_DE_FOTO_DE_NOTA, servirFotoDeNota } from './foto-proxy.mjs';
 import { destinoDeRestoViejo } from './restos-del-viejo.mjs';
 import { contarPedido, contarClic, enlaceDeAviso } from './db/lecturas.mjs';
 import { ID_DE_AVISO, NOMBRES_DE_LUGARES } from './vistas/avisos.mjs';
@@ -476,6 +477,9 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       // Las copias propias de las fotos de las notas (fotos-copia.mjs): /foto/<huella>.jpg sale de R2 (copias/<huella>.jpg); el nombre es la huella del contenido, por eso la caché es eterna.
       const copia = RUTA_DE_COPIA.exec(url.pathname);
       if (copia) return archivoEstatico(pedido, env, PREFIJO_R2_DE_COPIAS, copia[1]);
+      // La foto de una nota que todavía no tiene copia propia: la bajamos una vez y la servimos con nuestra dirección (foto-proxy.mjs), en vez de mostrar la del otro medio.
+      const deNota = RUTA_DE_FOTO_DE_NOTA.exec(url.pathname);
+      if (deNota) return servirFotoDeNota({ id: deNota[1], metodo: pedido.method, leerFoto: (id) => consultas.fotoCrudaDeNota(env, id), traer, cache });
       const estatico = /^\/(fotos-notas|fuentes)\/([^/]+)$/.exec(url.pathname);
       if (estatico) {
         let nombre = estatico[2];

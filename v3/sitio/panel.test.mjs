@@ -337,7 +337,7 @@ test('fotos: elegir la de portada, cambiar el crédito y sacar una; sin ninguna,
   const h = await (await t.ir(NOTA, { cookie: s.cookie })).text();
   assert.ok(h.includes('Foto: &lt;b&gt;Uno&lt;/b&gt;'));
   // La nota pública muestra la nueva portada.
-  assert.match(await (await t.ir('/nota/se-inauguro-la-nueva-sala-del-hospital-abc1234')).text(), /fotos\.example\/3\.jpg/);
+  assert.match(await (await t.ir('/nota/se-inauguro-la-nueva-sala-del-hospital-abc1234')).text(), /foto-nota\/abc1234\.jpg/);
   await t.post(`${NOTA}/fotos`, s, { accion: 'guardar', borrar_0: 'si', borrar_1: 'si' });
   assert.equal(t.fila().foto, null);
   // Una nota con la foto como objeto suelto (las del núcleo) también se maneja.

@@ -42,7 +42,7 @@ No se migran las retiradas, las unidas a otra por la revisión, ni las que nunca
 **Las fotos viejas** se piden a `https://radarbalcarce.com/fotos-notas/…`; el día del corte ese dominio es este Worker, que las sirve desde el depósito R2 `radar-fotos`
 (binding `FOTOS`, claves `fotos-notas/<archivo>`), con caché larga (el navegador una semana, Cloudflare un mes). Lo mismo `/fuentes/<archivo>` (tipografías, un año).
 `scripts/copiar-fotos.mjs` las sube desde `web/public/fotos-notas/` y `web/public/fuentes/`, y rescata del depósito viejo las que piden las notas y el repositorio no tiene.
-Las fotos de las notas **nuevas** del núcleo siguen guardando la URL del medio de origen (no se copian a `radar-fotos`); queda para después.
+Las fotos de las notas **nuevas** del núcleo guardan la URL del medio de origen y las copia aparte el programa de `radar-fotos` (§ 15: mientras tanto el sitio las sirve por `/foto-nota/<id>.jpg`).
 
 ## 5. Cuánto dura cada cosa en caché
 
@@ -169,3 +169,17 @@ salvo el «¿seguro?» de Retirar; nada de afuera.
 
 - Se reconoce por `ficha.efemerides.hechos` (`esEfemerides`, `vistas/efemerides-nota.mjs`). Reemplaza al cuerpo de párrafos por una línea del tiempo que se anima y las historias iguales (año, título, texto, tres datos y foto con crédito o placa); sin foto principal aparte, sin «En dos líneas» ni «Los datos».
 - Sólo CSS (sin JavaScript); con «reducir movimiento» queda quieta. Los años de la línea se escalonan para que no se pisen. Va con `noindex` (`ficha.indexar = false`).
+
+## 15. Ninguna foto del otro medio en el HTML, y las imágenes en el mapa (12/11, Hernán: «todas las fotos se deberían bajar y hacer bien el SEO»)
+
+- **Qué pasaba.** La copia propia (`/foto/<huella>.jpg`) la hace un programa aparte en GitHub (`scripts/copiar-fotos-de-notas.mjs`, ffmpeg) cada 2 horas a los :40 y sólo si `FOTOS_PROPIAS_ACTIVAS` = si (60 por corrida, 3 horas entre reintentos).
+  Una nota recién publicada mostraba hasta ~2 horas la dirección del otro medio (el 12/11, 5 de 26 imágenes de la portada: radiogabal, La Vanguardia, La Nación, Perfil, balcarce.gob.ar). Copiar al elegir la foto no se puede dentro del núcleo (el Worker no corre ffmpeg).
+- **Qué hace el sitio ahora** (`foto-proxy.mjs`, `fotoParaMostrar` en `db/consultas.mjs`). Sin copia propia, la foto de portada de una nota sale como `https://radarbalcarce.com/foto-nota/<id>.jpg` (img, tarjetas, `og:image`, NewsArticle, RSS, mapas); la ruta
+  baja la foto de la fuente UNA vez (RadarBalcarceBot, sin cabeceras de navegador, sólo la dirección guardada en esa nota publicada, pública y con tope de 8 MB; imagen comprobada por los bytes), la guarda un día en la caché de Cloudflare y la sirve con nuestra dirección.
+  Con copia propia ya hecha, la nota usa `/foto/<huella>.jpg` y esa ruta redirige (301) a la copia. Si el medio niega la foto, redirige (302, 5 minutos) a la original: nunca una imagen rota (único hotlink que queda, y sólo si la fuente no nos deja bajarla). Crédito, epígrafe y alt no cambian.
+  Por qué proxy y no placa: la placa le quitaría la foto a toda nota nueva durante horas; el proxy no cambia lo que ve el lector y saca la dirección ajena del HTML. Los filtros de marca de agua, menores y víctimas son los del núcleo (la foto elegida no cambia).
+- **Mapa del sitio.** `sitemap-AAAA-MM.xml` declara `xmlns:image` y cada `<url>` lleva `<image:image><image:loc>` con la imagen de portada tal como se muestra (copia propia o `/foto-nota/`) y `<image:title>` con el crédito si mide 160 o menos (`imagenDeMapa`, `vistas/xml.mjs`). Sin foto, sin imagen.
+- **Lo que no cubre.** Las fotos de adentro de la nota (`fotos`, `fotosEnCuerpo`) siguen con su dirección. `/foto-nota/` pasa por la caché de Cloudflare pero no es R2: una foto que la fuente borra después de un día se pierde hasta que el programa de copias la guarde.
+- **Propuesta (no hecha): nombre legible.** Hoy `/foto/<huella24>.jpg`. Para SEO sería `/foto/<slug>-<huella24>.jpg`: el Worker leería sólo la huella del final (`/([0-9a-f]{24}(?:-640)?)\.jpg$/`) y pediría `copias/<huella>.jpg` (las copias hechas siguen valiendo y la caché también); `urlDeCopia(huella, chica, base, slug)` agregaría el slug y
+  `conCopiaPropia` lo armaría con el título de la nota (no hay que tocar R2). Riesgo: las URLs ya publicadas en Google cambiarían (habría que dejar las viejas sirviendo, lo que ya pasa), y la huella pasa a nombrar dos rutas. Valor chico (Google usa `alt` y el texto de la nota más que el nombre); queda para después.
+- **Pruebas:** `foto-proxy.test.mjs` (proxy, seguridad, caché, mapa con imágenes).

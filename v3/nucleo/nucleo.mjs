@@ -6,6 +6,7 @@
 import { leerFuente } from './leer/leer.mjs';
 import { crearHuella } from './agrupar/huella.mjs';
 import { agrupar, textoParaDuda } from './agrupar/agrupar.mjs';
+import { nombresPropiosDe } from './agrupar/nombres.mjs';
 import { elegir, cupoNacional, minimoDelDia } from './elegir/elegir.mjs';
 import { crearGemini } from './redactar/gemini.mjs';
 import { crearMistral, conRespaldo, MODELO_MISTRAL, TOPE_MISTRAL_POR_DEFECTO } from './redactar/mistral.mjs';
@@ -42,7 +43,7 @@ export const FOTO_REVISION = 1;
 const hayQueReabrir = (v) => !!v && ((v.fotoCriterio !== FOTO_CRITERIO && MOTIVOS_REABRIBLES.has(v.fotoMotivo || v.rehacerMotivo))
   || (v.fotoMotivo === 'todas-con-marca' && v.fotoRevision !== FOTO_REVISION));
 const ILUSTRAR_POR_VUELTA = 4; // notas a las que se les hace una ilustración por vuelta (NUCLEO_ILUSTRAR_POR_VUELTA; 0 lo apaga; REGLAS § 7 paso 3)
-const ILUSTRAR_POR_DIA = 40; // imágenes por día (NUCLEO_ILUSTRAR_POR_DIA): ~77 neuronas cada una, ~3.100 de las 10.000 gratis
+const ILUSTRAR_POR_DIA = 120; // imágenes por día (NUCLEO_ILUSTRAR_POR_DIA): ~77 neuronas cada una, ~9.200 de las 10.000 gratis (12/11: antes 40; «siempre tiene que haber fotos»)
 const ILUSTRAR_MARCAS_POR_VUELTA = 20; // notas que no se pueden ilustrar y se marcan por vuelta para no volver a mirarlas
 const ILUSTRADAS_CON_BUSQUEDA_REAL_POR_VUELTA = 2; // ilustradas a las que se les vuelve a buscar una foto real por vuelta
 const ILUSTRADAS_REVISION_POR_VUELTA = IL.REVISION_POR_VUELTA; // y las de la revisión única de 7 días (NUCLEO_REVISAR_ILUSTRADAS_POR_VUELTA; 0 la apaga)
@@ -266,13 +267,19 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       }
     };
     const historiaPorId = new Map(vivas.map((h) => [h.id, h]));
+    // Para el juez y para el nombre propio (REGLAS § 3): la bajada, el inicio y los nombres de personas de los artículos guardados de la historia (una lectura de D1 sólo cuando hace falta).
+    const detallesDeHistoria = async (h) => {
+      const arts = await db.articulosDeHistoria(env, h.id);
+      const primero = arts[0];
+      return { nombres: [...new Set(arts.flatMap((x) => nombresPropiosDe(x)))], bajada: primero?.bajada ?? '', inicio: String(primero?.texto ?? '').slice(0, 400) };
+    };
     const tocadas = new Map();
     const guardables = [];
     let seguidos = 0;
     for (const a of nuevos) {
       let res;
       try {
-        res = await agrupar(a, [...historiaPorId.values()], { huellaDe, preguntarMismoHecho, umbrales, ahora: c.ahora, azar: c.azar });
+        res = await agrupar(a, [...historiaPorId.values()], { huellaDe, preguntarMismoHecho, umbrales, ahora: c.ahora, azar: c.azar, detallesDeHistoria });
         seguidos = 0;
       } catch (e) {
         error(`agrupar ${a.id}`, e);
@@ -676,9 +683,15 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     try { candidatas = await db.notasParaIlustrar(env, new Date(c.ahora.getTime() - IL.DIAS_HACIA_ATRAS * 24 * HORA).toISOString(), IL.NOTAS_A_MIRAR); } catch (e) { error('ilustrar: buscar notas', e); return; }
     const tocan = [];
     let marcadas = 0;
+    let reabiertas = 0; // las `final` que se reintentan una vez (IL.debeReabrirseLaIlustracion): pocas por vuelta para que no tapen a las nuevas
     for (const n of candidatas) {
       const t = IL.leTocaIlustrar(n, c.ahora);
-      if (t.toca) { if (tocan.length < porVuelta + archivoPorVuelta) tocan.push(n); continue; }
+      if (t.toca) {
+        const reabre = IL.debeReabrirseLaIlustracion(n);
+        if (reabre && reabiertas >= IL.REABRIR_POR_VUELTA) continue;
+        if (tocan.length < porVuelta + archivoPorVuelta) { tocan.push(n); if (reabre) reabiertas += 1; }
+        continue;
+      }
       // Las que no se pueden ilustrar nunca (muerte, velorio, sepelio, lo rojo) se marcan para no volver a mirarlas; son pocas por vuelta para no gastar la base.
       if (t.saltar && ilustra && marcadas < ILUSTRAR_MARCAS_POR_VUELTA) {
         try { await db.ponerFotoDeNota(env, n.id, null, IL.conEstadoDeIlustracion(n.verificacion, { final: true, motivo: `saltada: ${t.motivo}`.slice(0, 120), intentada: c.ahoraISO })); marcadas += 1; il_.saltadas += 1; } catch (e) { error(`ilustrar: marcar ${n.id}`, e); }
@@ -706,11 +719,12 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       return true;
     };
     for (const n of aIlustrar) {
-      const il = n.verificacion.ilustracion || {};
-      const marcar = (estado) => db.ponerFotoDeNota(env, n.id, null, IL.conEstadoDeIlustracion(n.verificacion, { intentada: c.ahoraISO, ...estado }));
+      const reabre = IL.debeReabrirseLaIlustracion(n);
+      const il = reabre ? { ...(n.verificacion.ilustracion || {}), fallos: 0 } : (n.verificacion.ilustracion || {}); // vuelve a intentarse una vez, con otra toma; la versión queda anotada en cualquier resultado
+      const marcar = (estado) => db.ponerFotoDeNota(env, n.id, null, IL.conEstadoDeIlustracion(n.verificacion, { intentada: c.ahoraISO, ...(reabre ? IL.estadoDeReapertura() : {}), ...estado }));
       try {
         il_.intentadas += 1;
-        const res = await IL.ilustrarUna(n, { gemini: geminiIlustrar, ai: env.AI, cupo, azar: c.azar });
+        const res = await IL.ilustrarUna(reabre ? { ...n, reintento: 1 } : n, { gemini: geminiIlustrar, ai: env.AI, cupo, azar: c.azar });
         if (res.ok) {
           const foto = await IL.guardarIlustracion(env.FOTOS, res.bytes, n, c.ahoraISO);
           // Escribe sólo si la nota sigue sin foto: si mientras tanto apareció una real (o de una persona), esa gana.

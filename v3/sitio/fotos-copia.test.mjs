@@ -64,11 +64,13 @@ test('la nota con copia propia: og:image, el NewsArticle y la foto principal usa
   assert.match(html, /width="1600" height="1067"/);
 });
 
-test('la nota sin copia sigue mostrando la original', async () => {
+test('la nota sin copia NO muestra la dirección del otro medio: usa /foto-nota/<id>.jpg (la baja y la sirve el sitio) y el crédito queda', async () => {
   const { ir } = sitioConNota(ORIGINAL);
   const html = await (await ir('/nota/se-inauguro-la-nueva-sala-del-hospital-abc1234')).text();
-  assert.match(html, /og:image" content="https:\/\/fotos\.example\/a\.jpg"/);
+  assert.match(html, /og:image" content="https:\/\/radarbalcarce\.com\/foto-nota\/abc1234\.jpg"/);
+  assert.ok(!html.includes('fotos.example'), 'ni en img, ni en og:image, ni en el JSON-LD');
   assert.ok(!html.includes('/foto/'));
+  assert.match(html, /Foto: Municipalidad/);
 });
 
 test('la portada usa la versión chica de la copia (no la de 1.600 px)', async () => {
