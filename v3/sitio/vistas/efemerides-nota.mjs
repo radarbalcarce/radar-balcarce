@@ -24,19 +24,22 @@ const fotoSegura = (h) => (h.foto && urlSegura(h.foto.url) ? h.foto : null);
 const idDelHecho = (h) => `ef-${String(h.anio).replace(/[^0-9a-z]/gi, '')}`;
 const nombreDeLaImagen = (h, foto) => `radarbalcarce-un-dia-como-hoy-${String(h.anio).replace(/[^0-9a-z]/gi, '')}${String(foto?.url ?? '').endsWith('.png') ? '.png' : '.jpg'}`;
 
+/** Los botones de siempre (mismo estilo que los de los gráficos): Descargar y Compartir (éste lo prende el guion sólo si el aparato sabe compartir). */
+const accionesHtml = (h, foto) => `<div class="graf-acciones"><a class="graf-bajar" href="${esc(foto.url)}" download="${esc(nombreDeLaImagen(h, foto))}" aria-label="Descargar la infografía de ${esc(h.anio)}">Descargar</a><button type="button" class="graf-compartir" data-url="${esc(foto.url)}" data-titulo="${esc(`Un día como hoy, ${h.anio}: ${h.titulo}`)}" hidden>Compartir</button></div>`;
+
 /** Una infografía de la galería: toca para ir a la historia; el enlace «Descargar» baja la imagen con la marca. */
 function figuraHtml(h, i) {
   const foto = fotoSegura(h);
   if (!foto) return '';
   const medidas = foto.ancho && foto.alto ? ` width="${Number(foto.ancho)}" height="${Number(foto.alto)}"` : ' width="1080" height="1350"';
-  return `<figure class="ef-fig"><a class="ef-ir" href="#${idDelHecho(h)}" aria-label="Leer la historia de ${esc(h.anio)}"><img class="ef-img" src="${esc(foto.url)}" alt="${esc(foto.alt || h.titulo)}"${medidas} ${i === 0 ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"'}></a><a class="ef-baja" href="${esc(foto.url)}" download="${esc(nombreDeLaImagen(h, foto))}" aria-label="Descargar la infografía de ${esc(h.anio)}">Descargar</a></figure>`;
+  return `<figure class="ef-fig"><a class="ef-ir" href="#${idDelHecho(h)}" aria-label="Leer la historia de ${esc(h.anio)}"><img class="ef-img" src="${esc(foto.url)}" alt="${esc(foto.alt || h.titulo)}"${medidas} ${i === 0 ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"'}></a>${accionesHtml(h, foto)}</figure>`;
 }
 
 /** Una historia desarrollada en texto (los datos van como texto: se leen, se copian y los lee Google; los créditos de las fotos, en «Fuentes»). */
 function historiaHtml(h) {
   const foto = fotoSegura(h);
   const datos = (h.datos ?? []).slice(0, 3).map((d) => `<li><b>${esc(d.b)}</b> <span>${esc(d.s)}</span></li>`).join('');
-  const baja = foto ? `<p class="ef-bajar"><a href="${esc(foto.url)}" download="${esc(nombreDeLaImagen(h, foto))}">Descargar la infografía de ${esc(h.anio)}</a></p>` : '';
+  const baja = foto ? accionesHtml(h, foto) : '';
   return `<article class="ef-hecho" id="${idDelHecho(h)}"><p class="ef-anio">${esc(h.anio)}</p><h2>${esc(h.titulo)}</h2>${h.texto ? `<p class="ef-lead">${esc(h.texto)}</p>` : ''}${h.detalle?.length ? `<h3 class="ef-contexto">Para ponerlo en contexto</h3>${h.detalle.map((t) => `<p>${esc(t)}</p>`).join('')}` : ''}${datos ? `<ul class="ef-datos">${datos}</ul>` : ''}${baja}</article>`;
 }
 
@@ -51,11 +54,10 @@ export function efemeridesHtml(n) {
 export const ESTILOS_EFEMERIDES = `
 .ef-intro{font-size:1.1em;margin:0 0 18px}
 .ef-galeria{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 0 28px}
-.ef-fig{position:relative;margin:0;border-radius:12px;overflow:hidden;background:var(--papel);border:1px solid var(--linea)}
+.ef-fig{margin:0}
+.ef-ir{border-radius:12px;overflow:hidden;border:1px solid var(--linea)}
 .ef-fig .ef-img{display:block;width:100%;height:auto;max-height:none;aspect-ratio:4/5;object-fit:contain;margin:0}
 .ef-ir{display:block}
-.ef-baja{position:absolute;right:8px;top:8px;background:rgba(20,22,26,.82);color:#fff;font:700 12.5px var(--sans);padding:7px 11px;border-radius:999px;text-decoration:none}
-.ef-baja:hover,.ef-baja:focus-visible{background:var(--rojo)}
 .ef-hecho{background:var(--papel);border:1px solid var(--linea);border-radius:14px;margin:0 0 18px;padding:16px 18px 14px;scroll-margin-top:16px}
 .ef-anio{margin:0;font:900 clamp(44px,11vw,60px)/1 var(--serif);color:var(--rojo)}
 .ef-hecho h2{margin:6px 0 10px;font:900 clamp(22px,5vw,28px)/1.15 var(--serif);color:var(--tinta)}
@@ -65,6 +67,4 @@ export const ESTILOS_EFEMERIDES = `
 .ef-datos{display:flex;flex-wrap:wrap;gap:6px 8px;list-style:none;margin:12px 0 0;padding:0}
 .ef-datos li{padding:5px 11px;border:1px solid var(--linea);border-radius:999px;background:var(--crema);font:700 13.5px var(--sans);color:var(--tinta)}
 .ef-datos li span{font-weight:500;color:var(--suave)}
-.ef-bajar{margin:6px 0 0!important;font:600 14px var(--sans)}
-.ef-bajar a{color:var(--suave);text-decoration:underline}
 `;

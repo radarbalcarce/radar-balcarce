@@ -59,10 +59,10 @@ export function enlacesDelVideoHtml(n) {
     // Cualquier otra nota con reel (la efeméride, el reel de una nota propia): sólo los enlaces que se conocen, nunca las páginas del medio.
     const f = https(n?.ficha?.reels?.facebook); const i = https(n?.ficha?.reels?.instagram);
     if (!f && !i) return '';
-    const links = [f && `<a class="enlace" href="${f}" rel="noopener">en Facebook</a>`, i && `<a class="enlace" href="${i}" rel="noopener">en Instagram</a>`].filter(Boolean).join(' · ');
-    return `<p class="clima-video">Mirá el video de esta nota: ${links}</p>`;
+    const links = [f && `<a href="${f}" rel="noopener">en Facebook</a>`, i && `<a href="${i}" rel="noopener">en Instagram</a>`].filter(Boolean).join('');
+    return `<div class="graf-acciones clima-video"><span>Mirá el video de esta nota:</span>${links}</div>`;
   }
   const fb = https(n.ficha?.reels?.facebook) || FACEBOOK_RADAR;
   const ig = https(n.ficha?.reels?.instagram) || INSTAGRAM_RADAR;
-  return `<p class="clima-video">Mirá el clima de hoy en video: <a class="enlace" href="${fb}" rel="noopener">en Facebook</a> · <a class="enlace" href="${ig}" rel="noopener">en Instagram</a></p>`;
+  return `<div class="graf-acciones clima-video"><span>Mirá el clima de hoy en video:</span><a href="${fb}" rel="noopener">en Facebook</a><a href="${ig}" rel="noopener">en Instagram</a></div>`;
 }

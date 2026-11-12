@@ -67,6 +67,7 @@ figure img{display:block;width:auto;max-width:100%;height:auto;max-height:50vh;m
 figcaption{margin-top:4px;font-size:13px;color:var(--suave)}
 .graf-acciones{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 .graf-acciones a,.graf-acciones button{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border:1.5px solid var(--linea);border-radius:20px;background:var(--papel);color:var(--tinta);font:600 14px var(--sans);cursor:pointer;text-decoration:none}
+.graf-acciones span{font:600 14px var(--sans);color:var(--suave);margin-right:2px}
 .graf-acciones a:hover,.graf-acciones button:hover,.graf-acciones a:focus-visible,.graf-acciones button:focus-visible{background:var(--rojo);border-color:var(--rojo);color:#fff}
 article.nota{max-width:720px;margin:0 auto}
 article.nota .cuerpo{font-size:17px;line-height:1.6}
