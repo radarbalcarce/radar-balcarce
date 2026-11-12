@@ -106,7 +106,7 @@ test('si el municipio no contesta: la agenda lo dice y no se guarda; la página 
   assert.match(await r.text(), /No pudimos leer la agenda del municipio/);
   assert.equal(cache.m.size, 0, 'una agenda caída no se guarda');
   const e = await sitio.manejar(new Request('https://radarbalcarce.com/agenda/x-muni1'), env, null, { cache });
-  assert.equal(e.status, 503);
+  assert.equal(e.status, 410);
 });
 
 test('un evento con una palabra del semáforo rojo en el nombre no sale; en la descripción, sale sin descripción', () => {
