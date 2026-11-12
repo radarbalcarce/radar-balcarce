@@ -1,4 +1,4 @@
-// La infografía de cada historia de «Un día como hoy» (1080 × 1350, PNG, vertical 4:5: entra bien en Instagram, Facebook y WhatsApp), con el ESTILO DE LA MARCA (docs/3-0/MANUAL-DE-MARCA.md):
+// La infografía de cada historia de «Un día como hoy» (1080 × 1350, PNG, vertical 4:5: entra bien en Instagram, Facebook y WhatsApp), con el ESTILO DE LA MARCA (docs/3-0/MANUAL-DE-MARCA.html (y .pdf)):
 // fondo papel, rótulo chico en mayúsculas y rasgo grande (el año) en el color de la sección (Cultura, violeta), foto entera con esquinas redondeadas, título en serif, claves con viñetas
 // del color de la sección y el cierre de siempre: raya de tinta, «Radar Balcarce» (Radar en tinta, Balcarce en rojo) a la izquierda y radarbalcarce.com a la derecha.
 // Formato de imágenes del diario: docs/3-0/FORMATO-DE-IMAGENES.md. Esto SÍ tiene dependencia (resvg, que se importa recién al dibujar): por eso vive aparte de nota.mjs, que no tiene ninguna.

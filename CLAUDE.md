@@ -290,3 +290,5 @@ quien lea "regla 293" en un comentario la encuentra por la columna «absorbe» (
 **`docs/CRITERIO-EN-UNA-PAGINA.md`** es qué sale, qué no y por qué, con cada número y dónde vive (empezar por ahí para saber algo del criterio). **`docs/00-INDICE.md`** tiene la lista completa. Los que más se usan: `docs/11-OPERACION.md`,
 `docs/10-REGLAS-Y-PRUEBAS.md`, `docs/08-INFRAESTRUCTURA.md`, `docs/09-PANEL.md`, los dos criterios
 (`CRITERIO-EDITORIAL.md` y `CRITERIO-REDES.md`), `docs/DECISIONES.md`, `PENDIENTES.md` e `IDEAS.md`.
+
+**Marca (12/11/2026):** antes de armar cualquier imagen, placa, gráfico, pieza de redes o página, mirar `docs/3-0/MANUAL-DE-MARCA.html` (hay `.pdf`): colores por sección, letras, firma de cierre, formatos y lo que nunca se hace. Formato de imágenes compartibles: `docs/3-0/FORMATO-DE-IMAGENES.md`.
