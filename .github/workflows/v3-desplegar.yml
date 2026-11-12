@@ -170,7 +170,7 @@ jobs:
         working-directory: v3/sitio
         run: |
           npx --yes wrangler@4.139.0 r2 bucket list | grep -q "radar-fotos" || npx --yes wrangler@4.139.0 r2 bucket create radar-fotos
-          for f in media-kit/mediakit-*.png; do
+          for f in media-kit/*.png; do
             npx --yes wrangler@4.139.0 r2 object put "radar-fotos/fotos-notas/$(basename "$f")" --file "$f" --content-type image/png --cache-control "public, max-age=31536000" --remote
           done
           # Las ilustraciones del clima (v3/sitio/fotos-propias/, generadas con IA y siempre declaradas como tales) y cualquier otra imagen propia que se sume ahí.
