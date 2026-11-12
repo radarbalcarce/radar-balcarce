@@ -1,9 +1,8 @@
 // La placa cuadrada de cada historia de «Un día como hoy» (900 × 900, PNG): la foto recortada al centro, el año en un rótulo rojo y «radarbalcarce.com» abajo. Sin el título ni los datos
 // del hecho adentro: eso va como texto en la página (lo lee Google y se puede copiar). Sin foto libre, la placa del año sobre fondo oscuro, con la marca del medio.
-// Esto SÍ tiene dependencia (resvg, la del repositorio): por eso vive aparte de nota.mjs, que no tiene ninguna. Lo corre publicar-nota.mjs en el workflow «nota de Un día como hoy».
+// Esto SÍ tiene dependencia (resvg, la del repositorio, que se importa recién al dibujar): por eso vive aparte de nota.mjs, que no tiene ninguna. Lo corre publicar-nota.mjs en el workflow «nota de Un día como hoy».
 import fs from 'node:fs';
 import path from 'node:path';
-import { Resvg } from '@resvg/resvg-js';
 
 const RAIZ = path.join(import.meta.dirname, '..', '..', '..');
 const FUENTES = path.join(RAIZ, 'reels', 'marca', 'fuentes');
@@ -41,7 +40,8 @@ ${rotulo}
 }
 
 /** La placa como PNG (bytes). Si la foto no se puede dibujar (archivo roto), cae a la placa del año: una foto que falla nunca frena la nota. */
-export function placaPng({ anio, foto = null }) {
+export async function placaPng({ anio, foto = null }) {
+  const { Resvg } = await import('@resvg/resvg-js'); // se carga recién acá: probar el resto sin resvg instalado tiene que andar
   const dibujar = (f) => new Resvg(svgDePlaca({ anio, foto: f }), { fitTo: { mode: 'width', value: LADO }, font: { fontFiles: archivosDeFuente(), loadSystemFonts: false, defaultFontFamily: 'Inter' } }).render().asPng();
   try { return { bytes: dibujar(foto), conFoto: !!foto }; } catch { return { bytes: dibujar(null), conFoto: false }; }
 }

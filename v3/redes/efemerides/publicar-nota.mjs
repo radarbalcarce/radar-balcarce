@@ -44,7 +44,7 @@ export async function armarNotaDelDia({ dia, piezas, candidatas, json, bajar, di
   for (const h of hechos) {
     let foto = null;
     try { foto = await fotoDeCommons(h, { json, bajar }); } catch { foto = null; } // sin foto, va la placa del año: una foto que falla nunca frena la nota
-    const placa = (dibujar ?? placaPng)({ anio: h.anio, foto });
+    const placa = await (dibujar ?? placaPng)({ anio: h.anio, foto });
     if (!placa.conFoto) foto = null;
     const archivo = `efemeride-${dia}-${h.id}.png`;
     fotos.push({ archivo, bytes: placa.bytes, mime: 'image/png' });
