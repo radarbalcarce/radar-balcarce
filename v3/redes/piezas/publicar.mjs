@@ -81,7 +81,15 @@ export async function publicarPieza({ cliente, mp4, acciones, tapaMs = null, tap
     try {
       const metodo = a.red === 'instagram' ? cliente.publicarVideoEnInstagram : cliente.publicarVideoEnFacebook;
       const r = await metodo({ video: mp4, tipo: a.tipo, pie: a.pie, tapaMs, tapa });
-      salida.push({ red: a.red, tipo: a.tipo, estado: 'ok', id: r?.id ?? null });
+      const hecha = { red: a.red, tipo: a.tipo, estado: 'ok', id: r?.id ?? null };
+      // La dirección del reel (no la de las historias, que vencen): la nota la muestra («Mirá el video»). Si no se puede saber, sin dirección: nunca frena la publicación.
+      if (a.tipo === 'REELS' && r?.id) {
+        try {
+          if (a.red === 'facebook') hecha.url = `https://www.facebook.com/reel/${r.id}`;
+          else if (cliente.permalinkDeInstagram) hecha.url = (await cliente.permalinkDeInstagram(r.id)) || undefined;
+        } catch { /* sin dirección */ }
+      }
+      salida.push(hecha);
     } catch (e) {
       salida.push({ red: a.red, tipo: a.tipo, estado: 'error', error: sinToken(String(e?.message ?? e)).slice(0, 300) });
     }

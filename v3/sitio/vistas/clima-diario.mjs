@@ -54,8 +54,14 @@ const FACEBOOK_RADAR = 'https://www.facebook.com/profile.php?id=61594865361170';
 const INSTAGRAM_RADAR = 'https://www.instagram.com/radarbalcarce/';
 /** Al final de la nota del clima: «Mirá el clima de hoy en video» con Facebook e Instagram (las páginas del medio; el reel de la mañana es lo último que publican). Si la ficha trae `reels.facebook` / `reels.instagram` (https), va directo al reel. '' si no es la del clima. */
 export function enlacesDelVideoHtml(n) {
-  if (!esClimaDiario(n)) return '';
   const https = (u) => (typeof u === 'string' && /^https:\/\/[^\s"<>]+$/.test(u) ? u : null);
+  if (!esClimaDiario(n)) {
+    // Cualquier otra nota con reel (la efeméride, el reel de una nota propia): sólo los enlaces que se conocen, nunca las páginas del medio.
+    const f = https(n?.ficha?.reels?.facebook); const i = https(n?.ficha?.reels?.instagram);
+    if (!f && !i) return '';
+    const links = [f && `<a class="enlace" href="${f}" rel="noopener">en Facebook</a>`, i && `<a class="enlace" href="${i}" rel="noopener">en Instagram</a>`].filter(Boolean).join(' · ');
+    return `<p class="clima-video">Mirá el video de esta nota: ${links}</p>`;
+  }
   const fb = https(n.ficha?.reels?.facebook) || FACEBOOK_RADAR;
   const ig = https(n.ficha?.reels?.instagram) || INSTAGRAM_RADAR;
   return `<p class="clima-video">Mirá el clima de hoy en video: <a class="enlace" href="${fb}" rel="noopener">en Facebook</a> · <a class="enlace" href="${ig}" rel="noopener">en Instagram</a></p>`;

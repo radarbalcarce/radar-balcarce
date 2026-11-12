@@ -431,8 +431,15 @@ export function crearCliente({
     return Array.isArray(j?.data) ? j.data : [];
   }
 
+  /** La dirección pública (permalink) de una publicación de Instagram, por su id. null si Meta no la da. */
+  async function permalinkDeInstagram(mediaId) {
+    const p = await pagina();
+    const j = await pedir(String(mediaId), { conToken: p.tokenPagina, params: { fields: 'permalink' } });
+    return typeof j?.permalink === 'string' ? j.permalink : null;
+  }
+
   return {
-    pedir, pagina, publicarEnFacebook, publicarFotoEnFacebook, releerEnlace, publicacionesRecientesDeFacebook, publicarFotoEnInstagram, publicarCarruselEnInstagram, publicarAlbumEnFacebook, publicarVideoEnInstagram, publicarVideoEnFacebook,
+    permalinkDeInstagram, pedir, pagina, publicarEnFacebook, publicarFotoEnFacebook, releerEnlace, publicacionesRecientesDeFacebook, publicarFotoEnInstagram, publicarCarruselEnInstagram, publicarAlbumEnFacebook, publicarVideoEnInstagram, publicarVideoEnFacebook,
     enlaceDePublicacion, publicacionesRecientesDeInstagram, verificar,
   };
 }

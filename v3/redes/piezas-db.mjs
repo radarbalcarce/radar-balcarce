@@ -34,6 +34,22 @@ export async function reservarPieza(env, { pieza, dia, hora, bloque, simulado, a
   }
 }
 
+/** Qué pieza y qué día es una fila (para saber a qué nota pertenece su reel). null si no existe. */
+export async function piezaDeLaFila(env, id) {
+  const f = await env.DB.prepare('SELECT pieza, dia FROM piezas WHERE id = ?').bind(id).first();
+  return f ? { pieza: f.pieza, dia: f.dia } : null;
+}
+
+/** Anota en la ficha de la nota las direcciones de su reel (`ficha.reels = { facebook, instagram }`), sumando a lo que ya tenía. false si la nota no existe. */
+export async function anotarReelEnLaNota(env, notaId, reels) {
+  const f = await env.DB.prepare('SELECT ficha FROM notas WHERE id = ?').bind(notaId).first();
+  if (!f) return false;
+  const ficha = analizar(f.ficha, {}) ?? {};
+  ficha.reels = { ...(ficha.reels ?? {}), ...reels };
+  await env.DB.prepare('UPDATE notas SET ficha = ? WHERE id = ?').bind(JSON.stringify(ficha), notaId).run();
+  return true;
+}
+
 /** Cierra (o actualiza) la reserva con lo que contó el programa que dibuja. Devuelve true si la fila existía. */
 export async function cerrarPieza(env, id, r, ahoraISO) {
   const f = await env.DB.prepare('SELECT id FROM piezas WHERE id = ?').bind(id).first();

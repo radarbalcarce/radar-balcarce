@@ -187,7 +187,31 @@ export async function registrarResultado(env, cuerpo, { ahora = new Date() } = {
   if (!Number.isInteger(fila) || fila <= 0) return { error: 'falta la fila' };
   if (!MODOS.has(cuerpo?.estado)) return { error: `estado desconocido: ${cuerpo?.estado}` };
   const ok = await dbp.cerrarPieza(env, fila, cuerpo, ahora.toISOString());
+  if (ok && cuerpo.estado === 'publicada') { try { await enlazarReelConSuNota(env, fila, cuerpo.acciones); } catch { /* el link es un extra: nunca rompe el cierre de la pieza */ } }
   return ok ? { ok: true } : { error: 'no existe esa fila' };
+}
+
+/** La nota a la que pertenece el reel de una pieza: la efeméride del día, el reel de una nota propia o (el clima) la nota del día; null si es un repaso, que cuenta varias. */
+export function notaDeLaPieza(pieza, dia) {
+  if (pieza === 'efemeride') return `efemeride-${dia}`;
+  if (pieza.startsWith('reel-nota-')) return pieza.slice('reel-nota-'.length);
+  if (pieza === 'clima-manana') return `clima-${dia}`;
+  return null;
+}
+
+/** Guarda en la nota las direcciones del reel de Facebook e Instagram (sólo https de esas dos redes). */
+export async function enlazarReelConSuNota(env, fila, acciones) {
+  const p = await dbp.piezaDeLaFila(env, fila);
+  const notaId = p && notaDeLaPieza(p.pieza, p.dia);
+  if (!notaId) return false;
+  const reels = {};
+  for (const a of acciones ?? []) {
+    if (a?.estado !== 'ok' || a.tipo !== 'REELS' || typeof a.url !== 'string') continue;
+    const limpia = !/[\s"<>]/.test(a.url);
+    if (a.red === 'facebook' && limpia && a.url.startsWith('https://www.facebook.com/')) reels.facebook = a.url;
+    if (a.red === 'instagram' && limpia && a.url.startsWith('https://www.instagram.com/')) reels.instagram = a.url;
+  }
+  return Object.keys(reels).length ? dbp.anotarReelEnLaNota(env, notaId, reels) : false;
 }
 
 /** Las líneas del resumen del día sobre las piezas (vacío si no hubo). */
