@@ -96,7 +96,7 @@ test('la fiesta que una persona dio por suspendida tiene página, avisa que se s
   assert.match(h, /name="robots"/);
 });
 
-test('si el municipio no contesta: la agenda lo dice y no se guarda; la página de un evento da 503, no 410', async () => {
+test('si el municipio no contesta: la agenda lo dice y no se guarda; la página de un evento da 410 (el municipio sacó su calendario: ya no está)', async () => {
   const sitio = crearSitio({ traer: async () => { throw new Error('sin red'); }, ahora: () => AHORA });
   const { env } = baseDePrueba();
   env.FOTOS = null;

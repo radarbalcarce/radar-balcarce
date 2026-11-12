@@ -312,7 +312,8 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       let parte;
       try { parte = decodeURIComponent(m[1]); } catch { return { r: noEncontrada() }; }
       const ag = await leerAgenda({ traer, cache });
-      if (!ag.ok) return { r: respuesta('La agenda del municipio no responde. Probá de nuevo en un rato.', { tipo: 'text/plain; charset=utf-8', estado: 503, indexar: false }) };
+      // La Municipalidad sacó de su web el calendario de eventos (13/11/2026: su API da 404): un evento que no se puede leer ya no está (410), no es un error pasajero (503) como lo tomaba Google.
+      if (!ag.ok) return gone('Ese evento');
       const e = eventoDeRuta(ag.eventos, parte);
       if (!e) return gone('Ese evento');
       if (!m[2] && `/agenda/${parte}` !== e.ruta) return redirigir(e.ruta, 3600);
