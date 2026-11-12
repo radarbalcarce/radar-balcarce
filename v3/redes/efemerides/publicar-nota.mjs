@@ -5,6 +5,7 @@
 //
 // Escribe en la carpeta de salida: nota.sql, fotos.json (qué subir y a dónde) y las imágenes. Sin pieza para ese día (ningún hecho que se pueda publicar), no escribe nada y sale bien
 // (ese día no sale nota, como tampoco sale el reel: no es una falla). Reglas: v3/redes/efemerides/REGLAS.md.
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -49,7 +50,8 @@ export async function armarNotaDelDia({ dia, piezas, candidatas, json, bajar, di
     const f = fechaDelDia(dia);
     const placa = await (dibujar ?? placaPng)({ anio: h.anio, titulo: h.titulo, claves: clavesDelHecho({ ...h, detalle }), fecha: `${f.dia} de ${f.mes}`, foto, credito: foto?.credito ?? '' });
     if (!placa.conFoto) foto = null;
-    const archivo = `efemeride-${dia}-${h.id}.png`;
+    const huella = createHash('sha1').update(placa.bytes).digest('hex').slice(0, 8); // el nombre cambia con la imagen: así Cloudflare y los navegadores nunca muestran una versión vieja
+    const archivo = `efemeride-${dia}-${h.id}-${huella}.png`;
     fotos.push({ archivo, bytes: placa.bytes, mime: 'image/png' });
     fotosPublicas[h.id] = { placa: `${BASE_DEL_SITIO}/fotos-notas/${archivo}` };
     if (foto) { // la foto original, sin recorte: la usan la portada y las redes (horizontal)

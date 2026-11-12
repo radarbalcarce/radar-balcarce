@@ -108,7 +108,7 @@ test('armarNotaDelDia: cada hecho tiene su placa cuadrada (con foto o la del añ
   const dibujar = ({ foto }) => ({ bytes: new Uint8Array([1, 2, 3]), conFoto: !!foto });
   const r = await armarNotaDelDia({ dia: '2026-11-12', piezas, candidatas, json: respuestas(), bajar, dibujar });
   const placas = r.fotos.filter((f) => /.png$/.test(f.archivo)); const originales = r.fotos.filter((f) => /-foto.jpg$/.test(f.archivo));
-  assert.equal(placas.length, 4); assert.equal(originales.length, 4); assert.match(placas[0].archivo, /^efemeride-2026-11-12-[a-z0-9]+.png$/);
+  assert.equal(placas.length, 4); assert.equal(originales.length, 4); assert.match(placas[0].archivo, /^efemeride-2026-11-12-[a-z0-9]+-[0-9a-f]{8}[.]png$/);
   assert.ok(r.sql.includes('/fotos-notas/efemeride-2026-11-12-'));
   assert.ok(r.nota.fuentes.some((f) => /^Foto de [0-9]{4}: /.test(f.medio)), 'los créditos van en Fuentes');
   assert.match(r.nota.foto.url, /-foto.jpg$/); assert.equal(r.nota.foto.cubrir, true);
