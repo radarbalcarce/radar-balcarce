@@ -95,3 +95,11 @@ test('un gráfico (grafico: true) trae los botones de descargar y compartir; una
   const comun = await (await ir(e2, '/nota/se-inauguro-la-nueva-sala-del-hospital-abc1234')).text();
   assert.ok(!/graf-bajar/.test(comun), 'una foto común no lleva botones');
 });
+
+test('el gráfico del dólar se puede bajar y compartir como imagen de la marca (SVG con el cierre radarbalcarce.com)', async () => {
+  const { graficoDolarParaImagen } = await import('./vistas/grafico-dolar.mjs');
+  const s = (b) => Array.from({ length: 5 }, (_, i) => ({ f: `2026-11-0${i + 1}`, v: b + i }));
+  const svg = graficoDolarParaImagen({ oficial: s(1500), blue: s(1550) });
+  assert.match(svg, /^<svg /); assert.match(svg, /radarbalcarce\.com/); assert.match(svg, /Radar <tspan/);
+  assert.equal(graficoDolarParaImagen({ oficial: [{ f: '2026-11-01', v: 1 }] }), '');
+});

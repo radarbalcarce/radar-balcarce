@@ -4,7 +4,7 @@ import { esc, partesEnBalcarce } from '../util.mjs';
 import { pagina, paginaLd } from './base.mjs';
 import { iconoDeClima } from './dia.mjs';
 import { graficoHoras, resumenDeHoras } from './grafico-horas.mjs';
-import { graficoDolar, resumenDeDolar, variacionDe } from './grafico-dolar.mjs';
+import { graficoDolar, graficoDolarParaImagen, resumenDeDolar, variacionDe } from './grafico-dolar.mjs';
 import { lugarRotativo } from './avisos.mjs';
 
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
@@ -286,6 +286,12 @@ function bloqueBrecha(d) {
   return `<div class="brecha"><span class="k">Brecha</span><strong>${coma(pc)} %</strong><p>${texto} Es la diferencia entre los dos precios de venta.</p></div>`;
 }
 
+/** Descargar y Compartir el gráfico como imagen de la marca (el navegador convierte el SVG en PNG; «Compartir» lo prende el guion sólo si el aparato sabe compartir). */
+function accionesDelGrafico(historia) {
+  const svg = graficoDolarParaImagen(historia);
+  return svg ? `<div class="graf-acciones"><button type="button" class="graf-svg-bajar" data-svg="${esc(svg)}" data-nombre="radarbalcarce-dolar.png">Descargar gráfico</button><button type="button" class="graf-svg-compartir" data-svg="${esc(svg)}" data-nombre="radarbalcarce-dolar.png" data-titulo="Dólar oficial y blue · Radar Balcarce" hidden>Compartir</button></div>` : '';
+}
+
 function bloqueHistoria(historia) {
   const svg = graficoDolar(historia);
   if (!svg) return '';
@@ -299,7 +305,7 @@ function bloqueHistoria(historia) {
     return `<tr><td>${nombre}</td>${celdas}</tr>`;
   }).join('');
   return `<h2>Cómo se movió</h2>
-<figure class="grafico">${svg}<ul class="leyenda"><li><i></i>Oficial (venta)</li><li><i class="blue"></i>Blue (venta)</li></ul></figure>
+<figure class="grafico">${svg}<ul class="leyenda"><li><i></i>Oficial (venta)</li><li><i class="blue"></i>Blue (venta)</li></ul>${accionesDelGrafico(historia)}</figure>
 <p class="nota-chica">${esc(resumenDeDolar(historia))}</p>
 <table class="tabla variaciones"><thead><tr><th>Casa</th><th class="num">En 7 días</th><th class="num">En 30 días</th></tr></thead><tbody>${filas}</tbody></table>`;
 }
