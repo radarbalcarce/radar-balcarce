@@ -1,6 +1,6 @@
-// La nota diaria de «Un día como hoy» (la arma v3/redes/efemerides/nota.mjs; se reconoce por `ficha.efemerides.hechos`): una línea del tiempo que se anima y, debajo, las historias
-// del día tratadas por igual (año, título, texto y su imagen). Formal: sin datos arbitrarios ni línea del tiempo animada. Colores del sitio; sin JavaScript (sólo CSS) y quieta si el
-// aparato pide menos movimiento. Las dimensiones de cada foto van en el HTML para que la página no salte al cargar.
+// La nota diaria de «Un día como hoy» (la arma v3/redes/efemerides/nota.mjs; se reconoce por `ficha.efemerides.hechos`): una GALERÍA con la infografía de cada año (se ve entera, se baja
+// y se comparte) y, debajo, cada historia desarrollada en texto (año, título, qué pasó y el contexto). Colores del sitio; sin JavaScript. Las dimensiones de cada imagen van en el HTML
+// para que la página no salte al cargar. Formato de imágenes: docs/3-0/FORMATO-DE-IMAGENES.md.
 import { esc, urlSegura } from '../util.mjs';
 
 export const esEfemerides = (n) => Array.isArray(n?.ficha?.efemerides?.hechos) && n.ficha.efemerides.hechos.length > 0;
@@ -20,42 +20,51 @@ export function ejeDelTiempo(anios, anioActual) {
   return { desde, pos, marcas };
 }
 
-function hechoHtml(h, i) {
-  const foto = h.foto && urlSegura(h.foto.url) ? h.foto : null;
-  const medidas = foto?.ancho && foto?.alto ? ` width="${Number(foto.ancho)}" height="${Number(foto.alto)}"` : ' width="1080" height="1350"';
-  const nombre = `radarbalcarce-un-dia-como-hoy-${String(h.anio).replace(/[^0-9a-z]/gi, '')}${String(foto?.url ?? '').endsWith('.png') ? '.png' : '.jpg'}`;
-  const imagen = foto
-    ? `<figure class="ef-fig"><img class="ef-img" src="${esc(foto.url)}" alt="${esc(foto.alt || h.titulo)}"${medidas} ${i === 0 ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"'}><a class="ef-baja" href="${esc(foto.url)}" download="${esc(nombre)}" aria-label="Descargar la infografía de ${esc(h.anio)}">Descargar infografía</a></figure>`
-    : '';
-  // los datos van como texto (se leen, se copian y los lee Google); los créditos de las fotos, en «Fuentes»
-  const datos = (h.datos ?? []).slice(0, 3).map((d) => `<li><b>${esc(d.b)}</b> <span>${esc(d.s)}</span></li>`).join('');
-  return `<article class="ef-hecho" style="--i:${i}">${imagen}<div class="ef-cuerpo"><p class="ef-anio">${esc(h.anio)}</p><h2>${esc(h.titulo)}</h2>${h.texto ? `<p class="ef-lead">${esc(h.texto)}</p>` : ''}${h.detalle?.length ? `<h3 class="ef-contexto">Para ponerlo en contexto</h3>${h.detalle.map((t) => `<p>${esc(t)}</p>`).join('')}` : ''}${datos ? `<ul class="ef-datos">${datos}</ul>` : ''}</div></article>`;
+const fotoSegura = (h) => (h.foto && urlSegura(h.foto.url) ? h.foto : null);
+const idDelHecho = (h) => `ef-${String(h.anio).replace(/[^0-9a-z]/gi, '')}`;
+const nombreDeLaImagen = (h, foto) => `radarbalcarce-un-dia-como-hoy-${String(h.anio).replace(/[^0-9a-z]/gi, '')}${String(foto?.url ?? '').endsWith('.png') ? '.png' : '.jpg'}`;
+
+/** Una infografía de la galería: toca para ir a la historia; el enlace «Descargar» baja la imagen con la marca. */
+function figuraHtml(h, i) {
+  const foto = fotoSegura(h);
+  if (!foto) return '';
+  const medidas = foto.ancho && foto.alto ? ` width="${Number(foto.ancho)}" height="${Number(foto.alto)}"` : ' width="1080" height="1350"';
+  return `<figure class="ef-fig"><a class="ef-ir" href="#${idDelHecho(h)}" aria-label="Leer la historia de ${esc(h.anio)}"><img class="ef-img" src="${esc(foto.url)}" alt="${esc(foto.alt || h.titulo)}"${medidas} ${i === 0 ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"'}></a><a class="ef-baja" href="${esc(foto.url)}" download="${esc(nombreDeLaImagen(h, foto))}" aria-label="Descargar la infografía de ${esc(h.anio)}">Descargar</a></figure>`;
 }
 
-/** El cuerpo de la nota de efemérides (reemplaza al de párrafos): una introducción y las historias, de la más nueva a la más vieja, cada una con su imagen. Pide `n.ficha.efemerides = { dia, hechos: [{ anio, titulo, texto, foto }] }`. */
+/** Una historia desarrollada en texto (los datos van como texto: se leen, se copian y los lee Google; los créditos de las fotos, en «Fuentes»). */
+function historiaHtml(h) {
+  const foto = fotoSegura(h);
+  const datos = (h.datos ?? []).slice(0, 3).map((d) => `<li><b>${esc(d.b)}</b> <span>${esc(d.s)}</span></li>`).join('');
+  const baja = foto ? `<p class="ef-bajar"><a href="${esc(foto.url)}" download="${esc(nombreDeLaImagen(h, foto))}">Descargar la infografía de ${esc(h.anio)}</a></p>` : '';
+  return `<article class="ef-hecho" id="${idDelHecho(h)}"><p class="ef-anio">${esc(h.anio)}</p><h2>${esc(h.titulo)}</h2>${h.texto ? `<p class="ef-lead">${esc(h.texto)}</p>` : ''}${h.detalle?.length ? `<h3 class="ef-contexto">Para ponerlo en contexto</h3>${h.detalle.map((t) => `<p>${esc(t)}</p>`).join('')}` : ''}${datos ? `<ul class="ef-datos">${datos}</ul>` : ''}${baja}</article>`;
+}
+
+/** El cuerpo de la nota de efemérides (reemplaza al de párrafos): una introducción, la galería de infografías y las historias desarrolladas, de la más nueva a la más vieja. Pide `n.ficha.efemerides = { dia, hechos: [{ anio, titulo, texto, detalle, foto }] }`. */
 export function efemeridesHtml(n) {
   const { dia, hechos } = n.ficha.efemerides;
   const orden = [...hechos].sort((a, b) => b.anio - a.anio);
-  return `<p class="ef-intro">Un día como hoy, ${esc(diaLargo(dia))}, esto fue lo que pasó en otros años.</p>${orden.map(hechoHtml).join('')}`;
+  const galeria = orden.map(figuraHtml).join('');
+  return `<p class="ef-intro">Un día como hoy, ${esc(diaLargo(dia))}, esto fue lo que pasó en otros años. Tocá una imagen para leer la historia; cada una se puede bajar y compartir.</p>${galeria ? `<div class="ef-galeria">${galeria}</div>` : ''}${orden.map(historiaHtml).join('')}`;
 }
 
 export const ESTILOS_EFEMERIDES = `
 .ef-intro{font-size:1.1em;margin:0 0 18px}
-.ef-hecho{background:var(--papel);border:1px solid var(--linea);border-radius:14px;margin:0 0 20px;overflow:hidden;opacity:0;transform:translateY(12px);animation:ef-sube .6s ease-out calc(.3s + var(--i) * .25s) forwards}
-.ef-fig{position:relative;margin:0}
-.ef-fig .ef-img{display:block;width:100%;max-width:640px;height:auto;max-height:none;aspect-ratio:4/5;object-fit:contain;margin:0 auto}
-.ef-baja{position:absolute;right:12px;bottom:12px;display:none;background:rgba(20,22,26,.78);color:#fff;font:700 13px var(--sans);padding:8px 12px;border-radius:999px;text-decoration:none}
-.ef-fig:hover .ef-baja,.ef-baja:focus-visible{display:inline-block}
-@media (hover:none){.ef-baja{display:inline-block;position:static;margin:8px 0 0 12px;background:none;color:var(--suave);padding:4px 0;font-weight:600;text-decoration:underline}}
-.ef-cuerpo{padding:14px 18px 18px}
-.ef-anio{margin:0;font:900 clamp(48px,12vw,64px)/1 var(--serif);color:var(--rojo)}
-.ef-cuerpo h2{margin:6px 0 10px;font:900 clamp(22px,5vw,28px)/1.15 var(--serif);color:var(--tinta)}
-.ef-cuerpo p{margin:0 0 12px}
+.ef-galeria{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 0 28px}
+.ef-fig{position:relative;margin:0;border-radius:12px;overflow:hidden;background:var(--papel);border:1px solid var(--linea)}
+.ef-fig .ef-img{display:block;width:100%;height:auto;max-height:none;aspect-ratio:4/5;object-fit:contain;margin:0}
+.ef-ir{display:block}
+.ef-baja{position:absolute;right:8px;bottom:8px;background:rgba(20,22,26,.82);color:#fff;font:700 12.5px var(--sans);padding:7px 11px;border-radius:999px;text-decoration:none}
+.ef-baja:hover,.ef-baja:focus-visible{background:var(--rojo)}
+.ef-hecho{background:var(--papel);border:1px solid var(--linea);border-radius:14px;margin:0 0 18px;padding:16px 18px 14px;scroll-margin-top:16px}
+.ef-anio{margin:0;font:900 clamp(44px,11vw,60px)/1 var(--serif);color:var(--rojo)}
+.ef-hecho h2{margin:6px 0 10px;font:900 clamp(22px,5vw,28px)/1.15 var(--serif);color:var(--tinta)}
+.ef-hecho p{margin:0 0 12px}
 .ef-lead{font-weight:600}
 .ef-contexto{margin:16px 0 8px;font:700 13px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--suave)}
 .ef-datos{display:flex;flex-wrap:wrap;gap:6px 8px;list-style:none;margin:12px 0 0;padding:0}
 .ef-datos li{padding:5px 11px;border:1px solid var(--linea);border-radius:999px;background:var(--crema);font:700 13.5px var(--sans);color:var(--tinta)}
 .ef-datos li span{font-weight:500;color:var(--suave)}
-@keyframes ef-sube{to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.ef-hecho{animation:none;opacity:1;transform:none}}
+.ef-bajar{margin:6px 0 0!important;font:600 14px var(--sans)}
+.ef-bajar a{color:var(--suave);text-decoration:underline}
 `;

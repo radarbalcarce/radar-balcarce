@@ -141,7 +141,8 @@ test('la vista: línea del tiempo y todas las historias iguales, cada una con su
   assert.equal(esEfemerides(n), true); assert.equal(esEfemerides({ ficha: {} }), false);
   const html = efemeridesHtml(n);
   assert.equal((html.match(/class="ef-hecho"/g) || []).length, 4);
-  assert.equal((html.match(/class="ef-img"/g) || []).length, 4); assert.equal((html.match(/ download="radarbalcarce-un-dia-como-hoy-[0-9]{4}[.]png"/g) || []).length, 4);
+  assert.equal((html.match(/class="ef-img"/g) || []).length, 4); assert.equal((html.match(/ download="radarbalcarce-un-dia-como-hoy-[0-9]{4}[.]png"/g) || []).length, 8, 'cada año se baja desde la galería y desde su texto');
+  assert.match(html, /class="ef-galeria"/); assert.equal((html.match(/id="ef-[0-9]{4}"/g) || []).length, 4);
   assert.ok(!html.includes('Ana, CC BY') && !html.includes('ef-pie'), 'el crédito va en Fuentes, no en la página');
   assert.ok(!html.includes('ef-datos') && !html.includes('ef-pt'), 'formal: sin datos arbitrarios ni línea del tiempo');
   assert.ok(!html.includes('<b>x</b>') && html.includes('&lt;b&gt;x&lt;/b&gt;'));

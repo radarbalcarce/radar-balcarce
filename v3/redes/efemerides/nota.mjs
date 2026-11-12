@@ -166,7 +166,7 @@ async function archivoDeCommons(nombre, tituloDePagina, { json, bajar, ancho }) 
 const sinParentesis = (t) => String(t).replace(/[​-‍﻿]/g, '').replace(/\s*\([^()]*\)/g, '').replace(/\s*\[[^\]]*\]/g, '').replace(/\s+/g, ' ').trim();
 const frasesDe = (t) => sinParentesis(t).split(/(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÑ¿¡"«])/).map((x) => x.trim()).filter(Boolean);
 
-/** Los párrafos del comienzo del artículo de Wikipedia del hecho (hasta ~1.100 letras, sin paréntesis de fechas ni pronunciaciones, cortado en una frase entera). [] si no hay. */
+/** Los párrafos del comienzo del artículo de Wikipedia del hecho (hasta ~2.000 letras, sin paréntesis de fechas ni pronunciaciones, cortado en una frase entera). [] si no hay. */
 export async function detalleDeWikipedia(hecho, { json } = {}) {
   const pagina = paginaDeWikipedia(hecho?.enlace);
   if (!pagina) return [];
@@ -175,10 +175,10 @@ export async function detalleDeWikipedia(hecho, { json } = {}) {
   const parrafos = texto.split(/\n+/).map(sinParentesis).filter((x) => x.length > 40);
   const salida = []; let largo = 0;
   for (const p of parrafos) {
-    if (salida.length >= 3 || largo >= 1100) break;
+    if (salida.length >= 5 || largo >= 2000) break;
     let t = p;
-    if (largo + t.length > 1250) { // el último párrafo se corta en una frase entera
-      t = ''; for (const f of frasesDe(p)) { if (largo + (t + f).length > 1250) break; t += (t ? ' ' : '') + f; }
+    if (largo + t.length > 2300) { // el último párrafo se corta en una frase entera
+      t = ''; for (const f of frasesDe(p)) { if (largo + (t + f).length > 2300) break; t += (t ? ' ' : '') + f; }
       if (!t) break;
     }
     salida.push(t); largo += t.length;
