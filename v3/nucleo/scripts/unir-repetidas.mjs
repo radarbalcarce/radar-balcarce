@@ -137,7 +137,7 @@ export function elegirCual(a, b, enRedes = new Set()) {
  * si no, la primera, salvo que ella no tenga foto y la repetida sí.
  * Devuelve [{ queda, retirar: [{ nota, motivo }] }] sólo de los grupos con algo para retirar.
  */
-export function agruparRepetidas(notas, { enRedes = new Set() } = {}) {
+export function agruparRepetidas(notas, { enRedes = new Set(), motivos = null, tambien = new Set() } = {}) {
   const orden = [...(notas ?? [])].filter(esUnible).sort((x, y) => (cuandoSalio(x) < cuandoSalio(y) ? -1 : cuandoSalio(x) > cuandoSalio(y) ? 1 : x.id < y.id ? -1 : 1));
   const grupos = [];
   for (const n of orden) {
@@ -145,6 +145,8 @@ export function agruparRepetidas(notas, { enRedes = new Set() } = {}) {
     for (const g of grupos) {
       const motivo = sonRepetidas(g.queda, n);
       if (!motivo) continue;
+      // `motivos`: sólo se unen los de esos motivos (p. ej. título y dirección); `tambien`: ids de notas cuyo par se une aunque sea por otro motivo, revisado a mano
+      if (motivos && !motivos.includes(motivo) && !tambien.has(n.id) && !tambien.has(g.queda.id)) continue;
       const e = elegirCual(g.queda, n, enRedes);
       if (!e) continue; // las dos ya están en redes: no se tocan
       g.retirar.push({ nota: e.retira, motivo, razon: e.razon });
@@ -192,12 +194,12 @@ export function informeEnTexto(grupos, { simulado = true, total = 0, enRedes = n
  * `deps`: { leerNotas(desdeISO) → filas, respaldar(filasCompletas) → clave, retirar(id, noPublicarObjeto) → void, ahora() }. Orden: detectar → (si no es simulación) respaldar y controlar → retirar.
  * Si el respaldo falla, no se retira nada. Si la detección encuentra más de TOPE_DE_RETIROS, se frena sin escribir.
  */
-export async function correr(deps, { simular = true } = {}) {
+export async function correr(deps, { simular = true, motivos = null, tambien = new Set() } = {}) {
   const ahora = deps.ahora ? deps.ahora() : new Date();
   const desde = new Date(ahora.getTime() - DIAS_A_MIRAR * 86400000).toISOString();
   const notas = await deps.leerNotas(desde);
   const enRedes = deps.leerEnRedes ? await deps.leerEnRedes(desde) : new Set(); // ids de notas que ya salieron en Facebook/Instagram/repasos; si no se puede leer, falla (no se adivina)
-  const grupos = agruparRepetidas(notas, { enRedes });
+  const grupos = agruparRepetidas(notas, { enRedes, motivos, tambien });
   const retiros = grupos.flatMap((g) => g.retirar.map((r) => ({ id: r.nota.id, queda: g.queda, motivo: r.motivo })));
   const base = { revisadas: notas.length, grupos, enRedes, retiros: retiros.length, simulado: simular, respaldo: null, retiradas: [] };
   if (simular || !retiros.length) return base;
@@ -264,9 +266,11 @@ export async function depsDeVerdad(env = process.env, { simular = true } = {}) {
 
 async function principal() {
   const simular = !process.argv.includes('--real');
+  const arg = (n) => process.argv.find((a) => a.startsWith(`--${n}=`))?.split('=')[1]?.split(',').filter(Boolean) ?? null;
+  const motivos = arg('motivos'); const tambien = new Set(arg('tambien') ?? []);
   const ocultar = (t) => [process.env.CLOUDFLARE_API_TOKEN, process.env.R2_SECRET_ACCESS_KEY, process.env.R2_ACCESS_KEY_ID].filter(Boolean).reduce((x, s) => x.split(s).join('***'), String(t));
   try {
-    const r = await correr(await depsDeVerdad(process.env, { simular }), { simular });
+    const r = await correr(await depsDeVerdad(process.env, { simular }), { simular, motivos, tambien });
     const texto = informeEnTexto(r.grupos, { simulado: r.simulado, total: r.revisadas, enRedes: r.enRedes })
       + (r.simulado ? '' : `\nRespaldo: ${r.respaldo ?? '(nada que retirar)'}\nRetiradas: ${r.retiradas.length}\n`);
     console.log(texto);

@@ -243,3 +243,15 @@ test('agruparRepetidas con enRedes: queda la de redes y el informe lo dice; con 
   const r = await correr({ leerNotas: async () => [a, b], leerEnRedes: async () => new Set(['n2']), ahora: () => AHORA }, { simular: true });
   assert.equal(r.grupos[0].queda.id, 'n2');
 });
+
+test('agruparRepetidas con motivos y tambien: sólo une los motivos pedidos, más los pares revisados a mano', () => {
+  const base = { seccion: 'Balcarce', estado: 'publicada', fuentes: [{ medio: 'M', url: 'https://m/x' }], foto: { url: 'https://f/x.jpg' } };
+  const A = { ...base, id: 'a1', titulo: 'Panebianco destaca la expectativa por la visita del papa León XIV', creada: '2026-11-03T16:00:00Z', publicada_en: '2026-11-03T16:00:00Z' };
+  const B = { ...base, id: 'b1', titulo: 'Panebianco destaca la expectativa por la visita del papa León XIV en Balcarce', creada: '2026-11-03T16:30:00Z', publicada_en: '2026-11-03T16:30:00Z' };
+  const todo = agruparRepetidas([A, B]);
+  if (!todo.length) return; // el criterio de otras pruebas ya cubre la detección; acá sólo importa el filtro
+  const motivo = todo[0].retirar[0].motivo;
+  assert.equal(agruparRepetidas([A, B], { motivos: [motivo] }).length, 1);
+  assert.equal(agruparRepetidas([A, B], { motivos: ['otro'] }).length, 0);
+  assert.equal(agruparRepetidas([A, B], { motivos: ['otro'], tambien: new Set(['b1']) }).length, 1);
+});

@@ -19,6 +19,14 @@ on:
         description: 'Sólo mostrar la lista de repetidas, sin tocar nada (para mirarla antes)'
         type: boolean
         default: true
+      motivos:
+        description: 'Sólo unir estos motivos (coma): direccion, titulo, nombre. Vacío = todos'
+        type: string
+        default: 'titulo,direccion'
+      tambien:
+        description: 'Ids de notas cuyo par se une igual, aunque sea por otro motivo (coma), revisadas a mano'
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -39,6 +47,8 @@ jobs:
       R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
       R2_RESPALDOS: ${{ vars.R2_RESPALDOS }}
       SIMULAR: ${{ inputs.simular }}
+      MOTIVOS: ${{ inputs.motivos }}
+      TAMBIEN: ${{ inputs.tambien }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -51,7 +61,7 @@ jobs:
       - name: Unir repetidas
         run: |
           if [ "$SIMULAR" = "false" ]; then
-            node v3/nucleo/scripts/unir-repetidas.mjs --real
+            node v3/nucleo/scripts/unir-repetidas.mjs --real --motivos="$MOTIVOS" --tambien="$TAMBIEN"
           else
-            node v3/nucleo/scripts/unir-repetidas.mjs
+            node v3/nucleo/scripts/unir-repetidas.mjs --motivos="$MOTIVOS" --tambien="$TAMBIEN"
           fi
