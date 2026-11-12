@@ -54,7 +54,7 @@ export const ESTILOS_EFEMERIDES = `
 .ef-fig{position:relative;margin:0;border-radius:12px;overflow:hidden;background:var(--papel);border:1px solid var(--linea)}
 .ef-fig .ef-img{display:block;width:100%;height:auto;max-height:none;aspect-ratio:4/5;object-fit:contain;margin:0}
 .ef-ir{display:block}
-.ef-baja{position:absolute;right:8px;bottom:8px;background:rgba(20,22,26,.82);color:#fff;font:700 12.5px var(--sans);padding:7px 11px;border-radius:999px;text-decoration:none}
+.ef-baja{position:absolute;right:8px;top:8px;background:rgba(20,22,26,.82);color:#fff;font:700 12.5px var(--sans);padding:7px 11px;border-radius:999px;text-decoration:none}
 .ef-baja:hover,.ef-baja:focus-visible{background:var(--rojo)}
 .ef-hecho{background:var(--papel);border:1px solid var(--linea);border-radius:14px;margin:0 0 18px;padding:16px 18px 14px;scroll-margin-top:16px}
 .ef-anio{margin:0;font:900 clamp(44px,11vw,60px)/1 var(--serif);color:var(--rojo)}
