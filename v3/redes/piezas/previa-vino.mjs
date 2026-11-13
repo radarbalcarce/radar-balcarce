@@ -33,9 +33,9 @@ export const FOTOS_ELEGIDAS = Object.freeze({
   ],
   vinotecas: [
     'vinedos.balcarce/foto1.jpg', //   entrada: la botella de Séptimo Chukker sobre barricas
+    'thewinesco/foto1.jpg', //         The Wines Co.: la botella Pyros Malbec con su caja de madera
     'talouvinoteca137/foto1.jpg', //   Talou Vinoteca: la estantería y el mostrador del local
     'almacendevinos1980/foto1.jpg', // 1980 Almacén de Vinos: copa y botella «On the Road»
-    'thewinesco/foto1.jpg', //         The Wines Co.: la botella Pyros Malbec con su caja de madera
     'almacendevinos1980/foto2.jpg', // cierre: el cartel «1980 Almacén de Vinos» en el portón
   ],
   gastronomia: [
@@ -99,18 +99,18 @@ export const REELS = Object.freeze({
     hashtag: 'Vino',
     escenas: [
       { titulo: 'Balcarce se copa', voz: 'Este sábado catorce, Balcarce se copa: degustaciones sin cargo.', subtitulo: 'De 16 a 21 hs, en tres vinotecas.' },
-      { titulo: 'Talou Vinoteca', lugar: 'talouvinoteca137', voz: 'Talou Vinoteca, en calle veintidós al seiscientos cuarenta y tres.', subtitulo: 'Calle 22 al 643. Línea Bravento.' },
-      { titulo: '1980 Almacén de Vinos', lugar: 'almacendevinos1980', voz: 'Mil novecientos ochenta Almacén de Vinos, en calle veintiséis al ochocientos veintiocho.', subtitulo: 'Calle 26 al 828. Líneas Bravento y Séptimo Chukker.' },
-      { titulo: 'The Wines Co.', lugar: 'thewinesco', voz: 'The Wines Co., en avenida Kelly al ochocientos treinta y dos.', subtitulo: 'Av. Kelly al 832. Líneas Bravento y Séptimo Chukker.' },
+      { titulo: 'The Wines Co.', lugar: 'thewinesco', voz: 'The Wines Co., en avenida Kelly al ochocientos treinta y dos.', subtitulo: 'Av. Kelly al 832.' },
+      { titulo: 'Talou Vinoteca', lugar: 'talouvinoteca137', voz: 'Talou Vinoteca, en calle veintidós al seiscientos cuarenta y tres.', subtitulo: 'Calle 22 al 643.' },
+      { titulo: '1980 Almacén de Vinos', lugar: 'almacendevinos1980', voz: 'Mil novecientos ochenta Almacén de Vinos, en calle veintiséis al ochocientos veintiocho.', subtitulo: 'Calle 26 al 828.' },
       CIERRE_DE(),
     ],
     texto: [
       '«Balcarce se copa»: este sábado 14 de noviembre, de 16 a 21 hs, degustaciones sin cargo en tres vinotecas. ¡Descubrí el sabor de nuestros suelos!',
+      'The Wines Co. (@thewinesco), Av. Kelly N° 832: líneas Bravento y Séptimo Chukker.',
       'Talou Vinoteca (@talouvinoteca137), calle 22 N° 643: línea Bravento de Bodega Puerta Abra.',
       '1980 Almacén de Vinos (@almacendevinos1980), calle 26 N° 828: líneas Bravento, de Bodega Puerta Abra, y Séptimo Chukker, de Viñedos y Bodegas Balcarce.',
-      'The Wines Co. (@thewinesco), Av. Kelly N° 832: líneas Bravento y Séptimo Chukker.',
     ],
-    menciones: ['@talouvinoteca137', '@almacendevinos1980', '@thewinesco', ...MUNICIPALES],
+    menciones: ['@thewinesco', '@talouvinoteca137', '@almacendevinos1980', ...MUNICIPALES],
   },
   gastronomia: {
     id: 'vino-gastronomia',
