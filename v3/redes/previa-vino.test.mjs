@@ -105,21 +105,21 @@ test('viñedos: los dos, con los horarios oficiales, sin costo, grupos guiados y
   assert.match(REELS.vinedos.texto.join(' '), /sin costo, en grupos guiados y con capacidad limitada/);
 });
 
-test('vinotecas: Talou, 1980 y The Wines Co. en ese orden, una por escena: la voz dice nombre y dirección, la pantalla la dirección y la línea de vino', () => {
-  assert.deepEqual(REELS.vinotecas.escenas.slice(1, 4).map((e) => e.titulo), ['Talou Vinoteca', '1980 Almacén de Vinos', 'The Wines Co.']);
+test('vinotecas: The Wines Co., Talou y 1980 en ese orden, una por escena: la voz dice nombre y dirección, la pantalla la dirección y la línea de vino', () => {
+  assert.deepEqual(REELS.vinotecas.escenas.slice(1, 4).map((e) => e.titulo), ['The Wines Co.', 'Talou Vinoteca', '1980 Almacén de Vinos']);
   const l = leido('vinotecas');
-  assert.match(l, /Calle 22 al 643\. Línea Bravento\./);
-  assert.match(l, /Calle 26 al 828\. Líneas Bravento y Séptimo Chukker\./);
-  assert.match(l, /Av\. Kelly al 832\. Líneas Bravento y Séptimo Chukker\./);
+  assert.match(l, /Calle 22 al 643./);
+  assert.match(l, /Calle 26 al 828./);
+  assert.match(l, /Av. Kelly al 832./);
   assert.match(l, /De 16 a 21 hs, en tres vinotecas/);
   assert.doesNotMatch(l, /calle 21|715/);
   const v = voz('vinotecas');
-  assert.ok(v.indexOf('Talou') < v.indexOf('Mil novecientos ochenta') && v.indexOf('Mil novecientos ochenta') < v.indexOf('The Wines Co.'));
+  assert.ok(v.indexOf('The Wines Co.') < v.indexOf('Talou') && v.indexOf('Talou') < v.indexOf('Mil novecientos ochenta'));
   assert.match(v, /calle veintidós al seiscientos cuarenta y tres/);
   assert.match(v, /calle veintiséis al ochocientos veintiocho/);
   assert.match(v, /avenida Kelly al ochocientos treinta y dos/);
   assert.doesNotMatch(v, /Bravento|Chukker|Puerta Abra/, 'la línea de vino va sólo en pantalla');
-  assert.deepEqual(REELS.vinotecas.menciones.slice(0, 3), ['@talouvinoteca137', '@almacendevinos1980', '@thewinesco']);
+  assert.deepEqual(REELS.vinotecas.menciones.slice(0, 3), ['@thewinesco', '@talouvinoteca137', '@almacendevinos1980']);
   for (const e of REELS.vinotecas.escenas.slice(1, 4)) assert.equal((e.voz.match(/\b(avenida|calle)\b/gi) ?? []).length, 1);
   assert.match(REELS.vinotecas.texto.join(' '), /calle 26 N° 828/);
 });
@@ -150,8 +150,8 @@ test('lo que se lee en pantalla lleva los números en dígitos y la voz sigue en
   }
   assert.match(leido('vinotecas'), /643/); assert.match(leido('vinotecas'), /828/); assert.match(leido('vinotecas'), /832/); assert.match(pantalla('vinedos'), /Sábado 14 de noviembre/); assert.match(voz('vinedos'), /Este sábado catorce/);
   const p = armada('vinotecas');
-  assert.equal(p.escenas[1].subtitulo, 'Calle 22 al 643. Línea Bravento.');
-  assert.equal(p.escenas[1].datos.marca, p.escenas[1].subtitulo);
+  assert.equal(p.escenas[2].subtitulo, 'Calle 22 al 643.');
+  assert.equal(p.escenas[2].datos.marca, p.escenas[2].subtitulo);
 });
 
 test('las cuentas del programa: Turismo, Producción y Empleo y el Municipio van en los tres reels', () => {
@@ -198,7 +198,7 @@ test('imágenes: TODAS las escenas llevan foto (cierre incluido), ninguna repeti
     assert.equal(FOTOS_ELEGIDAS[clave].length, REELS[clave].escenas.length, 'la tabla cubre cada escena');
     assert.equal(new Set(FOTOS_ELEGIDAS[clave]).size, FOTOS_ELEGIDAS[clave].length, 'la tabla no repite');
   }
-  assert.equal(escenasConFotos(REELS.vinotecas, fotos)[1].foto.ruta, '/x/talouvinoteca137/foto1.jpg');
+  assert.equal(escenasConFotos(REELS.vinotecas, fotos)[1].foto.ruta, '/x/thewinesco/foto1.jpg');
   // el armador recibe la foto en las cinco escenas, nunca una placa sin foto
   const p = armarDelPlan(itemsDelVino({ nota: NOTA, fotos })[1], { dia: '2026-11-14' });
   for (const e of p.escenas) assert.equal(e.datos.foto.credito, 'Foto: Instagram de cada lugar');
@@ -277,7 +277,7 @@ test('el texto del posteo: nota completa con enlace en Facebook, link en la bio 
     }
   }
   assert.match(textoDePieza(armada('vinedos'), itemDe('vinedos'), 'instagram'), /\(@vinedos\.balcarce\)[\s\S]*\(@vinedolospinos\)/);
-  assert.match(textoDePieza(armada('vinotecas'), itemDe('vinotecas'), 'instagram'), /@talouvinoteca137 @almacendevinos1980 @thewinesco @turismobalcarce @produccionyempleo.balcarce @balcarcemunicipio/);
+  assert.match(textoDePieza(armada('vinotecas'), itemDe('vinotecas'), 'instagram'), /@thewinesco @talouvinoteca137 @almacendevinos1980 @turismobalcarce @produccionyempleo.balcarce @balcarcemunicipio/);
 });
 
 test('menciones vacías (MENCIONES=-) sacan las cuentas del texto', () => {
@@ -304,4 +304,14 @@ test('el workflow: mudo sin claves, con voz sólo la de redes, y Meta y Buffer s
   assert.ok(yml.includes("GEMINI_API_KEY_REDES: ${{ (inputs.voz == 'si' || inputs.publicar == 'si') && secrets.GEMINI_API_KEY_REDES || '' }}"));
   for (const s of ['META_TOKEN', 'BUFFER_API_KEY']) assert.ok(yml.includes(`${s}: \${{ inputs.publicar == 'si' && secrets.${s} || '' }}`), s);
   assert.doesNotMatch(yml, /schedule:/);
+});
+
+test('con la hora real de cada palabra de la voz, cada escena empieza cuando se dice su primera palabra (imagen y subtítulo acompañan a la voz)', async () => {
+  const { ajustarALaVoz } = await import('./piezas/correr.mjs');
+  const pieza = { escenas: [{ voz: 'uno dos' }, { voz: 'tres cuatro cinco cinco' }, { voz: 'seis' }] };
+  const palabras = [0.2, 0.6, 1.0, 1.4, 1.8, 2.2, 6.0, 6.4].slice(0, 7).map((desde) => ({ desde }));
+  const p = ajustarALaVoz(pieza, 7, palabras);
+  assert.equal(p.escenas[0].duracion, 1);
+  assert.equal(p.escenas[1].duracion, 5);
+  assert.ok(p.escenas[2].duracion >= 2);
 });

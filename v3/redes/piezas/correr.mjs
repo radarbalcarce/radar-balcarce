@@ -106,15 +106,25 @@ export function armarDelPlan(item, {
  * nunca menos que la voz y nunca más de 2 s de silencio al final. La voz se reparte entre las escenas según las palabras que dice cada una (las que no dicen nada cuentan como una
  * palabra): si la voz es más corta que lo previsto, las escenas se acortan; si es más larga, se estiran. El cierre se suma a la última. Vale para todas las piezas con voz.
  */
-export function ajustarALaVoz(pieza, segundosDeVoz) {
+export function ajustarALaVoz(pieza, segundosDeVoz, palabras = null) {
   if (!(segundosDeVoz > 0) || !pieza.escenas?.length) return pieza;
   const pesos = pieza.escenas.map((e) => Math.max(1, contarPalabras(e.voz ?? '')));
   const suma = pesos.reduce((a, b) => a + b, 0);
   const total = Number((segundosDeVoz + CIERRE_DESPUES_DE_LA_VOZ).toFixed(2));
+  // Con la hora real de cada palabra de la voz (`palabras`: desde), cada escena empieza cuando su primera palabra se dice: la imagen y el subtítulo acompañan a la voz (Hernán, 13/11: «las imágenes no coinciden»).
+  const conHoras = Array.isArray(palabras) && palabras.length >= pieza.escenas.length && palabras.every((w) => Number.isFinite(w?.desde));
+  const inicios = [];
+  if (conHoras) {
+    let acum = 0;
+    for (let i = 0; i < pieza.escenas.length; i++) {
+      inicios.push(i === 0 ? 0 : Number(palabras[Math.min(palabras.length - 1, Math.round((acum * palabras.length) / suma))].desde.toFixed(2)));
+      acum += pesos[i];
+    }
+  }
   let usado = 0;
   const escenas = pieza.escenas.map((e, i) => {
     const ultima = i === pieza.escenas.length - 1;
-    const duracion = ultima ? Number((total - usado).toFixed(2)) : Number(((segundosDeVoz * pesos[i]) / suma).toFixed(2));
+    const duracion = ultima ? Number((total - usado).toFixed(2)) : conHoras ? Number((inicios[i + 1] - inicios[i]).toFixed(2)) : Number(((segundosDeVoz * pesos[i]) / suma).toFixed(2));
     usado += duracion;
     return { ...e, duracion };
   });
@@ -308,7 +318,7 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
       else {
         voz = await deps.decir(pieza.guion, `${base}.mp3`, { voz: pieza.voz, pieza: item.id, bloque: item.bloque, activas: plan.activas });
         informe.vozUsada = !voz.deLaMemoria;
-        pieza = ajustarALaVoz(pieza, voz.duracion);
+        pieza = ajustarALaVoz(pieza, voz.duracion, pieza.escenas.some((e) => e.subtitulo) ? voz.palabras : null);
       }
       informe.duracion = pieza.duracion;
 
