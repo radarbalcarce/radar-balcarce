@@ -29,6 +29,9 @@ import { contrasenaDelWebhook } from '../redes.mjs';
 import { diaDeBalcarce } from '../elegir.mjs';
 import { contarPalabras } from './voz.mjs';
 import { CIERRE_DESPUES_DE_LA_VOZ, FINDE } from './variables.mjs';
+import { tarjetaDeServicio, tarjetasPrendidas, REDES_DE_TARJETA } from './tarjeta-servicio.mjs';
+import { sinSecretos, crearClienteBluesky, HANDLE_BLUESKY } from '../bluesky.mjs';
+import { crearClienteThreads } from '../threads.mjs';
 
 const RAIZ = path.join(import.meta.dirname, '..', '..', '..');
 export const DIRECCION_DE_LAS_REDES = 'https://radar-redes.radarbalcarce.workers.dev';
@@ -136,6 +139,43 @@ async function hacerCarrusel({ pieza, item, plan, carpeta, env, deps, informe, r
     informe.estado = 'lista';
   }
   fs.writeFileSync(path.join(carpeta, `${item.id}.json`), JSON.stringify({ ...informe, habriaPublicadoA: reloj.toISOString(), programada: item.hora, pieza: item.id, laminas: r.archivos.length }, null, 2));
+}
+
+/**
+ * La tarjeta de servicio (clima, farmacia, efeméride; REGLAS § 19) de una pieza que ya salió: una imagen fija con la marca y el enlace, para Bluesky y Threads. ENSAYO: deja imagen y texto en
+ * `tarjetas/` y no llama a nadie. REAL: sólo las redes con sus secretos; una red sin ellos no publica. Nunca cambia el estado de la pieza: lo que falle queda en `informe.tarjetas`.
+ */
+export async function hacerTarjetas({ item, datos, plan, carpeta, env, deps, informe }) {
+  if (!deps.imagenDeTarjeta || !tarjetasPrendidas(env)) return;
+  const t = tarjetaDeServicio(item, { dia: plan.dia, clima: datos.clima, farmacia: datos.farmacia, efemeride: datos.efemeride });
+  if (!t) return;
+  const imagen = await deps.imagenDeTarjeta(t.nota);
+  fs.mkdirSync(path.join(carpeta, 'tarjetas'), { recursive: true });
+  const secretos = [env.BLUESKY_APP_PASSWORD, env.THREADS_TOKEN];
+  const salida = [];
+  if (!plan.activas) {
+    fs.writeFileSync(path.join(carpeta, 'tarjetas', `${t.id}.${imagen.mime === 'image/png' ? 'png' : 'jpg'}`), imagen.bytes);
+    fs.writeFileSync(path.join(carpeta, 'tarjetas', `${t.id}.json`), JSON.stringify({ id: t.id, enlace: t.enlace, titulo: t.nota.titulo, textos: t.textos }, null, 2));
+    informe.tarjetas = REDES_DE_TARJETA.map((red) => ({ red, estado: 'simulada' }));
+    return;
+  }
+  for (const red of REDES_DE_TARJETA) {
+    try {
+      if (red === 'bluesky') {
+        if (!env.BLUESKY_APP_PASSWORD) { salida.push({ red, estado: 'sin-secretos' }); continue; }
+        const r = await deps.clienteBluesky().publicarEnlace({ texto: t.textos.bluesky, enlace: t.enlace, titulo: t.nota.titulo, descripcion: '', imagen });
+        salida.push({ red, estado: 'ok', id: r.uri });
+      } else {
+        if (!env.THREADS_TOKEN || !env.THREADS_USER_ID) { salida.push({ red, estado: 'sin-secretos' }); continue; }
+        const url = await deps.subirImagenPublica(imagen, { prefijo: `tar-${String(plan.dia).replace(/-/g, '')}-${item.id}` });
+        const r = await deps.clienteThreads().publicarEnlace({ texto: t.textos.threads, enlace: t.enlace, imagen: url });
+        salida.push({ red, estado: 'ok', id: r.id });
+      }
+    } catch (e) {
+      salida.push({ red, estado: 'error', error: sinSecretos(String(e?.message ?? e), secretos).slice(0, 300) });
+    }
+  }
+  informe.tarjetas = salida;
 }
 
 async function pedirAlWorker(url, ruta, cuerpo, { contrasena, fetchFn }) {
@@ -259,6 +299,10 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
         informe.acciones = [...simularPublicacion(acciones), ...simularBuffer(item)];
         informe.estado = 'lista';
       }
+      // La tarjeta de servicio sale después del video de su fila (si el video se reintenta, la tarjeta no se repite). Un fallo acá nunca cambia el estado de la pieza.
+      if (informe.estado === 'lista' || informe.estado === 'publicada') {
+        try { await hacerTarjetas({ item, datos, plan, carpeta, env, deps, informe }); } catch (e) { informe.tarjetas = [{ estado: 'error', error: String(e?.message ?? e).slice(0, 300) }]; }
+      }
       fs.writeFileSync(`${base}.json`, JSON.stringify({ ...informe, habriaPublicadoA: reloj.toISOString(), programada: item.hora, pieza: item.id, guionAlineado: voz?.palabras?.length ?? 0 }, null, 2));
       log(`${item.id}: ${informe.estado} · ${pieza.duracion} s · voz ${informe.vozUsada ? 'nueva' : 'de la memoria'}`);
     } catch (e) {
@@ -340,6 +384,15 @@ export async function dependenciasReales(env = process.env) {
       await r2.guardar(claveR2DePlaca(nombre), j.stdout, 'image/jpeg');
       return `${(env.REDES_URL || DIRECCION_DE_LAS_REDES).replace(/\/$/, '')}/placa/${nombre}`;
     },
+    // La tarjeta de servicio: la imagen de enlace de la marca (sin foto), la subida pública para Threads y los clientes de Bluesky y Threads (los mismos de enlaces.mjs).
+    imagenDeTarjeta: async (nota) => (await (await import('./enlaces.mjs')).dependenciasReales(env)).imagenDeEnlace(nota),
+    async subirImagenPublica(imagen, o) {
+      const os = await import('node:os');
+      const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'tarjeta-'));
+      try { const a = path.join(tmp, 'tarjeta.jpg'); fs.writeFileSync(a, imagen.bytes); return await this.subirLamina(a, o); } finally { fs.rmSync(tmp, { recursive: true, force: true }); }
+    },
+    clienteBluesky: () => crearClienteBluesky({ handle: env.BLUESKY_HANDLE || HANDLE_BLUESKY, password: env.BLUESKY_APP_PASSWORD }),
+    clienteThreads: () => crearClienteThreads({ token: env.THREADS_TOKEN, userId: env.THREADS_USER_ID }),
     subirVideo: async (archivo, { huella, nombre }) => {
       const r2 = clienteR2({ cuenta: env.CLOUDFLARE_ACCOUNT_ID, bucket: env.R2_RENDER || 'radar-render', accessKey: env.R2_ACCESS_KEY_ID, secretKey: env.R2_SECRET_ACCESS_KEY });
       await r2.guardar(`listos/${huella}/${nombre}`, typeof archivo === 'string' ? fs.readFileSync(archivo) : archivo, 'video/mp4'); // llega el mp4 ya en memoria (o, si no, su ruta)
