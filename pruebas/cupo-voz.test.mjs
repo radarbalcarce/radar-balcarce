@@ -162,3 +162,23 @@ test('el plan arma primero lo más importante, guarda el cupo y reusa lo armado;
     assert.match(y, /VOZ_CACHE: \$\{\{ github\.workspace \}\}\/\.cache\/voz/, f);
   }
 });
+
+test('un audio pedido por una persona (PEDIDO_POR_PERSONA=si) no se cuenta, no se frena y no marca el día como agotado', async () => {
+  const carpeta = fs.mkdtempSync(path.join(os.tmpdir(), 'cupo-persona-'));
+  const antes = process.env.PEDIDO_POR_PERSONA;
+  try {
+    process.env.PEDIDO_POR_PERSONA = 'si';
+    const m = await import('../reels/cupo-voz.mjs');
+    m.anotarPedido('vino-vinedos', { carpeta });
+    m.marcarAgotado({ carpeta });
+    assert.equal(m.leerCupo({ carpeta }).usados, 0);
+    assert.equal(m.leerCupo({ carpeta }).agotado, false);
+    assert.equal(m.motivoParaNoPedir({ pieza: 'vino-vinedos', reservar: 5, carpeta }), null);
+    process.env.PEDIDO_POR_PERSONA = 'no';
+    m.anotarPedido('clima', { carpeta });
+    assert.equal(m.leerCupo({ carpeta }).usados, 1, 'sin la bandera, todo cuenta como siempre');
+  } finally {
+    if (antes === undefined) delete process.env.PEDIDO_POR_PERSONA; else process.env.PEDIDO_POR_PERSONA = antes;
+    fs.rmSync(carpeta, { recursive: true, force: true });
+  }
+});

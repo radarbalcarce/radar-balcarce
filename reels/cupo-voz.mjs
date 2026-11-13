@@ -37,6 +37,9 @@ export function diaDelCupo(ahora = new Date()) {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' }).format(ahora);
 }
 
+/** Un audio que pide una persona (Hernán, 13/11/2026: «todo lo que sea pedido por mí no lo cuentes para el cupo»): no se anota, no se frena y no marca el día como agotado, para no dejar sin voz a las piezas automáticas. Lo prende el workflow de los reels del vino con PEDIDO_POR_PERSONA=si. */
+export const pedidoPorPersona = () => /^s[ií]$/i.test(String(process.env.PEDIDO_POR_PERSONA ?? '').trim());
+
 const carpetaDe = (o = {}) => o.carpeta ?? process.env.VOZ_CACHE;
 const archivoDe = (carpeta, dia) => path.join(carpeta, `cupo-${dia}.json`);
 
@@ -69,6 +72,7 @@ export function quedan(opciones = {}) {
 /** Anota un pedido a Gemini (antes de hacerlo: un pedido que se corta igual puede haber contado). Devuelve el estado nuevo. */
 export function anotarPedido(pieza, { carpeta = process.env.VOZ_CACHE, ahora = new Date() } = {}) {
   const c = leerCupo({ carpeta, ahora });
+  if (pedidoPorPersona()) return c;
   const nuevo = { ...c, usados: c.usados + 1, pedidos: [...c.pedidos, { pieza: pieza ?? null, cuando: ahora.toISOString() }].slice(-40) };
   guardarCupo(nuevo, carpeta);
   return nuevo;
@@ -77,6 +81,7 @@ export function anotarPedido(pieza, { carpeta = process.env.VOZ_CACHE, ahora = n
 /** Google dijo que se acabó el cupo del día: el contador queda en el tope. */
 export function marcarAgotado({ carpeta = process.env.VOZ_CACHE, ahora = new Date() } = {}) {
   const c = leerCupo({ carpeta, ahora });
+  if (pedidoPorPersona()) return c;
   const nuevo = { ...c, usados: Math.max(c.usados, AUDIOS_POR_DIA), agotado: true };
   guardarCupo(nuevo, carpeta);
   return nuevo;
@@ -91,6 +96,7 @@ export class SinCupoDeVoz extends Error {
  * ¿Se puede pedir un audio para `pieza`, guardando `reservar` para las más importantes? Devuelve null si sí, o el motivo si no.
  */
 export function motivoParaNoPedir({ pieza = null, reservar = 0, ...opciones } = {}) {
+  if (pedidoPorPersona()) return null;
   const q = quedan(opciones);
   if (q <= 0) return `se acabó el cupo de voz de hoy (${AUDIOS_POR_DIA} audios)`;
   if (q <= reservar) return `quedan ${q} audio(s) de voz y se guardan para ${reservar === 1 ? 'una pieza más importante' : `${reservar} piezas más importantes`} que faltan hoy${pieza ? ` (${pieza} espera)` : ''}`;

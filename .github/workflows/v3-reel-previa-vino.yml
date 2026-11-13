@@ -74,6 +74,7 @@ jobs:
           VOZ: ${{ inputs.voz }}
           SOLO_VOZ: ${{ inputs.solo_voz }}
           AUDIOS_POR_DIA: ${{ vars.V3_AUDIOS_POR_DIA }}
+          PEDIDO_POR_PERSONA: 'si'
           FOTOS_VINO: ${{ github.workspace }}/v3/redes/piezas/fotos-vino/fotos
           PUBLICAR: ${{ inputs.publicar }}
           # Las claves entran sólo cuando hacen falta: mudo = ninguna; con voz = la de redes; publicando = también Meta y Buffer.
