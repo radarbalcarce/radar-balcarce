@@ -239,8 +239,10 @@ if (esElPrograma) {
   const carpetaDeFotos = String(env.FOTOS_VINO ?? '').trim();
   if (carpetaDeFotos === '-') throw new Error('FOTOS_VINO=- ya no existe: los reels llevan fotos en todas las escenas, sin placas');
   const carpetaBase = path.resolve(carpetaDeFotos || path.join(env.SALIDA_PIEZAS || 'salida-vino', 'fotos'));
-  const fotos = fotosDeVino(carpetaBase, path.join(path.dirname(carpetaBase), 'fotos-extra'));
-  console.log(`fotos disponibles: ${Object.keys(fotos).length}`);
+  const soloVoz = /^s[ií]$/i.test(String(env.SOLO_VOZ ?? '').trim()); // SOLO_VOZ=si: en la nube, sin fotos, para generar la voz y bajarla; nunca publica
+  if (soloVoz && publicar) throw new Error('SOLO_VOZ no se combina con PUBLICAR');
+  const fotos = soloVoz ? undefined : fotosDeVino(carpetaBase, path.join(path.dirname(carpetaBase), 'fotos-extra'));
+  console.log(`fotos disponibles: ${fotos ? Object.keys(fotos).length : 'ninguna (SOLO_VOZ)'}`);
   const items = itemsDelVino({ piezas: piezas.length ? piezas : undefined, nota, publicar, menciones, fotos });
   const plan = { dia: new Date().toISOString().slice(0, 10), activas: publicar, vozTope: 10, vozQuedan: 10, piezas: items, descartes: [] };
   const fetchFn = async (u) => ({ ok: true, status: 200, json: async () => (String(u).endsWith('/piezas/plan') ? plan : { ok: true }), text: async () => '{}' });

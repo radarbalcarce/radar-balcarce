@@ -26,6 +26,11 @@ on:
         description: 'Cuáles: vinedos, vinotecas, gastronomia (separadas por coma). Vacío = las tres'
         type: string
         default: ''
+      solo_voz:
+        description: 'Sólo generar la voz (sin fotos) y dejarla para bajar; las fotos están en la PC'
+        type: choice
+        options: ['no', 'si']
+        default: 'no'
       menciones:
         description: 'Cuentas a nombrar en el texto, separadas por coma. Vacío = las confirmadas de cada reel; un guion (-) = ninguna'
         type: string
@@ -67,6 +72,7 @@ jobs:
           PIEZAS: ${{ inputs.piezas }}
           MENCIONES: ${{ inputs.menciones }}
           VOZ: ${{ inputs.voz }}
+          SOLO_VOZ: ${{ inputs.solo_voz }}
           PUBLICAR: ${{ inputs.publicar }}
           # Las claves entran sólo cuando hacen falta: mudo = ninguna; con voz = la de redes; publicando = también Meta y Buffer.
           GEMINI_API_KEY_REDES_V3: ${{ (inputs.voz == 'si' || inputs.publicar == 'si') && secrets.GEMINI_API_KEY_REDES || '' }}
@@ -92,3 +98,10 @@ jobs:
           name: reels-del-vino
           path: salida-vino/
           retention-days: 3
+      - name: Dejar la voz para bajar
+        if: ${{ inputs.solo_voz == 'si' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: voz-vino
+          path: .cache/voz-v3
+          retention-days: 2
