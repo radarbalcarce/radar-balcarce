@@ -91,6 +91,15 @@ export function fotosExtra(n) {
  * El cuerpo en párrafos con las fotos de adentro y, si la nota tiene al menos cuatro párrafos, un bloque de AdSense entre el tercero y el cuarto.
  * Las fotos de adentro de las notas de la redacción traen su lugar (despuesDe); las demás (nota.fotos) se reparten parejo entre los párrafos.
  */
+/**
+ * En las notas que escribe una persona (origen «redaccion»), una cuenta con arroba (@vinedos.balcarce) es un enlace a su Instagram: el lector toca y entra (Hernán, 13/11/2026).
+ * Recibe el párrafo YA escapado. Sólo las notas de la redacción: en una noticia de otro medio, un @ puede ser de otra red. El punto final de la oración no es parte de la cuenta.
+ */
+export function conCuentasEnlazadas(htmlEscapado, n) {
+  if (n?.origen !== 'redaccion') return htmlEscapado;
+  return String(htmlEscapado).replace(/(^|[\s(«"'¡¿])@([A-Za-z0-9_]+(?:\.[A-Za-z0-9_]+)*)/g, (m, antes, cuenta) => `${antes}<a href="https://www.instagram.com/${cuenta}/" target="_blank" rel="noopener nofollow ugc">@${cuenta}</a>`);
+}
+
 function cuerpoHtml(n, parrafos, contexto) {
   const fijas = Array.isArray(n.extra?.fotosEnCuerpo) ? n.extra.fotosEnCuerpo : [];
   const fotos = fijas.length ? fijas : fotosExtra(n).map((f, i, todas) => ({ ...f, despuesDe: Math.max(1, Math.round(((i + 1) * parrafos.length) / (todas.length + 1))) }));
@@ -99,7 +108,7 @@ function cuerpoHtml(n, parrafos, contexto) {
   const colocar = (despuesDe) => { for (const f of fotos) if ((f.despuesDe ?? parrafos.length) === despuesDe) salida.push(figura(f)); };
   colocar(0);
   parrafos.forEach((p, i) => {
-    salida.push(`<p>${esc(p)}</p>`);
+    salida.push(`<p>${conCuentasEnlazadas(esc(p), n)}</p>`);
     colocar(i + 1);
     if (i === 2 && parrafos.length >= 4 && !sinAnuncio) salida.push(bloqueAdsense(contexto, 'nota'));
   });
