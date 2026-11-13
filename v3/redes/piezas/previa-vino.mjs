@@ -25,6 +25,13 @@ import { correr, dependenciasReales } from './correr.mjs';
  * ni de la fachada); llegan fotos nuevas y se reemplazan acá.
  */
 export const FOTOS_ELEGIDAS = Object.freeze({
+  thewinesco: [
+    'thewinesco-dm/foto7.jpg', //      entrada: las tres botellas Bravento con copas en la barra
+    'thewinesco-dm/foto2.jpg', //      el local, con la estantería y las cajas de madera
+    'thewinesco-dm/foto8.jpg', //      degustación: las tres botellas, plano abierto
+    'thewinesco-dm/foto4.jpg', //      dirección: la estantería del local
+    'thewinesco-dm/foto6.jpg', //      cierre: la barra con las botellas y las copas
+  ],
   vinedos: [
     'vinedos.balcarce/foto3.jpg', //   entrada: la copa de tinto contra el cielo y las sierras
     'vinedos.balcarce/cand1.jpg', //   Bodegas y Viñedos Balcarce: la fachada de la bodega, con luz de tarde
@@ -73,6 +80,25 @@ const CIERRE_DE = (pedido = '') => ({
 });
 
 export const REELS = Object.freeze({
+  thewinesco: {
+    id: 'vino-thewinesco',
+    clave: 'thewinesco',
+    nombre: 'The Wines Co. se suma a «Balcarce, el nuevo origen del vino»',
+    hashtag: 'Vino',
+    credito: 'Foto: The Wines Co.',
+    escenas: [
+      { titulo: 'The Wines Co.', voz: 'The Wines Co. se suma a Balcarce, el nuevo origen del vino.', subtitulo: 'The Wines Co. se suma a Balcarce, el nuevo origen del vino.' },
+      { titulo: 'Vinos de acá', voz: 'Quieren dar a conocer los vinos que se producen en Balcarce.', subtitulo: 'Quieren dar a conocer los vinos que se producen en Balcarce.' },
+      { titulo: 'Degustación sin cargo', voz: 'Este sábado, de cuatro a nueve de la noche, degustación sin cargo de la línea Bravento.', subtitulo: 'Este sábado, de 4 a 9 de la noche, degustación sin cargo de la línea Bravento.' },
+      { titulo: 'Av. Kelly 832', voz: 'En avenida Kelly al ochocientos treinta y dos.', subtitulo: 'En avenida Kelly al 832.' },
+      { titulo: 'radarbalcarce.com', voz: 'Leé la nota completa, en Radar Balcarce punto com.', subtitulo: 'Leé la nota completa, en Radar Balcarce punto com.' },
+    ],
+    texto: [
+      'The Wines Co. (@thewinesco) se suma a «Balcarce, el nuevo origen del vino»: «Nos entusiasma acercar los vinos de Balcarce a nuestros clientes y que más personas puedan descubrirlos».',
+      'Este sábado 14 de noviembre, de 16 a 21 hs, en Av. Kelly N° 832: degustación sin cargo de la línea Bravento.',
+    ],
+    menciones: ['@thewinesco'],
+  },
   vinedos: {
     id: 'vino-vinedos',
     clave: 'vinedos',
@@ -173,7 +199,7 @@ export function escenasConFotos(reel, fotos = {}, elegidas = FOTOS_ELEGIDAS[reel
   const escenas = reel.escenas.map(({ lugar, ...e }, i) => {
     const ruta = fotos[normalizar(elegidas[i])];
     if (!ruta) faltan.push(`escena ${i + 1} («${e.titulo}»): falta ${elegidas[i]}`);
-    return { ...e, foto: { ruta, credito: CREDITO_DE_LAS_FOTOS } };
+    return { ...e, foto: { ruta, credito: reel.credito ?? CREDITO_DE_LAS_FOTOS } };
   });
   if (faltan.length) throw new Error(`reel «${reel.id}»: faltan fotos y no se arma con placas. ${faltan.join('; ')}. Ponelas en salida-vino/fotos o fotos-extra (o cambiá la tabla FOTOS_ELEGIDAS de previa-vino.mjs).`);
   return escenas;
