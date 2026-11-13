@@ -67,9 +67,9 @@ const MUNICIPALES = Object.freeze(['@turismobalcarce', '@produccionyempleo.balca
  * `pedido`: lo que se agrega antes de la dirección («Consultá y reservá en cada lugar.»: sólo viñedos y gastronomía, una vez).
  */
 const CIERRE_DE = (pedido = '') => ({
-  titulo: 'Sábado 14 de noviembre',
+  titulo: 'radarbalcarce.com',
   voz: `${pedido ? `${pedido} ` : ''}${CIERRE}`,
-  subtitulo: `${pedido ? `${pedido} ` : ''}El programa completo, en radarbalcarce.com.`,
+  subtitulo: `${pedido ? `${pedido} ` : ''}El programa completo, en Radar Balcarce punto com.`,
 });
 
 export const REELS = Object.freeze({
@@ -79,9 +79,9 @@ export const REELS = Object.freeze({
     nombre: 'Balcarce, el nuevo origen del vino: los viñedos abren sus puertas',
     hashtag: 'Vino',
     escenas: [
-      { titulo: 'Los viñedos te esperan', voz: 'Este sábado catorce, los viñedos de Balcarce te abren sus puertas, sin costo.', subtitulo: 'Visitas en grupos guiados, con capacidad limitada.' },
-      { titulo: 'Bodegas y Viñedos Balcarce', lugar: 'vinedos.balcarce', voz: 'Bodegas y Viñedos Balcarce, de cuatro a seis de la tarde.', subtitulo: 'De 16 a 18 hs, abierto al público.' },
-      { titulo: 'Viñedo Los Pinos', lugar: 'vinedolospinos', voz: 'Viñedo Los Pinos, de cuatro a cinco y media de la tarde.', subtitulo: 'De 16 a 17:30 hs, abierto al público. Antes, de 15 a 16 hs, residentes de Los Pinos.' },
+      { titulo: 'Sábado 14 de noviembre', voz: 'Este sábado catorce, los viñedos de Balcarce te abren sus puertas, sin costo.', subtitulo: 'Este sábado 14, los viñedos de Balcarce te abren sus puertas, sin costo.' },
+      { titulo: 'Bodegas y Viñedos Balcarce', lugar: 'vinedos.balcarce', voz: 'Bodegas y Viñedos Balcarce, de cuatro a seis de la tarde.', subtitulo: 'Bodegas y Viñedos Balcarce, de 4 a 6 de la tarde.' },
+      { titulo: 'Viñedo Los Pinos', lugar: 'vinedolospinos', voz: 'Viñedo Los Pinos, de cuatro a cinco y media de la tarde.', subtitulo: 'Viñedo Los Pinos, de 4 a 5 y media de la tarde.' },
       CIERRE_DE('Consultá y reservá en cada lugar.'),
     ],
     texto: [
@@ -98,10 +98,10 @@ export const REELS = Object.freeze({
     nombre: 'Balcarce se copa: degustaciones sin cargo en tres vinotecas',
     hashtag: 'Vino',
     escenas: [
-      { titulo: 'Balcarce se copa', voz: 'Este sábado catorce, Balcarce se copa: degustaciones sin cargo.', subtitulo: 'De 16 a 21 hs, en tres vinotecas.' },
-      { titulo: 'The Wines Co.', lugar: 'thewinesco', voz: 'The Wines Co., en avenida Kelly al ochocientos treinta y dos.', subtitulo: 'Av. Kelly al 832.' },
-      { titulo: 'Talou Vinoteca', lugar: 'talouvinoteca137', voz: 'Talou Vinoteca, en calle veintidós al seiscientos cuarenta y tres.', subtitulo: 'Calle 22 al 643.' },
-      { titulo: '1980 Almacén de Vinos', lugar: 'almacendevinos1980', voz: 'Mil novecientos ochenta Almacén de Vinos, en calle veintiséis al ochocientos veintiocho.', subtitulo: 'Calle 26 al 828.' },
+      { titulo: 'Sábado 14 de noviembre', voz: 'Este sábado catorce, Balcarce se copa: degustaciones sin cargo.', subtitulo: 'Este sábado 14, Balcarce se copa: degustaciones sin cargo.' },
+      { titulo: 'The Wines Co.', lugar: 'thewinesco', voz: 'The Wines Co., en avenida Kelly al ochocientos treinta y dos.', subtitulo: 'The Wines Co., en avenida Kelly al 832.' },
+      { titulo: 'Talou Vinoteca', lugar: 'talouvinoteca137', voz: 'Talou Vinoteca, en calle veintidós al seiscientos cuarenta y tres.', subtitulo: 'Talou Vinoteca, en calle 22 al 643.' },
+      { titulo: '1980 Almacén de Vinos', lugar: 'almacendevinos1980', voz: 'Mil novecientos ochenta Almacén de Vinos, en calle veintiséis al ochocientos veintiocho.', subtitulo: '1980 Almacén de Vinos, en calle 26 al 828.' },
       CIERRE_DE(),
     ],
     texto: [
@@ -118,10 +118,10 @@ export const REELS = Object.freeze({
     nombre: 'Cenar con vinos locales: la propuesta gastronómica del sábado',
     hashtag: 'Vino',
     escenas: [
-      { titulo: 'Cenar con vinos de acá', voz: 'Este sábado, desde las nueve, cenás con vinos de acá.', subtitulo: 'Desde las 21 hs, maridajes con vinos balcarceños.' },
-      { titulo: 'Cavas Vinos & Resto', lugar: 'cavas_restaurante', voz: 'Cavas Vinos y Resto, calle veintisiete al ochocientos ochenta y seis.', subtitulo: 'Calle 27 al 886. Copa de bienvenida con Bravento.' },
-      { titulo: 'Parrilla Bodegón Los Troncos', lugar: 'parrillabodegonlostroncos', voz: 'Parrilla Bodegón Los Troncos, avenida Central al seiscientos veintiséis.', subtitulo: 'Av. Central al 626. Degustación de Séptimo Chukker.' },
-      { titulo: 'Casa Quinta, cocina de autor', lugar: 'casaquinta.resto', voz: 'Casa Quinta, calle cincuenta y nueve al novecientos cincuenta.', subtitulo: 'Calle 59 al 950. Copa y maridaje con Bravento.' },
+      { titulo: 'Sábado 14 de noviembre', voz: 'Este sábado, desde las nueve, cenás con vinos de acá.', subtitulo: 'Este sábado, desde las 9, cenás con vinos de acá.' },
+      { titulo: 'Cavas Vinos & Resto', lugar: 'cavas_restaurante', voz: 'Cavas Vinos y Resto, calle veintisiete al ochocientos ochenta y seis.', subtitulo: 'Cavas Vinos y Resto, calle 27 al 886.' },
+      { titulo: 'Parrilla Bodegón Los Troncos', lugar: 'parrillabodegonlostroncos', voz: 'Parrilla Bodegón Los Troncos, avenida Central al seiscientos veintiséis.', subtitulo: 'Parrilla Bodegón Los Troncos, avenida Central al 626.' },
+      { titulo: 'Casa Quinta, cocina de autor', lugar: 'casaquinta.resto', voz: 'Casa Quinta, calle cincuenta y nueve al novecientos cincuenta.', subtitulo: 'Casa Quinta, calle 59 al 950.' },
       CIERRE_DE('Consultá y reservá en cada lugar.'),
     ],
     texto: [

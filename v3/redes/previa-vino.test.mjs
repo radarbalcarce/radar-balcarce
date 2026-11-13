@@ -57,12 +57,14 @@ test('la voz no lleva números, siglas ni símbolos que una voz lee mal (todo en
   }
 });
 
-test('cada reel termina apuntando a la nota; la fecha es el titular y la dirección no se repite entre titular y subtítulo; ni la voz ni la pantalla nombran cuentas', () => {
+test('cada reel termina apuntando a la nota; la fecha va al principio (titular de la primera escena) y la dirección es el titular del cierre, sin repetirse en el subtítulo; ni la voz ni la pantalla nombran cuentas', () => {
   for (const clave of CLAVES) {
     const ultima = REELS[clave].escenas.at(-1);
     assert.match(ultima.voz, /El programa completo, en Radar Balcarce punto com\.$/, clave);
-    assert.equal(ultima.titulo, 'Sábado 14 de noviembre');
-    assert.match(ultima.subtitulo, /El programa completo, en radarbalcarce\.com\.$/, clave);
+    assert.equal(ultima.titulo, 'radarbalcarce.com');
+    assert.equal(REELS[clave].escenas[0].titulo, 'Sábado 14 de noviembre');
+    assert.match(ultima.subtitulo, /El programa completo, en Radar Balcarce punto com\.$/, clave);
+    assert.doesNotMatch(ultima.subtitulo, /radarbalcarce\.com/i, clave);
     assert.equal(`${ultima.titulo} ${ultima.subtitulo}`.match(/radarbalcarce\.com/g).length, 1, `${clave}: la dirección una sola vez en pantalla`);
     assert.doesNotMatch(`${voz(clave)} ${pantalla(clave)} ${leido(clave)}`, /@|arroba|instagram punto/i, `${clave}: cuentas en el video`);
   }
@@ -80,12 +82,15 @@ test('«Consultá y reservá en cada lugar» sólo en viñedos y gastronomía, u
 test('textos de pantalla sanos: titulares cortos de una idea, sin «N°», sin repetir el titular en el subtítulo, frases completas', () => {
   for (const clave of CLAVES) {
     for (const [i, e] of REELS[clave].escenas.entries()) {
-      assert.doesNotMatch(e.titulo, /N°|[:;,]$|\.com/, `${clave} ${i}: ${e.titulo}`);
+      assert.doesNotMatch(e.titulo, /N°|[:;,]$/, `${clave} ${i}: ${e.titulo}`);
+      if (i < REELS[clave].escenas.length - 1) assert.doesNotMatch(e.titulo, /\.com/, `${clave} ${i}: la dirección sólo va de titular en el cierre`);
       assert.ok(e.titulo.length <= 32, `${clave} ${i}: titular largo`);
       const sub = e.subtitulo ?? e.voz;
       assert.match(sub, /[.!?]$/, `${clave} ${i}: frase cortada`);
       assert.doesNotMatch(sub, /N°/, `${clave} ${i}: «N°» se parte del número`);
-      assert.ok(!sub.toLowerCase().includes(e.titulo.toLowerCase()), `${clave} ${i}: el subtítulo repite el titular`);
+      // en la fecha y en el cierre el titular no se repite en el subtítulo; en las escenas de lugar el subtítulo empieza con el nombre del lugar, igual que la voz
+      if (i === 0 || i === REELS[clave].escenas.length - 1) assert.ok(!sub.toLowerCase().includes(e.titulo.toLowerCase()), `${clave} ${i}: el subtítulo repite el titular`);
+      else assert.ok(sub.startsWith(e.titulo.replace(/ &/, ' y').replace(/, cocina de autor/, '')), `${clave} ${i}: el subtítulo empieza con el lugar`);
     }
   }
 });
@@ -96,48 +101,54 @@ test('viñedos: los dos, con los horarios oficiales, sin costo, grupos guiados y
   assert.match(v, /Bodegas y Viñedos Balcarce, de cuatro a seis de la tarde/);
   assert.match(v, /Viñedo Los Pinos, de cuatro a cinco y media de la tarde/);
   const l = leido('vinedos');
-  assert.match(l, /grupos guiados, con capacidad limitada/);
-  assert.match(l, /De 16 a 18 hs, abierto al público/);
-  assert.match(l, /De 16 a 17:30 hs, abierto al público\. Antes, de 15 a 16 hs, residentes de Los Pinos/);
+  assert.match(l, /Este sábado 14, los viñedos de Balcarce te abren sus puertas, sin costo\./);
+  assert.match(l, /Bodegas y Viñedos Balcarce, de 4 a 6 de la tarde\./);
+  assert.match(l, /Viñedo Los Pinos, de 4 a 5 y media de la tarde\./);
+  assert.doesNotMatch(l, /\bhs\b|De 16 a|residentes/, 'en pantalla no van los horarios «De 16 a 18 hs»: siguen en el texto del posteo');
+  assert.match(REELS.vinedos.texto.join(' '), /de 16 a 18 hs/);
+  assert.match(REELS.vinedos.texto.join(' '), /de 15 a 16 hs, abierto a residentes de Los Pinos; de 16 a 17:30 hs/);
   const todo = `${v} ${l} ${REELS.vinedos.texto.join(' ')}`;
   assert.doesNotMatch(todo, /obligatori|Finca|Gil|https?:|forms?\.|formulario|gratuit/i);
   assert.match(REELS.vinedos.texto.join(' '), /Para anotarte o consultar, entrá al Instagram de los viñedos\./);
   assert.match(REELS.vinedos.texto.join(' '), /sin costo, en grupos guiados y con capacidad limitada/);
 });
 
-test('vinotecas: The Wines Co., Talou y 1980 en ese orden, una por escena: la voz dice nombre y dirección, la pantalla la dirección y la línea de vino', () => {
+test('vinotecas: The Wines Co., Talou y 1980 en ese orden, una por escena: la voz dice nombre y dirección, la pantalla lo mismo con los números en dígitos, sin líneas de vino', () => {
   assert.deepEqual(REELS.vinotecas.escenas.slice(1, 4).map((e) => e.titulo), ['The Wines Co.', 'Talou Vinoteca', '1980 Almacén de Vinos']);
   const l = leido('vinotecas');
-  assert.match(l, /Calle 22 al 643./);
-  assert.match(l, /Calle 26 al 828./);
-  assert.match(l, /Av. Kelly al 832./);
-  assert.match(l, /De 16 a 21 hs, en tres vinotecas/);
-  assert.doesNotMatch(l, /calle 21|715/);
+  assert.match(l, /The Wines Co\., en avenida Kelly al 832\./);
+  assert.match(l, /Talou Vinoteca, en calle 22 al 643\./);
+  assert.match(l, /1980 Almacén de Vinos, en calle 26 al 828\./);
+  assert.doesNotMatch(l, /Bravento|Chukker|Puerta Abra|\bhs\b|De 16 a|calle 21|715/);
+  assert.ok(l.indexOf('The Wines Co.') < l.indexOf('Talou') && l.indexOf('Talou') < l.indexOf('1980'), 'orden en pantalla');
   const v = voz('vinotecas');
   assert.ok(v.indexOf('The Wines Co.') < v.indexOf('Talou') && v.indexOf('Talou') < v.indexOf('Mil novecientos ochenta'));
   assert.match(v, /calle veintidós al seiscientos cuarenta y tres/);
   assert.match(v, /calle veintiséis al ochocientos veintiocho/);
   assert.match(v, /avenida Kelly al ochocientos treinta y dos/);
-  assert.doesNotMatch(v, /Bravento|Chukker|Puerta Abra/, 'la línea de vino va sólo en pantalla');
+  assert.doesNotMatch(v, /Bravento|Chukker|Puerta Abra/, 'la línea de vino va sólo en el texto del posteo');
+  assert.match(REELS.vinotecas.texto.join(' '), /Bravento[\s\S]*Séptimo Chukker/);
   assert.deepEqual(REELS.vinotecas.menciones.slice(0, 3), ['@thewinesco', '@talouvinoteca137', '@almacendevinos1980']);
   for (const e of REELS.vinotecas.escenas.slice(1, 4)) assert.equal((e.voz.match(/\b(avenida|calle)\b/gi) ?? []).length, 1);
   assert.match(REELS.vinotecas.texto.join(' '), /calle 26 N° 828/);
 });
 
-test('gastronomía: Cavas, Los Troncos y Casa Quinta en ese orden, una por escena; la voz dice nombre y dirección, la pantalla la dirección y lo que se sirve', () => {
+test('gastronomía: Cavas, Los Troncos y Casa Quinta en ese orden, una por escena; la voz dice nombre y dirección, la pantalla lo mismo con los números en dígitos, sin lo que se sirve', () => {
   const v = voz('gastronomia');
   assert.match(v, /desde las nueve/);
   assert.deepEqual(REELS.gastronomia.escenas.slice(1, 4).map((e) => e.titulo), ['Cavas Vinos & Resto', 'Parrilla Bodegón Los Troncos', 'Casa Quinta, cocina de autor']);
   const l = leido('gastronomia');
-  assert.match(l, /Desde las 21 hs/);
-  assert.match(l, /Calle 27 al 886\. Copa de bienvenida con Bravento\./);
-  assert.match(l, /Av\. Central al 626\. Degustación de Séptimo Chukker\./);
-  assert.match(l, /Calle 59 al 950\. Copa y maridaje con Bravento\./);
+  assert.match(l, /Este sábado, desde las 9, cenás con vinos de acá\./);
+  assert.match(l, /Cavas Vinos y Resto, calle 27 al 886\./);
+  assert.match(l, /Parrilla Bodegón Los Troncos, avenida Central al 626\./);
+  assert.match(l, /Casa Quinta, calle 59 al 950\./);
+  assert.doesNotMatch(l, /Bravento|Chukker|Puerta Abra|\bhs\b|Copa de bienvenida|Degustación de/);
   assert.ok(v.indexOf('Cavas') < v.indexOf('Los Troncos') && v.indexOf('Los Troncos') < v.indexOf('Casa Quinta'));
   assert.match(v, /calle veintisiete al ochocientos ochenta y seis/);
   assert.match(v, /avenida Central al seiscientos veintiséis/);
   assert.match(v, /calle cincuenta y nueve al novecientos cincuenta/);
-  assert.doesNotMatch(v, /Bravento|Chukker|Puerta Abra/, 'la línea de vino va sólo en pantalla');
+  assert.doesNotMatch(v, /Bravento|Chukker|Puerta Abra/, 'la línea de vino va sólo en el texto del posteo');
+  assert.match(REELS.gastronomia.texto.join(' '), /Bravento[\s\S]*Séptimo Chukker/);
   for (const e of REELS.gastronomia.escenas.slice(1, 4)) assert.equal((e.voz.match(/\b(avenida|calle)\b/gi) ?? []).length, 1);
   assert.deepEqual(REELS.gastronomia.menciones.slice(0, 3), ['@cavas_restaurante', '@parrillabodegonlostroncos', '@casaquinta.resto']);
 });
@@ -150,7 +161,9 @@ test('lo que se lee en pantalla lleva los números en dígitos y la voz sigue en
   }
   assert.match(leido('vinotecas'), /643/); assert.match(leido('vinotecas'), /828/); assert.match(leido('vinotecas'), /832/); assert.match(pantalla('vinedos'), /Sábado 14 de noviembre/); assert.match(voz('vinedos'), /Este sábado catorce/);
   const p = armada('vinotecas');
-  assert.equal(p.escenas[2].subtitulo, 'Calle 22 al 643.');
+  assert.equal(p.escenas[2].subtitulo, 'Talou Vinoteca, en calle 22 al 643.');
+  assert.match(leido('vinedos'), /Este sábado 14,/); assert.match(leido('gastronomia'), /desde las 9,/);
+  assert.equal(leido('vinotecas').split(' | ').at(-1), 'El programa completo, en Radar Balcarce punto com.', 'el cierre dice lo mismo en voz y en pantalla');
   assert.equal(p.escenas[2].datos.marca, p.escenas[2].subtitulo);
 });
 
@@ -209,7 +222,7 @@ test('si falta una foto, el programa falla con un mensaje claro: nunca cae a pla
   const fotos = todasLasFotos();
   delete fotos[FOTOS_ELEGIDAS.vinotecas.at(-1).toLowerCase()]; // el cierre
   delete fotos['thewinesco/foto1.jpg'];
-  assert.throws(() => escenasConFotos(REELS.vinotecas, fotos), (e) => /faltan fotos/.test(e.message) && /The Wines Co\./.test(e.message) && /thewinesco\/foto1\.jpg/.test(e.message) && /Sábado 14 de noviembre/.test(e.message));
+  assert.throws(() => escenasConFotos(REELS.vinotecas, fotos), (e) => /faltan fotos/.test(e.message) && /The Wines Co\./.test(e.message) && /thewinesco\/foto1\.jpg/.test(e.message) && /radarbalcarce\.com/.test(e.message));
   assert.throws(() => escenasConFotos(REELS.vinotecas, {}), /faltan fotos/);
   assert.throws(() => itemsDelVino({ nota: NOTA, fotos: {} }), /faltan fotos/);
   assert.throws(() => escenasConFotos(REELS.vinotecas, todasLasFotos(), ['a/1.jpg', 'a/1.jpg', 'b/2.jpg', 'c/3.jpg', 'd/4.jpg']), /repetida/);
@@ -251,7 +264,8 @@ test('los subtítulos de pantalla no se salen del ancho, no cortan en «Av.» y 
       const carteles = cartelesDePantalla(dichas(e.subtitulo ?? e.voz));
       for (const c of carteles) assert.ok(c.texto.length <= 30 && c.palabras.length <= 5, `${clave}: «${c.texto}»`);
       for (const c of carteles) assert.doesNotMatch(c.texto, /(y|de|con|en|a|al|la|el)$/i, `${clave}: cartel que termina en conjunción «${c.texto}»`);
-      assert.equal(carteles.map((c) => c.texto).join(' '), e.subtitulo ?? e.voz);
+      // el render escribe la dirección del cierre («Radar Balcarce punto com.» se ve «radarbalcarce.com»); lo demás se ve tal cual el subtítulo
+      assert.equal(carteles.map((c) => c.texto).join(' '), (e.subtitulo ?? e.voz).replace('Radar Balcarce punto com.', 'radarbalcarce.com'));
     }
   }
   const c = cartelesDePantalla(dichas('Av. Kelly al 832. Líneas Bravento y Séptimo Chukker.')).map((x) => x.texto);
