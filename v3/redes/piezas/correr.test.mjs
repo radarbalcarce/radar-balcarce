@@ -385,3 +385,34 @@ test('caso Espinoza (12/11): una nota de AFUERA cuya foto no baja no sale con la
   assert.match(noticia.error, /nota de afuera no baj/);
   assert.equal(t.llamadasMeta.length, 0);
 });
+
+test('R42 (13/11, el clima salió 3 veces): la pieza se marca en el Worker ANTES de la tarjeta; una tarjeta que nunca resuelve se abandona con su tope y el programa termina', async () => {
+  const t = armar({ ahora: MARTES_10, activas: true });
+  const estadosAlEmpezar = [];
+  t.deps.imagenDeTarjeta = () => { estadosAlEmpezar.push(t.filas().map((f) => [f.pieza, f.estado])); return new Promise(() => {}); }; // nunca resuelve
+  t.deps.clienteBluesky = () => { throw new Error('no debería llegar'); };
+  const env = { ...t.env, BLUESKY_APP_PASSWORD: 'clave', TOPE_DE_EXTRAS_MS: '150' };
+  const registros = [];
+  t.deps.log = (m) => registros.push(m);
+  const antes = Date.now();
+  const r = await correr({ env, ahora: MARTES_10, carpeta: t.carpeta, deps: t.deps });
+  assert.ok(Date.now() - antes < 5000, 'terminó, no se colgó');
+  assert.ok(estadosAlEmpezar.length >= 1, 'se intentó la tarjeta');
+  // Cuando arrancó la tarjeta, el Worker ya tenía la pieza como publicada.
+  assert.ok(estadosAlEmpezar.every((fs_) => fs_.some(([p, e]) => p === 'clima-manana' && e === 'publicada')), JSON.stringify(estadosAlEmpezar));
+  assert.ok(t.filas().every((f) => f.estado === 'publicada'), 'ninguna quedó en-curso');
+  const clima = r.piezas.find((p) => p.pieza === 'clima-manana');
+  assert.equal(clima.estado, 'publicada');
+  assert.match(clima.tarjetas.at(-1).error, /tope/);
+  assert.ok(registros.some((m) => /clima-manana: tarjeta.*abandon/.test(m)));
+  assert.ok(fs.existsSync(path.join(t.carpeta, 'registro.json')));
+});
+
+test('R42: conTope devuelve ok o el error y nunca tira', async () => {
+  const { conTope } = await import('./correr.mjs');
+  assert.deepEqual(await conTope(async () => 1, 100, 'x', () => {}), { ok: true });
+  assert.equal((await conTope(async () => { throw new Error('boom'); }, 100, 'x', () => {})).ok, false);
+  const colgada = await conTope(() => new Promise(() => {}), 50, 'x', () => { throw new Error('el log tampoco'); });
+  assert.equal(colgada.ok, false);
+  assert.match(colgada.error, /tope/);
+});

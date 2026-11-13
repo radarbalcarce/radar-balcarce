@@ -117,7 +117,7 @@ export function clienteR2({ cuenta, bucket, accessKey, secretKey, fetchFn = fetc
     });
     const q = Object.keys(consulta).length ? `?${consultaCanonica(consulta)}` : '';
     const { host: _host, ...paraEnviar } = cabeceras; // `host` lo pone fetch solo
-    return fetchFn(`https://${host}${codificar(ruta, { barra: true })}${q}`, { method: metodo, headers: paraEnviar, ...(bytes ? { body: bytes } : {}) });
+    return fetchFn(`https://${host}${codificar(ruta, { barra: true })}${q}`, { method: metodo, headers: paraEnviar, ...(bytes ? { body: bytes } : {}), signal: AbortSignal.timeout(120_000) });
   }
 
   const falla = async (r, que) => { throw new Error(`R2 ${que}: HTTP ${r.status} ${String(await r.text().catch(() => '')).slice(0, 160)}`); };

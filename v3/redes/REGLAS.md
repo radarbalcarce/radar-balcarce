@@ -199,3 +199,9 @@ GitHub dejó de lanzar sus horarios (`schedule:`) durante horas el 10/11/2026, a
 - **Interruptores:** vale `REDES_ACTIVAS` (en «no» sólo deja `tarjetas/<id>.jpg` y `.json` en la carpeta de salida y no llama a nadie); en real, una red sin sus secretos queda «sin-secretos» (no se simula); y la variable propia `TARJETAS_DE_SERVICIO` en «no» las apaga (por defecto, prendida). No gasta IA ni audios.
 - **Todavía dormida en producción:** el paso «Armar las piezas que tocan» de `v3-piezas.yml` no tiene los secretos de Bluesky y Threads (sólo el paso «Publicar los enlaces»); hasta sumarlos ahí no publica nada. Hace falta, además, que la nota de la efeméride exista (si ese día no hay hechos publicables, el enlace daría 410).
 - Pruebas: `piezas/tarjeta-servicio.test.mjs`.
+
+## 20. R42: la pieza se marca antes de cualquier trabajo extra (13/11)
+
+- **Qué pasó:** la tarjeta de servicio corría después de publicar y antes de contarle al Worker (`/piezas/resultado`). Se colgó (Node salió con «unsettled top-level await», exit 13), el Worker nunca supo que el clima había salido, la pieza venció a los 45 minutos y se republicó: salió 3 veces en Facebook, Instagram y TikTok.
+- **La regla:** `correr.mjs` le cuenta al Worker cómo salió la pieza ANTES de hacer cualquier trabajo extra (hoy, las tarjetas). Todo lo posterior a publicar corre con `conTope` (60 s por pieza, `TOPE_DE_EXTRAS_MS`), con try/catch, y no puede cambiar el estado de la pieza ni romper el programa. Los fetch de ese tramo llevan `AbortSignal.timeout` (el cliente de R2, `infra/compartido/r2-s3.mjs`, 120 s; Bluesky y Threads ya tenían 20 s). Cada paso de la tarjeta (imagen, Bluesky, Threads) deja una línea en el log. El programa termina con `process.exit`.
+- Pruebas: `piezas/correr.test.mjs` («R42 …»).

@@ -159,7 +159,10 @@ export async function hacerTarjetas({ item, datos, plan, carpeta, env, deps, inf
   if (!deps.imagenDeTarjeta || !tarjetasPrendidas(env)) return;
   const t = tarjetaDeServicio(item, { dia: plan.dia, clima: datos.clima, farmacia: datos.farmacia, efemeride: datos.efemeride });
   if (!t) return;
+  const log = deps.log ?? console.log;
+  log(`${item.id}: tarjeta ${t.id}: dibujando la imagen`);
   const imagen = await deps.imagenDeTarjeta(t.nota);
+  log(`${item.id}: tarjeta ${t.id}: imagen lista (${imagen.bytes?.length ?? 0} bytes)`);
   fs.mkdirSync(path.join(carpeta, 'tarjetas'), { recursive: true });
   const secretos = [env.BLUESKY_APP_PASSWORD, env.THREADS_TOKEN];
   const salida = [];
@@ -169,23 +172,49 @@ export async function hacerTarjetas({ item, datos, plan, carpeta, env, deps, inf
     informe.tarjetas = REDES_DE_TARJETA.map((red) => ({ red, estado: 'simulada' }));
     return;
   }
+  informe.tarjetas = salida; // se va llenando red por red: si un tope corta a media tarjeta, lo que ya salió queda anotado
   for (const red of REDES_DE_TARJETA) {
     try {
       if (red === 'bluesky') {
-        if (!env.BLUESKY_APP_PASSWORD) { salida.push({ red, estado: 'sin-secretos' }); continue; }
+        if (!env.BLUESKY_APP_PASSWORD) { salida.push({ red, estado: 'sin-secretos' }); log(`${item.id}: tarjeta bluesky: sin secretos`); continue; }
+        log(`${item.id}: tarjeta bluesky: publicando`);
         const r = await deps.clienteBluesky().publicarEnlace({ texto: t.textos.bluesky, enlace: t.enlace, titulo: t.nota.titulo, descripcion: '', imagen });
         salida.push({ red, estado: 'ok', id: r.uri });
+        log(`${item.id}: tarjeta bluesky: ok`);
       } else {
-        if (!env.THREADS_TOKEN || !env.THREADS_USER_ID) { salida.push({ red, estado: 'sin-secretos' }); continue; }
+        if (!env.THREADS_TOKEN || !env.THREADS_USER_ID) { salida.push({ red, estado: 'sin-secretos' }); log(`${item.id}: tarjeta threads: sin secretos`); continue; }
+        log(`${item.id}: tarjeta threads: subiendo la imagen pública`);
         const url = await deps.subirImagenPublica(imagen, { prefijo: `tar-${String(plan.dia).replace(/-/g, '')}-${item.id}` });
+        log(`${item.id}: tarjeta threads: imagen subida, publicando`);
         const r = await deps.clienteThreads().publicarEnlace({ texto: t.textos.threads, enlace: t.enlace, imagen: url });
         salida.push({ red, estado: 'ok', id: r.id });
+        log(`${item.id}: tarjeta threads: ok`);
       }
     } catch (e) {
       salida.push({ red, estado: 'error', error: sinSecretos(String(e?.message ?? e), secretos).slice(0, 300) });
+      log(`${item.id}: tarjeta ${red}: error ${salida[salida.length - 1].error}`);
     }
   }
-  informe.tarjetas = salida;
+}
+
+/** Cuánto puede tardar todo lo posterior a publicar, por pieza (R42). Se cambia con TOPE_DE_EXTRAS_MS. */
+export const TOPE_DE_EXTRAS_MS = 60_000;
+
+/**
+ * Corre un trabajo extra (lo que va DESPUÉS de publicar y de contarle al Worker) con un tope duro: si la promesa no resuelve, se la abandona. Nunca tira: devuelve { ok, error? }.
+ * El temporizador mantiene vivo el programa hasta que vence, así una promesa colgada nunca termina en «unsettled top-level await» (el 13/11 el clima salió 3 veces por eso).
+ */
+export async function conTope(trabajo, ms, nombre, log = console.log) {
+  let reloj;
+  const tope = new Promise((_, no) => { reloj = setTimeout(() => no(new Error(`${nombre}: pasó el tope de ${Math.round(ms / 1000)} s y se abandonó`)), ms); });
+  try {
+    await Promise.race([Promise.resolve().then(trabajo), tope]);
+    return { ok: true };
+  } catch (e) {
+    const error = String(e?.message ?? e).slice(0, 300);
+    try { log(`${nombre}: no terminó: ${error}`); } catch { /* el log tampoco puede romper nada */ }
+    return { ok: false, error };
+  } finally { clearTimeout(reloj); }
 }
 
 async function pedirAlWorker(url, ruta, cuerpo, { contrasena, fetchFn }) {
@@ -254,6 +283,7 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
 
   for (const item of plan.piezas) {
     const informe = { pieza: item.id, fila: item.fila, estado: 'error', vozUsada: false };
+    let escribirRegistro = null; // vuelve a escribir el .json de la pieza (lo llama quien termina los extras)
     try {
       let pieza = armarDelPlan(item, { dia: plan.dia, ahora: reloj, ...datos });
       const huella = huellaDeLaPieza(pieza);
@@ -314,11 +344,8 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
         informe.acciones = [...simularPublicacion(acciones), ...simularBuffer(item)];
         informe.estado = 'lista';
       }
-      // La tarjeta de servicio sale después del video de su fila (si el video se reintenta, la tarjeta no se repite). Un fallo acá nunca cambia el estado de la pieza.
-      if (informe.estado === 'lista' || informe.estado === 'publicada') {
-        try { await hacerTarjetas({ item, datos, plan, carpeta, env, deps, informe }); } catch (e) { informe.tarjetas = [{ estado: 'error', error: String(e?.message ?? e).slice(0, 300) }]; }
-      }
-      fs.writeFileSync(`${base}.json`, JSON.stringify({ ...informe, habriaPublicadoA: reloj.toISOString(), programada: item.hora, pieza: item.id, guionAlineado: voz?.palabras?.length ?? 0 }, null, 2));
+      escribirRegistro = () => fs.writeFileSync(`${base}.json`, JSON.stringify({ ...informe, habriaPublicadoA: reloj.toISOString(), programada: item.hora, pieza: item.id, guionAlineado: voz?.palabras?.length ?? 0 }, null, 2));
+      escribirRegistro();
       log(`${item.id}: ${informe.estado} · ${pieza.duracion} s · voz ${informe.vozUsada ? 'nueva' : 'de la memoria'}`);
     } catch (e) {
       informe.estado = e instanceof SinDatos ? 'sin-datos' : (e instanceof SinCupo || e?.sinCupo) ? 'sin-cupo' : 'error';
@@ -327,6 +354,14 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
     }
     salida.piezas.push(informe);
     try { await llamar('/piezas/resultado', informe); } catch (e) { log(`${item.id}: no pude contarle al Worker cómo salió (${e.message})`); informe.sinAnotar = true; }
+    // R42: la pieza ya está marcada en el Worker. Todo lo que sigue es un extra, con tope duro y sin poder romper nada. La tarjeta de servicio sale después del video de su fila
+    // (si el video se reintenta, la tarjeta no se repite). Un fallo acá nunca cambia el estado de la pieza (ya se contó).
+    if (escribirRegistro && (informe.estado === 'lista' || informe.estado === 'publicada')) {
+      const tope = Number(env.TOPE_DE_EXTRAS_MS) > 0 ? Number(env.TOPE_DE_EXTRAS_MS) : TOPE_DE_EXTRAS_MS;
+      const r = await conTope(() => hacerTarjetas({ item, datos, plan, carpeta, env, deps, informe }), tope, `${item.id}: tarjeta`, log);
+      if (!r.ok) informe.tarjetas = [...(informe.tarjetas ?? []), { estado: 'error', error: r.error }];
+      try { escribirRegistro(); } catch (e) { log(`${item.id}: no pude reescribir el registro (${e.message})`); }
+    }
   }
   fs.writeFileSync(path.join(carpeta, 'registro.json'), JSON.stringify(salida, null, 2));
   return salida;
@@ -432,4 +467,5 @@ if (esElPrograma) {
     console.error(`piezas: ${e.stack || e}`);
     process.exitCode = 1;
   }
+  process.exit(process.exitCode ?? 0); // R42: nada colgado de un extra mantiene vivo el programa
 }
