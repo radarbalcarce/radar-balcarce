@@ -363,3 +363,25 @@ test('crearDeps sin Workers conectados contesta «no responde» sin romper', asy
   assert.equal(await d.traerNotas('2026-11-02'), null);
   assert.equal(usd(2.5), 'US$ 2,50');
 });
+
+test('notas publicadas hace más de 3 horas sin foto ni ilustración (caso Espinoza, 12/11): avisa con cantidad y títulos, a los dos chequeos, una sola vez; sin ninguna, no avisa', async () => {
+  const e = escenario();
+  const viejas = { horas: 3, cantidad: 7, notas: [
+    { id: 'a', titulo: 'Fernando Espinoza visitó Mar del Plata y cuestionó la situación económica local', seccion: 'Política' },
+    { id: 'b', titulo: 'Otra nota sin foto' },
+  ] };
+  e.foto = sano({ sinFotoViejas: viejas });
+  await e.chequear(0);
+  assert.deepEqual(e.dichos, [], 'el primer chequeo no avisa: hay que verlo dos veces');
+  await e.chequear(30);
+  assert.equal(e.dichos.length, 1);
+  assert.match(e.dichos[0], /7 notas publicadas hace más de 3 horas sin foto ni ilustración/);
+  assert.match(e.dichos[0], /Espinoza/);
+  assert.match(e.dichos[0], /y 5 más/);
+  await e.chequear(60);
+  await e.chequear(90);
+  assert.equal(e.dichos.length, 1, 'sin spam: una sola vez mientras siga abierto');
+  e.foto = sano({ sinFotoViejas: { horas: 3, cantidad: 0, notas: [] } });
+  assert.deepEqual(evaluar({ ahora: AHORA, ...sano({ sinFotoViejas: { horas: 3, cantidad: 0, notas: [] } }) }).filter((p) => p.clave === 'notas-sin-foto'), []);
+  assert.deepEqual(evaluar({ ahora: AHORA, ...sano() }).filter((p) => p.clave === 'notas-sin-foto'), [], 'un núcleo viejo que no manda el campo no inventa problemas');
+});

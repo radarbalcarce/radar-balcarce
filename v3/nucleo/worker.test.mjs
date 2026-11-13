@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { crearNucleo, diaDeBalcarce, rangoDelDia, partirEnMensajes, costoEstimado, FRENO_MENSUAL_USD } from './nucleo.mjs';
+import { crearNucleo, diaDeBalcarce, rangoDelDia, partirEnMensajes, costoEstimado, FRENO_MENSUAL_USD, FOTO_REVISION } from './nucleo.mjs';
 import { cargarFuentes } from './fuentes.mjs';
 import { DIRECCION, contrasenaDelWebhook } from '../redaccion/telegram/worker.mjs';
 import * as db from './db/db.mjs';
@@ -559,13 +559,13 @@ test('revisión única (10/11, caso del Papa): una nota de días atrás sin foto
   const [nueva, hecha] = primeras;
   env.DB.sqlite.exec(`UPDATE notas SET foto = NULL, creada = '${hace3dias}'`);
   env.DB.sqlite.exec(`UPDATE notas SET verificacion = '{"fotoMotivo":"todas-con-marca","fotoIntentos":4,"fotoCriterio":2}' WHERE id = '${nueva.id}'`);
-  env.DB.sqlite.exec(`UPDATE notas SET verificacion = '{"fotoMotivo":"todas-con-marca","fotoIntentos":4,"fotoCriterio":2,"fotoRevision":1}' WHERE id = '${hecha.id}'`);
+  env.DB.sqlite.exec(`UPDATE notas SET verificacion = '{"fotoMotivo":"todas-con-marca","fotoIntentos":4,"fotoCriterio":2,"fotoRevision":${FOTO_REVISION}}' WHERE id = '${hecha.id}'`);
   for (const p of primeras) env.DB.sqlite.prepare('UPDATE articulos SET imagenes = ? WHERE historia_id = ?').run(JSON.stringify([{ url: 'https://img.test/nueva.png', ancho: 1200, alto: 800 }]), p.historia_id);
   const r = await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(2) });
   assert.deepEqual(r.errores, []);
   const f = (id) => filas(env, 'SELECT foto, verificacion FROM notas WHERE id = ?', id)[0];
   assert.equal(JSON.parse(f(nueva.id).foto).url, 'https://img.test/nueva.png');
-  assert.equal(JSON.parse(f(nueva.id).verificacion).fotoRevision, 1);
+  assert.equal(JSON.parse(f(nueva.id).verificacion).fotoRevision, FOTO_REVISION);
   assert.ok(f(hecha.id).foto === null || f(hecha.id).foto === 'null', 'con la revisión ya hecha no se reintenta');
 });
 
@@ -806,4 +806,47 @@ test('respaldo: con el freno mensual en dólares el texto sigue por Mistral, sin
   assert.equal(m.pedidos.filter((u) => u.includes('generativelanguage')).length - m.geminiTexto, 0, 'ni una foto a Gemini con el freno');
   assert.equal(m.telegram.length, 1);
   assert.match(m.telegram[0].cuerpo.textos[0], /sólo por el respaldo/);
+});
+
+test('revisión 2 (12/11, caso Espinoza): una nota sin foto por «todas-con-marca» con la revisión 1 ya hecha se reabre con el prompt nuevo', { skip: sinSqlite }, async () => {
+  assert.ok(FOTO_REVISION >= 2, 'la revisión 1 (caso del Papa) ya no alcanza: el prompt de visión cambió');
+  const env = envDe({ NUCLEO_PUBLICA: 'si' });
+  const m = mundo();
+  const n = nucleo();
+  await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(1) });
+  const [vieja] = filas(env, "SELECT id, historia_id FROM notas WHERE estado = 'publicada'");
+  const hace3dias = new Date(Date.parse(AHORA) - 3 * 24 * 3600_000).toISOString();
+  env.DB.sqlite.exec(`UPDATE notas SET foto = NULL, creada = '${hace3dias}' WHERE id = '${vieja.id}'`);
+  env.DB.sqlite.exec(`UPDATE notas SET verificacion = '{"fotoMotivo":"todas-con-marca","fotoIntentos":4,"fotoCriterio":2,"fotoRevision":1}' WHERE id = '${vieja.id}'`);
+  env.DB.sqlite.prepare('UPDATE articulos SET imagenes = ? WHERE historia_id = ?').run(JSON.stringify([{ url: 'https://img.test/nueva.png', ancho: 1200, alto: 800 }]), vieja.historia_id);
+  const r = await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(2) });
+  assert.deepEqual(r.errores, []);
+  const fila = filas(env, 'SELECT foto, verificacion FROM notas WHERE id = ?', vieja.id)[0];
+  assert.equal(JSON.parse(fila.foto).url, 'https://img.test/nueva.png');
+  assert.equal(JSON.parse(fila.verificacion).fotoRevision, FOTO_REVISION);
+});
+
+test('/salud avisa las notas publicadas hace más de 3 horas sin foto ni ilustración (sinFotoViejas): no las de menos de 3 h, ni las con foto o ilustración, ni el clima, ni las de más de 24 h', { skip: sinSqlite }, async () => {
+  const env = envDe();
+  const m = mundo();
+  const n = nucleo();
+  const hace = (h) => new Date(Date.parse(AHORA) - h * 3600_000).toISOString();
+  const sembrar = (id, creada, foto, titulo = `Título de ${id}`) => {
+    env.DB.sqlite.prepare("INSERT OR IGNORE INTO historias (id, creada, fecha_hecho) VALUES (?, ?, ?)").run(`h-${id}`, creada, creada);
+    env.DB.sqlite.prepare(
+      "INSERT INTO notas (id, historia_id, creada, titulo, bajada, cuerpo, seccion, foto, fuentes, fecha_hecho, firma, estado) VALUES (?, ?, ?, ?, 'b', '[\"uno\"]', 'Política', ?, '[]', ?, 'Radar Balcarce', 'publicada')",
+    ).run(id, `h-${id}`, creada, titulo, foto ? JSON.stringify(foto) : null, creada);
+  };
+  sembrar('espinoza', hace(5), null, 'Fernando Espinoza visitó Mar del Plata y cuestionó la situación económica local');
+  sembrar('otra', hace(4), null);
+  sembrar('reciente', hace(1), null);
+  sembrar('conFoto', hace(5), { url: 'https://img.test/a.jpg' });
+  sembrar('conIlustracion', hace(5), { url: 'https://radarbalcarce.com/foto/x.jpg', ilustracion: true });
+  sembrar('clima-2026-11-02', hace(5), null);
+  sembrar('antigua', hace(30), null);
+  const salud = JSON.parse(await (await n.manejar(new Request('https://x.test/salud'), env, { fetch: m.fetch, ahora: AHORA })).text());
+  assert.equal(salud.sinFotoViejas.horas, 3);
+  assert.equal(salud.sinFotoViejas.cantidad, 2);
+  assert.deepEqual(salud.sinFotoViejas.notas.map((x) => x.id), ['otra', 'espinoza'], 'las más nuevas primero');
+  assert.match(salud.sinFotoViejas.notas[1].titulo, /Espinoza/);
 });

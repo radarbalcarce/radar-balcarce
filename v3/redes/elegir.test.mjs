@@ -298,3 +298,13 @@ test('una nota del motor pedida a mano (/redes) sale aunque no la cuenten tantos
   // una pedida que la ley frena no abre los cupos
   assert.equal(elegirParaFacebook({ notas: [pedida({ noPublicar: { motivo: 'menor' } })], hechas, ahora: AHORA }).motivo, 'cupo-completo');
 });
+
+test('caso Espinoza (12/11): «Fernando Espinoza visitó Mar del Plata…», Política, de afuera y muy contada, SIN foto: no sale en ninguna red, ni con placa ni pasada la espera; con Balcarce sí', () => {
+  const espinoza = nacional({ titulo: 'Fernando Espinoza visitó Mar del Plata y cuestionó la situación económica local', seccion: 'Política', motivo: 'nacional-3', medios: 8, foto: null, publicada: hace(200) });
+  assert.equal(tipoDeNota(espinoza), 'nacional');
+  assert.equal(motivoDeExclusion(espinoza, { ahora: AHORA, conPlaca: true }), 'sin-foto');
+  assert.equal(motivoDeExclusion(espinoza, { ahora: AHORA }), 'sin-foto');
+  assert.equal(motivoDeExclusion({ ...espinoza, publicada: hace(5000) }, { ahora: AHORA, conPlaca: true }), 'sin-foto', 'la espera de 150 minutos es sólo de Balcarce');
+  assert.equal(elegirParaFacebook({ notas: [espinoza], ahora: AHORA, conPlaca: true }).nota, null);
+  assert.equal(motivoDeExclusion({ ...espinoza, motivo: 'balcarce', seccion: 'Balcarce' }, { ahora: AHORA, conPlaca: true }), null, 'una nota de Balcarce sin foto, pasada la espera, sí va con placa');
+});

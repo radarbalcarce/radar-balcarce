@@ -28,6 +28,7 @@ const MAX_ARTICULOS_POR_VUELTA = 100; // tope de seguridad: D1 y subpedidos de u
 const ERRORES_SEGUIDOS_DE_HUELLA = 5; // si Workers AI no contesta 5 veces seguidas, se corta el agrupado de esta vuelta
 const FALLOS_POR_HISTORIA = 3; // después de 3 vueltas fallando al redactar una historia, se la da por no redactable
 const LARGO_DE_MENSAJE = 3500;
+const HORAS_SIN_FOTO_PARA_AVISAR = 3; // una nota publicada hace más sin foto ni ilustración se avisa a la vigilancia (/salud: sinFotoViejas)
 const FOTOS_REINTENTADAS_POR_VUELTA = 5; // notas publicadas sin foto a las que se les vuelve a buscar una por vuelta (REGLAS § 7)
 const HORAS_PARA_REINTENTAR_FOTO = 24; // sólo las publicadas en las últimas 24 h
 const MAX_INTENTOS_DE_FOTO = 4; // contando el de la redacción
@@ -38,8 +39,9 @@ const SECCIONES_SIN_FOTO_AJENA = new Set(); // 10/11 (Hernán): Policiales ya no
 /** Versión del criterio de fotos. Una nota sin foto por «menor o víctima» o «descartadas» con una versión anterior se vuelve a mirar con el criterio nuevo (10/11). */
 export const FOTO_CRITERIO = 2;
 const MOTIVOS_REABRIBLES = new Set(['todas-con-menor-o-victima', 'todas-descartadas', 'policiales']);
-/** Revisión única de las sin foto por «marca» (10/11, caso del Papa: se descartaban por no poder bajar la imagen sin User-Agent). Marca aparte de FOTO_CRITERIO, para no reabrir de nuevo las de arriba. */
-export const FOTO_REVISION = 1;
+/** Revisión única de las sin foto por «marca» (10/11, caso del Papa: se descartaban por no poder bajar la imagen sin User-Agent). Marca aparte de FOTO_CRITERIO, para no reabrir de nuevo las de arriba.
+ *  12/11 (caso Espinoza): 2, porque el prompt de visión ya no toma por marca el logo impreso en la escena (cajas, gorras, carteles): las sin foto por «todas-con-marca» se vuelven a mirar UNA vez más. */
+export const FOTO_REVISION = 2;
 const hayQueReabrir = (v) => !!v && ((v.fotoCriterio !== FOTO_CRITERIO && MOTIVOS_REABRIBLES.has(v.fotoMotivo || v.rehacerMotivo))
   || (v.fotoMotivo === 'todas-con-marca' && v.fotoRevision !== FOTO_REVISION));
 const ILUSTRAR_POR_VUELTA = 4; // notas a las que se les hace una ilustración por vuelta (NUCLEO_ILUSTRAR_POR_VUELTA; 0 lo apaga; REGLAS § 7 paso 3)
@@ -905,6 +907,12 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     // Las notas de los últimos 7 días sin foto, por motivo (Hernán, 6/11: saber la causa real). Si la consulta falla, /salud sigue.
     let sinFoto7d = null;
     try { sinFoto7d = await db.contarSinFotoPorMotivo(env, new Date(new Date(c.ahoraISO).getTime() - 7 * 86400000).toISOString()); } catch (e) { console.error(`salud sinFoto: ${e.message}`); }
+    // Notas publicadas hace más de 3 horas que siguen sin foto ni ilustración (aviso de la vigilancia, 12/11). Miran las últimas 24 h. Si la consulta falla, /salud sigue.
+    let sinFotoViejas = null;
+    try {
+      const ahoraMs = new Date(c.ahoraISO).getTime();
+      sinFotoViejas = { horas: HORAS_SIN_FOTO_PARA_AVISAR, ...(await db.notasSinFotoViejas(env, new Date(ahoraMs - HORAS_SIN_FOTO_PARA_AVISAR * HORA).toISOString(), new Date(ahoraMs - 24 * HORA).toISOString())) };
+    } catch (e) { console.error(`salud sinFotoViejas: ${e.message}`); }
     // Las ilustraciones con IA (REGLAS § 7, paso 3): cuántas hay, cuántas imágenes se hicieron hoy y los topes. Si la consulta falla, /salud sigue.
     let ilustraciones = null;
     try {
@@ -955,6 +963,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       ilustraciones,
       fotosDeArchivo,
       sinFoto7d,
+      sinFotoViejas,
       claves: { gemini: !!env.GEMINI_API_KEY, telegram: !!env.TELEGRAM_TOKEN },
     });
   }

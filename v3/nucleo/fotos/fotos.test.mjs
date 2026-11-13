@@ -173,3 +173,17 @@ test('elegirFoto: dos fallos seguidos de Gemini cortan (no gasta las 6), y el to
   assert.equal(n, 2);
   await assert.rejects(elegirFoto(nota, arts, { gemini: { texto: async () => { throw new Error('tope-diario'); } }, fetch: async () => respuestaImagen() }), /tope-diario/);
 });
+
+test('el prompt de visión (12/11, caso Espinoza): marca es sólo lo SUPERPUESTO; cajas, gorras, carteles y logos impresos en la escena no; la política (nunca marca superpuesta) sigue', async () => {
+  const arts = [{ medio: 'DIB', imagenes: [img('https://a.com/espinoza.jpg', 1600, 900)] }];
+  const prompts = [];
+  const gemini = { texto: async (p) => { prompts.push(p); return { marca_de_agua_o_otro_medio: false, menor_o_victima: false, es_de_esta_noticia: 'si' }; } };
+  const f = await elegirFoto({ titulo: 'Fernando Espinoza visitó Mar del Plata' }, arts, { gemini, fetch: async () => respuestaImagen() });
+  assert.equal(f.url, 'https://a.com/espinoza.jpg');
+  const p = String(prompts[0]);
+  assert.match(p, /SOLO si hay un texto o logo SUPERPUESTO/);
+  for (const palabra of ['caja', 'gorra', 'camiseta', 'cartel', 'banner', 'micrófono']) assert.match(p, new RegExp(palabra), palabra);
+  assert.match(p, /marca de agua/);
+  assert.match(p, /nombre de otro medio pegado encima/);
+  assert.match(p, /es de la escena \(false\)/);
+});

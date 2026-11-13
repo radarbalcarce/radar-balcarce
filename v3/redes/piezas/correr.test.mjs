@@ -365,3 +365,23 @@ test('una foto que no baja (403) NUNCA tumba la pieza: va con la placa y se anot
   assert.ok(pedidos.every((p) => /^RadarBalcarceBot\//.test(p.ua)));
   assert.deepEqual(pedidos.filter((p) => p.u.endsWith('/b.jpg')).map((p) => p.u), ['https://radarbalcarce.com/fotos-notas/b.jpg']); // con la copia propia no hace falta ir a la original
 });
+
+test('caso Espinoza (12/11): una nota de AFUERA cuya foto no baja no sale con la placa (la pieza falla y se reintenta); una de Balcarce sí', async () => {
+  const { notasDeAfueraConFotoCaida } = await import('./correr.mjs');
+  const item = { datos: { notas: [
+    { id: 'loc', seccion: 'Balcarce', deBalcarce: true, foto: { url: 'https://media.dib.com.ar/loc.jpg' } },
+    { id: 'esp', seccion: 'Política', deBalcarce: false, foto: { url: 'https://media.dib.com.ar/espinoza.jpg' } },
+  ] } };
+  assert.deepEqual(notasDeAfueraConFotoCaida(item, ['https://media.dib.com.ar/loc.jpg']), [], 'Balcarce con foto caída va con su placa');
+  assert.deepEqual(notasDeAfueraConFotoCaida(item, ['https://media.dib.com.ar/espinoza.jpg']).map((n) => n.id), ['esp']);
+  assert.deepEqual(notasDeAfueraConFotoCaida(item, []), []);
+  // de punta a punta: el repaso con una nota de afuera cuya foto cayó queda en error (no 'lista') y no llama a Meta
+  const t = armar({ ahora: MARTES_10 });
+  t.sqlite.prepare("UPDATE notas SET foto = ? WHERE id = 'nac3333'").run(JSON.stringify({ url: 'https://media.dib.com.ar/espinoza.jpg', credito: 'DIB', ancho: 1200, alto: 900 }));
+  t.deps.renderizar = async (pieza, destino) => { fs.writeFileSync(destino, 'mp4'); return { mp4: destino, duracion: pieza.duracion, urlsQueNoBajaron: ['https://media.dib.com.ar/espinoza.jpg'] }; };
+  const r = await correr({ env: t.env, ahora: MARTES_10, carpeta: t.carpeta, deps: t.deps });
+  const noticia = r.piezas.find((p) => p.pieza === 'noticia1');
+  assert.equal(noticia.estado, 'error');
+  assert.match(noticia.error, /nota de afuera no baj/);
+  assert.equal(t.llamadasMeta.length, 0);
+});

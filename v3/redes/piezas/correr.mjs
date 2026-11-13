@@ -43,6 +43,13 @@ export class SinCupo extends Error {}
 
 const hash = (t) => crypto.createHash('sha256').update(t).digest('hex').slice(0, 24);
 
+/** Las notas de AFUERA de la pieza (no de Balcarce) cuya foto no bajó: con la placa de la sección no pueden salir (REGLAS § 3). `urlsQueNoBajaron`: las direcciones que `resolverFotos` no pudo traer. */
+export function notasDeAfueraConFotoCaida(item, urlsQueNoBajaron = []) {
+  const caidas = new Set((urlsQueNoBajaron ?? []).filter(Boolean));
+  if (!caidas.size) return [];
+  return (item?.datos?.notas ?? []).filter((n) => n && n.deBalcarce !== true && n.seccion !== 'Balcarce' && (caidas.has(n.foto?.url) || caidas.has(n.foto?.copia)));
+}
+
 /** La pieza armada (datos puros) de una entrada del plan. Tira `SinDatos` si falta algo de afuera. */
 export function armarDelPlan(item, {
   dia, ahora = new Date(), clima = null, farmacia = null, efemeride = null, agenda = null, feriado = null, aviso = null, finde = null,
@@ -274,6 +281,9 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
 
       const subtitulos = mudo ? deps.subtitulosEstimados(pieza) : deps.subtitulos(voz.palabras);
       const r = await deps.renderizar(pieza, `${base}.mp4`, { voz: voz?.archivo ?? null, subtitulos });
+      // Una nota de AFUERA cuya foto no bajó nunca sale con la placa (REGLAS § 3; caso Espinoza, 12/11): la pieza no se publica y se reintenta. Sólo Balcarce sin foto va con placa.
+      const sinFotoAjena = notasDeAfueraConFotoCaida(item, r.urlsQueNoBajaron);
+      if (sinFotoAjena.length) throw new Error(`la foto de una nota de afuera no bajó, no sale con placa (${sinFotoAjena.map((n) => n.id).join(', ')})`);
       if (r.fotosQueNoBajaron?.length) informe.aviso = `${informe.aviso ? `${informe.aviso}; ` : ''}fotos que no bajaron (van con la placa): ${r.fotosQueNoBajaron.join(' | ')}`;
       const acciones = accionesConTexto(pieza, item);
       informe.texto = acciones[0]?.pie || textoDePieza(pieza, item, 'facebook');
@@ -354,9 +364,10 @@ export async function dependenciasReales(env = process.env) {
     subtitulos: (palabras) => (palabras?.length ? armarAss(enCarteles(palabras, { max: 4, minimo: 2 })) : null),
     async renderizar(pieza, destino, { voz, subtitulos }) {
       const fotosQueNoBajaron = [];
-      const lista = await resolverFotos(pieza, { alFallar: (f, e) => fotosQueNoBajaron.push(`${f.url ?? f.ruta}: ${String(e.message).slice(0, 120)}`) });
+      const urlsQueNoBajaron = [];
+      const lista = await resolverFotos(pieza, { alFallar: (f, e) => { urlsQueNoBajaron.push(f.url); fotosQueNoBajaron.push(`${f.url ?? f.ruta}: ${String(e.message).slice(0, 120)}`); } });
       const r = await armarVideo(armarEscenaDeVideo(lista), destino, { voz, subtitulos });
-      return { ...r, fotosQueNoBajaron };
+      return { ...r, fotosQueNoBajaron, urlsQueNoBajaron };
     },
     // Buffer pide una dirección pública del video: se sube al depósito R2 del render (listos/<huella>/<archivo>.mp4) y lo sirve el Worker de redes (video-publico.mjs) en /video/<huella>/<archivo>.mp4.
     // Un cuadro del video como JPEG (la tapa del reel).

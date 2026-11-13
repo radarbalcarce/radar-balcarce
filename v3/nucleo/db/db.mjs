@@ -346,6 +346,15 @@ export async function notasPublicadasSinFoto(env, desdeISO, limite = 40) {
   }));
 }
 
+// Las notas publicadas HACE MÁS de `antesDeISO` (y no más viejas que `desdeISO`) que siguen sin foto real ni ilustración (la ilustración es una foto con `ilustracion: true`, así que
+// «sin foto» ya significa ninguna de las dos). Para el aviso de la vigilancia (12/11, caso Espinoza). Sin clima, sin lo frenado por la ley ni las de la redacción sin historia.
+export async function notasSinFotoViejas(env, antesDeISO, desdeISO, limite = 8) {
+  const filtro = "estado = 'publicada' AND no_publicar IS NULL AND (foto IS NULL OR foto = '' OR foto = 'null') AND id NOT LIKE 'clima-%' AND creada < ? AND creada >= ? AND historia_id IN (SELECT id FROM historias)";
+  const { results } = await env.DB.prepare(`SELECT id, titulo, seccion, creada FROM notas WHERE ${filtro} ORDER BY creada DESC LIMIT ?`).bind(antesDeISO, desdeISO, limite).all();
+  const cuenta = await env.DB.prepare(`SELECT COUNT(*) AS n FROM notas WHERE ${filtro}`).bind(antesDeISO, desdeISO).first();
+  return { cantidad: (cuenta || {}).n || 0, notas: (results || []).map((f) => ({ id: f.id, titulo: f.titulo, seccion: f.seccion, creada: f.creada })) };
+}
+
 // Guarda la foto que apareció después (o sólo el motivo y los intentos, si sigue sin haber) en una nota que todavía no tiene. Nunca pisa una foto que ya está.
 export async function ponerFotoDeNota(env, id, foto, verificacion) {
   await env.DB.prepare("UPDATE notas SET foto = ?, verificacion = ? WHERE id = ? AND (foto IS NULL OR foto = 'null')")

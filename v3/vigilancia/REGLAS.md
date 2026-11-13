@@ -29,6 +29,7 @@ decisiones de `docs/propuestas/PLAN-RADAR-3-0.md` (§ 3.12 y sección 10). Si el
 8 bis. **El tope de pedidos de IA del día** (11/11, después de que el tope de 700 se llenó a las 13:15 y la redacción se frenó cuatro horas sin aviso):
    avisa cuando los pedidos de hoy llegan al 80 % del tope diario (una vez por día), y avisa si hay 12 notas o más elegidas esperando redacción
    durante dos chequeos seguidos (una hora). Además, «sin notas nuevas» ahora avisa a las 2 horas de ventana (antes 4).
+8 ter. **Notas sin foto ni ilustración** (12/11, caso Espinoza): avisa si hay notas **publicadas hace más de 3 horas** (de las últimas 24) que siguen sin foto real ni ilustración (`sinFotoViejas` del `/salud` del núcleo). El mensaje dice cuántas y los títulos de hasta 5 («y N más»). Recién a los dos chequeos seguidos (una hora), una sola vez por problema mientras siga abierto (clave `notas-sin-foto`, sin aviso de «volvió»). No cuenta el clima, lo frenado por la ley ni lo de más de 24 horas. Prueba: `vigilancia.test.mjs`.
 9. **Las redes** (Facebook, Instagram, Bluesky, Threads y X), con lo que registra `radar-redes` en `GET /actividad` (publicaciones reales de las últimas 24 horas):
    - **una red lleva demasiado sin publicar**: 6 horas Facebook e Instagram, 8 Bluesky, Threads y X (salen detrás de Facebook). Se cuentan sólo
      las horas dentro del horario de publicación, de 8:00 a 22:00 de Balcarce: la noche no cuenta. Si no publicó nada en 24 horas, también avisa;

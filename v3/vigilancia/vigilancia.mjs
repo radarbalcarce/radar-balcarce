@@ -98,6 +98,18 @@ export function evaluar({ ahora, nucleo, bot, sitio = null, direccionDelBot, web
       problemas.push({ clave: 'redaccion-atrasada', texto: `Hay ${sinRedactar} notas elegidas esperando que se redacten (la redacción no avanza: mirar el tope de pedidos de IA y las claves).`, confirmar: 2 });
     }
 
+    // Notas publicadas hace más de 3 horas que siguen sin foto ni ilustración (12/11, caso Espinoza: una nota de Política se quedó con la placa). Se confirma en dos chequeos y avisa una vez.
+    const viejas = s.sinFotoViejas;
+    if (viejas && Number(viejas.cantidad) > 0) {
+      const titulos = (viejas.notas ?? []).slice(0, 5).map((n) => `«${String(n.titulo ?? n.id).slice(0, 90)}»`);
+      const mas = viejas.cantidad - titulos.length;
+      problemas.push({
+        clave: 'notas-sin-foto',
+        texto: `Hay ${plural(viejas.cantidad, 'nota publicada', 'notas publicadas')} hace más de ${viejas.horas || 3} horas sin foto ni ilustración: ${titulos.join(', ')}${mas > 0 ? ` y ${mas} más` : ''}.`,
+        confirmar: 2, silencioso: true,
+      });
+    }
+
     for (const f of s.fuentes?.conFalla ?? []) {
       const tope = f.ultimoOk ? FALLAS_DE_TRES_DIAS : FALLAS_SI_NUNCA_ANDUVO;
       if (f.fallasSeguidas >= tope) {
