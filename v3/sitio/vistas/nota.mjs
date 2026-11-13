@@ -97,7 +97,9 @@ export function fotosExtra(n) {
  */
 export function conCuentasEnlazadas(htmlEscapado, n) {
   if (n?.origen !== 'redaccion') return htmlEscapado;
-  return String(htmlEscapado).replace(/(^|[\s(«"'¡¿])@([A-Za-z0-9_]+(?:\.[A-Za-z0-9_]+)*)/g, (m, antes, cuenta) => `${antes}<a href="https://www.instagram.com/${cuenta}/" target="_blank" rel="noopener nofollow ugc">@${cuenta}</a>`);
+  // [texto](https://radarbalcarce.com/…): un enlace a otra nota nuestra (sólo del propio sitio; el texto ya viene escapado).
+  const conLinks = String(htmlEscapado).replace(/\[([^\]]+)\]\((https:\/\/radarbalcarce\.com\/[^)\s"'<>]+)\)/g, (m, texto, url) => `<a href="${url}">${texto}</a>`);
+  return conLinks.replace(/(^|[\s(«"'¡¿>])@([A-Za-z0-9_]+(?:\.[A-Za-z0-9_]+)*)/g, (m, antes, cuenta) => `${antes}<a href="https://www.instagram.com/${cuenta}/" target="_blank" rel="noopener nofollow ugc">@${cuenta}</a>`);
 }
 
 function cuerpoHtml(n, parrafos, contexto) {
