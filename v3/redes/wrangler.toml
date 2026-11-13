@@ -39,7 +39,7 @@ REDES_ACTIVAS = "si"
 # El espejo de cada posteo de Facebook en el feed de Instagram (foto entera, sin enlace). «no» lo apaga.
 INSTAGRAM_ESPEJO = "si"
 # Opcional: el cupo de audios del día para las piezas de video (por defecto 10, el de la clave gratis).
-VOZ_TOPE_DIARIO = "10"
+VOZ_TOPE_DIARIO = "14"
 # Cuántos YouTube Shorts por día como máximo (Hernán, 5/11: sale todo y se mide una semana). Es el valor de siempre del código; se cambia acá.
 TOPE_YOUTUBE_POR_DIA = "12"
 # «si»: el posteo de X por Buffer lleva el enlace a la nota (en X con enlace llega unas 13 veces menos). Apagado por defecto.
