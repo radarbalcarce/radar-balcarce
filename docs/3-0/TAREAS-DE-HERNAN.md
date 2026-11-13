@@ -1,9 +1,9 @@
 # Tareas que sólo puede hacer Hernán (12/11/2026)
 
+(Search Console y Publisher Center ya están hechos.)
+
 1. Agenda propia de Balcarce: juntar contactos y armarla con Claude (reel del jueves y carrusel «El finde» siguen pausados).
 2. Renovar `security.txt` antes del 7/11/2027.
-3. Search Console: borrar el mapa viejo `nota/sitemap-archivo.xml`, si sigue.
-4. Terminar lo del Perfil de Google (Publisher Center).
 5. Mail a los comercios (rebotó escuestetbal@yahoo.com.ar).
 6. Pedir al INTA Balcarce los datos de su estación meteorológica.
 7. Cloudflare: Email Routing de contacto@radarbalcarce.com (aviso) y pagar la factura.
