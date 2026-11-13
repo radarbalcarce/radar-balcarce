@@ -93,6 +93,7 @@ jobs:
         run: node v3/redes/piezas/correr.mjs
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TARJETAS_DE_SERVICIO: 'no' # 13/11: la tarjeta colgaba el programa y el clima salió 3 veces; apagada hasta arreglarla
           GEMINI_API_KEY_REDES: ${{ secrets.GEMINI_API_KEY_REDES }}
           GEMINI_API_KEY_REDES_V3: ${{ secrets.GEMINI_API_KEY_REDES_V3 }}
           META_TOKEN: ${{ secrets.META_TOKEN }}
