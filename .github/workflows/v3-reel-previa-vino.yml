@@ -1,0 +1,94 @@
+# Los tres reels de «Balcarce, el nuevo origen del vino» (viñedos, vinotecas y gastronomía), con guion escrito a mano y placas de la marca sin foto. Programa: v3/redes/piezas/previa-vino.mjs.
+# Tres pasos, siempre en este orden y con el OK de una persona entre uno y otro:
+#   1. voz = no,  publicar = no   MUDOS: no usa ninguna clave (no gasta voz ni IA). Para ver las placas y los textos.
+#   2. voz = si,  publicar = no   CON VOZ (un audio por reel, el cupo de la clave de redes). Para oírlos. La voz queda en la memoria: si se publica, suena igual.
+#   3. publicar = si              PUBLICA DE VERDAD (reel e historia en Facebook e Instagram; TikTok, YouTube y X por Buffer). Pide la nota ya publicada.
+name: 'Radar 3.0: reels del vino (previa y publicación)'
+
+on:
+  workflow_dispatch:
+    inputs:
+      voz:
+        description: 'Con voz (gasta un audio por reel). «no» = mudos, sin ninguna clave'
+        type: choice
+        options: ['no', 'si']
+        default: 'no'
+      publicar:
+        description: 'PUBLICAR DE VERDAD. Sólo con la nota publicada, la previa con voz vista y el OK de una persona. Con «si» siempre habla'
+        type: choice
+        options: ['no', 'si']
+        default: 'no'
+      nota:
+        description: 'La dirección de la nota publicada (https://radarbalcarce.com/nota/...). Obligatoria para publicar; en la previa se puede dejar vacía'
+        type: string
+        default: ''
+      piezas:
+        description: 'Cuáles: vinedos, vinotecas, gastronomia (separadas por coma). Vacío = las tres'
+        type: string
+        default: ''
+      menciones:
+        description: 'Cuentas a nombrar en el texto, separadas por coma. Vacío = las confirmadas de cada reel; un guion (-) = ninguna'
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v3-reel-previa
+  cancel-in-progress: false
+
+jobs:
+  vino:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      TZ: America/Argentina/Buenos_Aires
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Instalar
+        run: npm ci --no-audit --no-fund
+      - name: Restaurar la memoria de voces
+        uses: actions/cache/restore@v4
+        with:
+          path: .cache/voz-v3
+          key: voz-v3-${{ github.run_id }}
+          restore-keys: |
+            voz-v3-
+      - name: Armar los reels del vino
+        run: node v3/redes/piezas/previa-vino.mjs
+        env:
+          NOTA_URL: ${{ inputs.nota }}
+          PIEZAS: ${{ inputs.piezas }}
+          MENCIONES: ${{ inputs.menciones }}
+          VOZ: ${{ inputs.voz }}
+          PUBLICAR: ${{ inputs.publicar }}
+          # Las claves entran sólo cuando hacen falta: mudo = ninguna; con voz = la de redes; publicando = también Meta y Buffer.
+          GEMINI_API_KEY_REDES_V3: ${{ (inputs.voz == 'si' || inputs.publicar == 'si') && secrets.GEMINI_API_KEY_REDES || '' }}
+          GEMINI_API_KEY_REDES: ${{ (inputs.voz == 'si' || inputs.publicar == 'si') && secrets.GEMINI_API_KEY_REDES || '' }}
+          META_TOKEN: ${{ inputs.publicar == 'si' && secrets.META_TOKEN || '' }}
+          BUFFER_API_KEY: ${{ inputs.publicar == 'si' && secrets.BUFFER_API_KEY || '' }}
+          R2_ACCESS_KEY_ID: ${{ inputs.publicar == 'si' && secrets.R2_ACCESS_KEY_ID || '' }}
+          R2_SECRET_ACCESS_KEY: ${{ inputs.publicar == 'si' && secrets.R2_SECRET_ACCESS_KEY || '' }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ inputs.publicar == 'si' && secrets.CLOUDFLARE_ACCOUNT_ID || '' }}
+          R2_RENDER: ${{ vars.R2_RENDER }}
+          VOZ_CACHE: ${{ github.workspace }}/.cache/voz-v3
+          SALIDA_PIEZAS: ${{ github.workspace }}/salida-vino
+      - name: Guardar la memoria de voces
+        if: always() && hashFiles('.cache/voz-v3/*.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: .cache/voz-v3
+          key: voz-v3-${{ hashFiles('.cache/voz-v3/*.json') }}
+      - name: Dejar los reels para ver
+        if: always() && hashFiles('salida-vino/*.mp4') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: reels-del-vino
+          path: salida-vino/
+          retention-days: 3

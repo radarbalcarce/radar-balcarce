@@ -15,7 +15,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import {
-  armarClima, armarRepaso, armarEfemeride, armarFarmacia, armarParticipa, armarAgenda, armarUtiles, armarFeriado, armarAviso, armarNotaPropia, armarCarrusel, armarCarruselSemana, armarCarruselFinde,
+  armarClima, armarRepaso, armarEfemeride, armarFarmacia, armarParticipa, armarAgenda, armarUtiles, armarFeriado, armarAviso, armarNotaPropia, armarPiezaEscrita, armarCarrusel, armarCarruselSemana, armarCarruselFinde,
 } from './armadores.mjs';
 import {
   avisoDelClima, datosDelFeriado, efemerideDelDia, eventosParaLaAgenda, fechaLarga, feriadoDelDia, leerClima, leerFarmaciaDeTurno,
@@ -88,6 +88,9 @@ export function armarDelPlan(item, {
     case 'nota-propia':
       if (!item.datos?.nota) throw new SinDatos('falta la nota del reel');
       return armarNotaPropia(item.datos.nota, op);
+    case 'pieza-escrita':
+      if (!item.datos?.pieza) throw new SinDatos('falta el guion escrito de la pieza');
+      return armarPiezaEscrita(item.datos.pieza, op);
     case 'carrusel-nota':
       if (!item.datos?.nota) throw new SinDatos('falta la nota del carrusel');
       return armarCarrusel(item.datos.nota);

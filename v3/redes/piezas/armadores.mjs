@@ -12,7 +12,7 @@
 // `opciones.primeraDelBloque`, o `opciones.saludo` ya resuelto). Las reglas, en palabras de persona, están en `REGLAS.md`.
 import {
   AGENDA, SEMANA, FINDE, AVISO_DE_CLIMA, AVISO_DE_IA_TEXTO, CARRUSEL_MAX_INSTAGRAM, FERIADO, UTILES, CARRUSEL_MIN_FOTOS, CLIMA, EFEMERIDE, FARMACIA, FIRMA_DE_HERNAN, FIRMA_DE_REDACCION, HISTORIA_DE_NOTA, IMAGEN_ENLACE,
-  IMAGEN_FEED_ALTO, IMAGEN_FEED_ANCHO, MOMENTOS_DEL_REPASO, NOTA_PROPIA, NOTA_REEL, PARTICIPA, REPASO, VIDEO_ALTO, VIDEO_ANCHO, WHATSAPP, MUSICA,
+  IMAGEN_FEED_ALTO, IMAGEN_FEED_ANCHO, MOMENTOS_DEL_REPASO, NOTA_PROPIA, NOTA_REEL, PARTICIPA, REPASO, VIDEO_ALTO, VIDEO_ANCHO, WHATSAPP, MUSICA, PALABRAS_POR_SEGUNDO, SEGUNDOS_DE_ADORNO,
 } from './variables.mjs';
 import {
   acortarPalabras, conPunto, contarPalabras, direccionHablada, frases, ganchoDe, hablarCuenta, hablarNumero, momentoDe, nombrePropio, partesQueEntran, presupuestoDeVoz,
@@ -288,6 +288,28 @@ export function armarNotaPropia(nota, opciones = {}) {
   return video('nota-propia', escenas, { voz: opciones.voz ?? 'locutora', saludo, extra: { notaId: nota.id ?? null, seccion: nota.seccion, firma, requiereOkDeHernan: true } });
 }
 
+// ------------------------------------------------------------------ 10 bis. pieza escrita a mano (sin foto, texto literal)
+
+/**
+ * Un reel con el guion escrito a mano (13/11, «Balcarce, el nuevo origen del vino»): cada escena es una placa del repaso SIN foto (la placa de color de su sección, nunca una tarjeta
+ * vacía) con su titular en pantalla y su frase de voz LITERAL, entera, sin cortar direcciones ni nombres. Nada se acorta ni se elige de una nota: lo que se escribe es lo que se dice.
+ * `def`: { id, rotulo, seccion, firma?, notaId?, escenas: [{ titulo, voz }] }. Cada escena dura lo que pide su voz (2,5 palabras por segundo, mínimo 6 s); la última suma el adorno final.
+ * Con la voz de verdad, `ajustarALaVoz` (correr.mjs) reparte el tiempo según las palabras de cada escena.
+ */
+export function armarPiezaEscrita(def, opciones = {}) {
+  if (!def?.escenas?.length) throw new Error('pieza escrita: faltan las escenas');
+  exigirNota({ titulo: def.rotulo, seccion: def.seccion }, 'pieza escrita');
+  const n = def.escenas.length;
+  const escenas = def.escenas.map((e, i) => {
+    if (!e.titulo || !e.voz) throw new Error(`pieza escrita: la escena ${i + 1} necesita titulo y voz`);
+    const base = Math.max(6, Math.ceil((contarPalabras(e.voz) / PALABRAS_POR_SEGUNDO + 0.8) * 2) / 2);
+    return escena('placa-nota', i === n - 1 ? base + SEGUNDOS_DE_ADORNO : base, {
+      rotulo: def.rotulo, i, n, titulo: e.titulo, seccion: def.seccion, foto: null, firma: def.firma ?? null, marca: i === 0 ? null : e.voz,
+    }, e.voz);
+  });
+  return video(def.id, escenas, { voz: opciones.voz ?? 'locutora', saludo: null, extra: { notaId: def.notaId ?? null, seccion: def.seccion, firma: def.firma ?? null, requiereOkDeHernan: true } });
+}
+
 // ------------------------------------------------------------------ 12. historia de una nota (animada, sin voz)
 
 /**
@@ -517,7 +539,7 @@ export function armarAviso(aviso, clima, { fecha = null, ...opciones } = {}) {
 
 /** Todos los armadores por nombre (lo que usa el ejemplo y quien conecte la publicación). */
 export const ARMADORES = Object.freeze({
-  clima: armarClima, repaso: armarRepaso, efemeride: armarEfemeride, 'nota-reel': armarNotaReel, 'nota-propia': armarNotaPropia, 'historia-nota': armarHistoriaDeNota,
+  clima: armarClima, repaso: armarRepaso, efemeride: armarEfemeride, 'nota-reel': armarNotaReel, 'nota-propia': armarNotaPropia, 'pieza-escrita': armarPiezaEscrita, 'historia-nota': armarHistoriaDeNota,
   posteo: armarPosteo, carrusel: armarCarrusel, farmacia: armarFarmacia, participa: armarParticipa, enlace: armarEnlace,
   agenda: armarAgenda, utiles: armarUtiles, feriado: armarFeriado, aviso: armarAviso,
   'carrusel-nota': armarCarrusel, 'carrusel-semana': armarCarruselSemana, 'carrusel-finde': armarCarruselFinde,
