@@ -1,6 +1,7 @@
 // Los tres reels de «Balcarce, el nuevo origen del vino» (sábado 14/11/2026): viñedos, vinotecas y gastronomía. Guiones escritos a mano, en frases cortas y completas (las direcciones
 // no se cortan), con los datos oficiales del posteo de Producción y Empleo (@produccionyempleo.balcarce). Las cuentas NO se nombran ni se muestran en el video (van en el posteo y en la nota).
-// Imágenes: una genérica (entrada) y una por lugar (máximo 4 por reel, ninguna repetida), de salida-vino/fotos/<cuenta>/foto1-3.jpg si están (con el crédito «Foto: Instagram de cada lugar»); el cierre y lo que no tenga foto, la placa de la marca.
+// Imágenes (Hernán, 13/11: «en los reels hay placas, eso no tiene que pasar, tiene que ser todo fotos»): TODAS las escenas llevan foto, ninguna repetida en un reel (4 o 5 imágenes distintas), con el crédito
+// «Foto: Instagram de cada lugar». Qué foto va en cada escena se cambia en la tabla FOTOS_ELEGIDAS de acá abajo (la primera cosa del archivo). Si falta una foto, el programa FALLA con un mensaje claro: nunca cae a placa.
 // Guiones de 20 a 28 s: entrada (una frase), un lugar por escena (nombre y dirección corta en la voz; la línea de vino y el horario, sólo en pantalla) y un cierre breve.
 // Usa el mismo camino que la previa de una nota (`correr.mjs`, pieza `pieza-escrita`): ensayo por defecto, NO publica nada.
 //
@@ -9,12 +10,42 @@
 //   PUBLICAR=si NOTA_URL=https://radarbalcarce.com/nota/… node …   PUBLICA DE VERDAD (reel e historia en Facebook e Instagram; TikTok, YouTube y X por Buffer). Sólo con el OK de una persona y la nota ya publicada.
 //   PIEZAS=vinedos,vinotecas,gastronomia                   cuáles (por defecto las tres; de a uno si la PC tira «memory allocation failed»)
 //   MENCIONES=-                                            sin cuentas en el texto del posteo (por defecto, las de cada reel; ver `REELS`)
-//   FOTOS_VINO=ruta                                        otra carpeta de fotos (por defecto salida-vino/fotos); FOTOS_VINO=- fuerza las placas sin foto
+//   FOTOS_VINO=ruta                                        otra carpeta de fotos (por defecto salida-vino/fotos; las de salida-vino/fotos-extra, al lado, también se leen)
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { correr, dependenciasReales } from './correr.mjs';
+
+/**
+ * LA TABLA DE FOTOS: qué foto lleva cada escena de cada reel, en el orden de `escenas` de `REELS` (entrada, un lugar por escena, cierre). Cada una es `<cuenta>/<archivo>`, sin la carpeta: se busca en
+ * salida-vino/fotos/ y en salida-vino/fotos-extra/ (fotoN.jpg son las de la hoja de cada lugar; candN.jpg, las candidatas de fotos-extra). Para cambiar una foto, se cambia el nombre acá y listo.
+ * Reglas: ninguna repetida dentro de un reel, ninguna foto con texto ni flyers, nunca la botella negra Hidden Sea (`FOTOS_PROHIBIDAS_SHA1`). Si un nombre no existe, el programa falla y lo dice.
+ * Dónde falta foto buena hoy (13/11): casaquinta.resto (una sola: la mesa del salón), vinedolospinos (sólo 2 lindas, las de fotos-extra), talouvinoteca137 y thewinesco (sin foto del local con gente
+ * ni de la fachada); llegan fotos nuevas y se reemplazan acá.
+ */
+export const FOTOS_ELEGIDAS = Object.freeze({
+  vinedos: [
+    'vinedos.balcarce/foto3.jpg', //   entrada: la copa de tinto contra el cielo y las sierras
+    'vinedos.balcarce/cand1.jpg', //   Bodegas y Viñedos Balcarce: la fachada de la bodega, con luz de tarde
+    'vinedolospinos/cand1.jpg', //     Viñedo Los Pinos: hileras de viñedo con lavanda y cerros
+    'vinedolospinos/cand2.jpg', //     cierre: el viñedo al atardecer con la meseta del cerro
+  ],
+  vinotecas: [
+    'vinedos.balcarce/foto1.jpg', //   entrada: la botella de Séptimo Chukker sobre barricas
+    'talouvinoteca137/foto1.jpg', //   Talou Vinoteca: la estantería y el mostrador del local
+    'almacendevinos1980/foto1.jpg', // 1980 Almacén de Vinos: copa y botella «On the Road»
+    'thewinesco/foto1.jpg', //         The Wines Co.: la botella Pyros Malbec con su caja de madera
+    'almacendevinos1980/foto2.jpg', // cierre: el cartel «1980 Almacén de Vinos» en el portón
+  ],
+  gastronomia: [
+    'cavas_restaurante/foto2.jpg', //  entrada: boquerones sobre focaccia, con botella y copa
+    'cavas_restaurante/foto1.jpg', //  Cavas Vinos & Resto: la trucha con puré, copa y botella de tinto
+    'parrillabodegonlostroncos/foto2.jpg', // Parrilla Bodegón Los Troncos: la parrillita con carnes y el estante de vinos
+    'casaquinta.resto/foto1.jpg', //   Casa Quinta: la mesa servida del salón
+    'parrillabodegonlostroncos/foto1.jpg', // cierre: el brownie con helado y frutos rojos
+  ],
+});
 
 export const SECCION = 'Balcarce';
 export const ROTULO = 'El nuevo origen del vino';
@@ -25,14 +56,14 @@ export const CREDITO_DE_LAS_FOTOS = 'Foto: Instagram de cada lugar';
 
 /**
  * Los reels. `escenas`: lo que se VE (titulo) y lo que se DICE (voz), una frase entera por escena. Números y direcciones van en palabras en la voz (la voz no lee «832» ni «hs»); `subtitulo` es lo
- * que se lee en pantalla, con dígitos (si falta, se lee la voz). `lugar`: la carpeta de fotos (la cuenta del lugar, sin arroba) de la escena; `generica: true`: la imagen general del reel.
+ * que se lee en pantalla, con dígitos (si falta, se lee la voz). `lugar`: la cuenta del lugar de la escena (sólo informa; la foto va en `FOTOS_ELEGIDAS`).
  * `texto`: las líneas del posteo (la nota completa, el aviso de la voz con IA y los hashtags los suma `textoDePieza`). `menciones`: cuentas del posteo (sólo en el texto; el video no las nombra).
  */
 /** Crédito del programa, como el posteo oficial: Turismo y Producción y Empleo (la programación) y el Municipio. */
 const MUNICIPALES = Object.freeze(['@turismobalcarce', '@produccionyempleo.balcarce', '@balcarcemunicipio']);
 
 /**
- * El cierre de cada reel: la fecha como titular (una sola idea) y la dirección del programa en la voz y en el subtítulo (no se repite en el titular). Sin imagen: la placa de la marca.
+ * El cierre de cada reel: la fecha como titular (una sola idea) y la dirección del programa en la voz y en el subtítulo (no se repite en el titular). Con foto, como todas (la de `FOTOS_ELEGIDAS`).
  * `pedido`: lo que se agrega antes de la dirección («Consultá y reservá en cada lugar.»: sólo viñedos y gastronomía, una vez).
  */
 const CIERRE_DE = (pedido = '') => ({
@@ -44,11 +75,11 @@ const CIERRE_DE = (pedido = '') => ({
 export const REELS = Object.freeze({
   vinedos: {
     id: 'vino-vinedos',
-    genericas: [['vinedos.balcarce', 'foto3']], // la copa de tinto contra el cielo
+    clave: 'vinedos',
     nombre: 'Balcarce, el nuevo origen del vino: los viñedos abren sus puertas',
     hashtag: 'Vino',
     escenas: [
-      { titulo: 'Los viñedos te esperan', generica: true, voz: 'Este sábado catorce, los viñedos de Balcarce te abren sus puertas, sin costo.', subtitulo: 'Visitas en grupos guiados, con capacidad limitada.' },
+      { titulo: 'Los viñedos te esperan', voz: 'Este sábado catorce, los viñedos de Balcarce te abren sus puertas, sin costo.', subtitulo: 'Visitas en grupos guiados, con capacidad limitada.' },
       { titulo: 'Bodegas y Viñedos Balcarce', lugar: 'vinedos.balcarce', voz: 'Bodegas y Viñedos Balcarce, de cuatro a seis de la tarde.', subtitulo: 'De 16 a 18 hs, abierto al público.' },
       { titulo: 'Viñedo Los Pinos', lugar: 'vinedolospinos', voz: 'Viñedo Los Pinos, de cuatro a cinco y media de la tarde.', subtitulo: 'De 16 a 17:30 hs, abierto al público. Antes, de 15 a 16 hs, residentes de Los Pinos.' },
       CIERRE_DE('Consultá y reservá en cada lugar.'),
@@ -63,11 +94,11 @@ export const REELS = Object.freeze({
   },
   vinotecas: {
     id: 'vino-vinotecas',
-    genericas: [['vinedos.balcarce', 'foto1']], // la botella de Séptimo Chukker, la línea que se sirve en las vinotecas
+    clave: 'vinotecas',
     nombre: 'Balcarce se copa: degustaciones sin cargo en tres vinotecas',
     hashtag: 'Vino',
     escenas: [
-      { titulo: 'Balcarce se copa', generica: true, voz: 'Este sábado catorce, Balcarce se copa: degustaciones sin cargo.', subtitulo: 'De 16 a 21 hs, en tres vinotecas.' },
+      { titulo: 'Balcarce se copa', voz: 'Este sábado catorce, Balcarce se copa: degustaciones sin cargo.', subtitulo: 'De 16 a 21 hs, en tres vinotecas.' },
       { titulo: 'Talou Vinoteca', lugar: 'talouvinoteca137', voz: 'Talou Vinoteca, en calle veintidós al seiscientos cuarenta y tres.', subtitulo: 'Calle 22 al 643. Línea Bravento.' },
       { titulo: '1980 Almacén de Vinos', lugar: 'almacendevinos1980', voz: 'Mil novecientos ochenta Almacén de Vinos, en calle veintiséis al ochocientos veintiocho.', subtitulo: 'Calle 26 al 828. Líneas Bravento y Séptimo Chukker.' },
       { titulo: 'The Wines Co.', lugar: 'thewinesco', voz: 'The Wines Co., en avenida Kelly al ochocientos treinta y dos.', subtitulo: 'Av. Kelly al 832. Líneas Bravento y Séptimo Chukker.' },
@@ -83,11 +114,11 @@ export const REELS = Object.freeze({
   },
   gastronomia: {
     id: 'vino-gastronomia',
-    genericas: [['parrillabodegonlostroncos', 'foto2']], // la parrillita con carnes y el estante de vinos
+    clave: 'gastronomia',
     nombre: 'Cenar con vinos locales: la propuesta gastronómica del sábado',
     hashtag: 'Vino',
     escenas: [
-      { titulo: 'Cenar con vinos de acá', generica: true, voz: 'Este sábado, desde las nueve, cenás con vinos de acá.', subtitulo: 'Desde las 21 hs, maridajes con vinos balcarceños.' },
+      { titulo: 'Cenar con vinos de acá', voz: 'Este sábado, desde las nueve, cenás con vinos de acá.', subtitulo: 'Desde las 21 hs, maridajes con vinos balcarceños.' },
       { titulo: 'Cavas Vinos & Resto', lugar: 'cavas_restaurante', voz: 'Cavas Vinos y Resto, calle veintisiete al ochocientos ochenta y seis.', subtitulo: 'Calle 27 al 886. Copa de bienvenida con Bravento.' },
       { titulo: 'Parrilla Bodegón Los Troncos', lugar: 'parrillabodegonlostroncos', voz: 'Parrilla Bodegón Los Troncos, avenida Central al seiscientos veintiséis.', subtitulo: 'Av. Central al 626. Degustación de Séptimo Chukker.' },
       { titulo: 'Casa Quinta, cocina de autor', lugar: 'casaquinta.resto', voz: 'Casa Quinta, calle cincuenta y nueve al novecientos cincuenta.', subtitulo: 'Calle 59 al 950. Copa y maridaje con Bravento.' },
@@ -110,36 +141,42 @@ const normalizar = (s) => String(s).toLowerCase().replace(/^@/, '');
 export const FOTOS_PROHIBIDAS_SHA1 = Object.freeze(['9215533c2b585cc1d1a751a19f421701bcc5fb87']);
 const sha1 = (ruta) => crypto.createHash('sha1').update(fs.readFileSync(ruta)).digest('hex');
 
-/** Las fotos que hay en `carpeta` (salida-vino/fotos): { <cuenta sin arroba>: [rutas de foto1, foto2, foto3 que existen] }, sin las prohibidas. Sin carpeta, nada (las placas de la marca). El logo no es foto de escena. */
-export function fotosDeVino(carpeta) {
+/**
+ * Las fotos que hay en cada carpeta (salida-vino/fotos y salida-vino/fotos-extra): { '<cuenta sin arroba>/<archivo>': ruta completa }, sin las prohibidas, sin los logos (`logo.*`) ni las hojas de contactos
+ * (`hoja.*`). Una carpeta que no existe no suma nada. Si no hay ninguna, el programa de armado falla al pedir las escenas (no hay placas de relleno).
+ */
+export function fotosDeVino(...carpetas) {
   const r = {};
-  if (!carpeta || !fs.existsSync(carpeta)) return r;
-  for (const d of fs.readdirSync(carpeta, { withFileTypes: true })) {
-    if (!d.isDirectory()) continue;
-    const dentro = fs.readdirSync(path.join(carpeta, d.name));
-    const fotos = [1, 2, 3, 4].map((n) => dentro.find((f) => new RegExp(`^foto${n}\\.(jpe?g|png|webp)$`, 'i').test(f))).filter(Boolean).map((f) => path.resolve(carpeta, d.name, f)).filter((ruta) => !FOTOS_PROHIBIDAS_SHA1.includes(sha1(ruta)));
-    if (fotos.length) r[normalizar(d.name)] = fotos;
+  for (const carpeta of carpetas.flat().filter(Boolean)) {
+    if (!fs.existsSync(carpeta)) continue;
+    for (const d of fs.readdirSync(carpeta, { withFileTypes: true })) {
+      if (!d.isDirectory()) continue;
+      for (const f of fs.readdirSync(path.join(carpeta, d.name))) {
+        if (!/\.(jpe?g|png|webp)$/i.test(f) || /^(logo|hoja)\./i.test(f)) continue;
+        const ruta = path.resolve(carpeta, d.name, f);
+        if (!FOTOS_PROHIBIDAS_SHA1.includes(sha1(ruta))) r[`${normalizar(d.name)}/${f.toLowerCase()}`] = ruta;
+      }
+    }
   }
   return r;
 }
 
 /**
- * Las escenas de un reel con sus imágenes, SIN repetir ninguna: la de cada lugar es su primera foto; la de entrada (`generica`) es la primera de `genericas` ([cuenta, 'fotoN']) que no esté usada
- * o, si no hay, otra foto de alguno de los lugares del reel; el cierre y toda escena sin foto quedan con la placa de la marca. En total, como mucho una genérica más una por lugar.
+ * Las escenas de un reel con su foto, todas: la de cada escena es la de `FOTOS_ELEGIDAS[clave]` en su lugar de la lista, ninguna repetida. NUNCA cae a placa: si la tabla no cubre una escena, repite una
+ * foto o nombra una que no está en `fotos`, tira un error que dice cuál escena y qué foto falta.
  */
-export function escenasConFotos(reel, fotos = {}) {
-  const hay = (c) => fotos[normalizar(c)] ?? [];
-  const lugares = reel.escenas.filter((e) => e.lugar).map((e) => e.lugar);
-  const usadas = new Set(lugares.map((l) => hay(l)[0]).filter(Boolean));
-  const preferidas = (reel.genericas ?? []).map(([cuenta, nombre]) => hay(cuenta).find((f) => path.basename(f).toLowerCase().startsWith(`${nombre}.`))).filter(Boolean);
-  const deLosLugares = lugares.flatMap((l) => hay(l).slice(1));
-  const generica = [...preferidas, ...deLosLugares].find((f) => !usadas.has(f)) ?? null;
-  let entrego = false;
-  return reel.escenas.map(({ lugar, generica: esGenerica, ...e }) => {
-    const ruta = lugar ? hay(lugar)[0] : esGenerica && !entrego ? generica : null;
-    if (esGenerica) entrego = true;
-    return ruta ? { ...e, foto: { ruta, credito: CREDITO_DE_LAS_FOTOS } } : e;
+export function escenasConFotos(reel, fotos = {}, elegidas = FOTOS_ELEGIDAS[reel.clave]) {
+  if (!elegidas || elegidas.length !== reel.escenas.length) throw new Error(`reel «${reel.id}»: la tabla FOTOS_ELEGIDAS tiene ${elegidas?.length ?? 0} fotos y el reel tiene ${reel.escenas.length} escenas: todas llevan foto`);
+  const repetidas = elegidas.filter((f, i) => elegidas.indexOf(f) !== i);
+  if (repetidas.length) throw new Error(`reel «${reel.id}»: foto repetida en la tabla (${[...new Set(repetidas)].join(', ')}): ningún reel repite imagen`);
+  const faltan = [];
+  const escenas = reel.escenas.map(({ lugar, ...e }, i) => {
+    const ruta = fotos[normalizar(elegidas[i])];
+    if (!ruta) faltan.push(`escena ${i + 1} («${e.titulo}»): falta ${elegidas[i]}`);
+    return { ...e, foto: { ruta, credito: CREDITO_DE_LAS_FOTOS } };
   });
+  if (faltan.length) throw new Error(`reel «${reel.id}»: faltan fotos y no se arma con placas. ${faltan.join('; ')}. Ponelas en salida-vino/fotos o fotos-extra (o cambiá la tabla FOTOS_ELEGIDAS de previa-vino.mjs).`);
+  return escenas;
 }
 
 /** La nota publicada de la que cuelga el enlace (id y slug de su dirección). Sin dirección (sólo previa): una provisoria, que nunca se publica. */
@@ -153,8 +190,8 @@ export function notaDeLaDireccion(url) {
   return { id, slug, titulo: TITULO_DE_LA_NOTA, provisoria: false };
 }
 
-/** Las entradas del plan de ensayo: una por reel, con su guion escrito y su texto. `publicar`: suma los canales de Buffer. `fotos`: lo que devuelve `fotosDeVino` (sin eso, placas sin foto). */
-export function itemsDelVino({ piezas = Object.keys(REELS), nota, publicar = false, menciones = null, fotos = {} } = {}) {
+/** Las entradas del plan de ensayo: una por reel, con su guion escrito y su texto. `publicar`: suma los canales de Buffer. `fotos`: lo que devuelve `fotosDeVino` (el programa siempre la pasa: si falta una foto, falla). Sin `fotos` (undefined), sólo el guion sin imágenes: es para las pruebas de texto, nunca se publica. */
+export function itemsDelVino({ piezas = Object.keys(REELS), nota, publicar = false, menciones = null, fotos } = {}) {
   return piezas.map((clave, fila) => {
     const r = REELS[clave];
     if (!r) throw new Error(`no conozco la pieza «${clave}» (hay: ${Object.keys(REELS).join(', ')})`);
@@ -175,7 +212,7 @@ export function itemsDelVino({ piezas = Object.keys(REELS), nota, publicar = fal
       hashtag: r.hashtag,
       primeraDelBloque: false,
       datos: {
-        pieza: { id: r.id, rotulo: ROTULO, seccion: SECCION, firma: FIRMA, notaId: nota.id, escenas: escenasConFotos(r, fotos) },
+        pieza: { id: r.id, rotulo: ROTULO, seccion: SECCION, firma: FIRMA, notaId: nota.id, escenas: fotos === undefined ? r.escenas.map(({ lugar, ...e }) => e) : escenasConFotos(r, fotos) },
         texto: menciones && !menciones.length ? r.texto.map((l) => l.replace(/ \(@[^)]+\)/g, '')) : r.texto, // MENCIONES=-: sin las cuentas entre paréntesis
         nota,
         menciones: menciones ?? r.menciones,
@@ -200,8 +237,10 @@ if (esElPrograma) {
   const mencionesPedidas = String(env.MENCIONES ?? '').trim();
   const menciones = mencionesPedidas === '-' ? [] : mencionesPedidas ? mencionesPedidas.split(/[\s,]+/).filter(Boolean).map((m) => (m.startsWith('@') ? m : `@${m}`)) : null;
   const carpetaDeFotos = String(env.FOTOS_VINO ?? '').trim();
-  const fotos = carpetaDeFotos === '-' ? {} : fotosDeVino(path.resolve(carpetaDeFotos || path.join(env.SALIDA_PIEZAS || 'salida-vino', 'fotos')));
-  console.log(`fotos de los lugares: ${Object.keys(fotos).length ? Object.entries(fotos).map(([c, f]) => `${c} (${f.length})`).join(', ') : 'ninguna (placas de la marca)'}`);
+  if (carpetaDeFotos === '-') throw new Error('FOTOS_VINO=- ya no existe: los reels llevan fotos en todas las escenas, sin placas');
+  const carpetaBase = path.resolve(carpetaDeFotos || path.join(env.SALIDA_PIEZAS || 'salida-vino', 'fotos'));
+  const fotos = fotosDeVino(carpetaBase, path.join(path.dirname(carpetaBase), 'fotos-extra'));
+  console.log(`fotos disponibles: ${Object.keys(fotos).length}`);
   const items = itemsDelVino({ piezas: piezas.length ? piezas : undefined, nota, publicar, menciones, fotos });
   const plan = { dia: new Date().toISOString().slice(0, 10), activas: publicar, vozTope: 10, vozQuedan: 10, piezas: items, descartes: [] };
   const fetchFn = async (u) => ({ ok: true, status: 200, json: async () => (String(u).endsWith('/piezas/plan') ? plan : { ok: true }), text: async () => '{}' });

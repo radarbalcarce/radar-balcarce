@@ -6,7 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import crypto from 'node:crypto';
-import { REELS, itemsDelVino, notaDeLaDireccion, CIERRE, escenasConFotos, fotosDeVino, FOTOS_PROHIBIDAS_SHA1 } from './piezas/previa-vino.mjs';
+import { REELS, itemsDelVino, notaDeLaDireccion, CIERRE, escenasConFotos, fotosDeVino, FOTOS_PROHIBIDAS_SHA1, FOTOS_ELEGIDAS } from './piezas/previa-vino.mjs';
 import { cartelesDePantalla } from './piezas/render.mjs';
 import { armarPiezaEscrita } from './piezas/armadores.mjs';
 import { armarDelPlan, SinDatos } from './piezas/correr.mjs';
@@ -181,30 +181,47 @@ test('cada escena dura lo que pide su voz (sin escenas de relleno) y la última 
   assert.ok(armada('vinotecas').escenas.at(-1).duracion > 4);
 });
 
-test('imágenes: una genérica de entrada y una por lugar (como mucho 4 por reel), ninguna repetida, el cierre en placa; sin fotos, la placa', () => {
-  const fotos = {};
-  for (const c of ['vinedos.balcarce', 'vinedolospinos', 'talouvinoteca137', 'almacendevinos1980', 'thewinesco', 'cavas_restaurante', 'parrillabodegonlostroncos', 'casaquinta.resto']) fotos[c] = [`/x/${c}/foto1.jpg`, `/x/${c}/foto2.jpg`, `/x/${c}/foto3.jpg`];
+const RAIZ_VINO = path.join(import.meta.dirname, '..', '..', 'salida-vino');
+const todasLasFotos = () => { const f = {}; for (const clave of CLAVES) for (const r of FOTOS_ELEGIDAS[clave]) f[r.toLowerCase()] = `/x/${r}`; return f; };
+
+test('imágenes: TODAS las escenas llevan foto (cierre incluido), ninguna repetida, de 4 a 5 distintas por reel, sin placas', () => {
+  const fotos = todasLasFotos();
   for (const clave of CLAVES) {
     const e = escenasConFotos(REELS[clave], fotos);
-    const rutas = e.map((x) => x.foto?.ruta).filter(Boolean);
-    const lugares = REELS[clave].escenas.filter((x) => x.lugar).length;
-    assert.ok(new Set(rutas).size <= 4, clave);
-    assert.equal(rutas.length, new Set(rutas).size, `${clave}: una imagen se repite`);
-    assert.equal(rutas.length, lugares + 1, clave);
-    assert.ok(e[0].foto, 'la entrada lleva su genérica');
-    assert.equal(e.at(-1).foto, undefined, 'el cierre es la placa de la marca');
-    for (const x of e) if (x.foto) assert.equal(x.foto.credito, 'Foto: Instagram de cada lugar');
+    const rutas = e.map((x) => x.foto?.ruta);
+    assert.equal(e.length, REELS[clave].escenas.length);
+    assert.ok(rutas.every(Boolean), `${clave}: una escena quedó sin foto`);
+    assert.equal(new Set(rutas).size, rutas.length, `${clave}: una imagen se repite`);
+    assert.ok(rutas.length >= 4 && rutas.length <= 5, `${clave}: ${rutas.length} imágenes`);
+    assert.ok(e.at(-1).foto, 'el cierre también lleva foto');
+    for (const x of e) { assert.equal(x.foto.credito, 'Foto: Instagram de cada lugar'); assert.ok(!('lugar' in x)); }
+    assert.equal(FOTOS_ELEGIDAS[clave].length, REELS[clave].escenas.length, 'la tabla cubre cada escena');
+    assert.equal(new Set(FOTOS_ELEGIDAS[clave]).size, FOTOS_ELEGIDAS[clave].length, 'la tabla no repite');
   }
   assert.equal(escenasConFotos(REELS.vinotecas, fotos)[1].foto.ruta, '/x/talouvinoteca137/foto1.jpg');
-  assert.equal(escenasConFotos(REELS.vinotecas, fotos)[0].foto.ruta, '/x/vinedos.balcarce/foto1.jpg'); // la genérica elegida del reel
-  assert.equal(escenasConFotos(REELS.vinedos, fotos)[0].foto.ruta, '/x/vinedos.balcarce/foto3.jpg'); // aunque el lugar de la escena 2 use su foto1
-  assert.ok(escenasConFotos(REELS.vinotecas, {}).every((x) => !x.foto && !('lugar' in x)));
-  // sin la genérica elegida, otra foto sobrante de los lugares; con una sola foto por lugar, placa (nunca repite la de un lugar)
-  const e = escenasConFotos(REELS.vinotecas, { talouvinoteca137: ['/y/t.jpg'], thewinesco: ['/y/w.jpg'] });
-  assert.equal(e[0].foto, undefined); assert.equal(e[1].foto.ruta, '/y/t.jpg'); assert.equal(e[2].foto, undefined); assert.equal(e[3].foto.ruta, '/y/w.jpg'); assert.equal(e[4].foto, undefined);
+  // el armador recibe la foto en las cinco escenas, nunca una placa sin foto
   const p = armarDelPlan(itemsDelVino({ nota: NOTA, fotos })[1], { dia: '2026-11-14' });
-  assert.equal(p.escenas[1].datos.foto.credito, 'Foto: Instagram de cada lugar');
+  for (const e of p.escenas) assert.equal(e.datos.foto.credito, 'Foto: Instagram de cada lugar');
   assert.deepEqual(fotosDeVino('/no/existe/de/verdad'), {});
+});
+
+test('si falta una foto, el programa falla con un mensaje claro: nunca cae a placa', () => {
+  const fotos = todasLasFotos();
+  delete fotos[FOTOS_ELEGIDAS.vinotecas.at(-1).toLowerCase()]; // el cierre
+  delete fotos['thewinesco/foto1.jpg'];
+  assert.throws(() => escenasConFotos(REELS.vinotecas, fotos), (e) => /faltan fotos/.test(e.message) && /The Wines Co\./.test(e.message) && /thewinesco\/foto1\.jpg/.test(e.message) && /Sábado 14 de noviembre/.test(e.message));
+  assert.throws(() => escenasConFotos(REELS.vinotecas, {}), /faltan fotos/);
+  assert.throws(() => itemsDelVino({ nota: NOTA, fotos: {} }), /faltan fotos/);
+  assert.throws(() => escenasConFotos(REELS.vinotecas, todasLasFotos(), ['a/1.jpg', 'a/1.jpg', 'b/2.jpg', 'c/3.jpg', 'd/4.jpg']), /repetida/);
+  assert.throws(() => escenasConFotos(REELS.vinotecas, todasLasFotos(), ['a/1.jpg']), /todas llevan foto/);
+});
+
+test('las fotos elegidas existen de verdad en salida-vino (fotos y fotos-extra), no son la prohibida y ninguna es logo ni hoja', { skip: !fs.existsSync(path.join(RAIZ_VINO, 'fotos')) }, () => {
+  const reales = fotosDeVino(path.join(RAIZ_VINO, 'fotos'), path.join(RAIZ_VINO, 'fotos-extra'));
+  for (const clave of CLAVES) {
+    for (const r of FOTOS_ELEGIDAS[clave]) { assert.ok(reales[r.toLowerCase()], `${clave}: no está ${r}`); assert.ok(!/logo|hoja/i.test(r), `${r} no es foto de escena`); }
+    assert.equal(escenasConFotos(REELS[clave], reales).length, REELS[clave].escenas.length);
+  }
 });
 
 test('la botella negra de Hidden Sea (The Wines Co) no se usa en ningún lado, aunque esté en la carpeta', () => {
@@ -214,13 +231,16 @@ test('la botella negra de Hidden Sea (The Wines Co) no se usa en ningún lado, a
   const otra = Buffer.from('otra foto');
   fs.writeFileSync(path.join(carpeta, 'thewinesco', 'foto1.jpg'), otra);
   fs.writeFileSync(path.join(carpeta, 'thewinesco', 'foto2.jpg'), 'una foto cualquiera');
+  fs.writeFileSync(path.join(carpeta, 'thewinesco', 'logo.jpg'), 'logo');
   assert.ok(!FOTOS_PROHIBIDAS_SHA1.includes(sha(otra)), 'prueba mal armada');
-  assert.equal(fotosDeVino(carpeta).thewinesco.length, 2, 'una foto cualquiera pasa');
-  const real = path.join(import.meta.dirname, '..', '..', 'salida-vino', 'fotos', 'thewinesco', 'foto2.jpg');
+  assert.deepEqual(Object.keys(fotosDeVino(carpeta)).sort(), ['thewinesco/foto1.jpg', 'thewinesco/foto2.jpg'], 'una foto cualquiera pasa; el logo no es foto');
+  const real = path.join(RAIZ_VINO, 'fotos', 'thewinesco', 'foto2.jpg');
   if (fs.existsSync(real) && sha(fs.readFileSync(real)) === FOTOS_PROHIBIDAS_SHA1[0]) {
     fs.copyFileSync(real, path.join(carpeta, 'thewinesco', 'foto2.jpg'));
-    assert.deepEqual(fotosDeVino(carpeta).thewinesco.map((f) => path.basename(f)), ['foto1.jpg']);
+    assert.deepEqual(Object.keys(fotosDeVino(carpeta)), ['thewinesco/foto1.jpg']);
   }
+  const todas = Object.values(FOTOS_ELEGIDAS).flat();
+  assert.ok(!todas.includes('thewinesco/foto2.jpg'), 'la tabla no usa la botella negra');
   fs.rmSync(carpeta, { recursive: true, force: true });
 });
 
