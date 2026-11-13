@@ -291,9 +291,9 @@ export function armarNotaPropia(nota, opciones = {}) {
 // ------------------------------------------------------------------ 10 bis. pieza escrita a mano (sin foto, texto literal)
 
 /**
- * Un reel con el guion escrito a mano (13/11, «Balcarce, el nuevo origen del vino»): cada escena es una placa del repaso SIN foto (la placa de color de su sección, nunca una tarjeta
+ * Un reel con el guion escrito a mano (`subtitulo` opcional por escena: el texto que se lee en pantalla, con dígitos; la voz sigue en palabras) (13/11, «Balcarce, el nuevo origen del vino»): cada escena es una placa del repaso SIN foto (la placa de color de su sección, nunca una tarjeta
  * vacía) con su titular en pantalla y su frase de voz LITERAL, entera, sin cortar direcciones ni nombres. Nada se acorta ni se elige de una nota: lo que se escribe es lo que se dice.
- * `def`: { id, rotulo, seccion, firma?, notaId?, escenas: [{ titulo, voz }] }. Cada escena dura lo que pide su voz (2,5 palabras por segundo, mínimo 6 s); la última suma el adorno final.
+ * `def`: { id, rotulo, seccion, firma?, notaId?, escenas: [{ titulo, voz }] }. Cada escena dura lo que pide su voz (2,5 palabras por segundo, mínimo 3 s); la última suma el adorno final.
  * Con la voz de verdad, `ajustarALaVoz` (correr.mjs) reparte el tiempo según las palabras de cada escena.
  */
 export function armarPiezaEscrita(def, opciones = {}) {
@@ -302,10 +302,12 @@ export function armarPiezaEscrita(def, opciones = {}) {
   const n = def.escenas.length;
   const escenas = def.escenas.map((e, i) => {
     if (!e.titulo || !e.voz) throw new Error(`pieza escrita: la escena ${i + 1} necesita titulo y voz`);
-    const base = Math.max(6, Math.ceil((contarPalabras(e.voz) / PALABRAS_POR_SEGUNDO + 0.8) * 2) / 2);
-    return escena('placa-nota', i === n - 1 ? base + SEGUNDOS_DE_ADORNO : base, {
-      rotulo: def.rotulo, i, n, titulo: e.titulo, seccion: def.seccion, foto: null, firma: def.firma ?? null, marca: i === 0 ? null : e.voz,
+    const base = Math.max(3, Math.ceil((contarPalabras(e.voz) / PALABRAS_POR_SEGUNDO + 0.8) * 2) / 2); // lo que dura su frase (sin escenas de relleno)
+    const escrita = e.subtitulo ?? e.voz; // lo que se LEE (números en dígitos) puede diferir de lo que se DICE (todo en palabras)
+    const hecha = escena('placa-nota', i === n - 1 ? base + SEGUNDOS_DE_ADORNO : base, {
+      rotulo: def.rotulo, i, n, titulo: e.titulo, seccion: def.seccion, foto: fotoDe(e.foto), firma: def.firma ?? null, marca: i === 0 ? null : escrita, sinNumero: true,
     }, e.voz);
+    return e.subtitulo ? { ...hecha, subtitulo: e.subtitulo } : hecha;
   });
   return video(def.id, escenas, { voz: opciones.voz ?? 'locutora', saludo: null, extra: { notaId: def.notaId ?? null, seccion: def.seccion, firma: def.firma ?? null, requiereOkDeHernan: true } });
 }

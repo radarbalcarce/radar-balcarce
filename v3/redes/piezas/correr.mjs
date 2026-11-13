@@ -282,7 +282,9 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
       }
       informe.duracion = pieza.duracion;
 
-      const subtitulos = mudo ? deps.subtitulosEstimados(pieza) : deps.subtitulos(voz.palabras);
+      // Una pieza con texto de pantalla propio (`subtitulo`, números en dígitos) se subtitula por escena, con los tiempos ya ajustados a la voz; las demás, palabra por palabra de la voz.
+      const conTextoPropio = pieza.escenas.some((e) => e.subtitulo);
+      const subtitulos = mudo || conTextoPropio ? deps.subtitulosEstimados(pieza) : deps.subtitulos(voz.palabras);
       const r = await deps.renderizar(pieza, `${base}.mp4`, { voz: voz?.archivo ?? null, subtitulos });
       // Una nota de AFUERA cuya foto no bajó nunca sale con la placa (REGLAS § 3; caso Espinoza, 12/11): la pieza no se publica y se reintenta. Sólo Balcarce sin foto va con placa.
       const sinFotoAjena = notasDeAfueraConFotoCaida(item, r.urlsQueNoBajaron);

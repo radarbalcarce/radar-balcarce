@@ -14,7 +14,7 @@ import { promisify } from 'node:util';
 import { ANCHO, ALTO, aPng } from '../../../reels/placa.mjs';
 import { renderizarLinea } from '../../../reels/animacion.mjs';
 import { armarAss } from '../../../reels/reel.mjs';
-import { enCarteles } from '../../../reels/voz.mjs';
+import { conLaDireccionEscrita } from '../../../reels/voz.mjs';
 import { escenaDeVideo, imagenComoSvg } from './escenas.mjs';
 import { MUSICA, PALABRAS_POR_SEGUNDO, VIDEO_AUDIO_HZ, VIDEO_AUDIO_KBPS, VIDEO_CUADROS } from './variables.mjs';
 
@@ -59,6 +59,38 @@ export async function imagenesDeLasEscenas(escena, carpeta) {
   return archivos;
 }
 
+// Siglas y abreviaturas cuyo punto no cierra una frase («Av. Kelly»), y las que van pegadas a la palabra que sigue («N° 643»).
+const ABREVIATURAS = /^(av|avda|dr|dra|sr|sra|co|nro|n[°º])\.?$/i;
+
+/**
+ * Los carteles de subtítulo de pantalla: hasta `maxPalabras` palabras y `maxCaracteres` letras (el cartel no se sale del ancho: Inter 64 en 1080 px con 60 de margen no pasa de unos 26),
+ * cortando donde termina una frase (no en «Av.»); una abreviatura se queda con la palabra que sigue y un cartel de una sola palabra se junta con el anterior si entra.
+ */
+export function cartelesDePantalla(palabras, { maxPalabras = 4, maxCaracteres = 24 } = {}) {
+  const largo = (g) => g.map((p) => p.texto).join(' ').length;
+  const grupos = [];
+  let grupo = [];
+  const cerrar = () => { if (grupo.length) grupos.push(grupo); grupo = []; };
+  for (const p of conLaDireccionEscrita(palabras)) {
+    const pegada = grupo.length && (ABREVIATURAS.test(grupo.at(-1).texto) || /^hs[.,;:]?$/i.test(p.texto)); // «N° 643», «Av. Kelly», «18 hs»: no se parten
+    if (grupo.length && !pegada && (grupo.length >= maxPalabras || largo([...grupo, p]) > maxCaracteres)) cerrar();
+    grupo.push(p);
+    if (p.finFrase && !ABREVIATURAS.test(p.texto)) cerrar();
+  }
+  cerrar();
+  // Un cartel de una sola palabra queda entero en el color de resalte (parece un error): le pasa su última palabra el cartel de antes, o se junta con él si entra.
+  for (let i = grupos.length - 1; i > 0; i -= 1) {
+    if (grupos[i].length > 1 || grupos[i - 1].at(-1).finFrase) continue;
+    if (grupos[i - 1].length >= 3 && !ABREVIATURAS.test(grupos[i - 1].at(-2).texto)) grupos[i] = [grupos[i - 1].pop(), ...grupos[i]];
+    else if (largo([...grupos[i - 1], ...grupos[i]]) <= maxCaracteres + 2) { grupos[i - 1] = [...grupos[i - 1], ...grupos[i]]; grupos.splice(i, 1); }
+  }
+  // Un cartel no termina en «y», «de», «con»…: esa palabra abre el cartel siguiente.
+  for (let i = 0; i < grupos.length - 1; i += 1) {
+    while (grupos[i].length > 1 && !grupos[i].at(-1).finFrase && /^(y|e|o|de|del|con|en|a|al|la|el|los|las|un|una)$/i.test(grupos[i].at(-1).texto)) grupos[i + 1] = [grupos[i].pop(), ...grupos[i + 1]];
+  }
+  return grupos.map((g) => ({ texto: g.map((p) => p.texto).join(' '), desde: g[0].desde, hasta: g.at(-1).hasta + 0.12, palabras: g }));
+}
+
 // ------------------------------------------------------------------ los subtítulos de ejemplo (sin la voz de verdad)
 
 /**
@@ -69,9 +101,25 @@ export async function imagenesDeLasEscenas(escena, carpeta) {
 export function subtitulosEstimados(pieza) {
   const palabras = [];
   let desde = 0;
-  for (const e of pieza.escenas) {
-    const dichas = String(e.voz ?? '').split(/\s+/).filter(Boolean);
+  for (const [i, e] of pieza.escenas.entries()) {
+    const dichas = String(e.subtitulo ?? e.voz ?? '').split(/\s+/).filter(Boolean);
     const hasta = desde + e.duracion;
+    if (e.subtitulo && dichas.length) {
+      // Texto de pantalla propio: las palabras se reparten (por largo) a lo largo de la escena, sin dejar la frase pegada al final ni un silencio largo antes de la escena siguiente.
+      const ultima = i === pieza.escenas.length - 1;
+      const ini = desde + (i === 0 ? 0.4 : 0.15);
+      const fin = Math.max(ini + 0.5, hasta - (ultima ? Math.min(1.6, e.duracion * 0.3) : 0.2));
+      const pesos = dichas.map((t) => t.length + 2);
+      const suma = pesos.reduce((x, y) => x + y, 0);
+      let t = ini;
+      dichas.forEach((texto, k) => {
+        const f = t + ((fin - ini) * pesos[k]) / suma;
+        palabras.push({ texto, desde: Number(t.toFixed(3)), hasta: Number(f.toFixed(3)), finFrase: /[.!?]["»”)]*$/.test(texto) });
+        t = f;
+      });
+      desde = hasta;
+      continue;
+    }
     let t = desde + (palabras.length ? 0 : 0.4);
     for (const texto of dichas) {
       const fin = Math.min(hasta, t + 1 / PALABRAS_POR_SEGUNDO);
@@ -80,7 +128,7 @@ export function subtitulosEstimados(pieza) {
     }
     desde = hasta;
   }
-  return palabras.length ? armarAss(enCarteles(palabras, { max: 4, minimo: 2 })) : null;
+  return palabras.length ? armarAss(cartelesDePantalla(palabras)) : null;
 }
 
 // ------------------------------------------------------------------ el audio: silencio, y el lugar de la voz y la música

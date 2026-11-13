@@ -1,13 +1,18 @@
 // Los tres reels de «Balcarce, el nuevo origen del vino» (sábado 14/11/2026): viñedos, vinotecas y gastronomía. Guiones escritos a mano, en frases cortas y completas (las direcciones
-// no se cortan), sobre placas de la marca SIN foto (sección Balcarce): no hay foto oficial. Sólo hay datos de la nota (docs/3-0/notas-propias/vino-nuevo-origen-*.md, contrastados con la gacetilla
-// de Prensa Municipal del 12/11). Usa el mismo camino que la previa de una nota (`correr.mjs`, pieza `pieza-escrita`): ensayo por defecto, NO publica nada.
+// no se cortan), con los datos oficiales del posteo de Producción y Empleo (@produccionyempleo.balcarce). Las cuentas NO se nombran ni se muestran en el video (van en el posteo y en la nota).
+// Imágenes: una genérica (entrada) y una por lugar (máximo 4 por reel, ninguna repetida), de salida-vino/fotos/<cuenta>/foto1-3.jpg si están (con el crédito «Foto: Instagram de cada lugar»); el cierre y lo que no tenga foto, la placa de la marca.
+// Guiones de 20 a 28 s: entrada (una frase), un lugar por escena (nombre y dirección corta en la voz; la línea de vino y el horario, sólo en pantalla) y un cierre breve.
+// Usa el mismo camino que la previa de una nota (`correr.mjs`, pieza `pieza-escrita`): ensayo por defecto, NO publica nada.
 //
 //   node v3/redes/piezas/previa-vino.mjs                   los tres, MUDOS (sin clave: no gasta voz ni IA), en salida-vino/ (o SALIDA_PIEZAS)
 //   VOZ=si GEMINI_API_KEY_REDES_V3=… node …                con voz (un audio por reel, la locutora; la voz se guarda en la memoria: si se publica, suena igual)
 //   PUBLICAR=si NOTA_URL=https://radarbalcarce.com/nota/… node …   PUBLICA DE VERDAD (reel e historia en Facebook e Instagram; TikTok, YouTube y X por Buffer). Sólo con el OK de una persona y la nota ya publicada.
-//   PIEZAS=vinedos,vinotecas,gastronomia                   cuáles (por defecto las tres)
-//   MENCIONES=-                                            sin cuentas en el texto (por defecto, las confirmadas de cada reel; ver `REELS`)
+//   PIEZAS=vinedos,vinotecas,gastronomia                   cuáles (por defecto las tres; de a uno si la PC tira «memory allocation failed»)
+//   MENCIONES=-                                            sin cuentas en el texto del posteo (por defecto, las de cada reel; ver `REELS`)
+//   FOTOS_VINO=ruta                                        otra carpeta de fotos (por defecto salida-vino/fotos); FOTOS_VINO=- fuerza las placas sin foto
+import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { correr, dependenciasReales } from './correr.mjs';
 
@@ -16,63 +21,126 @@ export const ROTULO = 'El nuevo origen del vino';
 export const FIRMA = 'Hernán Accomo';
 export const TITULO_DE_LA_NOTA = 'Balcarce, el nuevo origen del vino';
 export const CIERRE = 'El programa completo, en Radar Balcarce punto com.';
+export const CREDITO_DE_LAS_FOTOS = 'Foto: Instagram de cada lugar';
 
 /**
- * Los reels. `escenas`: lo que se VE (titulo) y lo que se DICE (voz), una frase entera por escena. Números y direcciones van en palabras en la voz (la voz no lee «832» ni «hs»).
- * `texto`: las líneas del posteo (la nota completa, el aviso de la voz con IA y los hashtags los suma `textoDePieza`). `menciones`: cuentas confirmadas en el borrador del posteo.
+ * Los reels. `escenas`: lo que se VE (titulo) y lo que se DICE (voz), una frase entera por escena. Números y direcciones van en palabras en la voz (la voz no lee «832» ni «hs»); `subtitulo` es lo
+ * que se lee en pantalla, con dígitos (si falta, se lee la voz). `lugar`: la carpeta de fotos (la cuenta del lugar, sin arroba) de la escena; `generica: true`: la imagen general del reel.
+ * `texto`: las líneas del posteo (la nota completa, el aviso de la voz con IA y los hashtags los suma `textoDePieza`). `menciones`: cuentas del posteo (sólo en el texto; el video no las nombra).
  */
+/** Crédito del programa, como el posteo oficial: Turismo y Producción y Empleo (la programación) y el Municipio. */
+const MUNICIPALES = Object.freeze(['@turismobalcarce', '@produccionyempleo.balcarce', '@balcarcemunicipio']);
+
+/**
+ * El cierre de cada reel: la fecha como titular (una sola idea) y la dirección del programa en la voz y en el subtítulo (no se repite en el titular). Sin imagen: la placa de la marca.
+ * `pedido`: lo que se agrega antes de la dirección («Consultá y reservá en cada lugar.»: sólo viñedos y gastronomía, una vez).
+ */
+const CIERRE_DE = (pedido = '') => ({
+  titulo: 'Sábado 14 de noviembre',
+  voz: `${pedido ? `${pedido} ` : ''}${CIERRE}`,
+  subtitulo: `${pedido ? `${pedido} ` : ''}El programa completo, en radarbalcarce.com.`,
+});
+
 export const REELS = Object.freeze({
   vinedos: {
     id: 'vino-vinedos',
+    genericas: [['vinedos.balcarce', 'foto3']], // la copa de tinto contra el cielo
     nombre: 'Balcarce, el nuevo origen del vino: los viñedos abren sus puertas',
     hashtag: 'Vino',
     escenas: [
-      { titulo: 'Los viñedos abren sus puertas', voz: 'Balcarce, el nuevo origen del vino. Este sábado catorce, los viñedos abren sus puertas.' },
-      { titulo: 'Dos viñedos, con inscripción previa', voz: 'Dos viñedos reciben visitas del público, con inscripción previa obligatoria: Bodegas y Viñedos Balcarce, y Viñedo Los Pinos.' },
-      { titulo: 'Inscripción y horarios: @vinedos.balcarce y @vinedolospinos', voz: 'Para anotarse y ver los horarios, hay que ir al Instagram de los viñedos: arroba vinedos punto balcarce, y arroba viñedo los pinos.' },
-      { titulo: 'El programa completo, en radarbalcarce.com', voz: CIERRE },
+      { titulo: 'Los viñedos te esperan', generica: true, voz: 'Este sábado catorce, los viñedos de Balcarce te abren sus puertas, sin costo.', subtitulo: 'Visitas en grupos guiados, con capacidad limitada.' },
+      { titulo: 'Bodegas y Viñedos Balcarce', lugar: 'vinedos.balcarce', voz: 'Bodegas y Viñedos Balcarce, de cuatro a seis de la tarde.', subtitulo: 'De 16 a 18 hs, abierto al público.' },
+      { titulo: 'Viñedo Los Pinos', lugar: 'vinedolospinos', voz: 'Viñedo Los Pinos, de cuatro a cinco y media de la tarde.', subtitulo: 'De 16 a 17:30 hs, abierto al público. Antes, de 15 a 16 hs, residentes de Los Pinos.' },
+      CIERRE_DE('Consultá y reservá en cada lugar.'),
     ],
     texto: [
-      'Este sábado 14 de noviembre, dos viñedos reciben visitas del público, con inscripción previa obligatoria: Bodegas y Viñedos Balcarce y Viñedo Los Pinos.',
-      'Para anotarse y ver los horarios, hay que ir al Instagram de los viñedos: @vinedos.balcarce y @vinedolospinos.',
+      '¡Los viñedos de Balcarce te esperan! Este sábado 14 de noviembre, viñedos locales abren sus puertas: sin costo, en grupos guiados y con capacidad limitada.',
+      'Bodegas y Viñedos Balcarce (@vinedos.balcarce): de 16 a 18 hs, visitas abiertas al público.',
+      'Viñedo Los Pinos (@vinedolospinos): de 15 a 16 hs, abierto a residentes de Los Pinos; de 16 a 17:30 hs, visitas abiertas al público.',
+      'Para anotarte o consultar, entrá al Instagram de los viñedos.',
     ],
-    menciones: [],
+    menciones: ['@vinedos.balcarce', '@vinedolospinos', ...MUNICIPALES],
   },
   vinotecas: {
     id: 'vino-vinotecas',
-    nombre: 'Balcarce se copa: degustaciones gratuitas en tres vinotecas',
+    genericas: [['vinedos.balcarce', 'foto1']], // la botella de Séptimo Chukker, la línea que se sirve en las vinotecas
+    nombre: 'Balcarce se copa: degustaciones sin cargo en tres vinotecas',
     hashtag: 'Vino',
     escenas: [
-      { titulo: 'Balcarce se copa: degustaciones gratuitas', voz: 'Balcarce, el nuevo origen del vino. Este sábado, tres vinotecas ofrecen degustaciones gratuitas, de las cuatro de la tarde a las nueve de la noche.' },
-      { titulo: 'The Wines Co.: Avenida Kelly 832', voz: 'The Wines Co., en la avenida Kelly, ochocientos treinta y dos.' },
-      { titulo: '1980 Almacén de Vinos: Calle 21, número 715', voz: 'Mil novecientos ochenta Almacén de Vinos, en la calle veintiuno, número setecientos quince.' },
-      { titulo: 'Talou Vinoteca: Calle 22, número 643', voz: 'Y Talou Vinoteca, en la calle veintidós, número seiscientos cuarenta y tres.' },
-      { titulo: 'El programa completo, en radarbalcarce.com', voz: CIERRE },
+      { titulo: 'Balcarce se copa', generica: true, voz: 'Este sábado catorce, Balcarce se copa: degustaciones sin cargo.', subtitulo: 'De 16 a 21 hs, en tres vinotecas.' },
+      { titulo: 'Talou Vinoteca', lugar: 'talouvinoteca137', voz: 'Talou Vinoteca, en calle veintidós al seiscientos cuarenta y tres.', subtitulo: 'Calle 22 al 643. Línea Bravento.' },
+      { titulo: '1980 Almacén de Vinos', lugar: 'almacendevinos1980', voz: 'Mil novecientos ochenta Almacén de Vinos, en calle veintiséis al ochocientos veintiocho.', subtitulo: 'Calle 26 al 828. Líneas Bravento y Séptimo Chukker.' },
+      { titulo: 'The Wines Co.', lugar: 'thewinesco', voz: 'The Wines Co., en avenida Kelly al ochocientos treinta y dos.', subtitulo: 'Av. Kelly al 832. Líneas Bravento y Séptimo Chukker.' },
+      CIERRE_DE(),
     ],
     texto: [
-      '«Balcarce se copa»: este sábado 14 de noviembre, degustaciones gratuitas de 16 a 21 en tres vinotecas.',
-      'The Wines Co.: avenida Kelly 832.',
-      '1980 Almacén de Vinos: calle 21, N° 715.',
-      'Talou Vinoteca: calle 22, N° 643.',
+      '«Balcarce se copa»: este sábado 14 de noviembre, de 16 a 21 hs, degustaciones sin cargo en tres vinotecas. ¡Descubrí el sabor de nuestros suelos!',
+      'Talou Vinoteca (@talouvinoteca137), calle 22 N° 643: línea Bravento de Bodega Puerta Abra.',
+      '1980 Almacén de Vinos (@almacendevinos1980), calle 26 N° 828: líneas Bravento, de Bodega Puerta Abra, y Séptimo Chukker, de Viñedos y Bodegas Balcarce.',
+      'The Wines Co. (@thewinesco), Av. Kelly N° 832: líneas Bravento y Séptimo Chukker.',
     ],
-    menciones: ['@thewinesco', '@almacendevinos1980', '@talouvinoteca137'],
+    menciones: ['@talouvinoteca137', '@almacendevinos1980', '@thewinesco', ...MUNICIPALES],
   },
   gastronomia: {
     id: 'vino-gastronomia',
+    genericas: [['parrillabodegonlostroncos', 'foto2']], // la parrillita con carnes y el estante de vinos
     nombre: 'Cenar con vinos locales: la propuesta gastronómica del sábado',
     hashtag: 'Vino',
     escenas: [
-      { titulo: 'Cenar con vinos de Balcarce', voz: 'Balcarce, el nuevo origen del vino. El sábado, desde las nueve de la noche, hay propuestas gastronómicas con vinos locales.' },
-      { titulo: 'Cavas Bar, Casa Quinta Restó y Parrilla y Bodegón Los Troncos', voz: 'Las ofrecen Cavas Bar, Casa Quinta Restó y Parrilla, y Bodegón Los Troncos.' },
-      { titulo: 'El programa completo, en radarbalcarce.com', voz: 'El programa completo del sábado, en Radar Balcarce punto com.' },
+      { titulo: 'Cenar con vinos de acá', generica: true, voz: 'Este sábado, desde las nueve, cenás con vinos de acá.', subtitulo: 'Desde las 21 hs, maridajes con vinos balcarceños.' },
+      { titulo: 'Cavas Vinos & Resto', lugar: 'cavas_restaurante', voz: 'Cavas Vinos y Resto, calle veintisiete al ochocientos ochenta y seis.', subtitulo: 'Calle 27 al 886. Copa de bienvenida con Bravento.' },
+      { titulo: 'Parrilla Bodegón Los Troncos', lugar: 'parrillabodegonlostroncos', voz: 'Parrilla Bodegón Los Troncos, avenida Central al seiscientos veintiséis.', subtitulo: 'Av. Central al 626. Degustación de Séptimo Chukker.' },
+      { titulo: 'Casa Quinta, cocina de autor', lugar: 'casaquinta.resto', voz: 'Casa Quinta, calle cincuenta y nueve al novecientos cincuenta.', subtitulo: 'Calle 59 al 950. Copa y maridaje con Bravento.' },
+      CIERRE_DE('Consultá y reservá en cada lugar.'),
     ],
     texto: [
-      'Este sábado 14 de noviembre, desde las 21, propuestas gastronómicas con vinos locales en Cavas Bar, Casa Quinta Restó y Parrilla y Bodegón Los Troncos.',
-      'Es parte de «Balcarce, el nuevo origen del vino», en el marco del 126° aniversario de Los Pinos.',
+      'Este sábado 14 de noviembre, desde las 21 hs, propuestas gastronómicas con vinos locales. ¡Conocé el maridaje perfecto de los vinos balcarceños!',
+      'Cavas Vinos & Resto (@cavas_restaurante), calle 27 N° 886: copa de bienvenida con la línea Bravento de Bodega Puerta Abra.',
+      'Parrilla Bodegón Los Troncos (@parrillabodegonlostroncos), Av. Central N° 626: degustación de la línea Séptimo Chukker de Viñedos y Bodegas Balcarce.',
+      'Casa Quinta cocina de autor (@casaquinta.resto), calle 59 N° 950: copa y maridaje con la línea Bravento de Bodega Puerta Abra.',
+      'Consultá y reservá en cada lugar. Es parte de «Balcarce, el nuevo origen del vino».',
     ],
-    menciones: ['@cavas_restaurante', '@casaquinta.resto', '@parrillabodegonlostroncos'],
+    menciones: ['@cavas_restaurante', '@parrillabodegonlostroncos', '@casaquinta.resto', ...MUNICIPALES],
   },
 });
+
+const normalizar = (s) => String(s).toLowerCase().replace(/^@/, '');
+
+/** Fotos que no se usan en ningún lado (por contenido, no por nombre: si la reemplazan por otra, la nueva pasa). Hernán, 13/11: la botella negra de Hidden Sea, de The Wines Co. */
+export const FOTOS_PROHIBIDAS_SHA1 = Object.freeze(['9215533c2b585cc1d1a751a19f421701bcc5fb87']);
+const sha1 = (ruta) => crypto.createHash('sha1').update(fs.readFileSync(ruta)).digest('hex');
+
+/** Las fotos que hay en `carpeta` (salida-vino/fotos): { <cuenta sin arroba>: [rutas de foto1, foto2, foto3 que existen] }, sin las prohibidas. Sin carpeta, nada (las placas de la marca). El logo no es foto de escena. */
+export function fotosDeVino(carpeta) {
+  const r = {};
+  if (!carpeta || !fs.existsSync(carpeta)) return r;
+  for (const d of fs.readdirSync(carpeta, { withFileTypes: true })) {
+    if (!d.isDirectory()) continue;
+    const dentro = fs.readdirSync(path.join(carpeta, d.name));
+    const fotos = [1, 2, 3, 4].map((n) => dentro.find((f) => new RegExp(`^foto${n}\\.(jpe?g|png|webp)$`, 'i').test(f))).filter(Boolean).map((f) => path.resolve(carpeta, d.name, f)).filter((ruta) => !FOTOS_PROHIBIDAS_SHA1.includes(sha1(ruta)));
+    if (fotos.length) r[normalizar(d.name)] = fotos;
+  }
+  return r;
+}
+
+/**
+ * Las escenas de un reel con sus imágenes, SIN repetir ninguna: la de cada lugar es su primera foto; la de entrada (`generica`) es la primera de `genericas` ([cuenta, 'fotoN']) que no esté usada
+ * o, si no hay, otra foto de alguno de los lugares del reel; el cierre y toda escena sin foto quedan con la placa de la marca. En total, como mucho una genérica más una por lugar.
+ */
+export function escenasConFotos(reel, fotos = {}) {
+  const hay = (c) => fotos[normalizar(c)] ?? [];
+  const lugares = reel.escenas.filter((e) => e.lugar).map((e) => e.lugar);
+  const usadas = new Set(lugares.map((l) => hay(l)[0]).filter(Boolean));
+  const preferidas = (reel.genericas ?? []).map(([cuenta, nombre]) => hay(cuenta).find((f) => path.basename(f).toLowerCase().startsWith(`${nombre}.`))).filter(Boolean);
+  const deLosLugares = lugares.flatMap((l) => hay(l).slice(1));
+  const generica = [...preferidas, ...deLosLugares].find((f) => !usadas.has(f)) ?? null;
+  let entrego = false;
+  return reel.escenas.map(({ lugar, generica: esGenerica, ...e }) => {
+    const ruta = lugar ? hay(lugar)[0] : esGenerica && !entrego ? generica : null;
+    if (esGenerica) entrego = true;
+    return ruta ? { ...e, foto: { ruta, credito: CREDITO_DE_LAS_FOTOS } } : e;
+  });
+}
 
 /** La nota publicada de la que cuelga el enlace (id y slug de su dirección). Sin dirección (sólo previa): una provisoria, que nunca se publica. */
 export function notaDeLaDireccion(url) {
@@ -85,8 +153,8 @@ export function notaDeLaDireccion(url) {
   return { id, slug, titulo: TITULO_DE_LA_NOTA, provisoria: false };
 }
 
-/** Las entradas del plan de ensayo: una por reel, con su guion escrito y su texto. `publicar`: suma los canales de Buffer. */
-export function itemsDelVino({ piezas = Object.keys(REELS), nota, publicar = false, menciones = null } = {}) {
+/** Las entradas del plan de ensayo: una por reel, con su guion escrito y su texto. `publicar`: suma los canales de Buffer. `fotos`: lo que devuelve `fotosDeVino` (sin eso, placas sin foto). */
+export function itemsDelVino({ piezas = Object.keys(REELS), nota, publicar = false, menciones = null, fotos = {} } = {}) {
   return piezas.map((clave, fila) => {
     const r = REELS[clave];
     if (!r) throw new Error(`no conozco la pieza «${clave}» (hay: ${Object.keys(REELS).join(', ')})`);
@@ -107,8 +175,8 @@ export function itemsDelVino({ piezas = Object.keys(REELS), nota, publicar = fal
       hashtag: r.hashtag,
       primeraDelBloque: false,
       datos: {
-        pieza: { id: r.id, rotulo: ROTULO, seccion: SECCION, firma: FIRMA, notaId: nota.id, escenas: r.escenas },
-        texto: r.texto,
+        pieza: { id: r.id, rotulo: ROTULO, seccion: SECCION, firma: FIRMA, notaId: nota.id, escenas: escenasConFotos(r, fotos) },
+        texto: menciones && !menciones.length ? r.texto.map((l) => l.replace(/ \(@[^)]+\)/g, '')) : r.texto, // MENCIONES=-: sin las cuentas entre paréntesis
         nota,
         menciones: menciones ?? r.menciones,
       },
@@ -131,7 +199,10 @@ if (esElPrograma) {
   const piezas = String(env.PIEZAS ?? '').split(/[\s,]+/).filter(Boolean);
   const mencionesPedidas = String(env.MENCIONES ?? '').trim();
   const menciones = mencionesPedidas === '-' ? [] : mencionesPedidas ? mencionesPedidas.split(/[\s,]+/).filter(Boolean).map((m) => (m.startsWith('@') ? m : `@${m}`)) : null;
-  const items = itemsDelVino({ piezas: piezas.length ? piezas : undefined, nota, publicar, menciones });
+  const carpetaDeFotos = String(env.FOTOS_VINO ?? '').trim();
+  const fotos = carpetaDeFotos === '-' ? {} : fotosDeVino(path.resolve(carpetaDeFotos || path.join(env.SALIDA_PIEZAS || 'salida-vino', 'fotos')));
+  console.log(`fotos de los lugares: ${Object.keys(fotos).length ? Object.entries(fotos).map(([c, f]) => `${c} (${f.length})`).join(', ') : 'ninguna (placas de la marca)'}`);
+  const items = itemsDelVino({ piezas: piezas.length ? piezas : undefined, nota, publicar, menciones, fotos });
   const plan = { dia: new Date().toISOString().slice(0, 10), activas: publicar, vozTope: 10, vozQuedan: 10, piezas: items, descartes: [] };
   const fetchFn = async (u) => ({ ok: true, status: 200, json: async () => (String(u).endsWith('/piezas/plan') ? plan : { ok: true }), text: async () => '{}' });
   // Sin VOZ=si (y sin publicar) la clave no entra al programa: salen mudos y no se gasta nada.

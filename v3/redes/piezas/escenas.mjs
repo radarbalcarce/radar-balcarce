@@ -295,6 +295,8 @@ const Y_CREDITO = FOTO.y + FOTO.alto + 44;
 export function placaDeNota(d) {
   const nota = { titulo: d.titulo, seccion: d.seccion, foto: d.foto?.datos ? { datos: d.foto.datos, credito: d.foto.credito ?? '' } : null };
   let svg = placaDeNotaDelRepaso({ nota, i: d.i, n: d.n, titulo: d.rotulo });
+  // La placa de la marca de una pieza escrita (sin foto): sin el número grande de la nota, que ahí es un 4 suelto.
+  if (d.sinNumero) svg = svg.replace(/<text[^>]*font-size="300"[^>]*>\d+<\/text>/, '');
   // La foto de una nota propia entera (10/11: una foto vertical en la caja horizontal salía recortada, sin la cara): la foto completa al centro y, a los costados, ella misma difuminada.
   if (d.firma && d.foto?.datos) {
     const marca = `<image href="${d.foto.datos}"`;
