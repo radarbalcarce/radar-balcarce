@@ -25,6 +25,11 @@ import { correr, dependenciasReales } from './correr.mjs';
  * ni de la fachada); llegan fotos nuevas y se reemplazan acá.
  */
 export const FOTOS_ELEGIDAS = Object.freeze({
+  lospinos: [
+    'lospinos-dm/foto1.jpg', //        entrada: el viñedo jardín con la meseta del cerro (la mandaron ellos)
+    'vinedolospinos/cand1.jpg', //     hileras de viñedo con lavanda y cerros
+    'vinedolospinos/cand2.jpg', //     cierre: el viñedo al atardecer con la meseta del cerro
+  ],
   thewinesco: [
     'thewinesco-dm/foto7.jpg', //      entrada: las tres botellas Bravento con copas en la barra
     'thewinesco-dm/foto2.jpg', //      el local, con la estantería y las cajas de madera
@@ -80,6 +85,23 @@ const CIERRE_DE = (pedido = '') => ({
 });
 
 export const REELS = Object.freeze({
+  lospinos: {
+    id: 'vino-lospinos',
+    clave: 'lospinos',
+    nombre: 'Viñedo Los Pinos abre sus puertas este sábado',
+    hashtag: 'Vino',
+    credito: 'Foto: Viñedo Los Pinos',
+    escenas: [
+      { titulo: 'Viñedo Los Pinos', voz: 'Viñedo Los Pinos se suma a Balcarce, el nuevo origen del vino.', subtitulo: 'Viñedo Los Pinos se suma a Balcarce, el nuevo origen del vino.' },
+      { titulo: 'Viñedo jardín', voz: 'Este sábado invitan a recorrer su viñedo jardín, de unas cuatro hectáreas, al pie de los cerros, en pequeños grupos.', subtitulo: 'Este sábado invitan a recorrer su viñedo jardín, de unas 4 hectáreas, al pie de los cerros, en pequeños grupos.' },
+      { titulo: 'radarbalcarce.com', voz: 'Leé la nota completa, en Radar Balcarce punto com.', subtitulo: 'Leé la nota completa, en Radar Balcarce punto com.' },
+    ],
+    texto: [
+      'Viñedo Los Pinos (@vinedolospinos) se suma a «Balcarce, el nuevo origen del vino»: «Un proyecto chico, de unas cuatro hectáreas, pensado planta a planta y con un fuerte respeto por el lugar».',
+      'Este sábado 14 de noviembre, visitas en pequeños grupos: de 15 a 16 hs para residentes de Los Pinos y de 16 a 17:30 hs para el público.',
+    ],
+    menciones: ['@vinedolospinos'],
+  },
   thewinesco: {
     id: 'vino-thewinesco',
     clave: 'thewinesco',
