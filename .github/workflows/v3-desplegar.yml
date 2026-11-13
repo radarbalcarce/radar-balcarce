@@ -43,6 +43,9 @@ jobs:
         with:
           node-version: '24'
 
+      - name: Instalar lo que piden las pruebas de reels y redes
+        run: npm ci --no-audit --no-fund
+
       - name: Pruebas del módulo
         run: node --test "v3/**/*.test.mjs"
 

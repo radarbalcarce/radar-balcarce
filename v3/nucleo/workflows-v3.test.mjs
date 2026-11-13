@@ -29,7 +29,7 @@ test('lo que escribe quien dispara el workflow (inputs, eventos) sólo entra por
   for (const f of archivos) {
     leer(f).split('\n').forEach((linea, i) => {
       if (!/\$\{\{\s*(?:inputs\.|github\.event\.|github\.head_ref)/.test(linea)) return;
-      assert.match(linea, /^\s*(?:- )?[A-Za-z_-]+:\s*\$\{\{|^\s*if:\s*\$?\{?\{?/, `${f}:${i + 1}: un input pegado en un comando (inyección de comandos): ${linea.trim()}`);
+      assert.match(linea, /^\s*(?:- )?[A-Za-z0-9_-]+:\s*\$\{\{|^\s*if:\s*\$?\{?\{?/, `${f}:${i + 1}: un input pegado en un comando (inyección de comandos): ${linea.trim()}`);
       assert.ok(!/(?:run:|echo|node |npx |sh |bash )/.test(linea), `${f}:${i + 1}: ${linea.trim()}`);
     });
   }
