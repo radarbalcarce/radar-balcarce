@@ -73,6 +73,7 @@ jobs:
           MENCIONES: ${{ inputs.menciones }}
           VOZ: ${{ inputs.voz }}
           SOLO_VOZ: ${{ inputs.solo_voz }}
+          FOTOS_VINO: ${{ github.workspace }}/v3/redes/piezas/fotos-vino/fotos
           PUBLICAR: ${{ inputs.publicar }}
           # Las claves entran sólo cuando hacen falta: mudo = ninguna; con voz = la de redes; publicando = también Meta y Buffer.
           GEMINI_API_KEY_REDES_V3: ${{ (inputs.voz == 'si' || inputs.publicar == 'si') && secrets.GEMINI_API_KEY_REDES || '' }}
