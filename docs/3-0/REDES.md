@@ -131,7 +131,7 @@ Un comercio puede auspiciar el clima. Funciona así:
 
 ## 7. El cupo de 10 voces por día
 
-- Hay un tope de **10 audios por día** (variable `VOZ_TOPE_DIARIO`).
+- Hay un tope de **15 audios por día** (fijo desde el 13/11/2026; lo que pide una persona no lo gasta) (variable `VOZ_TOPE_DIARIO`).
 - El Worker **no reserva una pieza si dejaría sin audio a otra más importante** que falta hoy. El orden de importancia (columna «prioridad de voz» de la tabla): primero los repasos (1), después clima y farmacia (2), después la efeméride (3), y último Participá (4).
 - Un audio que ya existe en la memoria de voces no gasta cupo.
 - Si Google dice que se acabó el cupo, la pieza queda como «sin cupo» y **no sale**.
