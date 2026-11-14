@@ -389,6 +389,7 @@
       "alcance": "pais",
       "oficial": false,
       "activa": false,
+      "seccion": "Tecnología",
       "nota": "Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo."
     },
     {
@@ -399,7 +400,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": true,
+      "seccion": "Tecnología"
     },
     {
       "id": "ambito-tecno",
@@ -409,7 +411,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": true,
+      "seccion": "Tecnología"
     },
     {
       "id": "infobae-economia",
@@ -533,7 +536,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": true,
+      "seccion": "Tecnología"
     },
     {
       "id": "hipertextual",
@@ -543,7 +547,9 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": false
+      "activa": true,
+      "seccion": "Tecnología",
+      "nota": "Tecnología en castellano: responde XML con 11 notas del día (14/11/2026); hacía falta para IA y tecnología (Hernán, 14/11)."
     },
     {
       "id": "xataka",
@@ -553,7 +559,9 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": false
+      "activa": true,
+      "seccion": "Tecnología",
+      "nota": "Tecnología en castellano: responde XML con 26 notas del día (14/11/2026); hacía falta para IA y tecnología (Hernán, 14/11)."
     },
     {
       "id": "elpais-ciencia",
@@ -563,7 +571,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": false
+      "activa": false,
+      "seccion": "Ciencia"
     },
     {
       "id": "elpais-tecnologia",
@@ -573,7 +582,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": false
+      "activa": false,
+      "seccion": "Tecnología"
     },
     {
       "id": "muyinteresante",
@@ -583,7 +593,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": false
+      "activa": false,
+      "seccion": "Ciencia"
     },
     {
       "id": "fayerwayer",
@@ -593,7 +604,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": true,
+      "seccion": "Tecnología"
     },
     {
       "id": "agenciacyta",
@@ -604,6 +616,7 @@
       "alcance": "pais",
       "oficial": false,
       "activa": true,
+      "seccion": "Tecnología",
       "nota": "Agencia CTyS (ciencia argentina): responde XML, publica cada tanto (último ítem 23/10/2026); suma un medio de ciencia propio (3/11/2026)."
     },
     {
@@ -615,6 +628,7 @@
       "alcance": "pais",
       "oficial": false,
       "activa": false,
+      "seccion": "Ciencia",
       "nota": "perfil.com/feed/ciencia devuelve 404 (verificado 2/11/2026); Perfil ya no publica ese feed."
     },
     {
@@ -625,7 +639,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": true,
-      "activa": false
+      "activa": false,
+      "seccion": "Ciencia"
     },
     {
       "id": "conae",
@@ -635,7 +650,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": true,
-      "activa": false
+      "activa": false,
+      "seccion": "Ciencia"
     },
     {
       "id": "inti",
@@ -645,7 +661,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": true,
-      "activa": false
+      "activa": false,
+      "seccion": "Ciencia"
     },
     {
       "id": "infobae-salud",
@@ -749,7 +766,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": true,
+      "seccion": "Tecnología"
     },
     {
       "id": "senasa",
@@ -821,6 +839,7 @@
       "alcance": "pais",
       "oficial": false,
       "activa": false,
+      "seccion": "Ciencia",
       "nota": "Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo."
     },
     {
@@ -831,7 +850,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": true,
+      "seccion": "Ciencia"
     },
     {
       "id": "eltiempo-ciencia",
@@ -841,7 +861,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": true,
+      "seccion": "Ciencia"
     },
     {
       "id": "exactas-uba",
@@ -851,7 +872,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": true,
+      "seccion": "Ciencia"
     },
     {
       "id": "mongabay-latam",
@@ -861,7 +883,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": true,
+      "seccion": "Ciencia"
     },
     {
       "id": "agrofy-news",
@@ -990,6 +1013,7 @@
       "nombre": "La Nación · Ciencia",
       "medio": "La Nación",
       "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/ciencia/",
+      "seccion": "Ciencia",
       "tipo": "rss",
       "alcance": "pais",
       "activa": true
@@ -1033,8 +1057,7 @@
       "url": "https://www.perfil.com/feed",
       "tipo": "rss",
       "alcance": "pais",
-      "activa": true,
-      "nota": "perfil.com/feed/sociedad da 404 (7/11/2026); se lee el feed general de Perfil, que está al día. Se deja el id para no perder su historial."
+      "activa": true
     },
     {
       "oficial": false,
@@ -1042,6 +1065,7 @@
       "nombre": "Perfil · Tecnología",
       "medio": "Perfil",
       "url": "https://www.perfil.com/feed/tecnologia",
+      "seccion": "Tecnología",
       "tipo": "rss",
       "alcance": "pais",
       "activa": true
@@ -1112,6 +1136,182 @@
       "nombre": "Perfil · Deportes",
       "medio": "Perfil",
       "url": "https://www.perfil.com/feed/deportes",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
+      "id": "tn-tecno",
+      "nombre": "TN · Tecno",
+      "medio": "TN",
+      "url": "https://tn.com.ar/arc/outboundfeeds/rss/category/tecno/?outputType=xml",
+      "seccion": "Tecnología",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
+      "id": "genbeta",
+      "nombre": "Genbeta",
+      "medio": "Genbeta",
+      "url": "https://www.genbeta.com/feedburner.xml",
+      "seccion": "Tecnología",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
+      "id": "iprofesional-tecno",
+      "nombre": "iProfesional · Tecnología",
+      "medio": "iProfesional",
+      "url": "https://www.iprofesional.com/rss/tecnologia",
+      "seccion": "Tecnología",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
+      "id": "bbc-mundo-tecno",
+      "nombre": "BBC Mundo · Tecnología",
+      "medio": "BBC",
+      "url": "https://feeds.bbci.co.uk/mundo/temas/tecnologia/rss.xml",
+      "seccion": "Tecnología",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
+      "id": "theverge",
+      "nombre": "The Verge",
+      "medio": "The Verge",
+      "url": "https://www.theverge.com/rss/index.xml",
+      "seccion": "Tecnología",
+      "idioma": "en",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
+      "id": "techcrunch",
+      "nombre": "TechCrunch",
+      "medio": "TechCrunch",
+      "url": "https://techcrunch.com/feed/",
+      "seccion": "Tecnología",
+      "idioma": "en",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
+      "id": "arstechnica",
+      "nombre": "Ars Technica",
+      "medio": "Ars Technica",
+      "url": "https://feeds.arstechnica.com/arstechnica/index",
+      "seccion": "Tecnología",
+      "idioma": "en",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
+      "id": "wired",
+      "nombre": "Wired",
+      "medio": "Wired",
+      "url": "https://www.wired.com/feed/rss",
+      "seccion": "Tecnología",
+      "idioma": "en",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
+      "id": "engadget",
+      "nombre": "Engadget",
+      "medio": "Engadget",
+      "url": "https://www.engadget.com/rss.xml",
+      "seccion": "Tecnología",
+      "idioma": "en",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
+      "id": "cnbc-tech",
+      "nombre": "CNBC · Tech",
+      "medio": "CNBC",
+      "url": "https://www.cnbc.com/id/19854910/device/rss/rss.html",
+      "seccion": "Tecnología",
+      "idioma": "en",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
+      "id": "bbc-tech",
+      "nombre": "BBC News · Technology",
+      "medio": "BBC",
+      "url": "https://feeds.bbci.co.uk/news/technology/rss.xml",
+      "seccion": "Tecnología",
+      "idioma": "en",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
+      "id": "bbc-ciencia-en",
+      "nombre": "BBC News · Science",
+      "medio": "BBC",
+      "url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
+      "seccion": "Ciencia",
+      "idioma": "en",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
+      "id": "guardian-tech",
+      "nombre": "The Guardian · Technology",
+      "medio": "The Guardian",
+      "url": "https://www.theguardian.com/technology/rss",
+      "seccion": "Tecnología",
+      "idioma": "en",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
+      "id": "guardian-ciencia",
+      "nombre": "The Guardian · Science",
+      "medio": "The Guardian",
+      "url": "https://www.theguardian.com/science/rss",
+      "seccion": "Ciencia",
+      "idioma": "en",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
+      "id": "spacecom",
+      "nombre": "Space.com",
+      "medio": "Space.com",
+      "url": "https://www.space.com/feeds/all",
+      "seccion": "Ciencia",
+      "idioma": "en",
       "tipo": "rss",
       "alcance": "pais",
       "activa": true

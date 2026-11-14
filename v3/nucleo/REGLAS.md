@@ -45,13 +45,17 @@ Sin semáforo, sin puntajes, sin cupos por sección. Una historia sale si cumple
    localidad del partido). Sale siempre, con una sola fuente alcanza.
 2. **La cuentan 3 medios distintos** del país (2 si es de un área chica: Tecnología, Ciencia, Salud, Educación, Cultura, Agro,
    Automovilismo). Medios distintos: no cuentan dos feeds del mismo medio ni una agencia y su copia textual.
+   **IA, tecnología y espacio (14/11, Hernán):** un artículo de un feed de Tecnología o Ciencia (`seccion` en `fuentes.json`) ya hace
+   área chica, y las palabras (`PALABRAS_AREA`: IA, OpenAI, Anthropic, Nvidia, SpaceX, Starship, cohete, satélite…, también en inglés) se
+   buscan en todos los títulos. Hay fuentes en inglés (`idioma: 'en'`: The Verge, TechCrunch, Wired, BBC, The Guardian, CNBC, Space.com…):
+   lo que sólo cuentan ellas pide 3 medios; con un medio en castellano alcanzan 2. La IA escribe siempre en castellano (`REDACCION.md`).
 3. **La pidió una persona** (por Telegram o el panel).
 
 Y no sale, aunque cumpla, si:
 
 - Identifica a un **menor** o a una **víctima** que no es figura pública, o es una **lista de sepelios**. (Los dos únicos frenos legales:
   los aplica la IA en el mismo pedido de redacción, con una marca `no_publicar` y el motivo; si marca, no se publica y se avisa.)
-- Es del extranjero sin ningún argentino en el título ni en la primera oración.
+- Es del extranjero sin ningún argentino en el título ni en la primera oración (salvo Tecnología y Ciencia, que casi siempre son de afuera).
 - Es horóscopo, lotería, cotización del día o un sorteo comercial.
 - Ya hay una historia viva del mismo hecho (eso lo resuelve el punto 3; si falla y se descubre después, se unen y la nueva redirige).
 

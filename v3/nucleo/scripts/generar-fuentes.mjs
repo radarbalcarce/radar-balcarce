@@ -73,6 +73,8 @@ export const ENCENDER = {
   sendero: 'Sendero Multimedios (zona): responde XML con notas del 2/11/2026.',
   ole: 'Olé: responde XML con notas del 3/11/2026; Fútbol tenía pocos medios de deportes (3/11/2026).',
   agenciacyta: 'Agencia CTyS (ciencia argentina): responde XML, publica cada tanto (último ítem 23/10/2026); suma un medio de ciencia propio (3/11/2026).',
+  xataka: 'Tecnología en castellano: responde XML con 26 notas del día (14/11/2026); hacía falta para IA y tecnología (Hernán, 14/11).',
+  hipertextual: 'Tecnología en castellano: responde XML con 11 notas del día (14/11/2026); hacía falta para IA y tecnología (Hernán, 14/11).',
 };
 // NOTAS: fuentes que siguen activas pero con una aclaración.
 export const NOTAS = {
@@ -87,12 +89,12 @@ export const SUMAR = [
   { id: 'tn-sociedad', nombre: 'TN · Sociedad', medio: 'TN', url: 'https://tn.com.ar/arc/outboundfeeds/rss/category/sociedad/?outputType=xml' },
   { id: 'cronista', nombre: 'El Cronista', medio: 'El Cronista', url: 'https://www.cronista.com/files/rss/news.xml' },
   { id: 'lanacion-sociedad', nombre: 'La Nación · Sociedad', medio: 'La Nación', url: 'https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/sociedad/' },
-  { id: 'lanacion-ciencia', nombre: 'La Nación · Ciencia', medio: 'La Nación', url: 'https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/ciencia/' },
+  { id: 'lanacion-ciencia', nombre: 'La Nación · Ciencia', medio: 'La Nación', url: 'https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/ciencia/', seccion: 'Ciencia' },
   { id: 'lanacion-salud', nombre: 'La Nación · Salud', medio: 'La Nación', url: 'https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/salud/' },
   { id: 'clarin-sociedad', nombre: 'Clarín · Sociedad', medio: 'Clarín', url: 'https://www.clarin.com/rss/sociedad/' },
   { id: 'perfil-politica', nombre: 'Perfil · Política', medio: 'Perfil', url: 'https://www.perfil.com/feed/politica' },
   { id: 'perfil-sociedad', nombre: 'Perfil · Portada', medio: 'Perfil', url: 'https://www.perfil.com/feed' }, // feed/sociedad da 404 desde el 7/11/2026
-  { id: 'perfil-tecnologia', nombre: 'Perfil · Tecnología', medio: 'Perfil', url: 'https://www.perfil.com/feed/tecnologia' },
+  { id: 'perfil-tecnologia', nombre: 'Perfil · Tecnología', medio: 'Perfil', url: 'https://www.perfil.com/feed/tecnologia', seccion: 'Tecnología' },
   { id: 'minsalud', nombre: 'Ministerio de Salud de la Nación', medio: 'Ministerio de Salud de la Nación', url: 'https://www.argentina.gob.ar/salud/noticias/rss', oficial: true },
   { id: 'capital-humano', nombre: 'Capital Humano (Educación)', medio: 'Ministerio de Capital Humano', url: 'https://www.argentina.gob.ar/capital-humano/noticias/rss', oficial: true },
   { id: 'lanacion-educacion', nombre: 'La Nación · Educación', medio: 'La Nación', url: 'https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/educacion/' },
@@ -100,6 +102,23 @@ export const SUMAR = [
   { id: 'eldiarioar', nombre: 'elDiarioAR', medio: 'elDiarioAR', url: 'https://www.eldiarioar.com/rss/' },
   { id: 'cenital', nombre: 'Cenital', medio: 'Cenital', url: 'https://cenital.com/feed/' },
   { id: 'perfil-deportes', nombre: 'Perfil · Deportes', medio: 'Perfil', url: 'https://www.perfil.com/feed/deportes' },
+  // IA, tecnología y espacio (Hernán, 14/11: «buscá otras fuentes, aunque sean en inglés»). Probadas el 14/11/2026 desde la PC: XML con notas del día.
+  // Las de inglés llevan `idioma: 'en'`: lo que sólo cuentan ellas pide 3 medios (elegir.mjs) y la IA lo escribe en castellano.
+  { id: 'tn-tecno', nombre: 'TN · Tecno', medio: 'TN', url: 'https://tn.com.ar/arc/outboundfeeds/rss/category/tecno/?outputType=xml', seccion: 'Tecnología' },
+  { id: 'genbeta', nombre: 'Genbeta', medio: 'Genbeta', url: 'https://www.genbeta.com/feedburner.xml', seccion: 'Tecnología' },
+  { id: 'iprofesional-tecno', nombre: 'iProfesional · Tecnología', medio: 'iProfesional', url: 'https://www.iprofesional.com/rss/tecnologia', seccion: 'Tecnología' },
+  { id: 'bbc-mundo-tecno', nombre: 'BBC Mundo · Tecnología', medio: 'BBC', url: 'https://feeds.bbci.co.uk/mundo/temas/tecnologia/rss.xml', seccion: 'Tecnología' },
+  { id: 'theverge', nombre: 'The Verge', medio: 'The Verge', url: 'https://www.theverge.com/rss/index.xml', seccion: 'Tecnología', idioma: 'en' },
+  { id: 'techcrunch', nombre: 'TechCrunch', medio: 'TechCrunch', url: 'https://techcrunch.com/feed/', seccion: 'Tecnología', idioma: 'en' },
+  { id: 'arstechnica', nombre: 'Ars Technica', medio: 'Ars Technica', url: 'https://feeds.arstechnica.com/arstechnica/index', seccion: 'Tecnología', idioma: 'en' },
+  { id: 'wired', nombre: 'Wired', medio: 'Wired', url: 'https://www.wired.com/feed/rss', seccion: 'Tecnología', idioma: 'en' },
+  { id: 'engadget', nombre: 'Engadget', medio: 'Engadget', url: 'https://www.engadget.com/rss.xml', seccion: 'Tecnología', idioma: 'en' },
+  { id: 'cnbc-tech', nombre: 'CNBC · Tech', medio: 'CNBC', url: 'https://www.cnbc.com/id/19854910/device/rss/rss.html', seccion: 'Tecnología', idioma: 'en' },
+  { id: 'bbc-tech', nombre: 'BBC News · Technology', medio: 'BBC', url: 'https://feeds.bbci.co.uk/news/technology/rss.xml', seccion: 'Tecnología', idioma: 'en' },
+  { id: 'bbc-ciencia-en', nombre: 'BBC News · Science', medio: 'BBC', url: 'https://feeds.bbci.co.uk/news/science_and_environment/rss.xml', seccion: 'Ciencia', idioma: 'en' },
+  { id: 'guardian-tech', nombre: 'The Guardian · Technology', medio: 'The Guardian', url: 'https://www.theguardian.com/technology/rss', seccion: 'Tecnología', idioma: 'en' },
+  { id: 'guardian-ciencia', nombre: 'The Guardian · Science', medio: 'The Guardian', url: 'https://www.theguardian.com/science/rss', seccion: 'Ciencia', idioma: 'en' },
+  { id: 'spacecom', nombre: 'Space.com', medio: 'Space.com', url: 'https://www.space.com/feeds/all', seccion: 'Ciencia', idioma: 'en' },
 ].map((f) => ({ ...f, tipo: 'rss', alcance: 'pais', activa: true })).map((f) => ({ oficial: false, ...f }));
 
 export function convertir(vieja) {
@@ -120,6 +139,8 @@ export function convertir(vieja) {
     alcance,
     oficial,
     activa: vieja.activa === undefined ? true : !!vieja.activa,
+    // Un feed de Tecnología o de Ciencia ya dice qué es: alcanza con 2 medios (elegir.mjs, SECCIONES_DE_FEED; 14/11).
+    ...(['Tecnología', 'Ciencia'].includes(vieja.seccion) ? { seccion: vieja.seccion } : {}),
   };
 }
 

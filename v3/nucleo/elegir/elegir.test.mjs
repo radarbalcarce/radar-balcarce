@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { elegir, cupoNacional, minimoDelDia, MEDIOS_MUY_CONTADA } from './elegir.mjs';
+import { elegir, areaChica, cupoNacional, minimoDelDia, MEDIOS_MUY_CONTADA } from './elegir.mjs';
 
 const AHORA = new Date('2026-11-02T12:00:00Z');
 const hace = (h) => new Date(AHORA.getTime() - h * 3600e3).toISOString();
@@ -152,4 +152,32 @@ test('las efemérides de otros medios no salen nunca, ni de Balcarce (caso real 
   }
   const ok = 'Balcarce celebra el aniversario del Club Ferroviarios';
   assert.equal(elegir(hist(ok), [art('Radio Gabal (FM 104.1)', ok, { alcance: 'balcarce' })], opc()).sale, true);
+});
+
+// Caso real del 14/11/2026: SpaceX atrapó la Starship y Radar no la publicó (pocas fuentes de tecnología y palabras que no la reconocían).
+test('IA, tecnología y espacio: las palabras nuevas la reconocen como área chica (también en inglés)', () => {
+  for (const t of ['SpaceX hizo historia: capturó por primera vez una nave Starship', 'Anthropic presentó Claude Opus 5.5',
+    'Nvidia supera los 5 billones de dólares', 'SpaceX successfully catches Starship after launch', 'OpenAI lanzó un nuevo modelo de IA']) {
+    assert.ok(['Tecnología', 'Ciencia'].includes(areaChica({}, t)), t);
+  }
+  assert.equal(areaChica({}, 'Se llama Juan y ganó la maratón'), null);
+});
+
+test('un feed de Tecnología o Ciencia da el área aunque el título no la diga; mira todos los títulos, no sólo el primero', () => {
+  const F = new Map([['tn-tecno', { seccion: 'Tecnología' }], ['clarin-politica', { seccion: 'Política' }]]);
+  assert.equal(areaChica({}, 'Cambia todo desde el lunes', [{ fuenteId: 'tn-tecno' }], F), 'Tecnología');
+  assert.equal(areaChica({}, 'Cambia todo desde el lunes', [{ fuenteId: 'clarin-politica' }], F), null);
+  assert.equal(areaChica({}, ['Cambia todo desde el lunes', 'SpaceX catches Starship']), 'Ciencia');
+});
+
+test('Starship: un medio de acá y uno en inglés alcanzan; sólo medios en inglés piden 3; la tecnología de afuera no pide un argentino', () => {
+  const F = new Map([['engadget', { seccion: 'Tecnología', idioma: 'en' }], ['cnbc-tech', { seccion: 'Tecnología', idioma: 'en' }],
+    ['bbc-tech', { seccion: 'Tecnología', idioma: 'en' }], ['tn-tecno', { seccion: 'Tecnología' }]]);
+  const t = 'SpaceX hizo historia: capturó por primera vez una nave Starship';
+  const en = (m, f) => art(m, 'SpaceX catches Starship upper stage', { fuenteId: f });
+  assert.equal(elegir(hist(t), [art('TN', t, { fuenteId: 'tn-tecno' }), en('Engadget', 'engadget')], opc({ fuentes: F })).motivo, 'area-chica-2');
+  assert.equal(elegir(hist(t), [en('Engadget', 'engadget'), en('CNBC', 'cnbc-tech')], opc({ fuentes: F })).motivo, 'pocos-medios');
+  assert.equal(elegir(hist(t), [en('Engadget', 'engadget'), en('CNBC', 'cnbc-tech'), en('BBC', 'bbc-tech')], opc({ fuentes: F })).motivo, 'nacional-3');
+  const china = 'China presentó un nuevo modelo de inteligencia artificial';
+  assert.equal(elegir(hist(china), [art('Clarín', china), art('La Nación', china)], opc()).motivo, 'area-chica-2');
 });

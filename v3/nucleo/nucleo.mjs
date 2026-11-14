@@ -159,6 +159,7 @@ const reserva = (tope) => Math.floor(tope * RESERVA_PARA_REDACTAR);
 
 export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
   const nombreDeFuente = new Map(fuentes.map((f) => [f.id, f.nombre]));
+  const fuentePorId = new Map(fuentes.map((f) => [f.id, f]));
 
   const contexto = (env, deps = {}) => {
     const fetchFn = deps.fetch || ((...a) => globalThis.fetch(...a));
@@ -312,6 +313,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       minimoAreasChicas: numero(env.NUCLEO_MINIMO_AREAS_CHICAS, 2),
       topeNacional: cupoNacional(numero(env.NUCLEO_TOPE_NACIONAL, 100), c.ahora),
       esperaNacionalMin: numero(env.NUCLEO_ESPERA_NACIONAL_MIN, 60), // 0 la apaga (REGLAS § 4)
+      fuentes: fuentePorId, // la sección y el idioma de cada feed (14/11)
     });
     for (const h of tocadas.values()) {
       try {

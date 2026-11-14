@@ -14,6 +14,8 @@ que estar en alguna fuente.
   Sin conclusión ni moraleja.
 - **Nombres completos la primera vez** (nombre, apellido y cargo); después, el apellido o el cargo.
 - **Cifras con punto de miles** (12.500), con su unidad, y fechas con día y mes («el viernes 7 de noviembre»).
+- **Fuentes en otro idioma** (inglés): la nota va siempre en castellano rioplatense. Traducí con cuidado, sin agregar nada; una cita se traduce
+  entre comillas y se aclara quién la dijo. Los nombres propios de empresas, productos y modelos quedan como son (OpenAI, Starship, GPT-5).
 - **De vos** donde corresponda (agenda, servicios, avisos), tono ameno y correcto. En noticias, neutro y claro, sin «che» ni humor en lo serio.
 
 ## Largo

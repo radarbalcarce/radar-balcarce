@@ -32,8 +32,10 @@ const RE_ARGENTINO = /\b(argentin\w*|milei|kicillof|messi|scaloni|macri|bullrich
 // Si la historia ya trae `seccion`, se usa; si no, estas palabras del título.
 export const AREAS_CHICAS = ['Tecnología', 'Ciencia', 'Salud', 'Educación', 'Cultura', 'Agro', 'Automovilismo'];
 const PALABRAS_AREA = {
-  Tecnología: /\b(inteligencia artificial|openai|chatgpt|gemini|apple|iphone|android|google|microsoft|ciberataque|hackeo|software|robot\w*|smartphone|celular(es)?|tecnologia)\b/,
-  Ciencia: /\b(cientific\w*|conicet|nasa|astronom\w*|asteroide|cometa|fosil\w*|investigadores|descubrieron|descubrimiento|universo|telescopio)\b/,
+  // IA y tecnología (Hernán, 14/11: «cuando salen modelos de frontera de IA o noticias relevantes de IA o tecnología, que aparezcan»).
+  // También en inglés, por las fuentes en inglés.
+  Tecnología: /\b(inteligencia artificial|artificial intelligence|ia|ai|openai|chatgpt|gpt-?\d\w*|gemini|anthropic|claude|deepseek|grok|xai|mistral|copilot|chatbots?|modelos? de (ia|lenguaje)|nvidia|chips?|semiconductor\w*|apple|iphone|android|google|microsoft|amazon|tesla|elon musk|musk|starlink|ciberataque\w*|ciberseguridad|hackeo|hackers?|software|robot\w*|smartphones?|celular(es)?|tecnologia|tech)\b/,
+  Ciencia: /\b(cientific\w*|scientists?|conicet|nasa|spacex|starship|cohetes?|rockets?|satelites?|satellites?|orbita\w*|orbit\w*|espacial\w*|astronauta\w*|astronauts?|marte|mars|artemis|astronom\w*|asteroide|cometa|fosil\w*|investigadores|descubrieron|descubrimiento|universo|telescopio|telescope)\b/,
   Salud: /\b(salud|hospital\w*|vacun\w*|dengue|gripe|virus|medic\w*|cancer|enfermedad\w*|sarampion|anmat|obra social|pami)\b/,
   Educación: /\b(escuela\w*|colegio\w*|docentes?|alumnos?|universidad\w*|clases|educacion|estudiantes|paro docente|ctera|egresados)\b/,
   Cultura: /\b(cine|pelicula\w*|libro\w*|teatro|musica|festival|recital\w*|exposicion|muestra|artista\w*|serie|concierto|cultura)\b/,
@@ -41,11 +43,31 @@ const PALABRAS_AREA = {
   Automovilismo: /\b(f1|formula 1|tc|turismo carretera|rally|automovilismo|pole|gran premio|colapinto|top race)\b/,
 };
 
-export function areaChica(historia, titulo) {
+// Secciones que la fuente puede dar por sí sola: un artículo de un feed de Tecnología o de Ciencia ya dice qué es (14/11).
+export const SECCIONES_DE_FEED = ['Tecnología', 'Ciencia'];
+
+/**
+ * El área chica de una historia: la `seccion` que ya traiga; si no, la de un feed de Tecnología o Ciencia de sus artículos
+ * (`fuentes`: Map id → fuente); si no, las palabras de cualquiera de sus títulos. `titulo` puede ser un texto o una lista.
+ */
+export function areaChica(historia, titulo, articulos = [], fuentes = null) {
   if (historia.seccion) return AREAS_CHICAS.includes(historia.seccion) ? historia.seccion : null;
-  const t = normalizarTexto(titulo);
-  for (const [area, re] of Object.entries(PALABRAS_AREA)) if (re.test(t)) return area;
+  if (fuentes) {
+    for (const a of articulos) {
+      const s = fuentes.get(a.fuenteId)?.seccion;
+      if (SECCIONES_DE_FEED.includes(s)) return s;
+    }
+  }
+  for (const t of (Array.isArray(titulo) ? titulo : [titulo]).map(normalizarTexto)) {
+    for (const [area, re] of Object.entries(PALABRAS_AREA)) if (re.test(t)) return area;
+  }
   return null;
+}
+
+/** ¿Todos los artículos vienen de fuentes en otro idioma? (`idioma` en fuentes.json; sin idioma, castellano). */
+function todoEnOtroIdioma(articulos, fuentes) {
+  if (!fuentes || !articulos.length) return false;
+  return articulos.every((a) => { const i = fuentes.get(a.fuenteId)?.idioma; return i && i !== 'es'; });
 }
 
 function primeraOracion(texto) {
@@ -106,6 +128,7 @@ export function minimoDelDia(minimo, minimoFinde, ahora = new Date()) {
 
 export function elegir(historia, articulos, {
   minimoNacional = 3, minimoAreasChicas = 2, nacionalesHoy = 0, topeNacional = 100, pedida = false, ahora = new Date(), esperaNacionalMin = 0,
+  fuentes = null,
 } = {}) {
   const sale = (motivo) => ({ sale: true, motivo });
   const no = (motivo) => ({ sale: false, motivo });
@@ -125,16 +148,19 @@ export function elegir(historia, articulos, {
   if (balcarce) return sale('balcarce');
   if (zona) return sale('zona');
 
-  if (esExtranjeroSinArgentino(historia, articulos)) return no('extranjero-sin-argentino');
+  const chica = areaChica(historia, titulosDe(historia, articulos), articulos, fuentes);
+  // La tecnología, la IA y el espacio son casi siempre de afuera: no piden un argentino (Hernán, 14/11).
+  if (!['Tecnología', 'Ciencia'].includes(chica) && esExtranjeroSinArgentino(historia, articulos)) return no('extranjero-sin-argentino');
 
   const medios = new Set(articulos.map((a) => normalizarTexto(a.medio).trim()).filter(Boolean));
   if (!articulos.length) for (const m of historia.medios || []) medios.add(normalizarTexto(m).trim());
   const cuantos = medios.size;
   if (cuantos >= MEDIOS_MUY_CONTADA) return sale('muy-contada');
-  const chica = areaChica(historia, titulosDe(historia, articulos)[0]);
+  // Lo que sólo cuentan medios en inglés pide los medios de lo nacional (3): así entra lo relevante y no cada nota chica de allá.
+  const soloAfuera = todoEnOtroIdioma(articulos, fuentes);
   let motivo;
   if (cuantos >= minimoNacional) motivo = 'nacional-3';
-  else if (chica && cuantos >= minimoAreasChicas) motivo = 'area-chica-2';
+  else if (chica && !soloAfuera && cuantos >= minimoAreasChicas) motivo = 'area-chica-2';
   else return no('pocos-medios');
 
   // Lo nacional madura: se escribe cuando la historia lleva `esperaNacionalMin` minutos en el sistema, con más fuentes y más fotos candidatas (Hernán, 10/11: «no hay apuro, que mejore la calidad»).
