@@ -30,10 +30,12 @@ const QUIENES = {
 <p>Nada de chismes ni de comentarios maliciosos sin fundamento. Lo que llega en caliente se coteja antes de publicar, y si nos equivocamos, rectificamos enseguida. No identificamos a menores ni a víctimas, no publicamos listas de sepelios, no inventamos datos, no copiamos frases de otros medios y no hacemos sensacionalismo.</p>
 <h2>Quién está detrás</h2>
 <ul>
-<li><strong>Hernán Accomo</strong>, fundador y director. Radar es suyo. Elige qué sale y qué no, y firma las notas propias.</li>
-<li><strong>Andrés Gerace</strong>, socio y compañero de Hernán en los otros proyectos, colabora en Radar.</li>
-<li><strong>Redacción Radar Balcarce</strong>: las notas escritas con inteligencia artificial a partir de varias fuentes y verificadas contra ellas. Cada nota dice quién la escribió.</li>
+<li><strong>Hernán Accomo</strong>, fundador y director. Vive en Balcarce. Trabajó más de quince años en logística y operaciones, liderando equipos, y hoy arma productos digitales con inteligencia artificial: una app de cuidado de plantas publicada en Google Play (Twiglet), el sitio y la serie «Se hace» (<a href="https://sehace.com" rel="noopener">sehace.com</a>) y este medio. Define el criterio editorial de Radar, elige qué sale y qué no, y firma las notas propias, entre ellas las de tecnología e inteligencia artificial. <a href="https://www.linkedin.com/in/hernan-accomo" rel="noopener">LinkedIn</a>.</li>
+<li><strong>Andrés Gerace</strong>, cofundador de BalcarDev, el estudio de apps de Balcarce del que Radar forma parte, y socio de Hernán. Colabora en la parte técnica de Radar.</li>
+<li><strong>Redacción Radar Balcarce</strong>: las notas que se arman a partir de varias fuentes, con ayuda de inteligencia artificial, y se verifican contra ellas. Cada nota dice quién la firma.</li>
 </ul>
+<h2>Cómo se hace una nota</h2>
+<p>El criterio es de la redacción: qué se cuenta, cómo se estructura (título, bajada, datos clave, cronología y fuentes) y qué no se publica nunca. La inteligencia artificial ayuda a leer, ordenar y redactar, como en la mayoría de las redacciones hoy, y cada nota se contrasta con sus fuentes antes de salir. Los detalles, en <a href="/como-trabajamos">Cómo trabajamos</a>.</p>
 <p>Si querés escribir, contar lo tuyo o sumarte con tu firma, la puerta está abierta.</p>
 <h2>Contacto</h2>
 <p>WhatsApp ${enlaceWa} · Mail ${enlaceMail} · Facebook e Instagram <strong>@radarbalcarce</strong>. Más en <a href="/contacto">Contacto</a>.</p>`,
@@ -124,7 +126,7 @@ function datosDeQuienesSomos() {
     '@context': 'https://schema.org', '@type': 'AboutPage', name: QUIENES.titulo, url: `${BASE}/quienes-somos`, inLanguage: 'es-AR',
     mainEntity: {
       ...organizacionDelMedio(), '@context': undefined, email: MAIL, publishingPrinciples: `${BASE}/como-trabajamos`,
-      founder: { '@type': 'Person', name: 'Hernán Accomo', jobTitle: 'Fundador y director' },
+      founder: { '@type': 'Person', name: 'Hernán Accomo', jobTitle: 'Fundador y director', sameAs: ['https://www.linkedin.com/in/hernan-accomo', 'https://sehace.com'] },
       employee: { '@type': 'Person', name: 'Andrés Gerace' },
     },
   };

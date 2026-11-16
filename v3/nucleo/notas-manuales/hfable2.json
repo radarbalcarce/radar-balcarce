@@ -1,0 +1,38 @@
+{
+  "id": "hfable2",
+  "titulo": "Claude Fable 5.2: más rápido, más barato que la 5.1 y con menos bloqueos",
+  "bajada": "Anthropic lanzó el 9 de noviembre su modelo más grande en versión nueva: tiene un millón de tokens de contexto y cuesta el doble que Opus 5.5.",
+  "seccion": "Tecnología",
+  "firma": "Hernán Accomo",
+  "enDosLineas": "Anthropic presentó Claude Fable 5.2, hasta 30 % más rápido que la 5.1 y con un precio por API de USD 8 de entrada y USD 40 de salida por millón de tokens. Bloquea cerca de 55 % menos consultas que su antecesor.",
+  "cuerpo": [
+    "El 9 de noviembre de 2026 Anthropic lanzó Claude Fable 5.2 y, el mismo día, Claude Mythos 5.2: es el mismo modelo, pero sin algunos bloqueos de seguridad y solo para organizaciones verificadas. Fable es el modelo más capaz de la empresa y esta es su versión nueva.",
+    "La ficha técnica indica un millón de tokens de contexto, que es lo que el modelo puede tener presente a la vez, y hasta 128.000 tokens por respuesta. Un token es un pedacito de texto que el modelo lee y por el que cobra. Según quienes lo probaron antes del lanzamiento, responde hasta 30 % más rápido que Fable 5.1, y hay un modo rápido opcional, hasta 2,5 veces más veloz, a un precio más alto.",
+    "En una prueba de código llamada FrontierCode 2.0, Anthropic informó que Fable 5.2 llegó a 49,1 % con esfuerzo Xhigh, contra 32,4 % de la 5.1 y 45,5 % de Opus 5.5 en su mejor resultado. Son números de la propia empresa: evaluadores externos probaron el modelo, pero no revisaron el anuncio.",
+    "Por API, Fable 5.2 cuesta USD 8 por millón de tokens de entrada y USD 40 de salida. La versión 5.1 costaba USD 10 y USD 50; Opus 5.5, USD 4 y USD 20, es decir, la mitad. El modelo está disponible en la API de Claude, Amazon Bedrock, Google Cloud, Microsoft Foundry y Claude Platform on AWS.",
+    "Como oferta de lanzamiento, los planes Pro y Team estándar tienen Fable incluido hasta el 16 de noviembre de 2026, con un tope del 50 % del límite semanal y un reinicio de uso. Los planes Max, Ultra y Team premium reciben de uno a tres reinicios de uso, según la antigüedad de la suscripción. Hace falta haber tenido un plan pago antes del 9 de noviembre a las 10:00 (hora del Pacífico), y el plan gratis no entra.",
+    "Sobre los bloqueos: Fable 5.2 frena las tareas de ciberseguridad de alto riesgo y la mayoría de las de investigación en biología. Si bloquea una consulta de ciberseguridad, responde Opus 4.8; si es de biología, responde Opus 5. Anthropic dice que bloquea cerca de 55 % menos que la 5.1. Mythos 5.2 no tiene esos bloqueos y solo lo usan organizaciones aprobadas por los programas de verificación de la empresa.",
+    "Para tener en cuenta: el modelo bajó de precio respecto de la versión anterior, pero sigue costando el doble que Opus 5.5, así que conviene saber para qué tarea se lo va a usar antes de elegirlo."
+  ],
+  "ficha": {
+    "que": "Anthropic lanzó Claude Fable 5.2 y Claude Mythos 5.2",
+    "quien": "Anthropic",
+    "donde": "API de Claude, Amazon Bedrock, Google Cloud, Microsoft Foundry y Claude Platform on AWS",
+    "cuando": "9 de noviembre de 2026",
+    "numeros": [
+      { "valor": "1", "unidad": "millón de tokens", "que": " de contexto" },
+      { "valor": "49,1", "unidad": "%", "que": " en FrontierCode 2.0, según Anthropic" },
+      { "valor": "USD 8 / 40", "unidad": "por millón de tokens", "que": " de entrada y de salida, por API" }
+    ],
+    "cronologia": [],
+    "faltaSaber": []
+  },
+  "fuentes": [
+    { "medio": "Anthropic: anuncio de Claude Fable 5.2 y Mythos 5.2", "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2" },
+    { "medio": "Anthropic: ficha técnica de Claude Fable 5.2", "url": "https://platform.claude.com/docs/en/models/fable-5-2/overview" },
+    { "medio": "Anthropic: lista de precios", "url": "https://platform.claude.com/docs/en/about-claude/pricing" },
+    { "medio": "Claude: ofertas de lanzamiento de Fable 5.2", "url": "https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers" }
+  ],
+  "foto": null,
+  "fotosEnCuerpo": []
+}

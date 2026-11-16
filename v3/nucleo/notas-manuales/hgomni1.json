@@ -1,0 +1,34 @@
+{
+  "id": "hgomni1",
+  "titulo": "Gemini Omni 1.2 Flash: Google crea videos de hasta 15 segundos y deja corregirlos sin rehacerlos",
+  "bajada": "El modelo de video de Google suma duración y edición por pedidos: se puede cambiar el fondo, la luz o el producto de un clip sin generarlo de nuevo.",
+  "seccion": "Tecnología",
+  "firma": "Hernán Accomo",
+  "enDosLineas": "Google presentó Gemini Omni 1.2 Flash, que genera videos de entre 3 y 15 segundos y permite editarlos con pedidos nuevos. Por API cuesta USD 0,07 por segundo de video en 720p.",
+  "cuerpo": [
+    "El 5 de noviembre de 2026 Google presentó Gemini Omni 1.2 Flash, un modelo que crea videos a partir de lo que se le pide. Ya está disponible en la API de Gemini y en Gemini para empresas.",
+    "La duración máxima de cada video es de 15 segundos, que se elige de a un segundo entre 3 y 15. La versión anterior, Omni 1.1, llegaba a 10 segundos.",
+    "La novedad principal es la edición por turnos: se le pide un cambio, como otro fondo, otro producto, otra luz o clima o un formato distinto, y el modelo corrige el clip sin generarlo todo de nuevo. También acepta referencias: imágenes de un personaje, un producto o un estilo, clips de movimiento de hasta 3 segundos y audio.",
+    "En calidad, arma borradores en 360p o 720p y después los agranda a 1080p o 4K. Google asegura que la voz suena más natural, que mejoró la sincronía de labios, que admite varias voces y que los movimientos de cámara son más controlados. Los videos llevan SynthID, una marca de agua invisible de Google.",
+    "Por API, el precio es de USD 0,07 por segundo de video en 720p, que según Google es 30 % menos que en Omni 1.1. Una API es la puerta para que un programa use el modelo directamente, pagando por uso.",
+    "Para el público general hay otras vías: Google Vids ofrece clips de 15 segundos sin costo adicional con una cuenta de Google o de Workspace, y la app de Gemini suma videos de 15 segundos, que llegan a quienes pagan Google AI Ultra. Para programar está Google AI Studio; para empresas, Vertex AI Studio en Google Cloud; y también está disponible en Flow y en el estudio de recursos de Google Ads.",
+    "Poder corregir un detalle sin empezar de cero cambia la forma de trabajar: en vez de descartar un clip entero porque algo salió mal, se lo ajusta con pedidos, como en una charla."
+  ],
+  "ficha": {
+    "que": "Google presentó Gemini Omni 1.2 Flash, su modelo de video",
+    "quien": "Google",
+    "donde": "API de Gemini, Gemini para empresas, Google Vids, app de Gemini, AI Studio y Vertex AI",
+    "cuando": "5 de noviembre de 2026",
+    "numeros": [
+      { "valor": "15", "unidad": "segundos", "que": " de duración máxima por video (antes, 10)" },
+      { "valor": "USD 0,07", "unidad": "por segundo", "que": " de video en 720p por API" }
+    ],
+    "cronologia": [],
+    "faltaSaber": []
+  },
+  "fuentes": [
+    { "medio": "Google: anuncio de Gemini Omni 1.2 Flash", "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/" }
+  ],
+  "foto": null,
+  "fotosEnCuerpo": []
+}
