@@ -72,6 +72,16 @@
 
 - **Agenda en pausa (Hernán, 5/11):** el reel «Qué hacer este fin de semana» y el carrusel «El finde en Balcarce» no salen hasta que los eventos estén al día. Para prenderlos de nuevo, sacar `pausada: true` de sus dos filas en `v3/redes/piezas-del-dia.mjs`.
 
+## 0 quater. 16/11/2026: AdSense rechazó radarbalcarce.com («contenido de bajo valor», 13/11)
+
+- **No pedir la revisión todavía**: primero 2 a 3 semanas de contenido propio y firmado; la pide Claude desde el panel de AdSense avisando antes (cuenta radarbalcarce@gmail.com, ID pub-2759023791445864).
+- **Contenido propio a sumar** (Hernán, 16/11): notas con su firma en Tecnología a partir de sehace.com (herramienta del día, palabra explicada fácil, videos largos); notas turísticas de Balcarce con foto propia; entrevistas a comercios y rubros; notas de actualidad donde él aporta lo que sabe de primera mano (firmadas sólo si es verdad). Mejorar con datos propios las del clima, las efemérides y los resúmenes semanales, rotuladas como elaboración propia con datos de sus fuentes.
+- **«Quiénes somos»**: sumar nombres de la redacción, responsable editorial y dirección. **Nunca** poner como propio lo que no lo es.
+- **sehace.com** (blog de Hernán, aparte): mejor candidato para AdSense; falta `ads.txt`, política de privacidad y contacto, y un poco más de texto. Falta saber dónde está su código. Agregarlo a la misma cuenta desde «Sitios → Sitio nuevo» (con OK de Hernán).
+- Los 1.430 «404» de Search Console son notas viejas que devuelven 410 a propósito: no hay nada que corregir.
+- `pruebas.yml` falla desde el 14/11 en `v3/redes/previa-vino.test.mjs` sólo en GitHub (en la PC pasa): revisar.
+- Venció la llave de GitHub «Vigilante de Cloudflare (lectura)» (14/11); Hernán dijo que no urge.
+
 ## 0 ter. 15/11/2026: reels 3.0 y herramientas
 
 - **Elegir los estilos de los reels** en el lienzo https://claude.ai/artifact/Uei6efSKa1T2kLWDZPFHpJ (A y C descartados; quedan B, D, E, F, G y H). La idea: 3 o 4 que se turnen según el tipo de nota, con foto a pantalla completa y el color de la sección, para que el feed no se vea todo igual.
