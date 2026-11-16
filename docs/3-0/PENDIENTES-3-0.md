@@ -72,6 +72,12 @@
 
 - **Agenda en pausa (Hernán, 5/11):** el reel «Qué hacer este fin de semana» y el carrusel «El finde en Balcarce» no salen hasta que los eventos estén al día. Para prenderlos de nuevo, sacar `pausada: true` de sus dos filas en `v3/redes/piezas-del-dia.mjs`.
 
+## 0 ter. 15/11/2026: reels 3.0 y herramientas
+
+- **Elegir los estilos de los reels** en el lienzo https://claude.ai/artifact/Uei6efSKa1T2kLWDZPFHpJ (A y C descartados; quedan B, D, E, F, G y H). La idea: 3 o 4 que se turnen según el tipo de nota, con foto a pantalla completa y el color de la sección, para que el feed no se vea todo igual.
+- **Probar HyperFrames** (https://github.com/heygen-com/hyperframes, gratis, convierte HTML animado en video sin placa de video) para grabar los reels con el estilo elegido, y **Earshot** (https://github.com/Leonxlnx/earshot, gratis) para acompasar la animación a la voz. Hernán dio el OK para bajarlos y probarlos (15/11).
+- **Desplegar el núcleo** con las 17 fuentes nuevas de tecnología, IA y espacio (commit b0c7dff90; «Radar 3.0: desplegar» → `nucleo`): `/salud` todavía muestra 78 fuentes activas.
+
 ## 0 bis. 13/11/2026: lo que se hizo y lo que sigue
 
 - **Hecho:** efemérides de diciembre a marzo armadas y verificadas (121 días, ver `v3/redes/REGLAS.md` § 18; sin audios); el reel de la efeméride y el del clima llevan el enlace «La nota completa»; la nota de efemérides no pierde los enlaces de sus reels al volver a correr; botones de Descargar/Compartir unificados y gráficos con el cierre de la marca; sitemaps viejos sacados y eventos de la agenda con 410.
