@@ -61,6 +61,13 @@ test('bloquesDeFicha: la cronología pide 3 fechas o más; las cifras piden unid
   assert.ok(!/Cifras/.test(h));
 });
 
+test('las cifras separan la unidad del texto, venga o no con espacio (caso «28 futbolistastotal de convocados», 16/11)', () => {
+  for (const que of ['total de convocados', ' total de convocados']) {
+    const h = bloquesDeFicha({ que: 'X', numeros: [{ valor: '28', unidad: 'futbolistas', que }] });
+    assert.match(h, /28 futbolistas<\/b> total de convocados/);
+  }
+});
+
 test('el texto de la ficha se escapa', async () => {
   const { sqlite, env } = baseDePrueba();
   insertarNota(sqlite, { id: 'xss1', titulo: 'Titulo <b>raro</b>', ficha: JSON.stringify({ que: '<script>alert(1)</script>' }) });

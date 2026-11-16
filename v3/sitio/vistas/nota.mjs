@@ -56,7 +56,7 @@ export function bloquesDeFicha(ficha) {
   const cifras = (Array.isArray(ficha.numeros) ? ficha.numeros : []).filter((c) => c && lleno(String(c.valor ?? '')) && lleno(c.unidad));
   if (cifras.length) {
     partes.push(`<section class="bloque" id="cifras"><h2>Cifras</h2><ul class="cifras">${cifras.map((c) =>
-      `<li><b>${esc(c.valor)} ${esc(c.unidad)}</b>${lleno(c.que) ? esc(c.que) : ''}</li>`).join('')}</ul></section>`);
+      `<li><b>${esc(c.valor)} ${esc(c.unidad)}</b>${lleno(c.que) ? ` ${esc(String(c.que).trim())}` : ''}</li>`).join('')}</ul></section>`);
   }
   // La fuente al lado de cada cifra no se muestra (Hernán, 3/11: «no aporta»; las fuentes siguen en «Fuentes (N)»). «Qué falta saber»
   // sale sólo en las notas escritas con la regla de «sólo cuando aporta» (`faltaSaberSelectivo`, 3/11) y si la IA dejó algo.
