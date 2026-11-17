@@ -18,7 +18,7 @@ const saludNucleo = (extra = {}) => ({
   ...extra,
 });
 const saludBot = (extra = {}) => ({ token: true, webhook: { cuando: mas(AHORA, 100000), url: `${DIRECCION}/telegram`, pendientes: 0 }, dueno: { nombre: 'H' }, ...extra });
-const sano = (n = {}, b = {}) => ({ nucleo: { ok: true, salud: saludNucleo(n) }, bot: { ok: true, salud: saludBot(b) }, sitio: null });
+const sano = (n = {}, b = {}) => ({ nucleo: { ok: true, salud: saludNucleo(n) }, bot: { ok: true, salud: saludBot(b) } });
 
 /** Un escenario: KV falso, Telegram falso (con interruptor) y mail falso. `foto` es lo que contestan los Workers en ese momento. */
 function escenario() {
@@ -211,16 +211,15 @@ test('un aviso por Telegram que no salió se reintenta en el próximo chequeo', 
   assert.equal(e.dichos.length, 1);
 });
 
-test('el núcleo que no contesta se confirma en dos chequeos; el sitio, si está conectado, también', async () => {
+test('el núcleo que no contesta se confirma en dos chequeos', async () => {
   const e = escenario();
-  e.foto = { ...sano(), nucleo: { ok: false, salud: null }, sitio: { ok: false } };
+  e.foto = { ...sano(), nucleo: { ok: false, salud: null } };
   await e.chequear(0);
   assert.equal(e.dichos.length, 0);
   await e.chequear(30);
   assert.equal(e.dichos.length, 1);
-  assert.match(e.dichos[0], /hay 2 problemas/);
+  assert.match(e.dichos[0], /hay un problema/);
   assert.match(e.dichos[0], /núcleo \(radar-nucleo\) no contesta/);
-  assert.match(e.dichos[0], /sitio \(radar-sitio\) no contesta/);
 });
 
 // ------------------------------------------------------------------------------------------ el informe
@@ -333,7 +332,8 @@ test('el Worker: /salud no trae secretos, y cada cron hace lo suyo, con los Work
       return new Response(JSON.stringify(saludBot({ webhook: { cuando: new Date().toISOString(), url: `${DIRECCION}/telegram` } })));
     } },
   };
-  const deps = () => crearDeps(env, { fetchDeAfuera: async (u) => new Response(String(u).endsWith('/feed.xml') ? `<rss><item><link>https://radarbalcarce.com/nota/a</link><pubDate>${new Date().toUTCString()}</pubDate></item></rss>` : '<a href="/nota/a">a</a>') });
+  // Los vencimientos dependen del día y la hora de verdad: acá se apagan (se prueban aparte, en vencimientos.test.mjs).
+  const deps = () => ({ ...crearDeps(env, { fetchDeAfuera: async (u) => new Response(String(u).endsWith('/feed.xml') ? `<rss><item><link>https://radarbalcarce.com/nota/a</link><pubDate>${new Date().toUTCString()}</pubDate></item></rss>` : '<a href="/nota/a">a</a>') }), vencimientos: null });
   await programado({ cron: '*/30 * * * *' }, env, deps());
   assert.equal(JSON.parse(kv.get('chequeo')).ok, true);
   assert.ok(!llamadas.some(([, u]) => u.endsWith('/decir')));
@@ -347,18 +347,17 @@ test('el Worker: /salud no trae secretos, y cada cron hace lo suyo, con los Work
   assert.doesNotMatch(texto, new RegExp(contrasena));
   const cuerpo = JSON.parse(texto);
   assert.equal(cuerpo.chequeo.ok, true);
-  assert.equal(cuerpo.conectado.sitio, false);
+  assert.equal('sitio' in cuerpo.conectado, false);
   assert.equal(cuerpo.conectado.mail, false);
   assert.equal(typeof cuerpo.ultimoInforme, 'string');
 });
 
 test('crearDeps sin Workers conectados contesta «no responde» sin romper', async () => {
   const d = crearDeps({ ESTADO: { get: async () => null, put: async () => {} } }, { fetchDeAfuera: async () => { throw new Error('sin red'); } });
-  const { nucleo, bot, sitio, redes } = await d.traer();
+  const { nucleo, bot, redes } = await d.traer();
   assert.equal(redes, null);
   assert.equal(nucleo.ok, false);
   assert.equal(bot.ok, false);
-  assert.equal(sitio, null);
   assert.equal(await d.decir(['x']), false);
   assert.equal(await d.traerNotas('2026-11-02'), null);
   assert.equal(usd(2.5), 'US$ 2,50');

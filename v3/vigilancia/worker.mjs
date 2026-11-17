@@ -6,10 +6,10 @@
 import { DIRECCION, contrasenaDelWebhook } from '../redaccion/telegram/worker.mjs';
 import { chequear, informar, mandarMail } from './vigilancia.mjs';
 import { traerWeb } from './sitio-y-redes.mjs';
+import { VENCIMIENTOS } from './vencimientos.mjs';
 
-/** La dirección pública del núcleo y del sitio; por el service binding el nombre de host no cuenta, pero hace falta una URL entera. */
+/** La dirección pública del núcleo; por el service binding el nombre de host no cuenta, pero hace falta una URL entera. */
 export const DIRECCION_NUCLEO = 'https://radar-nucleo.radarbalcarce.workers.dev';
-export const DIRECCION_SITIO = 'https://radar-sitio.radarbalcarce.workers.dev';
 export const DIRECCION_REDES = 'https://radar-redes.radarbalcarce.workers.dev';
 
 const ESPERA_MS = 20000;
@@ -40,16 +40,16 @@ export function crearDeps(env, { ahora = () => new Date().toISOString(), claseDe
   return {
     ahora,
     direccionDelBot: DIRECCION,
+    vencimientos: VENCIMIENTOS, // la tabla de lo que hay que renovar (vencimientos.mjs)
     async traer() {
-      const [nucleo, bot, sitio, web, redes] = await Promise.all([
+      const [nucleo, bot, web, redes] = await Promise.all([
         pedirSalud(env.NUCLEO, `${DIRECCION_NUCLEO}/salud`),
         pedirSalud(env.TELEGRAM, `${DIRECCION}/salud`),
-        env.SITIO ? pedirSalud(env.SITIO, `${DIRECCION_SITIO}/salud`) : Promise.resolve(null),
         // El sitio publicado, por internet (lo que ve un lector). Nunca tira: un fallo de red queda como status 0 y se confirma en dos chequeos.
         traerWeb(fetchDeAfuera ?? ((...a) => fetch(...a))),
         traerActividadDeRedes(env),
       ]);
-      return { nucleo, bot, sitio, web, redes };
+      return { nucleo, bot, web, redes };
     },
     // Las notas de un día, tal como las guarda el núcleo (/notas pide la contraseña derivada del token). null = no se pudo leer.
     async traerNotas(dia) {
@@ -83,7 +83,7 @@ export async function salud(env) {
   const cuerpo = {
     chequeo,
     ultimoInforme: informe?.cuando ?? null,
-    conectado: { nucleo: Boolean(env.NUCLEO), redes: Boolean(env.REDES), bot: Boolean(env.TELEGRAM), sitio: Boolean(env.SITIO), mail: Boolean(env.EMAIL), token: Boolean(env.TELEGRAM_TOKEN) },
+    conectado: { nucleo: Boolean(env.NUCLEO), redes: Boolean(env.REDES), bot: Boolean(env.TELEGRAM), mail: Boolean(env.EMAIL), token: Boolean(env.TELEGRAM_TOKEN) },
   };
   return new Response(JSON.stringify(cuerpo, null, 2), { headers: { 'content-type': 'application/json; charset=utf-8' } });
 }

@@ -27,11 +27,7 @@ service = "radar-telegram"
 binding = "REDES"
 service = "radar-redes"
 
-# El sitio (etapa C): sumar este enlace cuando radar-sitio exista y tenga GET /salud. Sin él la vigilancia no mira el sitio.
-# Si se descomenta antes de que el Worker esté subido, el despliegue falla.
-# [[services]]
-# binding = "SITIO"
-# service = "radar-sitio"
+# El sitio NO se mira por un enlace: radar-sitio no tiene /salud. Se mira desde afuera, como un lector (radarbalcarce.com, sitio-y-redes.mjs).
 
 # Mail al dueño si el bot de Telegram no responde. REQUIERE Email Routing activo en la zona del dominio (Cloudflare → Email → Email Routing)
 # y radarbalcarce@gmail.com verificada como dirección de destino. Si falta, el Worker sigue andando y anota en el log que no pudo mandar el mail.

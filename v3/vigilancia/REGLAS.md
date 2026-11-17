@@ -8,7 +8,7 @@ decisiones de `docs/propuestas/PLAN-RADAR-3-0.md` (§ 3.12 y sección 10). Si el
 
 - **Cada 30 minutos**, el chequeo.
 - **A las 8:00 y a las 20:00 de Balcarce** (11:00 y 23:00 UTC), el informe.
-- Habla con el núcleo y con el bot por un enlace directo entre Workers (`/salud` de cada uno). No lee nada más.
+- Habla con el núcleo y con el bot por un enlace directo entre Workers (`/salud` de cada uno), con las redes (`/actividad`) y mira el sitio desde afuera, por internet.
 
 ## 2. Qué mira en cada chequeo
 
@@ -20,7 +20,7 @@ decisiones de `docs/propuestas/PLAN-RADAR-3-0.md` (§ 3.12 y sección 10). Si el
    «volvió a andar» para el gasto: se acaba con el mes.
 6. **Fuentes que fallan hace 3 días** (288 vueltas seguidas). Una fuente que nunca anduvo bien se avisa a las 96 fallas (un día entero).
    Avisa por fuente, no todas juntas cada vez.
-7. **El sitio contesta**, sólo si el Worker `radar-sitio` está conectado (hoy no: se conecta cuando exista y tenga `/salud`).
+7. **El núcleo publica** (`publicando` del `/salud`): si dice que no (modo prueba), avisa a los dos chequeos seguidos. Si el `/salud` no trae el campo, no juzga. (El enlace directo a `radar-sitio` se sacó el 17/11/2026: ese Worker no tiene `/salud`; el sitio se mira desde afuera, punto 8.)
 8. **El sitio publicado** (`radarbalcarce.com`, mirado desde afuera, como lo ve un lector; `sitio-y-redes.mjs`):
    - la portada responde 200 y muestra notas; `/feed.xml` y `/sitemap.xml` responden 200;
    - hay una nota publicada en las últimas 4 horas (sólo se cuenta el tiempo de 7:00 a 24:00 de Balcarce: de madrugada no avisa);
@@ -35,6 +35,17 @@ decisiones de `docs/propuestas/PLAN-RADAR-3-0.md` (§ 3.12 y sección 10). Si el
      las horas dentro del horario de publicación, de 8:00 a 22:00 de Balcarce: la noche no cuenta. Si no publicó nada en 24 horas, también avisa;
    - **una red falló 3 veces seguidas** al publicar (avisa con el último error).
    Si las redes están apagadas (`REDES_ACTIVAS` en «no», todo simulado) o la vigilancia no puede leerlas, no se juzga nada.
+
+## 2 bis. Los vencimientos (17/11/2026)
+
+La tabla `VENCIMIENTOS` (`vencimientos.mjs`) lista lo que hay que renovar: dominio, voces propias, `security.txt`, token de Threads, llaves de GitHub y de Cloudflare, etc. Cada ítem tiene fecha (`AAAA-MM-DD`), `desconocida` o `no-vence`, quién lo renueva y cómo. Nunca se inventa una fecha: una estimada lleva `estimada: true` y el aviso lo dice.
+
+- **Avisa por Telegram, una sola vez por umbral**: 30, 14, 7 y 1 días antes (el dominio y las voces, también 60). Si se mira tarde, avisa una vez por el umbral que ya pasó.
+- **Vencido**: avisa y lo repite cada 7 días hasta que se cargue la fecha nueva.
+- **Fecha desconocida**: una vez por mes pide que alguien mire la fecha y se la pase a Claude para cargarla.
+- **Los lunes**, un resumen «qué hay que renovar en los próximos 60 días» (más lo vencido y lo sin fecha).
+- Sólo de 9:00 a 20:59 de Balcarce. El estado (qué umbral ya se avisó) queda en el KV `ESTADO`, clave `vencimientos`, y sólo se guarda si Telegram entregó el mensaje.
+- Para cargar una fecha nueva o renovar algo: se edita la tabla en `vencimientos.mjs` (lo hace Claude) y se despliega la vigilancia. Detalle para personas: `docs/3-0/VIGILANCIA-Y-VENCIMIENTOS.md`.
 
 ## 3. Cuándo avisa
 

@@ -1,6 +1,7 @@
 // Radar 3.0, etapa F: la vigilancia. Lógica pura e inyectable (sin red, sin Cloudflare): worker.mjs la conecta con los Workers y el KV
 // de verdad, y vigilancia.test.mjs la prueba con falsos. Las reglas, en palabras de persona, están en REGLAS.md.
 import { evaluarWeb, evaluarRedes, arregloDeSitioYRedes } from './sitio-y-redes.mjs';
+import { decidirVencimientos } from './vencimientos.mjs';
 
 export const MINUTOS_SIN_VUELTA = 40;        // el núcleo tiene que haber hecho una vuelta en los últimos 40 minutos
 export const UMBRAL_DE_PEDIDOS_DEL_DIA = 0.8;  // se avisa cuando los pedidos de IA del día llegan al 80 % del tope diario (caso 11/11: el tope se llenó a las 13:15 y nadie se enteró)
@@ -51,10 +52,9 @@ export function partirEnMensajes(lineas, max = LARGO_DE_MENSAJE) {
  * Mira lo que contestaron los Workers y devuelve la lista de problemas de este momento. Función pura.
  *   nucleo: { ok, salud }   la respuesta de GET /salud del núcleo
  *   bot:    { ok, salud }   la del bot de Telegram
- *   sitio:  null | { ok }   el sitio, si está conectado
  * Cada problema: { clave, texto, confirmar (en cuántos chequeos seguidos tiene que verse), silencioso (no se avisa que volvió), mes }.
  */
-export function evaluar({ ahora, nucleo, bot, sitio = null, direccionDelBot, web = null, redes = null }) {
+export function evaluar({ ahora, nucleo, bot, direccionDelBot, web = null, redes = null }) {
   const problemas = [];
   const t = new Date(ahora).getTime();
   const minutos = (iso) => (t - new Date(iso).getTime()) / 60000;
@@ -70,6 +70,11 @@ export function evaluar({ ahora, nucleo, bot, sitio = null, direccionDelBot, web
       problemas.push({ clave: 'nucleo-vuelta', texto: 'El núcleo todavía no registra ninguna vuelta.', confirmar: 1 });
     } else if (pasaron > MINUTOS_SIN_VUELTA) {
       problemas.push({ clave: 'nucleo-vuelta', texto: `El núcleo no hace una vuelta desde las ${horaCorta(v)} (hace ${Math.round(pasaron)} minutos; tendría que hacer una cada 15).`, confirmar: 1 });
+    }
+
+    // El núcleo en «prueba» (no publica): después del corte tiene que publicar. Sólo avisa si dice false de verdad (un /salud viejo sin el campo no cuenta).
+    if (s.publicando === false) {
+      problemas.push({ clave: 'nucleo-no-publica', texto: 'El núcleo está en modo prueba: elige y redacta pero no publica en el sitio (publicando = no). Si no es a propósito, hay que revisar el interruptor de publicación.', confirmar: 2 });
     }
 
     const mes = s.uso?.mes;
@@ -138,9 +143,6 @@ export function evaluar({ ahora, nucleo, bot, sitio = null, direccionDelBot, web
     }
   }
 
-  // El sitio, si ya está conectado
-  if (sitio && !sitio.ok) problemas.push({ clave: 'sitio', texto: 'El sitio (radar-sitio) no contesta.', confirmar: CONFIRMAR_SI_NO_RESPONDE });
-
   // El sitio publicado y las redes (sitio-y-redes.mjs). Si no se pudieron mirar (null), no se inventan problemas.
   problemas.push(...evaluarWeb({ ahora, web }), ...evaluarRedes({ ahora, actividad: redes }));
 
@@ -180,9 +182,9 @@ const ARREGLOS = {
   'nucleo-no-responde': 'el núcleo contesta de nuevo.',
   'nucleo-vuelta': 'el núcleo volvió a hacer vueltas.',
   'redaccion-atrasada': 'la redacción volvió a avanzar.',
+  'nucleo-no-publica': 'el núcleo volvió a publicar.',
   bot: 'el bot de Telegram responde de nuevo.',
   webhook: 'el webhook del bot está registrado de nuevo.',
-  sitio: 'el sitio contesta de nuevo.',
 };
 
 /** El «volvió a andar» de un problema arreglado. */
@@ -200,7 +202,7 @@ const abierto = (e) => e.vistas >= e.confirmar && !e.resuelto;
 /**
  * Un chequeo completo. Todo lo de afuera llega por `deps`:
  *   ahora()             ISO de este momento
- *   traer()             → { nucleo, bot, sitio }  (lo que contestaron los Workers)
+ *   traer()             → { nucleo, bot, web, redes }  (lo que contestaron los Workers)
  *   direccionDelBot     la dirección pública del bot
  *   leer(clave)/guardar(clave, valor)   el KV (JSON)
  *   decir(textos)       → true si Telegram los mandó
@@ -208,8 +210,8 @@ const abierto = (e) => e.vistas >= e.confirmar && !e.resuelto;
  */
 export async function chequear(deps) {
   const ahora = deps.ahora();
-  const { nucleo, bot, sitio, web = null, redes = null } = await deps.traer();
-  const problemas = evaluar({ ahora, nucleo, bot, sitio, direccionDelBot: deps.direccionDelBot, web, redes });
+  const { nucleo, bot, web = null, redes = null } = await deps.traer();
+  const problemas = evaluar({ ahora, nucleo, bot, direccionDelBot: deps.direccionDelBot, web, redes });
   const previo = (await deps.leer('problemas')) ?? {};
   const { estado, nuevos, arreglados } = decidirAvisos(previo, problemas, ahora);
 
@@ -256,6 +258,7 @@ export async function chequear(deps) {
   }
 
   await deps.guardar('problemas', estado);
+  if (!botCaido) resultado.vencimientos = await chequearVencimientos(deps, ahora);
   const abiertos = Object.entries(estado).filter(([, e]) => abierto(e)).map(([clave, e]) => ({ clave, texto: e.texto, desde: e.desde, avisado: e.avisado }));
   const mes = nucleo?.salud?.uso?.mes ?? null;
   await deps.guardar('chequeo', {
@@ -265,6 +268,37 @@ export async function chequear(deps) {
     gasto: mes ? { mesUsd: mes.gastoEstimadoUsd ?? null, frenoUsd: mes.frenoUsd ?? null } : null,
   });
   return resultado;
+}
+
+// ---------------------------------------------------------------------------------------------- los vencimientos
+
+export const HORAS_DE_AVISO_DE_VENCIMIENTOS = Object.freeze([9, 21]); // de 9:00 a 20:59 de Balcarce: un aviso de renovación no despierta a nadie
+
+/**
+ * Los avisos de vencimientos (vencimientos.mjs) en el chequeo de cada 30 minutos. Sólo corre si `deps.vencimientos` trae la tabla
+ * (el Worker se la pasa; las pruebas viejas no). Lo que tocaba avisar sale en UN mensaje por Telegram junto con el resumen de los lunes;
+ * el estado (qué umbral ya se avisó) se guarda en el KV sólo si Telegram lo entregó, así que si falla se reintenta en el próximo chequeo.
+ * Nunca tira: un error acá no puede tapar el resto del chequeo.
+ */
+export async function chequearVencimientos(deps, ahora) {
+  if (!deps.vencimientos) return null;
+  try {
+    const hora = horaDeBalcarce(ahora);
+    if (hora < HORAS_DE_AVISO_DE_VENCIMIENTOS[0] || hora >= HORAS_DE_AVISO_DE_VENCIMIENTOS[1]) return { avisados: 0, resumen: false, enviado: false };
+    const previo = (await deps.leer('vencimientos')) ?? {};
+    const { avisos, resumen, estado } = decidirVencimientos({ tabla: deps.vencimientos, hoy: diaDeBalcarce(ahora), estado: previo });
+    if (!avisos.length && !resumen) { if (JSON.stringify(estado) !== JSON.stringify(previo)) await deps.guardar('vencimientos', estado); return { avisados: 0, resumen: false, enviado: false }; }
+    const lineas = [];
+    if (avisos.length) lineas.push(`Radar 3.0: ${avisos.length === 1 ? 'hay algo para renovar' : `hay ${avisos.length} cosas para renovar`}`, ...avisos.map((a) => a.texto));
+    if (resumen) { if (lineas.length) lineas.push(''); lineas.push(...resumen); }
+    let enviado = false;
+    try { enviado = await deps.decir(partirEnMensajes(lineas)); } catch (e) { console.error(`vencimientos: ${e.message}`); }
+    if (enviado) await deps.guardar('vencimientos', estado);
+    return { avisados: avisos.length, resumen: Boolean(resumen), enviado };
+  } catch (e) {
+    console.error(`vencimientos: ${(e && e.stack) || e}`);
+    return null;
+  }
 }
 
 // ---------------------------------------------------------------------------------------------- el informe de las 8 y las 20
