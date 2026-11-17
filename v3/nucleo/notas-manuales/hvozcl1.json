@@ -1,0 +1,61 @@
+{
+  "id": "hvozcl1",
+  "titulo": "Cloné mi propia voz con IA: qué hizo falta y cómo logré que lea bien",
+  "bajada": "Usé un modelo abierto llamado OmniVoice. En mi compu una sola frase tardó más de siete minutos, y un diccionario de pronunciación hizo que dejara de leer mal los nombres, las siglas y los números.",
+  "seccion": "Tecnología",
+  "firma": "Hernán Accomo",
+  "enDosLineas": "Cloné mi voz con OmniVoice, un modelo abierto que, según su página oficial, funciona con más de 600 idiomas. En mi compu, una frase de 2,6 segundos de audio tardó 431 segundos de cálculo.",
+  "cuerpo": [
+    "En el video que publiqué en mi canal, una de las dos voces del principio no la grabé yo. Y la que te habla todo el tiempo tampoco: es mi voz clonada con inteligencia artificial. Lo que cuento son mis archivos, mis pruebas y mis tiempos reales. No soy experto en voces: lo aprendí haciéndolo, y lo que no pude confirmar, lo digo.",
+    "Clonar una voz es darle a un modelo un audio de una persona hablando y un texto: el modelo lee ese texto con esa voz, sin repetir lo grabado. Uso OmniVoice, que se comparte en Hugging Face y que, según su página oficial, funciona con más de 600 idiomas (el español está en la lista) y clona a partir de un audio corto. Sus autores recomiendan una referencia de 3 a 10 segundos.",
+    "La referencia es lo que más pesa. La primera la grabé con gripe y el clon salió apagado, porque copia todo lo que tiene el original. El 25 de octubre grabé cuatro tomas de nuevo, elegí la cuarta y la recorté a casi nueve segundos. Aclaro: clono mi propia voz; hacerlo con la de otra persona, sin que lo sepa y lo permita, no corresponde.",
+    "También probé hacerlo en mi computadora con Windows, y se puede. Pero el 10 de noviembre medí una sola frase con cronómetro: 2,6 segundos de audio llevaron 431 segundos de cálculo. En una placa de video prestada, frases parecidas tardaron entre 3 y 11 segundos. Estos modelos se pensaron para la placa de video, y la mía es vieja, con 2 GB de memoria. Por eso genero las voces en computadoras prestadas; una es Colab, de Google, cuyas preguntas frecuentes aclaran que los recursos gratis no están garantizados y que si te quedás inactivo se corta.",
+    "Lo que más te puede servir es cómo lograr que lea bien. Un modelo de voz no entiende lo que lee: mira las letras y adivina cómo suenan, y con palabras en inglés, marcas o números adivina mal. Mi regla es escribir cada palabra como la diría una persona al leerla en voz alta, solo para la voz: en pantalla va la ortografía normal. Para API escribo «a pi»; «imágenes» la leía raro y la solución fue «imájenes»; los números los paso a letras. Las eses del final son lo más difícil, y eso no se arregla con diccionario: se escucha y se repite.",
+    "Esas reglas viven en un diccionario, un archivo de texto con cómo se escribe cada palabra y cómo se dice. Empezó el 30 de octubre con 36 palabras y el 12 de noviembre tenía 268. Para no depender solo de mi oído, otro programa le manda cada frase a una IA que escucha y dice qué entendió: así detecté que «hay plan gratis» sonaba como «ay plan gratis».",
+    "Lo que me llevo: un clon se hace con un audio corto y un texto, la referencia manda, los nombres, las siglas y los números se escriben como se dicen, y todo se escucha antes de usarlo. El video completo, con capítulos, está en mi canal: https://youtu.be/asSlagjKrSM. Este contenido usa voz clonada con IA; la única grabación real de mi voz es la muestra A del comienzo, un corte de una toma del 25 de octubre."
+  ],
+  "ficha": {
+    "que": "Cómo clonar la propia voz con OmniVoice y hacer que lea bien",
+    "quien": "Hernán Accomo (Se hace)",
+    "donde": "Video en YouTube, canal Hache (@hacheaccomo)",
+    "cuando": "12 de noviembre de 2026",
+    "numeros": [
+      {
+        "valor": "600",
+        "unidad": "idiomas",
+        "que": " soporta OmniVoice, según su página oficial"
+      },
+      {
+        "valor": "3 a 10",
+        "unidad": "segundos",
+        "que": " de audio de referencia recomendados"
+      },
+      {
+        "valor": "431",
+        "unidad": "segundos",
+        "que": " de cálculo para 2,6 s de audio en mi compu"
+      }
+    ],
+    "cronologia": [],
+    "faltaSaber": []
+  },
+  "fuentes": [
+    {
+      "medio": "Se hace (video)",
+      "url": "https://youtu.be/asSlagjKrSM"
+    },
+    {
+      "medio": "Se hace (blog)",
+      "url": "https://sehace.com/blog/a-fondo-01-esta-voz-no-la-grabe-yo/"
+    }
+  ],
+  "foto": {
+    "url": "https://radarbalcarce.com/fotos-notas/sehace-voz-clonada.jpg?v=1",
+    "alt": "Portada del video «¿Es mi voz?»: comparación entre una voz real y su clon, con el logo de OmniVoice",
+    "credito": "Imagen: sehace.com",
+    "ancho": 1280,
+    "alto": 720,
+    "cubrir": true
+  },
+  "fotosEnCuerpo": []
+}

@@ -6,11 +6,11 @@
   "firma": "Hernán Accomo",
   "enDosLineas": "Google lanzó el 12 de noviembre Gemini 4 Hydrogen, pensado para el uso de todos los días y disponible en el Modo IA del buscador. Por API cuesta USD 1,50 de entrada y USD 7,50 de salida por millón de tokens.",
   "cuerpo": [
-    "El 12 de noviembre de 2026 Google lanzó Gemini 4 Hydrogen, el tercer modelo de la familia Gemini 4, después de Argon y Carbon. La empresa lo presenta como su modelo para el día a día; Argon y Carbon quedan para los razonamientos largos.",
+    "El 12 de noviembre de 2026 Google lanzó Gemini 4 Hydrogen, el tercer modelo de la familia Gemini 4, después de Argon y Carbon. La empresa lo presenta como su modelo para el día a día; Argon y Carbon quedan para los razonamientos largos. Leí los anuncios de Google sobre el modelo y sobre el buscador, y la prueba de Simon Willison, el 13 de noviembre. No soy experto: los números de rendimiento son de Google.",
     "Desde esa fecha está en el Modo IA del buscador de Google para todos los usuarios del mundo, en todos los idiomas que ya tiene el Modo IA. Google no publicó una lista de países ni de idiomas. Según la empresa, entiende mejor los pedidos de varias partes, con errores de tipeo o muy específicos; responde con más imágenes, respuestas ordenadas y tablas para comparar; y muestra más enlaces a otras páginas.",
     "Sobre el rendimiento, Google afirma que Hydrogen es 2,5 veces más rápido que Gemini 3.8 Flash con razonamiento en nivel alto, que alcanzó 57 % en Terminal-Bench 4.1, una prueba de tareas en la terminal, contra 18,2 % del modelo anterior, y que inventa cinco veces menos afirmaciones. Son cifras de la propia empresa, sin verificación independiente.",
-    "Por API, Hydrogen cuesta USD 1,50 por millón de tokens de entrada y USD 7,50 de salida, con el mismo precio en toda la ventana. Argon y Carbon cuestan USD 2 y USD 10 hasta el 30 de noviembre de 2026. Tiene una ventana de un millón de tokens de entrada y suma un cuarto nivel de razonamiento, xhigh, además de low, medium y high. Está en la API de Gemini, en Google AI Studio y en Android Studio.",
-    "Hay puntos que no están claros. Google dice «todos los idiomas del Modo IA» pero no nombra países, así que no se sabe si ya funciona en Argentina y en español. Tampoco hay acuerdo sobre la app de Gemini gratis: Google dice que el modelo aparece en el selector, y otro medio dice que no. Y no se publicaron los cupos gratuitos por API."
+    "Por API, Hydrogen cuesta USD 1,50 por millón de tokens de entrada y USD 7,50 de salida, con el mismo precio en toda la ventana. Argon y Carbon cuestan USD 2 y USD 10 hasta el 30 de noviembre de 2026 y desde el 1 de diciembre, USD 4 y USD 20. Tiene una ventana de un millón de tokens de entrada y suma un cuarto nivel de razonamiento, xhigh, además de low, medium y high. Está en la API de Gemini, en Google AI Studio y en Android Studio.",
+    "Hay puntos que no pude confirmar. Google dice «todos los idiomas del Modo IA» pero no nombra países, así que no sé si ya funciona en Argentina y en español. Tampoco hay acuerdo sobre la app de Gemini gratis: Google dice que el modelo aparece en el selector, y otro medio dice que no. Y no encontré publicados los cupos gratuitos por API."
   ],
   "ficha": {
     "que": "Google lanzó Gemini 4 Hydrogen y lo sumó al Modo IA del buscador",
@@ -38,20 +38,8 @@
   },
   "fuentes": [
     {
-      "medio": "Google: Introducing Gemini 4 Hydrogen",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
-    },
-    {
-      "medio": "Google: Gemini 4 Hydrogen en el buscador",
-      "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/"
-    },
-    {
-      "medio": "Google: Build with Gemini 4 Hydrogen",
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-hydrogen/"
-    },
-    {
-      "medio": "Simon Willison: prueba y precios",
-      "url": "https://simonwillison.net/2026/Nov/12/llm-gemini/"
+      "medio": "Se hace",
+      "url": "https://sehace.com/blog/2026-11-12-gemini-4-hydrogen/"
     }
   ],
   "foto": {
