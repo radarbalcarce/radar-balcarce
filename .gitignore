@@ -60,3 +60,13 @@ v3/nucleo/scripts/salida/
 # Radar 3.0, etapa D: los videos y las escenas de ejemplo de las piezas de redes (v3/redes/piezas/ejemplos.mjs) se regeneran; no se versionan.
 docs/propuestas/redes-3-0/videos/
 salida-vino/
+
+# Material de trabajo de la grilla de Balcarce (tiene contactos; Hernán, 16/11: no se sube)
+docs/3-0/grilla/
+docs/3-0/GRILLA-NOTAS-TURISTICAS.md
+docs/3-0/LISTADO-UNICO-BALCARCE.md
+docs/3-0/LISTADO-BALCARCE.html
+docs/3-0/SALIDA-BALCARCE.html
+docs/3-0/EDIFICIO-MUSEO-FANGIO.md
+scripts/pc/generar-listado-html.mjs
+scripts/pc/generar-salida-html.mjs
