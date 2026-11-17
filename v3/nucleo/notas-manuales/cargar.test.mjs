@@ -50,3 +50,13 @@ test('cargar de nuevo actualiza el texto y la foto, deja la fecha y la direcció
   assert.equal(sn.slug, f.slug);
   assert.equal(JSON.parse(sn.extra).fotosEnCuerpo[0].despuesDe, 2);
 });
+
+test('un video propio de YouTube se guarda con su id de 11 caracteres; una dirección o HTML se ignora (17/11)', () => {
+  const base = { id: 'hvideo1', titulo: 'Una nota con video', bajada: 'b', seccion: 'Tecnología', firma: 'Hernán Accomo', cuerpo: ['a', 'b', 'c'] };
+  const bien = sqlDeNota({ ...base, video: { youtube: 'asSlagjKrSM', titulo: 'El video', despuesDe: 1 } });
+  assert.match(bien, /sitio_notas/);
+  assert.match(bien, /"video":\{"youtube":"asSlagjKrSM","titulo":"El video","despuesDe":1\}/);
+  for (const malo of ['https://youtu.be/asSlagjKrSM', '<script>x</script>', 'corto']) {
+    assert.ok(!/sitio_notas/.test(sqlDeNota({ ...base, video: { youtube: malo } })), malo);
+  }
+});

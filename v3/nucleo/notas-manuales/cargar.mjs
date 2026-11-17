@@ -23,8 +23,12 @@ export function sqlDeNota(n, ahora = new Date().toISOString()) {
   const actualiza = 'titulo = excluded.titulo, bajada = excluded.bajada, cuerpo = excluded.cuerpo, seccion = excluded.seccion, en_dos_lineas = excluded.en_dos_lineas, ficha = excluded.ficha, foto = excluded.foto, fuentes = excluded.fuentes, firma = excluded.firma';
   const sql = [`INSERT INTO notas (${columnas}) VALUES (${valores}) ON CONFLICT(id) DO UPDATE SET ${actualiza};`];
   // Las imágenes que van entre los párrafos (despuesDe = después de qué párrafo) viven en sitio_notas.extra, como en la nota del media kit.
-  if (Array.isArray(n.fotosEnCuerpo) && n.fotosEnCuerpo.length) {
-    sql.push(`INSERT INTO sitio_notas (id, slug, publicada_en, origen, extra) VALUES (${q(n.id)}, (SELECT slug FROM notas WHERE id = ${q(n.id)}), (SELECT publicada_en FROM notas WHERE id = ${q(n.id)}), 'redaccion', ${j({ fotosEnCuerpo: n.fotosEnCuerpo })}) ON CONFLICT(id) DO UPDATE SET extra = excluded.extra;`);
+  // Un video PROPIO de YouTube (canal de Radar o de Se hace; Hernán, 17/11) va en el mismo lugar: sólo el id de 11 caracteres, nunca una dirección ni HTML.
+  const extra = {};
+  if (Array.isArray(n.fotosEnCuerpo) && n.fotosEnCuerpo.length) extra.fotosEnCuerpo = n.fotosEnCuerpo;
+  if (n.video && /^[A-Za-z0-9_-]{11}$/.test(String(n.video.youtube ?? ''))) extra.video = { youtube: n.video.youtube, titulo: String(n.video.titulo ?? ''), ...(Number.isInteger(n.video.despuesDe) ? { despuesDe: n.video.despuesDe } : {}) };
+  if (Object.keys(extra).length) {
+    sql.push(`INSERT INTO sitio_notas (id, slug, publicada_en, origen, extra) VALUES (${q(n.id)}, (SELECT slug FROM notas WHERE id = ${q(n.id)}), (SELECT publicada_en FROM notas WHERE id = ${q(n.id)}), 'redaccion', ${j(extra)}) ON CONFLICT(id) DO UPDATE SET extra = excluded.extra;`);
   }
   return sql.join(' ');
 }
