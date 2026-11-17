@@ -102,12 +102,41 @@ export function conCuentasEnlazadas(htmlEscapado, n) {
   return conLinks.replace(/(^|[\s(«"'¡¿>])@([A-Za-z0-9_]+(?:\.[A-Za-z0-9_]+)*)/g, (m, antes, cuenta) => `${antes}<a href="https://www.instagram.com/${cuenta}/" target="_blank" rel="noopener nofollow ugc">@${cuenta}</a>`);
 }
 
+/**
+ * El video de YouTube propio de una nota (sitio_notas.extra.video = { youtube: '<id de 11 caracteres>', titulo: '...', despuesDe?: n }).
+ * Sólo se acepta el ID (letras, números, guion y guion bajo): nunca una dirección ni HTML. Devuelve { id, titulo, despuesDe } o null.
+ */
+export const ID_DE_YOUTUBE = /^[A-Za-z0-9_-]{11}$/;
+export function videoDeNota(n) {
+  const v = n?.extra?.video;
+  if (!v || typeof v !== 'object' || typeof v.youtube !== 'string' || !ID_DE_YOUTUBE.test(v.youtube)) return null;
+  const titulo = typeof v.titulo === 'string' ? v.titulo.replace(/s+/g, ' ').trim().slice(0, 120) : '';
+  const despuesDe = Number.isInteger(v.despuesDe) && v.despuesDe >= 0 && v.despuesDe <= 200 ? v.despuesDe : 1;
+  return { id: v.youtube, titulo: titulo || 'Video de Radar Balcarce', despuesDe };
+}
+
+// Fachada liviana: miniatura + botón. El reproductor (iframe de youtube-nocookie) no se carga hasta que el lector toca. Sin JavaScript, el enlace abre YouTube.
+const ESTILO_VIDEO = '.video-yt{margin:20px 0}.video-yt-a,.video-yt iframe{display:block;position:relative;width:100%;aspect-ratio:16/9;border:0;border-radius:10px;overflow:hidden;background:#000}.video-yt-a img{width:100%;height:100%;object-fit:cover}.video-yt-a .play{position:absolute;inset:0;margin:auto;width:68px;height:48px;border-radius:14px;background:rgba(0,0,0,.75);color:#fff;font-size:24px;line-height:48px;text-align:center}.video-yt-a:hover .play,.video-yt-a:focus-visible .play{background:#c00}';
+const GUION_VIDEO = "document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('.video-yt-a');if(!a)return;var id=a.getAttribute('data-yt');if(!/^[A-Za-z0-9_-]{11}$/.test(id))return;e.preventDefault();var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0';f.title=a.getAttribute('data-titulo')||'Video';f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;f.referrerPolicy='strict-origin-when-cross-origin';a.parentNode.replaceChild(f,a);f.focus()})";
+
+export function videoHtml(v) {
+  if (!v) return '';
+  const t = esc(v.titulo);
+  return `<figure class="video-yt"><a class="video-yt-a" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener" data-yt="${v.id}" data-titulo="${t}" aria-label="Reproducir el video: ${t}"><img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="play" aria-hidden="true">&#9654;</span></a><figcaption>${t}</figcaption></figure><style>${ESTILO_VIDEO}</style><script>${GUION_VIDEO}</script>`;
+}
+
+/** Datos estructurados del video (VideoObject), sólo si la nota lleva uno. */
+export function videoLd(n, v) {
+  return { '@context': 'https://schema.org', '@type': 'VideoObject', name: v.titulo, description: n.bajada || v.titulo, thumbnailUrl: `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`, uploadDate: n.publicada, embedUrl: `https://www.youtube-nocookie.com/embed/${v.id}`, url: `https://www.youtube.com/watch?v=${v.id}` };
+}
+
 function cuerpoHtml(n, parrafos, contexto) {
   const fijas = Array.isArray(n.extra?.fotosEnCuerpo) ? n.extra.fotosEnCuerpo : [];
   const fotos = fijas.length ? fijas : fotosExtra(n).map((f, i, todas) => ({ ...f, despuesDe: Math.max(1, Math.round(((i + 1) * parrafos.length) / (todas.length + 1))) }));
   const sinAnuncio = n.seccion === 'Policiales';
   const salida = [];
-  const colocar = (despuesDe) => { for (const f of fotos) if ((f.despuesDe ?? parrafos.length) === despuesDe) salida.push(figura(f)); };
+  const video = videoDeNota(n);
+  const colocar = (despuesDe) => { if (video && Math.min(video.despuesDe, parrafos.length) === despuesDe) salida.push(videoHtml(video)); for (const f of fotos) if ((f.despuesDe ?? parrafos.length) === despuesDe) salida.push(figura(f)); };
   colocar(0);
   parrafos.forEach((p, i) => {
     salida.push(`<p>${conCuentasEnlazadas(esc(p), n)}</p>`);
@@ -242,6 +271,6 @@ ${masContadasHtml(contadas)}
     contexto,
     tipo: 'article',
     lugarPie: conFijo ? null : 'N2',
-    datos: [datosEstructurados(n, { parrafos, canonico, indexar }), migasLd([['Inicio', '/'], [n.seccion, '/seccion/' + ranura]], { nombre: n.titulo, ruta: canonico })],
+    datos: [datosEstructurados(n, { parrafos, canonico, indexar }), ...(videoDeNota(n) && !esEfemerides(n) && !esClimaDiario(n) ? [videoLd(n, videoDeNota(n))] : []), migasLd([['Inicio', '/'], [n.seccion, '/seccion/' + ranura]], { nombre: n.titulo, ruta: canonico })],
   });
 }
