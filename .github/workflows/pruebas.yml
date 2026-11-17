@@ -41,6 +41,10 @@ jobs:
           node-version: '24'
 
       # Lo que BLOQUEA (5/11): las pruebas de Radar 3.0, igual que en «Radar 3.0: desplegar». Sin dependencias.
+      # Instala las dependencias de la raíz (ffmpeg-static, resvg…): la prueba de previa-vino importa reels/reel.mjs y falló tres veces el 16 y 17/11 por «Cannot find package ffmpeg-static».
+      - name: Instalar dependencias
+        run: npm ci --no-audit --no-fund
+
       - name: Pruebas de Radar 3.0
         run: node --test "v3/**/*.test.mjs"
 
