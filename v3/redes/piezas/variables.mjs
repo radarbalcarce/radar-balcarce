@@ -82,7 +82,7 @@ export const AVISO_DE_CLIMA = congelar({ segundos: 15, maximo: 22 });
 export const PLACA_FINAL_SEGUNDOS = 3;
 
 // ------------------------------------------------------------------ voz y música (§ 3.4)
-export const VOZ_CUPO_DIARIO = 10;
+export const VOZ_CUPO_DIARIO = 15; // 15 por día fijos (Hernán, 13/11/2026); el mismo número que REGLAS_PIEZAS.audiosPorDia y reels/cupo-voz.mjs (una prueba lo controla)
 /** Música: NO se pone ahora (Hernán 3/11: después). Queda el lugar, con los valores del documento, para cuando haya pista con licencia. */
 export const MUSICA = congelar({
   activa: false,

@@ -1,7 +1,6 @@
 # Las redes: las reglas
 
-*Módulo `v3/redes/` (Worker `radar-redes`). Hace dos cosas: **publicar las notas del sitio en Facebook, con su espejo en Instagram** (§ 1 a 9) y **armar y publicar las piezas de video con voz** (§ 11, en ensayo). X, Threads, TikTok, YouTube y el canal de Telegram vienen después (etapa D, segunda parte); hasta el corte siguen saliendo por el sistema
-viejo. Escrito el 3/11/2026 con las decisiones de `docs/propuestas/PLAN-RADAR-3-0.md` (§ 3.9 y sección 10). Si el programa hace otra cosa que esto, el programa está mal.*
+*Módulo `v3/redes/` (Worker `radar-redes`). Hace dos cosas: **publicar las notas del sitio en Facebook, con su espejo en Instagram** (§ 1 a 9) y **armar y publicar las piezas de video con voz** (§ 11). Desde el 5/11 X, TikTok y YouTube salen por Buffer y Threads y Bluesky publican enlaces (§ 12); el canal de Telegram no tiene programa. Escrito el 3/11/2026, § 2 revisada el 17/11/2026 con las decisiones de `docs/propuestas/PLAN-RADAR-3-0.md` (§ 3.9 y sección 10). Si el programa hace otra cosa que esto, el programa está mal.*
 
 Cada red tiene su propio `REGLAS.md` con el detalle: `facebook/REGLAS.md` e `instagram/REGLAS.md`. Acá va lo que comparten.
 
@@ -12,13 +11,22 @@ Cada red tiene su propio `REGLAS.md` con el detalle: `facebook/REGLAS.md` e `ins
 - **A las 22:05** manda por Telegram el resumen del día: cuántos posteos salieron en cada red, cuáles (con la hora) y cuáles fallaron.
 - Todo se cuenta por **día de Balcarce** (de las 00:00 a las 24:00 de acá, UTC-3 todo el año).
 
-## 2. El interruptor: apagado por defecto
+## 2. El interruptor: PRENDIDO desde el 3/11/2026 (revisado el 17/11/2026 contra el código y `wrangler.toml`)
 
-- La variable **`REDES_ACTIVAS`** del Worker está en **«no»**. Con «no», el Worker **simula**: elige, arma el texto, lo anota en la tabla `publicaciones` con
-  `simulado = 1` y **no llama nunca a Meta**. El resumen de las 22:05 dice «habría publicado N posteos» con los titulares. Es el mismo camino que el de verdad, menos la llamada.
-- Lo simulado y lo real **no se mezclan**: los cupos del día y el espaciado de 90 minutos se cuentan por separado. Al prender las redes (**«si»**, lo hace una persona),
-  la primera vuelta arranca el día de cero.
-- En simulación se ven también las notas en `borrador` (hoy el núcleo no publica nada solo y sin eso no habría qué simular). Con las redes prendidas, **sólo cuentan las notas `publicada`**.
+- La variable **`REDES_ACTIVAS`** del Worker (`v3/redes/wrangler.toml`) vale **«si»**: las redes **publican de verdad**. Con «no» el Worker simula (elige, arma el texto, lo anota en `publicaciones` con
+  `simulado = 1` y no llama a Meta); el código sigue teniendo ese modo, pero hoy no se usa. Lo simulado y lo real no se mezclan (cupos y espaciado se cuentan por separado). El 17/11 `/salud` dio `activas: true` y `simulado: 0`.
+  **Mandan los valores de `wrangler.toml`, no las variables de GitHub `REDES_ACTIVAS = No` y `REDES_ACTIVAS_NUBE = No`**: son del sistema viejo y confunden (auditoría del 17/11, H-12).
+- **Los demás interruptores del Worker** (`wrangler.toml`): `POSTEOS_ACTIVOS = si` («no» frena sólo los posteos de notas; los reels y las historias siguen), `POSTEOS_CON_PLACA = si` (el posteo sale con la placa de la marca, nunca con la foto sola),
+  `INSTAGRAM_ESPEJO = si`, `X_CON_ENLACE = no`, `TOPE_YOUTUBE_POR_DIA = 12`. El cupo de voz (15 por día) está en el código (§ 11).
+- **Qué publica hoy cada red** (según el código; el detalle por pieza, en `docs/3-0/CONTENIDO-REDES-3-0.md`):
+  - **Facebook:** posteos de notas (placa 4:5 con el enlace tocable; hasta 10 por día: 5 de Balcarce y 5 de lo más contado, § 4), y las piezas de video: reels y historias de los repasos, clima, farmacia, efeméride, Participá, útiles, feriado y avisos de clima (§ 11), más el álbum de «La semana en Balcarce» los domingos.
+  - **Instagram:** el espejo de cada posteo de Facebook (la misma placa, sin enlace: «link en la bio») y reels e historias con voz; el carrusel del domingo.
+  - **TikTok, YouTube Shorts y X (por Buffer):** el mismo mp4 de cada pieza de video (YouTube con tope de 12 por día y sin los de más de 60 s); X además publica la placa de cada nota que salió en Facebook, sin enlace (§ 12). TikTok modo foto: sin confirmar.
+  - **Threads y Bluesky:** las notas que ya salieron en Facebook, con su placa y el enlace, hasta 3 por red y por corrida (§ 12). La tarjeta de servicio (clima, farmacia, efeméride) está **apagada** (`TARJETAS_DE_SERVICIO: 'no'` en `v3-piezas.yml`, § 19).
+  - **Canal de Telegram:** sin programa (`docs/3-0/REDES.md`).
+  - **En pausa (`pausada: true` en `piezas-del-dia.mjs`):** el reel de agenda del jueves, el carrusel «El finde en Balcarce» y el carrusel de cada nota propia.
+  - **No verificado el 17/11:** los posteos de TikTok por Buffer de ese día (el error del 13/11 no se pudo mirar en la tabla `publicaciones`).
+- Con las redes prendidas **sólo cuentan las notas `publicada`**.
 
 ## 3. Qué notas van
 
@@ -94,7 +102,7 @@ SQLite en memoria (simulado y real) y la puerta HTTP. Sin red.
 Lo que **no cambia nunca**: el aviso «Voz generada con inteligencia artificial.» en todo lo que habla, la sección de la nota en su color, el crédito de la foto en el pie, nada rojo ni de menores, y **ninguna pieza sale sin pasar por la
 compuerta de tono** (R41). Todo lo que va a Instagram es video con voz, salvo el espejo de cada posteo de Facebook.
 
-## 11. Las piezas de video (reels e historias con voz): armadas en ensayo
+## 11. Las piezas de video (reels e historias con voz)
 
 *Qué sale, a qué hora y con qué dibujo: `piezas/REGLAS.md` (el dibujo es el de hoy) y la tabla de horarios `piezas-del-dia.mjs` (los de hoy). Este apartado es sólo cómo se arman y se publican.*
 
@@ -106,7 +114,7 @@ compuerta de tono** (R41). Todo lo que va a Instagram es video con voz, salvo el
 4. **Ensayo** (`REDES_ACTIVAS` en «no», el mismo interruptor que los posteos): el mp4, el mp3 y un `.json` por pieza quedan como adjunto de la corrida (7 días) y la fila de `piezas` queda en «lista» con el guion, el texto del posteo, los archivos y **lo que se habría publicado** (red, reel o historia; la hora está en la fila). **No se llama nunca a Meta.** El resumen de las 22:05 cuenta las piezas armadas y las fallas. **Real** («si»): reel e historia en Instagram y Facebook (el clima y la farmacia: historia en Instagram, y reel e historia en Facebook), con el mismo mp4.
 
 **Reglas que no cambian.**
-- **Cupo de voz: 10 audios por día** (`VOZ_TOPE_DIARIO` en el Worker lo cambia). El Worker no reserva una pieza si dejaría sin audio a otra más importante que falta hoy (el repaso antes que el clima y la farmacia, esos antes que la efeméride, todos antes que Participá). Un audio de la memoria de voces no gasta cupo. Si Google dice que se acabó el del día, la pieza queda en «sin-cupo» y **no sale**: nunca con otra voz.
+- **Cupo de voz: 15 audios por día, fijos** (Hernán, 13/11/2026; las notas propias de Hernán no lo gastan). Un solo lugar: `REGLAS_PIEZAS.audiosPorDia` en `piezas-plan.mjs`; `VOZ_CUPO_DIARIO` (`piezas/variables.mjs`) y `AUDIOS_POR_DIA` (`reels/cupo-voz.mjs`) tienen que valer lo mismo y una prueba lo controla. `VOZ_TOPE_DIARIO` sólo sirve para ensayar con otro número: no se pone en `wrangler.toml` ni en los workflows. El Worker no reserva una pieza si dejaría sin audio a otra más importante que falta hoy (el repaso antes que el clima y la farmacia, esos antes que la efeméride, todos antes que Participá). Un audio de la memoria de voces no gasta cupo. Si Google dice que se acabó el del día, la pieza queda en «sin-cupo» y **no sale**: nunca con otra voz.
 - Cada pieza sale **una sola vez por día y por modo** (índice único). Si falla, se reintenta en la corrida siguiente, hasta 3 errores; si falta un dato de afuera («sin-datos»: el clima no responde, no hay efeméride preparada) tampoco gasta voz y se reintenta mientras dure su ventana. Una reserva que no vuelve en 45 minutos se da por cortada.
 - **Ensayo sin voz:** mientras `REDES_ACTIVAS` sea «no» y no exista el secreto `GEMINI_API_KEY_REDES_V3`, las piezas se dibujan MUDAS (subtítulos estimados del guion; el `.json` dice «sin voz: ensayo») para no gastar el cupo de la clave del sistema viejo. Con `_V3` hablan; en real, con `GEMINI_API_KEY_REDES`.
 - **El repaso y Balcarce:** una nota es «de Balcarce» según el núcleo (su motivo), no según su sección (puede estar en Cultura o Educación). Una nota de Balcarce **sin foto entra igual** y va con la placa de su sección; lo de afuera sin foto no. Si en la ventana no hay ninguna de Balcarce, el repaso sale con las más contadas y el `.json` anota «sin notas de Balcarce en la ventana».
@@ -116,7 +124,7 @@ compuerta de tono** (R41). Todo lo que va a Instagram es video con voz, salvo el
 - **Piezas de servicio (3/11):** teléfonos útiles (sábados 17:00), agenda del fin de semana (jueves 12:00, sólo si el municipio tiene eventos en los próximos días), feriado (8:00, sólo si el feriado tiene datos verificados y el panel no pidió cambiarlo) y avisos de clima por helada fuerte, granizo o viento de 60 o más (07:00 a 22:00, historia con voz, sin saludo, sin Buffer). Las tres condicionales entran al plan sólo si el programa (`correr.mjs`) mira antes y manda `conDatos` a `/piezas/plan`; sin datos no se reservan ni gastan voz.
 - **Nunca de servicio:** la nota del clima diario, el media kit, el dólar del día y cualquier nota con `ficha.marca` no salen como posteo, reel, repaso ni historia (`esNotaDeServicio` y `esCotizacionDelDia`, `elegir.mjs`).
 
-**Secretos y variables.** GitHub: `TELEGRAM_TOKEN`, `GEMINI_API_KEY_REDES`, `META_TOKEN`; opcional `GEMINI_API_KEY_REDES_V3` (una clave de voz aparte para el ensayo: con la misma clave del sistema viejo, los dos gastan el mismo cupo de Google); variables `V3_AUDIOS_POR_DIA`, `V3_REDES_URL`. Worker: `REDES_ACTIVAS`, `VOZ_TOPE_DIARIO` (opcional).
+**Secretos y variables.** GitHub: `TELEGRAM_TOKEN`, `GEMINI_API_KEY_REDES`, `META_TOKEN`; opcional `GEMINI_API_KEY_REDES_V3` (una clave de voz aparte para el ensayo: con la misma clave del sistema viejo, los dos gastan el mismo cupo de Google); variable `V3_REDES_URL` (`V3_AUDIOS_POR_DIA` ya no se lee: el cupo está en el código). Worker: `REDES_ACTIVAS`.
 **Cómo se prueba:** `node --test "v3/redes/**/*.test.mjs"` (el plan con la base en memoria; el programa de punta a punta contra el Worker de verdad, con una voz, un dibujo y un Meta de mentira).
 
 ## 12. Buffer, Bluesky y Threads (3/11)
@@ -137,6 +145,7 @@ GitHub dejó de lanzar sus horarios (`schedule:`) durante horas el 10/11/2026, a
 - **Fotos propias** (`v3-fotos-propias.yml`): cron `40 9,11,13,15,17,19,21,23,1 * * *` (UTC, lo mismo que `40 9-23/2,1`), de 6:40 a 22:40 de Balcarce. Manda `automatico = true`, `simular = false` y `tope = 60`: copia de verdad, pero el job sólo corre si la variable de GitHub `FOTOS_PROPIAS_ACTIVAS` vale «si» (como antes con el horario). A mano, `automatico` queda en `false` y manda `simular` (por defecto sí).
 - **Secreto:** `GITHUB_TOKEN_ACCIONES` (token de grano fino con «Actions: lectura y escritura» sobre este repositorio; el workflow de desplegar lo carga desde el secreto de GitHub `RELOJ_GITHUB_TOKEN`). Sin él no dispara y deja un aviso en el log.
 - **Si GitHub no contesta 204:** reintenta una vez a los 3 segundos; si vuelve a fallar, avisa por Telegram. Nunca frena el resto del `scheduled`.
+- **Desde el 17/11/2026 (auditoría H-03; GitHub llegó a lanzar sus `schedule:` 9 h tarde) esos dos crons despiertan además, con `ademas` y sin gastar crons (el plan gratis da cinco por Worker):** las estadísticas (0:07 UTC, 21:07 de Balcarce; `v3-estadisticas.yml` ya no tiene `schedule:`: con los dos mandaría el resumen dos veces), «Un día como hoy» y feriados del mes que viene (el día 20 a las 13:07 UTC, `diaDelMesUTC`; con `automatico` espera la variable `EFEMERIDES_V3_ACTIVAS`) y el respaldo de la base (1:40 UTC = 22:40 de Balcarce, con el cron de las fotos). `v3-efemerides.yml` y `v3-respaldo-d1.yml` conservan su `schedule:` de GitHub como respaldo tardío porque no duplican trabajo (las efemérides suman a lo armado y no commitean sin cambios; el respaldo de la base lleva la fecha del día, y la copia tardía es de otro día). Quedan con `schedule:` de GitHub: `pruebas.yml` (control de los lunes) y los workflows del sistema viejo. Pruebas al final de `disparar-acciones.test.mjs`.
 - Los otros crons (`*/15 0,11-23`, `0 1`, `5 1`) siguen haciendo lo de siempre: el `scheduled` decide por el cron exacto y sólo los dos nuevos disparan.
 - Para volver a los horarios de GitHub: sacar los dos crons de `wrangler.toml` y devolverle el `schedule:` a cada workflow (las horas de antes quedaron escritas en sus comentarios).
 - Pruebas: `v3/redes/disparar-acciones.test.mjs` (cron, cuerpo, reintento, aviso, sin token, horarios contra wrangler.toml y workflows).

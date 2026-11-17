@@ -3,7 +3,7 @@ name: "Radar 3.0: armar Un día como hoy y los feriados"
 # Arma el MES QUE VIENE de «Un día como hoy» (efemérides) y los feriados, sin el motor viejo ni la rutina de Claude (6/11/2026).
 # Programa: v3/redes/efemerides/generar.mjs (con sus pruebas). Baja Wikipedia (Portal Argentina y «un día como hoy»), Wikidata y la API de feriados; no usa IA ni claves.
 #
-# Solo, el día 20 de cada mes a las 10:00 de Balcarce (13:00 UTC), PERO SÓLO si la variable de GitHub EFEMERIDES_V3_ACTIVAS vale «si» (por defecto no existe: no corre solo;
+# Solo, el día 20 de cada mes a las 10:07 de Balcarce: lo despierta el Worker `radar-redes` (v3/redes/disparar-acciones.mjs, 17/11/2026: los `schedule:` de GitHub llegaban hasta 9 h tarde) con `automatico`. El `schedule:` de GitHub queda como respaldo tardío (no duplica: suma a lo ya armado y no commitea si no hay cambios). SÓLO si la variable de GitHub EFEMERIDES_V3_ACTIVAS vale «si» (por defecto no existe: no corre solo;
 # la prende una persona cuando el sistema viejo deje de armarlas, para no pisarse). A mano se puede correr cuando se quiera.
 #
 # Escribe en el repositorio (donde lo lee el 3.0): web/data/efemerides-candidatas.json, feriados-piezas.json, efemerides-piezas.json (suma las piezas del mes; lo que armó una persona
@@ -17,6 +17,10 @@ on:
     - cron: '0 13 20 * *'
   workflow_dispatch:
     inputs:
+      automatico:
+        description: 'Lo marca el reloj de Cloudflare (no tocar a mano): se comporta como el horario de siempre y espera la variable EFEMERIDES_V3_ACTIVAS'
+        type: string
+        default: 'false'
       simular:
         description: 'Sólo armar y mostrar el resumen, sin escribir ni guardar'
         type: boolean
@@ -39,7 +43,7 @@ concurrency:
 
 jobs:
   armar:
-    if: ${{ github.event_name != 'schedule' || vars.EFEMERIDES_V3_ACTIVAS == 'si' }}
+    if: ${{ (github.event_name != 'schedule' && inputs.automatico != 'true') || vars.EFEMERIDES_V3_ACTIVAS == 'si' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     env:

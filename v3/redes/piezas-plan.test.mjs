@@ -4,7 +4,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { PIEZAS_DEL_DIA, piezasQueTocan as piezasQueTocanConCondicionales, bloqueDeLaHora, bloqueDe, accionesDe, minutoDe } from './piezas-del-dia.mjs';
-import { planear, notasDelRepaso, auspicioDelDia, lineasDeLasPiezas, topeDeVoz } from './piezas-plan.mjs';
+import { planear, notasDelRepaso, auspicioDelDia, lineasDeLasPiezas, topeDeVoz, REGLAS_PIEZAS } from './piezas-plan.mjs';
 import { crearRedes } from './redes.mjs';
 import { armarRepaso } from './piezas/armadores.mjs';
 import { contrasenaDelWebhook } from './redes.mjs';
@@ -101,7 +101,7 @@ test('planear: reserva lo que toca con sus datos; el repaso lleva las notas de l
   const clima = p.piezas[1];
   assert.deepEqual(clima.datos.auspicio, { comercio: 'Sweet Candy Bar', cuenta: '@_sweet.candy.bar' });
   assert.equal(clima.primeraDelBloque, false); // el repaso de la mañana (10:00) se reservó antes que el clima de las 7 en este plan: saluda quien se reservó primero
-  assert.equal(p.vozQuedan, 7);
+  assert.equal(p.vozQuedan, REGLAS_PIEZAS.audiosPorDia - 3); // 3 reservas, del cupo de 15
   const filas = t.sqlite.prepare('SELECT pieza, estado, simulado, voz_usada FROM piezas ORDER BY id').all();
   assert.equal(filas.length, 3);
   assert.ok(filas.every((f) => f.estado === 'en-curso' && f.simulado === 1));
@@ -119,7 +119,7 @@ test('planear dos veces seguidas no reserva dos veces la misma pieza; una reserv
 });
 
 test('el cupo de voz: tope diario y reserva para las más importantes que faltan hoy (el repaso antes que el clima, el clima antes que la efeméride)', async () => {
-  assert.equal(topeDeVoz({}), 10);
+  assert.equal(topeDeVoz({}), 15);
   assert.equal(topeDeVoz({ VOZ_TOPE_DIARIO: '4' }), 4);
   const t = conNotas();
   // Con 2 audios, a las 10 de la mañana: el repaso de ahora sale; el clima no, porque faltan dos repasos (15 y 21) que valen más.

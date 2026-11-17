@@ -83,8 +83,8 @@ test('la página del criterio en una página dice los números del código', () 
   }
 });
 
-test('CLAUDE.md dice los números del código', () => {
-  const d = leer('CLAUDE.md').replace(/\s+/g, ' ');
+test('el CLAUDE.md del sistema viejo (docs/historico/CLAUDE-SISTEMA-VIEJO.md) dice los números del código viejo', () => {
+  const d = leer('docs/historico/CLAUDE-SISTEMA-VIEJO.md').replace(/\s+/g, ' ');
   const debeDecir = (frase) => assert.ok(d.includes(frase), `CLAUDE.md no dice: ${frase}`);
   debeDecir(`con **${POPULARIDAD.minimoNacional} medios** distintos (\`MINIMO_NACIONAL\`)`);
   debeDecir(`con **${POPULARIDAD.minimoAreasChicas}** (\`MINIMO_AREAS_CHICAS\`)`);

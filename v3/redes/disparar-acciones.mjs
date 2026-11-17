@@ -15,11 +15,24 @@ export const DISPAROS = {
   // La primera vuelta del día (7:07 de Balcarce, 10:07 UTC) también despierta la nota del diario de «Un día como hoy» (12/11/2026): sale a primera hora y las piezas de las 9 la enlazan.
   '7 10-23,0-2 * * *': {
     archivo: 'v3-piezas.yml', nombre: 'piezas de redes', inputs: { automatico: 'true' },
-    ademas: [{ archivo: 'v3-nota-efemeride.yml', nombre: 'nota de Un día como hoy', aLasUTC: 10, inputs: { automatico: 'true' } }],
+  // 17/11/2026 (auditoría H-03): GitHub lanzaba tarde los `schedule:` (hasta 9 h) y se suman tres más a este mismo cron, sin gastar otro cron:
+  //   estadísticas: 0:07 UTC = 21:07 de Balcarce (antes 21:30 por GitHub, que a veces llegaba de madrugada); `v3-estadisticas.yml` ya NO tiene schedule (mandaría el resumen dos veces).
+  //   armar el mes que viene de «Un día como hoy» y los feriados: el día 20 a las 13:07 UTC = 10:07 de Balcarce (`diaDelMesUTC`). El workflow conserva su schedule como respaldo tardío: no duplica nada
+  //     (suma a lo ya armado y no commitea si no hay cambios). Con `automatico` sigue esperando la variable EFEMERIDES_V3_ACTIVAS.
+    ademas: [
+      { archivo: 'v3-nota-efemeride.yml', nombre: 'nota de Un día como hoy', aLasUTC: 10, inputs: { automatico: 'true' } },
+      { archivo: 'v3-estadisticas.yml', nombre: 'estadísticas', aLasUTC: 0, inputs: { telegram: 'si' } },
+      { archivo: 'v3-efemerides.yml', nombre: 'armar Un día como hoy y los feriados del mes que viene', aLasUTC: 13, diaDelMesUTC: 20, inputs: { automatico: 'true' } },
+    ],
   },
   // Copia de fotos, cada 2 horas a los :40 de 6:40 a 22:40 de Balcarce (9-23/2 y 1 en UTC, escrito en lista porque es lo más seguro para Cloudflare).
   // Copia de verdad (simular = false) y con el tope de siempre; el workflow sólo corre si la variable FOTOS_PROPIAS_ACTIVAS de GitHub vale «si».
-  '40 9,11,13,15,17,19,21,23,1 * * *': { archivo: 'v3-fotos-propias.yml', nombre: 'fotos propias', inputs: { automatico: 'true', simular: 'false', tope: '60' } },
+  // 17/11/2026: la 1:40 UTC (22:40 de Balcarce, con el día entero adentro) despierta también el respaldo de la base. `v3-respaldo-d1.yml` conserva su schedule de GitHub como copia tardía:
+  // son dos copias de días distintos (AAAA-MM-DD en hora de Balcarce), no un trabajo repetido, y el programa sólo borra después de controlar la copia nueva.
+  '40 9,11,13,15,17,19,21,23,1 * * *': {
+    archivo: 'v3-fotos-propias.yml', nombre: 'fotos propias', inputs: { automatico: 'true', simular: 'false', tope: '60' },
+    ademas: [{ archivo: 'v3-respaldo-d1.yml', nombre: 'respaldo de la base', aLasUTC: 1, inputs: { simular: 'false' } }],
+  },
 };
 
 export const esCronDeDisparo = (cron) => Object.prototype.hasOwnProperty.call(DISPAROS, cron);
@@ -81,6 +94,7 @@ export async function dispararAcciones(evento, env, { fetchFn = fetch, avisar = 
   const hora = Number.isFinite(Number(evento?.scheduledTime)) ? new Date(Number(evento.scheduledTime)).getUTCHours() : null;
   for (const otro of disparo.ademas ?? []) {
     if (hora === null || hora !== otro.aLasUTC) continue;
+    if (otro.diaDelMesUTC && new Date(Number(evento.scheduledTime)).getUTCDate() !== otro.diaDelMesUTC) continue;
     let o = await despertar(otro, token, fetchFn);
     if (!o.ok) { await esperar(3000); o = await despertar(otro, token, fetchFn); }
     if (!o.ok && avisar) {

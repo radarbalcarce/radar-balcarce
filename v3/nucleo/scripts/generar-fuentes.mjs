@@ -78,10 +78,15 @@ export const ENCENDER = {
 };
 // NOTAS: fuentes que siguen activas pero con una aclaración.
 export const NOTAS = {
-  newsbalcarce: 'El feed (?feed=rss2) es el correcto y está vivo (ítem del 3/11/2026 01:53), pero publica de a rachas: el anterior es del 25/10/2026.',
+  newsbalcarce: 'El feed (?feed=rss2) es el correcto y está vivo (ítem del 3/11/2026 01:53), pero publica de a rachas: el anterior es del 25/10/2026. El 17/11/2026 dio HTTP 502 durante horas (la PC ni conecta): no se apaga; se mira 3 días (PENDIENTES-3-0.md) y el aviso de Telegram sale solo a los 3 días seguidos de falla.',
   ahorabalcarce: 'Sigue en http://ahorabalcarce.com.ar/feed/ (el https no conecta); el último ítem es del 27/10/2026: publica poco. Se deja activa.',
   'concejo-deliberante-balcarce': 'Feed vivo; publica poco (último ítem 27/10/2026, antes 14/10).',
   accion5: 'Feed vivo (último ítem 1/11/2026); publica de a rachas.',
+};
+// CORREGIR_URL: la dirección del exportado responde, pero con una redirección; se escribe la final (17/11/2026, auditoría H-04).
+// puntonueve: `/feed` da 301 a `/feed/` y recién ahí 200 (verificado con curl el 17/11/2026); sin la barra final, el lector depende de seguir la redirección.
+export const CORREGIR_URL = {
+  puntonueve: 'https://puntonueve.com.ar/feed/',
 };
 // SUMAR: feeds públicos nuevos (alcance 'pais', salvo que diga otra cosa). Todos devuelven 200 y XML.
 export const SUMAR = [
@@ -154,6 +159,7 @@ export function generar() {
     if (APAGAR[f.id]) { c.activa = false; c.nota = APAGAR[f.id]; }
     else if (ENCENDER[f.id]) { c.activa = true; c.nota = ENCENDER[f.id]; }
     if (NOTAS[f.id]) c.nota = NOTAS[f.id];
+    if (CORREGIR_URL[f.id]) c.url = CORREGIR_URL[f.id];
     fuentes.push(c);
   }
   for (const n of SUMAR) {

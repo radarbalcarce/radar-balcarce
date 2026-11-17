@@ -9,13 +9,13 @@
       "alcance": "balcarce",
       "oficial": false,
       "activa": true,
-      "nota": "El feed (?feed=rss2) es el correcto y está vivo (ítem del 3/11/2026 01:53), pero publica de a rachas: el anterior es del 25/10/2026."
+      "nota": "El feed (?feed=rss2) es el correcto y está vivo (ítem del 3/11/2026 01:53), pero publica de a rachas: el anterior es del 25/10/2026. El 17/11/2026 dio HTTP 502 durante horas (la PC ni conecta): no se apaga; se mira 3 días (PENDIENTES-3-0.md) y el aviso de Telegram sale solo a los 3 días seguidos de falla."
     },
     {
       "id": "puntonueve",
       "nombre": "Puntonueve",
       "medio": "Puntonueve (FM 100.9)",
-      "url": "https://puntonueve.com.ar/feed",
+      "url": "https://puntonueve.com.ar/feed/",
       "tipo": "rss",
       "alcance": "balcarce",
       "oficial": false,

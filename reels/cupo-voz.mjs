@@ -18,9 +18,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { PIEZAS_DEL_DIA } from '../redes/piezas-del-dia.mjs';
 
-/** El cupo de la clave de voces: 10 por día con la gratis (CLAUDE.md, "Cupo de voz: 10 audios por día"). 25/10/2026: con la clave paga se sube
+/** El cupo de voces: 15 por día fijos (Hernán, 13/11/2026; en la 3.0 es el mismo número de v3/redes/piezas-plan.mjs, una prueba lo controla). Antes 10 con la clave gratis; 25/10/2026: con la clave paga se sube
  *  con la variable de GitHub `AUDIOS_POR_DIA`, sin tocar código (llega por redes-piezas.yml). */
-export const AUDIOS_POR_DIA = Number(process.env.AUDIOS_POR_DIA) > 0 ? Math.floor(Number(process.env.AUDIOS_POR_DIA)) : 10;
+export const AUDIOS_POR_DIA = Number(process.env.AUDIOS_POR_DIA) > 0 ? Math.floor(Number(process.env.AUDIOS_POR_DIA)) : 15;
 /** Desde cuántos usados se avisa (el 80 %). */
 export const AVISO_DESDE = Math.ceil(AUDIOS_POR_DIA * 0.8);
 

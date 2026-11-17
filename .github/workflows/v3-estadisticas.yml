@@ -1,11 +1,9 @@
 # Radar 3.0: las estadísticas de la web (Cloudflare Web Analytics) y de Facebook e Instagram (API de Meta).
 # Corre redes/estadisticas.mjs (mide; no guarda nada en el repositorio) y manda el resumen por Telegram al dueño del bot.
-# Todos los días a las 21:30 de Balcarce y a pedido. Desde el 3/11/2026 el vigilante viejo dejó de medirlas (Hernán, 7/11: «tienen que estar»).
+# Todos los días a las 21:07 de Balcarce y a pedido. Desde el 17/11/2026 lo dispara el Worker radar-redes (v3/redes, disparar-acciones) a la misma hora que su cron de las 0:07 UTC; GitHub lanzaba el `schedule:` hasta 9 h tarde y por eso ya no lo tiene (con los dos mandaría el resumen por Telegram dos veces). Desde el 3/11/2026 el vigilante viejo dejó de medirlas (Hernán, 7/11: «tienen que estar»).
 name: "Radar 3.0: estadísticas"
 
 on:
-  schedule:
-    - cron: '30 0 * * *'
   workflow_dispatch:
     inputs:
       telegram:
@@ -36,7 +34,7 @@ jobs:
       - name: Medir
         run: node redes/estadisticas.mjs | tee medicion.txt
       - name: Mandar por Telegram
-        if: ${{ github.event_name == 'schedule' || inputs.telegram == 'si' }}
+        if: ${{ inputs.telegram == 'si' }}
         run: |
           sed -n '/Así saldría en el WhatsApp:/,$p' medicion.txt | tail -n +2 | sed '/^\s*$/d' > resumen.txt
           test -s resumen.txt || { echo "No hubo resumen para mandar"; exit 0; }

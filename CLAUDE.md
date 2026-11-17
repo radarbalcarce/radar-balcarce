@@ -1,294 +1,113 @@
 # Radar Balcarce
 
-**Aviso (5/11/2026):** el sistema vigente es **Radar 3.0**, en `v3/` (empezar por `docs/3-0/LEEME.md`). Todo lo que sigue describe el sistema viejo, que sigue corriendo de respaldo hasta que se apague; las tareas vivas están en `docs/3-0/PENDIENTES-3-0.md` (`PENDIENTES.md` e `IDEAS.md` viejos, en `docs/historico/`).
+*Reescrito el 17/11/2026 para Radar 3.0, que es el sistema vigente (en `v3/`; empezar por `docs/3-0/LEEME.md`). Corto a propósito: el detalle está en el `REGLAS.md` de cada
+carpeta de `v3/` y en `docs/3-0/`. **Si esto y el código no coinciden, manda el código, y se corrige esto.** El CLAUDE.md anterior (el del sistema viejo, con las reglas R1 a R41 y
+toda su historia) quedó entero en `docs/historico/CLAUDE-SISTEMA-VIEJO.md`.*
 
-*Actualizado el 25/10/2026 (estado en `docs/TRASPASO.md`). Corto a propósito: el detalle está en `docs/` (empezar por
-`docs/00-INDICE.md`). Si esto y el código no coinciden, manda el código, y se corrige
-esto.*
+Medio digital automático de Balcarce (Buenos Aires), en `radarbalcarce.com`. Cada 15 minutos lee unos 95 feeds activos (hoy 95 de 126 en `v3/nucleo/fuentes.json`), junta la misma noticia
+contada por varios medios, decide qué publicar, la escribe con IA, la verifica contra las fuentes y la publica en el sitio; varias veces por día arma reels, historias y posteos con voz para
+Facebook e Instagram (y TikTok, YouTube y X por Buffer; Threads y Bluesky con enlaces), todo sin nadie despierto. Los usuarios son Hernán y Andrés (no programan): escribir siempre en
+castellano rioplatense, claro y sin voseo forzado. **Ahorrar tokens es regla (Hernán, 1/11/2026):** el modelo grande sólo orquesta y decide; lo mecánico (buscar, medir, exportar, código de
+rutina, revisar) va a subagentes chicos (`haiku`, `sonnet`), y lo que se pueda resolver con un script o un workflow se automatiza en vez de hacerlo a mano con el modelo.
 
-Medio digital automático de Balcarce (Buenos Aires), en `radarbalcarce.com`. Cada media
-hora lee unos 125 feeds de unos 75 medios (la cuenta exacta, en `FUENTES.md`), junta la misma
-noticia contada por varios, decide qué publicar, lo escribe con IA, lo verifica contra
-las fuentes, arma el sitio y lo sube, sin nadie despierto; varias veces por día publica
-en Facebook e Instagram con voz. Los usuarios son Hernán y Andrés (no programan):
-escribir siempre en castellano rioplatense, claro y sin voseo forzado. **Ahorrar tokens es regla (Hernán, 1/11/2026):** el modelo
-grande sólo orquesta y decide; lo mecánico (buscar, medir, exportar, código de rutina, revisar) va a subagentes chicos (`haiku`, `sonnet`),
-y lo que se pueda resolver con un script o un workflow se automatiza en vez de hacerlo a mano con el modelo.
+**Marca (12/11/2026):** antes de armar cualquier imagen, placa, gráfico, pieza de redes o página, mirar `docs/3-0/MANUAL-DE-MARCA.html` (hay `.pdf`): colores por sección, letras, firma de cierre,
+formatos y lo que nunca se hace. Formato de imágenes compartibles: `docs/3-0/FORMATO-DE-IMAGENES.md`.
 
 ## Cómo está armado
 
-    ingesta/   el motor: fuentes, cruce, selección, lectura con IA, verificador, números del criterio. SIN dependencias
-    reels/     placas, voz (Gemini), video… y la reescritura con IA (reels/reescritura.mjs). SÍ tiene dependencias (resvg, ffmpeg)
-    redes/     Facebook e Instagram (API de Meta), contrato del día, vigilante, WhatsApp. SIN dependencias
-    panel/     lo del panel del celular que corre en GitHub (cifrado, pedidos a la IA, pistas). SIN dependencias (el panel de la PC se retiró el 17/10)
-    web/       el sitio (Next.js 15, JavaScript, HTML estático); web/public/panel/ es el panel del celular; web/scripts/generar-datos.mjs arma los datos
-    pruebas/   `npm test`: unas 3.000 pruebas, sin red (en la vuelta de 30 minutos sólo corre el núcleo legal, `npm run test:nucleo`)
-    docs/      la documentación: 00-INDICE a 13-EFEMERIDES, DECISIONES.md, propuestas/ (lo abierto) e historico/. Sin programas adentro
-    scripts/medir/  mediciones a mano: repetidas por significado, cruce coherente, informe del día, calibrar repetidas, revisión de fuentes, por qué no entró
-    infra/     los Workers de Cloudflare (reloj, vigilante, tareas, archivo, enlaces, motor en Workers Builds) y `infra/compartido/`
-    Dormidos (existen y tienen pruebas, pero producción no los usa; los despierta o los borra el dueño, no se tocan sin preguntar):
-               comercial/ (guía de comercios), motor/ (cimientos de una base D1), `sePuedeSola` (redes/elegir.mjs)
-               y `agruparPorHecho` (ingesta/cruce.mjs)
+Todo es JavaScript sin dependencias, en Workers de Cloudflare; cada módulo de `v3/` trae su `REGLAS.md` (qué hace, en palabras de una persona) y sus pruebas. Una regla que no está en un `REGLAS.md` no existe.
 
-Flujo: fuentes → ingesta → cruce → sección, puntaje y semáforo → lectura con IA →
-reescritura con IA → verificación → `web/data/*.json` → una sola compilación → Cloudflare Pages, todo
-en "Actualizar la web" (regla 189; "Cloudflare Pages" quedó a mano, de rescate); después, redes
-y vigilancia. Desde el 23/10 corre en Cloudflare (motor en Workers Builds, tareas en un Worker; GitHub Actions queda de vuelta atrás: `docs/TRASPASO.md`), disparado por el Worker de Cloudflare
-`radar-balcarce-reloj` (`infra/reloj-cloudflare/`). **La web, las redes, la
-vigilancia y el panel del celular andan con la PC apagada.**
+    v3/nucleo/      Worker radar-nucleo, cada 15 min: leer fuentes, agrupar repetidas, elegir, redactar, verificar, fotos, nota diaria del clima, respaldo de la base.
+                    Base D1 `radar-nucleo`; R2 `radar-fotos`. Interruptor de publicar: NUCLEO_PUBLICA. Fuentes: fuentes.json (se genera: ver "Dónde tocar")
+    v3/sitio/       Worker radar-sitio: arma cada página de radarbalcarce.com desde la base (portada, secciones, notas, clima, farmacias, dólar, agenda, SEO, avisos, panel /panel)
+    v3/redes/       Worker radar-redes: decide qué sale a las redes y despierta los workflows que dibujan; piezas/ (reels, placas, voz), efemerides/, una carpeta por red
+    v3/redaccion/telegram/   Worker radar-telegram, el bot @radarbalcarce_bot: notas propias de Hernán, retirar/corregir, /redes y /repaso
+    v3/vigilancia/  Worker radar-vigilancia: chequeo cada 30 min, informes de las 8 y las 20 por Telegram
+    .github/workflows/v3-*.yml   lo que corre en GitHub Actions: desplegar, piezas de redes (video con voz), fotos propias, estadísticas, respaldo de la base, efemérides, notas a mano
+    Sistema viejo: ingesta/, reels/, redes/, panel/, web/, infra/, pruebas/ (ver la última sección). No se tocan sin preguntar: el código 3.0 todavía importa 21 archivos de ahí.
+
+**Quién despierta qué.** El reloj de las piezas y de las fotos es el Worker `radar-redes` (cron de Cloudflare → API de GitHub con el secreto `RELOJ_GITHUB_TOKEN`; `v3/redes/disparar-acciones.mjs`,
+`v3/redes/REGLAS.md` § 14): GitHub llega a lanzar sus `schedule:` hasta 9 horas tarde. Si ese token vence, **dejan de salir reels, historias y fotos propias**: es el punto único de falla
+(`docs/3-0/AUDITORIA-SISTEMA-17-11.md`, H-01). El resto corre solo en su Worker. Los cuatro `/salud` (`radar-nucleo`, `radar-redes`, `radar-telegram`, `radar-vigilancia`, en `workers.dev`) dicen cómo está cada módulo.
 
 ## Comandos
 
-    npm test              las pruebas (correr SIEMPRE antes de commitear)
-    npm run auditar       qué está decidiendo el filtro sobre las noticias de hoy
-    npm run auditar-fotos qué notas tienen foto y, de las que no, por qué (no gasta cupo; `-- --dias=7`, `-- --html` para ver las fotos)
-    node ingesta/auditar-fuentes.mjs   cuánto aportó cada fuente en la semana y cuál se durmió (sin red; `--dias=30`, `--json`)
-    node ingesta/listar-fuentes.mjs    rehace FUENTES.md después de tocar una fuente
-    cd web && npm run build     compilar con los datos que hay (git pull antes). `npm run datos` lo corre Actions: en la PC no hace nada (ARMAR_EN_LA_PC=1 para la corrida entera, con IA)
-    node reels/comparar-instruccion.mjs actual otra.txt   compara versiones de las reglas de la IA (gasta cupo)
+    node --test "v3/**/*.test.mjs"                    las pruebas de la 3.0 (correr SIEMPRE antes de commitear; sin red)
+    node --test v3/redes/disparar-acciones.test.mjs   un módulo
+    node v3/nucleo/scripts/generar-fuentes.mjs        rehace v3/nucleo/fuentes.json (después de tocar scripts/generar-fuentes.mjs)
+    node v3/sitio/scripts/lecturas.mjs                lecturas del sitio (contador propio)
+    gh workflow run "Radar 3.0: desplegar" -f que=<telegram|nucleo|sitio|redes|vigilancia|fotos|migrar>   despliega (ver "Cosas que muerden")
 
 ## Reglas que no se negocian
 
-(Las reglas vigentes son **R1 a R41**, en `docs/10-REGLAS-Y-PRUEBAS.md`, cada una con las pruebas que la cuidan; una prueba controla que
-cada R nombre pruebas que existan. La historia de cada número viejo, de la regla 1 a la 327, quedó congelada en `docs/historico/REGLAS-1-A-327.md`:
-quien lea "regla 293" en un comentario la encuentra por la columna «absorbe» (está en la R8). **Un arreglo nuevo se anota en la R que corresponde**
-(sumando su número o su prueba a la fila) **o, si es de verdad nuevo, como R42.** Las citas "regla NNN" del código no se renumeran.)
+(Autoridad: el `REGLAS.md` de cada módulo; las legales y editoriales están en `v3/nucleo/REGLAS.md` § 4 y `v3/nucleo/redactar/REDACCION.md`. Estas siguen vigentes desde el sistema viejo.)
 
-- **`ingesta/`, `panel/` y `redes/` no importan nada de afuera de Node.** Una prueba lo
-  vigila (sigue los imports en cadena).
-- **Cuando se arregla algo que estuvo mal publicado, se escribe una prueba** con el caso
-  real y se anota en la regla que corresponde de `docs/10-REGLAS-Y-PRUEBAS.md` (o como R42 si es nueva).
-- **El criterio editorial es uno solo: `CRITERIO-EDITORIAL.md`.** La IA lee su § 12 tal
-  cual (`ingesta/prompt-editorial.mjs`; si falta, no escribe) y sus números están en
-  `ingesta/criterio.mjs`, controlados contra su tabla. Lo de las redes, en
-  `CRITERIO-REDES.md` (el código también lo lee tal cual). No borrar las marcas `<!-- … -->`.
-- **Nunca identificar a un menor ni a una víctima** (el semáforo rojo; **no tocar esa
-  lista sin preguntar**). **Nunca una marca de agua ni el nombre de otro medio pegado
-  encima de una imagen**: el crédito va en la cita. **Lo que escribe la IA se verifica contra la
-  fuente. Cada nota dice quién la escribió.** Política y Policiales salen solas a las redes como cualquier sección desde el 30/10
-  (R40, Hernán); lo rojo, nunca.
-- **Las fotos** (regla 319, 24/10: **la foto de una nota con fuentes sale siempre de las fuentes de esa nota**; Wikimedia Commons no ilustra ninguna nota con fuentes, ni de personas ni de
-  lugares ni de objetos: un nombre en el archivo no garantiza que la persona sea la de la noticia; Commons sólo por el lugar en las notas propias de F1 y fútbol; sin foto que sirva,
-  placa): la de otro medio o de un organismo, sólo sin su marca (lo que estaba en
-  la escena, como el micrófono de una radio, sí: 29/09), con el crédito en el epígrafe y guardada en el banco propio
-  (`web/data/banco-fotos.json`). Nunca foto real de un menor o una víctima, ni en
-  Policiales salvo fuente oficial (`docs/05-FOTOS.md`). **Única excepción (reglas 186 y 211, Hernán,
-  17/10: "si es de fuentes de Balcarce no hay problema, sobre todo si no son de tinte policial"):**
-  la foto propia de una **fuente de Balcarce** —un medio de acá o un organismo; son las de
-  `alcance: 'local'` de `ingesta/fuentes.mjs` (`FUENTES_DE_BALCARCE_PARA_FOTOS_DE_MENORES`), de su
-  propia página y nunca de su sección policial— con chicos en una actividad deportiva, escolar,
-  cultural o recreativa que no toque nada policial, judicial, de salud, accidentes, violencia, abuso,
-  muertes, desaparecidos ni chicos bajo protección, sin marca, sin nombres de chicos, con el crédito
-  en el epígrafe y nunca en el collage de redes (`ingesta/fotos-menores.mjs`), y sólo con la variable
-  de GitHub `FOTOS_MENORES_OFICIALES` en "Si" (por defecto apagada: la prende una persona; apagarla
-  saca esas fotos de la web). La placa es lo que sale cuando no hay foto que sirva.
-- **Todo lo que va a Instagram es video con voz**, salvo el espejo de cada posteo de Facebook.
-- **Tokens y claves nunca en un chat ni en el código.** Van a GitHub Secrets o al `.env`,
-  y los pega una persona. El repositorio es **público**: por eso lo que espera a una
-  persona viaja cifrado para el celular.
-- **Sin cuerpo no se publica**: una nota automática sin cuerpo de 70 palabras o más no va a
-  ningún lado (`web/lib/cuerpo.js`); se reintenta hasta tres veces (cuatro con 5 medios, cinco con 8: `REESCRITURA.fuentesParaUnIntentoExtra` y `fuentesParaDosIntentosExtra`) (mientras, en
-  `web/data/esperando-cuerpo.json`). Lo de una persona se respeta; un cuerpo en
-  `web/data/correcciones.json` cuenta como cuerpo.
-- **El lector ve la nota, no el análisis**: título, bajada, cuerpo y un desplegable
-  cerrado "Fuentes (N)". Verificación BAJA y la cotización del dólar no salen solas.
+- **Nunca identificar a un menor ni a una víctima, ni publicar listas de sepelios.** Son los dos frenos legales: los aplica la IA en el mismo pedido de redacción con la marca `no_publicar`.
+  **No tocar esa lista sin preguntar a Hernán.** Lo rojo no sale a ningún lado.
+- **Nunca una marca de agua ni el nombre de otro medio pegado encima de una imagen**: el crédito va en el epígrafe o en el pie. Nunca foto real de un menor o una víctima. La foto de una nota con
+  fuentes sale de las fuentes de esa nota (Wikimedia Commons no ilustra notas con fuentes; sólo la efeméride de «Un día como hoy» la usa, por decisión de Hernán). Sin foto que sirva, placa
+  de la sección o ilustración con IA declarada.
+- **Lo que escribe la IA se verifica contra la fuente** (`v3/nucleo/redactar/verificar.mjs`). **Cada nota dice quién la escribió** (firma «Radar Balcarce» en las automáticas; «Hernán Accomo» en las propias).
+  Lo de afuera sin vínculo con la Argentina no se publica. Cada nota lleva dos pedidos a la IA (redactar y verificar), y lo que no pasa la verificación no sale (`v3/nucleo/REGLAS.md` § 5).
+- **Todo lo que habla lleva el aviso «Voz generada con inteligencia artificial.»** y **nada sale a redes sin pasar la compuerta de tono (R41):** ni la muerte de un menor o un bebé, ni un suicidio.
+  Todo lo que va a Instagram es video con voz, salvo el espejo de cada posteo de Facebook. **Nunca con otra voz:** si no hay cupo, la pieza no sale.
+- **Tokens y claves nunca en un chat ni en el código.** Van a GitHub Secrets o al panel de Cloudflare, y los pega una persona. El repositorio es **público** (todavía): no subir material con
+  teléfonos, contactos o borradores (la grilla, `scripts/pc/`, `docs/3-0/notas-propias/`; ver H-08 de la auditoría).
+- **Volumen de notas:** el tope nacional (60 por día, 4 medios, 2 en áreas chicas, 3 el fin de semana) lo cambia sólo Hernán: dijo que **no se baja**. Balcarce entra siempre, con una sola fuente.
+- **AdSense:** no pedir la revisión hasta que Hernán lo autorice, después de 3 a 4 semanas de contenido propio y firmado. Nunca poner como propio lo que no lo es.
+- **No gastar voz ni IA "para probar"** en CI ni a mano: el cupo de voz (15 audios por día) y el freno mensual de Gemini (US$ 7) son plata o cuota real.
 
 ## Cosas que muerden
 
-- **Los archivos del repo están en CRLF.** En scripts, editar por líneas; un `\n` literal
-  en un reemplazo multilínea no encuentra nada. Para regex con `\b`, `\s`, `\d`: escribir
-  un `.cjs` con Write, no `node -e` ni un heredoc (se comen las barras).
-- **El motor regenera `web/data/` cada media hora** (desde el 23/10, en Cloudflare Workers Builds: commits "Datos de la portada"; el workflow viejo de GitHub queda de vuelta atrás). Antes de `git push`, `git pull --rebase`; si choca en `web/data/`,
-  `git checkout --theirs` sobre esos archivos y seguir. Commitear sólo los archivos
-  tocados (`git commit -- archivos`). Correr `ARMAR_EN_LA_PC=1 npm run datos` en la PC deja esos
-  archivos cambiados: no subirlos. Subir `banco-fotos.json` o fotos sólo entre corridas.
-- **Los archivos que escribe una persona**: `web/data/celular-decisiones.json` y
-  `web/data/correcciones.json` (los escribe el celular; ningún workflow los toca), `web/data/notas-de-redaccion.json` (las notas que una persona escribe en la pestaña Escribir del
-  celular, con sus fotos `web/public/fotos-notas/redaccion-*`; sin motivo, cuándo y quién no vale) y
-  `web/data/retiradas.json` (a mano; los lunes "Actualizar la web" le saca las de más de
-  7 días). Siempre con `motivo`, `cuando` y `por`: sin eso la web falla y se congela. Lo que
-  retira la revisión del archivo (regla 212) va aparte, en `web/data/revision-archivo.json`, que
-  escribe sólo su workflow y no se poda: cuenta igual que lo retirado a mano.
-- **Las ventanas de tiempo**: la portada muestra **36 horas** (`HORAS_EN_PORTADA`; las secciones
-  guardan todo, 10 por página); lo que nunca salió no se estrena si el hecho tiene más de **24** (**36** si es de Balcarce); la edad del hecho es la **mediana de las fuentes**, igual para todo (regla 327; una fuente sin hora no cuenta);
-  la página dura 180 días en teoría, pero el tope de notas en el sitio es el de la variable `TOPE_DE_NOTAS` (hoy **500**; el techo técnico de 3.700 es `PORTADA.maximoDeNotas`, medido el 15/10: 15.900 archivos de los 20.000 de Cloudflare) y, con unas 120 notas por día, una nota está unos 4 días en el sitio; el resto lo da el archivo permanente en R2; lo raspado o de un feed de acá de más de 48 horas (`PORTADA.horasDeUnHecho`, lo que dura un mismo hecho) no entra. Los
-  números viven en `ingesta/criterio.mjs` y `web/lib/archivo.js` los importa (no hay copias, desde la regla 293).
-- **Una nota tiene una sola fecha**, que envejece y nunca rejuvenece (`fechaReal`,
-  `fechaDeLaNota`; una nota vieja de otro hecho que el cruce pega, de más de 48 h antes de verla, no la envejece: regla 194), y **una sola dirección**, fija desde que sale. La misma noticia que
-  vuelve con otra dirección se une a la que ya estaba y redirige (`web/lib/repetidas.js`).
-- **"De acá" tiene una sola definición** (`esDeAca`): lo que toca la zona; si no, lo de un
-  medio de Balcarce o lo que dice Balcarce **en el título**. Un medio de acá que copia una
-  noticia de afuera no la hace de Balcarce (`historiaDeAca`), y lo de un medio de acá que
-  no nombra nada de acá espera a la IA (`mencionaAca`).
-- **Lo de afuera se publica por popularidad, sin cupos ni topes** (reglas 215 y 260, Hernán 17/10), en seis
-  líneas: Balcarce entra todo; lo nacional, con **3 medios** distintos (`MINIMO_NACIONAL`); en las áreas
-  chicas (Tecnología e IA, Ciencia, Salud, Educación, Cultura, Agro y Automovilismo: regla 294), con **2** (`MINIMO_AREAS_CHICAS`); sin cupos ni
-  topes; lo muy contado (8 medios o más) va primero y **no se frena por palabras sensibles, la lista internacional ni "es del extranjero"** (reglas 288 y 292; salvo la violencia de género con 8 medios o más, 30/10, el rojo,
-  nunca); del extranjero, sólo con un argentino (`conArgentino`), y el fútbol de afuera sin argentinos, ni con 8 medios (regla 290); Policiales de afuera, sólo lo contado por 8 medios o más y la muerte de un famoso (regla 289). Los
-  dos números se cambian con variables de GitHub, sin tocar código (`ingesta/popularidad.mjs`, `POPULARIDAD` en
-  `ingesta/criterio.mjs`). Nunca con un solo medio. Lo que ya salió no se baja. Cómo cae todo se mide en
-  `web/data/estadistica-seleccion.json` (regla 261): Hernán lo mira cada semana y regula.
-- **Las listas de sepelios no se publican nunca**, ni aprobadas por una persona.
-- **Las palabras clave cortas engañan** ("gol" encontraba "golpe"): las ambiguas van en
-  `PALABRAS_DEBILES` y sólo deciden desde el titular.
-- **Las secciones son catorce** (desde el 17/10, regla 216; el interruptor `SECCIONES_NUEVAS` se sacó):
-  Balcarce, Política, Policiales, Educación, Salud, Fútbol, Deportes, Automovilismo, Agro, Economía,
-  Ciencia, Cultura y agenda (se lee "Cultura"), Tecnología (se lee "Tecnología e IA") y Argentina, con el
-  menú "Más secciones". La sección de una nota la decide el feed (si el título la confirma), las palabras
-  (`seccionSumada`, `ingesta/secciones-nuevas.mjs`, que nunca se lleva una de Política o Policiales) y la
-  IA. Cada sección tiene que tener notas todos los días: si no, no vale la pena tenerla (menos Policiales,
-  que es de acá y la zona, más lo de afuera que cuentan 8 medios o la muerte de un famoso).
-- **Los títulos automáticos se arreglan sin inventar** (`arreglarEscritura`,
-  `tituloAutomatico`); lo de una persona no se toca.
-- **Las redes tienen un interruptor**: la variable `REDES_ACTIVAS` en GitHub y, desde la mudanza, `REDES_ACTIVAS_NUBE` para lo que corre en Cloudflare (**manda ésta**; el 22/10 la de GitHub decía "No" y la de la nube "Sí"); apagado,
-  todo simula. "Piezas" con `solo` vacío no arma nada (marcar `todas`). En GitHub las piezas
-  salen de lo ya publicado (`web/data/portada.json`), con los horarios de `redes/horarios.mjs`.
-- **Las claves de IA** (`reels/claves.mjs`): `GEMINI_API_KEY_REDACCION` (redactar, gratis), `GEMINI_API_KEY_RESPALDO`
-  (respaldo **pago** de la redacción, límite de US$ 10 por mes que pone una persona), `GEMINI_API_KEY_CLASIFICACION` (lectura con IA y fotos; tercer respaldo de la
-  redacción), `GEMINI_API_KEY_REDES` (sólo las voces: **no escribe notas ni lee con IA**) y `GROQ_API_KEY` (respaldo de la lectura, las fotos y las auditorías; no
-  redacta); aparte, `TAVILY_API_KEY` (búsqueda, sólo Pistas). **Opcional, `MISTRAL_API_KEY`** (26/10): el último respaldo de texto, gratis y el único que NO es de Google (plan «Experiment»
-  de la API de Mistral, `mistral-large-2512`, límites por minuto y por mes; tope propio de 400 pedidos por día, variable `MISTRAL_TOPE_DIARIO`; `reels/mistral.mjs`).
-  Las cadenas: **redacción** Gemini redacción → Gemini respaldo (paga) → Gemini clasificación → Mistral; **lectura** Gemini → Groq → Mistral; **auditorías** Groq → Mistral
-  (la revisión del archivo, Groq → Gemini → Mistral); **fotos** Gemini → Groq; sin la clave de Mistral, todo como antes. **OpenRouter se retiró el 26/10** (fallaba el 97 %:
-  `docs/DECISIONES.md`). **Cada pedido a una IA queda medido** en `web/data/uso-ia.json` (`redes/uso-ia.mjs`) por día, tarea y clave, con el motivo de cada fallo
-  (`cupo-diario`, `velocidad`, `saturado`, `rechazada`, `otro`); el informe diario lo resume por clave. **Cupo de voz: 10 audios por
-  día**; si se acaba, la pieza no sale (nunca con otra voz). Una clave rechazada
-  (401/402/403) no gasta los intentos de una nota. Texto: `gemini-flash-lite-latest` (la paga, siempre el más barato: `gemini-3.1-flash-lite`, `GEMINI_MODELO_BARATO`, R40; tope de 30 pedidos por día, `GEMINI_RESPALDO_TOPE_DIARIO`); voz:
-  `gemini-3.8-flash-tts`, dos voces propias que **vencen el 29/09/2027** (`CRITERIO-REDES.md` § 6).
-- **Una variable que el código lee tiene que llegar** (regla 311): GitHub sólo le pasa a un paso lo que el `env:` del workflow nombra;
-  Workers Builds, sólo lo que carga `infra/motor-cloudflare/cargar-variables.mjs` (que a su vez la recibe de `motor-variables.yml`).
-  Sumar una variable nueva es sumarla en esos lugares: `pruebas/variables-conectadas.test.mjs` falla si el código la lee y no llega.
-- **Para que "hoy" sea el de Balcarce en Actions** hay que poner
-  `TZ: America/Argentina/Buenos_Aires` en el workflow (`ingesta/zona.mjs`).
-- **El turno de farmacia dura hasta las 8:30 del día siguiente** (la web no dice hasta qué
-  hora). **Si Open-Meteo falla, el clima sale de `api.met.no`**, sin sensación térmica.
-- **Los minutos de Workers Builds** (6.000 por **ciclo de facturación, del 11 al 10**, no por mes calendario: regla 315, variable `MOTOR_CICLO_DIA`, 11 si no está, en el reloj, el Worker del motor y GitHub; regla 312, `docs/etapa-10-operacion/MINUTOS-DE-WORKERS-BUILDS.md`): el presupuesto del motor
-  asumía vueltas de ~4,5 min y el 23/10 se anotaron de ~14 (`presupuesto.mjs` saltea vueltas cuando se pasa). Tres palancas (apagadas por
-  defecto en el código; **las dos primeras, prendidas desde el 24/10**): `TARJETAS_EN_R2=Si` (variable de GitHub, se carga con «Cargar variables del motor» **con `simular` = No** (por defecto trae `Si`, que deja el motor en ensayo: no guarda ni publica; el 24/10 la web estuvo casi dos horas sin notas nuevas por eso): la memoria de tarjetas de la regla 305 vive en R2 como
-  objetos sueltos por huella, la compilación baja sólo las que pide; la primera vuelta con ella dibuja todo), `MOTOR_NOCHE_CADA_HORA=Si` (variable del
-  reloj **y** del Worker del motor, en el panel de Cloudflare: de 23:00 a 6:59 la vuelta sale sólo a los :00 y el vigilante de vueltas espera una hora
-  más) y `MOTOR_MINUTOS_DE_MAS` (los minutos que se le suman a cada vuelta por lo que no ve de sí misma; hoy 0,5). El registro `motor/minutos/AAAA-MM-DD.json` (el día en que arrancó el ciclo; migra solo el viejo por mes)
-  guarda el tiempo de cada paso, y `GET /estado` del Worker del motor da la proyección del mes; el vigilante avisa si se pasa (`motor-minutos`).
-- **El reloj es el Worker `radar-balcarce-reloj`** (desde el 15/10; cron-job.org, pausado):
-  si algo deja de salir, mirar Cloudflare → Workers → radar-balcarce-reloj. Desde el 17/10
-  (regla 190) cada cosa corre sólo cuando hace falta (`trabajosDelMinuto`): Redes de 7 a 23,
-  Vigilancia cada 3 horas, Auditoría IA y Pistas sin horario de GitHub. **No se sube solo**:
-  después de tocar `infra/reloj-cloudflare/`, correr a mano «Reloj de Cloudflare».
-- **`_redirects` tiene tope** (2.000 en Cloudflare; se escriben como mucho 1.950, regla 191):
-  no sumar redirecciones por nota; las cortas `/nota/ID` son sólo de antes del 25/09.
-- **El correo de los commits automáticos** es el noreply de GitHub: no cambiarlo.
-- **El panel del celular** (`web/public/panel/`) no tiene servidor: escribe con la llave de
-  GitHub de quien lo usa; lo sensible viaja cifrado (`panel/cifrado.mjs`); pedirle a la IA
-  dispara "Panel del celular" (`panel.yml`), que lee las notas de la caché de Actions. Su
-  página tiene su propia CSP en `web/public/_headers`: no cargar nada de afuera ahí (sólo GitHub y,
-  desde la regla 317, el Worker del reloj para la pausa general y «Actualizar la web ahora»).
-- **PAUSA GENERAL** (regla 317, botón de emergencia; escrita y probada el 24/10, subida y sin usar todavía: `docs/TRASPASO.md`): un archivo
-  de R2 (`pausa/estado.json` en `radar-motor`, `infra/compartido/pausa.mjs`) que el panel prende y apaga
-  por el Worker del reloj (`infra/reloj-cloudflare/panel-api.mjs`, con la misma llave de GitHub). En
-  pausa el reloj no pide el motor, las redes ni lo que gasta IA; el Worker de tareas y la vuelta del
-  motor lo vuelven a mirar. La vigilancia, el informe diario y los respaldos **no se frenan nunca**; el
-  vigilante y el informe dicen «en pausa desde X por Y». Si R2 no se puede leer, no se asume pausa.
-  Paso a paso para personas: `docs/11-OPERACION.md`, tarea 5 bis.
-
-## Estado (25/10/2026)
-
-- **Todo corre en Cloudflare** (23/10, `docs/TRASPASO.md`): web (motor en Workers Builds), tareas, redes con voz y escenas animadas, vigilancia e informes en el Worker
-  `radar-balcarce-tareas`, video en el repositorio público de render, reloj `radar-balcarce-reloj` con la variable `NUBE`. Los workflows viejos de GitHub quedan de vuelta atrás
-  y se apagan a mano. El archivo permanente en R2 está encendido y el sitio guarda 500 notas. Las redes están prendidas en la nube (`REDES_ACTIVAS_NUBE` = Sí al 22/10).
-- **Sin cupos desde el 17/10** (reglas 215 y 260): lo nacional sale por cuántos medios lo cuentan (3, o 2 en las áreas chicas); la estadística de la selección
-  (`scripts/medir/estadistica-seleccion.mjs`, el informe diario y la pestaña Números) es lo que Hernán mira cada semana para cambiar `MINIMO_NACIONAL` o `MINIMO_AREAS_CHICAS`.
-- **Criterio limpio de tiempos (25/10, regla 327)**: la fecha del hecho es la mediana de las fuentes para todo, una sola ventana de 24 horas para estrenar lo de afuera
-  (36 lo de Balcarce) y la IA recibe 6.000 caracteres por fuente y 18.000 en total. La variable `FECHA_DEL_HECHO` se sacó.
-- **Prendido y andando**: tarjetas en R2 (`TARJETAS_EN_R2`) y vuelta de noche por hora (`MOTOR_NOCHE_CADA_HORA`) desde el 24/10; mapas partidos por mes
-  (`SITEMAP_PARTIDO`), mapa del archivo (`SITEMAP_DEL_ARCHIVO`, el Worker del archivo subido) y la revisión del archivo (`REVISION_DEL_ARCHIVO` = si) desde el 25/10.
-- **Apagado y listo para prender** (lo prende una persona, en orden): fotos en R2, enlaces cortos, notas con datos propios (`NOTAS_CON_DATOS`, regla 323), fotos con
-  chicos de fuentes de Balcarce. Todo en **`PENDIENTES.md`**, que es la única lista de tareas; qué se decidió y las preguntas abiertas, en
-  **`docs/DECISIONES.md`**; el estado verificado de la auditoría 2.0, en `docs/auditoria-2-0/F-ESTADO-Y-PLAN-2-0.md`.
-- **Limpiezas**: el 17/10 se retiraron el panel de la PC, los ensayos en sombra, `pruebas-modelos/`, `criterio-unico/` y los programas de `docs/` (los que se usan, en
-  `scripts/medir/`); el 24/10, el código sin uso (regla 311); el 25/10, los documentos (46 a `docs/historico/`, 3 borrados, 7 unidos; el checklist del 29/10 y las efemérides de octubre pasan cuando venzan) y las reglas (de 327 números a 39).
-  Todo queda en el historial de git.
+- **Los archivos del repo están en CRLF.** En scripts, editar por líneas; un `\n` literal en un reemplazo multilínea no encuentra nada. Para regex con `\b`, `\s`, `\d`: escribir un `.cjs` con Write, no `node -e` ni un heredoc.
+- **Despliegues:** se piden a mano, uno solo por vez y sin juntarlo con un commit; antes, `gh api user` tiene que dar **radarbalcarce**. El permiso automático a veces bloquea el comando: pedir el OK a Hernán en el chat y reintentar.
+  Cambiar un `wrangler.toml` o un `.mjs` de un Worker no sube nada hasta desplegar ese módulo. Cambiar un workflow `.yml` sólo vale después de subirlo (push).
+- **Antes de `git push`, `git pull --rebase`.** Commitear sólo los archivos tocados (`git commit -- archivos`). El correo de los commits automáticos es el noreply de GitHub: no cambiarlo.
+- **Cuentas:** siempre `radarbalcarce@gmail.com` (Chrome, Cloudflare, GitHub, Google, Meta). Nunca otra.
+- **`REDES_ACTIVAS` manda en `v3/redes/wrangler.toml`** (hoy «si»: publica de verdad). Las variables de GitHub `REDES_ACTIVAS = No` y `REDES_ACTIVAS_NUBE = No` son del sistema viejo y **no mandan sobre la 3.0**, pero confunden.
+- **Una sola fuente de verdad por número:** el cupo de voz (15) vive en `v3/redes/piezas-plan.mjs` (`REGLAS_PIEZAS.audiosPorDia`); una prueba controla que `piezas/variables.mjs`, `reels/cupo-voz.mjs`, `wrangler.toml` y los documentos digan lo mismo.
+- **Cron de Cloudflare:** el plan gratis da cinco por Worker; `radar-redes` ya usa los cinco. Un trabajo nuevo se suma con el campo `ademas` de `DISPAROS` (`disparar-acciones.mjs`), a una hora fija, no con un cron nuevo.
+- **Las palabras clave cortas engañan** y las secciones son catorce (Balcarce, Política, Policiales, Educación, Salud, Fútbol, Deportes, Automovilismo, Agro, Economía, Ciencia, Cultura, Tecnología, Argentina).
+- **El turno de farmacia dura hasta las 8:30 del día siguiente.** Si Open-Meteo falla, el clima sale con su plantilla sin IA.
+- **Hora de Balcarce = UTC−3 todo el año.** Los crons de Cloudflare son UTC.
+- **Vencimientos** (tabla en `docs/3-0/VIGILANCIA-Y-VENCIMIENTOS.md`): voces propias 29/09/2027, dominio 21/09/2027, `security.txt` 7/11/2027, token de Threads (60 días, **renovar**), tokens de GitHub (el «Vigilante de Cloudflare (lectura)» venció el 14/11), token de Meta (**no verificado**).
+- **Ahorro de IA:** Gemini texto (`gemini-3.1-flash-lite`, clave paga con freno mensual de US$ 7), Mistral de respaldo (gratis), Workers AI para huellas e ilustraciones. Claves de voz aparte (`GEMINI_API_KEY_REDES`).
 
 ## Dónde tocar cada cosa
 
 | Quiero… | Dónde |
 |---|---|
-| Sumar, sacar o apagar una fuente, o cambiar un peso | `ingesta/fuentes.mjs` o `ingesta/fuentes-cruce.mjs` (`activa: false`); después, `node ingesta/listar-fuentes.mjs` |
-| Cuántos minutos de Workers Builds gasta cada paso de la vuelta, la memoria de tarjetas en R2, la vuelta de noche por hora, la proyección del mes y su aviso | `docs/etapa-10-operacion/MINUTOS-DE-WORKERS-BUILDS.md`; `infra/compartido/tarjetas-r2.mjs` (leer, mientras se compila), `infra/motor-cloudflare/tarjetas-r2.mjs` (subir y podar), `infra/motor-cloudflare/presupuesto.mjs` (`proyectar`, `avisoDeMinutos`, `vueltasPorDia`), `trabajosDelMinuto` y `umbralDeAtraso` (`infra/reloj-cloudflare/`), `problemasDeLaNube` (vigilante) |
-| Pasar un trabajo de GitHub a Cloudflare (o volver), el motor en Workers Builds, el Worker de tareas, el render público | `NUBE` en `infra/reloj-cloudflare/nube.mjs`; `infra/motor-cloudflare/`; `infra/tareas-cloudflare/tareas.mjs` (`lee`/`escribe`); `infra/render-publico/` (copia de `reels/`: `node scripts/sincronizar-render-publico.mjs`); cómo se sube: workflow «Desplegar Workers de Cloudflare» y `docs/11-OPERACION.md`, tarea 5 ter |
-| Que una palabra mande una nota a otra sección | `REGLAS_SECCION` (`ingesta/fuentes.mjs`); si es ambigua, también `PALABRAS_DEBILES` (`ingesta/ingesta.mjs`) |
-| Que algo espere a una persona o no salga nunca | `REGLAS_SEMAFORO` (`ingesta/fuentes.mjs`: `rojo` —no sin preguntar—, `nunca`, `amarillo`, `cotizacion`, `internacional`, `promocional`); lo de Balcarce y lo que cuentan 8 medios o más no esperan por el amarillo (reglas 291 y 292: `sueltaElAmarillo`, `ingesta/ingesta.mjs`); la cotización, `esCotizacionDelDia`; la muerte de un famoso en Policiales, `esMuerteDeFamosoEnPoliciales` (regla 289) |
-| Qué es "de acá" o "la zona" | `esDeAca` (`ingesta/ingesta.mjs`), `PALABRAS_LOCALES` y `PALABRAS_ZONA` (`ingesta/fuentes.mjs`) |
-| Cómo se juntan las notas del mismo hecho | `CRUCE` y el cruce coherente, que no encadena (`CRUCE.coherente`, `CRUCE_COHERENTE`, regla 184: `docs/flujos/CRUCE-COHERENTE.md`) (`ingesta/cruce.mjs`), `agruparRepetidas` y `quitarRepetidas` (`ingesta/lectura-ia.mjs`), y las que vuelven con otra dirección, `web/lib/repetidas.js`; lo de acá con otras palabras, la huella de significado (`ingesta/huellas-significado.mjs`, regla 195: `docs/flujos/REPETIDAS-2-0.md`) |
-| Que una historia no junte hechos distintos (cadenas A-B-C de la IA, Balcarce pegado a un evento de afuera, la IA que manda a Policiales lo que no es policial; interruptor `HECHO_PRINCIPAL=no`, regla 322) | `ingesta/hecho-principal.mjs` (`HECHO_PRINCIPAL`: los números; `crearJuez`, `partirGrupos`, `separarLoDeAca`), `unirGrupos` y `quitarRepetidas` (`guardaDeHecho`) y `sinPoliciaDeVerdad` (`ingesta/lectura-ia.mjs`), `armarHistorias` (`ingesta/ingesta.mjs`); medir con `node scripts/medir/hecho-principal.mjs`; `docs/etapa-10-operacion/HECHO-PRINCIPAL.md` |
-| Cualquier número del criterio | `ingesta/criterio.mjs` **y** la tabla "Los números" de `CRITERIO-EDITORIAL.md` |
-| Cuántos medios pide lo de afuera (3) y en las áreas chicas (2) | Las variables de GitHub `MINIMO_NACIONAL` y `MINIMO_AREAS_CHICAS` (sin tocar código); el valor de siempre y qué áreas son chicas, `POPULARIDAD` y `AREAS_CHICAS` (`ingesta/criterio.mjs` **y** la tabla del criterio), `ingesta/popularidad.mjs` (regla 260) |
-| Cómo cae la selección (qué llega, con cuántos medios, qué sale y por qué no; cuántas notas habría con otro mínimo) | `web/data/estadistica-seleccion.json` (`ingesta/estadistica-seleccion.mjs`), `node scripts/medir/estadistica-seleccion.mjs` (`--ahora` mide el momento sin IA), `web/public/panel/numeros.js`, la línea «La selección» de `redes/informe-diario.mjs` (regla 261); el motivo de cada historia (lista cerrada `MOTIVOS`, primero y último, con quién se unió; «otros» ya no se anota: regla 314), `node scripts/medir/por-que-no-entro.mjs` (repetición sin red de por qué no entró: la fecha del hecho por la mediana, que rige para todo desde la regla 327, comparada con la de la fuente más vieja de antes) |
-| Cómo decide la lectura con IA | `ingesta/lectura-ia.mjs`; lo que sabe de Balcarce, `ingesta/perfil-balcarce.md` (va tal cual a la IA) |
-| Cómo escribe la IA | `CRITERIO-EDITORIAL.md` § 4 y § 12; medir un cambio con `reels/comparar-instruccion.mjs` |
-| El verificador o los arreglos que no inventan | `ingesta/verificar.mjs` (`verificar`, `arreglarEscritura`, `diceEnVivo`) |
-| Cuándo una nota pierde su página | `pierdeLaPagina` (`web/lib/archivo.js`), `tieneRespaldo` (`web/lib/cuerpo.js`) |
-| Sacar o corregir una nota sin el celular | `web/data/retiradas.json` / `web/data/correcciones.json` (motivo, cuándo y quién) |
-| Sacar de la agenda un evento suspendido que el municipio sigue teniendo | `web/data/agenda-suspendidos.json` (`id`, motivo, cuándo y quién; regla 163) |
-| Las estadísticas (pestaña Números del panel del celular) | `redes/estadisticas.mjs` (mide) y `redes/estadisticas-detalle.mjs` (el detalle diario de Cloudflare: horas, notas, de dónde llegan, aparatos, países → `web/data/estadisticas.json`), `web/public/panel/numeros.js` (lo que se muestra) |
-| La auditoría con IA de lo ya publicado (pestaña Revisión del panel; avisa y corrige sola sólo la ortografía chica y segura, regla 98) | `ingesta/auditoria-ia.mjs` (qué lee, qué busca y `cambioMecanico`), `redes/auditar-notas.mjs`, `.github/workflows/auditoria-ia.yml`, `web/public/panel/revision.js`, `web/data/correcciones-auditoria.json` (lo escriben la auditoría y la revisión del archivo), `conCambiosDeLaAuditoria` (`web/lib/archivo.js`; desde el 17/10 también sobre las notas viejas del archivo) |
-| La revisión del archivo entero, por tandas, con el criterio de hoy (desde el 22/10/2026, cada 2 h a los :12 por el reloj de Cloudflare: retira lo que hoy no saldría, une repetidas, saca fotos que no pasan, corrige lo seguro y deja lo dudoso para una persona; regla 212) | `web/scripts/revisar-archivo.mjs` (`REVISION`: tandas, cupo, versión del criterio y `desde`; `simular` sin IA), `.github/workflows/revisar-archivo.yml`, `web/data/revision-archivo.json` (lo escribe sólo ese workflow; su lista `retiradas` no se poda), `web/lib/revision-archivo.js` (lo que leen generar-datos, «Ilustrar notas sin foto» y el informe diario), variable `REVISION_DEL_ARCHIVO` ("no" la frena); `docs/flujos/REVISION-DEL-ARCHIVO.md` |
-| Las notas sin foto del panel (pestaña Fotos: por qué, dónde buscarla y sumarla a mano) | `web/public/panel/fotos.js`, `web/scripts/foto-manual.mjs`, `web/data/fotos-manuales.json` (lo escribe sólo "Panel del celular"), `accion=foto` de `panel.yml` |
-| Los contactos del celular (instituciones y propios, a quién se le escribió; cifrado) | `web/public/panel/contactos.js`, `web/public/panel/cifrado.js` (`cerrar`), `web/data/contactos-celular.json`, `ingesta/contactos-agenda.json` (público) |
-| Las pistas del panel (pegar un tuit o un enlace; quedan abiertas, se vuelven a mirar cada 3 horas y se sigue en qué quedó cada una) | `ingesta/pistas.mjs`, `panel/pistas-libro.mjs`, `panel/revisar-pistas.mjs`, `.github/workflows/pistas.yml`, `web/data/pistas.json`, `web/public/panel/pistas.js`, `panel/celular.mjs` (acciones `pista` y `nota-pista`) |
-| Que una persona publique una nota propia desde el celular (título, bajada, cuerpo, fotos de portada y de adentro con `[foto N]`, firma «Hernán Accomo»; sin IA ni verificador; tamaños 1600 × 900 y 1200 px; editar y retirar; no sale sola a las redes) | `web/public/panel/escribir.js` (medidas, marcas, controles, pantalla), `app.js` (`vistaEscribir`, `achicarFoto`, `publicarRedaccion`) y `github.js` (`conNotaDeRedaccion`), `web/lib/notas-de-redaccion.js` (valida y arma la nota: `notasDeRedaccion`, `partirCuerpo`), `web/lib/cuerpo-con-fotos.js` y `web/components/cuerpo-con-fotos.js` (las fotos entre párrafos), `web/data/notas-de-redaccion.json`; `docs/09-PANEL.md`, «Escribir una nota» |
-| Hacer una nota propia de una pista (búsqueda con texto en internet, Tavily) | `ingesta/busqueda.mjs`, `panel/nota-de-pista.mjs`, `web/lib/notas-de-pistas.js`, `web/data/notas-de-pistas.json` (lo escribe sólo el celular) |
-| El panel del celular | `web/public/panel/` (la app), `panel/celular-datos.mjs` (lo que decide y lo que recibe), `panel/cifrado.mjs`, `panel/celular.mjs` y `panel/reescribir-una.mjs` (el pedido a la IA), `.github/workflows/panel.yml` |
-| Frenar todo en una emergencia (PAUSA GENERAL) y «Actualizar la web ahora» (regla 317) | `infra/compartido/pausa.mjs` (qué frena y qué no: `TRABAJOS_QUE_FRENA`, `TAREAS_QUE_FRENA`), `infra/reloj-cloudflare/panel-api.mjs` (la puerta del panel: `/panel/estado`, `/panel/pausa`, `/panel/vuelta`) y `worker.mjs` del reloj (lo lee cada minuto), `infra/tareas-cloudflare/worker.mjs` y `infra/motor-cloudflare/vuelta.mjs` (segunda llave), `aplicarLaPausa` (`infra/vigilante-cloudflare/worker.mjs`), `web/public/panel/nube.js`; subirlo y probarlo: `docs/11-OPERACION.md`, tarea 5 bis |
-| "Un día como hoy" y los feriados (el mes armado se aprueba, se saca o se frena en la pestaña Fechas → Mes armado: `redes/efemeride.mjs`, regla 97) | `ingesta/efemerides.mjs` (candidatas y puntaje), `ingesta/generar-efemerides.mjs` (la corrida mensual), `ingesta/efemerides-curadas.json` (fechas patrias y de Balcarce), pestaña Fechas del panel (`web/public/panel/fechas.js`); `docs/13-EFEMERIDES.md` |
-| La nota del diario de "Un día como hoy" (sale cuando sale el video; texto propio, ilustración fija con IA) | `notasDeEfemerides` (`web/lib/notas-propias.js`), `web/public/fotos-notas/efemeride-fondo.jpg`; regla 165 |
-| La imagen de la nota del clima (ilustración fija con IA según el estado del tiempo y la fecha; regla 181) | `web/lib/fondos-clima.js`, `web/public/fotos-notas/clima-<estado>-<n>.jpg`, workflow manual `generar-fondos-clima.yml` (genera candidatas nuevas) |
-| Ilustrar con IA las notas sin foto (automático cada 2 h de 7 a 23 por el reloj de Cloudflare, o a mano: revisar y después aplicar; reglas 182, 185 y 206: un solo camino, Cloudflare gratis; Gemini web quedó desactivado el 17/10) | Workflow «Ilustrar notas sin foto» (`ilustrar-notas.yml`), `web/scripts/ilustrar-notas.mjs` (filtros `motivoParaSaltar`, tono, prompt, topes y `cupoAutomatico`), `web/data/fotos-ia.json` (lo escribe ese workflow; prioridad más baja en `conFotosDelBanco`) |
-| Los datos propios de una nota (bloques «Antes en Radar», ficha de Colapinto y tira del dólar, armados por código; apagados con `NOTAS_CON_DATOS`) y los gráficos SVG | `web/lib/bloques-de-datos.js` (interruptor, filtros de seguridad, los tres bloques), `web/lib/graficos.js` (barras, líneas, ficha; también para placas con `anidarSvg`), `web/components/bloque-de-datos.js`, `fichaDeColapinto` (`ingesta/f1.mjs`); `docs/etapa-10-operacion/NOTAS-CON-DATOS-PILOTO.md` |
-| La firma de las notas | `quienEscribio`, `firmaCorta` (`web/components/metadatos.js`) |
-| Las fotos | `web/scripts/fotos-notas.mjs`, `ingesta/fotos.mjs`, `web/scripts/achicar-foto.mjs` |
-| Una sección nueva, su nombre o su color | `SECCIONES` (`web/lib/datos.js`), `--s-*` (`web/app/globals.css`), `REGLAS_SECCION`, `seccionesDeLaFicha()` (`ingesta/lectura-ia.mjs`), `SECCIONES` de `web/public/panel/github.js`; las del mapa de 17, activas Educación, Salud y Ciencia: `SECCIONES_SUMADAS` y `seccionSumada` (`ingesta/secciones-nuevas.mjs`), `seccionesDelSitio` y `navegacionDelSitio` (`web/lib/datos.js`), `COLOR_SECCION` + `CRITERIO-REDES.md` § 8 y `--s-*` (regla 216) |
-| La tapa, las secciones o "Seguí leyendo" | `armarTapa` (`web/lib/datos.js`), `web/lib/seguir-leyendo.js` |
-| La nota del dólar o la de cada podcast | `web/lib/notas-propias.js` |
-| Las notas de F1 (horarios, clasificación, resultado; Jolpica) y de fútbol (Liga, Copa Argentina, Libertadores y Sudamericana con equipos argentinos; ESPN) | `ingesta/f1.mjs`, `ingesta/futbol.mjs`, `web/data/f1.json`, `web/data/futbol.json`; la foto libre, `web/scripts/foto-libre.mjs` |
-| Qué va a las redes (sólo Balcarce y lo más contado del país: `FACEBOOK.mediosParaRedes`, regla 280) | `vaAFacebookPorLoQueEs`, `esPopularParaRedes`, `elegirParaFacebook`; en los repasos, `elegirParaPodcast` y `sePuedeEnUnRepaso` (`redes/elegir.mjs`); cuántos por día: 5 (`docs/DECISIONES.md`, 23/10; la propuesta vieja, en `docs/historico/redes/PROPUESTA-POSTEOS-POR-DIA.md`) |
-| El texto de cada red y los hashtags fijos (`#Balcarce #RadarBalcarce`, regla 281) | `hashtagsDe`, `mensajeDeNota` (`redes/elegir.mjs`), `hashtagsDePieza`, `pieDePieza` (`redes/piezas.mjs`); la tabla por red: `docs/redes/FORMATOS-POR-RED.md` |
-| Los enlaces cortos de las redes (`ENLACES_CORTOS`, apagado; regla 282; llega a Actions por `redes.yml`, `piezas.yml` y `reintentar.yml`, y a Workers Builds por `cargar-variables.mjs`: regla 311) | `redes/enlaces-cortos.mjs`, `infra/enlaces-cloudflare/` (Worker y ruta); `docs/redes/ACORTADOR-DE-ENLACES.md` |
-| La foto de una nota que cambia después de salir en Facebook (regla 283) | `redes/foto-cambiada.mjs`, `releerEnlace` (`redes/meta.mjs`), `FACEBOOK.horasEsperandoFotoReal`; `docs/redes/FOTO-CAMBIADA-DESPUES-DEL-POSTEO.md` |
-| A qué hora sale una pieza, su ventana, su prioridad de voz y si es reel o historia | Una sola tabla: `PIEZAS_DEL_DIA` (`redes/piezas-del-dia.mjs`); `HORAS_REELS`, `VENTANAS`, `HISTORIAS_FIJAS` y `PRIORIDAD` salen de ahí |
-| Cómo suenan o qué dicen las piezas | `CRITERIO-REDES.md` y `redes/guiones.mjs` |
-| Las voces | `CRITERIO-REDES.md` § 6; crearlas, "Crear voces" (`reels/crear-voces.mjs`) |
-| El contrato del día | `redes/contrato.mjs` y `CONTRATO_DIARIO` (`ingesta/criterio.mjs` **y** `CRITERIO-EDITORIAL.md`) |
-| El dibujo de una placa o de una tarjeta | `reels/placa.mjs`; `web/lib/tarjeta.js` y `web/lib/tarjeta-diseno.js` |
-| Los colores de las placas (qué color es de qué) | `CRITERIO-REDES.md` § 8 y `COLOR_SECCION` (`reels/placa.mjs`); una prueba controla que digan lo mismo |
-| Qué vigila el vigilante o qué dice el WhatsApp | `redes/vigilar.mjs` (`evaluar`, `revisarClaves`, `VENCIMIENTOS`), `redes/avisos.mjs` |
-| Los informes diarios por mail (8:15 y 21:15: qué se publicó, qué espera, redes, visitas, salud; regla 176) | `redes/informe-diario.mjs`, `.github/workflows/informe-diario.yml`, el horario en `infra/reloj-cloudflare/` (`trabajosDelMinuto`) y el `html` de `POST /avisar` en `infra/vigilante-cloudflare/worker.mjs`; el resumen de las 22 del Worker es sólo el respaldo |
-| Cuántos pedidos hace cada IA y por qué fallan (cupo del día, velocidad, saturado, rechazada, otro) | `redes/uso-ia.mjs` (`anotarUsoIA`, `anotarFallaIA`, `conMedicion`, `motivoDeError`, `resumenPorClave`, `unirUso`), `web/data/uso-ia.json`, `lineasDeUsoPorClave` (`redes/informe-diario.mjs`); las tareas del Worker lo unen en `infra/tareas-cloudflare/tareas.mjs` (`UNIR_USO`) |
-| Qué archivos guarda "Actualizar la web" | La línea `git add` de `.github/workflows/actualizar.yml` (un archivo nuevo de `web/data/` que no esté ahí se pierde) |
-| Qué notas llevan `noindex` aunque se muestren (clima diario, repasos, dólar del día, horarios de F1 y fútbol, códigos de juegos), qué imagen y qué `dateModified` declara el marcado, y los mapas del sitio partidos por mes (`SITEMAP_PARTIDO`, prendido el 25/10) y el del archivo en R2 (índice + un mapa por mes; se anuncia en `robots.txt` con `SITEMAP_DEL_ARCHIVO`) | `web/lib/indexacion.js` (`motivoDePlantilla`, `noSeIndexa`), `imagenesDeNota` (`web/lib/datos-estructurados.js`), `fechaDeModificacion` (`web/lib/tiempo.js`) y `auditadaCuando` (`web/lib/archivo.js`), `web/lib/sitemap-sitio.js` y `web/app/sitemap-notas/`, `mapasDelArchivo` (`infra/archivo-cloudflare/worker.mjs`); el orden de prendido, `docs/auditoria-2-0/R-SEO-TECNICO-24-10.md` |
-| Qué obliga a recompilar antes de subir, y las redirecciones | `NO_CAMBIAN_EL_SITIO` (`web/scripts/recompilar.mjs`, regla 189); `planDeRedirecciones` (`web/scripts/generar-redirects.mjs`, regla 191) |
-| La política hacia buscadores e IA (`robots.txt`, bots), los datos estructurados, los sitemaps, `llms.txt`, y los datos para agentes (el servidor MCP escrito y sin activar se borró el 17/10) | `web/lib/robots.js`, `web/lib/datos-estructurados.js`, `web/components/ficha.js`, `web/app/sitemap.js`, `web/app/llms.txt/route.js`, `web/lib/para-agentes.js` (`/agentes/*.json`); el estado, los trámites y las decisiones: `docs/seo/AUDITORIA-SEO-LLM.md` |
-| Los avisos publicitarios | `web/data/avisos.json`, a mano, con quién y cuándo en el commit (`PUBLICIDAD.md`); la agenda sale sólo del municipio (`ingesta/agenda.mjs`) |
-| Qué se decidió, por qué y quién; las preguntas abiertas | `docs/DECISIONES.md` (lo nuevo arriba) |
+| Sumar, apagar o corregir una fuente | `v3/nucleo/scripts/generar-fuentes.mjs` (`APAGAR`, `ENCENDER`, `NOTAS`, `SUMAR`, `CORREGIR_URL`) y después `node v3/nucleo/scripts/generar-fuentes.mjs`: **`fuentes.json` se genera, no se edita** |
+| Cuántos medios pide lo de afuera, tope por día, fin de semana | `v3/nucleo/wrangler.toml` (`NUCLEO_MINIMO_NACIONAL`, `..._FINDE`, `..._AREAS_CHICAS`, `NUCLEO_TOPE_NACIONAL`); `v3/nucleo/REGLAS.md` § 4 |
+| Cómo escribe y verifica la IA | `v3/nucleo/redactar/REDACCION.md` y `verificar.mjs`; lo que sabe de Balcarce, `v3/nucleo/PERFIL.md` |
+| Fotos (elegir, copia propia, ilustración, foto de archivo) | `v3/nucleo/fotos/`, `v3/nucleo/ilustrar/`, `v3/sitio/fotos-copia.mjs`, `v3/sitio/foto-proxy.mjs`; `v3/nucleo/REGLAS.md` § 7 |
+| Una página, SEO, avisos, cookies | `v3/sitio/` (`sitio.mjs` rutas, `vistas/`), `v3/sitio/REGLAS.md` |
+| Qué sale a redes y cuándo | `v3/redes/elegir.mjs` (posteos), `piezas-del-dia.mjs` (tabla de piezas con hora), `piezas-plan.mjs` (plan y cupo de voz), `redes.mjs` (la vuelta); resumen para personas: `docs/3-0/CONTENIDO-REDES-3-0.md` |
+| El dibujo o el guion de una pieza | `v3/redes/piezas/` (`armadores.mjs`, `escenas.mjs`, `variables.mjs`); `v3/redes/piezas/REGLAS.md` |
+| Efemérides («Un día como hoy») y feriados | `v3/redes/efemerides/`, `web/data/efemerides-piezas.json` (121 días armados de diciembre a marzo), `v3-efemerides.yml` (arma el mes que viene el día 20) |
+| Quién dispara los workflows y a qué hora | `v3/redes/disparar-acciones.mjs` + `v3/redes/wrangler.toml` (los dos tienen que decir lo mismo: una prueba lo controla) |
+| Notas propias, /retirar, /corregir, /redes, /repaso | `v3/redaccion/telegram/` (`administrar.mjs`, `nota-propia.mjs`); `docs/3-0/TELEGRAM.md` |
+| Qué vigila la vigilancia y a quién avisa | `v3/vigilancia/`; `docs/3-0/VIGILANCIA-Y-VENCIMIENTOS.md` |
+| Avisos publicitarios | `docs/3-0/PUBLICIDAD.md`, `v3/sitio/scripts/cargar-aviso.mjs` |
+| Estadísticas | `v3/redes/estadisticas.mjs`, `docs/3-0/ESTADISTICAS-DIARIAS.md` |
+| Qué hay pendiente | `docs/3-0/PENDIENTES-3-0.md` (la única lista de tareas) |
 
 ## Cuentas
 
-- **GitHub:** cuenta de `radarbalcarce@gmail.com`, repositorio `radarbalcarce/radar-balcarce`
-  (desde el 15/10), **público** todavía: el robot ya salió de Actions (23/10) pero faltan apagar los workflows
-  viejos, el tope de gasto en US$ 0 y compactar el historial antes de pasarlo a privado (`PENDIENTES.md`). Colaboradores invitados: `balcardev`, Andrés y Hernán.
-- **Todo lo demás:** `radarbalcarce@gmail.com` (Cloudflare con el Worker del reloj,
-  Google/Gemini, Meta, Instagram, Search Console, Tailscale; cron-job.org, pausado;
-  Vercel, apagado).
-- **Meta:** app "Radar Balcarce Publicador" (ID 2302218363874399), usuario del sistema
-  `publicador-radar`, token sin vencimiento en `META_TOKEN` (con `read_insights` e
-  `instagram_manage_insights`). Página de Facebook "Radar Balcarce", ID para la API
-  **1254237411116171** (`PAGINA_DE_FACEBOOK`, `redes/meta.mjs`). Instagram `@radarbalcarce`.
-- **Dominio** `radarbalcarce.com` (DonWeb), vence el **21/09/2027**. WhatsApp del medio: 2266 51-1612.
-- Secretos, workflows, costos y vencimientos: `docs/08-INFRAESTRUCTURA.md`.
+- **GitHub:** cuenta de `radarbalcarce@gmail.com`, repositorio `radarbalcarce/radar-balcarce`, **público** todavía (pasarlo a privado está pendiente: `PENDIENTES-3-0.md`).
+- **Todo lo demás:** `radarbalcarce@gmail.com` (Cloudflare, Google/Gemini, AdSense `pub-2759023791445864`, Search Console, Meta, Buffer).
+- **Meta:** app «Radar Balcarce Publicador», página de Facebook «Radar Balcarce» (ID `1254237411116171`), Instagram `@radarbalcarce`. Token en el secreto `META_TOKEN`.
+- **Dominio** `radarbalcarce.com` (DonWeb), vence el **21/09/2027**. WhatsApp del medio: 2266 51-1612. Mail: `contacto@radarbalcarce.com`.
 
 ## Documentos
 
-**`docs/CRITERIO-EN-UNA-PAGINA.md`** es qué sale, qué no y por qué, con cada número y dónde vive (empezar por ahí para saber algo del criterio). **`docs/00-INDICE.md`** tiene la lista completa. Los que más se usan: `docs/11-OPERACION.md`,
-`docs/10-REGLAS-Y-PRUEBAS.md`, `docs/08-INFRAESTRUCTURA.md`, `docs/09-PANEL.md`, los dos criterios
-(`CRITERIO-EDITORIAL.md` y `CRITERIO-REDES.md`), `docs/DECISIONES.md`, `PENDIENTES.md` e `IDEAS.md`.
+Empezar por **`docs/3-0/LEEME.md`** (índice) y **`docs/3-0/UN-DIA-DEL-SITIO.md`** (cómo funciona hoy, hora por hora). Los que más se usan: `docs/3-0/REDES.md` y `docs/3-0/CONTENIDO-REDES-3-0.md` (qué sale en cada red),
+`docs/3-0/TELEGRAM.md`, `docs/3-0/PENDIENTES-3-0.md`, `docs/3-0/AUDITORIA-SISTEMA-17-11.md` y `AUDITORIA-SITIO-17-11.md` (estado verificado del 17/11), `docs/3-0/PLAN-DE-TRABAJO-17-11.md`,
+`docs/3-0/APAGAR-EL-VIEJO.md` y los dos criterios (`CRITERIO-EDITORIAL.md`, `CRITERIO-REDES.md`, que el código 3.0 todavía cita).
 
-**Marca (12/11/2026):** antes de armar cualquier imagen, placa, gráfico, pieza de redes o página, mirar `docs/3-0/MANUAL-DE-MARCA.html` (hay `.pdf`): colores por sección, letras, firma de cierre, formatos y lo que nunca se hace. Formato de imágenes compartibles: `docs/3-0/FORMATO-DE-IMAGENES.md`.
+## Sistema viejo (en retirada)
+
+El sistema anterior (`ingesta/`, `reels/`, `redes/`, `panel/`, `web/`, `infra/`, `pruebas/`, con GitHub Actions y Workers Builds) quedó **apagado en lo que publicaba**: su reloj y su vigilante no tienen horarios,
+12 de sus workflows están desactivados y la red de seguridad del sitio viejo (`RESPALDO_VIEJO`) está en «no». **Pero no se puede borrar todavía:** el código de `v3/` importa 21 archivos de esas
+carpetas, quedan Workers y secretos viejos sin apagar (`OPENROUTER_API_KEY`, `WHATSAPP_*`) y el repositorio es público. Se apaga de a un paso por día con `docs/3-0/APAGAR-EL-VIEJO.md`.
+`npm test` (la carpeta `pruebas/`) es del viejo: ya no es la vara de la 3.0. Su CLAUDE.md completo, con las reglas R1 a R41, está en `docs/historico/CLAUDE-SISTEMA-VIEJO.md`; la historia de las reglas 1 a 327, en `docs/historico/REGLAS-1-A-327.md`.

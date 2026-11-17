@@ -1,4 +1,4 @@
-// Regla 208 (17/10/2026): el cupo de voz (10 audios por día) se cuenta. Cada pedido a Gemini, también un reintento, es un audio: se anota
+// Regla 208 (17/10/2026): el cupo de voz (15 audios por día desde el 13/11/2026) se cuenta. Cada pedido a Gemini, también un reintento, es un audio: se anota
 // antes de pedir, no se pide si dejaría sin voz a una pieza más importante que falta hoy (el repaso antes que lo opcional; nunca otra voz),
 // y un reintento no vuelve a gastar si el audio o el video ya se habían hecho. Sin red ni cupo.
 import { test, before, after } from 'node:test';
@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {
-  AUDIOS_POR_DIA, diaDelCupo, leerCupo, quedan, anotarPedido, marcarAgotado, motivoParaNoPedir, reservaPara, prioridadDe, porPrioridad,
+  AUDIOS_POR_DIA, AVISO_DESDE, diaDelCupo, leerCupo, quedan, anotarPedido, marcarAgotado, motivoParaNoPedir, reservaPara, prioridadDe, porPrioridad,
   textoDelCupo, hayQueAvisar,
 } from '../reels/cupo-voz.mjs';
 import { decirGemini, claveDeVoz, guardarCrudoEnLaMemoria } from '../reels/voz-gemini.mjs';
@@ -30,12 +30,12 @@ test('el día del cupo es el de Google (California): en Balcarce cambia a la mad
 test('cada pedido se anota y se sabe cuántos quedan; al 80 % avisa; si Google dice que se acabó, no queda ninguno', () => {
   const c = carpeta();
   assert.equal(quedan({ carpeta: c, ahora: AHORA }), AUDIOS_POR_DIA);
-  for (let i = 0; i < 7; i += 1) anotarPedido('clima-manana', { carpeta: c, ahora: AHORA });
-  assert.equal(quedan({ carpeta: c, ahora: AHORA }), 3);
+  for (let i = 0; i < AVISO_DESDE - 1; i += 1) anotarPedido('clima-manana', { carpeta: c, ahora: AHORA });
+  assert.equal(quedan({ carpeta: c, ahora: AHORA }), AUDIOS_POR_DIA - (AVISO_DESDE - 1));
   assert.equal(hayQueAvisar({ carpeta: c, ahora: AHORA }), false);
   anotarPedido('noticia1', { carpeta: c, ahora: AHORA });
   assert.equal(hayQueAvisar({ carpeta: c, ahora: AHORA }), true);
-  assert.match(textoDelCupo({ carpeta: c, ahora: AHORA }), /8 de 10 audios usados hoy.*quedan 2/);
+  assert.match(textoDelCupo({ carpeta: c, ahora: AHORA }), new RegExp(`${AVISO_DESDE} de ${AUDIOS_POR_DIA} audios usados hoy.*quedan ${AUDIOS_POR_DIA - AVISO_DESDE}`));
   assert.equal(leerCupo({ carpeta: c, ahora: AHORA }).pedidos.at(-1).pieza, 'noticia1');
   // Otro día empieza de cero.
   assert.equal(quedan({ carpeta: c, ahora: new Date('2026-10-18T10:00:00-03:00') }), AUDIOS_POR_DIA);
@@ -62,7 +62,7 @@ test('las prioridades: el repaso, después el clima y la farmacia, después la e
 
 test('con pocos audios, lo opcional no se pide y lo dice; el repaso sí', () => {
   const c = carpeta();
-  for (let i = 0; i < 8; i += 1) anotarPedido('x', { carpeta: c, ahora: AHORA });
+  for (let i = 0; i < AUDIOS_POR_DIA - 2; i += 1) anotarPedido('x', { carpeta: c, ahora: AHORA }); // quedan 2
   assert.match(motivoParaNoPedir({ pieza: 'participa-nota', reservar: 2, carpeta: c, ahora: AHORA }), /quedan 2 audio\(s\).*se guardan para 2 piezas más importantes/);
   assert.equal(motivoParaNoPedir({ pieza: 'noticia2', reservar: 0, carpeta: c, ahora: AHORA }), null);
   assert.equal(motivoParaNoPedir({ pieza: 'farmacia', reservar: 1, carpeta: c, ahora: AHORA }), null, 'quedan 2: una para la farmacia y otra para el repaso');
@@ -88,11 +88,12 @@ test('decirGemini cuenta CADA pedido (también los reintentos) y no pide cuando 
     await assert.rejects(() => decirGemini('Buen día, Balcarce.', path.join(c, 'a.mp3'), { intentos: 3, fetchFn: vacio, pieza: 'clima-manana' }), /sin audio/);
     assert.equal(pedidos, 3);
     assert.equal(leerCupo({ carpeta: c }).usados, 3, 'los tres intentos son tres audios del cupo');
-    // Quedan 7; con 7 a guardar, la pieza opcional no pide nada.
+    // Quedan AUDIOS_POR_DIA - 3; con todos a guardar, la pieza opcional no pide nada.
+    const resto = AUDIOS_POR_DIA - 3;
     pedidos = 0;
     await assert.rejects(
-      () => decirGemini('Escribinos por WhatsApp.', path.join(c, 'b.mp3'), { fetchFn: vacio, pieza: 'participa-nota', reservar: 7 }),
-      (e) => e.sinCupo === true && /se guardan para 7 piezas más importantes/.test(e.message),
+      () => decirGemini('Escribinos por WhatsApp.', path.join(c, 'b.mp3'), { fetchFn: vacio, pieza: 'participa-nota', reservar: resto }),
+      (e) => e.sinCupo === true && new RegExp(`se guardan para ${resto} piezas más importantes`).test(e.message),
     );
     assert.equal(pedidos, 0, 'no se pidió nada');
     // El 429 del día deja el contador en el tope.

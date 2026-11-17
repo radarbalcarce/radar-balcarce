@@ -10,7 +10,7 @@ import * as dbp from './piezas-db.mjs';
 import { datosDeLaSemana, proximaNotaConCarrusel, proximaNotaConReel } from './piezas-carruseles.mjs';
 
 export const REGLAS_PIEZAS = Object.freeze({
-  audiosPorDia: 10,        // el cupo de voz (CRITERIO-REDES.md § 6). Se cambia con la variable VOZ_TOPE_DIARIO
+  audiosPorDia: 15,        // el cupo de voz: 15 por día fijos (Hernán, 13/11/2026; CRITERIO-REDES.md § 6). La única fuente de verdad: una prueba controla que reels/cupo-voz.mjs y piezas/variables.mjs digan lo mismo. Las notas propias de Hernán no cuentan. VOZ_TOPE_DIARIO sólo sirve para ensayar con otro número
   intentosPorPieza: 3,     // después de tres errores en el día, esa pieza se abandona
   reservaVenceMinutos: 45, // una reserva 'en-curso' más vieja se da por cortada
   edadDeLasNotasHoras: 24, // las notas que puede contar un repaso

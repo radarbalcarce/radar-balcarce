@@ -198,3 +198,51 @@ test('el despliegue de redes carga GITHUB_TOKEN_ACCIONES desde RELOJ_GITHUB_TOKE
   assert.match(paso, /"GITHUB_TOKEN_ACCIONES"\]\)if\(process\.env\[k\]\)/);
   assert.match(paso, /secret bulk/);
 });
+
+// ---- 17/11/2026 (auditoría H-03): estadísticas, efemérides del día 20 y respaldo de la base también salen por el reloj de Cloudflare ----
+
+const archivosDe = (g) => g.pedidos.map((p) => p.url.split('/workflows/')[1].replace('/dispatches', ''));
+
+test('a las 0:07 UTC (21:07 de Balcarce) el cron de las piezas despierta también las estadísticas, y a ninguna otra hora', async () => {
+  const g = githubDeMentira(204);
+  const env = { GITHUB_TOKEN_ACCIONES: 'x' };
+  await dispararAcciones({ cron: CRON_PIEZAS, scheduledTime: Date.UTC(2026, 10, 18, 0, 7) }, env, { fetchFn: g.fetchFn, esperar: sinEsperar });
+  assert.deepEqual(archivosDe(g), ['v3-piezas.yml', 'v3-estadisticas.yml']);
+  assert.deepEqual(g.pedidos[1].cuerpo.inputs, { telegram: 'si' });
+  g.pedidos.length = 0;
+  await dispararAcciones({ cron: CRON_PIEZAS, scheduledTime: Date.UTC(2026, 10, 18, 1, 7) }, env, { fetchFn: g.fetchFn, esperar: sinEsperar });
+  assert.deepEqual(archivosDe(g), ['v3-piezas.yml']);
+});
+
+test('las efemérides del mes que viene se arman el día 20 a las 13:07 UTC (10:07 de Balcarce), con `automatico`, y no otros días', async () => {
+  const g = githubDeMentira(204);
+  const env = { GITHUB_TOKEN_ACCIONES: 'x' };
+  await dispararAcciones({ cron: CRON_PIEZAS, scheduledTime: Date.UTC(2026, 10, 20, 13, 7) }, env, { fetchFn: g.fetchFn, esperar: sinEsperar });
+  assert.deepEqual(archivosDe(g), ['v3-piezas.yml', 'v3-efemerides.yml']);
+  assert.deepEqual(g.pedidos[1].cuerpo.inputs, { automatico: 'true' });
+  g.pedidos.length = 0;
+  await dispararAcciones({ cron: CRON_PIEZAS, scheduledTime: Date.UTC(2026, 10, 19, 13, 7) }, env, { fetchFn: g.fetchFn, esperar: sinEsperar });
+  await dispararAcciones({ cron: CRON_PIEZAS, scheduledTime: Date.UTC(2026, 10, 21, 13, 7) }, env, { fetchFn: g.fetchFn, esperar: sinEsperar });
+  assert.deepEqual(archivosDe(g), ['v3-piezas.yml', 'v3-piezas.yml'], 'el 19 y el 21 sólo las piezas');
+});
+
+test('el respaldo de la base sale a la 1:40 UTC (22:40 de Balcarce) con el cron de las fotos propias, y las fotos siguen saliendo', async () => {
+  const g = githubDeMentira(204);
+  const env = { GITHUB_TOKEN_ACCIONES: 'x' };
+  await dispararAcciones({ cron: CRON_FOTOS, scheduledTime: Date.UTC(2026, 10, 18, 1, 40) }, env, { fetchFn: g.fetchFn, esperar: sinEsperar });
+  assert.deepEqual(archivosDe(g), ['v3-fotos-propias.yml', 'v3-respaldo-d1.yml']);
+  assert.deepEqual(g.pedidos[1].cuerpo.inputs, { simular: 'false' });
+  g.pedidos.length = 0;
+  await dispararAcciones({ cron: CRON_FOTOS, scheduledTime: Date.UTC(2026, 10, 18, 9, 40) }, env, { fetchFn: g.fetchFn, esperar: sinEsperar });
+  assert.deepEqual(archivosDe(g), ['v3-fotos-propias.yml']);
+});
+
+test('estadísticas ya no tiene schedule (lo manda el Worker; con los dos habría dos resúmenes por Telegram); respaldo y efemérides lo conservan sólo como respaldo tardío', () => {
+  const est = leer('../../.github/workflows/v3-estadisticas.yml');
+  assert.ok(!/^\s*schedule:/m.test(est));
+  assert.match(est, /if: \$\{\{ inputs\.telegram == 'si' \}\}/);
+  const efe = leer('../../.github/workflows/v3-efemerides.yml');
+  assert.match(efe, /schedule:\n\s+- cron: '0 13 20 \* \*'/);
+  assert.match(efe, /\(github\.event_name != 'schedule' && inputs\.automatico != 'true'\) \|\| vars\.EFEMERIDES_V3_ACTIVAS == 'si'/, 'el disparo automático espera la variable, como el horario');
+  assert.match(leer('../../.github/workflows/v3-respaldo-d1.yml'), /schedule:\n\s+- cron: '20 7 \* \* \*'/);
+});

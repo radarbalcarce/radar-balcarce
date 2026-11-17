@@ -45,7 +45,7 @@ voz** (el reparto de la sección 6) y a lo largo del día se alternan.
 - **No hay voz de respaldo** ("mejor nunca Elena", 28/09). Si Gemini no contesta, la
   pieza no sale en esa vuelta y se vuelve a pedir en la siguiente mientras dure su
   horario. Es preferible una historia que falta a una que suena a otro medio.
-- **El cupo es de 10 audios por día** (la clave de redes es gratis). Un día normal usa 7
+- **El cupo es de 15 audios por día, fijos** (Hernán, 13/11/2026; las notas propias de Hernán no lo gastan). Un día normal usa 7
   a 9: los tres repasos, los dos climas, la farmacia y la efeméride (Participá no gasta
   mientras valga su video armado de antemano); algunos días, además, los útiles, la agenda,
   el feriado o un aviso de clima.
@@ -316,7 +316,7 @@ Lo común a todas:
 - **Si la red principal (Instagram) falla, Facebook se intenta igual** (regla 309) y el problema del libro cuenta los `intentos`. La principal sigue con un solo
   intento por corrida a propósito: un error de Meta a veces llega después de publicar y repetir duplicaría el reel (se mira si ya está antes de reintentar).
 - **Un solo lugar para cada número repetido:** los posteos por día son `FACEBOOK.porDia` (la copia `CONTRATO_DIARIO.posteosPorDia` la controla una prueba) y
-  el cupo de voz es `AUDIOS_POR_DIA` (`reels/cupo-voz.mjs`; `CUPO_DE_VOZ_POR_DIA` lo toma de ahí).
+  el cupo de voz es `AUDIOS_POR_DIA` (`reels/cupo-voz.mjs`; `CUPO_DE_VOZ_POR_DIA` lo toma de ahí; en la 3.0, `REGLAS_PIEZAS.audiosPorDia` de `v3/redes/piezas-plan.mjs`: los dos valen 15 y una prueba lo controla).
 - **`noticia1`, `noticia2` y `podcast`** son, en el libro y en las estadísticas, los repasos de la mañana, la tarde y la noche. No se renombran: romperían el historial.
 
 ## 5. Los números

@@ -98,7 +98,7 @@ Las **14 secciones**: Balcarce, Política, Policiales, Educación, Salud, Fútbo
 | **Aviso del 80 %** | Cuando el gasto del mes llega al 80 % del freno | La vigilancia avisa por Telegram una vez por mes |
 | **Nacionales por día** | 40 | Si se llena, entran las más contadas. Balcarce nunca tiene tope |
 | **Pedidos del bot de Telegram** | 20 por día para notas propias | No arma ni corrige; lo guardado queda |
-| **Cupo de voz** | 10 audios por día | La pieza queda «sin cupo» y no sale (nunca con otra voz) |
+| **Cupo de voz** | 15 audios por día | La pieza queda «sin cupo» y no sale (nunca con otra voz) |
 | **Nota diaria del clima** | Hasta 4 pedidos por día | Si hay tope o freno, sale la plantilla sin IA |
 
 - **Lo que no se publica cuesta cero pedidos de texto**: la IA sólo entra después de decidir que la historia sale.
