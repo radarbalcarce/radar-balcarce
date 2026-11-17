@@ -18,19 +18,49 @@
     "donde": "Modo IA del buscador, API de Gemini, Google AI Studio y Android Studio",
     "cuando": "12 de noviembre de 2026",
     "numeros": [
-      { "valor": "2,5", "unidad": "veces", "que": " más rápido que Gemini 3.8 Flash, según Google" },
-      { "valor": "USD 1,50 / 7,50", "unidad": "por millón de tokens", "que": " de entrada y de salida, por API" }
+      {
+        "valor": "2,5",
+        "unidad": "veces",
+        "que": " más rápido que Gemini 3.8 Flash, según Google"
+      },
+      {
+        "valor": "USD 1,50 / 7,50",
+        "unidad": "por millón de tokens",
+        "que": " de entrada y de salida, por API"
+      }
     ],
     "cronologia": [],
-    "faltaSaber": ["¿Está disponible en Argentina y en español en el Modo IA?", "¿Aparece en la app de Gemini gratis?"],
+    "faltaSaber": [
+      "¿Está disponible en Argentina y en español en el Modo IA?",
+      "¿Aparece en la app de Gemini gratis?"
+    ],
     "faltaSaberSelectivo": true
   },
   "fuentes": [
-    { "medio": "Google: Introducing Gemini 4 Hydrogen", "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/" },
-    { "medio": "Google: Gemini 4 Hydrogen en el buscador", "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/" },
-    { "medio": "Google: Build with Gemini 4 Hydrogen", "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-hydrogen/" },
-    { "medio": "Simon Willison: prueba y precios", "url": "https://simonwillison.net/2026/Nov/12/llm-gemini/" }
+    {
+      "medio": "Google: Introducing Gemini 4 Hydrogen",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+    },
+    {
+      "medio": "Google: Gemini 4 Hydrogen en el buscador",
+      "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/"
+    },
+    {
+      "medio": "Google: Build with Gemini 4 Hydrogen",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-hydrogen/"
+    },
+    {
+      "medio": "Simon Willison: prueba y precios",
+      "url": "https://simonwillison.net/2026/Nov/12/llm-gemini/"
+    }
   ],
-  "foto": null,
+  "foto": {
+    "url": "https://radarbalcarce.com/fotos-notas/sehace-hydrogen.jpg?v=1",
+    "alt": "Placa azul con el texto «Salió Gemini 4 Hydrogen»",
+    "credito": "Imagen: sehace.com",
+    "ancho": 1200,
+    "alto": 630,
+    "cubrir": true
+  },
   "fotosEnCuerpo": []
 }

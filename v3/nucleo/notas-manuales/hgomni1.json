@@ -20,15 +20,33 @@
     "donde": "API de Gemini, Gemini para empresas, Google Vids, app de Gemini, AI Studio y Vertex AI",
     "cuando": "5 de noviembre de 2026",
     "numeros": [
-      { "valor": "15", "unidad": "segundos", "que": " de duración máxima por video (antes, 10)" },
-      { "valor": "USD 0,07", "unidad": "por segundo", "que": " de video en 720p por API" }
+      {
+        "valor": "15",
+        "unidad": "segundos",
+        "que": " de duración máxima por video (antes, 10)"
+      },
+      {
+        "valor": "USD 0,07",
+        "unidad": "por segundo",
+        "que": " de video en 720p por API"
+      }
     ],
     "cronologia": [],
     "faltaSaber": []
   },
   "fuentes": [
-    { "medio": "Google: anuncio de Gemini Omni 1.2 Flash", "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/" }
+    {
+      "medio": "Google: anuncio de Gemini Omni 1.2 Flash",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/"
+    }
   ],
-  "foto": null,
+  "foto": {
+    "url": "https://radarbalcarce.com/fotos-notas/sehace-omni12.jpg?v=1",
+    "alt": "Placa azul con el nombre del modelo de video Gemini Omni 1.2 Flash",
+    "credito": "Imagen: sehace.com",
+    "ancho": 1200,
+    "alto": 630,
+    "cubrir": true
+  },
   "fotosEnCuerpo": []
 }

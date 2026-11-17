@@ -20,19 +20,50 @@
     "donde": "API de Claude, Amazon Bedrock, Google Cloud, Microsoft Foundry y Claude Platform on AWS",
     "cuando": "9 de noviembre de 2026",
     "numeros": [
-      { "valor": "1", "unidad": "millón de tokens", "que": " de contexto" },
-      { "valor": "49,1", "unidad": "%", "que": " en FrontierCode 2.0, según Anthropic" },
-      { "valor": "USD 8 / 40", "unidad": "por millón de tokens", "que": " de entrada y de salida, por API" }
+      {
+        "valor": "1",
+        "unidad": "millón de tokens",
+        "que": " de contexto"
+      },
+      {
+        "valor": "49,1",
+        "unidad": "%",
+        "que": " en FrontierCode 2.0, según Anthropic"
+      },
+      {
+        "valor": "USD 8 / 40",
+        "unidad": "por millón de tokens",
+        "que": " de entrada y de salida, por API"
+      }
     ],
     "cronologia": [],
     "faltaSaber": []
   },
   "fuentes": [
-    { "medio": "Anthropic: anuncio de Claude Fable 5.2 y Mythos 5.2", "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2" },
-    { "medio": "Anthropic: ficha técnica de Claude Fable 5.2", "url": "https://platform.claude.com/docs/en/models/fable-5-2/overview" },
-    { "medio": "Anthropic: lista de precios", "url": "https://platform.claude.com/docs/en/about-claude/pricing" },
-    { "medio": "Claude: ofertas de lanzamiento de Fable 5.2", "url": "https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers" }
+    {
+      "medio": "Anthropic: anuncio de Claude Fable 5.2 y Mythos 5.2",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+    },
+    {
+      "medio": "Anthropic: ficha técnica de Claude Fable 5.2",
+      "url": "https://platform.claude.com/docs/en/models/fable-5-2/overview"
+    },
+    {
+      "medio": "Anthropic: lista de precios",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing"
+    },
+    {
+      "medio": "Claude: ofertas de lanzamiento de Fable 5.2",
+      "url": "https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers"
+    }
   ],
-  "foto": null,
+  "foto": {
+    "url": "https://radarbalcarce.com/fotos-notas/sehace-fable52.jpg?v=1",
+    "alt": "Placa azul con el texto «Salió Claude Fable 5.2»",
+    "credito": "Imagen: sehace.com",
+    "ancho": 1200,
+    "alto": 630,
+    "cubrir": true
+  },
   "fotosEnCuerpo": []
 }
