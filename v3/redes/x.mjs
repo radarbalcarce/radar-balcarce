@@ -3,6 +3,7 @@
 // Qué sale: la MISMA placa 1080 × 1350 (4:5) del posteo de Facebook e Instagram, el titular y los hashtags `#Balcarce #RadarBalcarce` + el tema de la nota. Se eligió la placa y no la imagen de
 // enlace 1080 × 565 porque ya está dibujada y pública (Meta la baja de la misma dirección /placa/<nombre>), se ve más grande en el timeline de X (en el celular un 4:5 entra entero) y no hace falta
 // subir nada nuevo. Sin enlace por defecto: en X un posteo con enlace llega unas 13 veces menos; el interruptor `X_CON_ENLACE` (variable del Worker, «si») lo agrega, con su origen para medirlo.
+import { tituloQueEntra } from './titular.mjs';
 import { hashtagsDe, enlaceDeNota, ponerOrigen, lineaDeMenciones, SITIO } from './texto.mjs';
 
 /** Hasta dónde llega el texto de un posteo de X (el límite es 280; se deja aire). Cada enlace cuenta 23, venga como venga. */
@@ -14,7 +15,7 @@ export const xConEnlace = (env) => /^(si|sí|true|1)$/i.test(String(env?.X_CON_E
 const limpiar = (t) => String(t ?? '').replace(/\s+/g, ' ').trim();
 
 /**
- * El texto del posteo de X: el titular, (el enlace, sólo con `conEnlace`) y los hashtags (los dos fijos y 1 del tema). Si no entra, se acorta el titular en una palabra con «…».
+ * El texto del posteo de X: el titular, (el enlace, sólo con `conEnlace`) y los hashtags (los dos fijos y 1 del tema). Si no entra, se usa la forma completa más corta del titular (nunca «…»).
  * @param {object} nota  { id, titulo, seccion, etiquetas? }
  * @param {object} [o]   { conEnlace, sitio }
  */
@@ -28,9 +29,6 @@ export function textoDeX(nota, { conEnlace = false, sitio = SITIO } = {}) {
   if (menciones && LARGO_DE_X - costo([menciones, ...cola]) >= 40) cola = [menciones, ...cola];
   const lugar = Math.max(40, LARGO_DE_X - costo(cola));
   let titular = limpiar(nota.titulo) || 'Radar Balcarce';
-  if (titular.length > lugar) {
-    const corte = titular.slice(0, lugar - 1);
-    titular = `${corte.slice(0, Math.max(corte.lastIndexOf(' '), 20)).replace(/[,;:\s.]+$/, '')}…`;
-  }
+  if (titular.length > lugar) titular = tituloQueEntra(titular, lugar); // sin «…»: la forma completa más corta del titular (17/11)
   return [titular, ...cola].join('\n\n');
 }

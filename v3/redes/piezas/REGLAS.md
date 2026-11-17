@@ -41,8 +41,8 @@ mueve y la temperatura que cuenta hasta su valor, y los días que siguen (de noc
 el segundo 3 queda fija, hasta el final, la franja ámbar «Auspicia · comercio · @cuenta»** (la del mockup `docs/propuestas/redes-3-0/png/02-clima-auspiciado.png`: fondo crema, borde ámbar, una línea). Va en la fila
 1568, **entre la firma de la placa de hoy y los subtítulos**: no toca nada del diseño. Antes del segundo 3 la escena es idéntica a la de hoy. Un solo auspiciante por clima. Un nombre largo achica la letra y, si hace falta, se acorta.
 
-**Repaso (mañana, tarde, noche)** — video 9:16, **máximo 3 notas** (con 3, **30 s**; con 2, 21 s; nunca menos de 2). Las placas de hoy: la lista numerada de tapa (cuadro 0, medio segundo), una placa de **9 s por nota** (foto con su
-crédito, sección en su color, «1 de 3», rayitas, titular de hasta 90 caracteres) y la lista otra vez al final (3 s, «Todo en Radar Balcarce punto com»). La voz alterna (locutor de mañana y noche, locutora de tarde).
+**Repaso (mañana, tarde, noche)** — video 9:16, **siempre 3 notas** (con 3, **30 s**; con 2, 21 s, sólo si no hubo cómo llegar a 3 sin repetir —y queda anotado—; nunca menos de 2: `../REGLAS.md` § 21). Las placas de hoy: la lista numerada de tapa (cuadro 0, medio segundo), una placa de **9 s por nota** (foto con su
+crédito, sección en su color, «1 de 3», rayitas, titular entero: la letra se achica hasta un mínimo y, si no entra, su forma completa más corta; nunca «…»: `../REGLAS.md` § 22) y la lista otra vez al final (3 s, «Todo en Radar Balcarce punto com»). La voz alterna (locutor de mañana y noche, locutora de tarde).
 **Lo de Balcarce va primero y tiene que haber al menos una nota de Balcarce** (si no, no se arma). Sin música.
 
 **Efeméride corta («Un día como hoy»)** — video 9:16, **15 s**, voz de la locutora, **a prueba una semana** (Hernán, 3/11). La escena de hoy: el año grande en el color de su tipo que corre hacia atrás, el título, una sola
@@ -64,7 +64,7 @@ firma. Una sola imagen para Facebook e Instagram. Sin foto no se arma, salvo una
 **Carrusel** — *(le gustó, queda)* de **3 a 10 láminas** de 1080 × 1350 (el tope de 10 es el de la API de Instagram), en oscuro: la portada primero (foto, titular, «Deslizá →»), una lámina por foto con su epígrafe, y la última con «La nota completa»
 y el botón del sitio. Hacen falta 3 fotos o más; no se rellena para llegar. Todas del mismo tamaño.
 
-**Farmacia de turno** — video 9:16, **14 s**, voz del locutor. La escena de hoy: la cruz verde que late, una ficha por farmacia (hasta 3) con la dirección **escrita y dicha sin «N°»** («Calle 17, 537») y su teléfono, y la franja verde «De turno hasta mañana a las 8:30».
+**Farmacia de turno** — video 9:16, **14 s** (hasta 20 si con tres fichas la voz es más larga), voz del locutor. La escena de hoy: la cruz verde que late, una ficha por farmacia (de 1 a 3; con más la pieza falla: `../REGLAS.md` § 23) con la dirección **escrita y dicha sin «N°»** («Calle 17, 537») y su teléfono, y la franja verde «De turno hasta mañana a las 8:30».
 Color de Farmacias.
 
 **Participá** — video 9:16, **18 s**, voz alterna. La escena de hoy: la pregunta grande, la franja verde del WhatsApp con el número **2266 51-1612** que se tipea (la voz lo dice dígito por dígito), el sobre con el mail y los dos pies.

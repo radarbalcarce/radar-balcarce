@@ -278,7 +278,10 @@ hasta 1,5 MB, y se leen los primeros 80 ítems (Infobae manda ~1 MB por feed).
 
 - **Una nota por día**, id `clima-AAAA-MM-DD` (una fila en `notas` y su historia con motivo `clima`). Sale en la **primera vuelta desde las 7:30** (hora de Balcarce); si a
   las 12:00 todavía no salió (Open-Meteo caído toda la mañana), ese día no sale: no se publica a la tarde un pronóstico de la mañana. Vueltas siguientes: no hace nada.
-- **No hay actualización de las 19** (Hernán, 3/11): la nota sale **una sola vez por día, a la mañana**, y no se toca más. El código de la revisión sigue escrito pero apagado
+- **A la noche, la misma página se actualiza** (Hernán, 17/11): entre las **20:00 y las 23:00**, una sola vez, `queToca` devuelve `'noche'` (`EDICION_DE_LA_NOCHE = true`, `clima.mjs`) y el núcleo reescribe **la misma fila** (mismo id, misma dirección, `creada` y fecha de publicación intactas; la dirección y la fecha de publicación son del sitio y no se tocan)
+  con la edición **«Cómo sigue la noche y cómo viene el <mañana> en Balcarce»**: lo que queda de la noche, mañana en Balcarce, la costa y la sierra de mañana, y pasado mañana. **Sin IA** (la plantilla `plantilla(resumen, { edicion: 'noche' })`; `pedidos: 0`, `redactor: 'plantilla'`): sólo un pedido a Open-Meteo.
+  Se registra: `ficha.actualizadaEn`, `verificacion.edicionNoche = true` y `verificacion.actualizadaEn`; sigue `noindex`. Si el pronóstico falla a las 20:00, la nota de la mañana queda como estaba y se reintenta en la vuelta siguiente (hasta las 23:00). Sin nota de la mañana, a la noche **no** sale una nueva. Pruebas: `clima/clima.test.mjs` («20:00: la MISMA página…», «la plantilla de la noche», «si Open-Meteo falla a las 20:00»).
+- **La actualización de las 19** (la comparación de la mañana con la tarde, Hernán, 3/11) sigue **apagada**: la nota sale **a la mañana** y a la noche se actualiza como dice el punto de arriba. El código de la revisión de las 19 sigue escrito pero apagado
   (`REVISION_DE_LAS_19 = false` en `clima.mjs`; `queToca` nunca devuelve `'revisar'`). Lo que sigue, hasta «Datos», describe esa revisión apagada. En el sitio, la nota del día va en la
   tapa y en la sección Balcarce como una nota más (sólo la de hoy; las de días anteriores quedan con su página pero fuera de las listas) y lleva al final «Mirá el clima de hoy en video»,
   con Facebook e Instagram.

@@ -5,6 +5,7 @@
 import { redesDeBuffer, topeDeYoutube } from './piezas-del-dia.mjs';
 import { PIEZAS_DEL_DIA, piezasDeHoy, piezasQueTocan, minutoDe, bloqueDe, bloqueDeLaHora, relojDeBalcarce } from './piezas-del-dia.mjs';
 import { diaDeBalcarce, motivoDeExclusion, tipoDeNota, tieneFoto, saleEn, REGLAS as REGLAS_DE_NOTAS } from './elegir.mjs';
+import { mediosParaPublicar } from '../nucleo/elegir/elegir.mjs'; // el piso de medios con que el sitio publica lo de afuera: un solo lugar (el núcleo)
 import { notasParaRedes, publicacionesDelDia } from './db.mjs';
 import * as dbp from './piezas-db.mjs';
 import { datosDeLaSemana, proximaNotaConCarrusel, proximaNotaConReel } from './piezas-carruseles.mjs';
@@ -13,7 +14,8 @@ export const REGLAS_PIEZAS = Object.freeze({
   audiosPorDia: 15,        // el cupo de voz: 15 por día fijos (Hernán, 13/11/2026; CRITERIO-REDES.md § 6). La única fuente de verdad: una prueba controla que reels/cupo-voz.mjs y piezas/variables.mjs digan lo mismo. Las notas propias de Hernán no cuentan. VOZ_TOPE_DIARIO sólo sirve para ensayar con otro número
   intentosPorPieza: 3,     // después de tres errores en el día, esa pieza se abandona
   reservaVenceMinutos: 45, // una reserva 'en-curso' más vieja se da por cortada
-  edadDeLasNotasHoras: 24, // las notas que puede contar un repaso
+  edadDeLasNotasHoras: 24, // las notas que puede contar un repaso (primero se mira lo de las últimas 24 h)
+  edadDeRespaldoHoras: 48, // si con eso no llegan 3 notas, se completa con lo de las últimas 48 h que no salió en un posteo ni en otro repaso (Hernán, 17/11)
   notasPorRepaso: 3,
   deBalcarcePorRepaso: 2,  // lo de Balcarce va primero (hasta 2) y se completa con lo más contado
 });
@@ -33,34 +35,54 @@ export function auspicioDelDia(avisos, dia) {
 }
 
 /**
- * (Una nota de Balcarce sin foto va con la placa de su sección, pero sólo si no hay otra de Balcarce con foto o para completar: primero lo que tiene foto (Hernán, 7/11: «de nuevo sin imagen»).
- * Sin ninguna nota de Balcarce en la ventana: el repaso sale con lo más contado y el plan lo anota.)
- * Las notas de un repaso: lo de Balcarce primero (hasta 2, las más nuevas), completado con lo más contado del país (la nota de afuera con más medios), hasta 3. Cada nota pasa por
- * la misma compuerta que los posteos (ley, tono R41, foto) y no se repite en un repaso del mismo día. Devuelve [] si no alcanza para un repaso (2 notas, una de Balcarce).
+ * Las notas de un repaso, SIEMPRE tres (Hernán, 17/11/2026). Pasan por la misma compuerta que los posteos (ley, tono R41, foto) y no repiten una nota que ya salió como posteo ni en otro repaso.
+ * Para llegar a 3, en este orden: (a) lo de Balcarce de las últimas 24 h (hasta 2; la que una persona mandó con /repaso va antes); (b) lo nacional más contado de 24 h, con el mismo piso de medios con que el sitio
+ * publica (`mediosParaPublicar` del núcleo: nada de copiar el número); (c) lo de Balcarce de las últimas 48 h; (d) lo nacional de 48 h con más medios. Lo de Balcarce va primero en el video.
+ * (Una nota de Balcarce sin foto va con la placa de su sección, pero sólo si no hay otra de Balcarce con foto: primero lo que tiene foto (Hernán, 7/11: «de nuevo sin imagen»).)
+ * Devuelve [] si no hay ni 2 notas; con 2 sale el repaso corto y `repasoConMotivo` dice por qué (para el resumen del día). No se inventa nada para llegar a 3.
  */
-export function notasDelRepaso(notas, { ahora, yaUsadas = [], yaContadas = [], reglas = REGLAS_PIEZAS } = {}) {
+export function notasDelRepaso(notas, opciones = {}) {
+  return repasoConMotivo(notas, opciones).notas;
+}
+
+/** Igual que `notasDelRepaso`, pero con lo que el plan anota: { notas, motivo (null con 3; 'solo-2-notas' o 'sin-notas-suficientes' si no llegó), de48h (cuántas vienen de la ventana ampliada) }. */
+export function repasoConMotivo(notas, { ahora, yaUsadas = [], yaContadas = [], reglas = REGLAS_PIEZAS } = {}) {
   const usadas = new Set(yaUsadas);
-  const regla = { ...REGLAS_DE_NOTAS, edadMaximaHoras: reglas.edadDeLasNotasHoras };
+  const horasBase = reglas.edadDeLasNotasHoras;
+  const horasAmpliadas = reglas.edadDeRespaldoHoras ?? horasBase;
   // Una nota que una persona mandó al repaso con /repaso en Telegram (`alRepaso`) vale 24 horas desde el pedido: va primero y no necesita que la cuenten tantos medios (la ley, el tono y la foto valen igual).
   const pedida = (n) => n.alRepaso === true && Number.isFinite(Date.parse(n.pedida)) && new Date(ahora).getTime() - Date.parse(n.pedida) <= 24 * 3600_000;
   const comoEs = (n) => (pedida(n) ? { ...n, forzada: true } : n);
   // `yaContadas` (ya salió como posteo: «una nota, un formato») no frena a la que una persona pidió a mano para el repaso; lo que ya contó otro repaso sí cuenta siempre (va en `yaUsadas`).
   for (const id of yaContadas) if (!notas.some((n) => n.id === id && pedida(n))) usadas.add(id);
+  // La regla de cada nota: la edad que se mira y el piso de medios del sitio para esa sección y ese día (no el de los posteos: 5).
+  const reglaDe = (n, horas) => ({ ...REGLAS_DE_NOTAS, edadMaximaHoras: horas, mediosParaNacional: mediosParaPublicar(n.seccion, ahora) });
+  const tipo = (n, horas) => tipoDeNota(comoEs(n), reglaDe(n, horas));
   // Lo de Balcarce no necesita foto (va con la placa de su sección); lo de afuera sí. La ley y el tono valen para todo.
-  const validas = notas.filter((n) => !usadas.has(n.id) && !motivoDeExclusion(tipoDeNota(comoEs(n)) === 'local' && !tieneFoto(n) ? { ...comoEs(n), foto: { url: 'https://placa.local/sin-foto' } } : comoEs(n), { ahora, reglas: regla }));
-  const primeras = validas.filter(pedida).sort((a, b) => String(b.pedida).localeCompare(String(a.pedida))).slice(0, reglas.notasPorRepaso);
-  if (primeras.length) {
-    const rest = validas.filter((n) => !primeras.includes(n));
-    const localesYa = primeras.filter((n) => tipoDeNota(n) === 'local').length;
-    return completarRepaso(rest, { primeras, localesYa, reglas });
+  const validasHasta = (horas) => notas.filter((n) => !usadas.has(n.id) && !motivoDeExclusion(tipo(n, horas) === 'local' && !tieneFoto(n) ? { ...comoEs(n), foto: { url: 'https://placa.local/sin-foto' } } : comoEs(n), { ahora, reglas: reglaDe(n, horas) }));
+  const hasta24 = validasHasta(horasBase);
+  const soloAmpliadas = validasHasta(horasAmpliadas).filter((n) => !hasta24.includes(n));
+  const primeras = hasta24.filter(pedida).sort((a, b) => String(b.pedida).localeCompare(String(a.pedida))).slice(0, reglas.notasPorRepaso);
+  const rest = hasta24.filter((n) => !primeras.includes(n));
+  const localesYa = primeras.filter((n) => tipo(n, horasBase) === 'local').length;
+  const elegidas = completarRepaso(rest, { primeras, localesYa, reglas, tipo: (n) => tipo(n, horasBase) });
+  const antes = elegidas.length;
+  // (c) y (d): lo de las últimas 48 h que no se usó. Lo de Balcarce primero; lo nacional por medios.
+  if (elegidas.length < reglas.notasPorRepaso && soloAmpliadas.length) {
+    const hayLocal = elegidas.some((n) => tipo(n, horasAmpliadas) === 'local');
+    for (const n of completarRepaso(soloAmpliadas, { primeras: [], localesYa: hayLocal ? 1 : 0, reglas: { ...reglas, deBalcarcePorRepaso: 99, notasPorRepaso: reglas.notasPorRepaso - elegidas.length }, tipo: (x) => tipo(x, horasAmpliadas) })) elegidas.push(n);
   }
-  return completarRepaso(validas, { primeras: [], localesYa: 0, reglas });
+  // Balcarce primero en el video (las pedidas a mano, antes que todo).
+  const resto = elegidas.filter((n) => !primeras.includes(n));
+  const todas = [...primeras, ...resto.filter((n) => tipo(n, horasAmpliadas) === 'local'), ...resto.filter((n) => tipo(n, horasAmpliadas) !== 'local')];
+  const sale = todas.length >= 2 ? todas : [];
+  return { notas: sale, motivo: sale.length >= reglas.notasPorRepaso ? null : sale.length === 2 ? 'solo-2-notas' : 'sin-notas-suficientes', de48h: sale.length ? Math.max(0, sale.length - antes) : 0 };
 }
 
-/** Completa un repaso: `primeras` (las pedidas a mano) ya están; se suman lo de Balcarce (hasta el tope, contando las que ya hay) y lo más contado. Devuelve [] si no llega a 2 notas. */
-function completarRepaso(validas, { primeras, localesYa, reglas }) {
-  const locales = validas.filter((n) => tipoDeNota(n) === 'local').sort((a, b) => String(b.publicada).localeCompare(String(a.publicada)));
-  const nacionales = validas.filter((n) => tipoDeNota(n) === 'nacional').sort((a, b) => (Number(!!b.propia) - Number(!!a.propia)) || (b.medios - a.medios) || String(b.publicada).localeCompare(String(a.publicada)));
+/** Completa un repaso: `primeras` (las pedidas a mano) ya están; se suman lo de Balcarce (hasta el tope, contando las que ya hay) y lo más contado, hasta `notasPorRepaso`. Devuelve lo que haya (el mínimo lo mira quien llama). */
+function completarRepaso(validas, { primeras, localesYa, reglas, tipo }) {
+  const locales = validas.filter((n) => tipo(n) === 'local').sort((a, b) => String(b.publicada).localeCompare(String(a.publicada)));
+  const nacionales = validas.filter((n) => tipo(n) === 'nacional').sort((a, b) => (Number(!!b.propia) - Number(!!a.propia)) || (b.medios - a.medios) || String(b.publicada).localeCompare(String(a.publicada)));
   const localesConFoto = locales.filter(tieneFoto);
   const localesSinFoto = locales.filter((n) => !tieneFoto(n));
   // Lo de Balcarce con foto primero; una sin foto (con placa) sólo si no hay ninguna con foto, así Balcarce sigue estando.
@@ -69,7 +91,7 @@ function completarRepaso(validas, { primeras, localesYa, reglas }) {
   for (const n of deBalcarce) { if (elegidas.length < reglas.notasPorRepaso) elegidas.push(n); }
   const resto = [...nacionales, ...localesConFoto, ...localesSinFoto].filter((n) => !elegidas.includes(n));
   for (const n of resto) { if (elegidas.length >= reglas.notasPorRepaso) break; elegidas.push(n); }
-  return elegidas.length >= 2 ? elegidas : [];
+  return elegidas;
 }
 
 /** La nota como la necesita el armador (la forma de v3/nucleo/CONTRATO.md, sólo lo que hace falta; sin el cuerpo). */
@@ -94,6 +116,7 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
   const hayDato = (p) => !p.porNota && (!p.condicional || conDatos.includes(p.id) || (solo?.length > 0 && solo.includes(p.id)));
   const candidatas = (solo?.length ? PIEZAS_DEL_DIA.filter((p) => solo.includes(p.id)) : piezasQueTocan(ahora)).filter(hayDato);
   const descartes = [];
+  const avisos = []; // lo que salió pero con menos de lo ideal (un repaso de 2 notas): se anota y va al resumen del día
   const pendientes = [];
   for (const p of candidatas) {
     const suyas = filas.filter((f) => f.pieza === p.id);
@@ -116,12 +139,16 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
   const yaContadas = []; // ya salieron como posteo de Facebook (no frena a la que una persona mandó a un repaso con /repaso)
   const repasosDeAyer = [];
   if (pendientes.some((p) => p.arma === 'repaso')) {
-    for (const d of [dia, ayer]) {
+    // Con la ventana de 48 h, lo que salió hace dos días como posteo o en un repaso tampoco vuelve.
+    const anteayer = diaDeBalcarce(new Date(ahora.getTime() - 48 * 3600_000));
+    for (const d of [dia, ayer, anteayer]) {
       const posteos = await publicacionesDelDia(env, d, simulado).catch(() => []);
       for (const h of posteos) if (h.red === 'facebook' && ['ok', 'enviando', 'simulado'].includes(h.estado)) yaContadas.push(h.notaId);
     }
-    const deAyer = await dbp.piezasDelDia(env, ayer, simulado).catch(() => []);
-    for (const f of deAyer) if (cuentanComoHecha.has(f.estado)) repasosDeAyer.push(...(f.notas ?? []));
+    for (const d of [ayer, anteayer]) {
+      const deEseDia = await dbp.piezasDelDia(env, d, simulado).catch(() => []);
+      for (const f of deEseDia) if (cuentanComoHecha.has(f.estado)) repasosDeAyer.push(...(f.notas ?? []));
+    }
   }
   let notasCargadas = null;
   const salen = [];
@@ -135,10 +162,12 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
     let notas = null;
     let auspicio = null;
     if (p.arma === 'repaso') {
-      notasCargadas ??= (await notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - reglas.edadDeLasNotasHoras * 3600_000).toISOString(), conBorradores: simulado })).filter((n) => !n.propia || n.alRepaso); // las notas propias no entran en los repasos (Hernán, 10/11), salvo la que una persona mandó con /repaso
-      const elegidas = notasDelRepaso(notasCargadas, { ahora, yaUsadas: [...notasDeHoy, ...repasosDeAyer, ...salen.flatMap((s) => s.datos.notasIds ?? [])], yaContadas, reglas });
+      notasCargadas ??= (await notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - (reglas.edadDeRespaldoHoras ?? reglas.edadDeLasNotasHoras) * 3600_000).toISOString(), conBorradores: simulado })).filter((n) => !n.propia || n.alRepaso); // las notas propias no entran en los repasos (Hernán, 10/11), salvo la que una persona mandó con /repaso
+      const { notas: elegidas, motivo: motivoDelRepaso, de48h } = repasoConMotivo(notasCargadas, { ahora, yaUsadas: [...notasDeHoy, ...repasosDeAyer, ...salen.flatMap((s) => s.datos.notasIds ?? [])], yaContadas, reglas });
       if (!elegidas.length) { descartes.push({ pieza: p.id, motivo: 'sin-notas' }); continue; }
-      datos = { notas: elegidas.map(paraElArmador), notasIds: elegidas.map((n) => n.id), sinBalcarce: !elegidas.some((n) => tipoDeNota(n) === 'local') };
+      // Con 2 notas (no alcanzaron 3 sin repetir, ni mirando 48 h) el repaso sale corto y queda anotado por qué; el resumen del día lo cuenta.
+      if (motivoDelRepaso) avisos.push({ pieza: p.id, motivo: `repaso-corto (${motivoDelRepaso})`, notas: elegidas.length });
+      datos = { notas: elegidas.map(paraElArmador), notasIds: elegidas.map((n) => n.id), sinBalcarce: !elegidas.some((n) => tipoDeNota(n) === 'local'), ...(motivoDelRepaso ? { motivoCorto: motivoDelRepaso } : {}), ...(de48h ? { de48h } : {}) };
       notas = datos.notasIds;
     } else if (p.arma === 'clima') {
       auspicio = auspicioDelDia(await dbp.avisosDelClima(env, dia), dia);
@@ -176,7 +205,7 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
     if (buffer.includes('youtube')) youtubeHoy += 1;
     salen.push({ fila, id: siguiente.pieza, nombre: siguiente.nota.titulo, arma: deNota.arma, variante: null, momento: null, formato: deNota.formato, hora: deNota.hora, horaDelDia: Math.floor(minutoDe(deNota.hora) / 60), bloque: null, saluda: false, buffer, voz: deNota.voz, hashtag: deNota.hashtag, primeraDelBloque: false, datos: { nota: siguiente.nota, ...(siguiente.nota.menciones?.length ? { menciones: siguiente.nota.menciones } : {}) } });
   }
-  return { dia, simulado, vozTope: tope, vozQuedan: Math.max(0, tope - usados), piezas: salen, descartes };
+  return { dia, simulado, vozTope: tope, vozQuedan: Math.max(0, tope - usados), piezas: salen, descartes, avisos };
 }
 
 const MODOS = new Set(['lista', 'publicada', 'error', 'sin-datos', 'sin-cupo']);
@@ -224,6 +253,8 @@ export function lineasDeLasPiezas(filas, simulado) {
     ? `Piezas de video (ENSAYO, nada se publicó): ${listas.length} armadas con voz y guardadas.`
     : `Piezas de video: ${listas.length} publicadas.`];
   for (const f of listas) lineas.push(`• ${f.hora ?? ''} · ${nombre(f.pieza)}${f.duracion ? ` · ${Math.round(f.duracion)} s` : ''}${f.vozUsada ? '' : ' · sin gastar audio'}`);
+  // Un repaso tiene que salir con 3 notas (Hernán, 17/11): con 2 salió corto porque no alcanzaron sin repetir ni mirando 48 h; se avisa para no esconderlo.
+  for (const f of listas.filter((x) => ['noticia1', 'noticia2', 'podcast'].includes(x.pieza) && Array.isArray(x.notas) && x.notas.length === 2)) lineas.push(`⚠ ${nombre(f.pieza)} salió con 2 notas: no había 3 válidas (sin repetir posteos ni otros repasos, mirando hasta 48 h).`);
   if (fallas.length) { lineas.push(`Fallaron ${fallas.length} intentos de piezas:`); for (const f of fallas.slice(0, 4)) lineas.push(`• ${nombre(f.pieza)} · ${f.error ?? 'sin detalle'}`); }
   return lineas;
 }

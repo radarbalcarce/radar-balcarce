@@ -4,7 +4,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { PIEZAS_DEL_DIA, piezasQueTocan as piezasQueTocanConCondicionales, bloqueDeLaHora, bloqueDe, accionesDe, minutoDe } from './piezas-del-dia.mjs';
-import { planear, notasDelRepaso, auspicioDelDia, lineasDeLasPiezas, topeDeVoz, REGLAS_PIEZAS } from './piezas-plan.mjs';
+import { mediosParaPublicar } from '../nucleo/elegir/elegir.mjs';
+import { planear, notasDelRepaso, repasoConMotivo, auspicioDelDia, lineasDeLasPiezas, topeDeVoz, REGLAS_PIEZAS } from './piezas-plan.mjs';
 import { crearRedes } from './redes.mjs';
 import { armarRepaso } from './piezas/armadores.mjs';
 import { contrasenaDelWebhook } from './redes.mjs';
@@ -319,4 +320,103 @@ test('/repaso: la nota pedida va primera en el repaso (aunque la cuente un solo 
   assert.deepEqual(notasDelRepaso([n('L1'), n('L2'), n('L3')], { ahora: AHORA, yaContadas: ['L1'] }).map((x) => x.id), ['L2', 'L3']);
   // no pasa de 3 notas
   assert.equal(notasDelRepaso([pedida('A'), pedida('B'), pedida('C'), pedida('D'), n('L1')], { ahora: AHORA }).length, 3);
+});
+
+// ---------------------------------------------------------------------------------------------------- el repaso, siempre con 3 (Hernán, 17/11/2026)
+
+const nR = (id, extra = {}) => ({ id, titulo: id, bajada: 'b', enDosLineas: '', seccion: 'Balcarce', motivo: 'balcarce', medios: 1, publicada: hace(30), noPublicar: null, foto: { url: 'https://x/y.jpg', credito: 'c' }, ...extra });
+const nacR = (id, medios, extra = {}) => nR(id, { seccion: 'Política', motivo: 'popular', medios, ...extra });
+
+test('repaso de 3: día normal queda igual (Balcarce de hoy, lo nacional más contado) y no mira las 48 h si ya llegó a 3', () => {
+  const r = repasoConMotivo([nR('L1'), nR('L2', { publicada: hace(10) }), nacR('N9', 9), nacR('N5', 5), nR('VIEJA', { publicada: hace(30 * 60) })], { ahora: AHORA });
+  assert.deepEqual(r.notas.map((x) => x.id), ['L2', 'L1', 'N9']);
+  assert.equal(r.motivo, null);
+  assert.equal(r.de48h, 0);
+});
+
+test('repaso de 3: día flojo (sólo 2 de hoy) completa con Balcarce de ayer y, si no hay, con lo nacional de ayer con más medios', () => {
+  const ayerL = nR('L-AYER', { publicada: hace(30 * 60) });
+  const flojo = repasoConMotivo([nR('L1'), nacR('N9', 9), ayerL, nacR('N-AYER-4', 4, { publicada: hace(40 * 60) }), nacR('N-AYER-7', 7, { publicada: hace(40 * 60) })], { ahora: AHORA });
+  assert.deepEqual(flojo.notas.map((x) => x.id), ['L1', 'L-AYER', 'N9']); // (c) Balcarce de 48 h antes que (d) lo nacional de 48 h; Balcarce primero en el video
+  assert.equal(flojo.de48h, 1);
+  const sinLocalAyer = repasoConMotivo([nR('L1'), nacR('N9', 9), nacR('N-AYER-4', 4, { publicada: hace(40 * 60) }), nacR('N-AYER-7', 7, { publicada: hace(40 * 60) })], { ahora: AHORA });
+  assert.deepEqual(sinLocalAyer.notas.map((x) => x.id), ['L1', 'N9', 'N-AYER-7']); // de lo nacional de ayer, la más contada
+  // pasadas las 48 horas, nada
+  assert.deepEqual(notasDelRepaso([nR('L1'), nR('ANTEAYER', { publicada: hace(50 * 60) }), nacR('N-ANTEAYER', 9, { publicada: hace(50 * 60) })], { ahora: AHORA }), []);
+});
+
+test('repaso de 3: el piso de medios de lo nacional es el del sitio (4 entre semana, 3 sábado y domingo, 2 en las áreas chicas), no el de los posteos (5)', () => {
+  const r = notasDelRepaso([nR('L1'), nacR('N4', 4), nacR('N3', 3), nacR('CIENCIA2', 2, { seccion: 'Ciencia' })], { ahora: AHORA }); // martes
+  assert.deepEqual(r.map((x) => x.id), ['L1', 'N4', 'CIENCIA2']);
+  assert.equal(mediosParaPublicar('Política', AHORA), 4);
+  const sabado = new Date('2026-11-07T13:00:00.000Z');
+  assert.equal(mediosParaPublicar('Política', sabado), 3);
+  const rs = notasDelRepaso([nR('L1', { publicada: hace(30, sabado) }), nacR('N3', 3, { publicada: hace(30, sabado) }), nacR('N2', 2, { publicada: hace(30, sabado) })], { ahora: sabado });
+  assert.deepEqual(rs.map((x) => x.id), ['L1', 'N3']);
+});
+
+test('repaso de 3: un solo lugar para el piso — el que usan las redes es el de wrangler.toml del núcleo', async () => {
+  const toml = fs.readFileSync(new URL('../nucleo/wrangler.toml', import.meta.url), 'utf8');
+  const valor = (k) => Number(toml.match(new RegExp(`^${k}\\s*=\\s*"(\\d+)"`, 'm'))[1]);
+  const { MINIMOS_PUBLICADOS } = await import('../nucleo/elegir/elegir.mjs');
+  assert.equal(MINIMOS_PUBLICADOS.nacional, valor('NUCLEO_MINIMO_NACIONAL'));
+  assert.equal(MINIMOS_PUBLICADOS.nacionalFinde, valor('NUCLEO_MINIMO_NACIONAL_FINDE'));
+  assert.equal(MINIMOS_PUBLICADOS.areasChicas, valor('NUCLEO_MINIMO_AREAS_CHICAS'));
+});
+
+test('repaso de 3: no repite lo que ya salió como posteo ni lo de otro repaso, tampoco mirando 48 h', () => {
+  const todas = [nR('L1'), nR('L-POSTEO', { publicada: hace(30 * 60) }), nR('L-REPASO', { publicada: hace(31 * 60) }), nR('L-AYER', { publicada: hace(32 * 60) }), nacR('N9', 9)];
+  const r = repasoConMotivo(todas, { ahora: AHORA, yaContadas: ['L-POSTEO'], yaUsadas: ['L-REPASO'] });
+  assert.deepEqual(r.notas.map((x) => x.id), ['L1', 'L-AYER', 'N9']);
+  assert.ok(!r.notas.some((x) => ['L-POSTEO', 'L-REPASO'].includes(x.id)));
+});
+
+test('repaso de 3: la ley, el tono (R41), la foto y lo rojo valen igual en la ventana de 48 h', () => {
+  const r = repasoConMotivo([
+    nR('L1'), nacR('N9', 9),
+    nR('TRAGEDIA', { publicada: hace(30 * 60), titulo: 'Muere un niño de 3 años' }),
+    nR('MENOR', { publicada: hace(30 * 60), noPublicar: { motivo: 'menor' } }),
+    nacR('SIN-FOTO', 8, { publicada: hace(30 * 60), foto: null }),
+    nR('SEPELIOS', { publicada: hace(30 * 60), titulo: 'Sepelios de hoy en Balcarce' }),
+  ], { ahora: AHORA });
+  assert.deepEqual(r.notas.map((x) => x.id), ['L1', 'N9']);
+  assert.equal(r.motivo, 'solo-2-notas'); // no se inventa: sale con 2 y lo dice
+});
+
+test('repaso de 3: con 2 sale corto y con el motivo anotado; con menos de 2 no sale', () => {
+  assert.equal(repasoConMotivo([nR('L1'), nacR('N9', 9)], { ahora: AHORA }).motivo, 'solo-2-notas');
+  const una = repasoConMotivo([nR('L1')], { ahora: AHORA });
+  assert.deepEqual([una.notas, una.motivo], [[], 'sin-notas-suficientes']);
+});
+
+test('planear: un día flojo completa el repaso con lo de ayer; con 2 sale corto y el plan y el resumen lo dicen', async () => {
+  const t = baseDePrueba();
+  guardarNota(t.sqlite, { id: 'loc1111', titulo: 'Abre la feria del libro', creada: hace(60), estado: 'borrador' });
+  guardarNota(t.sqlite, { id: 'nac3333', titulo: 'El dólar sube', seccion: 'Economía', motivo: 'popular', medios: ['a', 'b', 'c', 'd', 'e', 'f'], creada: hace(90), estado: 'borrador' });
+  guardarNota(t.sqlite, { id: 'loc0000', titulo: 'Arreglan la calle 17', creada: hace(30 * 60), estado: 'borrador' }); // de ayer
+  const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true, solo: ['noticia1'] });
+  assert.deepEqual(p.piezas[0].datos.notasIds, ['loc1111', 'loc0000', 'nac3333']);
+  assert.equal(p.piezas[0].datos.de48h, 1);
+  assert.deepEqual(p.avisos, []);
+  const t2 = baseDePrueba();
+  guardarNota(t2.sqlite, { id: 'loc1111', titulo: 'Abre la feria del libro', creada: hace(60), estado: 'borrador' });
+  guardarNota(t2.sqlite, { id: 'nac3333', titulo: 'El dólar sube', seccion: 'Economía', motivo: 'popular', medios: ['a', 'b', 'c', 'd', 'e', 'f'], creada: hace(90), estado: 'borrador' });
+  const q = await planear({ DB: t2.DB }, { ahora: AHORA, simulado: true, solo: ['noticia1'] });
+  assert.equal(q.piezas[0].datos.notasIds.length, 2);
+  assert.deepEqual(q.avisos.map((a) => [a.pieza, a.motivo, a.notas]), [['noticia1', 'repaso-corto (solo-2-notas)', 2]]);
+  const lineas = lineasDeLasPiezas([{ pieza: 'noticia1', estado: 'publicada', hora: '10:00', notas: ['a', 'b'], vozUsada: true }], false);
+  assert.ok(lineas.some((l) => /salió con 2 notas/.test(l)));
+  assert.ok(!lineasDeLasPiezas([{ pieza: 'noticia1', estado: 'publicada', hora: '10:00', notas: ['a', 'b', 'c'], vozUsada: true }], false).some((l) => /salió con 2 notas/.test(l)));
+});
+
+test('planear: una nota que salió como posteo anteayer no vuelve al repaso (ventana de 48 h)', async () => {
+  const t = baseDePrueba();
+  guardarNota(t.sqlite, { id: 'locA', titulo: 'Abre la feria del libro', creada: hace(60), estado: 'borrador' });
+  guardarNota(t.sqlite, { id: 'locB', titulo: 'Arreglan la calle 17', creada: hace(70), estado: 'borrador' });
+  guardarNota(t.sqlite, { id: 'locC', titulo: 'Hoy cortan el agua', creada: hace(35 * 60), estado: 'borrador' });
+  guardarNota(t.sqlite, { id: 'locD', titulo: 'Reparan la plaza central', creada: hace(36 * 60), estado: 'borrador' });
+  const anteayer = '2026-11-01';
+  t.sqlite.prepare("INSERT INTO publicaciones (red, nota_id, seccion, tipo, cuando, dia, estado, simulado, texto) VALUES ('facebook', 'locC', 'Balcarce', 'local', ?, ?, 'ok', 1, 'x')").run(`${anteayer}T15:00:00.000Z`, anteayer);
+  const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true, solo: ['noticia1'] });
+  assert.deepEqual(p.piezas[0].datos.notasIds, ['locA', 'locB', 'locD']); // locC ya salió como posteo
 });

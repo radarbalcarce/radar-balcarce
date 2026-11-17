@@ -2,6 +2,7 @@
 import {
   PALABRAS_POR_SEGUNDO, SEGUNDOS_DE_ADORNO, SALUDOS, TITULAR_MAX_CARACTERES, GANCHO_MAX_PALABRAS,
 } from './variables.mjs';
+import { tituloQueEntra } from '../titular.mjs';
 
 export const palabras = (texto = '') => String(texto).split(/\s+/).filter(Boolean);
 export const contarPalabras = (texto = '') => palabras(texto).length;
@@ -58,7 +59,11 @@ export function acortarCaracteres(texto, max) {
   return `${sinColgantes(ultimo > max * 0.5 ? corte.slice(0, ultimo) : corte)}…`;
 }
 
-export const tituloEnPantalla = (titulo) => acortarCaracteres(titulo, TITULAR_MAX_CARACTERES);
+/** El titular para la pantalla: entero; sólo si pasa del tope (raro), su forma completa más corta. NUNCA con «…» (Hernán, 17/11). */
+export const tituloEnPantalla = (titulo) => tituloQueEntra(titulo, TITULAR_MAX_CARACTERES);
+
+/** Una frase para leer en pantalla en `max` caracteres, sin puntos suspensivos: entera, o su forma completa más corta (para lo que no es crédito ni nombre). */
+export const fraseEnPantalla = (texto, max = TITULAR_MAX_CARACTERES) => tituloQueEntra(texto, max);
 
 /**
  * Lo primero que dice la voz de una nota (el gancho, 8 palabras o menos): el título si es corto; si tiene dos puntos y lo de antes es corto, lo de antes

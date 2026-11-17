@@ -320,7 +320,8 @@ test('Bluesky: el texto entra en 300 grafemas, lleva el enlace, los dos hashtags
   assert.doesNotMatch(t, /\.com\.ar/);
   const largo = textoDeBluesky({ ...NOTA, titulo: 'Ñandú '.repeat(80) });
   assert.ok(grafemas(largo) <= MAXIMO_BLUESKY);
-  assert.match(largo, /…\n\nhttps/);
+  assert.doesNotMatch(largo, /…|\.\.\./); // sin puntos suspensivos (17/11): las palabras que entran, sin una colgada
+  assert.match(largo, /\n\nhttps/);
   // Con tildes antes del enlace los bytes se corren: la faceta tiene que apuntar al enlace de verdad.
   const texto = 'Canción útil\n\nhttps://radarbalcarce.com/nota/x-1\n\n#Balcarce';
   const bytes = new TextEncoder().encode(texto);
@@ -565,7 +566,7 @@ test('X: el texto es el titular y los hashtags, sin enlace por defecto; con X_CO
   const largo = textoDeX({ ...nota, titulo: 'Un titular larguísimo '.repeat(30) }, { conEnlace: true });
   // El enlace cuenta 23 en X, venga como venga; el resto se cuenta por letras.
   assert.ok(largo.replace(/https:\/\/\S+/, 'x'.repeat(23)).length <= 270, String(largo.length));
-  assert.match(largo, /…\n\n/);
+  assert.doesNotMatch(largo, /…|\.\.\./); // sin puntos suspensivos (17/11)
   assert.ok(textoDeX({ ...nota, titulo: 'Un titular larguísimo '.repeat(30) }).length <= 270);
   assert.equal(xConEnlace({}), false);
   assert.equal(xConEnlace({ X_CON_ENLACE: 'si' }), true);

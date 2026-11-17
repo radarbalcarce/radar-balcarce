@@ -30,6 +30,13 @@ export const HORA_LIMITE_DE_SALIDA = 12 * 60; // pasado el mediodía sin nota, e
 export const REVISION_DE_LAS_19 = false;
 export const HORA_DE_REVISION = 19 * 60; // 19:00
 export const HORA_LIMITE_DE_REVISION = 22 * 60;
+/**
+ * Hernán (17/11): a la noche la MISMA página del clima se actualiza con la edición «cómo sigue la noche y mañana» (misma dirección, misma fecha de publicación; se anota cuándo se
+ * actualizó) y no se crea otra nota. Se arma con la plantilla (código, sin IA: no gasta ni un pedido). Entre las 20:00 y las 23:00, una sola vez; sólo si la nota de la mañana salió.
+ */
+export const EDICION_DE_LA_NOCHE = true;
+export const HORA_DE_LA_NOCHE = 20 * 60; // 20:00, la hora del video del clima de la noche
+export const HORA_LIMITE_DE_LA_NOCHE = 23 * 60;
 export const DIFERENCIA_DE_MAXIMA = 4; // °C
 export const RAFAGA_DE_ALERTA = 60; // km/h
 export const CIERRE = 'El pronóstico hora por hora, en radarbalcarce.com/clima. Las alertas oficiales del Servicio Meteorológico Nacional están en smn.gob.ar/alertas.';
@@ -59,11 +66,13 @@ export const fechaLarga = (fecha) => { const d = new Date(`${fecha}T12:00:00Z`);
  * Qué toca hacer en esta vuelta. `nota` es la del día (o null).
  *  - sin nota de hoy, entre 7:30 y 12:00 → 'salir'
  *  - con nota de hoy, entre 19:00 y 22:00, y todavía no revisada → 'revisar' (sólo si REVISION_DE_LAS_19; apagada: nunca)
+ *  - con nota de hoy, entre 20:00 y 23:00, y todavía sin la edición de la noche → 'noche' (EDICION_DE_LA_NOCHE: la misma nota, sin IA)
  */
 export function queToca(ahora, nota) {
   const { minutos } = horaLocal(ahora);
   if (!nota) return minutos >= HORA_DE_SALIDA && minutos < HORA_LIMITE_DE_SALIDA ? 'salir' : null;
   if (REVISION_DE_LAS_19 && minutos >= HORA_DE_REVISION && minutos < HORA_LIMITE_DE_REVISION && !(nota.verificacion && nota.verificacion.revisada19)) return 'revisar';
+  if (EDICION_DE_LA_NOCHE && minutos >= HORA_DE_LA_NOCHE && minutos < HORA_LIMITE_DE_LA_NOCHE && !(nota.verificacion && nota.verificacion.edicionNoche)) return 'noche';
   return null;
 }
 
@@ -274,8 +283,60 @@ function tituloDe(r) {
   return `Cómo viene el ${nombreDelDia(r.fecha)} en Balcarce: ${t}`;
 }
 
-/** La nota armada sólo con código. `edicion`: 'manana' (7:30) o 'tarde' (la actualización de las 19). */
+// La edición de la noche (17/11): cómo sigue lo que queda de la noche y cómo viene mañana, con los números del resumen y nada más.
+
+function parrafoDeLaNoche(r) {
+  const b = r.lugares[0];
+  const d = b.dias[0];
+  const p = [`Para lo que queda de la noche en Balcarce se espera ${d.cielo}${b.tempDesde !== null ? `, con ${b.tempDesde}° a las ${r.desdeHora}` : ''}.`];
+  p.push(d.llueve ? `La lluvia llega ${frase(d.ventanas)}, con unos ${aTexto(d.mm)} mm en lo que resta del día.` : 'No se espera lluvia en lo que queda de la noche.');
+  if (d.tormenta) p.push('Hay riesgo de tormenta.');
+  if (d.rafagaMax >= RAFAGA_DE_ALERTA) p.push(`Se esperan ráfagas de hasta ${d.rafagaMax} km/h.`);
+  else if (d.vientoMax >= 25) p.push(`El viento sopla con hasta ${d.vientoMax} km/h.`);
+  return p.join(' ');
+}
+
+function parrafoDeManana(r) {
+  const m = r.lugares[0].dias[1];
+  const p = [`Mañana, ${nombreDelDia(m.fecha)}, en Balcarce se espera ${m.cielo}, con una mínima de ${m.min}° y una máxima de ${m.max}°.`];
+  p.push(m.llueve ? `La lluvia llega ${frase(m.ventanas)}, con una probabilidad de hasta ${m.probLluvia}% y unos ${aTexto(m.mm)} mm en total. Llevá paraguas ${frase(m.ventanas)}.` : 'No se espera lluvia en el día.');
+  if (m.vientoMax >= 25) p.push(`El viento sopla con hasta ${m.vientoMax} km/h y ráfagas de hasta ${m.rafagaMax} km/h.`);
+  if (m.tormenta) p.push('Hay riesgo de tormenta.');
+  return p.join(' ');
+}
+
+function parrafoDeLaRegionManana(r) {
+  const costa = r.lugares.filter((l) => l.zona === 'costa');
+  const sierra = lugar(r, 'Tandil');
+  const p = [];
+  if (costa.length) p.push(`En la costa, las máximas de mañana son: ${costa.map((l) => `${l.nombre} ${l.dias[1].max}°`).join(', ')}.`);
+  if (sierra) p.push(`En la sierra, Tandil llega a ${sierra.dias[1].max}°.`);
+  const con = r.lugares.filter((l) => l.dias[1].llueve);
+  p.push(con.length ? `Lluvia mañana en: ${con.map((l) => `${l.nombre} ${frase(l.dias[1].ventanas)}`).join('; ')}.` : 'No se espera lluvia mañana en Balcarce ni en la costa ni en la sierra.');
+  return p.join(' ');
+}
+
+function parrafoDelPasadoManana(r) {
+  const d = r.lugares[0].dias[2];
+  return `Y el ${nombreDelDia(d.fecha)}: ${d.cielo}, mínima de ${d.min}° y máxima de ${d.max}° en Balcarce; ${d.llueve ? `lluvia ${frase(d.ventanas)}` : 'sin lluvia'}.`;
+}
+
+function plantillaDeLaNoche(r) {
+  const [d, m] = r.lugares[0].dias;
+  const dia = nombreDelDia(m.fecha);
+  const lo = m.llueve ? `lluvia ${frase(m.ventanas)}` : m.cielo.replace(/^cielo /, '');
+  const noche = d.llueve ? `lluvia ${frase(d.ventanas)}` : 'sin lluvia';
+  return {
+    titulo: `Cómo sigue la noche y cómo viene el ${dia} en Balcarce: ${lo} y máxima de ${m.max}°`,
+    bajada: `Esta noche ${d.llueve ? `llueve ${frase(d.ventanas)}` : 'no se espera lluvia'} en Balcarce; mañana, máxima de ${m.max}° y mínima de ${m.min}°: cómo viene la costa y la sierra.`,
+    cuerpo: [parrafoDeLaNoche(r), parrafoDeManana(r), parrafoDeLaRegionManana(r), parrafoDelPasadoManana(r), CIERRE],
+    enDosLineas: `Esta noche en Balcarce: ${noche}. Mañana: ${m.cielo}, mínima de ${m.min}° y máxima de ${m.max}°${m.llueve ? `, con lluvia ${frase(m.ventanas)}` : ', sin lluvia'}.`,
+  };
+}
+
+/** La nota armada sólo con código. `edicion`: 'manana' (7:30), 'tarde' (la actualización de las 19, apagada) o 'noche' (la actualización de las 20: cómo sigue la noche y cómo viene mañana). */
 export function plantilla(r, { edicion = 'manana' } = {}) {
+  if (edicion === 'noche') return plantillaDeLaNoche(r);
   const tarde = edicion === 'tarde';
   const [d, m] = r.lugares[0].dias;
   const cuerpo = [parrafoDeHoy(r, tarde), parrafoDeTemperatura(r), parrafoDeLluvia(r), parrafoDeViento(r), parrafoDeLosProximos(r), CIERRE];

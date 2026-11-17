@@ -126,6 +126,18 @@ export function minimoDelDia(minimo, minimoFinde, ahora = new Date()) {
   return dia === 0 || dia === 6 ? minimoFinde : minimo;
 }
 
+/**
+ * Los mínimos de medios con los que el sitio publica HOY lo de afuera (los de `NUCLEO_MINIMO_*` de wrangler.toml). Están acá, en un solo lugar de código, para que quien necesite
+ * «lo que el sitio ya publica» (el repaso de las redes, 17/11) los importe en vez de copiar el número; una prueba (`elegir.test.mjs`) controla que coincidan con wrangler.toml.
+ */
+export const MINIMOS_PUBLICADOS = Object.freeze({ nacional: 4, nacionalFinde: 3, areasChicas: 2 });
+
+/** Cuántos medios pide el sitio para publicar una nota de afuera de esa sección, ese día (el de los fines de semana, si es sábado o domingo; el de las áreas chicas, si la sección lo es). */
+export function mediosParaPublicar(seccion, ahora = new Date()) {
+  const piso = minimoDelDia(MINIMOS_PUBLICADOS.nacional, MINIMOS_PUBLICADOS.nacionalFinde, ahora);
+  return AREAS_CHICAS.includes(seccion) ? Math.min(piso, MINIMOS_PUBLICADOS.areasChicas) : piso;
+}
+
 export function elegir(historia, articulos, {
   minimoNacional = 3, minimoAreasChicas = 2, nacionalesHoy = 0, topeNacional = 100, pedida = false, ahora = new Date(), esperaNacionalMin = 0,
   fuentes = null,

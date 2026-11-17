@@ -9,7 +9,7 @@ import {
 import { escenaDeVideo, imagenComoSvg, franjaDeAuspicio, placaDeNota } from './escenas.mjs';
 import { anchoAproximado } from '../../../reels/placa.mjs';
 import {
-  CAJA_TEXTO, TEXTO_HASTA_Y, FIRMA_RAYA_Y, FRANJA_AUSPICIO, CLIMA, REPASO, EFEMERIDE, NOTA_REEL, NOTA_PROPIA, CARRUSEL_MAX_INSTAGRAM, MUSICA, SALUDOS, AVISO_DE_IA_TEXTO,
+  CAJA_TEXTO, TEXTO_HASTA_Y, FIRMA_RAYA_Y, FRANJA_AUSPICIO, CLIMA, REPASO, EFEMERIDE, NOTA_REEL, NOTA_PROPIA, CARRUSEL_MAX_INSTAGRAM, MUSICA, SALUDOS, AVISO_DE_IA_TEXTO, FARMACIA,
 } from './variables.mjs';
 import {
   saludoDe, momentoDe, contarPalabras, presupuestoDeVoz, hablarCuenta, hablarNumero, direccionHablada, ganchoDe, acortarPalabras, primeraFrase, conPunto,
@@ -268,12 +268,12 @@ test('nota (reel): unos 25 s, tres placas del repaso de hoy (titular con foto y 
   assert.throws(() => armarNotaReel({ titulo: 'sin sección' }, {}), /sección/);
 });
 
-test('el gancho de la voz es corto y los títulos largos se acortan en pantalla', () => {
+test('el gancho de la voz es corto y el titular en pantalla va entero (el largo, achicando la letra; nunca con «…»)', () => {
   assert.ok(contarPalabras(ganchoDe('Halloween en la plaza: un kiosco convocó a cientos de vecinos disfrazados y el centro se llenó de chicos')) <= 8);
   assert.equal(ganchoDe('Halloween en la plaza: un kiosco convocó a cientos de vecinos disfrazados'), 'Halloween en la plaza.');
   assert.equal(ganchoDe('Un título corto'), 'Un título corto.');
   const largo = nota({ titulo: 'Un título larguísimo que sigue y sigue y no termina nunca porque quien lo escribió se olvidó de ponerle punto final a tiempo' });
-  assert.ok(armarNotaReel(largo, {}).escenas[0].datos.titulo.length <= 90, 'el titular en pantalla no pasa de 90 caracteres');
+  assert.equal(armarNotaReel(largo, {}).escenas[0].datos.titulo, largo.titulo, 'el titular de 120 caracteres sale entero: la escena achica la letra'); // antes se cortaba a 90 con «…»
   // La nota propia muestra el titular ENTERO (Hernán, 10/11): la placa achica la letra hasta 5 renglones (repartir, reels/placa.mjs) en vez de cortarlo con «…».
   assert.equal(armarNotaPropia(propia({ titulo: largo.titulo }), {}).escenas[0].datos.titulo, largo.titulo);
 });
@@ -597,4 +597,28 @@ test('repaso: la miniatura de una nota sin foto es la placa de su sección (colo
   assert.match(mini, /fill="#123456"/);
   const tam = Number(mini.match(/font-size="(\d+)"/)[1]);
   assert.ok(tam >= 18 && tam <= 52);
+});
+
+// ------------------------------------------------------------------ farmacias: de 1 a 3 por día (Hernán, 17/11/2026)
+
+test('farmacia: de 1 a 3 por día — la ficha de 3 entra (texto arriba de la zona de abajo, voz dentro de los 14 s) y con más de 3 la pieza FALLA avisando, no corta en silencio', () => {
+  const tres = [
+    { nombre: 'SANTA INÉS', direccion: 'Calle 17 N° 537', telefono: '42-4301' },
+    { nombre: 'Del Patio', direccion: 'Av. 39 N° 793', telefono: '42-2200' },
+    { nombre: 'Farmacia Balcarce', direccion: 'Calle 18 N° 645', telefono: '42-1050' },
+  ];
+  for (const n of [1, 2, 3]) {
+    const p = armarFarmacia(tres.slice(0, n), { fecha: HOY, hora: 19, primeraDelBloque: true });
+    assert.equal(p.escenas[0].datos.farmacias.length, n);
+    assert.ok(contarPalabras(p.guion) <= presupuestoDeVoz(p.duracion), `${n} farmacias: ${contarPalabras(p.guion)} palabras para ${p.duracion} s (entran ${presupuestoDeVoz(p.duracion)})`);
+    const e = escenaDeVideo(p);
+    for (const t of [0.5, 3, 6, 10, p.duracion - 0.5]) {
+      const textos = textosDe(e.cuadro(t, p.duracion));
+      for (const x of textos) assert.ok(x.y <= TEXTO_HASTA_Y, `${n} farmacias @${t}: «${x.texto.slice(0, 30)}» en la fila ${x.y}`);
+      if (t >= 6) for (const f of tres.slice(0, n)) assert.ok(textos.some((x) => x.texto.includes(f.telefono)), `${n} farmacias @${t}: falta el teléfono ${f.telefono}`);
+    }
+  }
+  // Cuatro: el cronograma está mal (o cambió); salen unas y otras no sería publicar un dato falso.
+  assert.throws(() => armarFarmacia([...tres, { nombre: 'Otra', direccion: 'Calle 9 N° 100' }], { fecha: HOY }), /trae 4 farmacias de turno y son de 1 a 3/);
+  assert.ok(FARMACIA.fichasMaximo === 3);
 });

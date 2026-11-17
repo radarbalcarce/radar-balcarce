@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import {
   LUGARES, CIERRE, aResumen, ventanasDeLluvia, horaLocal, queToca, plantilla, comparar, numerosNoPermitidos, redactarNotaDelClima,
-  estadoDelDia, parrafoDeActualizacion, frase, REVISION_DE_LAS_19,
+  estadoDelDia, parrafoDeActualizacion, frase, REVISION_DE_LAS_19, EDICION_DE_LA_NOCHE,
 } from './clima.mjs';
 import { crearNucleo } from '../nucleo.mjs';
 
@@ -70,10 +70,37 @@ test('la hora de Balcarce es UTC-3 y la nota sale a las 7:30, no antes', () => {
   assert.equal(queToca('2026-11-03T15:00:00Z', null), null, 'pasado el mediodía sin nota, ese día no sale');
 });
 
-test('con la nota del día no se hace nada más: la actualización de las 19 está apagada (una sola nota por día, a la mañana)', () => {
+test('con la nota del día: la actualización de las 19 sigue apagada y a las 20:00 toca la edición de la noche, una sola vez (17/11)', () => {
   assert.equal(REVISION_DE_LAS_19, false);
+  assert.equal(EDICION_DE_LA_NOCHE, true);
   const nota = { verificacion: { revisada19: false } };
-  for (const hora of ['2026-11-03T21:59:00Z', '2026-11-03T22:00:00Z', '2026-11-04T00:59:00Z', '2026-11-04T01:00:00Z', '2026-11-03T12:00:00Z']) assert.equal(queToca(hora, nota), null, hora);
+  for (const hora of ['2026-11-03T21:59:00Z', '2026-11-03T22:00:00Z', '2026-11-04T02:00:00Z', '2026-11-03T12:00:00Z']) assert.equal(queToca(hora, nota), null, hora); // 18:59, 19:00, 23:00 y 9:00: nada
+  assert.equal(queToca('2026-11-03T22:59:00Z', nota), null, '19:59: todavía no');
+  assert.equal(queToca('2026-11-03T23:00:00Z', nota), 'noche', '20:00 en punto');
+  assert.equal(queToca('2026-11-04T01:59:00Z', nota), 'noche', '22:59');
+  assert.equal(queToca('2026-11-04T02:00:00Z', nota), null, '23:00: ya no');
+  assert.equal(queToca('2026-11-03T23:30:00Z', { verificacion: { edicionNoche: true } }), null, 'una sola vez');
+  assert.equal(queToca('2026-11-03T23:30:00Z', null), null, 'sin la nota de la mañana, a la noche no sale una nueva');
+});
+
+test('la plantilla de la noche: «Cómo sigue la noche y cómo viene el miércoles», lo que queda de hoy, mañana, la región y pasado; ningún número inventado', () => {
+  const r = aResumen(abierto({ lluvia: { Balcarce: [[], [10, 11, 12]], 'Mar del Plata': [[], [11, 12]] } }), { desdeHora: 20 });
+  const n = plantilla(r, { edicion: 'noche' });
+  assert.equal(n.titulo, 'Cómo sigue la noche y cómo viene el miércoles en Balcarce: lluvia de 10 a 13 y máxima de 19°');
+  assert.equal(n.cuerpo.length, 5);
+  assert.equal(n.cuerpo.at(-1), CIERRE);
+  assert.match(n.cuerpo[0], /^Para lo que queda de la noche en Balcarce/);
+  assert.match(n.cuerpo[0], /No se espera lluvia en lo que queda de la noche/);
+  assert.match(n.cuerpo[1], /^Mañana, miércoles, en Balcarce/);
+  assert.match(n.cuerpo[1], /Llevá paraguas de 10 a 13/);
+  assert.match(n.cuerpo[2], /En la costa, las máximas de mañana son: Mar del Plata 15°, Miramar 15°, Necochea 14°/);
+  assert.match(n.cuerpo[2], /Lluvia mañana en: Balcarce de 10 a 13; Mar del Plata de 11 a 13/);
+  assert.match(n.cuerpo[3], /^Y el jueves/);
+  assert.equal(numerosNoPermitidos([n.titulo, n.bajada, ...n.cuerpo, n.enDosLineas].join('\n'), r).length, 0);
+  // sin lluvia mañana
+  const seca = plantilla(aResumen(abierto(), { desdeHora: 20 }), { edicion: 'noche' });
+  assert.match(seca.titulo, /^Cómo sigue la noche y cómo viene el miércoles en Balcarce: cielo parcialmente nublado y máxima de 19°$|^Cómo sigue la noche y cómo viene el miércoles en Balcarce: parcialmente nublado y máxima de 19°$/);
+  assert.match(seca.cuerpo[2], /No se espera lluvia mañana/);
 });
 
 // ------------------------------------------------------------------ el resumen y la plantilla
@@ -397,4 +424,67 @@ test('si no salió la nota de la mañana, a las 19:00 no se publica una nueva', 
 test('las ciudades de la región son las del sitio y Balcarce va primero', () => {
   assert.equal(LUGARES[0].nombre, 'Balcarce');
   assert.deepEqual(LUGARES.map((l) => l.nombre), ['Balcarce', 'Mar del Plata', 'Miramar', 'Necochea', 'Tandil']);
+});
+
+test('20:00: la MISMA página del clima se actualiza con «cómo sigue la noche y mañana» — mismo id, misma dirección, misma fecha de publicación, sin IA, una sola vez', { skip: sinSqlite }, async () => {
+  const env = envDe();
+  const m = mundo();
+  const n = nucleo();
+  await n.vuelta(env, { fetch: m.fetch, ahora: '2026-11-03T10:30:00Z' });
+  const [manana] = notas(env);
+  env.DB.sqlite.exec("CREATE TABLE IF NOT EXISTS sitio_notas (id TEXT PRIMARY KEY, slug TEXT, publicada_en TEXT, origen TEXT)"); // lo de la dirección y la fecha de publicación es del sitio: el núcleo no lo toca
+  env.DB.sqlite.prepare("INSERT INTO sitio_notas (id, slug, publicada_en, origen) VALUES (?, ?, ?, 'nucleo')").run(manana.id, 'como-viene-el-martes-slug-fijo', '2026-11-03T10:30:00.000Z');
+  const gemini = m.gemini;
+  const pronosticos = m.openMeteo;
+
+  const antesDeLasOcho = await n.vuelta(env, { fetch: m.fetch, ahora: '2026-11-03T22:59:00Z' }); // 19:59
+  assert.equal(antesDeLasOcho.clima, null);
+  assert.equal(m.openMeteo, pronosticos);
+
+  m.pronostico = abierto({ lluvia: { Balcarce: [[], [10, 11, 12]], 'Mar del Plata': [[], [11, 12]] } });
+  const r = await n.vuelta(env, { fetch: m.fetch, ahora: '2026-11-03T23:05:00Z' }); // 20:05
+  assert.deepEqual(r.clima, { accion: 'actualizo-la-noche', redactor: 'plantilla', pedidos: 0 });
+  assert.equal(r.errores.length, 0, r.errores.join('|'));
+  assert.equal(m.gemini, gemini, 'la edición de la noche no gasta ni un pedido de IA');
+  assert.equal(m.openMeteo, pronosticos + 1, 'un solo pedido de pronóstico');
+
+  const filas = notas(env);
+  assert.equal(filas.length, 1, 'no crea otra nota');
+  const [noche] = filas;
+  assert.equal(noche.id, manana.id, 'misma nota');
+  assert.equal(noche.creada, manana.creada, 'su fecha de creación no se toca (no rejuvenece)');
+  assert.equal(noche.estado, 'publicada');
+  assert.equal(noche.foto, null);
+  assert.match(noche.titulo, /^Cómo sigue la noche y cómo viene el miércoles en Balcarce/);
+  assert.notEqual(noche.cuerpo, manana.cuerpo);
+  assert.equal(JSON.parse(noche.cuerpo).at(-1), CIERRE);
+  const ficha = JSON.parse(noche.ficha);
+  assert.deepEqual(ficha.marca, { tipo: 'clima-diario', fecha: '2026-11-03' });
+  assert.equal(ficha.indexar, false, 'sigue en noindex');
+  assert.equal(ficha.actualizadaEn, '2026-11-03T23:05:00.000Z', 'se registra la actualización');
+  assert.equal(JSON.parse(noche.verificacion).edicionNoche, true);
+  assert.equal(JSON.parse(noche.verificacion).redactor, 'plantilla');
+  const sitio = env.DB.sqlite.prepare('SELECT slug, publicada_en FROM sitio_notas WHERE id = ?').get(manana.id);
+  assert.deepEqual({ ...sitio }, { slug: 'como-viene-el-martes-slug-fijo', publicada_en: '2026-11-03T10:30:00.000Z' }, 'misma dirección y misma fecha de publicación');
+
+  // una sola vez: la vuelta siguiente no la repite
+  const otra = await n.vuelta(env, { fetch: m.fetch, ahora: '2026-11-03T23:20:00Z' });
+  assert.equal(otra.clima, null);
+  assert.equal(m.openMeteo, pronosticos + 1);
+  assert.equal(notas(env)[0].cuerpo, noche.cuerpo);
+});
+
+test('si Open-Meteo falla a las 20:00, la nota de la mañana queda como estaba y se reintenta en la vuelta siguiente', { skip: sinSqlite }, async () => {
+  const env = envDe();
+  const m = mundo();
+  const n = nucleo();
+  await n.vuelta(env, { fetch: m.fetch, ahora: '2026-11-03T10:30:00Z' });
+  const antes = notas(env)[0];
+  m.caido = true;
+  const r = await n.vuelta(env, { fetch: m.fetch, ahora: '2026-11-03T23:05:00Z' });
+  assert.equal(r.clima.accion, 'error');
+  assert.equal(notas(env)[0].cuerpo, antes.cuerpo);
+  m.caido = false;
+  const r2 = await n.vuelta(env, { fetch: m.fetch, ahora: '2026-11-03T23:20:00Z' });
+  assert.equal(r2.clima.accion, 'actualizo-la-noche');
 });

@@ -11,6 +11,16 @@
 - **Horarios por Cloudflare (H-03):** el reloj de `radar-redes` despierta ahora también las **estadísticas** (0:07 UTC), el armado de **efemérides del día 20** (13:07 UTC) y el **respaldo de la base** (1:40 UTC). `v3-estadisticas.yml` ya no tiene `schedule`; `v3-efemerides.yml` y `v3-respaldo-d1.yml` lo conservan como respaldo tardío (no duplica). **Falta desplegar `redes` y subir los workflows ANTES del 20/11.**
 - **Documentos al día:** `CLAUDE.md` reescrito para la 3.0 (el viejo está en `docs/historico/CLAUDE-SISTEMA-VIEJO.md`), `v3/redes/REGLAS.md` § 2 (redes prendidas), `LEEME.md`, este archivo, `CONTENIDO-REDES-3-0.md` y `FOTOS-ORIGINALES-PROPUESTA.md` (nuevos).
 
+- **Hecho el 17/11 (tarde), sin commitear ni desplegar: pedidos de Hernán sobre las redes** (`v3/redes/REGLAS.md` § 21 a 23; `v3/nucleo/REGLAS.md` § 12): **el repaso siempre con 3 notas** (completa con Balcarce y lo nacional de las últimas 48 h, con el piso de medios del sitio importado del núcleo; con 2 sale corto y queda anotado en el resumen del día); **titulares enteros** (la letra se achica, después la forma corta del título, nunca «…»: reels, tapas, placas, posteos, X, Bluesky y Threads; `infra/render-publico/` resincronizado); **farmacias de 1 a 3** (con más, la pieza falla y avisa en el resumen); **clima de la noche en la web** (la misma página se actualiza a las 20:00 con «cómo sigue la noche y mañana», sin IA). Hay que desplegar `nucleo` y `redes`, y subir `infra/render-publico/` al repositorio público de render.
+
+## 0 bis. Decidido por Hernán el 17/11 y pendiente de construir (no está en el código)
+
+- **Farmacias: sólo la página `/farmacias`** (siempre al día), **sin nota diaria** ni nota semanal. La historia de las 19:00 sigue como está.
+- **Una única página diaria de repasos en la web** (`/repaso/AAAA-MM-DD` con los tres videos, el título y la bajada de cada nota con su enlace; `noindex`; se arma sola). No son tres notas por día.
+- **Datos curiosos: 1 o 2 por día, con diseño propio** (un reel corto con una cifra o dato animado, gráfico propio, la misma voz y el zócalo único). Falta decidir de dónde sale el dato (fuente verificable) y quién lo revisa.
+- **Efemérides: se reescriben cuando se apruebe el estándar visual 3.0** (hasta entonces quedan como están; el armado automático del 20/11 se revisa a mano).
+- **La tapa del reel se sube a Meta** (la portada del reel con una imagen armada a propósito: foto completa, titular grande, color de la sección; hoy la grilla muestra un cuadro a medio animar; pendiente 1.1).
+
 ## 1. Urgente (esta semana)
 
 1. **Turismo, antes del 22/11 (40 años del Museo Fangio):** llamar, pedir fotos y una charla en el museo; armar la nota propia (CIU-01, edificio, ex palacio municipal; CIU-02). Archivos de trabajo (**no van al repositorio**): `LISTADO-UNICO-BALCARCE.md`, `LISTADO-BALCARCE.html`, `SALIDA-BALCARCE.html`, `EDIFICIO-MUSEO-FANGIO.md`. *Persona.*

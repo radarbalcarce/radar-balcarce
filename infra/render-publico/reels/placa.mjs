@@ -195,22 +195,85 @@ export function envolverAncho(texto, tam, disponible, familia = 'serif') {
   return renglones;
 }
 
+// Palabras que no pueden quedar colgando al final de un titular recortado («…candidato presidencial en»).
+const COLGANTES_DE_TITULAR = new Set(['a', 'al', 'ante', 'bajo', 'con', 'contra', 'de', 'del', 'desde', 'durante', 'en', 'entre', 'hacia', 'hasta', 'para', 'por', 'según', 'sin', 'sobre', 'tras', 'el', 'la', 'los', 'las', 'un', 'una', 'unos', 'unas', 'y', 'e', 'o', 'u', 'ni', 'que', 'como', 'su', 'sus', 'mi', 'tu', 'más', 'muy', 'pero', 'cuando', 'donde']);
+
+/** Saca del final los signos y las palabras que no pueden cerrar un titular (preposiciones, artículos, conjunciones). */
+export function sinColgarTitular(texto) {
+  const p = String(texto).replace(/[,;:\s.…\-–—|]+$/, '').split(/\s+/).filter(Boolean);
+  while (p.length > 1 && COLGANTES_DE_TITULAR.has(p.at(-1).toLowerCase().replace(/[,;:.…]+$/, ''))) p.pop();
+  return p.join(' ').replace(/[,;:\s.…\-–—|]+$/, '');
+}
+
+/**
+ * Las formas COMPLETAS más cortas de un titular, de la más larga a la más corta: su primera oración, lo de antes de los dos puntos o de un guion, y lo que queda
+ * cortando en cada coma. Ninguna termina en «…» ni en una palabra colgada, y todas tienen tres palabras o más (Hernán, 17/11: el titular nunca se corta con puntos suspensivos).
+ */
+export function variantesDeTitulo(texto) {
+  const t = String(texto ?? '').replace(/\s+/g, ' ').trim();
+  const salida = [];
+  const poner = (x) => { const v = sinColgarTitular(x); if (v && v.length < t.length && v.split(' ').length >= 3 && !salida.includes(v)) salida.push(v); };
+  const oracion = t.match(/^(.+?[.!?])\s+(?=[A-ZÁÉÍÓÚÑ¿¡"«])/);
+  if (oracion) poner(oracion[1]);
+  for (const sep of [': ', ' - ', ' – ', ' — ', ' | ']) { const i = t.indexOf(sep); if (i > 0) poner(t.slice(0, i)); }
+  for (let i = t.lastIndexOf(','); i > 0; i = t.lastIndexOf(',', i - 1)) poner(t.slice(0, i));
+  return salida.sort((a, b) => b.length - a.length);
+}
+
+/**
+ * El titular que entra en `max` caracteres, sin puntos suspensivos: entero si entra; si no, la forma completa más larga que entre (`variantesDeTitulo`); y sólo si no hay ninguna,
+ * las palabras que entren (sin una colgada al final y sin «…»). Para lo que se arma antes de dibujar; el dibujo, además, achica la letra antes de recurrir a esto (`repartir`).
+ */
+export function tituloQueEntra(texto, max, medir = (s) => s.length) {
+  const t = String(texto ?? '').replace(/\s+/g, ' ').trim();
+  if (medir(t) <= max) return t;
+  const v = variantesDeTitulo(t).find((x) => medir(x) <= max);
+  if (v) return v;
+  const palabras = t.split(' ');
+  let n = palabras.length;
+  while (n > 1 && medir(sinColgarTitular(palabras.slice(0, n).join(' '))) > max) n -= 1;
+  return sinColgarTitular(palabras.slice(0, n).join(' '));
+}
+
 /**
  * Reparte un texto en el primer cuerpo (de mayor a menor) donde entra entero
- * en los renglones que se le permiten. Si no entra ni en el más chico, se
- * corta con puntos suspensivos, para que se vea que el texto sigue.
- * `escalones` = [{ tam, max }].
+ * en los renglones que se le permiten. `escalones` = [{ tam, max }].
+ *
+ * Nunca se corta con puntos suspensivos (Hernán, 17/11: «el titular entero, siempre»). Si no entra ni en el escalón más chico, se achica la letra
+ * (de a 2 px, hasta el 80 % de ese escalón: el mínimo legible); si aun así no entra, se usa una forma completa más corta del texto (`variantesDeTitulo`: su primera
+ * oración, lo de antes de los dos puntos, hasta una coma) y, sólo si no hay ninguna, las palabras que entren sin una colgada. `cortado` dice que se usó esa
+ * forma más corta. Con `achicar: false` no hace nada de eso: devuelve `cortado: true` apenas no entra en el último escalón (para quien elige entre escalas).
  */
-export function repartir(texto, escalones, disponible, familia = 'serif') {
+export function repartir(texto, escalones, disponible, familia = 'serif', { achicar = true } = {}) {
   const ancho = disponible * AIRE;
-  for (const e of escalones) {
-    const lineas = envolverAncho(texto, e.tam, ancho, familia);
-    if (lineas.length <= e.max) return { lineas, tam: e.tam, cortado: false };
-  }
+  const probar = (t, hasta) => {
+    for (const e of escalones) {
+      const lineas = envolverAncho(t, e.tam, ancho, familia);
+      if (lineas.length <= e.max) return { lineas, tam: e.tam };
+    }
+    if (!hasta) return null;
+    const ultimo = escalones[escalones.length - 1];
+    for (let tam = ultimo.tam - 2; tam >= hasta; tam -= 2) {
+      const lineas = envolverAncho(t, tam, ancho, familia);
+      if (lineas.length <= ultimo.max) return { lineas, tam };
+    }
+    return null;
+  };
   const ultimo = escalones[escalones.length - 1];
-  const lineas = envolverAncho(texto, ultimo.tam, ancho, familia).slice(0, ultimo.max);
-  lineas[lineas.length - 1] = `${lineas[lineas.length - 1]}…`;
-  return { lineas, tam: ultimo.tam, cortado: true };
+  const minimo = achicar ? Math.max(16, Math.round(ultimo.tam * 0.8)) : 0;
+  const entero = probar(texto, minimo);
+  if (entero) return { ...entero, cortado: false };
+  if (!achicar) return { lineas: envolverAncho(texto, ultimo.tam, ancho, familia).slice(0, ultimo.max), tam: ultimo.tam, cortado: true };
+  for (const v of variantesDeTitulo(texto)) {
+    const r = probar(v, minimo);
+    if (r) return { ...r, cortado: true };
+  }
+  // Último recurso (casi imposible): las palabras que entren en el escalón más chico, sin «…» ni una palabra colgada.
+  const palabras = String(texto).split(/\s+/).filter(Boolean);
+  let n = palabras.length;
+  while (n > 1 && envolverAncho(sinColgarTitular(palabras.slice(0, n).join(' ')), minimo, ancho, familia).length > ultimo.max) n -= 1;
+  const corto = sinColgarTitular(palabras.slice(0, n).join(' '));
+  return { lineas: envolverAncho(corto, minimo, ancho, familia).slice(0, ultimo.max), tam: minimo, cortado: true };
 }
 
 // --------------------------------------------------------------- las piezas
@@ -278,7 +341,7 @@ export function encabezadoDelRepaso(momento, cuantas) {
 
 // Cuánto lugar tiene la lista del repaso y con qué cuerpos se prueba. Gana el
 // primero donde entran todas las notas enteras; los títulos nunca se cortan
-// salvo que ni en el más chico entren (y entonces llevan puntos suspensivos).
+// salvo que ni en el más chico entren (y entonces la letra se achica y, si hace falta, se usa su forma corta: nunca puntos suspensivos).
 const ESCALONES_LISTA = [
   { tam: 50, max: 3 }, { tam: 46, max: 3 }, { tam: 42, max: 4 }, { tam: 38, max: 4 }, { tam: 34, max: 5 }, { tam: 30, max: 5 },
 ];
@@ -318,7 +381,7 @@ export function placaRepaso({
   const desde = yFecha + 50;
   const hasta = Y_PIE - 24;
   const medir = (e) => lista.map((n) => {
-    const t = repartir(n.titulo, [e], anchoTitulo);
+    const t = repartir(n.titulo, [e], anchoTitulo, 'serif', { achicar: false }); // sin achicar: elige la escala donde todas entran enteras
     return { t, alto: 30 + 24 + 16 + t.lineas.length * Math.round(e.tam * 1.08) + 26 };
   });
   let elegido = null;
@@ -326,7 +389,7 @@ export function placaRepaso({
     const filas = medir(e);
     if (filas.every((f) => !f.t.cortado) && filas.reduce((s, f) => s + f.alto, 0) <= hasta - desde) { elegido = filas; break; }
   }
-  elegido ??= medir(ESCALONES_LISTA[ESCALONES_LISTA.length - 1]);
+  elegido ??= lista.map((n) => { const t = repartir(n.titulo, [ESCALONES_LISTA[ESCALONES_LISTA.length - 1]], anchoTitulo); return { t, alto: 30 + 24 + 16 + t.lineas.length * Math.round(t.tam * 1.08) + 26 }; }); // ni así entran: letra más chica y, si hace falta, la forma corta del titular (nunca «…»)
 
   // Si sobra lugar, se reparte entre las filas: una lista corta arriba y media
   // placa vacía abajo se ve a medio hacer.

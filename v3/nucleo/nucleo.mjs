@@ -15,7 +15,7 @@ import { elegirFotoConMotivo } from './fotos/fotos.mjs';
 import * as db from './db/db.mjs';
 import * as IL from './ilustrar/ilustrar.mjs';
 import * as AF from './archivo-fotos/archivo-fotos.mjs';
-import { queToca, horaLocal, idDeLaNota, traerPronostico, comparar, redactarNotaDelClima, parrafoDeActualizacion, estadoDelDia, FIRMA_CLIMA, FUENTE_CLIMA, TIPO_DE_NOTA } from './clima/clima.mjs';
+import { queToca, horaLocal, idDeLaNota, traerPronostico, comparar, redactarNotaDelClima, plantilla as plantillaDelClima, parrafoDeActualizacion, estadoDelDia, FIRMA_CLIMA, FUENTE_CLIMA, TIPO_DE_NOTA } from './clima/clima.mjs';
 import { DIRECCION, contrasenaDelWebhook } from '../redaccion/telegram/worker.mjs';
 
 // ---------------------------------------------------------------------------------------------- constantes
@@ -388,7 +388,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     return r;
   }
 
-  // La nota del clima de la región. Una por día (id `clima-AAAA-MM-DD`); la actualización de las 19 reescribe la MISMA fila: no cambia id, `creada` ni la
+  // La nota del clima de la región. Una por día (id `clima-AAAA-MM-DD`); la edición de la noche (y la actualización de las 19, apagada) reescribe la MISMA fila: no cambia id, `creada` ni la
   // dirección (el sitio fija el slug la primera vez). Si Gemini no se puede usar (sin clave, tope diario o freno mensual) o falla, sale la plantilla.
   async function climaDelDia(env, c, gem, r, error) {
     try {
@@ -397,6 +397,16 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       const nota = await db.notaCompleta(env, id);
       const toca = queToca(c.ahora, nota);
       if (!toca) return;
+
+      // La edición de la noche (Hernán, 17/11): la MISMA página (mismo id, misma dirección, `creada` y fecha de publicación intactas) se actualiza con «cómo sigue la noche y cómo viene
+      // mañana». Sólo plantilla (código): no usa Gemini, así que no gasta ni un pedido. Se anota cuándo se actualizó (`ficha.actualizadaEn`, `verificacion.edicionNoche`).
+      if (toca === 'noche') {
+        const resumenNoche = await traerPronostico(c.fetchFn, { desdeHora: Math.floor(minutos / 60), ahora: c.ahora });
+        const escrita = { ...plantillaDelClima(resumenNoche, { edicion: 'noche' }), redactor: 'plantilla', motivoPlantilla: 'edicion-de-la-noche: sin IA', pedidos: 0, oracionesQuitadas: [] };
+        await db.guardarNota(env, armarNota({ id, dia, nota, resumen: resumenNoche, escrita, cuerpo: escrita.cuerpo, ahoraISO: c.ahoraISO, env, edicion: 'noche' }), c.ahoraISO);
+        r.clima = { accion: 'actualizo-la-noche', redactor: 'plantilla', pedidos: 0 };
+        return;
+      }
 
       // ¿Se puede usar Gemini? Mismo freno mensual y mismo tope diario que la redacción; si no, plantilla (no cuesta nada).
       let geminiClima = null;
@@ -447,12 +457,13 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
         que: 'Pronóstico del tiempo de hoy y los próximos dos días', quien: FIRMA_CLIMA, donde: 'Balcarce, la costa y la sierra', cuando: dia,
         numeros: [], cronologia: [], faltaSaber: [],
         marca: { tipo: TIPO_DE_NOTA, fecha: dia }, indexar: false, estadoDelCielo: estadoDelDia(resumen),
-        actualizadaEn: edicion === 'tarde' ? ahoraISO : null,
+        actualizadaEn: edicion === 'tarde' || edicion === 'noche' ? ahoraISO : null,
       },
       noPublicar: null,
       verificacion: {
         tipo: TIPO_DE_NOTA, resumen, redactor: escrita.redactor, motivoPlantilla: escrita.motivoPlantilla, oracionesQuitadas: escrita.oracionesQuitadas,
-        revisada19: edicion === 'tarde', actualizadaEn: edicion === 'tarde' ? ahoraISO : null,
+        revisada19: edicion === 'tarde', actualizadaEn: edicion === 'tarde' || edicion === 'noche' ? ahoraISO : null,
+        edicionNoche: edicion === 'noche' || !!(nota && nota.verificacion && nota.verificacion.edicionNoche),
         cambios: cambio ? cambio.motivos : (nota && nota.verificacion && nota.verificacion.cambios) || [],
       },
       foto: null, fuentes: [FUENTE_CLIMA], fechaHecho: nota ? nota.fechaHecho : ahoraISO, firma: FIRMA_CLIMA,

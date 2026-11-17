@@ -46,7 +46,9 @@ export const FIRMA_BASE_Y = 1544;
 export const SUBTITULOS_Y = 1620;
 /** La franja del auspicio del clima: ámbar, de una línea, entre la firma de la placa y los subtítulos (no rompe nada del diseño de hoy). */
 export const FRANJA_AUSPICIO = congelar({ y: 1568, alto: 54 });
-export const TITULAR_MAX_CARACTERES = 90;
+// El titular que se ve en pantalla: entero siempre (Hernán, 17/11: nunca «…» ni cortado). Entra más de lo que cabe a la letra grande porque la escena achica la letra hasta un mínimo legible (`repartir`, reels/placa.mjs);
+// pasado este largo (raro), se usa la forma completa más corta del título (`tituloQueEntra`), nunca una cortada.
+export const TITULAR_MAX_CARACTERES = 160;
 export const GANCHO_MAX_PALABRAS = 8;
 export const GANCHO_SEGUNDOS = 3;
 /** Hernán (3/11): «el audio termina antes que la animación». El video dura la voz real + este cierre (nunca menos que la voz, nunca más de 2 s de silencio al final). */
@@ -67,7 +69,8 @@ export const REPASO = congelar({
 });
 /** La efeméride de hoy, versión corta (un hecho y un «Y además»): la misma escena, ~15 s, a prueba una semana (Hernán 3/11). */
 export const EFEMERIDE = congelar({ segundos: 15, maximo: 20, principalesEnVideo: 1, ademasEnVideo: 1 });
-export const FARMACIA = congelar({ segundos: 14, minimo: 6, maximo: 20 });
+// Las farmacias de turno son de 1 a 3 por día (Hernán, 17/11): la ficha tiene lugar para 3. Si el cronograma trae más, algo anda mal con los datos (no se corta en silencio: la pieza falla y el resumen del día lo cuenta).
+export const FARMACIA = congelar({ segundos: 14, minimo: 6, maximo: 20, fichasMaximo: 3 });
 /** Una nota como reel: tres placas de las del repaso (la foto y el titular, y dos hechos), ~25 s. */
 export const NOTA_REEL = congelar({ escenas: congelar([8, 8.5, 8.5]), segundos: 25, maximo: 35 });
 /** La nota propia, como la de Halloween: una placa por foto (de 1 a 3). Con una dura 14 s, con dos 22 y con tres 30. */

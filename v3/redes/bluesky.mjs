@@ -7,6 +7,7 @@
 //   crearClienteBluesky(...)      iniciar sesión, subir la imagen y publicar el posteo con su tarjeta
 //
 // Quién decide QUÉ nota va y cuándo es `enlaces.mjs` (el Worker de redes); quién dibuja la imagen y llama a esta API es `piezas/enlaces.mjs` (GitHub Actions).
+import { tituloQueEntra } from './titular.mjs';
 import { enlaceDeNota, dosLineas, lineaDeCredito, lineaDeMenciones, HASHTAGS, SITIO } from './texto.mjs';
 
 export const SERVICIO_BLUESKY = 'https://bsky.social';
@@ -19,14 +20,9 @@ const segmentador = new Intl.Segmenter('es', { granularity: 'grapheme' });
 /** Cuántos «caracteres» ve una persona (un emoji o una letra con tilde combinada cuentan 1). Es lo que cuenta Bluesky. */
 export const grafemas = (t) => { let n = 0; for (const _ of segmentador.segment(String(t ?? ''))) n += 1; return n; };
 
-/** Corta un título a `max` grafemas en el límite de una palabra, con «…» si hizo falta. */
+/** El título en `max` grafemas SIN puntos suspensivos (Hernán, 17/11): entero, o su forma completa más corta (`tituloQueEntra`, titular.mjs). */
 export function acortarA(texto, max) {
-  const t = limpiar(texto);
-  if (grafemas(t) <= max) return t;
-  const letras = [...segmentador.segment(t)].map((x) => x.segment);
-  const corte = letras.slice(0, Math.max(1, max - 1)).join('');
-  const ultimo = corte.lastIndexOf(' ');
-  return `${(ultimo > corte.length * 0.5 ? corte.slice(0, ultimo) : corte).replace(/[,;:\s.]+$/, '')}…`;
+  return tituloQueEntra(limpiar(texto), max, grafemas);
 }
 
 /** El texto del posteo de Bluesky: título · enlace · hashtags fijos · crédito de la foto (si entra). Nunca la fuente ni `.com.ar`. */

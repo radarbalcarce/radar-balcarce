@@ -16,7 +16,7 @@ import {
 } from './variables.mjs';
 import {
   acortarPalabras, conPunto, contarPalabras, direccionHablada, frases, ganchoDe, hablarCuenta, hablarNumero, momentoDe, nombrePropio, partesQueEntran, presupuestoDeVoz,
-  primeraFrase, saludoDe, tituloEnPantalla, topeDeVoz, acortarCaracteres,
+  primeraFrase, saludoDe, tituloEnPantalla, topeDeVoz, fraseEnPantalla,
 } from './voz.mjs';
 import { PIEZAS_PARTICIPA } from '../../../redes/participa.mjs';
 import { pantallasDeUtiles, queDiceLaVoz } from '../../../ingesta/utiles.mjs';
@@ -184,8 +184,8 @@ export function armarEfemeride(efemeride, { fecha = null, anioActual = new Date(
   return video('efemeride', [
     escena('efemeride', total, {
       fecha: dia,
-      principal: { anio: p.anio, titulo: p.titulo, cuerpo: acortarCaracteres(resumen, 170) },
-      ademas: otro ? [{ anio: otro.anio, texto: acortarCaracteres(texto, 120) }] : [],
+      principal: { anio: p.anio, titulo: p.titulo, cuerpo: fraseEnPantalla(resumen, 170) },
+      ademas: otro ? [{ anio: otro.anio, texto: fraseEnPantalla(texto, 120) }] : [],
       anioActual,
     }, unir(intro, hecho, tambienVoz)),
   ], { voz: 'locutora', saludo, extra: { dia: dia, color: 'Cultura y agenda' } });
@@ -220,10 +220,10 @@ export function armarNotaReel(nota, opciones = {}) {
   const base = { rotulo, n: 3, seccion: nota.seccion };
   const cierre = contarPalabras(CIERRE_NOTA);
   const escenas = [
-    escena('placa-nota', d1, { ...base, i: 0, titulo: acortarCaracteres(nota.titulo, 80), foto: fotoA, marca: null },
+    escena('placa-nota', d1, { ...base, i: 0, titulo: tituloEnPantalla(nota.titulo), foto: fotoA, marca: null },
       unir(saludo, partesQueEntran([ganchoDe(nota.titulo), fr[0]], Math.max(8, topeDeVoz(d1 - 0.5, total) - contarPalabras(saludo))))),
-    escena('placa-nota', d2, { ...base, i: 1, titulo: acortarCaracteres(fr[1], 90), foto: fotoB, marca: fr[1] }, partesQueEntran([fr[1]], topeDeVoz(d2, total))),
-    escena('placa-nota', d3, { ...base, i: 2, titulo: acortarCaracteres(fr[2], 90), foto: fotoC, marca: fr[2] },
+    escena('placa-nota', d2, { ...base, i: 1, titulo: tituloEnPantalla(fr[1]), foto: fotoB, marca: fr[1] }, partesQueEntran([fr[1]], topeDeVoz(d2, total))),
+    escena('placa-nota', d3, { ...base, i: 2, titulo: tituloEnPantalla(fr[2]), foto: fotoC, marca: fr[2] },
       unir(partesQueEntran([fr[2]], Math.max(6, topeDeVoz(d3, total) - cierre)), CIERRE_NOTA)),
   ];
   return video('nota-reel', escenas, { voz: opciones.voz ?? 'locutora', saludo, extra: { notaId: nota.id ?? null, seccion: nota.seccion } });
@@ -281,7 +281,7 @@ export function armarNotaPropia(nota, opciones = {}) {
       voz = partesQueEntran([frase], cap);
     }
     return escena('placa-nota', porPlaca, {
-      rotulo: 'Nota de Radar Balcarce', i, n, titulo: i === 0 ? nota.titulo : acortarCaracteres(frase, 200), seccion: nota.seccion, foto: fotoDe(f), firma,
+      rotulo: 'Nota de Radar Balcarce', i, n, titulo: i === 0 ? tituloEnPantalla(nota.titulo) : tituloEnPantalla(frase), seccion: nota.seccion, foto: fotoDe(f), firma,
       marca: i === 0 ? null : frase,
     }, ultima ? unir(voz, CIERRE_NOTA_PROPIA) : voz);
   });
@@ -424,15 +424,21 @@ export function armarCarruselFinde(eventos, { fechaTexto = null } = {}) {
  * el hasta cuándo). `farmacias`: `[{ nombre, direccion, telefono }]` (como en `portada.json`, `farmacias.proximos[].detalle`); hasta 3. `fecha`: AAAA-MM-DD.
  */
 export function armarFarmacia(farmacias, { fecha = null, hasta = 'De turno hasta mañana a las 8:30.', ...opciones } = {}) {
-  const lista = (farmacias ?? []).filter((f) => f?.nombre).slice(0, 3).map((f) => ({ ...f, nombre: nombrePropio(f.nombre), direccion: direccionHablada(f.direccion ?? '') }));
+  const conNombre = (farmacias ?? []).filter((f) => f?.nombre);
+  // De 1 a 3 por día (Hernán, 17/11). Más de 3 no se corta en silencio (saldrían unas farmacias de turno y otras no): la pieza falla con este motivo y el resumen del día lo cuenta.
+  if (conNombre.length > FARMACIA.fichasMaximo) throw new Error(`farmacia: el cronograma trae ${conNombre.length} farmacias de turno y son de 1 a ${FARMACIA.fichasMaximo} por día: revisar el cronograma del Colegio de Farmacéuticos antes de publicar`);
+  const lista = conNombre.map((f) => ({ ...f, nombre: nombrePropio(f.nombre), direccion: direccionHablada(f.direccion ?? '') }));
   if (!lista.length) throw new Error('farmacia: falta la farmacia de turno');
   if (!esFechaIso(fecha)) throw new Error('farmacia: falta la fecha (AAAA-MM-DD)');
   const saludo = saludoPara(opciones);
   const nombres = lista.map((f) => f.nombre).join(' y ');
   const dir = lista.map((f) => `${f.nombre}, ${f.direccion}.`).join(' ');
+  const voz = unir(saludo, `Farmacia de turno esta noche: ${nombres}.`, dir, 'Guardá el dato.');
+  // 14 s; con tres fichas la voz es más larga y la pieza sube lo que haga falta (hasta el máximo): la ficha de 3 tiene que entrar completa, dicha sin apuro.
+  const segundos = Math.min(FARMACIA.maximo, Math.max(FARMACIA.segundos, Math.ceil(contarPalabras(voz) / PALABRAS_POR_SEGUNDO + SEGUNDOS_DE_ADORNO)));
   return video('farmacia', [
-    escena('farmacia', FARMACIA.segundos, { fecha, farmacias: lista.map((f) => ({ nombre: f.nombre, direccion: f.direccion, telefono: f.telefono ?? '' })), hasta },
-      unir(saludo, `Farmacia de turno esta noche: ${nombres}.`, dir, 'Guardá el dato.')),
+    escena('farmacia', segundos, { fecha, farmacias: lista.map((f) => ({ nombre: f.nombre, direccion: f.direccion, telefono: f.telefono ?? '' })), hasta },
+      voz),
   ], { voz: 'locutor', saludo });
 }
 
