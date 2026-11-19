@@ -96,7 +96,7 @@ Automovilismo, Agro, Economía, Ciencia, Cultura, Tecnología y Argentina. Lo de
 - Lo que escribe Mistral pasa por el mismo verificador y las mismas reglas; los prompts no cambian. `/salud` (`uso.mistral`), el resumen de las
   21:30 y el resultado de la vuelta (`pedidosAMistral`) dicen cuántos pedidos fueron a Mistral.
 
-### 5 ter. El gráfico propio de la nota (19/11/2026, Hernán; `redactar/grafico.mjs`, interruptor `NOTAS_CON_GRAFICO` en `wrangler.toml`, apagado por defecto)
+### 5 ter. El gráfico propio de la nota (19/11/2026, Hernán; `redactar/grafico.mjs`, interruptor `NOTAS_CON_GRAFICO` en `wrangler.toml`, prendido desde el 19/11/2026)
 
 - **Sin pedidos nuevos.** Con el interruptor en «si», el MISMO pedido de redacción (el 1.º de los dos) suma una instrucción y un campo opcional `grafico`: `{ tipo: barras | linea, titulo, unidad, fuente, datos: [{ etiqueta, valor }] }`.
   La IA lo devuelve **sólo si la nota tiene de 3 a 8 cifras comparables** (misma unidad, dichas tal cual en las fuentes); si no, `null`. Cuesta unos 60 a 150 tokens de salida cuando hay gráfico y unos 5 cuando no; la instrucción suma unos 250 tokens de entrada. Sigue habiendo exactamente dos pedidos por nota y el mismo freno mensual.
