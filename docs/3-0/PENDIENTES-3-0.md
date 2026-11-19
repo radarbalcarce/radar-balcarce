@@ -4,6 +4,18 @@
 
 **Estado al 17/11/2026:** 95 fuentes activas (de 126 en `fuentes.json`), unas 60 notas por día (el 17/11: 32 de Balcarce), redes publicando de verdad, gasto de IA del mes US$ 1,48 (freno US$ 7), repositorio todavía **público**. Pruebas: `node --test "v3/**/*.test.mjs"`, 1.059 pasan.
 
+## 00. Estado al 19/11/2026 (manda sobre lo que diga más abajo si se contradice)
+
+**Hecho y desplegado el 19/11** (pruebas: 1.172 pasan): el choque de las 22:40 (respaldo de la base y copia de fotos) arreglado; **panel completo** (`/panel`: lista con botones, ficha, «Que salga en reel» con redes y fotos, «Redes de hoy», «Estado», «Cargar una nota» con borrador y vista previa; se entra con `/panel` en el bot; la sesión se renueva sola); las redes **respetan las redes y fotos tildadas** y avisan por Telegram cómo salió el reel pedido; **«Participá» en pausa** (`pausada: true` en `v3/redes/piezas-del-dia.mjs`) hasta que Hernán confirme; título de «Un día como hoy» nunca trunco; la ilustración rechazada 3 veces cae a la placa de la sección; estadísticas no falla si Telegram no contesta; el clima ya no dice «paraguas»; notas nuevas: `hgpugra` (Se hace) y `miramar` (gacetilla). Documento nuevo: `PUBLICIDAD-MAS-ALLA-DE-ADSENSE.md`.
+
+**Hecho y APAGADO:** el kit nuevo de reels (`v3/redes/kit3/`, interruptor `KIT_3_0`; ensayo: workflow «Radar 3.0: ensayo del kit 3.0»). Cloudflare Access como segunda puerta del panel (variables `ACCESS_*` en `v3/sitio/wrangler.toml`).
+
+**Falta para prender el kit 3.0 (en este orden):** 1) que Hernán apruebe los videos del ensayo; 2) subir los 36 fondos de clima a R2 (`radar-fotos`, `kit3/fondos/`; están en `D:\BalcarDev\RadarMedia\fondos-clima-kit3\`); 3) un ensayo **con voz real** (gasta 1 audio: pide OK) para comprobar que los subtítulos van con la voz; 4) sumar los pasos y `KIT_3_0: si` en `v3-piezas.yml` (`v3/redes/kit3/REGLAS.md`). Volver atrás = sacar la variable.
+
+**Depende de Hernán:** llave de GitHub sin vencimiento para el reloj (`OPERACION-SEGURA-2-ANIOS.md`) y anotar su fecha; «Run now» + «permitir siempre» en la tarea diaria de Se hace (se cuelga esperando un permiso); crear la aplicación de Cloudflare Access si quiere entrar al panel con el mail; fotos propias de las farmacias; ideas para «Participá»; renovar el token de Threads antes del 4/1/2027; revocar la clave de OpenAI que quedó en `.claude/settings.local.json` de la PC; pasar el repositorio a privado (mudanza de repos).
+
+**Sigue pendiente de Claude:** casilla «criterio de Radar (IA)» de «Cargar una nota» (hoy sólo se guarda); interruptores y «reintentar» en Estado; página de autor, correcciones, términos y política editorial; `newsbalcarce` (HTTP 526 desde el Worker, mirar el 20/11); que la tapa del kit se suba como portada del reel en Meta.
+
 ## 0. Hecho el 17/11 en el repositorio, sin commitear ni desplegar (hay que revisarlo y subirlo)
 
 - **puntonueve:** la dirección de `fuentes.json` termina ahora en `/feed/` (con `/feed` daba 301; verificado con curl: `/feed/` responde 200 y RSS). Está en `v3/nucleo/scripts/generar-fuentes.mjs` (`CORREGIR_URL`) y `fuentes.json` se regeneró. **Falta desplegar `nucleo`.** newsbalcarce **no se apaga**: se mira 3 días (ver 2).
