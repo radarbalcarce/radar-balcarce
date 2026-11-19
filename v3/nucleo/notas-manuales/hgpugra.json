@@ -1,0 +1,61 @@
+{
+  "id": "hgpugra",
+  "titulo": "Probé una placa de video gratis en la nube: qué se puede hacer con Colab, Kaggle y Hugging Face",
+  "bajada": "Con una placa prestada y desde el navegador generé imágenes, edité una foto de 1915, hice video con IA y plegué una proteína. Medí cuánto tardó cada cosa.",
+  "seccion": "Tecnología",
+  "firma": "Hernán Accomo",
+  "enDosLineas": "Kaggle presta dos placas T4 y al menos 30 horas por semana, según la demanda. Con una de ellas, una imagen con Z-Image-Turbo tardó 160 segundos y un clip de video de 5 segundos, unos 17 minutos.",
+  "cuerpo": [
+    "Mi placa de video es vieja y tiene 2 GB de memoria; el primer modelo de imágenes que quise probar usó más de 14. Por eso, para mi último video de la serie A fondo, probé tres lugares que prestan una placa gratis desde el navegador: Colab, Kaggle y Hugging Face. Leí sus páginas oficiales el 14 y el 15 de noviembre y los tiempos son los que medí yo. No soy experto: lo aprendí probando.",
+    "Colab es de Google: un cuaderno que se abre en el navegador, sin instalar nada, y se guarda en Drive. Kaggle, que Google compró en 2017, presta dos placas T4 al mismo tiempo, con sesiones de hasta 12 horas y una cuota semanal de 30 horas o más, según la demanda. Hugging Face, donde se publican los modelos abiertos, da 5 minutos de placa por día con una cuenta gratis, en un servicio llamado ZeroGPU. Una regla importante: todo es prestado y, si se corta la sesión, se borra.",
+    "Para crear imágenes usé Z-Image-Turbo en Kaggle: le pedí un cartel de neón que diga «Se hace», en una calle con lluvia. Salió bien escrito y tardó 160 segundos por imagen, más 237 segundos de carga del modelo. También probé MiniMax H3 Image en una versión comprimida que publicó la comunidad: entre 110 y 126 segundos por imagen.",
+    "La prueba que más me gustó fue editar una foto. Tomé la de la estación Haedo, de hacia 1915, en blanco y negro y de dominio público (Wikimedia Commons), y le pedí tres cambios: color y de noche, con nieve, y en acuarela. Cada edición tardó entre 271 y 282 segundos. Con un modelo más viejo, InstructPix2Pix, tardó entre 8 y 14, pero la noche salió sin color, la nieve no apareció y la acuarela fue un arcoíris: lo que se ahorra en tiempo, a veces se paga en calidad.",
+    "También hice dos clips de 5 segundos a partir de imágenes, con sonido: el de la estación tardó unos 17 minutos y el del cartel de neón, unos 13. Y para algo más serio, ColabFold, que corre AlphaFold2, me devolvió la forma de una proteína en 2 minutos y 19 segundos en Colab.",
+    "Mi conclusión: Colab es lo más fácil para una prueba suelta, aunque puede cortarse sin aviso y Google no publica dónde está el límite; Kaggle es más firme para trabajar y corre sin tener la pestaña abierta. Antes de bajar un modelo conviene mirar cuánta memoria pide. Los cupos y los planes cambian, así que hay que mirarlos en cada sitio antes de decidir."
+  ],
+  "ficha": {
+    "que": "Prueba de placas de video gratis en la nube (Colab, Kaggle y Hugging Face) para imágenes, edición de fotos, video y proteínas",
+    "quien": "Hernán Accomo (Se hace)",
+    "donde": "Video en YouTube, canal Hache (@hacheaccomo), y blog sehace.com",
+    "cuando": "15 de noviembre de 2026",
+    "numeros": [
+      {
+        "valor": "30",
+        "unidad": "horas por semana",
+        "que": " o más de placa en Kaggle, según la demanda"
+      },
+      {
+        "valor": "5",
+        "unidad": "minutos por día",
+        "que": " de placa en Hugging Face (ZeroGPU) con cuenta gratis"
+      },
+      {
+        "valor": "160",
+        "unidad": "segundos",
+        "que": " por imagen con Z-Image-Turbo en Kaggle, medido por el autor"
+      }
+    ],
+    "cronologia": [],
+    "faltaSaber": []
+  },
+  "fuentes": [
+    {
+      "medio": "Se hace",
+      "url": "https://sehace.com/blog/a-fondo-02-gpu-gratis-en-la-nube/"
+    }
+  ],
+  "foto": {
+    "url": "https://radarbalcarce.com/fotos-notas/sehace-gpu-gratis.jpg?v=1",
+    "alt": "Portada del video «¿Gratis de verdad?»: Hernán Accomo con una placa de video en una mano y una notebook en la otra, y el texto «Probado en Colab y Kaggle»",
+    "credito": "Imagen: sehace.com",
+    "ancho": 1280,
+    "alto": 720,
+    "cubrir": true
+  },
+  "fotosEnCuerpo": [],
+  "video": {
+    "youtube": "bpfAcH6-_GY",
+    "titulo": "GPU gratis en la nube: imágenes, fotos editadas y video con IA",
+    "despuesDe": 1
+  }
+}
