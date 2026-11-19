@@ -40,7 +40,21 @@ button.peligro{background:var(--rojo)}button.gris{background:#5C6068}
 .chequeos input[type=checkbox]{width:22px;height:22px;flex:0 0 22px}
 .filtros>*,.lista a.fila>*{min-width:0}select{max-width:100%}main{overflow-x:hidden}
 .nota-chica{font-size:13px;color:var(--suave)}
-table{border-collapse:collapse;width:100%;font-size:14px}td,th{border-bottom:1px solid var(--linea);padding:4px;text-align:left}`;
+table{border-collapse:collapse;width:100%;font-size:14px}td,th{border-bottom:1px solid var(--linea);padding:4px;text-align:left}
+.lista li{flex-wrap:wrap}.acciones{display:flex;flex-wrap:wrap;gap:8px;width:100%;padding-left:82px}.acciones form{margin:0}
+.acciones button,.acciones .boton,.rapidas button,.rapidas .boton{min-height:44px;margin:0}
+.rapidas{display:flex;flex-wrap:wrap;gap:8px}.rapidas form{margin:0}
+button.claro,.boton.claro{background:#fff;color:var(--tinta);border:1px solid #bbb}
+.sala{display:flex;gap:8px;align-items:center;font-weight:400;margin:8px 0}
+details.caja>summary{font-weight:700;font-size:18px;cursor:pointer;min-height:44px;display:flex;align-items:center}
+details.caja[open]>summary{margin-bottom:8px}
+.fotos-reel{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.fotos-reel label{font-weight:400;margin:0}.fotos-reel img{height:90px;width:100%;object-fit:cover;border-radius:6px}
+.menu{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.menu .boton{margin:0;min-height:44px}`;
+
+/** Dónde puede salir un reel pedido desde el panel (clave guardada, nombre para las personas). X se guarda como `twitter`, el nombre que usa Buffer. */
+export const DESTINOS_DEL_REEL = [['instagram', 'Instagram'], ['facebook', 'Facebook'], ['tiktok', 'TikTok'], ['youtube', 'YouTube'], ['twitter', 'X'], ['threads', 'Threads'], ['bluesky', 'Bluesky']];
 
 /** La hoja entera del panel. `csrf` presente = hay sesión: se muestra «Salir». */
 function marco(titulo, cuerpo, { csrf = null } = {}) {
@@ -106,8 +120,21 @@ function miniatura(n) {
     : `<span class="mini" style="background:var(--s-${esc(ranuraDe(n.seccion))})" aria-hidden="true"></span>`;
 }
 
+/** Los botones al toque de cada fila: Ocultar (publicada), Mostrar (oculta) y Reel (publicada). `volver`: la lista tal como está (filtros y página). */
+function botonesRapidos(n, csrf, volver) {
+  const base = `/panel/nota/${encodeURIComponent(n.id)}`;
+  const campos = `<input type="hidden" name="csrf" value="${esc(csrf)}"><input type="hidden" name="volver" value="${esc(volver)}">`;
+  const botones = [];
+  if (n.estado === 'publicada') {
+    botones.push(`<form method="post" action="${base}/estado">${campos}<input type="hidden" name="accion" value="ocultar"><button class="chico gris" type="submit">Ocultar</button></form>`);
+    botones.push(`<a class="boton chico" href="${base}/reel" style="padding:6px 12px;font-size:14px">Reel</a>`);
+  }
+  if (n.estado === 'oculta') botones.push(`<form method="post" action="${base}/estado">${campos}<input type="hidden" name="accion" value="mostrar"><button class="chico" type="submit">Mostrar</button></form>`);
+  return botones.length ? `<div class="acciones">${botones.join('')}</div>` : '';
+}
+
 /** La lista de notas, con filtros. `filtros`: { q, estado, seccion, origen }. */
-export function paginaLista({ notas, filtros, pagina, hayMas, csrf }) {
+export function paginaLista({ notas, filtros, pagina, hayMas, csrf, ok = null, error = null }) {
   const enlace = (p) => {
     const q = new URLSearchParams();
     for (const [k, v] of Object.entries(filtros)) if (v) q.set(k, v);
@@ -117,9 +144,10 @@ export function paginaLista({ notas, filtros, pagina, hayMas, csrf }) {
   };
   const filas = notas.length
     ? notas.map((n) => `<li><a class="fila" href="/panel/nota/${encodeURIComponent(n.id)}">${miniatura(n)}<span><span class="titulo">${esc(n.titulo || '(sin título)')}</span>
-<span class="datos">${badge(n.estado)} ${esc(n.seccion || '')} · ${esc(fechaCorta(n.fecha))}${n.origen === 'redaccion' ? ' · propia' : ''}</span></span></a></li>`).join('\n')
+<span class="datos">${badge(n.estado)} ${esc(n.seccion || '')} · ${esc(fechaCorta(n.fecha))}${n.origen === 'redaccion' ? ' · propia' : ''}</span></span></a>${botonesRapidos(n, csrf, enlace(pagina))}</li>`).join('\n')
     : '<li>No hay notas con esos filtros.</li>';
   const cuerpo = `<h1>Notas</h1>
+${aviso(ok, error)}
 <form class="caja filtros" method="get" action="/panel">
 <div class="todo"><label for="q">Buscar en el título</label><input type="search" id="q" name="q" value="${esc(filtros.q)}" maxlength="80"></div>
 <div><label for="estado">Estado</label><select id="estado" name="estado">${opciones([['', 'Publicadas, ocultas y retiradas'], ['publicada', 'Publicadas'], ['oculta', 'Ocultas'], ['retirada', 'Retiradas']], filtros.estado)}</select></div>
@@ -143,6 +171,7 @@ export const MENSAJES_OK = {
   retirada: 'Listo, la nota quedó retirada.',
   redes: 'Listo, las redes de esta nota quedaron guardadas.',
   fotos: 'Listo, las fotos quedaron guardadas.',
+  'reel-pedido': 'Listo, el pedido quedó anotado. El reloj de las piezas lo toma en su próxima vuelta (de 8 a 23 h).',
   subidas: 'Listo, las fotos nuevas quedaron subidas.',
 };
 export const MENSAJES_ERROR = {
@@ -163,6 +192,13 @@ export const MENSAJES_ERROR = {
   'foto-formato': 'Una de las fotos no es JPG, PNG ni WEBP.',
   'sin-deposito': 'El sitio no tiene dónde guardar fotos (falta el depósito). No se cambió nada.',
   credito: 'Un crédito puede tener como mucho 200 letras.',
+  formato: 'No entendí el formato. Elegí Reel, Historia o Posteo.',
+  destino: 'Una de las redes elegidas no existe.',
+  'sin-destinos': 'Elegí al menos una red donde tiene que salir.',
+  'foto-elegida': 'Una de las fotos elegidas no sirve (no está en la nota o no tiene dirección pública).',
+  'sin-fotos-elegidas': 'Elegí de 1 a 3 fotos para el reel.',
+  'sin-foto-publica': 'Esta nota no tiene ninguna foto que se pueda usar en un reel. Sumá una foto desde «Fotos».',
+  'muchas-fotos-reel': 'Para un reel alcanzan 3 fotos como mucho.',
 };
 
 function aviso(ok, error) {
@@ -177,7 +213,7 @@ const REDES = [['posteo', 'Posteo'], ['historia', 'Historia'], ['reel', 'Reel']]
  * La página de una nota. `nota`: { id, titulo, bajada, parrafos, seccion, estado, noPublicar, fotos: [{url, credito}], redes: { lista, repaso, menciones }, url, origen, fecha, firma }.
  * `publicaciones`: [{ red, cuando, estado, simulado }] (lo que ya salió en redes; vacío si no hay o no se pudo leer).
  */
-export function paginaNota({ nota, csrf, ok, error, publicaciones = [] }) {
+export function paginaNota({ nota, csrf, ok, error, publicaciones = [], abrir = null }) {
   const base = `/panel/nota/${encodeURIComponent(nota.id)}`;
   const oculto = `<input type="hidden" name="csrf" value="${esc(csrf)}">`;
   const portada = fotoMostrable(nota.fotos[0]?.url);
@@ -189,7 +225,7 @@ ${nota.estado === 'publicada' ? `<p><a href="${esc(nota.url)}" target="_blank" r
 ${nota.noPublicar ? `<p class="nota-chica">Freno: ${esc(nota.noPublicar.motivo ?? nota.noPublicar.razon ?? 'sin motivo')}${nota.noPublicar.por ? ` (${esc(nota.noPublicar.por)})` : ''}</p>` : ''}
 </section>`;
 
-  const texto = `<section class="caja"><h2>Texto</h2>
+  const texto = `<details class="caja" id="editar"${abrir === 'texto' ? ' open' : ''}><summary>Texto</summary>
 <form method="post" action="${base}/texto">${oculto}
 <label for="titulo">Título</label><input type="text" id="titulo" name="titulo" value="${esc(nota.titulo)}" maxlength="300" required>
 <label for="bajada">Bajada</label><textarea class="bajada" id="bajada" name="bajada" maxlength="600">${esc(nota.bajada)}</textarea>
@@ -197,23 +233,35 @@ ${nota.noPublicar ? `<p class="nota-chica">Freno: ${esc(nota.noPublicar.motivo ?
 <label for="seccion-nota">Sección</label><select id="seccion-nota" name="seccion">${opciones(SECCIONES.map((s) => [s.nombre, s.nombre]), nota.seccion)}</select>
 <button type="submit">Guardar el texto</button>
 <p class="nota-chica">La dirección de la nota no cambia aunque cambies el título. Lo que había queda anotado.</p>
-</form></section>`;
+</form></details>`;
+
+  // Acciones al toque, arriba de todo: lo que se hace seguido (reel, ocultar o mostrar, editar el texto).
+  const rapidas = `<section class="caja"><h2>Acciones rápidas</h2><div class="rapidas">
+${nota.estado === 'publicada' ? `<a class="boton" href="${base}/reel">🎬 Que salga en reel</a>` : ''}
+${nota.estado === 'publicada' ? `<form method="post" action="${base}/estado">${oculto}<input type="hidden" name="accion" value="ocultar"><button class="gris" type="submit">Ocultar</button></form>` : ''}
+${nota.estado === 'oculta' ? `<form method="post" action="${base}/estado">${oculto}<input type="hidden" name="accion" value="mostrar"><button type="submit">Mostrar</button></form>` : ''}
+${nota.estado !== 'retirada' ? `<a class="boton claro" href="${base}?abrir=texto#editar">Editar el texto</a>` : ''}
+</div>
+<p class="nota-chica">Ocultar la saca del sitio y de las redes sin borrarla (se vuelve con «Mostrar»).${nota.estado === 'retirada' ? ' Esta nota está retirada.' : ''}</p></section>`;
 
   const botonesEstado = [
-    nota.estado === 'publicada' ? `<form method="post" action="${base}/estado">${oculto}<input type="hidden" name="accion" value="ocultar"><button class="gris" type="submit">Ocultar</button></form>` : '',
-    nota.estado === 'oculta' ? `<form method="post" action="${base}/estado">${oculto}<input type="hidden" name="accion" value="mostrar"><button type="submit">Mostrar</button></form>` : '',
     nota.estado !== 'retirada' ? `<form method="post" action="${base}/estado" onsubmit="return confirm('¿Retirar la nota? No se puede volver atrás desde acá.')">${oculto}<input type="hidden" name="accion" value="retirar">
 <label for="motivo">Motivo para retirar</label><input type="text" id="motivo" name="motivo" maxlength="300" required><button class="peligro" type="submit">Retirar</button></form>` : '<p>Esta nota está retirada.</p>',
   ].join('\n');
-  const estado = `<section class="caja"><h2>Estado</h2>
-<p class="nota-chica">Ocultar la saca del sitio y de las redes sin borrarla (se vuelve con «Mostrar»). Retirar es definitivo y pide el motivo.</p>
-${botonesEstado}</section>`;
+  const estado = `<details class="caja"><summary>Retirar la nota</summary>
+<p class="nota-chica">Retirar es definitivo desde acá y pide el motivo. Para sacarla un rato, usá «Ocultar».</p>
+${botonesEstado}</details>`;
 
   const lista = nota.redes.lista;
   const salidas = publicaciones.length
     ? `<p class="nota-chica">Ya salió:</p><table><tr><th>Red</th><th>Cuándo</th><th>Cómo</th></tr>${publicaciones.map((p) => `<tr><td>${esc(p.red)}</td><td>${esc(fechaCorta(p.cuando))}</td><td>${esc(p.simulado ? 'ensayo' : p.estado)}</td></tr>`).join('')}</table>`
     : '<p class="nota-chica">Todavía no salió en ninguna red.</p>';
-  const redes = `<section class="caja"><h2>Redes</h2>
+  const pedido = nota.redes.destinos.length
+    ? `<p class="nota-chica">Pedido de reel: ${esc(nota.redes.destinos.map((d) => (DESTINOS_DEL_REEL.find(([c]) => c === d) ?? [d, d])[1]).join(', '))}${nota.redes.fotos.length ? ` · fotos ${esc(nota.redes.fotos.map((n) => n + 1).join(', '))}` : ''}${nota.redes.pedida ? ` · pedido el ${esc(fechaCorta(nota.redes.pedida))}` : ''}.</p>`
+    : '';
+  const quePaso = `<section class="caja"><h2>¿Qué salió de esta nota?</h2>
+${salidas}${pedido}</section>`;
+  const redes = `<details class="caja"><summary>Redes (formatos, repaso y menciones)</summary>
 <form method="post" action="${base}/redes" class="chequeos">${oculto}
 ${REDES.map(([clave, etiqueta]) => `<label><input type="checkbox" name="lista" value="${clave}"${lista.includes(clave) ? ' checked' : ''}> ${esc(etiqueta)}</label>`).join('\n')}
 <label><input type="checkbox" name="repaso" value="si"${nota.redes.repaso ? ' checked' : ''}> Al próximo repaso en video (10, 15 o 21 h)</label>
@@ -221,8 +269,7 @@ ${REDES.map(([clave, etiqueta]) => `<label><input type="checkbox" name="lista" v
 <input type="text" id="menciones" name="menciones" value="${esc(nota.redes.menciones.join(' '))}" maxlength="400">
 <p class="nota-chica">Lo que marques sale aunque no la cuenten otros medios; la ley, el tono y la foto siguen valiendo. El reel pide al menos una foto. Se suma @radarbalcarce.</p>
 <button type="submit">Guardar redes</button>
-</form>
-${salidas}</section>`;
+</form></details>`;
 
   const fotosActuales = nota.fotos.length
     ? `<form method="post" action="${base}/fotos">${oculto}<input type="hidden" name="accion" value="guardar">
@@ -232,18 +279,59 @@ ${nota.fotos.map((f, i) => { const u = fotoMostrable(f.url); return `<div class=
 <label class="chequeos" style="margin:0"><span><input type="checkbox" name="borrar_${i}" value="si"> Sacar esta foto</span></label></div>`; }).join('\n')}
 <button type="submit">Guardar las fotos</button></form>`
     : '<p>Esta nota no tiene fotos: sale con la placa de su sección.</p>';
-  const fotos = `<section class="caja"><h2>Fotos</h2>
+  const fotos = `<details class="caja"${abrir === 'fotos' ? ' open' : ''}><summary>Fotos</summary>
 ${fotosActuales}
 <form method="post" action="${base}/fotos" enctype="multipart/form-data" style="margin-top:14px">${oculto}<input type="hidden" name="accion" value="subir">
 <label for="nuevas">Sumar fotos (JPG, PNG o WEBP; hasta 10, de 8 MB cada una)</label><input type="file" id="nuevas" name="fotos" accept="image/jpeg,image/png,image/webp" multiple>
 <label for="credito-nuevas">Crédito de las fotos nuevas</label><input type="text" id="credito-nuevas" name="credito" value="Radar Balcarce" maxlength="200">
-<button type="submit">Subir</button></form></section>`;
+<button type="submit">Subir</button></form></details>`;
 
   return marco(nota.titulo || 'Nota', `<p><a href="/panel">← Todas las notas</a></p>
 ${aviso(ok, error)}
 ${vista}
+${rapidas}
+${quePaso}
 ${texto}
-${estado}
+${fotos}
 ${redes}
-${fotos}`, { csrf });
+${estado}`, { csrf });
+}
+
+/**
+ * La pantalla «Que esta nota salga en reel»: dónde, en qué formato y con qué fotos (de 1 a 3). `nota` es el mismo objeto de paginaNota (más `noPublicable`).
+ * El pedido se guarda en `notas.redes` (formato → `lista`, `destinos`, `fotos`); lo arma el reloj de las piezas de las redes.
+ */
+export function paginaReel({ nota, csrf, error = null }) {
+  const base = `/panel/nota/${encodeURIComponent(nota.id)}`;
+  const volver = `<p><a href="${base}">← Volver a la nota</a></p>`;
+  if (nota.noPublicable) return marco('Reel', `${volver}<div class="caja"><h1>Esta nota no puede ir a las redes</h1><p>Para mandar una nota a las redes tiene que estar publicada y sin freno.</p></div>`, { csrf });
+  const usables = nota.fotos.map((f, i) => ({ i, url: fotoMostrable(f.url) })).filter((f) => f.url);
+  const previas = nota.redes.fotos.length ? nota.redes.fotos : usables.slice(0, 1).map((f) => f.i);
+  const destinos = nota.redes.destinos.length ? nota.redes.destinos : ['instagram', 'facebook', 'tiktok', 'youtube'];
+  const casilla = (nombre, valor, etiqueta, marcada) => `<label class="sala"><input type="checkbox" name="${nombre}" value="${esc(valor)}"${marcada ? ' checked' : ''} style="width:22px;height:22px"> ${etiqueta}</label>`;
+  const fotos = usables.length
+    ? `<div class="fotos-reel">${usables.map((f) => `<div>${casilla('fotos', String(f.i), `Foto ${f.i + 1}${f.i === 0 ? ' (portada)' : ''}`, previas.includes(f.i))}<img src="${esc(f.url)}" alt="" loading="lazy"></div>`).join('')}</div>
+<p class="nota-chica">La primera que marques es la de portada del reel.</p>`
+    : '<p class="error">Esta nota no tiene ninguna foto que se pueda usar. Sumá una desde «Fotos» en la nota.</p>';
+  const cuerpo = `${volver}<h1>Reel de: «${esc(nota.titulo)}»</h1>
+${aviso(null, error)}
+<form method="post" action="${base}/reel" class="chequeos">
+<input type="hidden" name="csrf" value="${esc(csrf)}">
+<section class="caja"><h2>1) ¿Dónde sale?</h2>
+${DESTINOS_DEL_REEL.map(([c, t]) => casilla('destinos', c, esc(t), destinos.includes(c))).join('\n')}
+</section>
+<section class="caja"><h2>2) ¿En qué formato?</h2>
+${[['reel', 'Reel (video con voz)'], ['historia', 'Historia'], ['posteo', 'Posteo']].map(([v, t], i) => `<label class="sala"><input type="radio" name="formato" value="${v}"${i === 0 ? ' checked' : ''} style="width:22px;height:22px"> ${esc(t)}</label>`).join('\n')}
+${casilla('repaso', 'si', 'Sumarla también al próximo repaso en video', nota.redes.repaso)}
+</section>
+<section class="caja"><h2>3) Fotos (elegí de 1 a 3)</h2>
+${fotos}
+</section>
+<section class="caja"><h2>¿Cuándo sale?</h2>
+<p>El reloj de las piezas lo arma en su próxima vuelta (de 8 a 23 h) y respeta el cupo de voz del día (15 audios). Una nota tiene un solo reel.</p>
+<p class="nota-chica">Importante: por ahora el reloj de las redes todavía no mira qué redes ni qué fotos elegiste: usa las de siempre. Queda anotado para cuando las respete.</p>
+${usables.length ? '<button type="submit">🎬 Pedir el reel</button>' : ''}
+</section>
+</form>`;
+  return marco('Reel', cuerpo, { csrf });
 }

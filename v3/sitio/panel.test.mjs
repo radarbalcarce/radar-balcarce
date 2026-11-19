@@ -417,3 +417,137 @@ test("sin carrusel de nota propia (Hernán, 11/11): ni el bot ni el panel lo ofr
   assert.ok(!REDES_DEL_BOT.some((r) => r.clave === "carrusel") && !REDES_DEL_PANEL.includes("carrusel"));
   assert.deepEqual(entenderFormatos("carrusel"), { lista: [], desconocidos: ["carrusel"] });
 });
+
+// ------------------------------------------------------------------------------------------------ etapa 1 del plan del panel (docs/3-0/PANEL-3-0-PLAN.md)
+
+test('la lista: botones al toque (Ocultar y Reel en publicadas, Mostrar en ocultas, nada en retiradas) que vuelven a la misma lista', async () => {
+  const t = montar();
+  insertarNota(t.sqlite, { id: 'pub0001', historia_id: 'h1', titulo: 'Una publicada' });
+  insertarNota(t.sqlite, { id: 'ocu0001', historia_id: 'h2', titulo: 'Una oculta', estado: 'oculta' });
+  insertarNota(t.sqlite, { id: 'ret0001', historia_id: 'h3', titulo: 'Una retirada', estado: 'retirada' });
+  const s = await t.sesion();
+  const h = await (await t.ir('/panel?seccion=Balcarce', { cookie: s.cookie })).text();
+  const fila = (id) => h.split('<li>').find((x) => x.includes(`/panel/nota/${id}"`)) ?? '';
+  assert.match(fila('pub0001'), /name="accion" value="ocultar"/);
+  assert.match(fila('pub0001'), /href="\/panel\/nota\/pub0001\/reel"/);
+  assert.doesNotMatch(fila('pub0001'), /value="mostrar"/);
+  assert.match(fila('ocu0001'), /name="accion" value="mostrar"/);
+  assert.doesNotMatch(fila('ocu0001'), /\/reel"/);
+  assert.doesNotMatch(fila('ret0001'), /<form|\/reel"/);
+  assert.match(fila('pub0001'), /name="volver" value="\/panel\?seccion=Balcarce"/);
+  // Ocultar desde la lista: cambia el estado y vuelve a la misma lista con el aviso.
+  const r = await t.post('/panel/nota/pub0001/estado', s, { accion: 'ocultar', volver: '/panel?seccion=Balcarce' });
+  assert.equal(r.headers.get('location'), '/panel?seccion=Balcarce&ok=oculta');
+  assert.equal(t.fila('pub0001').estado, 'oculta');
+  assert.match(await (await t.ir('/panel?seccion=Balcarce&ok=oculta', { cookie: s.cookie })).text(), /la nota quedó oculta/);
+  const m = await t.post('/panel/nota/pub0001/estado', s, { accion: 'mostrar', volver: '/panel' });
+  assert.equal(m.headers.get('location'), '/panel?ok=mostrada');
+  assert.equal(t.fila('pub0001').estado, 'publicada');
+  // Un error también vuelve a la lista; un «volver» de otro lado se ignora y se va a la ficha.
+  assert.equal((await t.post('/panel/nota/pub0001/estado', s, { accion: 'mostrar', volver: '/panel' })).headers.get('location'), '/panel?error=no-oculta');
+  for (const malo of ['https://malo.example/panel', '//malo.example', '/otra', '/panel/../x', '/panel?a=<b>']) {
+    assert.equal((await t.post('/panel/nota/pub0001/estado', s, { accion: 'ocultar', volver: malo })).headers.get('location'), '/panel/nota/pub0001?ok=oculta', malo);
+    await t.post('/panel/nota/pub0001/estado', s, { accion: 'mostrar' });
+  }
+  // Sin CSRF, nada.
+  assert.equal((await t.post('/panel/nota/pub0001/estado', s, { accion: 'ocultar', volver: '/panel' }, { sinCsrf: true })).status, 403);
+  assert.equal(t.fila('pub0001').estado, 'publicada');
+});
+
+test('la ficha: acciones rápidas y lo que salió arriba, formularios largos en desplegables, retirar adentro de uno cerrado', async () => {
+  const t = montar();
+  insertarNota(t.sqlite);
+  const s = await t.sesion();
+  const h = await (await t.ir(NOTA, { cookie: s.cookie })).text();
+  const pos = (re) => h.search(re);
+  assert.ok(pos(/Acciones rápidas/) > 0 && pos(/Acciones rápidas/) < pos(/¿Qué salió de esta nota\?/) && pos(/¿Qué salió de esta nota\?/) < pos(/<summary>Texto<\/summary>/));
+  assert.match(h, /href="\/panel\/nota\/abc1234\/reel"/);
+  assert.match(h, /name="accion" value="ocultar"/);
+  for (const nombre of ['Texto', 'Fotos', 'Retirar la nota']) assert.match(h, new RegExp(`<details class="caja"[^>]*><summary>${nombre}</summary>`));
+  assert.doesNotMatch(h, /<details[^>]* open/, 'todos cerrados');
+  assert.match(await (await t.ir(`${NOTA}?abrir=texto`, { cookie: s.cookie })).text(), /<details class="caja" id="editar" open>/);
+  // Oculta: «Mostrar» y sin botón de reel. Retirada: sin botones de cambio.
+  t.sqlite.prepare("UPDATE notas SET estado = 'oculta' WHERE id = 'abc1234'").run();
+  const o = await (await t.ir(NOTA, { cookie: s.cookie })).text();
+  assert.match(o, /name="accion" value="mostrar"/);
+  assert.doesNotMatch(o, /Que salga en reel/);
+  t.sqlite.prepare("UPDATE notas SET estado = 'retirada' WHERE id = 'abc1234'").run();
+  const r = await (await t.ir(NOTA, { cookie: s.cookie })).text();
+  assert.doesNotMatch(r, /value="mostrar"|value="ocultar"|Que salga en reel/);
+});
+
+test('reel: la pantalla muestra redes, formatos y las fotos de la nota; guarda destinos, fotos y el pedido como /redes', async () => {
+  const t = montar();
+  const fotos = [1, 2, 3, 4].map((n) => ({ url: `https://fotos.example/${n}.jpg`, credito: 'Foto: X', alt: '' }));
+  insertarNota(t.sqlite, { foto: JSON.stringify(fotos) });
+  t.sqlite.prepare('UPDATE notas SET redes = ? WHERE id = ?').run(JSON.stringify({ lista: ['posteo'], confirmada: true, eleccion: 'elegidas', menciones: ['@x', '@radarbalcarce'] }), 'abc1234');
+  const s = await t.sesion();
+  const p = await t.ir(`${NOTA}/reel`, { cookie: s.cookie });
+  assert.equal(p.status, 200);
+  assert.equal(p.headers.get('cache-control'), 'no-store');
+  const h = await p.text();
+  for (const red of ['Instagram', 'Facebook', 'TikTok', 'YouTube', ' X</label>', 'Threads', 'Bluesky']) assert.ok(h.includes(red), red);
+  assert.equal((h.match(/name="fotos"/g) || []).length, 4);
+  assert.match(h, /value="reel" checked/);
+  assert.match(h, /Pedir el reel/);
+  const r = await t.post(`${NOTA}/reel`, s, { destinos: ['instagram', 'tiktok'], formato: 'reel', fotos: ['2', '0'], repaso: 'si' });
+  assert.equal(r.headers.get('location'), `${NOTA}?ok=reel-pedido`);
+  const redes = JSON.parse(t.fila().redes);
+  assert.deepEqual(redes, { lista: ['posteo', 'reel'], eleccion: 'elegidas', confirmada: true, forzada: true, pedida: AHORA.toISOString(), repaso: true, menciones: ['@x', '@radarbalcarce'], destinos: ['instagram', 'tiktok'], fotos: [2, 0] });
+  assert.match(await (await t.ir(NOTA, { cookie: s.cookie })).text(), /Pedido de reel: Instagram, TikTok · fotos 3, 1/);
+  assert.match(await (await t.ir(`${NOTA}/reel`, { cookie: s.cookie })).text(), /name="destinos" value="instagram" checked/);
+  // Pedirlo de nuevo, a otra hora, vuelve a ponerlo en la cola y no pierde las menciones.
+  t.reloj.ahora = new Date(AHORA.getTime() + 3600_000);
+  await t.post(`${NOTA}/reel`, s, { destinos: ['facebook'], fotos: ['1'] });
+  const otra = JSON.parse(t.fila().redes);
+  assert.equal(otra.pedida, t.reloj.ahora.toISOString());
+  assert.deepEqual([otra.destinos, otra.fotos, otra.menciones], [['facebook'], [1], ['@x', '@radarbalcarce']]);
+  assert.equal(otra.repaso, undefined);
+  // Formato historia: se suma a la lista, sin sacar lo que había.
+  await t.post(`${NOTA}/reel`, s, { destinos: ['instagram'], fotos: ['0'], formato: 'historia' });
+  assert.deepEqual(JSON.parse(t.fila().redes).lista, ['posteo', 'historia', 'reel']);
+});
+
+test('reel: rechaza redes desconocidas, sin redes, fotos fuera de lugar, nota sin foto pública, con freno o no publicada; no cambia nada', async () => {
+  const t = montar();
+  const fotos = [1, 2, 3, 4].map((n) => ({ url: `https://fotos.example/${n}.jpg`, credito: 'Foto: X', alt: '' }));
+  insertarNota(t.sqlite, { foto: JSON.stringify(fotos) });
+  const s = await t.sesion();
+  const antes = t.fila().redes;
+  const prueba = async (campos, error, ruta = NOTA) => {
+    const r = await t.post(`${ruta}/reel`, s, campos);
+    assert.equal(r.headers.get('location'), `${ruta}/reel?error=${error}`, JSON.stringify(campos));
+  };
+  await prueba({ destinos: ['instagram', 'orkut'], fotos: ['0'] }, 'destino');
+  await prueba({ fotos: ['0'] }, 'sin-destinos');
+  await prueba({ destinos: ['instagram'], fotos: ['0'], formato: 'carrusel' }, 'formato');
+  await prueba({ destinos: ['instagram'] }, 'sin-fotos-elegidas');
+  await prueba({ destinos: ['instagram'], fotos: ['0', '1', '2', '3'] }, 'muchas-fotos-reel');
+  await prueba({ destinos: ['instagram'], fotos: ['9'] }, 'foto-elegida');
+  await prueba({ destinos: ['instagram'], fotos: ['-1'] }, 'foto-elegida');
+  await prueba({ destinos: ['instagram'], fotos: ['x'] }, 'foto-elegida');
+  assert.equal(t.fila().redes, antes, 'nada cambió');
+  // Foto con una dirección que no es https pública: no sirve.
+  insertarNota(t.sqlite, { id: 'sinf001', historia_id: 'hs', foto: JSON.stringify([{ url: '/foto/raro', credito: 'x' }]) });
+  await prueba({ destinos: ['instagram'], fotos: ['0'] }, 'foto-elegida', '/panel/nota/sinf001');
+  insertarNota(t.sqlite, { id: 'nof0001', historia_id: 'hn', foto: null });
+  await prueba({ destinos: ['instagram'] }, 'sin-foto-publica', '/panel/nota/nof0001');
+  // Con freno o no publicada.
+  insertarNota(t.sqlite, { id: 'fre0001', historia_id: 'hf' });
+  t.sqlite.prepare("UPDATE notas SET no_publicar = '{\"motivo\":\"x\"}' WHERE id = 'fre0001'").run();
+  await prueba({ destinos: ['instagram'], fotos: ['0'] }, 'freno', '/panel/nota/fre0001');
+  insertarNota(t.sqlite, { id: 'ocu0001', historia_id: 'ho', estado: 'oculta' });
+  await prueba({ destinos: ['instagram'], fotos: ['0'] }, 'freno', '/panel/nota/ocu0001');
+  assert.equal(t.fila('ocu0001').redes, null);
+  // Las pantallas dicen por qué (sin formulario si no se puede).
+  const sinPublica = await (await t.ir('/panel/nota/nof0001/reel', { cookie: s.cookie })).text();
+  assert.match(sinPublica, /ninguna foto que se pueda usar/);
+  assert.doesNotMatch(sinPublica, /Pedir el reel/);
+  assert.match(await (await t.ir('/panel/nota/ocu0001/reel', { cookie: s.cookie })).text(), /no puede ir a las redes/);
+  assert.match(await (await t.ir(`${NOTA}/reel?error=destino`, { cookie: s.cookie })).text(), /Una de las redes elegidas no existe/);
+  // Sin CSRF o sin sesión: nada.
+  assert.equal((await t.post(`${NOTA}/reel`, s, { destinos: ['instagram'], fotos: ['0'] }, { sinCsrf: true })).status, 403);
+  assert.equal((await t.ir(`${NOTA}/reel`)).headers.get('cache-control'), 'no-store');
+  assert.doesNotMatch(await (await t.ir(`${NOTA}/reel`)).text(), /Reel de/);
+  assert.equal(t.fila().redes, antes);
+});

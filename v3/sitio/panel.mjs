@@ -3,7 +3,7 @@
 // Entrada: el bot da un enlace de un solo uso (/panel en Telegram) → sesión de 30 días en una cookie. En la base sólo quedan huellas SHA-256 de los tokens.
 // Nunca pasa por la caché pública: cada respuesta es `no-store`, `noindex` y con su propia política de contenido.
 import { BASE, SECCIONES, slugDe, jsonONull, parrafosDe, ranuraDe } from './util.mjs';
-import { paginaSinSesion, paginaEntrar, paginaEnlaceVencido, paginaPanelError, paginaLista, paginaNota } from './vistas/panel.mjs';
+import { paginaSinSesion, paginaEntrar, paginaEnlaceVencido, paginaPanelError, paginaLista, paginaNota, paginaReel, DESTINOS_DEL_REEL } from './vistas/panel.mjs';
 
 export const POR = 'Hernán (panel)';
 export const DIAS_DE_SESION = 30;
@@ -154,7 +154,12 @@ function notaParaVer(f) {
   return {
     id: f.id, titulo: f.titulo || '', bajada: f.bajada || '', parrafos: parrafosDe(f.cuerpo), seccion: f.seccion || 'Argentina', estado: f.estado,
     noPublicar: analizar(f.no_publicar, null), fotos: listaDeFotos(f.foto).map((x) => ({ url: x.url ?? x.copia ?? '', credito: x.credito ?? '' })),
-    redes: { lista: Array.isArray(redes.lista) ? redes.lista : [], repaso: redes.repaso === true, menciones: Array.isArray(redes.menciones) ? redes.menciones : [] },
+    redes: {
+      lista: Array.isArray(redes.lista) ? redes.lista : [], repaso: redes.repaso === true, menciones: Array.isArray(redes.menciones) ? redes.menciones : [],
+      destinos: Array.isArray(redes.destinos) ? redes.destinos.filter((d) => CLAVES_DE_DESTINO.includes(d)) : [],
+      fotos: Array.isArray(redes.fotos) ? redes.fotos.filter((n) => Number.isInteger(n)) : [], pedida: typeof redes.pedida === 'string' ? redes.pedida : null,
+    },
+    noPublicable: f.estado !== 'publicada' || !!analizar(f.no_publicar, null),
     url: BASE + rutaPublica(f), origen: f.origen, fecha: f.fecha, firma: f.firma,
   };
 }
@@ -212,6 +217,17 @@ export function redesNuevas(crudo, { lista: pedidas, repaso, menciones }, ahora)
   if (m.length) redes.menciones = conCuentaDelMedio(m); else delete redes.menciones;
   return { redes, pide };
 }
+
+/** Dónde puede salir un reel pedido desde el panel (clave guardada, nombre para las personas). X se guarda como `twitter`, el nombre que usa Buffer. */
+export { DESTINOS_DEL_REEL }; // (la lista vive en vistas/panel.mjs, que también la dibuja)
+const CLAVES_DE_DESTINO = DESTINOS_DEL_REEL.map(([c]) => c);
+/** Los formatos que se pueden pedir desde la pantalla del reel (uno por pedido). */
+export const FORMATOS_DEL_REEL = ['reel', 'historia', 'posteo'];
+export const MIN_FOTOS_REEL = 1;
+export const MAX_FOTOS_REEL = 3;
+
+/** ¿Esta foto la puede usar un reel? Con dirección https pública o propia del sitio (igual que se muestra en el panel). */
+const fotoConDireccionPublica = (x) => /^https:\/\//i.test(String(x?.url ?? x?.copia ?? '')) || /^\/fotos-notas\/[A-Za-z0-9._-]+$/.test(String(x?.url ?? ''));
 
 // ------------------------------------------------------------------------------------------------------------ fotos
 
@@ -293,6 +309,43 @@ async function cambiarRedes(env, f, form, ahora) {
   return { ok: 'redes' };
 }
 
+/**
+ * La pantalla «Que esta nota salga en reel» (etapa 1 del plan del panel): guarda en `notas.redes` lo mismo que /redes (formato nuevo → `forzada` y `pedida`) y suma
+ * `destinos` (en qué redes) y `fotos` (qué fotos de la nota, de 1 a 3, por su lugar en la lista; la primera es la de portada del reel).
+ * Sólo vale para una nota publicada, sin freno y con al menos una foto con dirección pública. Si algo no vale, no se cambia nada.
+ */
+async function pedirReel(env, f, form, ahora) {
+  if (f.estado !== 'publicada' || analizar(f.no_publicar, null)) return { error: 'freno' };
+  const formato = String(form.get('formato') ?? 'reel');
+  if (!FORMATOS_DEL_REEL.includes(formato)) return { error: 'formato' };
+  const destinos = CLAVES_DE_DESTINO.filter((c) => form.getAll('destinos').map(String).includes(c));
+  if (form.getAll('destinos').map(String).some((d) => !CLAVES_DE_DESTINO.includes(d))) return { error: 'destino' };
+  if (!destinos.length) return { error: 'sin-destinos' };
+  const fotosDeLaNota = listaDeFotos(f.foto);
+  const crudas = form.getAll('fotos').map(String);
+  const indices = [];
+  for (const c of crudas) {
+    const n = /^\d{1,2}$/.test(c) ? Number(c) : -1;
+    if (n < 0 || n >= fotosDeLaNota.length || !fotoConDireccionPublica(fotosDeLaNota[n])) return { error: 'foto-elegida' };
+    if (!indices.includes(n)) indices.push(n);
+  }
+  if (indices.length < MIN_FOTOS_REEL) return { error: fotosDeLaNota.some(fotoConDireccionPublica) ? 'sin-fotos-elegidas' : 'sin-foto-publica' };
+  if (indices.length > MAX_FOTOS_REEL) return { error: 'muchas-fotos-reel' };
+  const previa = objeto(analizar(f.redes, {}));
+  const previos = Array.isArray(previa.lista) ? previa.lista : [];
+  const { redes, pide } = redesNuevas(f.redes, {
+    lista: [...new Set([...previos, formato])],
+    repaso: String(form.get('repaso') ?? '') === 'si',
+    menciones: Array.isArray(previa.menciones) ? previa.menciones.join(' ') : '',
+  }, ahora);
+  // Pedir el reel de nuevo (aunque ya estuviera en la lista) lo vuelve a poner en la cola de «pedidos a mano».
+  if (!pide) { redes.forzada = true; redes.pedida = ahora.toISOString(); }
+  redes.destinos = destinos;
+  redes.fotos = indices;
+  await env.DB.prepare('UPDATE notas SET redes = ? WHERE id = ?').bind(JSON.stringify(redes), f.id).run();
+  return { ok: 'reel-pedido' };
+}
+
 async function cambiarFotos(env, f, form, ahora) {
   const actuales = listaDeFotos(f.foto);
   const accion = String(form.get('accion') ?? '');
@@ -342,7 +395,9 @@ async function cambiarFotos(env, f, form, ahora) {
   return { error: 'accion' };
 }
 
-const CAMBIOS = { texto: cambiarTexto, estado: cambiarEstado, redes: cambiarRedes, fotos: cambiarFotos };
+const CAMBIOS = { texto: cambiarTexto, estado: cambiarEstado, redes: cambiarRedes, fotos: cambiarFotos, reel: pedirReel };
+/** Adónde volver después de un botón de la lista: sólo una dirección del propio panel (`/panel` con sus filtros); cualquier otra cosa se ignora. */
+const VOLVER_VALIDO = /^\/panel(\?[A-Za-z0-9%=&_.+~-]{0,300})?$/;
 // Lo más grande que se acepta en un pedido: 10 fotos de 8 MB y un poco de margen para el resto del formulario.
 const TOPE_DEL_PEDIDO = MAX_FOTOS * MAX_BYTES_FOTO + 1024 * 1024;
 
@@ -388,10 +443,10 @@ export async function manejarPanel(pedido, env, { ahora = new Date(), cache = nu
       origen: ['propias', 'automaticas'].includes(url.searchParams.get('origen')) ? url.searchParams.get('origen') : '',
     };
     const { notas, hayMas } = await listarParaPanel(env, { ...filtros, pagina });
-    return html(paginaLista({ notas, filtros, pagina, hayMas, csrf }));
+    return html(paginaLista({ notas, filtros, pagina, hayMas, csrf, ok: url.searchParams.get('ok'), error: url.searchParams.get('error') }));
   }
 
-  const m = /^\/panel\/nota\/([^/]+)(?:\/(texto|estado|redes|fotos))?$/.exec(ruta);
+  const m = /^\/panel\/nota\/([^/]+)(?:\/(texto|estado|redes|fotos|reel))?$/.exec(ruta);
   if (m) {
     let id = '';
     try { id = decodeURIComponent(m[1]); } catch { /* queda vacío */ }
@@ -400,12 +455,18 @@ export async function manejarPanel(pedido, env, { ahora = new Date(), cache = nu
     if (metodo === 'GET' && !m[2]) {
       const ok = url.searchParams.get('ok');
       const error = url.searchParams.get('error');
-      return html(paginaNota({ nota: notaParaVer(f), csrf, ok, error, publicaciones: await publicacionesDe(env, f.id) }));
+      return html(paginaNota({ nota: notaParaVer(f), csrf, ok, error, publicaciones: await publicacionesDe(env, f.id), abrir: url.searchParams.get('abrir') }));
+    }
+    if (metodo === 'GET' && m[2] === 'reel') {
+      return html(paginaReel({ nota: notaParaVer(f), csrf, error: url.searchParams.get('error') }));
     }
     if (metodo === 'POST' && m[2]) {
       const r = await CAMBIOS[m[2]](env, f, form, ahora);
       if (r.purgar) await purgar(cache, url.origin, r.purgar);
-      const volver = `/panel/nota/${encodeURIComponent(f.id)}`;
+      // Los botones de la lista (Ocultar, Mostrar) vuelven a la lista, con el mismo filtro y página; el pedido de reel, a su pantalla si falló.
+      const lista = String(form.get('volver') ?? '');
+      if (m[2] === 'estado' && VOLVER_VALIDO.test(lista)) return irA(`${lista}${lista.includes('?') ? '&' : '?'}${r.error ? `error=${r.error}` : `ok=${r.ok}`}`);
+      const volver = `/panel/nota/${encodeURIComponent(f.id)}${m[2] === 'reel' && r.error ? '/reel' : ''}`;
       return irA(r.error ? `${volver}?error=${r.error}` : `${volver}?ok=${r.ok}`);
     }
   }

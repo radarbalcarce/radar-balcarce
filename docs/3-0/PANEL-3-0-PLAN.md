@@ -191,6 +191,8 @@ Cada etapa se prueba con `node --test "v3/sitio/**/*.test.mjs"` (y las del bot/r
 
 **Mientras tanto**, lo que ya existe se puede usar hoy: `/ocultar`, `/mostrar`, `/redes <nota> reel`, `/repaso` y el panel completo. Y Claude puede hacer lo mismo por pedido (los mismos cambios en `notas.redes` y `notas.estado`), pero **sin** tocar `v3/redes/` ni `v3/nucleo/` sin avisar.
 
+**Estado de la etapa 1 (19/11, hecho en el código, sin desplegar):** (a) botones Ocultar/Mostrar/Reel en cada fila: **hecho**; (b) ficha reordenada con desplegables: **hecho**; (c) pantalla `/panel/nota/<id>/reel` con redes, formato y 1 a 3 fotos, que guarda `notas.redes.destinos` y `fotos`: **hecho en el panel**, pero **el reloj de las redes todavía no los lee** (falta enseñarle a `accionesDe` y al armado del reel de nota, zona de `v3/redes/`); (d) aviso por Telegram de resultado: **NO hecho** (toca `v3/redes/`, hay que coordinarlo). Detalle y pruebas: `v3/sitio/REGLAS.md` § 13. Hay que desplegar sólo el sitio (no hay migración).
+
 ## 7. Video de YouTube en las notas (hecho)
 
 **Decisión:** una nota puede llevar **un** video de YouTube **propio** (del canal de Radar o de Se hace), incrustado de forma liviana.
