@@ -329,7 +329,7 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
       const r = await deps.renderizar(pieza, `${base}.mp4`, { voz: voz?.archivo ?? null, subtitulos, palabras: voz?.palabras ?? null });
       // Kit 3.0 (KIT_3_0=si): si dibujó él, manda su duración (lleva la tapa de 0,8 s) y su tapa quieta; si falló, la pieza salió con el dibujo de siempre y se anota.
       if (r.kit3?.usado === false) informe.aviso = `${informe.aviso ? `${informe.aviso}; ` : ''}kit 3.0 falló (${String(r.kit3.error).slice(0, 160)}); salió con el dibujo de siempre`;
-      if (r.kit3?.usado) { pieza = { ...pieza, duracion: r.kit3.duracion }; informe.duracion = r.kit3.duracion; if (r.kit3.avisos?.length) informe.aviso = `${informe.aviso ? `${informe.aviso}; ` : ''}kit 3.0: ${r.kit3.avisos.join(' | ')}`.slice(0, 480); }
+      if (r.kit3?.usado) { pieza = { ...pieza, duracion: r.kit3.duracion, creditosDeFotos: r.kit3.creditos ?? [] }; informe.duracion = r.kit3.duracion; if (r.kit3.avisos?.length) informe.aviso = `${informe.aviso ? `${informe.aviso}; ` : ''}kit 3.0: ${r.kit3.avisos.join(' | ')}`.slice(0, 480); }
       // Una nota de AFUERA cuya foto no bajó nunca sale con la placa (REGLAS § 3; caso Espinoza, 12/11): la pieza no se publica y se reintenta. Sólo Balcarce sin foto va con placa.
       const sinFotoAjena = notasDeAfueraConFotoCaida(item, r.urlsQueNoBajaron);
       if (sinFotoAjena.length) throw new Error(`la foto de una nota de afuera no bajó, no sale con placa (${sinFotoAjena.map((n) => n.id).join(', ')})`);
@@ -426,11 +426,11 @@ export async function dependenciasReales(env = process.env) {
         try {
           const { aplicaKit3, dibujarConKit3 } = await import('../kit3/kit3.mjs');
           if (aplicaKit3(lista)) {
-            const { fotoDeLaEfemeride } = await import('../kit3/efemeride-foto.mjs');
+            const { fotosDeLaEfemeride } = await import('../kit3/efemeride-foto.mjs');
             const { colorDeSeccion } = await import('../../../reels/placa.mjs');
-            const fotoEfemeride = lista.id === 'efemeride' ? await fotoDeLaEfemeride({ principal: lista.escenas?.[0]?.datos?.principal }) : null;
-            const k = await dibujarConKit3(lista, destino, { voz, palabras, fotoEfemeride, colorDeSeccion, env, log: (m) => console.log(`  ${m}`) });
-            return { mp4: k.mp4, duracion: k.duracion, fotosQueNoBajaron, urlsQueNoBajaron, kit3: { usado: true, ms: k.ms, avisos: k.avisos, estimado: k.estimado, tapa: k.tapa } };
+            const hechos = lista.id === 'efemeride' ? await fotosDeLaEfemeride({ principal: lista.escenas?.[0]?.datos?.principal, ademas: lista.escenas?.[0]?.datos?.ademas?.[0] }) : null;
+            const k = await dibujarConKit3(lista, destino, { voz, palabras, fotoEfemeride: hechos?.principal ?? null, fotoEfemerideAdemas: hechos?.ademas ?? null, colorDeSeccion, env, log: (m) => console.log(`  ${m}`) });
+            return { mp4: k.mp4, duracion: k.duracion, fotosQueNoBajaron, urlsQueNoBajaron, kit3: { usado: true, ms: k.ms, avisos: k.avisos, estimado: k.estimado, tapa: k.tapa, creditos: k.creditos } };
           }
         } catch (e) { console.log(`  kit 3.0 falló: ${e.message}`); kit3 = { usado: false, error: e.message }; }
       }

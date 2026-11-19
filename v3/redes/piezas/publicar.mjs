@@ -26,6 +26,15 @@ export function notaDeLaPiezaEnLaWeb(item) {
 
 const limpiar = (t) => String(t ?? '').replace(/\s+/g, ' ').trim();
 
+/**
+ * Los créditos de las fotos de una pieza, sin repetir y sin la palabra «Foto:» delante. El crédito de una foto NUNCA va dentro del video: va en el texto del posteo (`textoDePieza`).
+ * Si el kit 3.0 dibujó la pieza, `pieza.creditosDeFotos` trae los de las fotos que usó (incluida la de Wikimedia Commons de la efeméride); si no, los de las fotos de las escenas.
+ */
+export function creditosDeLasFotos(pieza) {
+  const crudos = Array.isArray(pieza?.creditosDeFotos) ? pieza.creditosDeFotos : (pieza?.escenas ?? []).flatMap((e) => [e?.datos?.foto?.credito]);
+  return [...new Set(crudos.map((c) => limpiar(c).replace(/^(fotos?|im[aá]genes|imagen)\s*:\s*/i, '').replace(/[.\s]+$/, '')).filter(Boolean))];
+}
+
 /** Las primeras oraciones del guion hasta `max` caracteres (sin cortar una oración a la mitad; si la primera sola no entra, se corta en una palabra). */
 export function resumenDelGuion(guion, max = 260) {
   const frases = limpiar(guion).match(/.+?(?:[.!?](?=\s|$)|$)/g)?.map((f) => f.trim()).filter(Boolean) ?? [];
@@ -65,6 +74,8 @@ export function textoDePieza(pieza, item, red) {
   else if (red === 'instagram') lineas.push('', 'Todo en Radar Balcarce: link en la bio.');
   else if (servicio) lineas.push('', `${servicio.frase}: ${ponerOrigen(`${SITIO}${servicio.camino}`, { fuente: 'facebook', campana: 'servicio', contenido: item.id ?? item.arma })}`);
   else lineas.push('', `Todo en ${DIRECCION_DEL_SITIO}`);
+  const creditos = creditosDeLasFotos(pieza);
+  if (creditos.length) lineas.push('', `${creditos.length === 1 ? 'Foto' : 'Fotos'}: ${creditos.join(' · ')}`);
   if (pieza.aviso) lineas.push('', pieza.aviso || AVISO_DE_IA_TEXTO);
   lineas.push('', `${HASHTAGS_FIJOS} #${item.hashtag}`);
   return lineas.join('\n');

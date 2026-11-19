@@ -16,7 +16,7 @@ import {
 import { efemerideDelDia, fechaLarga, leerClima } from '../piezas/datos.mjs';
 import { resolverFotos, USER_AGENT } from '../piezas/fotos.mjs';
 import { dibujarConKit3, kit3Prendido } from './kit3.mjs';
-import { fotoDeLaEfemeride } from './efemeride-foto.mjs';
+import { fotosDeLaEfemeride } from './efemeride-foto.mjs';
 
 const RAIZ = path.join(import.meta.dirname, '..', '..', '..');
 const SITIO = 'https://radarbalcarce.com';
@@ -49,6 +49,8 @@ async function notasDelSitio() {
     try { const nota = await notaDelSitio(n); if (nota.foto && nota.cuerpo.length >= 2) buenas.push(nota); } catch { /* una nota que no se lee se saltea */ }
     if (buenas.filter((x) => x.deBalcarce).length >= 3 && buenas.length >= 8) break;
   }
+  // Si en este momento el sitio no trae ninguna nota de Balcarce entre las últimas, el ensayo marca las dos primeras como si lo fueran (sólo para poder dibujar el repaso).
+  if (!buenas.some((x) => x.deBalcarce)) { console.log('  (el sitio no trae notas de Balcarce ahora: el ensayo toma las 2 primeras como si lo fueran)'); buenas.slice(0, 2).forEach((x) => { x.deBalcarce = true; }); }
   return buenas;
 }
 
@@ -93,6 +95,7 @@ async function main() {
   const args = process.argv.slice(2);
   const valor = (nombre) => { const i = args.indexOf(nombre); return i >= 0 ? args[i + 1] : null; };
   const sinRed = args.includes('--ejemplos');
+  const soloTapa = args.includes('--solo-tapa'); // sólo la tapa de cada pieza (PNG), sin dibujar el video
   const fondos = valor('--fondos') ?? process.env.KIT3_FONDOS ?? '';
   const salida = path.resolve(valor('--salida') ?? 'salida-kit3');
   const pedidas = args.filter((a, i) => !a.startsWith('--') && args[i - 1] !== '--fondos' && args[i - 1] !== '--salida');
@@ -114,8 +117,10 @@ async function main() {
   const efemerides = JSON.parse(fs.readFileSync(path.join(RAIZ, 'web', 'data', 'efemerides-piezas.json'), 'utf8'));
   const efemeride = efemerideDelDia(efemerides, dia) ?? efemerideDelDia(efemerides, Object.keys(efemerides.dias).sort().at(-1));
   const repaso = notasDelRepaso(notas);
-  const conVarias = notas.find((n) => (n.fotos?.length ?? 0) >= 2 && n.deBalcarce) ?? notas.find((n) => (n.fotos?.length ?? 0) >= 2) ?? notas[0];
-  const deBalcarce = notas.find((n) => n.deBalcarce && n.cuerpo.length >= 3) ?? notas.find((n) => n.cuerpo.length >= 3) ?? notas[0];
+  // La nota de Balcarce y la propia salen de notas DISTINTAS entre sí y de las del repaso (para que el feed de muestra no repita la misma foto); si no alcanzan, se repite lo mínimo.
+  const libres = (...fuera) => notas.filter((n) => !fuera.includes(n));
+  const deBalcarce = libres(...repaso).find((n) => n.deBalcarce && n.cuerpo.length >= 3) ?? libres(...repaso).find((n) => n.cuerpo.length >= 3) ?? notas.find((n) => n.deBalcarce && n.cuerpo.length >= 3) ?? notas.find((n) => n.cuerpo.length >= 3) ?? notas[0];
+  const conVarias = libres(...repaso, deBalcarce).find((n) => (n.fotos?.length ?? 0) >= 2) ?? libres(...repaso, deBalcarce)[0] ?? libres(deBalcarce).find((n) => (n.fotos?.length ?? 0) >= 2) ?? libres(deBalcarce)[0] ?? notas[0];
   if (clima.dias.every((d) => d.fecha !== dia)) clima.dias = clima.dias.map((d, i) => ({ ...d, fecha: new Date(Date.parse(`${dia}T12:00:00Z`) + i * 86400_000).toISOString().slice(0, 10) }));
 
   const piezas = {
@@ -140,11 +145,12 @@ async function main() {
     try {
       const armada = piezas[id]();
       const pieza = await resolverFotos(armada);
-      const fotoEfemeride = id === 'efemeride' ? await fotoDeLaEfemeride(efemeride) : null;
-      if (id === 'efemeride') console.log(`  efeméride: ${fotoEfemeride ? `foto de Commons (${fotoEfemeride.credito})` : 'sin foto libre: fondo de la marca'}`);
+      const hechos = id === 'efemeride' ? await fotosDeLaEfemeride({ principal: efemeride.principal, ademas: pieza.escenas?.[0]?.datos?.ademas?.[0] }) : null;
+      const fotoEfemeride = hechos?.principal ?? null;
+      if (id === 'efemeride') console.log(`  efeméride: principal ${fotoEfemeride ? `foto de Commons (${fotoEfemeride.credito})` : 'sin foto libre: fondo de la marca'}; segundo hecho ${hechos.ademas ? `foto de Commons (${hechos.ademas.credito})` : 'sin foto libre propia'}`);
       const { colorDeSeccion } = await import('../../../reels/placa.mjs');
-      const r = await dibujarConKit3(pieza, path.join(salida, `${id}.mp4`), { env, fotoEfemeride, colorDeSeccion, log: (t) => console.log(`  ${t}`) });
-      const info = { pieza: id, idDeLaPieza: pieza.id, guion: pieza.guion, palabrasDelGuion: pieza.guion.split(/\s+/).length, duracion: r.duracion, segundosEnDibujar: Math.round(r.ms / 1000), avisos: r.avisos, fondo: r.fondo, tapa: path.basename(r.tapa ?? ''), notas: id.startsWith('repaso') ? pieza.escenas.filter((e) => e.tipo === 'placa-nota').map((e) => e.datos.titulo) : undefined };
+      const r = await dibujarConKit3(pieza, path.join(salida, `${id}.mp4`), { env, soloTapa, fotoEfemeride, fotoEfemerideAdemas: hechos?.ademas ?? null, colorDeSeccion, log: (t) => console.log(`  ${t}`) });
+      const info = { pieza: id, idDeLaPieza: pieza.id, guion: pieza.guion, palabrasDelGuion: pieza.guion.split(/\s+/).length, duracion: r.duracion, segundosEnDibujar: Math.round(r.ms / 1000), avisos: r.avisos, fondo: r.fondo, creditosParaElPosteo: r.creditos, tapa: path.basename(r.tapa ?? ''), notas: id.startsWith('repaso') ? pieza.escenas.filter((e) => e.tipo === 'placa-nota').map((e) => e.datos.titulo) : undefined };
       fs.writeFileSync(path.join(salida, `${id}.json`), JSON.stringify(info, null, 2));
       resumen.push({ pieza: id, ok: true, duracion: r.duracion, segundos: Math.round(r.ms / 1000) });
       console.log(`${id}: listo · ${r.duracion} s de video · ${Math.round(r.ms / 1000)} s de dibujo`);

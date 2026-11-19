@@ -6,37 +6,56 @@ window.Radar = (function () {
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   let TL, ROOT, PL, CT, S;
 
-  /* foto a pantalla completa con Ken Burns y entrada con mascara.
-     o: src,w,h,t0,t1,entrada(corte|izq|der|arriba|abajo|circulo|fundido),f0,f1 (foco 0..1),s0,s1 (zoom),filtro,k,
-        contain:true => fondo desenfocado + foto nitida de ancho cw (fotos chicas) centrada en y=yc */
+  /* La geometria de una foto (puro): va SIEMPRE a todo el ancho (1080), pegada arriba (y=0), sin margenes. Se permite recortar hasta un 34 % del lado que sobra:
+     alto mostrado = min(1090, altoNaturalA1080 / 0.66), con un minimo de 900. El panel empieza donde termina la foto (PT).
+     modo 'cobertura': la foto llena el ancho y el alto (recorte centrado a los lados; en vertical, sesgado hacia arriba, y en retratos sin recortar la cabeza).
+     modos 'ancha' (panoramica extrema) y 'angosta' (retrato muy angosto): aun recortando 34 % no llena; se usa un relleno desenfocado oscuro, sin sombra ni borde de tarjeta.
+     'sin': sin foto, fondo de la marca. Devuelve { modo, PT, iw, ih, left, top }. */
+  function geom(o) {
+    o = o || {};
+    const MAXH = o.maxH || 1090, MINH = o.minH || 900, F = 0.66;
+    if (!o || !o.src) return { modo: 'sin', PT: MAXH, iw: W, ih: MAXH, left: 0, top: 0 };
+    const Hn = o.h * W / o.w;
+    if (Hn / F < MINH) { const s = W / (o.w * F), iw = o.w * s, ih = o.h * s; return { modo: 'ancha', PT: MINH, iw, ih, left: (W - iw) / 2, top: (MINH - ih) / 2 }; }
+    if (Hn > MAXH / F) { const iw = o.w * MAXH / o.h; return { modo: 'angosta', PT: MAXH, iw, ih: MAXH, left: (W - iw) / 2, top: 0 }; }
+    const PT = Math.round(Math.min(MAXH, Hn / F)), s = Math.max(W / o.w, PT / o.h), iw = o.w * s, ih = o.h * s, sesgo = o.h > o.w ? 0 : 0.35;
+    return { modo: 'cobertura', PT, iw, ih, left: (W - iw) / 2, top: -(ih - PT) * sesgo };
+  }
+  /* la region de la foto (0..PT) con la foto adentro; `parent` la recibe. Devuelve { reg, g, im } */
+  function regionDeFoto(parent, o) {
+    const g = geom(o), reg = div(parent, '', 'position:absolute;left:0;top:' + (o.off || 0) + 'px;width:' + W + 'px;height:' + g.PT + 'px;overflow:hidden;background:#14161A');
+    if (g.modo === 'sin') {
+      div(reg, '', 'position:absolute;inset:0;background:' + (o.grad || 'linear-gradient(165deg,#222B38 0%,#14161A 58%,#0B0D10 100%)'));
+      return { reg, g, im: null };
+    }
+    if (g.modo !== 'cobertura') { // relleno desenfocado, oscuro y parejo
+      const bg = new Image(); bg.src = o.src; const cv = Math.max(W / o.w, g.PT / o.h) * 1.2;
+      bg.style.cssText = 'position:absolute;max-width:none;width:' + o.w * cv + 'px;height:' + o.h * cv + 'px;left:' + (W - o.w * cv) / 2 + 'px;top:' + (g.PT - o.h * cv) / 2 + 'px;filter:blur(40px) ' + (o.fondoFiltro || 'brightness(.32) saturate(.9)');
+      reg.appendChild(bg);
+    }
+    const wrap = div(reg, '', 'position:absolute;left:0;top:0;width:' + W + 'px;height:' + g.PT + 'px');
+    const im = new Image(); im.src = o.src;
+    im.style.cssText = 'position:absolute;max-width:none;width:' + g.iw + 'px;height:' + g.ih + 'px;left:' + g.left + 'px;top:' + g.top + 'px;filter:' + (o.filtro || 'none');
+    wrap.appendChild(im);
+    return { reg, g, im, wrap };
+  }
+  /* foto a todo el ancho, pegada arriba, con movimiento suave (zoom lento hacia adentro 1.00 -> 1.06, ya cubriendo: nunca se ve el borde) y, si se pide, el panel de abajo (o.panel = color; o.regla = color de la regla).
+     o: src,w,h,t0,t1,entrada(corte|izq|der|arriba|abajo|fundido),de,dir,z0,z1,panel,regla; sin src: fondo de la marca con anillos. Devuelve el plano (con .PT). */
   function foto(o) {
     const pl = div(PL, 'plano'); pl.style.zIndex = o.z != null ? o.z : PL.children.length;
     const kb = div(pl, 'kb');
-    const f0 = o.f0 || [0.5, 0.5], f1 = o.f1 || f0, s0 = o.s0 || 1, s1 = o.s1 || 1.08;
-    const dur = (o.t1 - o.t0) + 0.5;
-    if (!o.src) { // sin foto: fondo de la marca (oscuro, con anillos de radar), nunca un recuadro vacio
-      div(kb, '', 'position:absolute;left:0;top:0;width:1080px;height:1920px;background:' + (o.grad || 'linear-gradient(165deg,#222B38 0%,#14161A 58%,#0B0D10 100%)'));
-      fx.anillos(kb, { n: 4, cx: 540, cy: o.yc || 700, color: o.anillo || 'rgba(255,255,255,.16)', t0: o.t0, t1: o.t1 + 1, max: 6 });
-    } else if (o.contain) {
-      const bg = new Image(); bg.src = o.src;
-      const cv = Math.max(W / o.w, H / o.h) * 1.15;
-      bg.style.cssText = `width:${o.w * cv}px;height:${o.h * cv}px;left:${(W - o.w * cv) / 2}px;top:${(H - o.h * cv) / 2}px;filter:blur(38px) brightness(.55) saturate(1.1)`;
-      kb.appendChild(bg);
-      const cw = o.cw || W, ch = o.h * cw / o.w, yc = o.yc || 700;
-      const sh = new Image(); sh.src = o.src; sh.style.cssText = `width:${cw}px;height:${ch}px;left:${(W - cw) / 2}px;top:${yc - ch / 2}px;filter:${o.filtro || 'none'}`;
-      const wrap = div(kb, '', `position:absolute;left:0;top:0;width:${W}px;height:${H}px;transform-origin:540px ${yc}px`); wrap.appendChild(sh);
-      TL.fromTo(wrap, { scale: s0 }, { scale: s1, duration: dur, ease: 'sine.inOut' }, o.t0);
-      TL.fromTo(sh, { x: (f0[0] - .5) * 60 }, { x: (f1[0] - .5) * 60, duration: dur, ease: 'none' }, o.t0);
+    const dur = (o.t1 - o.t0) + 0.5, dir = o.dir || 1;
+    const R = regionDeFoto(kb, o), g = R.g; pl.PT = g.PT;
+    if (g.modo === 'sin') {
+      fx.anillos(R.reg, { n: 4, cx: 540, cy: o.yc || g.PT / 2, color: o.anillo || 'rgba(255,255,255,.16)', t0: o.t0, t1: o.t1 + 1, max: 6 });
     } else {
-      const k = o.k || 1, cover = Math.max(W / o.w, H / o.h) * k, iw = o.w * cover, ih = o.h * cover;
-      const img = new Image(); img.src = o.src; img.style.cssText = `width:${iw}px;height:${ih}px;filter:${o.filtro || 'none'}`; kb.appendChild(img);
-      const pos = (f) => ({ x: clamp(540 - f[0] * iw, W - iw, 0), y: clamp(960 - f[1] * ih, H - ih, 0) });
-      const p0 = pos(f0), p1 = pos(f1);
-      TL.fromTo(img, { x: p0.x, y: p0.y }, { x: p1.x, y: p1.y, duration: dur, ease: 'none' }, o.t0);
-      TL.fromTo(kb, { scale: s0 }, { scale: s1, duration: dur, ease: 'sine.inOut' }, o.t0);
+      R.wrap.style.transformOrigin = (540 + dir * 70) + 'px 0px';
+      TL.fromTo(R.wrap, { scale: o.z0 || 1.0 }, { scale: o.z1 || 1.06, duration: dur, ease: 'sine.inOut' }, o.t0);
     }
+    if (o.panel) div(kb, '', 'position:absolute;left:0;top:' + g.PT + 'px;width:' + W + 'px;height:' + (H - g.PT) + 'px;background:' + o.panel);
+    if (o.regla) div(kb, '', 'position:absolute;left:0;top:' + g.PT + 'px;width:' + W + 'px;height:10px;background:' + o.regla);
     const e = o.entrada || 'corte', d = o.de || 0.45;
-    const clips = { izq: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'], der: ['inset(0 0 0 100%)', 'inset(0 0 0 0%)'], arriba: ['inset(0 0 100% 0)', 'inset(0 0 0% 0)'], abajo: ['inset(100% 0 0 0)', 'inset(0% 0 0 0)'], circulo: ['circle(0% at 50% 62%)', 'circle(140% at 50% 62%)'] };
+    const clips = { izq: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'], der: ['inset(0 0 0 100%)', 'inset(0 0 0 0%)'], arriba: ['inset(0 0 100% 0)', 'inset(0 0 0% 0)'], abajo: ['inset(100% 0 0 0)', 'inset(0% 0 0 0)'] };
     if (o.t0 > 0) {
       TL.set(pl, { autoAlpha: 0 }, 0);
       TL.set(pl, { autoAlpha: 1 }, o.t0);
@@ -76,36 +95,33 @@ window.Radar = (function () {
   }
   function fit(texto, ancho, max, min, k) { k = k || 0.58; return Math.max(min, Math.min(max, Math.floor(ancho / (String(texto).length * k)))); }
   function fitBox(texto, ancho, alto, max, min, lh, k) { k = k || 0.56; for (let s = max; s >= min; s -= 2) if (lineasDe(texto, ancho, s, k) * s * lh <= alto) return s; return min; }
-  /* el credito de la foto: una linea chica abajo, siempre visible mientras se ve la foto (nunca encima de la imagen como marca de agua: va en el pie) */
-  function credito(texto, t0, t1, o) {
+  /* la firma de la nota propia («Por Hernan Accomo»): una linea chica a la derecha del rotulo; NO es un credito de foto (los creditos van en el texto del posteo, nunca dentro del video) */
+  function firma(texto, t0, t1, o) {
     o = o || {};
-    if (!texto && !o.firma) return null;
-    const c = texto ? div(CT, '', 'position:absolute;left:60px;top:' + (o.top || 1398) + 'px;width:' + (o.firma ? 600 : 960) + 'px;font-weight:600;font-size:24px;line-height:30px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:' + (o.oscuro ? 'rgba(20,22,26,.8)' : 'rgba(255,255,255,.92)') + ';text-shadow:' + (o.oscuro ? 'none' : '0 2px 10px rgba(0,0,0,.8)'), '') : null;
-    if (c) { c.textContent = texto; aparece(c, t0 + 0.3, { y: 0, d: 0.4, salida: t1 != null ? t1 - 0.05 : null }); }
-    if (o.firma) {
-      const f = div(CT, '', 'position:absolute;right:120px;top:' + (o.top || 1398) + 'px;font-weight:700;font-size:24px;line-height:30px;white-space:nowrap;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.8)', '');
-      f.textContent = o.firma; aparece(f, t0 + 0.3, { y: 0, d: 0.4, salida: t1 != null ? t1 - 0.05 : null });
-    }
-    return c;
+    if (!texto) return null;
+    const f = div(CT, '', 'position:absolute;right:60px;top:' + (o.top || 305) + 'px;font-weight:700;font-size:30px;line-height:38px;white-space:nowrap;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.8)', '');
+    f.textContent = texto; aparece(f, t0 + 0.3, { y: 0, d: 0.4, salida: t1 != null ? t1 - 0.05 : null });
+    return f;
   }
-  /* una foto quieta (para las tapas): cubre la caja (top, alto) o, si es chica (contain), va entera sobre un fondo desenfocado de si misma; sin foto, fondo de la marca */
+  /* una foto quieta (para las tapas): a todo el ancho, pegada arriba, misma geometria que `foto`; o.panel / o.regla dibujan el panel de abajo. Devuelve la geometria ({ PT, ... }) */
   function fotoEstatica(parent, o) {
-    const alto = o.alto || H, reg = div(parent, '', 'position:absolute;left:0;top:' + (o.top || 0) + 'px;width:' + W + 'px;height:' + alto + 'px;overflow:hidden;background:#14161A');
-    if (!o.src) {
-      div(reg, '', 'position:absolute;inset:0;background:' + (o.grad || 'linear-gradient(165deg,#222B38 0%,#14161A 58%,#0B0D10 100%)'));
-      [260, 520, 780, 1040].forEach((d) => div(reg, 'anillo', 'width:' + d + 'px;height:' + d + 'px;left:' + (540 - d / 2) + 'px;top:' + ((o.yc || alto / 2.2) - d / 2) + 'px;border-color:rgba(255,255,255,.14);border-width:4px'));
-      return reg;
-    }
-    const mk = (w, h, css) => { const im = new Image(); im.src = o.src; im.style.cssText = 'position:absolute;max-width:none;width:' + w + 'px;height:' + h + 'px;' + css; reg.appendChild(im); return im; };
-    if (o.contain) {
-      const cv = Math.max(W / o.w, alto / o.h) * 1.15;
-      mk(o.w * cv, o.h * cv, 'left:' + (W - o.w * cv) / 2 + 'px;top:' + (alto - o.h * cv) / 2 + 'px;filter:blur(38px) brightness(.55) saturate(1.1)');
-      const ch = o.h * W / o.w; mk(W, ch, 'left:0;top:' + ((o.yc || alto / 2) - ch / 2) + 'px');
-    } else {
-      const c = Math.max(W / o.w, alto / o.h), iw = o.w * c, ih = o.h * c, f = o.f || [0.5, 0.5];
-      mk(iw, ih, 'left:' + clamp(540 - f[0] * iw, W - iw, 0) + 'px;top:' + clamp(alto / 2 - f[1] * ih, alto - ih, 0) + 'px');
-    }
-    return reg;
+    const R = regionDeFoto(parent, o), g = R.g, off = o.off || 0;
+    g.PTt = g.PT + off; // donde termina la foto en la tapa (la foto arranca en `off`: la grilla 285-1635 la muestra casi desde su borde superior)
+    if (off && o.src) { // las filas 0..off: la continuacion de la misma foto desenfocada y oscurecida (sin borde ni sombra)
+      const st = div(parent, '', 'position:absolute;left:0;top:0;width:' + W + 'px;height:' + (off + 2) + 'px;overflow:hidden;background:#14161A');
+      const im = new Image(); im.src = o.src;
+      if (g.modo === 'cobertura') { // la misma foto espejada hacia arriba (sus filas de arriba siguen del otro lado de la costura), desenfocada: se lee como cielo/fondo
+        im.style.cssText = 'position:absolute;max-width:none;width:' + g.iw + 'px;height:' + g.ih + 'px;left:' + g.left + 'px;top:' + (off - g.top - g.ih) + 'px;transform:scaleY(-1);filter:blur(34px) brightness(.7) saturate(1.05)';
+      } else {
+        const cv = Math.max(W / o.w, 700 / o.h) * 1.1;
+        im.style.cssText = 'position:absolute;max-width:none;width:' + o.w * cv + 'px;height:' + o.h * cv + 'px;left:' + (W - o.w * cv) / 2 + 'px;top:0;filter:blur(36px) brightness(.4) saturate(.95)';
+      }
+      st.appendChild(im);
+    } else if (off) div(parent, '', 'position:absolute;left:0;top:0;width:' + W + 'px;height:' + (off + 2) + 'px;background:' + (o.grad || 'linear-gradient(165deg,#222B38 0%,#14161A 100%)'));
+    if (g.modo === 'sin') [260, 520, 780, 1040].forEach((d) => div(R.reg, 'anillo', 'width:' + d + 'px;height:' + d + 'px;left:' + (540 - d / 2) + 'px;top:' + (off + (o.yc || g.PT / 2.2) - d / 2) + 'px;border-color:rgba(255,255,255,.14);border-width:4px'));
+    if (o.panel) div(parent, '', 'position:absolute;left:0;top:' + g.PTt + 'px;width:' + W + 'px;height:' + (H - g.PTt) + 'px;background:' + o.panel);
+    if (o.regla) div(parent, '', 'position:absolute;left:0;top:' + g.PTt + 'px;width:' + W + 'px;height:10px;background:' + o.regla);
+    return g;
   }
   const fx = {
     lluvia(parent, o) {
@@ -156,13 +172,13 @@ window.Radar = (function () {
     }
     const scrim = div(ROOT, 'abs', 'inset:0;z-index:20;pointer-events:none;background:' + (spec.scrim || 'linear-gradient(0deg,rgba(8,10,14,.80) 0%,rgba(8,10,14,.62) 22%,rgba(8,10,14,.18) 42%,rgba(8,10,14,0) 52%),linear-gradient(180deg,rgba(8,10,14,.45) 0%,rgba(8,10,14,0) 20%)'));
     CT = div(ROOT, 'abs', 'inset:0;z-index:25');
-    const K = { W, H, div, foto, linea, aparece, contar, fx, fit, fitBox, lineasDe, fotoEstatica, credito, TL, PL, CT, ROOT, rng, clamp, SC: scrim, T0, M, kit: spec.kit || 'k1' };
+    const K = { W, H, div, foto, linea, aparece, contar, fx, fit, fitBox, lineasDe, fotoEstatica, geom, firma, TL, PL, CT, ROOT, rng, clamp, SC: scrim, T0, M, kit: spec.kit || 'k1' };
     escenas(K, spec);
     if (spec.rotulo) {
       const r = div(ROOT, '', ''); r.id = 'rotulo'; r.style.cssText += `;background:${spec.rotulo.bg};color:${spec.rotulo.fg || '#fff'};z-index:30`; r.textContent = spec.rotulo.txt;
       TL.set(r, { autoAlpha: 0 }, 0); TL.set(r, { autoAlpha: 1 }, 0.15); TL.fromTo(r, { x: -60 }, { x: 0, duration: 0.5, ease: 'power3.out' }, 0.15);
     }
-    const subs = div(ROOT, '', 'z-index:30'); subs.id = 'subs';
+    const subs = div(ROOT, '', 'z-index:30'); subs.id = 'subs'; if (spec.subsTop != null) subs.style.top = spec.subsTop + 'px';
     const grupos = {}; spec.palabras.forEach((p, i) => { (grupos[p.g] = grupos[p.g] || []).push(i); });
     const gk = Object.keys(grupos).map(Number).sort((a, b) => a - b);
     const hl = spec.hl || { bg: '#C7381C', fg: '#fff' };
@@ -204,11 +220,14 @@ window.Radar = (function () {
     if (tapaFn) {
       const tp = div(ROOT, '', ''); tp.id = 'tapa';
       tapaFn(Object.assign({}, K, { TAPA: tp, TL: M }), spec);
-      if (spec.marcaTapa && spec.marcaClara) { /* marca para tapas de fondo claro: sin velo, tinta y rojo */
-        div(tp, '', 'position:absolute;left:60px;top:1548px;width:960px;height:50px;display:flex;align-items:baseline;gap:22px;white-space:nowrap;z-index:9;line-height:1', '<span style="font-family:SS4;font-weight:900;font-size:44px;letter-spacing:-.02em;color:#14161A">Radar <b style="font-weight:900;color:#C7381C">Balcarce</b></span><span style="font-family:Inter;font-weight:600;font-size:28px;color:#14161A;opacity:.85">radarbalcarce.com</span>');
-      } else if (spec.marcaTapa) { /* v3: marca al pie de la TAPA, dentro del recorte 1080x1350 (base y 1585); se va con la cortina */
+      /* marca al pie de la TAPA, dentro del recorte 1080x1350 (base y 1585): «Radar Balcarce» (bicolor) a la izquierda y radarbalcarce.com a la derecha, una en cada punta; se va con la cortina */
+      const mk = (tinta, rojo) => '<span style="font-family:SS4;font-weight:900;font-size:44px;letter-spacing:-.02em;color:' + tinta + '">Radar <b style="font-weight:900;color:' + rojo + '">Balcarce</b></span><span style="font-family:Inter;font-weight:600;font-size:28px;color:' + tinta + ';opacity:.92">radarbalcarce.com</span>';
+      const caja = 'position:absolute;left:60px;top:1548px;width:960px;height:50px;display:flex;align-items:baseline;justify-content:space-between;white-space:nowrap;z-index:9;line-height:1';
+      if (spec.marcaTapa && spec.marcaClara) { /* tapas de fondo claro: sin velo, tinta y rojo */
+        div(tp, '', caja, mk('#14161A', '#C7381C'));
+      } else if (spec.marcaTapa) {
         div(tp, '', 'position:absolute;left:0;top:1440px;width:1080px;height:480px;background:linear-gradient(180deg,rgba(8,10,14,0) 0%,rgba(8,10,14,.6) 42%,rgba(8,10,14,.6) 100%);z-index:8');
-        div(tp, '', 'position:absolute;left:60px;top:1548px;width:960px;height:50px;display:flex;align-items:baseline;gap:22px;white-space:nowrap;z-index:9;line-height:1;text-shadow:0 2px 12px rgba(0,0,0,.55)', '<span style="font-family:SS4;font-weight:900;font-size:44px;letter-spacing:-.02em;color:#FAF8F3">Radar <b style="font-weight:900;color:#C7381C">Balcarce</b></span><span style="font-family:Inter;font-weight:600;font-size:28px;color:#FAF8F3;opacity:.92">radarbalcarce.com</span>');
+        div(tp, '', caja + ';text-shadow:0 2px 12px rgba(0,0,0,.55)', mk('#FAF8F3', '#C7381C'));
       }
       if (K.kit === 'k2') div(tp, '', 'position:absolute;left:60px;top:1394px;height:36px;font-family:SS4;font-weight:900;font-size:34px;line-height:36px;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.65);white-space:nowrap;z-index:9', 'Radar Balcarce');
       M.fromTo(tp, { clipPath: 'inset(0% 0 0 0)' }, { clipPath: 'inset(0% 0 100% 0)', duration: 0.45, ease: 'power3.inOut' }, T0 - 0.05);

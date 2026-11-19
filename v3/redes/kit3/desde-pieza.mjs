@@ -23,7 +23,7 @@ const fechaEnLetras = (iso, opciones) => mayuscula(new Date(`${iso}T12:00:00-03:
 // ------------------------------------------------------------------ fotos
 
 /** Una foto del contrato (ya bajada: `datos` data URI, `ancho`, `alto`) para el kit: se guarda como `fotos/<clave>.<ext>` y la plantilla la lee de `datos.*.foto`. */
-function fotoParaElKit(foto, fotos, { zonaAlto = 1920, yc = 640 } = {}) {
+function fotoParaElKit(foto, fotos) {
   if (!foto?.datos || !(foto.ancho > 0) || !(foto.alto > 0)) return null;
   let f = fotos.find((x) => x.datos === foto.datos);
   if (!f) {
@@ -31,9 +31,8 @@ function fotoParaElKit(foto, fotos, { zonaAlto = 1920, yc = 640 } = {}) {
     f = { clave: `f${fotos.length}`, ext, datos: foto.datos, ancho: foto.ancho, alto: foto.alto, credito: foto.credito ?? '' };
     fotos.push(f);
   }
-  // Una foto chica estirada a pantalla completa se ve borrosa: si habría que agrandarla más de 1,8 veces, va entera sobre un fondo desenfocado de sí misma.
-  const escala = Math.max(1080 / f.ancho, zonaAlto / f.alto);
-  return { src: `fotos/${f.clave}.${f.ext}`, w: f.ancho, h: f.alto, contain: escala > 1.8, yc, credito: f.credito };
+  // Toda foto va ENTERA (nunca recortada) sobre un fondo que es la misma foto desenfocada: la plantilla la acomoda (kit/kit.js, `foto`).
+  return { src: `fotos/${f.clave}.${f.ext}`, w: f.ancho, h: f.alto, credito: f.credito };
 }
 
 /** «Foto: La Voz» tal cual viene, sin repetir la palabra si ya la trae. */
@@ -142,14 +141,14 @@ function adaptarRepaso(pieza, P, ctx) {
   const t = inicioDeLasPartes(P, partes, { primera });
   const fotos = [];
   const notas = placas.map((e, i) => {
-    const f = fotoParaElKit(e.datos.foto, fotos, { zonaAlto: 1920, yc: 640 });
-    return { titular: e.datos.titulo, foto: f, credito: f ? textoDeCredito(f.credito) : '' };
+    const f = fotoParaElKit(e.datos.foto, fotos);
+    return { titular: e.datos.titulo, foto: f };
   });
-  const datos = { titulo: `El repaso ${l2}`, l1: 'El repaso', l2, notas, t: t.slice(0, placas.length + 1), momento };
+  const datos = { titulo: `El repaso ${l2}`, l1: 'El repaso', l2, notas, t: t.slice(0, placas.length + 1), momento, momentoTexto: { manana: 'Mañana', tarde: 'Tarde', noche: 'Noche' }[momento] ?? 'Hoy' };
   return {
-    plantilla: 'repaso', datos, fotos, fondo: null,
+    plantilla: 'repaso', datos, fotos, fondo: null, subsTop: 1440,
     hl: { bg: MARCA.rojo, fg: '#fff' },
-    scrim: 'linear-gradient(0deg,rgba(8,10,14,.8) 0%,rgba(8,10,14,.7) 40%,rgba(8,10,14,.5) 52%,rgba(8,10,14,0) 70%),linear-gradient(180deg,rgba(8,10,14,.45) 0%,rgba(8,10,14,0) 20%)',
+    scrim: 'linear-gradient(180deg,rgba(8,10,14,.4) 0%,rgba(8,10,14,0) 16%)',
   };
 }
 
@@ -158,7 +157,8 @@ function adaptarRepaso(pieza, P, ctx) {
 function adaptarEfemeride(pieza, P, ctx) {
   const e = pieza.escenas[0].datos;
   const fotos = [];
-  const foto = fotoParaElKit(ctx.fotoEfemeride ?? null, fotos, { zonaAlto: 1330, yc: 640 });
+  const foto = fotoParaElKit(ctx.fotoEfemeride ?? null, fotos);
+  const fotoAdemas = fotoParaElKit(ctx.fotoEfemerideAdemas ?? null, fotos);
   const ademas = e.ademas?.[0] ?? null;
   const [iTambien] = ademas ? buscarMarcas(P, ['tambien']) : [-1];
   const tAdemas = ademas ? (iTambien >= 0 ? tiempoDe(P, iTambien) : Number(((P[Math.floor(P.length * 0.6)]?.a ?? 6) - 0.12).toFixed(2))) : null;
@@ -169,13 +169,13 @@ function adaptarEfemeride(pieza, P, ctx) {
     anio: e.principal.anio, anioDesde: Math.max(1, e.principal.anio - 100),
     titulo: e.principal.titulo,
     hace: hace > 0 ? `Hace ${hace} ${hace === 1 ? 'año' : 'años'}` : '',
-    ademas: ademas ? { anio: ademas.anio, texto: ademas.texto } : null, tAdemas,
-    foto, credito: foto ? textoDeCredito(foto.credito) : '',
+    ademas: ademas ? { anio: ademas.anio, texto: ademas.texto, foto: fotoAdemas, hace: e.anioActual - ademas.anio > 0 ? `Hace ${e.anioActual - ademas.anio} años` : '' } : null, tAdemas,
+    foto,
   };
   return {
     plantilla: 'efemeride', datos, fotos, fondo: null,
-    hl: { bg: MARCA.rojo, fg: '#fff' }, marcaClara: true, rotulo: { txt: datos.rotulo, bg: MARCA.rojo },
-    scrim: 'linear-gradient(180deg,rgba(8,10,14,.35) 0%,rgba(8,10,14,0) 18%,rgba(8,10,14,0) 50%,rgba(8,10,14,.62) 69%)',
+    hl: { bg: MARCA.rojo, fg: '#fff' }, marcaClara: true, rotulo: { txt: datos.rotulo, bg: MARCA.rojo }, subsTop: 1440, subs: { fg: MARCA.tinta, sh: 'none' },
+    scrim: 'linear-gradient(180deg,rgba(8,10,14,.35) 0%,rgba(8,10,14,0) 16%)',
   };
 }
 
@@ -233,15 +233,16 @@ function adaptarNota(pieza, P, ctx) {
   const fotos = [];
   const colorSeccion = ctx.colorDeSeccion?.(primera.seccion) ?? MARCA.rojo;
   const escenas = placas.slice(0, FOTOS_MAXIMO).map((e, i) => {
-    const f = fotoParaElKit(e.datos.foto, fotos, { zonaAlto: 1920, yc: 700 });
-    return { titular: e.datos.titulo, foto: f, credito: f ? textoDeCredito(f.credito) : '' };
+    const f = fotoParaElKit(e.datos.foto, fotos);
+    return { titular: e.datos.titulo, foto: f };
   });
   const datos = {
     seccion: primera.seccion, color: colorSeccion, firma: primera.firma ? `Por ${primera.firma}` : '', escenas, t: t.slice(0, escenas.length),
-    tapa: { titulo: primera.titulo, foto: escenas[0].foto, credito: escenas[0].credito },
+    tapa: { titulo: primera.titulo, foto: escenas[0].foto },
   };
   return {
-    plantilla: 'nota', datos, fotos, fondo: null,
+    plantilla: 'nota', datos, fotos, fondo: null, subsTop: 1440,
+    scrim: 'linear-gradient(180deg,rgba(8,10,14,.4) 0%,rgba(8,10,14,0) 16%)',
     hl: { bg: colorSeccion, fg: '#fff' },
     rotulo: { txt: primera.seccion, bg: colorSeccion },
   };
@@ -256,15 +257,15 @@ const ADAPTADORES = {
 /**
  * La pieza armada → lo que dibuja el kit.
  * @param {object} pieza  la que devuelve un armador (tipo 'video'), con las fotos ya bajadas (`resolverFotos`).
- * @param {object} [o]    `palabras`: las de la voz ({ texto, desde, hasta }), si hay audio; `fotoEfemeride`: { datos, ancho, alto, credito } de la efeméride; `colorDeSeccion(seccion)`.
+ * @param {object} [o]    `palabras`: las de la voz ({ texto, desde, hasta }), si hay audio; `fotoEfemeride` y `fotoEfemerideAdemas`: { datos, ancho, alto, credito } de la foto del hecho principal y del segundo hecho; `colorDeSeccion(seccion)`.
  * @returns {{ id, plantilla, guion, dur, estimado, palabras, datos, fotos, fondo, hl, scrim, rotulo?, marcaClara?, avisos }}
  */
-export function desdePieza(pieza, { palabras = null, fotoEfemeride = null, colorDeSeccion = null } = {}) {
+export function desdePieza(pieza, { palabras = null, fotoEfemeride = null, fotoEfemerideAdemas = null, colorDeSeccion = null } = {}) {
   if (!aplicaKit3(pieza)) throw new Error(`el kit 3.0 no dibuja «${pieza?.id}»`);
   if (!pieza.guion) throw new Error('la pieza no tiene guion');
   const { P, estimadas } = palabrasDelKit(pieza.guion, palabras);
   const adaptar = pieza.id.startsWith('repaso') ? adaptarRepaso : ADAPTADORES[pieza.id];
-  const r = adaptar(pieza, P, { fotoEfemeride, colorDeSeccion });
+  const r = adaptar(pieza, P, { fotoEfemeride, fotoEfemerideAdemas, colorDeSeccion });
   const avisos = [];
   if (estimadas) avisos.push('subtítulos con tiempos estimados (sin voz alineada)');
   for (const f of r.fotos) if (!f.credito) avisos.push(`la foto ${f.clave} no trae crédito`);

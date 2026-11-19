@@ -1,7 +1,7 @@
 // El kit 3.0 de reels: dibuja una pieza ya armada (`../piezas/armadores.mjs`) con HyperFrames (HTML + GSAP, renderizado en Chrome) y ffmpeg, con la voz mezclada y los subtítulos sincronizados.
 // Lo prende la variable `KIT_3_0=si` (por defecto, apagado: todo sale como siempre). Si el kit falla por cualquier motivo, quien llama (`../piezas/correr.mjs`) cae al dibujo de siempre y lo anota.
 //
-//   dibujarConKit3(pieza, destino, { voz, palabras, ... })  →  { mp4, tapa, tapaGrilla, duracion, ms, avisos, estimado, fondo }
+//   dibujarConKit3(pieza, destino, { voz, palabras, ... })  →  { mp4, tapa, tapaGrilla, duracion, ms, avisos, estimado, fondo, creditos }  (los créditos de las fotos NO van en el video: los usa el texto del posteo)
 //
 // Todo lo demás (qué pieza, qué guion, la voz, publicar) sigue siendo de `correr.mjs`. Reglas en palabras de persona: `REGLAS.md`.
 import fs from 'node:fs';
@@ -54,9 +54,9 @@ export function argumentosDeMezcla({ crudo, voz = null, destino, total }) {
  * @param {string} destino  ruta del mp4
  * @param {object} [o]  { voz: ruta del audio, palabras: las de la voz, fotoEfemeride, colorDeSeccion, env, trabajo, log }
  */
-export async function dibujarConKit3(pieza, destino, { voz = null, palabras = null, fotoEfemeride = null, colorDeSeccion = null, env = process.env, trabajo = null, log = () => {} } = {}) {
+export async function dibujarConKit3(pieza, destino, { voz = null, palabras = null, fotoEfemeride = null, fotoEfemerideAdemas = null, colorDeSeccion = null, env = process.env, trabajo = null, soloTapa = false, log = () => {} } = {}) {
   const inicio = Date.now();
-  const spec = desdePieza(pieza, { palabras, fotoEfemeride, colorDeSeccion });
+  const spec = desdePieza(pieza, { palabras, fotoEfemeride, fotoEfemerideAdemas, colorDeSeccion });
   const carpeta = trabajo ?? fs.mkdtempSync(path.join(os.tmpdir(), 'kit3-'));
   const proyecto = path.join(carpeta, 'proyecto');
   const ffmpeg = await ffmpegDelRepo();
@@ -64,6 +64,17 @@ export async function dibujarConKit3(pieza, destino, { voz = null, palabras = nu
   try {
     const fondo = spec.fondo ? armarFondo(spec.fondo, spec.dur, { carpetaDeClips: env.KIT3_FONDOS, carpetaDeTrabajo: carpeta, ffmpeg, log }) : null;
     escribirProyecto(spec, proyecto, { fondoMp4: fondo?.mp4 ?? null, tapaFondoJpg: fondo?.tapaJpg ?? null });
+    if (soloTapa) { // sólo la imagen de la tapa (un cuadro de los primeros 0,8 s), sin dibujar el video: para mirar la tapa en segundos
+      const base = destino.replace(/.mp4$/i, '');
+      const fotos = path.join(carpeta, 'tapa-snap');
+      await correr(process.execPath, [bin, 'snapshot', proyecto, '--at', '0.3', '--no-end', '--keep', '-o', fotos], { cwd: proyecto, maxBuffer: 1024 * 1024 * 80, timeout: 5 * 60_000 });
+      const png = fs.readdirSync(fotos).find((f) => /^at-0.3s.png$/.test(f));
+      if (!png) throw new Error('HyperFrames no dejó la tapa');
+      fs.mkdirSync(path.dirname(destino), { recursive: true });
+      fs.copyFileSync(path.join(fotos, png), `${base}-tapa.png`);
+      spawnSync(ffmpeg, ['-y', '-loglevel', 'error', '-i', `${base}-tapa.png`, '-vf', 'crop=1080:1350:0:285', `${base}-tapa-grilla.png`]);
+      return { mp4: null, tapa: `${base}-tapa.png`, tapaGrilla: `${base}-tapa-grilla.png`, duracion: 0, ms: Date.now() - inicio, avisos: spec.avisos, estimado: spec.estimado, fondo: null, creditos: [] };
+    }
     const crudo = path.join(carpeta, 'crudo.mp4');
     const total = Number((spec.dur + T0).toFixed(2));
     log(`kit3 ${pieza.id}: dibujando ${total} s${fondo ? ` con fondo de video (${fondo.clips.join(', ')})` : ''}${spec.estimado ? ' (subtítulos estimados)' : ''}`);
@@ -80,8 +91,8 @@ export async function dibujarConKit3(pieza, destino, { voz = null, palabras = nu
     if (fs.existsSync(tapa)) spawnSync(ffmpeg, ['-y', '-loglevel', 'error', '-i', tapa, '-vf', 'crop=1080:1350:0:285', tapaGrilla]);
     const ms = Date.now() - inicio;
     log(`kit3 ${pieza.id}: listo en ${(ms / 1000).toFixed(0)} s`);
-    return { mp4: destino, tapa: fs.existsSync(tapa) ? tapa : null, tapaGrilla: fs.existsSync(tapaGrilla) ? tapaGrilla : null, duracion: total, ms, avisos: spec.avisos, estimado: spec.estimado, fondo: fondo?.clips ?? null };
+    return { mp4: destino, tapa: fs.existsSync(tapa) ? tapa : null, tapaGrilla: fs.existsSync(tapaGrilla) ? tapaGrilla : null, duracion: total, ms, avisos: spec.avisos, estimado: spec.estimado, fondo: fondo?.clips ?? null, creditos: [...new Set((spec.fotos ?? []).map((f) => f.credito).filter(Boolean))] };
   } finally {
-    if (!trabajo && !env.KIT3_DEPURAR) fs.rmSync(carpeta, { recursive: true, force: true });
+    if (!trabajo && !env.KIT3_DEPURAR) { try { fs.rmSync(carpeta, { recursive: true, force: true, maxRetries: 5, retryDelay: 400 }); } catch { /* en Windows Chrome puede tardar en soltar la carpeta: limpiar es lo de menos y nunca tira abajo una pieza ya dibujada */ } }
   }
 }

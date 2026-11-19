@@ -15,7 +15,7 @@ export const jsonSeguro = (o) => JSON.stringify(o).replace(/</g, `${BS}u003c`).r
 /** Lo que lee el kit (`Radar.run`) de la pieza: tiempos, rótulo, colores, palabras con su cartel y los datos de la plantilla. */
 export function especificacion(pieza, { video = null, tapaFondo = false } = {}) {
   return {
-    id: pieza.id, dur: pieza.dur, T0, kit: pieza.kit ?? 'k1', video, hl: pieza.hl, subs: pieza.subs, rotulo: pieza.rotulo ?? null, scrim: pieza.scrim, palabras: pieza.palabras,
+    id: pieza.id, dur: pieza.dur, T0, kit: pieza.kit ?? 'k1', video, hl: pieza.hl, subs: pieza.subs, rotulo: pieza.rotulo ?? null, scrim: pieza.scrim, subsTop: pieza.subsTop ?? null, palabras: pieza.palabras,
     datos: pieza.datos, marcaTapa: pieza.marcaTapa !== false, marcaClara: !!pieza.marcaClara, tapaFondo,
   };
 }

@@ -416,3 +416,18 @@ test('R42: conTope devuelve ok o el error y nunca tira', async () => {
   assert.equal(colgada.ok, false);
   assert.match(colgada.error, /tope/);
 });
+
+test('el crédito de las fotos va en el texto del posteo («Foto: …»), nunca dentro del video; sin repetir y sin «Foto:» doble', () => {
+  const item = { nombre: 'Un día como hoy', hashtag: 'UnDíaComoHoy', arma: 'efemeride', datos: {} };
+  // el kit 3.0 dibujó la pieza: sus créditos (incluido el de Wikimedia Commons de la efeméride) mandan
+  const ef = textoDePieza({ guion: 'x', creditosDeFotos: ['Alfredo Godel, dominio público, vía Wikimedia Commons'] }, item, 'facebook');
+  assert.match(ef, /\nFoto: Alfredo Godel, dominio público, vía Wikimedia Commons\n/);
+  const dos = textoDePieza({ guion: 'x', creditosDeFotos: ['Ana, CC BY 2.0', 'Foto: Luis'] }, item, 'instagram');
+  assert.match(dos, /\nFotos: Ana, CC BY 2.0 · Luis\n/);
+  // sin kit: los de las fotos de las escenas, una sola vez
+  const nota = { guion: 'x', escenas: [{ datos: { foto: { credito: 'Foto: La Voz' } } }, { datos: { foto: { credito: 'La Voz' } } }, { datos: { foto: null } }] };
+  assert.match(textoDePieza(nota, { ...item, arma: 'nota-reel' }, 'facebook'), /\nFoto: La Voz\n/);
+  // y el aviso de la voz con IA sigue después
+  assert.ok(ef.indexOf('Foto:') < ef.indexOf('#'));
+  assert.doesNotMatch(textoDePieza({ guion: 'x' }, item, 'facebook'), /Fotos?:/);
+});

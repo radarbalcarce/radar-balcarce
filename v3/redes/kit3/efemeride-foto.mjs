@@ -20,14 +20,30 @@ async function bajar(url, traer) {
   } catch { return null; }
 }
 
-/** { datos (data URI), ancho, alto, credito } o null. `efemeride` es la de efemerides-piezas.json ({ principal: { titulo, cuerpo } }). */
-export async function fotoDeLaEfemeride(efemeride, { traer = globalThis.fetch } = {}) {
+async function fotoDeUnHecho(hecho, traer) {
   try {
     const { fotoDeCommons } = await import('../efemerides/nota.mjs');
-    const p = efemeride?.principal;
-    if (!p?.titulo) return null;
-    const f = await fotoDeCommons({ titulo: p.titulo, texto: p.cuerpo ?? '', enlace: p.enlace }, { json: (u) => json(u, traer), bajar: (u) => bajar(u, traer), ancho: 1600 });
+    if (!hecho?.titulo) return null;
+    const f = await fotoDeCommons(hecho, { json: (u) => json(u, traer), bajar: (u) => bajar(u, traer), ancho: 1600 });
     if (!f?.bytes || f.bytes.length < MIN_BYTES || !f.credito) return null;
-    return { datos: `data:${f.mime};base64,${Buffer.from(f.bytes).toString('base64')}`, ancho: f.ancho, alto: f.alto, credito: f.credito };
+    return { datos: `data:${f.mime};base64,${Buffer.from(f.bytes).toString('base64')}`, ancho: f.ancho, alto: f.alto, credito: f.credito, archivo: f.archivoDeOrigen ?? null };
   } catch { return null; }
+}
+
+/** { datos (data URI), ancho, alto, credito } o null. `efemeride` es la de efemerides-piezas.json ({ principal: { titulo, cuerpo } }). */
+export async function fotoDeLaEfemeride(efemeride, { traer = globalThis.fetch } = {}) {
+  const p = efemeride?.principal;
+  return p?.titulo ? fotoDeUnHecho({ titulo: p.titulo, texto: p.cuerpo ?? '', enlace: p.enlace }, traer) : null;
+}
+
+/**
+ * Las fotos de los hechos que nombra el guion: el principal y, si hay, el segundo («También, en 1493…»), cada una con su crédito, buscadas del mismo modo (Wikimedia Commons, licencia libre, sin IA).
+ * `ademas` es { anio, texto }. Si el segundo hecho no tiene foto libre (o resulta ser el mismo archivo que el principal), `ademas` vuelve null y la plantilla sigue con la foto anterior con otro encuadre.
+ * @returns {Promise<{ principal: object|null, ademas: object|null }>}
+ */
+export async function fotosDeLaEfemeride({ principal, ademas = null }, { traer = globalThis.fetch } = {}) {
+  const uno = await fotoDeLaEfemeride({ principal }, { traer });
+  let dos = ademas?.texto ? await fotoDeUnHecho({ titulo: ademas.texto, texto: ademas.texto }, traer) : null;
+  if (dos && uno && ((dos.archivo && dos.archivo === uno.archivo) || dos.datos === uno.datos)) dos = null;
+  return { principal: uno, ademas: dos };
 }
