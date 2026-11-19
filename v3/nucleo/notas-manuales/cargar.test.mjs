@@ -60,3 +60,21 @@ test('un video propio de YouTube se guarda con su id de 11 caracteres; una direc
     assert.ok(!/sitio_notas/.test(sqlDeNota({ ...base, video: { youtube: malo } })), malo);
   }
 });
+
+test('sqlDeNota: un `grafico` válido va a ficha.grafico; uno roto frena la carga; sin gráfico la ficha queda como estaba', async () => {
+  const grafico = { tipo: 'barras', titulo: 'Carpa en Miramar', unidad: '$', fuente: 'Gacetilla', datos: [{ etiqueta: 'A', valor: '2.350.000' }, { etiqueta: 'B', valor: 1700000 }, { etiqueta: 'C', valor: 1050000 }] };
+  const { DatabaseSync } = await import('node:sqlite').catch(() => ({}));
+  const sql = sqlDeNota({ ...base, ficha: { que: 'x' }, grafico }, '2026-11-11T12:00:00.000Z');
+  if (DatabaseSync) {
+    const db = new DatabaseSync(':memory:');
+    db.exec(fs.readFileSync(new URL('../db/schema.sql', import.meta.url), 'utf8'));
+    db.exec(fs.readFileSync(new URL('../../redaccion/telegram/schema-redaccion.sql', import.meta.url), 'utf8'));
+    db.exec(sql);
+    const ficha = JSON.parse(db.prepare('SELECT ficha FROM notas').get().ficha);
+    assert.equal(ficha.que, 'x');
+    assert.equal(ficha.grafico.datos[0].valor, 2350000, 'el valor escrito como texto se vuelve número');
+  }
+  assert.throws(() => sqlDeNota({ ...base, grafico: { ...grafico, tipo: 'torta' } }), /gráfico inválido \(tipo\)/);
+  assert.throws(() => sqlDeNota({ ...base, grafico: { ...grafico, datos: grafico.datos.slice(0, 2) } }), /pocas-filas/);
+  assert.doesNotMatch(sqlDeNota(base), /grafico/);
+});

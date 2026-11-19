@@ -57,6 +57,10 @@ NUCLEO_ARCHIVO_POR_VUELTA = "2"
 # Interruptor de publicar (REGLAS § 11): "no" deja las notas en borrador; "si" las publica. Lo cambia una persona el día del corte.
 NUCLEO_PUBLICA = "si"
 
+# Gráfico propio en las notas con cifras (REGLAS § 5 ter, 19/11): "si" le suma al MISMO pedido de redacción el campo opcional `grafico` (cero pedidos extra, unos 60 a 150 tokens de salida
+# sólo cuando la nota tiene de 3 a 8 cifras comparables). Cada cifra se comprueba en código contra las fuentes; si una no está, el gráfico se descarta y la nota sale igual. "no" = como antes.
+NOTAS_CON_GRAFICO = "no"
+
 # Respaldo de texto (REGLAS § 5 bis): si Gemini falla o el freno mensual cortó, redactar, verificar y la duda siguen por Mistral (plan gratis).
 # Sólo texto: fotos e ilustraciones nunca van a Mistral. Sin el secreto MISTRAL_API_KEY no se llama a nadie y todo queda como antes.
 # MISTRAL_MODELO: el modelo (por defecto mistral-large-2512, el del sistema viejo; no hace falta ponerlo).

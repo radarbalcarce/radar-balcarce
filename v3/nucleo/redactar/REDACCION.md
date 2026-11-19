@@ -47,6 +47,14 @@ Menos de 70 palabras de cuerpo no se publica. Si el material no alcanza, no lo e
   agenda, un resultado deportivo, una inauguración, un aviso de servicio o un evento ya terminado, casi nunca hace falta. No completes
   por completar («más detalles», «la opinión de los vecinos», «próximas actividades» no sirven). Se muestra en la nota cuando no está vacío.
 
+## Cuando la fuente es de otra localidad o de un tema general (gacetilla, turismo, nota de otro partido)
+
+Radar es de Balcarce: si la nota nace en otro lugar pero toca a los vecinos (un destino al que van, una ruta que usan, una institución con sede acá, una cifra que se puede comparar con la
+de acá), sumá **un párrafo corto** con el vínculo con Balcarce, **sólo con datos comprobables**: los que traiga el perfil de arriba (rutas, distancias, instituciones, población, producción) o
+los que digan las fuentes. Ejemplo de forma: «Desde Balcarce se llega por las rutas 55 y 88», si el dato está en el perfil o en la fuente. **Nunca inventes una cifra, una distancia ni un nombre
+de ruta ni lo completes de memoria**: si ni el perfil ni las fuentes dan un dato de Balcarce, no armes el párrafo (la nota sale igual, sin el cruce). Una comparación («más que en Balcarce») sólo
+si las dos cifras figuran en el perfil o en las fuentes.
+
 ## Las 14 secciones (elegí una)
 
 - **Balcarce**: todo lo del partido (ciudad, San Agustín, comercios, clubes, reclamos, agenda), aunque sea de otra cosa.

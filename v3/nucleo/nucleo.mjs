@@ -517,7 +517,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
         const arts = await db.articulosDeHistoria(env, h.id);
         if (!arts.length) throw new Error('la historia no tiene artículos');
         const historia = { id: h.id, titulo: h.titulo, fechaHecho: h.fechaHecho, medios: h.medios };
-        const nota = await verificarYReescribir(historia, arts, { gemini: geminiTexto, perfil, redaccion });
+        const nota = await verificarYReescribir(historia, arts, { gemini: geminiTexto, perfil, redaccion, conGrafico: env.NOTAS_CON_GRAFICO === 'si' });
         if (!nota.noPublicar) {
           try {
             const f = await elegirFotoConMotivo(nota, arts, { gemini: geminiFoto, fetch: c.fetchFn });

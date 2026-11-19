@@ -483,7 +483,7 @@ test('cargar una nota: el formulario, con las 14 secciones y la firma por defect
   const h = await (await t.ir('/panel/pedir', { cookie: s.cookie })).text();
   assert.match(h, /Cargar una nota/);
   assert.match(h, /value="Hernán Accomo"/);
-  assert.equal((h.match(/<option /g) || []).length, 14);
+  assert.equal((h.match(/<option /g) || []).length, 14 + 2); // las 14 secciones y los 2 tipos del gráfico propio
   assert.match(h, /Todavía no revisa la IA/);
   // Un error: vuelve el formulario con lo escrito y el aviso, y no se guarda nada.
   const r = await t.post('/panel/pedir', s, NOTA_OK({ titulo: 'Un título <b>cortado</b>…', cuerpo: 'Sólo un párrafo.' }));
@@ -689,4 +689,75 @@ test('todas las pantallas nuevas: no-store, noindex y la política estricta del 
     assert.match(r.headers.get('x-robots-tag'), /noindex/, ruta);
     assert.match(r.headers.get('content-security-policy'), /default-src 'self'/, ruta);
   }
+});
+
+// ------------------------------------------------------------------------------------------------------------ F. Gráfico propio (19/11)
+
+const GRAF_OK = { grafico_titulo: 'Carpa en Miramar', grafico_tipo: 'barras', grafico_unidad: '$', grafico_fuente: 'Gacetilla de Miramar', grafico_filas: 'Toda la temporada: 2.350.000\nSólo enero: 1.700.000\nQuince días: 1.050.000' };
+
+test('validarNota con gráfico: vacío = sin gráfico; completo = ficha.grafico; incompleto o con una fila ilegible = error con texto fijo', () => {
+  const fd = (o) => { const f = new FormData(); for (const [k, v] of Object.entries({ ...NOTA_OK(), ...o })) f.append(k, v); return f; };
+  assert.equal(validarNota(fd({})).datos.grafico, null);
+  const r = validarNota(fd(GRAF_OK));
+  assert.deepEqual(r.datos.grafico.datos[0], { etiqueta: 'Toda la temporada', valor: 2350000 });
+  assert.equal(r.datos.grafico.fuente, 'Gacetilla de Miramar');
+  assert.equal(validarNota(fd({ ...GRAF_OK, grafico_filas: 'Uno: 1\nDos: 2' })).error, 'grafico-pocas-filas');
+  assert.equal(validarNota(fd({ ...GRAF_OK, grafico_filas: 'Uno: 1\nDos\nTres: 3' })).error, 'grafico-fila');
+  assert.equal(validarNota(fd({ ...GRAF_OK, grafico_filas: Array.from({ length: 9 }, (_, i) => `f${i}: ${i + 1}`).join('\n') })).error, 'grafico-muchas-filas');
+  assert.equal(validarNota(fd({ ...GRAF_OK, grafico_fuente: '' })).error, 'grafico');
+  assert.equal(validarNota(fd({ ...GRAF_OK, grafico_filas: '' })).error, 'grafico-pocas-filas', 'si se escribió algo, tiene que estar completo');
+  assert.equal(validarNota(fd({ ...GRAF_OK, grafico_filas: 'a: 5\nb: 5\nc: 5' })).error, 'grafico');
+});
+
+test('cargar una nota con gráfico: se guarda en la ficha, se ve en la vista previa (misma vista del sitio), se edita y se saca; publicada, el sitio lo dibuja sólo con el interruptor', async () => {
+  const t = montar();
+  const s = await t.sesion();
+  const form = await (await t.ir('/panel/pedir', { cookie: s.cookie })).text();
+  assert.match(form, /Gráfico propio \(opcional\)/);
+  assert.match(form, /name="grafico_filas"/);
+  const id = idDe(await t.post('/panel/pedir', s, NOTA_OK(GRAF_OK)));
+  const ficha = JSON.parse(t.fila(id).ficha);
+  assert.equal(ficha.grafico.titulo, 'Carpa en Miramar');
+  assert.equal(ficha.grafico.datos.length, 3);
+  assert.equal(ficha.pideCriterio, false);
+  // vista previa: el gráfico después del 2.º párrafo, sin botones; avisa que el interruptor está apagado
+  const prev = await (await t.ir(`/panel/borrador/${id}`, { cookie: s.cookie })).text();
+  assert.match(prev, /<figure class="gn">/);
+  assert.ok(prev.indexOf('Segundo párrafo') < prev.indexOf('<figure class="gn">') && prev.indexOf('<figure class="gn">') < prev.indexOf('Tercer párrafo'));
+  assert.doesNotMatch(prev, /gn-bajar/);
+  assert.match(prev, /NOTAS_CON_GRAFICO está apagado/);
+  t.env.NOTAS_CON_GRAFICO = 'si';
+  assert.doesNotMatch(await (await t.ir(`/panel/borrador/${id}`, { cookie: s.cookie })).text(), /NOTAS_CON_GRAFICO está apagado/);
+  // seguir editando: el formulario vuelve con las filas escritas, y un error no pierde lo escrito
+  const ed = await (await t.ir(`/panel/borrador/${id}/editar`, { cookie: s.cookie })).text();
+  assert.match(ed, /Toda la temporada: 2\.350\.000/);
+  assert.match(ed, /<details class="caja" id="grafico" open>/);
+  const mal = await t.post(`/panel/borrador/${id}/editar`, s, NOTA_OK({ ...GRAF_OK, grafico_filas: 'solo una línea mala' }));
+  assert.equal(mal.status, 400);
+  const htmlMal = await mal.text();
+  assert.match(htmlMal, /No pude leer una fila del gráfico/);
+  assert.match(htmlMal, /solo una línea mala/);
+  assert.equal(JSON.parse(t.fila(id).ficha).grafico.datos.length, 3, 'no se cambió nada');
+  // publicar y mirar la nota pública con el interruptor prendido y apagado
+  t.reloj.ahora = new Date('2026-11-11T18:30:00.000Z');
+  assert.equal((await t.post(`/panel/borrador/${id}/publicar`, s, {})).status, 303);
+  assert.equal(JSON.parse(t.fila(id).ficha).grafico.titulo, 'Carpa en Miramar', 'publicar no pierde el gráfico');
+  const f = t.fila(id);
+  const ruta = `/nota/${f.slug}-${id}`;
+  const con = await t.ir(ruta);
+  assert.equal(con.status, 200);
+  assert.match(await con.text(), /<figure class="gn">/);
+  t.env.NOTAS_CON_GRAFICO = 'no';
+  t.cache.m?.clear?.();
+  assert.doesNotMatch(await (await t.ir(ruta)).text(), /<figure class="gn">/);
+});
+
+test('sacar el gráfico: vaciar los campos al editar lo borra de la ficha', async () => {
+  const t = montar();
+  const s = await t.sesion();
+  const id = idDe(await t.post('/panel/pedir', s, NOTA_OK(GRAF_OK)));
+  const r = await t.post(`/panel/borrador/${id}/editar`, s, NOTA_OK({}));
+  assert.match(r.headers.get('location'), /ok=borrador-guardado/);
+  assert.equal(JSON.parse(t.fila(id).ficha).grafico, undefined);
+  assert.doesNotMatch(await (await t.ir(`/panel/borrador/${id}`, { cookie: s.cookie })).text(), /<figure class="gn">/);
 });

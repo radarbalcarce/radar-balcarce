@@ -3,7 +3,10 @@
 //   armarPedido(historia, articulos, { perfil, redaccion, aviso? }) → { sistema, prompt, fuentesUsadas }
 //   redactar(historia, articulos, { gemini, perfil, redaccion, aviso?, maxPedidos? }) → Nota (sin foto ni id)
 //
+// Con `conGrafico` (interruptor NOTAS_CON_GRAFICO), el MISMO pedido puede traer un campo opcional `grafico` (redactar/grafico.mjs): si todas sus cifras están en las fuentes va a `ficha.grafico`; si no, se descarta sin tocar la nota.
 // Si la respuesta no valida, un reintento con el error explicado (mientras queden pedidos); si vuelve a fallar, tira.
+
+import { graficoDeRespuesta } from './grafico.mjs';
 
 export const SECCIONES = [
   'Balcarce', 'Política', 'Policiales', 'Educación', 'Salud', 'Fútbol', 'Deportes',
@@ -15,7 +18,7 @@ export const MAX_TOTAL = 18000;
 export const MIN_PALABRAS = 70;
 export const FIRMA = 'Redacción Radar Balcarce';
 
-const ESQUEMA = `{
+const esquema = (conGrafico) => `{
   "titulo": "string, propio, informa qué pasó",
   "bajada": "string, una sola oración",
   "cuerpo": ["párrafo corto", "párrafo corto"],
@@ -27,8 +30,14 @@ const ESQUEMA = `{
     "cronologia": [{ "fecha": "string", "que": "string" }],
     "faltaSaber": ["string"]
   },
-  "noPublicar": null
+  "noPublicar": null${conGrafico ? `,
+  "grafico": null o ${ESQUEMA_GRAFICO}` : ''}
 }`;
+
+const ESQUEMA_GRAFICO = `{ "tipo": "barras" | "linea", "titulo": "string corto", "unidad": "$, %, personas…", "fuente": "medio de donde salen las cifras", "datos": [{ "etiqueta": "string corta", "valor": número }] }`;
+
+export const PEDIDO_DE_GRAFICO = 'Gráfico (opcional): si la nota tiene de 3 a 8 cifras que se pueden comparar entre sí (precios, porcentajes, cantidades por categoría, o una misma cifra en distintas fechas), todas con la misma unidad y dichas tal cual en las fuentes, devolvé `grafico`. '
+  + 'Cada `valor` es el número exacto de la fuente (sin sumar, promediar, redondear ni calcular). Etiquetas de pocas palabras. Barras para comparar categorías; línea sólo para una evolución en el tiempo. Si no hay cifras comparables, `grafico`: null. No fuerces uno.';
 
 const cantidadDePalabras = (s) => String(s ?? '').trim().split(/\s+/).filter(Boolean).length;
 
@@ -39,7 +48,7 @@ function bloqueDeFuente(a, indice, tope) {
   return { texto: `${cabecera}${contenido}`, usados: contenido.length };
 }
 
-export function armarPedido(historia, articulos, { perfil = '', redaccion = '', aviso = '' } = {}) {
+export function armarPedido(historia, articulos, { perfil = '', redaccion = '', aviso = '', conGrafico = false } = {}) {
   const ordenados = [...articulos].sort((a, b) => (b.oficial ? 1 : 0) - (a.oficial ? 1 : 0));
   const bloques = [];
   let restante = MAX_TOTAL;
@@ -58,7 +67,8 @@ export function armarPedido(historia, articulos, { perfil = '', redaccion = '', 
     bloques.join('\n\n'),
     aviso ? `AVISO: ${aviso}` : '',
     'Escribí la nota siguiendo las reglas de escritura. Devolvé SOLO un JSON con exactamente esta forma:',
-    ESQUEMA,
+    esquema(conGrafico),
+    conGrafico ? PEDIDO_DE_GRAFICO : '',
     'Si hay que marcar `no_publicar`, poné "noPublicar": { "motivo": "..." }; si no, null.',
   ].filter(Boolean).join('\n\n');
 
@@ -115,12 +125,19 @@ function fuentesSinRepetirMedio(articulos) {
   return salida;
 }
 
-export async function redactar(historia, articulos, { gemini, perfil, redaccion, aviso = '', maxPedidos = 2 } = {}) {
+/** Pone `ficha.grafico` si el que devolvió la IA pasa la forma y sus cifras están en las fuentes. Devuelve el motivo del descarte (o null si salió o no había). */
+function agregarGrafico(nota, crudo, articulos) {
+  const r = graficoDeRespuesta(crudo, articulos);
+  if (r.grafico) { nota.ficha.grafico = r.grafico; return null; }
+  return r.motivo === 'sin-grafico' ? null : r.motivo;
+}
+
+export async function redactar(historia, articulos, { gemini, perfil, redaccion, aviso = '', maxPedidos = 2, conGrafico = false } = {}) {
   let pedidos = 0;
   let avisoActual = aviso;
   let ultimoError = '';
   while (pedidos < Math.max(1, maxPedidos)) {
-    const { sistema, prompt } = armarPedido(historia, articulos, { perfil, redaccion, aviso: avisoActual });
+    const { sistema, prompt } = armarPedido(historia, articulos, { perfil, redaccion, aviso: avisoActual, conGrafico });
     pedidos += 1;
     let respuesta;
     try {
@@ -133,10 +150,11 @@ export async function redactar(historia, articulos, { gemini, perfil, redaccion,
     }
     const v = validar(respuesta);
     if (v.nota) {
+      const conMotivo = conGrafico && !v.nota.noPublicar ? agregarGrafico(v.nota, respuesta?.grafico, articulos) : null;
       return {
         historiaId: historia?.id ?? null,
         ...v.nota,
-        verificacion: { oracionesQuitadas: [], reescrita: false },
+        verificacion: { oracionesQuitadas: [], reescrita: false, ...(conMotivo ? { graficoDescartado: conMotivo } : {}) },
         foto: null,
         fuentes: fuentesSinRepetirMedio(articulos),
         fechaHecho: historia?.fechaHecho ?? null,

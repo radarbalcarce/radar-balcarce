@@ -2,8 +2,12 @@
 // La nota se guarda como BORRADOR (`notas.estado = 'borrador'`, origen `redaccion`): el sitio sólo lista, sirve y mapea notas `publicada` (db/consultas.mjs), así que un borrador no se ve
 // ni entra al mapa ni a las redes (sin historia en el núcleo, ninguna vuelta lo pasa a publicada; las redes sólo leen propias ya publicadas). «Publicar» la deja igual que una nota propia
 // cargada a mano (v3/nucleo/notas-manuales/cargar.mjs): origen `redaccion`, redes `solo-web` hasta que se pida un reel. «Descartar» la marca `descartada` (no se borra nada).
+// «Gráfico propio» (19/11, opcional, sin IA): título, tipo, unidad, fuente y de 3 a 8 filas «etiqueta: valor» escritas a mano; se guarda en `ficha.grafico` (la misma forma que usa el núcleo, v3/nucleo/redactar/grafico.mjs)
+// y el sitio lo dibuja con vistas/grafico-nota.mjs si NOTAS_CON_GRAFICO = "si".
 // «Pasarla por el criterio de Radar (IA)» NO llama a ninguna IA: sólo guarda `ficha.pideCriterio` (pendiente; por ahora la revisa la redacción).
 import { SECCIONES, slugDe, jsonONull, parrafosDe } from './util.mjs';
+import { normalizarGrafico, parsearFilas } from '../nucleo/redactar/grafico.mjs';
+import { numeroAR } from './vistas/grafico-nota.mjs';
 
 export const POR_DEFECTO_FIRMA = 'Hernán Accomo';
 export const MIN_PARRAFOS = 3;
@@ -53,6 +57,8 @@ export function validarNota(form) {
     titulo: unaLinea(form.get('titulo')), bajada: unaLinea(form.get('bajada')), seccion: String(form.get('seccion') ?? ''), cuerpo: limpio(form.get('cuerpo')),
     firma: unaLinea(form.get('firma')) || POR_DEFECTO_FIRMA, fuenteMedio: unaLinea(form.get('fuente_medio')), fuenteUrl: String(form.get('fuente_url') ?? '').trim(),
     video: String(form.get('video') ?? '').trim(), videoTitulo: unaLinea(form.get('video_titulo')), pideCriterio: String(form.get('pide_criterio') ?? '') === 'si',
+    graficoTipo: String(form.get('grafico_tipo') ?? 'barras'), graficoTitulo: unaLinea(form.get('grafico_titulo')), graficoUnidad: unaLinea(form.get('grafico_unidad')),
+    graficoFuente: unaLinea(form.get('grafico_fuente')), graficoFilas: limpio(form.get('grafico_filas')).slice(0, 2000),
   };
   const error = (e) => ({ error: e, valores: v });
   if (v.titulo.length < 3 || v.titulo.length > 300) return error('titulo');
@@ -78,7 +84,16 @@ export function validarNota(form) {
     if (!id) return error('video');
     video = { youtube: id, titulo: (v.videoTitulo || v.titulo).slice(0, 120) };
   }
-  return { datos: { titulo: v.titulo, bajada: v.bajada, seccion: v.seccion, parrafos, firma: v.firma, fuentes: fuente ? [fuente] : [], video, pideCriterio: v.pideCriterio }, valores: v };
+  // Gráfico propio: todo vacío = sin gráfico; si se escribió algo, tiene que estar completo y bien (si no, no se guarda nada y se avisa).
+  let grafico = null;
+  if (v.graficoTitulo || v.graficoUnidad || v.graficoFuente || v.graficoFilas.trim()) {
+    const filas = parsearFilas(v.graficoFilas);
+    if (!Array.isArray(filas)) return error('grafico-fila');
+    const r = normalizarGrafico({ tipo: v.graficoTipo, titulo: v.graficoTitulo, unidad: v.graficoUnidad, fuente: v.graficoFuente, datos: filas });
+    if (!r.grafico) return error(r.motivo === 'pocas-filas' ? 'grafico-pocas-filas' : r.motivo === 'muchas-filas' ? 'grafico-muchas-filas' : 'grafico');
+    grafico = r.grafico;
+  }
+  return { datos: { titulo: v.titulo, bajada: v.bajada, seccion: v.seccion, parrafos, firma: v.firma, fuentes: fuente ? [fuente] : [], video, pideCriterio: v.pideCriterio, grafico }, valores: v };
 }
 
 const analizar = (s, def) => { const x = jsonONull(s); return x === null ? def : x; };
@@ -99,6 +114,12 @@ export async function borradoresRecientes(env) {
   } catch { return []; }
 }
 
+/** Los valores del bloque «Gráfico propio» del formulario a partir de un gráfico guardado. */
+export function valoresDeGrafico(g) {
+  if (!g) return { graficoTipo: 'barras', graficoTitulo: '', graficoUnidad: '', graficoFuente: '', graficoFilas: '' };
+  return { graficoTipo: g.tipo, graficoTitulo: g.titulo, graficoUnidad: g.unidad, graficoFuente: g.fuente, graficoFilas: g.datos.map((d) => `${d.etiqueta}: ${numeroAR(d.valor)}`).join('\n') };
+}
+
 /** Un borrador como lo muestra el formulario y la vista previa. */
 export function borradorParaVer(f) {
   const ficha = objeto(analizar(f.ficha, {}));
@@ -109,6 +130,7 @@ export function borradorParaVer(f) {
     id: f.id, titulo: f.titulo || '', bajada: f.bajada || '', seccion: f.seccion || 'Balcarce', parrafos: parrafosDe(f.cuerpo), firma: f.firma || POR_DEFECTO_FIRMA,
     fuenteMedio: fuente?.medio ?? '', fuenteUrl: fuente?.url ?? '', video: extra.video?.youtube ?? '', videoTitulo: extra.video?.titulo ?? '',
     pideCriterio: ficha.pideCriterio === true,
+    grafico: normalizarGrafico(ficha.grafico).grafico ?? null,
     fotos: (Array.isArray(fotos) ? fotos : fotos ? [fotos] : []).filter((x) => x && typeof x === 'object').map((x) => ({ url: x.url ?? '', credito: x.credito ?? '' })),
     carga: ficha.carga ?? null,
   };
@@ -126,6 +148,7 @@ export async function crearBorrador(env, form, { por, ahora, subirFotos }) {
   const cuando = ahora.toISOString();
   const slug = slugDeNota(datos.titulo);
   const ficha = { pideCriterio: datos.pideCriterio, carga: { por, cuando } };
+  if (datos.grafico) ficha.grafico = datos.grafico;
   const redes = { eleccion: 'solo-web', lista: [], confirmada: true, elegida: cuando };
   await env.DB.prepare(`INSERT INTO notas (${COLUMNAS}) VALUES (${COLUMNAS.split(', ').map(() => '?').join(', ')})`).bind(
     id, `redaccion-${id}`, cuando, datos.titulo, datos.bajada, JSON.stringify(datos.parrafos), datos.seccion, datos.bajada, JSON.stringify(ficha), null,
@@ -150,6 +173,7 @@ export async function guardarBorrador(env, f, form, { por, ahora }) {
   const { datos } = v;
   const ficha = objeto(analizar(f.ficha, {}));
   ficha.pideCriterio = datos.pideCriterio;
+  if (datos.grafico) ficha.grafico = datos.grafico; else delete ficha.grafico;
   ficha.editada = { por, cuando: ahora.toISOString() };
   // El slug (dirección) se fija a gusto mientras es borrador: sigue al título.
   const slug = slugDeNota(datos.titulo);

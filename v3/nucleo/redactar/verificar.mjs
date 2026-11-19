@@ -64,8 +64,8 @@ export async function verificar(nota, articulos, { gemini }) {
   };
 }
 
-export async function verificarYReescribir(historia, articulos, { gemini, perfil, redaccion }) {
-  const primera = await redactar(historia, articulos, { gemini, perfil, redaccion, maxPedidos: 2 });
+export async function verificarYReescribir(historia, articulos, { gemini, perfil, redaccion, conGrafico = false }) {
+  const primera = await redactar(historia, articulos, { gemini, perfil, redaccion, maxPedidos: 2, conGrafico });
   if (primera.noPublicar) return primera; // un freno legal no se verifica: no cuesta otro pedido
   const v1 = await verificar(primera, articulos, { gemini });
   if (!v1.reescribir) return v1.nota;
@@ -75,14 +75,14 @@ export async function verificarYReescribir(historia, articulos, { gemini, perfil
   const aviso = `En una versión anterior, estas oraciones no tenían respaldo en las fuentes: ${v1.quitadas.map((q) => `«${q}»`).join(' ')}. `
     + 'No las repitas ni las reemplaces por otra cosa que ninguna fuente diga.';
   // Con lo ya gastado, la reescritura es un solo pedido (sin reintento de validación) para no pasar del tope.
-  const segunda = await redactar(historia, articulos, { gemini, perfil, redaccion, aviso, maxPedidos: 1 });
+  const segunda = await redactar(historia, articulos, { gemini, perfil, redaccion, aviso, maxPedidos: 1, conGrafico });
   segunda.pedidos = v1.nota.pedidos + 1;
   if (segunda.noPublicar) return { ...segunda, verificacion: { oracionesQuitadas: v1.quitadas, reescrita: true } };
 
   const v2 = await verificar(segunda, articulos, { gemini });
   const nota = {
     ...v2.nota,
-    verificacion: { oracionesQuitadas: v2.nota.verificacion.oracionesQuitadas, reescrita: true },
+    verificacion: { ...v2.nota.verificacion, reescrita: true },
   };
   if (v2.reescribir) return { ...nota, noPublicar: { motivo: 'verificacion' } };
   return nota;

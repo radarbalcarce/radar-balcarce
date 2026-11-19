@@ -4,6 +4,8 @@ import { esc, SECCIONES, fechaCorta } from '../util.mjs';
 import { marco, aviso, opciones, fotoMostrable, badge } from './panel.mjs';
 import { nombreDeRed } from '../panel-redes.mjs';
 import { REGLAS_PIEZAS } from '../../redes/piezas-plan.mjs';
+import { graficoHtml } from './grafico-nota.mjs';
+import { valoresDeGrafico } from '../panel-pedir.mjs';
 
 const hora = (iso) => { const d = new Date(Date.parse(iso) - 3 * 3600 * 1000); return Number.isNaN(d.getTime()) ? '' : d.toISOString().slice(11, 16); };
 const FECHA_LARGA = new Intl.DateTimeFormat('es-AR', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' });
@@ -80,6 +82,19 @@ export function paginaEstado({ datos, csrf, rol = 'dueno' }) {
 
 const CASILLA = 'style="width:22px;height:22px"';
 
+/** «Gráfico propio» (opcional, sin IA): se abre solo si ya hay algo escrito. Las filas, una por línea: «Etiqueta: valor». */
+function graficoBloque(v) {
+  const lleno = !!(v.graficoTitulo || v.graficoUnidad || v.graficoFuente || String(v.graficoFilas || '').trim());
+  return `<details class="caja" id="grafico"${lleno ? ' open' : ''}><summary>Gráfico propio (opcional)</summary>
+<p class="nota-chica">Un gráfico de Radar con tus cifras, que sale después del segundo párrafo. Sin IA: escribís vos los datos (de 3 a 8, con la misma unidad) y la fuente.</p>
+<label for="grafico_titulo">Título del gráfico</label><input type="text" id="grafico_titulo" name="grafico_titulo" value="${esc(v.graficoTitulo ?? '')}" maxlength="90">
+<label for="grafico_tipo">Tipo</label><select id="grafico_tipo" name="grafico_tipo">${opciones([['barras', 'Barras (comparar cosas)'], ['linea', 'Línea (cómo cambia en el tiempo)']], v.graficoTipo || 'barras')}</select>
+<label for="grafico_unidad">Unidad (por ejemplo $, % o personas; puede quedar vacía)</label><input type="text" id="grafico_unidad" name="grafico_unidad" value="${esc(v.graficoUnidad ?? '')}" maxlength="24">
+<label for="grafico_fuente">Fuente de los datos</label><input type="text" id="grafico_fuente" name="grafico_fuente" value="${esc(v.graficoFuente ?? '')}" maxlength="90">
+<label for="grafico_filas">Datos: una fila por línea, «etiqueta: valor» (de 3 a 8)</label><textarea id="grafico_filas" name="grafico_filas" maxlength="2000" placeholder="Carpa toda la temporada: 2.350.000&#10;Carpa sólo enero: 1.700.000&#10;Carpa quince días: 1.050.000">${esc(v.graficoFilas ?? '')}</textarea>
+<p class="nota-chica">Para sacar el gráfico, vaciá todos estos campos. Los números van como en el texto: 60.000 o 12,5.</p></details>`;
+}
+
 /** El formulario de una nota (nueva o un borrador). `valores`: lo escrito. `borrador`: { id, fotos } si se está editando uno. */
 function formulario({ csrf, accion, valores, borrador = null }) {
   const v = valores;
@@ -94,6 +109,7 @@ function formulario({ csrf, accion, valores, borrador = null }) {
 <label for="video">Video de YouTube propio (opcional): pegá la dirección</label><input type="text" id="video" name="video" value="${esc(v.video)}" maxlength="200" inputmode="url">
 <label for="video_titulo">Título del video (opcional)</label><input type="text" id="video_titulo" name="video_titulo" value="${esc(v.videoTitulo)}" maxlength="120">
 <p class="nota-chica">Sólo videos del canal de Radar o de Se hace. Se guarda nada más que el código del video; sale después del primer párrafo.</p>
+${graficoBloque(v)}
 <label class="sala"><input type="checkbox" name="pide_criterio" value="si"${v.pideCriterio ? ' checked' : ''} ${CASILLA}> Pasarla por el criterio de Radar (IA)</label>
 <p class="nota-chica">Todavía no revisa la IA: la casilla queda anotada en la nota y, por ahora, la revisa la redacción antes de dejarla a la vista.</p>`;
   const fotos = borrador ? '' : `<label for="fotos-nuevas">Fotos (opcional; JPG, PNG o WEBP, hasta 10, de 8 MB cada una)</label><input type="file" id="fotos-nuevas" name="fotos" accept="image/jpeg,image/png,image/webp" multiple>
@@ -104,7 +120,7 @@ function formulario({ csrf, accion, valores, borrador = null }) {
 <p class="nota-chica">Se guarda como borrador: no se ve en el sitio, ni en el mapa del sitio, ni sale a las redes hasta que toques «Publicar».</p></form>`;
 }
 
-export const VALORES_VACIOS = Object.freeze({ titulo: '', bajada: '', seccion: 'Balcarce', cuerpo: '', firma: 'Hernán Accomo', fuenteMedio: '', fuenteUrl: '', video: '', videoTitulo: '', pideCriterio: false });
+export const VALORES_VACIOS = Object.freeze({ titulo: '', bajada: '', seccion: 'Balcarce', cuerpo: '', firma: 'Hernán Accomo', fuenteMedio: '', fuenteUrl: '', video: '', videoTitulo: '', pideCriterio: false, graficoTipo: 'barras', graficoTitulo: '', graficoUnidad: '', graficoFuente: '', graficoFilas: '' });
 
 /** GET /panel/pedir (y el mismo formulario con error): nota nueva. `borradores`: los que quedaron a medias. */
 export function paginaPedir({ csrf, rol = 'dueno', valores = VALORES_VACIOS, error = null, ok = null, borradores = [] }) {
@@ -119,17 +135,22 @@ ${aMedias}
 }
 
 /** La vista previa de un borrador, con los botones Publicar, Seguir editando y Descartar. `b`: borradorParaVer. */
-export function paginaBorrador({ b, csrf, rol = 'dueno', ok = null, error = null }) {
+export function paginaBorrador({ b, csrf, rol = 'dueno', ok = null, error = null, graficoActivo = false }) {
   const base = `/panel/borrador/${encodeURIComponent(b.id)}`;
   const oculto = `<input type="hidden" name="csrf" value="${esc(csrf)}">`;
   const portada = fotoMostrable(b.fotos[0]?.url);
   const video = b.video ? `<p class="nota-chica">🎬 Video de YouTube (${esc(b.video)}): se verá después del primer párrafo.${b.videoTitulo ? ` Título: ${esc(b.videoTitulo)}.` : ''}</p>` : '';
   const fuente = b.fuenteMedio || b.fuenteUrl ? `<p class="nota-chica">Fuente: ${esc(b.fuenteMedio || '')}${b.fuenteUrl ? ` · ${esc(b.fuenteUrl)}` : ''}</p>` : '';
+  // El gráfico propio, con la misma vista del sitio (sin botones), después del segundo párrafo como en la nota.
+  const graf = b.grafico ? graficoHtml(b.grafico, { seccion: b.seccion, acciones: false }) : '';
+  const aGraf = Math.min(2, b.parrafos.length) - 1;
+  const avisoGraf = b.grafico && !graficoActivo ? '<p class="nota-chica">El gráfico está guardado, pero el sitio todavía no los dibuja (el interruptor NOTAS_CON_GRAFICO está apagado): al publicar, la nota se ve sin él hasta que se prenda.</p>' : '';
   const vista = `<article class="vista-previa vista"><p>${badge('borrador')} <span class="nota-chica">${esc(b.seccion)} · ${esc(b.firma)}</span></p>
 ${portada ? `<img src="${esc(portada)}" alt="" style="margin:10px 0;border-radius:8px">` : ''}
 <h2>${esc(b.titulo)}</h2>
 <p class="baj">${esc(b.bajada)}</p>
-${b.parrafos.map((p, i) => `<p>${esc(p)}</p>${i === 0 ? video : ''}`).join('\n')}
+${b.parrafos.map((p, i) => `<p>${esc(p)}</p>${i === 0 ? video : ''}${i === aGraf ? graf : ''}`).join('\n')}
+${avisoGraf}
 ${b.parrafos.length ? '' : video}
 ${fuente}
 ${b.fotos.length > 1 ? `<p class="nota-chica">Más fotos: ${b.fotos.length - 1}.</p>` : ''}
@@ -165,7 +186,7 @@ ${fotos}`;
 
 /** Seguir editando un borrador: el mismo formulario, con lo ya escrito. */
 export function paginaEditarBorrador({ b, valores = null, csrf, rol = 'dueno', error = null }) {
-  const v = valores ?? { titulo: b.titulo, bajada: b.bajada, seccion: b.seccion, cuerpo: b.parrafos.join('\n\n'), firma: b.firma, fuenteMedio: b.fuenteMedio, fuenteUrl: b.fuenteUrl, video: b.video, videoTitulo: b.videoTitulo, pideCriterio: b.pideCriterio };
+  const v = valores ?? { titulo: b.titulo, bajada: b.bajada, seccion: b.seccion, cuerpo: b.parrafos.join('\n\n'), firma: b.firma, fuenteMedio: b.fuenteMedio, fuenteUrl: b.fuenteUrl, video: b.video, videoTitulo: b.videoTitulo, pideCriterio: b.pideCriterio, ...valoresDeGrafico(b.grafico) };
   const cuerpo = `<p><a href="/panel/borrador/${encodeURIComponent(b.id)}">← Volver a la vista previa</a></p>
 <h1>Seguir editando</h1>
 ${aviso(null, error)}

@@ -456,7 +456,7 @@ async function atenderBorradores(env, ruta, metodo, form, { url, csrf, ahora, ca
   const accion = m[2] ?? '';
   const b = borradorParaVer(f);
   if (metodo === 'GET') {
-    if (accion === '') return html(paginaBorrador({ b, csrf, rol, ok: url.searchParams.get('ok'), error: url.searchParams.get('error') }));
+    if (accion === '') return html(paginaBorrador({ b, csrf, rol, ok: url.searchParams.get('ok'), error: url.searchParams.get('error'), graficoActivo: env.NOTAS_CON_GRAFICO === 'si' }));
     if (accion === 'editar') return html(paginaEditarBorrador({ b, csrf, rol, error: url.searchParams.get('error') }));
     return irA(rutaDelBorrador(id));
   }

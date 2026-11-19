@@ -55,5 +55,33 @@
     "ancho": 1600,
     "alto": 900,
     "cubrir": true
+  },
+  "grafico": {
+    "tipo": "barras",
+    "titulo": "Alojamiento en Miramar: cuánto cuesta por día",
+    "unidad": "$",
+    "fuente": "Gacetilla de prensa del destino Miramar",
+    "datos": [
+      {
+        "etiqueta": "Hostería 1 estrella, doble con desayuno",
+        "valor": 70000
+      },
+      {
+        "etiqueta": "Hostería 2 estrellas con carpa y cochera",
+        "valor": 145000
+      },
+      {
+        "etiqueta": "Appart para 2 con desayuno (desde)",
+        "valor": 290000
+      },
+      {
+        "etiqueta": "Appart con media pensión, carpa, cochera",
+        "valor": 450000
+      },
+      {
+        "etiqueta": "Lo mismo, para 4 personas",
+        "valor": 550000
+      }
+    ]
   }
 }

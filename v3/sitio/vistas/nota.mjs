@@ -5,6 +5,7 @@ import { lugarFijo, lugarRotativo, bloqueAdsense } from './avisos.mjs';
 import { filaDeLista } from './portada.mjs';
 import { esClimaDiario, fotoDelClima, actualizadaHtml, enlacesDelVideoHtml } from './clima-diario.mjs';
 import { esEfemerides, efemeridesHtml, rotuloDeEfemeride } from './efemerides-nota.mjs';
+import { graficoDeNota, graficoHtml } from './grafico-nota.mjs';
 
 export const FIRMA_IA = 'Redacción Radar Balcarce';
 
@@ -130,17 +131,21 @@ export function videoLd(n, v) {
   return { '@context': 'https://schema.org', '@type': 'VideoObject', name: v.titulo, description: n.bajada || v.titulo, thumbnailUrl: `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`, uploadDate: n.publicada, embedUrl: `https://www.youtube-nocookie.com/embed/${v.id}`, url: `https://www.youtube.com/watch?v=${v.id}` };
 }
 
-function cuerpoHtml(n, parrafos, contexto) {
+function cuerpoHtml(n, parrafos, contexto, { conGrafico = false } = {}) {
   const fijas = Array.isArray(n.extra?.fotosEnCuerpo) ? n.extra.fotosEnCuerpo : [];
   const fotos = fijas.length ? fijas : fotosExtra(n).map((f, i, todas) => ({ ...f, despuesDe: Math.max(1, Math.round(((i + 1) * parrafos.length) / (todas.length + 1))) }));
   const sinAnuncio = n.seccion === 'Policiales';
   const salida = [];
   const video = videoDeNota(n);
   const colocar = (despuesDe) => { if (video && Math.min(video.despuesDe, parrafos.length) === despuesDe) salida.push(videoHtml(video)); for (const f of fotos) if ((f.despuesDe ?? parrafos.length) === despuesDe) salida.push(figura(f)); };
+  // El gráfico propio (ficha.grafico; interruptor NOTAS_CON_GRAFICO del sitio): después del segundo párrafo, o al final si la nota tiene menos.
+  const grafico = conGrafico ? graficoDeNota(n) : null;
+  const graficoAca = grafico ? Math.min(2, parrafos.length) : -1;
   colocar(0);
   parrafos.forEach((p, i) => {
     salida.push(`<p>${conCuentasEnlazadas(esc(p), n)}</p>`);
     colocar(i + 1);
+    if (i + 1 === graficoAca) salida.push(graficoHtml(grafico, { seccion: n.seccion }));
     if (i === 2 && parrafos.length >= 4 && !sinAnuncio) salida.push(bloqueAdsense(contexto, 'nota'));
   });
   for (const f of fotos) if ((f.despuesDe ?? 0) > parrafos.length) salida.push(figura(f));
@@ -233,7 +238,7 @@ export function placaDeNota(n, ranura) {
   return `<div class="placa-nota" style="--pc:${colorDe(ranura)}" aria-hidden="true"><em>${esc(n.seccion)}</em><b>Radar<i>Balcarce</i></b></div>`;
 }
 
-export function paginaDeNota(n, { indexar, contexto, seguir = [], contadas = [] }) {
+export function paginaDeNota(n, { indexar, contexto, seguir = [], contadas = [], conGrafico = false }) {
   const parrafos = parrafosDe(n.cuerpo);
   const canonico = rutaDeNota(n);
   const ranura = ranuraDe(n.seccion);
@@ -251,7 +256,7 @@ ${n.bajada ? `<p class="bajada">${esc(n.bajada)}</p>` : ''}
 ${n.enDosLineas && !esEfemerides(n) ? `<div class="dos-lineas"><strong>En dos líneas</strong>${esc(n.enDosLineas)}</div>` : ''}
 ${esEfemerides(n) ? '' : foto ? figura({ url: foto.url, alt: foto.alt || n.titulo, ancho: foto.ancho, alto: foto.alto, credito: foto.credito, principal: true, grafico: foto.grafico }) : placaDeNota(n, ranura)}
 <div class="cuerpo">
-${esClimaDiario(n) ? lugarRotativo(contexto, 'clima', 'C1') : ''}${esEfemerides(n) ? efemeridesHtml(n) : cuerpoHtml(n, parrafos, contexto)}
+${esClimaDiario(n) ? lugarRotativo(contexto, 'clima', 'C1') : ''}${esEfemerides(n) ? efemeridesHtml(n) : cuerpoHtml(n, parrafos, contexto, { conGrafico })}
 </div>
 ${enlacesDelVideoHtml(n)}
 ${esEfemerides(n) ? '' : bloquesDeFicha(n.ficha)}

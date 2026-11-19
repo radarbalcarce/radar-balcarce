@@ -96,6 +96,15 @@ Automovilismo, Agro, Economía, Ciencia, Cultura, Tecnología y Argentina. Lo de
 - Lo que escribe Mistral pasa por el mismo verificador y las mismas reglas; los prompts no cambian. `/salud` (`uso.mistral`), el resumen de las
   21:30 y el resultado de la vuelta (`pedidosAMistral`) dicen cuántos pedidos fueron a Mistral.
 
+### 5 ter. El gráfico propio de la nota (19/11/2026, Hernán; `redactar/grafico.mjs`, interruptor `NOTAS_CON_GRAFICO` en `wrangler.toml`, apagado por defecto)
+
+- **Sin pedidos nuevos.** Con el interruptor en «si», el MISMO pedido de redacción (el 1.º de los dos) suma una instrucción y un campo opcional `grafico`: `{ tipo: barras | linea, titulo, unidad, fuente, datos: [{ etiqueta, valor }] }`.
+  La IA lo devuelve **sólo si la nota tiene de 3 a 8 cifras comparables** (misma unidad, dichas tal cual en las fuentes); si no, `null`. Cuesta unos 60 a 150 tokens de salida cuando hay gráfico y unos 5 cuando no; la instrucción suma unos 250 tokens de entrada. Sigue habiendo exactamente dos pedidos por nota y el mismo freno mensual.
+- **Se comprueba en código, sin IA.** La forma (tipo, título, fuente, 3 a 8 filas con número, en barras sin negativos, no todos iguales) y, sobre todo, que **cada `valor` aparezca como número en el texto de las fuentes** de esa nota (lee 12.500, $2.350.000, 3,5 %, «2 millones»…).
+  Si **una sola** cifra no está (la IA la sumó, la redondeó o la inventó), el gráfico se descarta entero: la nota sale igual y queda `verificacion.graficoDescartado` con el motivo. La fuente del gráfico tiene que ser un medio de la nota (si no, se pone el primero). Una nota con freno legal (`no_publicar`) no lleva gráfico.
+- **Dónde queda:** `ficha.grafico`. El sitio lo dibuja (`v3/sitio/vistas/grafico-nota.mjs`, `sitio/REGLAS.md` § 17) si el sitio también tiene `NOTAS_CON_GRAFICO = "si"`. Las notas a mano (`notas-manuales/*.json`) aceptan el mismo `grafico` y lo revisan en la forma (acá no hay fuentes que comparar: lo que se carga a mano lo responde quien lo carga).
+- **Para prenderlo:** poner «si» en `v3/nucleo/wrangler.toml` y en `v3/sitio/wrangler.toml` y desplegar `nucleo` y `sitio` (uno por vez). Pruebas: `redactar/grafico.test.mjs`.
+
 ## 6. Valor agregado (lo arma el programa, nunca la IA)
 
 De la ficha salen, sólo cuando hay con qué: **Los datos** (campos de la ficha), **Cronología** (3 fechas o más), **Cifras** (números con
