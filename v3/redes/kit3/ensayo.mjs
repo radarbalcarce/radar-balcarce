@@ -158,5 +158,6 @@ async function main() {
   if (resumen.some((r) => !r.ok)) process.exitCode = 1;
 }
 
-const esElPrograma = process.argv[1] && import.meta.url === new URL(`file:///${path.resolve(process.argv[1]).replace(/\\/g, '/')}`).href;
+// En Linux `file:///` + una ruta que ya empieza con «/» da cuatro barras y nunca coincide (el ensayo terminaba sin dibujar nada, 19/11): se compara con pathToFileURL.
+const esElPrograma = process.argv[1] && import.meta.url === (await import('node:url')).pathToFileURL(path.resolve(process.argv[1])).href;
 if (esElPrograma) main().catch((e) => { console.error(e.stack || e); process.exit(1); });

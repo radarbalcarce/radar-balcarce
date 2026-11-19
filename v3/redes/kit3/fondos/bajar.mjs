@@ -29,7 +29,7 @@ export async function bajarFondos(destino, { cliente, prefijo = 'kit3/fondos/', 
   return r;
 }
 
-const esElPrograma = process.argv[1] && import.meta.url === new URL(`file:///${path.resolve(process.argv[1]).replace(/\\/g, '/')}`).href;
+const esElPrograma = process.argv[1] && import.meta.url === (await import('node:url')).pathToFileURL(path.resolve(process.argv[1])).href;
 if (esElPrograma) {
   const destino = process.argv[2];
   if (!destino) { console.error('uso: node bajar.mjs <carpeta de destino>'); process.exit(1); }
