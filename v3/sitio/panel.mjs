@@ -4,9 +4,15 @@
 // Nunca pasa por la caché pública: cada respuesta es `no-store`, `noindex` y con su propia política de contenido.
 import { BASE, SECCIONES, slugDe, jsonONull, parrafosDe, ranuraDe } from './util.mjs';
 import { paginaSinSesion, paginaEntrar, paginaEnlaceVencido, paginaPanelError, paginaLista, paginaNota, paginaReel, DESTINOS_DEL_REEL } from './vistas/panel.mjs';
+import { paginaRedesDeHoy, paginaEstado, paginaPedir, paginaBorrador, paginaEditarBorrador } from './vistas/panel-nuevas.mjs';
+import { datosDeRedesDeHoy, datosDeEstado, piezasDeLaNota } from './panel-redes.mjs';
+import { configuracionDeAccess, verificarAccess, CABECERA_ACCESS } from './panel-acceso.mjs';
+import { crearBorrador, guardarBorrador, publicarBorrador, descartarBorrador, filaDeBorrador, borradoresRecientes, borradorParaVer } from './panel-pedir.mjs';
 
 export const POR = 'Hernán (panel)';
 export const DIAS_DE_SESION = 30;
+/** La sesión se estira con el uso (una vez por día como mucho), pero nunca pasa de esta cantidad de días desde que se abrió. */
+export const TOPE_DE_SESION_DIAS = 180;
 export const POR_PAGINA_PANEL = 50;
 export const MAX_FOTOS = 10;
 export const MAX_BYTES_FOTO = 8 * 1024 * 1024;
@@ -62,10 +68,26 @@ async function sesionDe(pedido, env, ahora) {
   if (!token || !FORMA_DE_TOKEN.test(token)) return null;
   try {
     const h = await sha256Hex(token);
-    const f = await env.DB.prepare('SELECT vence FROM panel_sesiones WHERE token = ?').bind(h).first();
+    const f = await env.DB.prepare('SELECT vence, creada, ultima FROM panel_sesiones WHERE token = ?').bind(h).first();
     if (!f || !(f.vence > ahora.toISOString())) return null;
-    await env.DB.prepare('UPDATE panel_sesiones SET ultima = ? WHERE token = ?').bind(ahora.toISOString(), h).run();
-    return { token, huella: h };
+    // Cada uso la estira otros 30 días (con tope), pero se escribe en la base como mucho una vez por día: sólo si la última marca tiene 24 horas o más.
+    let cookie = null;
+    const ultima = Date.parse(f.ultima ?? '');
+    if (!Number.isFinite(ultima) || ahora.getTime() - ultima >= 86400 * 1000) {
+      const creada = Date.parse(f.creada ?? '');
+      const tope = (Number.isFinite(creada) ? creada : ahora.getTime()) + TOPE_DE_SESION_DIAS * 86400 * 1000;
+      const nueva = Math.min(ahora.getTime() + DIAS_DE_SESION * 86400 * 1000, tope);
+      const venceNuevo = new Date(nueva).toISOString();
+      try {
+        if (venceNuevo > f.vence) {
+          await env.DB.prepare('UPDATE panel_sesiones SET vence = ?, ultima = ? WHERE token = ?').bind(venceNuevo, ahora.toISOString(), h).run();
+          cookie = `${COOKIE}=${token}; Path=/panel; HttpOnly; Secure; SameSite=Strict; Max-Age=${Math.max(1, Math.floor((nueva - ahora.getTime()) / 1000))}`;
+        } else {
+          await env.DB.prepare('UPDATE panel_sesiones SET ultima = ? WHERE token = ?').bind(ahora.toISOString(), h).run();
+        }
+      } catch { /* sin renovar: la sesión sigue valiendo hasta su vencimiento */ }
+    }
+    return { token, huella: h, cookie };
   } catch { return null; } // sin la tabla (sitio sin desplegar el esquema) nadie entra
 }
 
@@ -115,9 +137,9 @@ export function listaDeFotos(foto) {
 
 const FILTROS_DE_ESTADO = { publicada: 'publicada', oculta: 'oculta', retirada: 'retirada' };
 
-/** La lista del panel: todo menos los borradores, de la más nueva a la más vieja, 50 por página. */
+/** La lista del panel: todo menos los borradores y los descartados, de la más nueva a la más vieja, 50 por página. */
 export async function listarParaPanel(env, { q = '', estado = '', seccion = '', origen = '', pagina = 1 } = {}) {
-  const donde = ["n.estado != 'borrador'"];
+  const donde = ["n.estado NOT IN ('borrador', 'descartada')"];
   const params = [];
   if (FILTROS_DE_ESTADO[estado]) { donde.push('n.estado = ?'); params.push(estado); }
   if (NOMBRES_DE_SECCION.includes(seccion)) {
@@ -242,10 +264,12 @@ export function tipoDeImagen(b) {
 // ------------------------------------------------------------------------------------------------------------ los cambios
 
 const limpio = (v) => String(v ?? '').replace(/\r\n?/g, '\n');
+/** Quién hace el cambio y qué puede: por la puerta de Telegram, Hernán (dueño); por Access, el mail de quien entró (dueño o editor). */
+const CTX_DUENO = Object.freeze({ por: POR, rol: 'dueno' });
 /** El cuerpo del formulario (párrafos separados por una línea en blanco) → lista de párrafos. */
 export const parrafosDelFormulario = (t) => limpio(t).split(/\n\s*\n/).map((p) => p.replace(/\s+/g, ' ').trim()).filter(Boolean);
 
-async function cambiarTexto(env, f, form, ahora) {
+async function cambiarTexto(env, f, form, ahora, ctx = CTX_DUENO) {
   const titulo = limpio(form.get('titulo')).replace(/\s+/g, ' ').trim();
   const bajada = limpio(form.get('bajada')).replace(/\s+/g, ' ').trim();
   const crudoCuerpo = limpio(form.get('cuerpo'));
@@ -270,13 +294,13 @@ async function cambiarTexto(env, f, form, ahora) {
   // Cada corrección queda anotada en ficha.correcciones, como /corregir del bot (el cambio de sección no se anota, como /seccion).
   const base = objeto(analizar(f.ficha, {}));
   const cuando = ahora.toISOString();
-  const ficha = cambios.length ? { ...base, correcciones: [...(Array.isArray(base.correcciones) ? base.correcciones : []), ...cambios.map((c) => ({ cuando, ...c, por: POR }))] } : null;
+  const ficha = cambios.length ? { ...base, correcciones: [...(Array.isArray(base.correcciones) ? base.correcciones : []), ...cambios.map((c) => ({ cuando, ...c, por: ctx.por }))] } : null;
   await env.DB.prepare('UPDATE notas SET titulo = ?, bajada = ?, cuerpo = ?, seccion = ?, ficha = COALESCE(?, ficha) WHERE id = ?')
     .bind(titulo, bajada, JSON.stringify(parrafos), seccion, ficha ? JSON.stringify(ficha) : null, f.id).run();
   return { ok: 'texto', purgar: rutasAPurgar(f, f.seccion, otraSeccion ? seccion : null) };
 }
 
-async function cambiarEstado(env, f, form, ahora) {
+async function cambiarEstado(env, f, form, ahora, ctx = CTX_DUENO) {
   const accion = String(form.get('accion') ?? '');
   if (accion === 'ocultar') {
     if (f.estado === 'oculta') return { error: 'ya-oculta' };
@@ -290,10 +314,11 @@ async function cambiarEstado(env, f, form, ahora) {
     return { ok: 'mostrada', purgar: rutasAPurgar(f, f.seccion) };
   }
   if (accion === 'retirar') {
+    if (ctx.rol !== 'dueno') return { error: 'sin-permiso' }; // los editores no retiran notas
     if (f.estado === 'retirada') return { error: 'ya-retirada' };
     const motivo = limpio(form.get('motivo')).replace(/\s+/g, ' ').trim();
     if (!motivo || motivo.length > 300) return { error: 'motivo' };
-    await env.DB.prepare("UPDATE notas SET estado = 'retirada', no_publicar = ? WHERE id = ?").bind(JSON.stringify({ motivo, cuando: ahora.toISOString(), por: POR }), f.id).run();
+    await env.DB.prepare("UPDATE notas SET estado = 'retirada', no_publicar = ? WHERE id = ?").bind(JSON.stringify({ motivo, cuando: ahora.toISOString(), por: ctx.por }), f.id).run();
     return { ok: 'retirada', purgar: rutasAPurgar(f, f.seccion) };
   }
   return { error: 'accion' };
@@ -401,10 +426,92 @@ const VOLVER_VALIDO = /^\/panel(\?[A-Za-z0-9%=&_.+~-]{0,300})?$/;
 // Lo más grande que se acepta en un pedido: 10 fotos de 8 MB y un poco de margen para el resto del formulario.
 const TOPE_DEL_PEDIDO = MAX_FOTOS * MAX_BYTES_FOTO + 1024 * 1024;
 
+// ------------------------------------------------------------------------------------------------------------ cargar una nota (borradores)
+
+/** La subida de fotos de un borrador recién creado: la misma de la ficha (`cambiarFotos`, acción «subir»). */
+async function subirAlBorrador(env, fila, archivos, credito, ahora) {
+  const fd = new FormData();
+  fd.set('accion', 'subir');
+  for (const a of archivos) fd.append('fotos', a);
+  fd.set('credito', credito);
+  return cambiarFotos(env, { id: fila.id, titulo: fila.titulo, foto: fila.foto }, fd, ahora);
+}
+
+const rutaDelBorrador = (id) => `/panel/borrador/${encodeURIComponent(id)}`;
+
+async function atenderBorradores(env, ruta, metodo, form, { url, csrf, ahora, cache, ctx }) {
+  const rol = ctx.rol;
+  if (ruta === '/panel/pedir') {
+    if (metodo === 'GET') return html(paginaPedir({ csrf, rol, borradores: await borradoresRecientes(env), ok: url.searchParams.get('ok'), error: url.searchParams.get('error') }));
+    const r = await crearBorrador(env, form, { por: ctx.por, ahora, subirFotos: (fila, archivos, credito) => subirAlBorrador(env, fila, archivos, credito, ahora) });
+    if (r.error) return html(paginaPedir({ csrf, rol, valores: r.valores, error: r.error, borradores: await borradoresRecientes(env) }), 400);
+    return irA(`${rutaDelBorrador(r.id)}?${r.fotos?.error ? 'error=fotos-no-subidas' : 'ok=borrador-guardado'}`);
+  }
+  const m = /^\/panel\/borrador\/([^/]+)(?:\/(editar|publicar|descartar|fotos))?$/.exec(ruta);
+  if (!m) return null;
+  let id = '';
+  try { id = decodeURIComponent(m[1]); } catch { /* queda vacío */ }
+  const f = ID_VALIDO.test(id) ? await filaDeBorrador(env, id) : null;
+  if (!f) return html(paginaPanelError('No encuentro ese borrador: ya se publicó, se descartó o no existe.', { csrf, rol }), 404);
+  const accion = m[2] ?? '';
+  const b = borradorParaVer(f);
+  if (metodo === 'GET') {
+    if (accion === '') return html(paginaBorrador({ b, csrf, rol, ok: url.searchParams.get('ok'), error: url.searchParams.get('error') }));
+    if (accion === 'editar') return html(paginaEditarBorrador({ b, csrf, rol, error: url.searchParams.get('error') }));
+    return irA(rutaDelBorrador(id));
+  }
+  if (accion === 'editar') {
+    const r = await guardarBorrador(env, f, form, { por: ctx.por, ahora });
+    if (r.error) return html(paginaEditarBorrador({ b, valores: r.valores, csrf, rol, error: r.error }), 400);
+    return irA(`${rutaDelBorrador(id)}?ok=${r.ok}`);
+  }
+  if (accion === 'fotos') {
+    const r = await cambiarFotos(env, { id: f.id, titulo: f.titulo, foto: f.foto }, form, ahora);
+    return irA(r.error ? `${rutaDelBorrador(id)}?error=${r.error}` : `${rutaDelBorrador(id)}?ok=${r.ok}`);
+  }
+  if (accion === 'publicar') {
+    const r = await publicarBorrador(env, f, { por: ctx.por, ahora });
+    await purgar(cache, url.origin, rutasAPurgar({ id: f.id, titulo: f.titulo, s_slug: r.slug }, f.seccion));
+    return irA(`/panel/nota/${encodeURIComponent(id)}?ok=${r.ok}`);
+  }
+  if (accion === 'descartar') {
+    const r = await descartarBorrador(env, f);
+    return irA(`/panel/pedir?ok=${r.ok}`);
+  }
+  return null;
+}
+
 // ------------------------------------------------------------------------------------------------------------ la entrada
 
-/** Atiende todo /panel y /panel/…. `cache`: la caché pública (para borrar la página de una nota cambiada); nada del panel se guarda ahí. */
-export async function manejarPanel(pedido, env, { ahora = new Date(), cache = null } = {}) {
+/**
+ * Quién entra: primero la sesión de Telegram (cookie; dueño, como siempre); si no hay, y SÓLO si Cloudflare Access está prendido (ACCESS_EQUIPO y ACCESS_AUD definidas), la cabecera firmada
+ * de Access (rol según ACCESS_MAILS y ACCESS_EDITORES). Con esas variables vacías, el segundo camino no existe.
+ */
+async function identidadDe(pedido, env, ahora, traer, fuera) {
+  const s = await sesionDe(pedido, env, ahora);
+  if (s) {
+    fuera.cookie = s.cookie;
+    return { tipo: 'telegram', token: s.token, huella: s.huella, rol: 'dueno', por: POR };
+  }
+  const config = configuracionDeAccess(env);
+  const jwt = pedido.headers.get(CABECERA_ACCESS);
+  if (config && jwt) {
+    const v = await verificarAccess(jwt, config, { ahora, traer });
+    if (v.ok) return { tipo: 'access', token: jwt, rol: v.rol, por: `${v.email} (panel)` };
+  }
+  return null;
+}
+
+/** Atiende todo /panel y /panel/…. `cache`: la caché pública (para borrar la página de una nota cambiada); nada del panel se guarda ahí. `traer`: el fetch de las claves de Access (se inyecta en las pruebas). */
+export async function manejarPanel(pedido, env, { ahora = new Date(), cache = null, traer = globalThis.fetch } = {}) {
+  const fuera = { cookie: null };
+  const r = await atender(pedido, env, { ahora, cache, traer }, fuera);
+  // La sesión de Telegram se estira con el uso: si hoy se renovó, la cookie nueva viaja con la respuesta.
+  if (fuera.cookie) r.headers.append('set-cookie', fuera.cookie);
+  return r;
+}
+
+async function atender(pedido, env, { ahora, cache, traer }, fuera) {
   const url = new URL(pedido.url);
   const ruta = url.pathname.replace(/\/+$/, '') || '/';
   const metodo = pedido.method === 'HEAD' ? 'GET' : pedido.method;
@@ -416,20 +523,27 @@ export async function manejarPanel(pedido, env, { ahora = new Date(), cache = nu
     return html(FORMA_DE_TOKEN.test(t) ? paginaEntrar(t) : paginaEnlaceVencido());
   }
 
-  const sesion = await sesionDe(pedido, env, ahora);
-  if (!sesion) return html(paginaSinSesion(), metodo === 'POST' ? 403 : 200);
-  const csrf = await csrfDe(sesion.token);
+  const quien = await identidadDe(pedido, env, ahora, traer, fuera);
+  if (!quien) return html(paginaSinSesion(), metodo === 'POST' ? 403 : 200);
+  const csrf = await csrfDe(quien.token);
+  const rol = quien.rol;
+  const ctx = { por: quien.por, rol };
 
   let form = null;
   if (metodo === 'POST') {
-    if (Number(pedido.headers.get('content-length')) > TOPE_DEL_PEDIDO) return html(paginaPanelError('Lo que mandaste es demasiado grande (más de 10 fotos de 8 MB).', { csrf }), 413);
-    try { form = await pedido.formData(); } catch { return html(paginaPanelError('No pude leer el formulario.', { csrf }), 400); }
-    if (String(form.get('csrf') ?? '') !== csrf) return html(paginaPanelError('El formulario venció o no es de este panel. Volvé a la lista y probá de nuevo.', { csrf }), 403);
+    // Por Access no hay cookie SameSite=Strict que nos cuide: un POST de otro sitio se corta además por el origen.
+    const origen = pedido.headers.get('origin');
+    if (quien.tipo === 'access' && origen && origen !== url.origin) return html(paginaPanelError('El pedido no viene de este panel.', { csrf, rol }), 403);
+    if (Number(pedido.headers.get('content-length')) > TOPE_DEL_PEDIDO) return html(paginaPanelError('Lo que mandaste es demasiado grande (más de 10 fotos de 8 MB).', { csrf, rol }), 413);
+    try { form = await pedido.formData(); } catch { return html(paginaPanelError('No pude leer el formulario.', { csrf, rol }), 400); }
+    if (String(form.get('csrf') ?? '') !== csrf) return html(paginaPanelError('El formulario venció o no es de este panel. Volvé a la lista y probá de nuevo.', { csrf, rol }), 403);
   }
 
   if (ruta === '/panel/salir') {
     if (metodo !== 'POST') return irA('/panel');
-    try { await env.DB.prepare('DELETE FROM panel_sesiones WHERE token = ?').bind(sesion.huella).run(); } catch { /* igual se borra la cookie */ }
+    fuera.cookie = null;
+    if (quien.tipo === 'access') return irA('/cdn-cgi/access/logout'); // la sesión es de Cloudflare: se cierra allá
+    try { await env.DB.prepare('DELETE FROM panel_sesiones WHERE token = ?').bind(quien.huella).run(); } catch { /* igual se borra la cookie */ }
     return irA('/panel', { 'set-cookie': `${COOKIE}=; Path=/panel; HttpOnly; Secure; SameSite=Strict; Max-Age=0` });
   }
 
@@ -443,7 +557,19 @@ export async function manejarPanel(pedido, env, { ahora = new Date(), cache = nu
       origen: ['propias', 'automaticas'].includes(url.searchParams.get('origen')) ? url.searchParams.get('origen') : '',
     };
     const { notas, hayMas } = await listarParaPanel(env, { ...filtros, pagina });
-    return html(paginaLista({ notas, filtros, pagina, hayMas, csrf, ok: url.searchParams.get('ok'), error: url.searchParams.get('error') }));
+    return html(paginaLista({ notas, filtros, pagina, hayMas, csrf, rol, ok: url.searchParams.get('ok'), error: url.searchParams.get('error') }));
+  }
+
+  // Lo que se lee de las redes: sólo lectura, nada se escribe.
+  if (ruta === '/panel/redes' && metodo === 'GET') return html(paginaRedesDeHoy({ datos: await datosDeRedesDeHoy(env, ahora), csrf, rol }));
+  if (ruta === '/panel/ajustes') {
+    if (rol !== 'dueno') return html(paginaPanelError('Esa pantalla es sólo para los dueños del panel.', { csrf, rol }), 403);
+    if (metodo === 'GET') return html(paginaEstado({ datos: await datosDeEstado(env, ahora), csrf, rol }));
+  }
+
+  if (ruta === '/panel/pedir' || ruta.startsWith('/panel/borrador/')) {
+    const r = await atenderBorradores(env, ruta, metodo, form, { url, csrf, ahora, cache, ctx });
+    if (r) return r;
   }
 
   const m = /^\/panel\/nota\/([^/]+)(?:\/(texto|estado|redes|fotos|reel))?$/.exec(ruta);
@@ -451,17 +577,17 @@ export async function manejarPanel(pedido, env, { ahora = new Date(), cache = nu
     let id = '';
     try { id = decodeURIComponent(m[1]); } catch { /* queda vacío */ }
     const f = ID_VALIDO.test(id) ? await filaDeNota(env, id) : null;
-    if (!f || f.estado === 'borrador') return html(paginaPanelError('No encuentro esa nota.', { csrf }), 404);
+    if (!f || f.estado === 'borrador' || f.estado === 'descartada') return html(paginaPanelError('No encuentro esa nota.', { csrf, rol }), 404);
     if (metodo === 'GET' && !m[2]) {
       const ok = url.searchParams.get('ok');
       const error = url.searchParams.get('error');
-      return html(paginaNota({ nota: notaParaVer(f), csrf, ok, error, publicaciones: await publicacionesDe(env, f.id), abrir: url.searchParams.get('abrir') }));
+      return html(paginaNota({ nota: notaParaVer(f), csrf, rol, ok, error, publicaciones: await publicacionesDe(env, f.id), piezas: await piezasDeLaNota(env, f.id), abrir: url.searchParams.get('abrir') }));
     }
     if (metodo === 'GET' && m[2] === 'reel') {
-      return html(paginaReel({ nota: notaParaVer(f), csrf, error: url.searchParams.get('error') }));
+      return html(paginaReel({ nota: notaParaVer(f), csrf, rol, error: url.searchParams.get('error') }));
     }
     if (metodo === 'POST' && m[2]) {
-      const r = await CAMBIOS[m[2]](env, f, form, ahora);
+      const r = await CAMBIOS[m[2]](env, f, form, ahora, ctx);
       if (r.purgar) await purgar(cache, url.origin, r.purgar);
       // Los botones de la lista (Ocultar, Mostrar) vuelven a la lista, con el mismo filtro y página; el pedido de reel, a su pantalla si falló.
       const lista = String(form.get('volver') ?? '');
@@ -470,5 +596,5 @@ export async function manejarPanel(pedido, env, { ahora = new Date(), cache = nu
       return irA(r.error ? `${volver}?error=${r.error}` : `${volver}?ok=${r.ok}`);
     }
   }
-  return html(paginaPanelError('Esa página del panel no existe.', { csrf }), 404);
+  return html(paginaPanelError('Esa página del panel no existe.', { csrf, rol }), 404);
 }

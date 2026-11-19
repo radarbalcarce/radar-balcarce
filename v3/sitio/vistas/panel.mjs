@@ -2,6 +2,7 @@
 // Todo lo que viene de la base o del pedido pasa por `esc`. La lógica (sesión, base, depósito) está en ../panel.mjs; acá sólo se dibuja.
 import { esc, SECCIONES, ranuraDe, fechaCorta } from '../util.mjs';
 import { ESTILOS } from './base.mjs';
+import { nombreDeRed } from '../panel-redes.mjs';
 
 // Los colores de las secciones, los mismos del sitio (se sacan de ESTILOS para no tener otra copia).
 const COLORES = (ESTILOS.match(/--s-[a-z]+:#[0-9a-f]{3,8}/gi) || []).join(';');
@@ -51,13 +52,25 @@ details.caja[open]>summary{margin-bottom:8px}
 .fotos-reel{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
 .fotos-reel label{font-weight:400;margin:0}.fotos-reel img{height:90px;width:100%;object-fit:cover;border-radius:6px}
 .menu{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
-.menu .boton{margin:0;min-height:44px}`;
+.menu .boton{margin:0;min-height:44px}
+.navbar{display:flex;flex-wrap:wrap;gap:6px;width:100%}.navbar a{min-height:44px;display:inline-flex;align-items:center;padding:0 14px;border-radius:8px;border:1px solid #5C6068;font-weight:600}
+.navbar a.activa{background:#fff;color:var(--tinta)}.barra{flex-wrap:wrap}
+.cinta{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0}.chip{display:inline-block;font-size:13px;font-weight:700;padding:2px 9px;border-radius:10px;background:#E4DFD2;color:var(--tinta)}
+.chip.ok{background:#E3F4E8;color:var(--verde)}.chip.mal{background:#FBE4E2;color:var(--rojo)}.chip.ensayo{background:#FFF1C7;color:#6b5400}
+.cuenta{font-size:28px;font-weight:800}
+.vista-previa{background:#fff;border:2px dashed #8a6d00;border-radius:10px;padding:14px;margin:0 0 16px}`;
 
 /** Dónde puede salir un reel pedido desde el panel (clave guardada, nombre para las personas). X se guarda como `twitter`, el nombre que usa Buffer. */
 export const DESTINOS_DEL_REEL = [['instagram', 'Instagram'], ['facebook', 'Facebook'], ['tiktok', 'TikTok'], ['youtube', 'YouTube'], ['twitter', 'X'], ['threads', 'Threads'], ['bluesky', 'Bluesky']];
 
-/** La hoja entera del panel. `csrf` presente = hay sesión: se muestra «Salir». */
-function marco(titulo, cuerpo, { csrf = null } = {}) {
+/** La barra de arriba: de acá se llega a cada pantalla. «Estado» sólo la ven los dueños (los editores no entran). */
+export function menuDe(rol, activa) {
+  const items = [['notas', '/panel', 'Notas'], ['redes', '/panel/redes', 'Redes de hoy'], ['pedir', '/panel/pedir', 'Cargar una nota'], ...(rol === 'dueno' ? [['ajustes', '/panel/ajustes', 'Estado']] : [])];
+  return `<nav class="navbar" aria-label="Secciones del panel">${items.map(([c, h, t]) => `<a href="${h}"${c === activa ? ' class="activa" aria-current="page"' : ''}>${t}</a>`).join('')}</nav>`;
+}
+
+/** La hoja entera del panel. `csrf` presente = hay sesión: se muestra «Salir» y el menú. `rol`: dueno o editor. `activa`: qué pantalla marcar en el menú. */
+export function marco(titulo, cuerpo, { csrf = null, rol = 'dueno', activa = '' } = {}) {
   const salir = csrf ? `<form method="post" action="/panel/salir"><input type="hidden" name="csrf" value="${esc(csrf)}"><button class="chico" type="submit">Salir</button></form>` : '';
   return `<!doctype html>
 <html lang="es-AR">
@@ -70,7 +83,7 @@ function marco(titulo, cuerpo, { csrf = null } = {}) {
 <style>${CSS}</style>
 </head>
 <body>
-<header class="barra"><a href="/panel">Radar · Panel</a>${salir}</header>
+<header class="barra"><a href="/panel">Radar · Panel</a>${salir}${csrf ? menuDe(rol, activa) : ''}</header>
 <main>
 ${cuerpo}
 </main>
@@ -98,13 +111,13 @@ export function paginaEnlaceVencido() {
 <p>Ya se usó o pasaron más de 15 minutos. Pedile uno nuevo al bot de Telegram con <strong>/panel</strong>.</p></div>`);
 }
 
-export function paginaPanelError(mensaje, { csrf = null } = {}) {
-  return marco('Panel', `<div class="caja"><h1>No se pudo</h1><p>${esc(mensaje)}</p><p><a href="/panel">Volver a la lista</a></p></div>`, { csrf });
+export function paginaPanelError(mensaje, { csrf = null, rol = 'dueno' } = {}) {
+  return marco('Panel', `<div class="caja"><h1>No se pudo</h1><p>${esc(mensaje)}</p><p><a href="/panel">Volver a la lista</a></p></div>`, { csrf, rol });
 }
 
 const ESTADOS = { publicada: 'Publicada', oculta: 'Oculta', retirada: 'Retirada', borrador: 'Borrador' };
-const badge = (estado) => `<span class="estado ${esc(estado)}">${esc(ESTADOS[estado] || estado)}</span>`;
-const opciones = (lista, elegida) => lista.map(([v, t]) => `<option value="${esc(v)}"${v === elegida ? ' selected' : ''}>${esc(t)}</option>`).join('');
+export const badge = (estado) => `<span class="estado ${esc(estado)}">${esc(ESTADOS[estado] || estado)}</span>`;
+export const opciones = (lista, elegida) => lista.map(([v, t]) => `<option value="${esc(v)}"${v === elegida ? ' selected' : ''}>${esc(t)}</option>`).join('');
 
 /** Una foto que se puede mostrar (https o propia); si no, null. */
 export const fotoMostrable = (u) => {
@@ -134,7 +147,7 @@ function botonesRapidos(n, csrf, volver) {
 }
 
 /** La lista de notas, con filtros. `filtros`: { q, estado, seccion, origen }. */
-export function paginaLista({ notas, filtros, pagina, hayMas, csrf, ok = null, error = null }) {
+export function paginaLista({ notas, filtros, pagina, hayMas, csrf, ok = null, error = null, rol = 'dueno' }) {
   const enlace = (p) => {
     const q = new URLSearchParams();
     for (const [k, v] of Object.entries(filtros)) if (v) q.set(k, v);
@@ -159,7 +172,7 @@ ${aviso(ok, error)}
 ${filas}
 </ul>
 <nav class="paginas">${pagina > 1 ? `<a href="${esc(enlace(pagina - 1))}">← Más nuevas</a>` : '<span></span>'}${hayMas ? `<a href="${esc(enlace(pagina + 1))}">Más viejas →</a>` : ''}</nav>`;
-  return marco('Notas', cuerpo, { csrf });
+  return marco('Notas', cuerpo, { csrf, rol, activa: 'notas' });
 }
 
 // Los avisos de arriba después de guardar: sólo códigos conocidos (nunca se muestra texto que venga en la dirección).
@@ -173,6 +186,9 @@ export const MENSAJES_OK = {
   fotos: 'Listo, las fotos quedaron guardadas.',
   'reel-pedido': 'Listo, el pedido quedó anotado. El reloj de las piezas lo toma en su próxima vuelta (de 8 a 23 h).',
   subidas: 'Listo, las fotos nuevas quedaron subidas.',
+  'borrador-guardado': 'Listo, el borrador quedó guardado. Todavía no se ve en el sitio.',
+  'publicada-nueva': 'Listo, la nota quedó publicada. El sitio la muestra en unos minutos.',
+  descartada: 'Listo, el borrador quedó descartado.',
 };
 export const MENSAJES_ERROR = {
   titulo: 'El título tiene que tener entre 3 y 300 letras.',
@@ -199,12 +215,35 @@ export const MENSAJES_ERROR = {
   'sin-fotos-elegidas': 'Elegí de 1 a 3 fotos para el reel.',
   'sin-foto-publica': 'Esta nota no tiene ninguna foto que se pueda usar en un reel. Sumá una foto desde «Fotos».',
   'muchas-fotos-reel': 'Para un reel alcanzan 3 fotos como mucho.',
+  'titulo-puntos': 'El título tiene que estar entero: no puede terminar en «…» ni en puntos suspensivos.',
+  'bajada-vacia': 'Falta la bajada (hasta 600 letras).',
+  'pocos-parrafos': 'La nota necesita al menos 3 párrafos (dejá una línea en blanco entre uno y otro).',
+  firma: 'La firma no puede quedar vacía ni tener más de 80 letras.',
+  'fuente-medio': 'El nombre del medio de la fuente puede tener hasta 80 letras.',
+  'fuente-enlace': 'El enlace de la fuente tiene que empezar con https:// y ser una dirección completa.',
+  video: 'Ese enlace no es de un video de YouTube. Pegá la dirección completa del video (o su código de 11 letras).',
+  'sin-permiso': 'Tu usuario no puede hacer eso: es sólo para los dueños del panel.',
+  'no-borrador': 'Ese borrador ya no existe o ya se publicó.',
+  'fotos-no-subidas': 'El borrador quedó guardado, pero las fotos no se pudieron subir. Probá de nuevo desde «Fotos».',
 };
 
-function aviso(ok, error) {
+export function aviso(ok, error) {
   if (ok && MENSAJES_OK[ok]) return `<p class="ok" role="status">${esc(MENSAJES_OK[ok])}</p>`;
   if (error && MENSAJES_ERROR[error]) return `<p class="error" role="alert">${esc(MENSAJES_ERROR[error])} No se cambió nada.</p>`;
   return '';
+}
+
+const ESTADO_DE_PIEZA = { publicada: ['salió', 'ok'], lista: ['armada en ensayo (no se publica)', 'ensayo'], 'en-curso': ['se está armando', ''], error: ['falló', 'mal'], 'sin-datos': ['sin datos', 'mal'], 'sin-cupo': ['sin cupo de voz', 'mal'] };
+/** Las piezas de video de una nota (su reel o sus fotos, y los repasos donde entró), para «¿Qué salió de esta nota?». */
+export function piezasDeLaNota(piezas) {
+  if (!piezas.length) return '';
+  const filas = piezas.map((p) => {
+    const [texto, clase] = ESTADO_DE_PIEZA[p.estado] ?? [p.estado, ''];
+    const que = p.enRepaso ? `Entró en «${p.nombre}»` : p.nombre;
+    const redes = p.acciones.map((a) => `${esc(nombreDeRed(a.red))} ${a.estado === 'ok' ? '✔' : a.estado === 'error' ? '✖' : '·'}`).join(' ');
+    return `<tr><td>${esc(que)}<br><span class="nota-chica">${esc(fechaCorta(p.dia))}${p.hora ? ` ${esc(p.hora)}` : ''}</span></td><td><span class="chip ${clase}">${esc(texto)}</span>${redes ? `<br><span class="nota-chica">${redes}</span>` : ''}${p.error ? `<br><span class="nota-chica">${esc(p.error)}</span>` : ''}</td></tr>`;
+  }).join('');
+  return `<p class="nota-chica">Piezas de video:</p><table><tr><th>Pieza</th><th>Cómo salió</th></tr>${filas}</table>`;
 }
 
 const REDES = [['posteo', 'Posteo'], ['historia', 'Historia'], ['reel', 'Reel']];
@@ -213,7 +252,7 @@ const REDES = [['posteo', 'Posteo'], ['historia', 'Historia'], ['reel', 'Reel']]
  * La página de una nota. `nota`: { id, titulo, bajada, parrafos, seccion, estado, noPublicar, fotos: [{url, credito}], redes: { lista, repaso, menciones }, url, origen, fecha, firma }.
  * `publicaciones`: [{ red, cuando, estado, simulado }] (lo que ya salió en redes; vacío si no hay o no se pudo leer).
  */
-export function paginaNota({ nota, csrf, ok, error, publicaciones = [], abrir = null }) {
+export function paginaNota({ nota, csrf, ok, error, publicaciones = [], piezas = [], abrir = null, rol = 'dueno' }) {
   const base = `/panel/nota/${encodeURIComponent(nota.id)}`;
   const oculto = `<input type="hidden" name="csrf" value="${esc(csrf)}">`;
   const portada = fotoMostrable(nota.fotos[0]?.url);
@@ -248,7 +287,7 @@ ${nota.estado !== 'retirada' ? `<a class="boton claro" href="${base}?abrir=texto
     nota.estado !== 'retirada' ? `<form method="post" action="${base}/estado" onsubmit="return confirm('¿Retirar la nota? No se puede volver atrás desde acá.')">${oculto}<input type="hidden" name="accion" value="retirar">
 <label for="motivo">Motivo para retirar</label><input type="text" id="motivo" name="motivo" maxlength="300" required><button class="peligro" type="submit">Retirar</button></form>` : '<p>Esta nota está retirada.</p>',
   ].join('\n');
-  const estado = `<details class="caja"><summary>Retirar la nota</summary>
+  const estado = rol !== 'dueno' ? '' : `<details class="caja"><summary>Retirar la nota</summary>
 <p class="nota-chica">Retirar es definitivo desde acá y pide el motivo. Para sacarla un rato, usá «Ocultar».</p>
 ${botonesEstado}</details>`;
 
@@ -260,7 +299,7 @@ ${botonesEstado}</details>`;
     ? `<p class="nota-chica">Pedido de reel: ${esc(nota.redes.destinos.map((d) => (DESTINOS_DEL_REEL.find(([c]) => c === d) ?? [d, d])[1]).join(', '))}${nota.redes.fotos.length ? ` · fotos ${esc(nota.redes.fotos.map((n) => n + 1).join(', '))}` : ''}${nota.redes.pedida ? ` · pedido el ${esc(fechaCorta(nota.redes.pedida))}` : ''}.</p>`
     : '';
   const quePaso = `<section class="caja"><h2>¿Qué salió de esta nota?</h2>
-${salidas}${pedido}</section>`;
+${salidas}${piezasDeLaNota(piezas)}${pedido}</section>`;
   const redes = `<details class="caja"><summary>Redes (formatos, repaso y menciones)</summary>
 <form method="post" action="${base}/redes" class="chequeos">${oculto}
 ${REDES.map(([clave, etiqueta]) => `<label><input type="checkbox" name="lista" value="${clave}"${lista.includes(clave) ? ' checked' : ''}> ${esc(etiqueta)}</label>`).join('\n')}
@@ -294,17 +333,17 @@ ${quePaso}
 ${texto}
 ${fotos}
 ${redes}
-${estado}`, { csrf });
+${estado}`, { csrf, rol, activa: 'notas' });
 }
 
 /**
  * La pantalla «Que esta nota salga en reel»: dónde, en qué formato y con qué fotos (de 1 a 3). `nota` es el mismo objeto de paginaNota (más `noPublicable`).
  * El pedido se guarda en `notas.redes` (formato → `lista`, `destinos`, `fotos`); lo arma el reloj de las piezas de las redes.
  */
-export function paginaReel({ nota, csrf, error = null }) {
+export function paginaReel({ nota, csrf, error = null, rol = 'dueno' }) {
   const base = `/panel/nota/${encodeURIComponent(nota.id)}`;
   const volver = `<p><a href="${base}">← Volver a la nota</a></p>`;
-  if (nota.noPublicable) return marco('Reel', `${volver}<div class="caja"><h1>Esta nota no puede ir a las redes</h1><p>Para mandar una nota a las redes tiene que estar publicada y sin freno.</p></div>`, { csrf });
+  if (nota.noPublicable) return marco('Reel', `${volver}<div class="caja"><h1>Esta nota no puede ir a las redes</h1><p>Para mandar una nota a las redes tiene que estar publicada y sin freno.</p></div>`, { csrf, rol, activa: 'notas' });
   const usables = nota.fotos.map((f, i) => ({ i, url: fotoMostrable(f.url) })).filter((f) => f.url);
   const previas = nota.redes.fotos.length ? nota.redes.fotos : usables.slice(0, 1).map((f) => f.i);
   const destinos = nota.redes.destinos.length ? nota.redes.destinos : ['instagram', 'facebook', 'tiktok', 'youtube'];
@@ -333,5 +372,5 @@ ${fotos}
 ${usables.length ? '<button type="submit">🎬 Pedir el reel</button>' : ''}
 </section>
 </form>`;
-  return marco('Reel', cuerpo, { csrf });
+  return marco('Reel', cuerpo, { csrf, rol, activa: 'notas' });
 }

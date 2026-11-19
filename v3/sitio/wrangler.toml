@@ -37,3 +37,9 @@ RESPALDO_VIEJO = "no"
 # Cuenta las páginas servidas a personas (no robots), vengan de la base o de la caché, y los clics de los avisos propios (/ir/aviso/<id>). «si» por defecto; con "no" no cuenta nada
 # (los avisos siguen llevando al comercio por /ir/aviso/<id>, pero sin sumar el clic). Se lee con `node v3/sitio/scripts/lecturas.mjs`.
 CONTADOR_PROPIO = "si"
+# Cloudflare Access como SEGUNDA puerta del panel (REGLAS.md § 13), APAGADA: con estas dos vacías el panel entra sólo por el enlace de Telegram. Para prenderla, una persona crea la aplicación
+# «Self-hosted» de Access sobre radarbalcarce.com/panel* en el panel de Cloudflare y completa estas variables (no son secretos: son datos del equipo) y despliega `sitio`:
+#   ACCESS_EQUIPO   = ""   # el dominio del equipo, p. ej. radarbalcarce.cloudflareaccess.com
+#   ACCESS_AUD      = ""   # la «etiqueta de audiencia» (Application Audience, AUD) de esa aplicación
+#   ACCESS_MAILS    = ""   # los mails que pueden entrar, separados por coma (dueños y editores)
+#   ACCESS_EDITORES = ""   # de esos, los que son sólo editores (texto, fotos y reels; no retiran notas ni ven Estado)
