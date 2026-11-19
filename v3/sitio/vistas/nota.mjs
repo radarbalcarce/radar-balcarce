@@ -4,7 +4,7 @@ import { pagina, colorDe, IMAGEN_DEL_MEDIO, migasHtml, migasLd } from './base.mj
 import { lugarFijo, lugarRotativo, bloqueAdsense } from './avisos.mjs';
 import { filaDeLista } from './portada.mjs';
 import { esClimaDiario, fotoDelClima, actualizadaHtml, enlacesDelVideoHtml } from './clima-diario.mjs';
-import { esEfemerides, efemeridesHtml } from './efemerides-nota.mjs';
+import { esEfemerides, efemeridesHtml, rotuloDeEfemeride } from './efemerides-nota.mjs';
 
 export const FIRMA_IA = 'Redacción Radar Balcarce';
 
@@ -244,7 +244,7 @@ export function paginaDeNota(n, { indexar, contexto, seguir = [], contadas = [] 
   const cuerpo = `<article class="nota">
 ${arriba}
 ${migasHtml([['Inicio', '/'], [n.seccion, '/seccion/' + ranura]])}
-<a class="etiqueta" href="/seccion/${ranura}" style="background:${colorDe(ranura)}">${esc(n.seccion)}</a>
+${esEfemerides(n) ? `<span class="ef-rotulo">${esc(rotuloDeEfemeride(n))}</span>` : `<a class="etiqueta" href="/seccion/${ranura}" style="background:${colorDe(ranura)}">${esc(n.seccion)}</a>`}
 <h1>${esc(n.titulo)}</h1>
 ${n.bajada ? `<p class="bajada">${esc(n.bajada)}</p>` : ''}
 <p class="meta"><time datetime="${esc(n.publicada)}">${esc(fechaLarga(n.publicada))}</time> · <span class="por">${esc(firmaCorta(n))}</span>${actualizadaHtml(n)}</p>

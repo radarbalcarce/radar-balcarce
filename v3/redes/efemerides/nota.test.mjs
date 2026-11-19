@@ -5,7 +5,7 @@ import {
   hechosDelDia, datosDelHecho, tituloDeLaNota, notaDeEfemeride, sqlDeEfemeride, fotoDeCommons, consultasDeFoto, paginaDeWikipedia, creditoDeCommons, slugDeLaNota, ID_DE_NOTA, detalleDeWikipedia, clavesDelHecho, acortarFrase, articuloCorrespondeAlHecho, fraseCompleta,
 } from './nota.mjs';
 import { armarNotaDelDia } from './publicar-nota.mjs';
-import { esEfemerides, efemeridesHtml, ejeDelTiempo } from '../../sitio/vistas/efemerides-nota.mjs';
+import { esEfemerides, efemeridesHtml } from '../../sitio/vistas/efemerides-nota.mjs';
 
 const cand = (id, anio, texto, extra = {}) => ({ id, anio, texto, origen: 'feed', estilo: 'curioso', importancia: 200, puntaje: 70, enlace: `https://es.wikipedia.org/wiki/Pagina_${id}`, marcas: [], ...extra });
 const CANDIDATAS = [
@@ -170,25 +170,21 @@ test('fotoDeCommonsPorBusqueda: si la página no tiene foto libre, busca en Comm
 
 // ---------------------------------------------------------------- la vista del sitio
 
-test('la vista: línea del tiempo y todas las historias iguales, cada una con su imagen descargable y sus datos como texto; texto escapado; créditos fuera de la página', () => {
+test('la vista: cada hecho es un bloque (año grande, título, «hace N años»), con foto entera y crédito en el epígrafe, descargable; texto escapado', () => {
   const hechos = hechosDelDia(PIEZA, CANDIDATAS).map((h, i) => ({ ...h, titulo: i === 1 ? '<b>x</b> "y"' : h.titulo, foto: i === 0 ? { alt: 'Imagen de «Cometa»', credito: 'Ana, CC BY 2.0, vía Wikimedia Commons', ancho: 960, alto: 1252 } : null }));
-  const fotosPublicas = Object.fromEntries(hechos.map((h) => [h.id, { placa: `https://radarbalcarce.com/fotos-notas/p-${h.id}.png` }]));
+  const fotosPublicas = Object.fromEntries(hechos.map((h) => [h.id, { placa: `https://radarbalcarce.com/fotos-notas/p-${h.id}.png`, original: `https://radarbalcarce.com/fotos-notas/p-${h.id}-foto.jpg` }]));
   const n = notaDeEfemeride({ dia: '2026-11-12', hechos, fotosPublicas });
   assert.equal(esEfemerides(n), true); assert.equal(esEfemerides({ ficha: {} }), false);
   const html = efemeridesHtml(n);
-  assert.equal((html.match(/class="ef-hecho"/g) || []).length, 4);
-  assert.equal((html.match(/class="ef-img"/g) || []).length, 4); assert.equal((html.match(/ download="radarbalcarce-un-dia-como-hoy-[0-9]{4}[.]png"/g) || []).length, 8, 'cada año se baja desde la galería y desde su texto');
-  assert.match(html, /class="ef-galeria"/); assert.equal((html.match(/id="ef-[0-9]{4}"/g) || []).length, 4);
-  assert.ok(!html.includes('Ana, CC BY') && !html.includes('ef-pie'), 'el crédito va en Fuentes, no en la página');
-  assert.ok(!html.includes('ef-datos') && !html.includes('ef-pt'), 'formal: sin datos arbitrarios ni línea del tiempo');
+  assert.equal((html.match(/class="ef-hecho"/g) || []).length, 4); assert.equal((html.match(/id="ef-[0-9]{4}"/g) || []).length, 4);
+  assert.equal((html.match(/class="ef-anio"/g) || []).length, 4); assert.equal((html.match(/class="ef-hace"/g) || []).length, 4);
+  assert.equal((html.match(/<figure class="ef-foto">/g) || []).length, 1, 'sólo el hecho con foto libre lleva foto; los demás, el año grande');
+  assert.match(html, /<figcaption>Ana, CC BY 2.0, vía Wikimedia Commons<\/figcaption>/);
+  assert.match(html, /-foto[.]jpg" alt="Imagen de «Cometa»" width="960" height="1252"/);
+  assert.ok(!html.includes('ef-galeria') && !html.includes('ef-datos'));
   assert.ok(!html.includes('<b>x</b>') && html.includes('&lt;b&gt;x&lt;/b&gt;'));
-  assert.match(html, /Jueves 12 de noviembre|jueves 12 de noviembre/); assert.match(html, /width="1080" height="1350"/);
 });
 
-test('ejeDelTiempo: del comienzo de la década del más viejo a hoy, con posiciones entre 0 y 100', () => {
-  const e = ejeDelTiempo([1965, 2014], 2026);
-  assert.equal(e.desde, 1960); assert.equal(e.pos(1960), 0); assert.ok(e.pos(2014) < 100 && e.pos(2014) > 50); assert.ok(e.marcas.length >= 2 && e.marcas[0] === 1960);
-});
 
 test('consultasDeFoto: primero los nombres propios, después el título sin el lugar del comienzo', () => {
   const q = consultasDeFoto({ titulo: 'En los Estados Unidos, Tim Berners-Lee publica la idea de la red de Internet', texto: 'Tim Berners-Lee presenta la propuesta formal de la World Wide Web.' });

@@ -211,8 +211,8 @@ salvo el «¿seguro?» de Retirar; nada de afuera.
 
 ## 14. La nota de «Un día como hoy» (12/11)
 
-- Se reconoce por `ficha.efemerides.hechos` (`esEfemerides`, `vistas/efemerides-nota.mjs`). Reemplaza al cuerpo de párrafos por una línea del tiempo que se anima y las historias iguales (año, título, texto, tres datos y foto con crédito o placa); sin foto principal aparte, sin «En dos líneas» ni «Los datos».
-- Sólo CSS (sin JavaScript); con «reducir movimiento» queda quieta. Los años de la línea se escalonan para que no se pisen. Va con `noindex` (`ficha.indexar = false`).
+- Se reconoce por `ficha.efemerides.hechos` (`esEfemerides`, `vistas/efemerides-nota.mjs`); si la ficha no los trae, la nota se ve con la vista común. Desde el 19/11 tiene la estética «C» de las efemérides en redes: el encabezado lleva el rótulo «UN DÍA COMO HOY · 19 de noviembre» (en lugar de la etiqueta de sección) y cada hecho es un bloque sobre papel (#F3EBD8) con regla roja (#C7381C), el año enorme en tinta (#14161A), el título, «hace N años», su foto grande y ENTERA (la original, sin recortar y con sus medidas en el HTML; si esa nota no la guardó, la placa) con el crédito en el epígrafe debajo, y el texto y el contexto. Un hecho sin foto libre no lleva foto: el año grande es su imagen. Debajo de cada hecho quedan los botones «Descargar la imagen» y «Compartir» de la placa de redes. Sin «En dos líneas», sin foto principal aparte ni «Los datos». h1, datos estructurados y `og:image` no cambian.
+- Sólo CSS (sin JavaScript propio); `noindex` (`ficha.indexar = false`). Las notas de efemérides ya publicadas con la ficha anterior se ven bien igual: usan lo que ya guardan (`foto.original` y `foto.credito`).
 
 ## 15. Ninguna foto del otro medio en el HTML, y las imágenes en el mapa (12/11, Hernán: «todas las fotos se deberían bajar y hacer bien el SEO»)
 
