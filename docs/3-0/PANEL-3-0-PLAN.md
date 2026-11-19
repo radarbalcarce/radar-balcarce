@@ -244,3 +244,6 @@ Mientras tanto el campo se puede escribir en la base a mano (o desde el panel, e
 - **Policiales y cualquier cosa de la lista roja**: nunca.
 
 **Regla práctica:** *un video por nota, propio, nuevo para quien lo ve, y siempre con un texto de verdad al lado.* Las pruebas ya impiden mostrar nada que no sea un ID de YouTube bien formado.
+
+
+**Etapa 3 (kit 3.0), 19/11:** el kit está dentro del repositorio, en `v3/redes/kit3/` (adaptador `desde-pieza.mjs`, plantillas, ensayo y fondos), conectado a `piezas/correr.mjs` detrás del interruptor `KIT_3_0` (apagado; sin él todo sale como hoy y, si el kit falla, cae al dibujo de siempre). **Falta** ensayarlo en GitHub (workflow manual `v3-kit3-ensayo.yml`), subir los 36 fondos del clima a R2 y sumar los pasos al workflow de piezas. Ver `v3/redes/kit3/REGLAS.md`.

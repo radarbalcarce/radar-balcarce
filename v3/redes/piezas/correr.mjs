@@ -28,6 +28,7 @@ import { claveR2DePlaca } from '../placa-clave.mjs';
 import { contrasenaDelWebhook } from '../redes.mjs';
 import { diaDeBalcarce } from '../elegir.mjs';
 import { contarPalabras } from './voz.mjs';
+import { kit3Prendido } from '../kit3/variables.mjs';
 import { CIERRE_DESPUES_DE_LA_VOZ, FINDE } from './variables.mjs';
 import { tarjetaDeServicio, tarjetasPrendidas, REDES_DE_TARJETA } from './tarjeta-servicio.mjs';
 import { sinSecretos, crearClienteBluesky, HANDLE_BLUESKY } from '../bluesky.mjs';
@@ -325,7 +326,10 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
       // Una pieza con texto de pantalla propio (`subtitulo`, números en dígitos) se subtitula por escena, con los tiempos ya ajustados a la voz; las demás, palabra por palabra de la voz.
       const conTextoPropio = pieza.escenas.some((e) => e.subtitulo);
       const subtitulos = mudo || conTextoPropio ? deps.subtitulosEstimados(pieza) : deps.subtitulos(voz.palabras);
-      const r = await deps.renderizar(pieza, `${base}.mp4`, { voz: voz?.archivo ?? null, subtitulos });
+      const r = await deps.renderizar(pieza, `${base}.mp4`, { voz: voz?.archivo ?? null, subtitulos, palabras: voz?.palabras ?? null });
+      // Kit 3.0 (KIT_3_0=si): si dibujó él, manda su duración (lleva la tapa de 0,8 s) y su tapa quieta; si falló, la pieza salió con el dibujo de siempre y se anota.
+      if (r.kit3?.usado === false) informe.aviso = `${informe.aviso ? `${informe.aviso}; ` : ''}kit 3.0 falló (${String(r.kit3.error).slice(0, 160)}); salió con el dibujo de siempre`;
+      if (r.kit3?.usado) { pieza = { ...pieza, duracion: r.kit3.duracion }; informe.duracion = r.kit3.duracion; if (r.kit3.avisos?.length) informe.aviso = `${informe.aviso ? `${informe.aviso}; ` : ''}kit 3.0: ${r.kit3.avisos.join(' | ')}`.slice(0, 480); }
       // Una nota de AFUERA cuya foto no bajó nunca sale con la placa (REGLAS § 3; caso Espinoza, 12/11): la pieza no se publica y se reintenta. Sólo Balcarce sin foto va con placa.
       const sinFotoAjena = notasDeAfueraConFotoCaida(item, r.urlsQueNoBajaron);
       if (sinFotoAjena.length) throw new Error(`la foto de una nota de afuera no bajó, no sale con placa (${sinFotoAjena.map((n) => n.id).join(', ')})`);
@@ -338,7 +342,7 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
         const cliente = deps.clienteMeta();
         const mp4 = fs.readFileSync(r.mp4);
         // La tapa de la grilla de reels: un cuadro quieto de la primera escena (en el repaso, la lista pareja), nunca uno a medio animar (Hernán, 3/11).
-        const tapaMs = tapaDeLaPieza(pieza);
+        const tapaMs = r.kit3?.usado ? 300 : tapaDeLaPieza(pieza);
         const tapa = deps.cuadro ? await deps.cuadro(r.mp4, tapaMs).catch(() => null) : null;
         informe.acciones = await publicarPieza({ cliente, mp4, acciones, tapaMs, tapa, sinToken: (t) => String(t).split(env.META_TOKEN || '\u0000').join('[token]') });
         let buenas = informe.acciones.filter((a) => a.estado === 'ok').length; // sólo Meta decide si la pieza salió; Buffer se suma aparte (salvo que el panel haya pedido sólo TikTok, YouTube o X: sin acciones de Meta, decide Buffer)
@@ -413,12 +417,25 @@ export async function dependenciasReales(env = process.env) {
     },
     subtitulosEstimados,
     subtitulos: (palabras) => (palabras?.length ? armarAss(enCarteles(palabras, { max: 4, minimo: 2 })) : null),
-    async renderizar(pieza, destino, { voz, subtitulos }) {
+    async renderizar(pieza, destino, { voz, subtitulos, palabras = null }) {
       const fotosQueNoBajaron = [];
       const urlsQueNoBajaron = [];
       const lista = await resolverFotos(pieza, { alFallar: (f, e) => { urlsQueNoBajaron.push(f.url); fotosQueNoBajaron.push(`${f.url ?? f.ruta}: ${String(e.message).slice(0, 120)}`); } });
+      let kit3 = null;
+      if (kit3Prendido(env)) {
+        try {
+          const { aplicaKit3, dibujarConKit3 } = await import('../kit3/kit3.mjs');
+          if (aplicaKit3(lista)) {
+            const { fotoDeLaEfemeride } = await import('../kit3/efemeride-foto.mjs');
+            const { colorDeSeccion } = await import('../../../reels/placa.mjs');
+            const fotoEfemeride = lista.id === 'efemeride' ? await fotoDeLaEfemeride({ principal: lista.escenas?.[0]?.datos?.principal }) : null;
+            const k = await dibujarConKit3(lista, destino, { voz, palabras, fotoEfemeride, colorDeSeccion, env, log: (m) => console.log(`  ${m}`) });
+            return { mp4: k.mp4, duracion: k.duracion, fotosQueNoBajaron, urlsQueNoBajaron, kit3: { usado: true, ms: k.ms, avisos: k.avisos, estimado: k.estimado, tapa: k.tapa } };
+          }
+        } catch (e) { console.log(`  kit 3.0 falló: ${e.message}`); kit3 = { usado: false, error: e.message }; }
+      }
       const r = await armarVideo(armarEscenaDeVideo(lista), destino, { voz, subtitulos });
-      return { ...r, fotosQueNoBajaron, urlsQueNoBajaron };
+      return { ...r, fotosQueNoBajaron, urlsQueNoBajaron, ...(kit3 ? { kit3 } : {}) };
     },
     // Buffer pide una dirección pública del video: se sube al depósito R2 del render (listos/<huella>/<archivo>.mp4) y lo sirve el Worker de redes (video-publico.mjs) en /video/<huella>/<archivo>.mp4.
     // Un cuadro del video como JPEG (la tapa del reel).

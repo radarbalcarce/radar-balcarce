@@ -101,3 +101,5 @@ Sin la pastilla sobre la foto (la placa ya dice la sección) y sin crédito. **L
 (`elegir.mjs`) no la descarta por «sin-foto» cuando el posteo sale con placa; `candidatas` la lista con `deBalcarce`; el programa de piezas (`posteos.mjs`) la dibuja (una foto que **no bajó** sigue sin dibujarse y
 se reintenta); `nombreDePlaca` y `conPlaca` ya aceptaban una nota sin foto; el plan de enlaces la toma si salió en Facebook. Pruebas: `piezas.test.mjs`, `elegir.test.mjs`, `posteos-placa.test.mjs`,
 `servicios-nuevos.test.mjs`.
+
+**Kit 3.0 (19/11, apagado):** con `KIT_3_0=si` `correr.mjs` dibuja clima, repaso, efeméride, farmacias, reel de nota y nota propia con el kit nuevo de `v3/redes/kit3/` (HyperFrames); si falla, cae al dibujo de siempre y lo anota en el aviso del informe. Por defecto no cambia nada. Reglas: `v3/redes/kit3/REGLAS.md`.

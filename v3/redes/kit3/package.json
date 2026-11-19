@@ -1,0 +1,11 @@
+{
+  "name": "radar-kit3",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kit 3.0 de reels de Radar Balcarce: dibuja las piezas con HyperFrames (HTML + GSAP) y ffmpeg. Dependencias aparte del resto del repositorio (que no tiene ninguna). Ver REGLAS.md.",
+  "type": "module",
+  "dependencies": {
+    "gsap": "3.12.5",
+    "hyperframes": "0.9.61"
+  }
+}

@@ -69,7 +69,7 @@ const esFechaIso = (f) => /^\d{4}-\d{2}-\d{2}$/.test(String(f ?? ''));
 /** Qué dice el día en una frase: lo que más importa (lluvia, frío, calor, viento) o, si no hay nada raro, que es un día tranquilo. */
 export function comentarioDelDia({ max, min, lluvia = 0, viento = 0 }, momento = 'manana') {
   const manana = momento !== 'noche';
-  if (lluvia >= 60) return { titulo: manana ? 'Llevá paraguas' : 'Mañana, paraguas', voz: `Hay ${lluvia} por ciento de probabilidad de lluvia: llevá paraguas.`, icono: 'lluvia' };
+  if (lluvia >= 60) return { titulo: manana ? 'Hoy llueve' : 'Mañana, lluvia', voz: `Hay ${lluvia} por ciento de probabilidad de lluvia.`, icono: 'lluvia' };
   if (viento >= 40) return { titulo: 'Ojo con el viento', voz: `Viento fuerte, de hasta ${viento} kilómetros por hora.`, icono: 'viento' };
   if (max <= 12) return { titulo: 'Día frío', voz: 'Un día frío: abrigate bien.', icono: 'frio' };
   if (max >= 30) return { titulo: 'Mucho calor', voz: 'Mucho calor: tomá agua y buscá la sombra.', icono: 'sol' };

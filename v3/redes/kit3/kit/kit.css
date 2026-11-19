@@ -1,0 +1,42 @@
+/* Kit Radar Balcarce reels 3.0 - 1080x1920. Medidas del zocalo y zonas seguras en LEEME.md */
+@font-face{font-family:Inter;font-weight:400;src:url(fonts/Inter-400.ttf)}
+@font-face{font-family:Inter;font-weight:500;src:url(fonts/Inter-500.ttf)}
+@font-face{font-family:Inter;font-weight:600;src:url(fonts/Inter-600.ttf)}
+@font-face{font-family:Inter;font-weight:700;src:url(fonts/Inter-700.ttf)}
+@font-face{font-family:SS4;font-weight:700;src:url(fonts/SourceSerif4-700.ttf)}
+@font-face{font-family:SS4;font-weight:900;src:url(fonts/SourceSerif4-900.ttf)}
+:root{--tinta:#14161A;--rojo:#C7381C;--papel:#FAF8F3;--linea:#E4DFD2;--gris:#6B6F6C;
+ --safe-top:270px;--safe-bottom:1440px;--safe-left:60px;--safe-right:960px}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#14161A;font-family:Inter,Arial,sans-serif;color:#fff}
+#root{position:relative;width:1080px;height:1920px;overflow:hidden;background:#14161A}
+.abs{position:absolute}
+.plano{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden}
+.kb{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:540px 960px}
+.kb img,.plano img{position:absolute;left:0;top:0;max-width:none;display:block}
+.mask{overflow:hidden;padding-bottom:.16em;margin-bottom:-.16em}
+.mask>span{display:inline-block;will-change:transform}
+#rotulo{position:absolute;left:60px;top:290px;height:58px;padding:0 24px;display:flex;align-items:center;font-weight:700;font-size:28px;letter-spacing:.16em;text-transform:uppercase;border-radius:4px;white-space:nowrap}
+#subs{position:absolute;left:60px;top:1090px;width:900px;height:216px}
+.sg{position:absolute;left:0;bottom:0;width:900px;display:flex;flex-wrap:wrap;justify-content:center;gap:2px 12px;opacity:0}
+.sw{display:inline-block;font-weight:700;font-size:88px;line-height:1.08;padding:0 16px 6px;border-radius:16px;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.75);white-space:nowrap}
+.sg.ch .sw{font-size:76px}
+#cierre{position:absolute;left:0;top:0;width:1080px;height:1920px;background:var(--papel);display:flex;flex-direction:column;align-items:center;justify-content:center;clip-path:inset(100% 0 0 0);z-index:50}
+#cierre .cf{font-family:SS4;font-weight:900;font-size:150px;letter-spacing:-.02em;line-height:1;color:var(--tinta)}
+#cierre .cf b{color:var(--rojo);font-weight:900}
+#cierre .raya{width:0;height:6px;background:var(--tinta);margin:34px 0 30px}
+#cierre .cu{font-weight:600;font-size:46px;color:var(--tinta);letter-spacing:.01em}
+.gota{position:absolute;left:0;top:0;width:3px;border-radius:2px;background:rgba(235,242,250,.7);transform-origin:50% 0}
+.estrella{position:absolute;border-radius:50%;background:#fff}
+.anillo{position:absolute;border-radius:50%;border:5px solid rgba(255,255,255,.55)}
+body.tapa #subs,body.tapa #cierre{display:none}
+#marca{position:absolute;left:60px;top:1394px;height:36px;font-family:SS4;font-weight:900;font-size:34px;line-height:36px;letter-spacing:-.005em;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.65),0 0 3px rgba(0,0,0,.4);white-space:nowrap}
+#mbarra{position:absolute;left:60px;top:1436px;width:900px;height:4px;border-radius:2px;background:rgba(255,255,255,.28);overflow:hidden}
+#mbarra i{position:absolute;left:0;top:0;bottom:0;width:100%;background:#fff;transform-origin:left;transform:scaleX(0)}
+#tapa{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden;z-index:60;background:#14161A}
+.tw{position:absolute;white-space:nowrap}
+#marca{position:absolute;left:60px;top:1394px;height:36px;font-family:SS4;font-weight:900;font-size:34px;line-height:36px;letter-spacing:-.005em;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.65),0 0 3px rgba(0,0,0,.4);white-space:nowrap}
+#mbarra{position:absolute;left:60px;top:1436px;width:900px;height:4px;border-radius:2px;background:rgba(255,255,255,.28);overflow:hidden}
+#mbarra i{position:absolute;left:0;top:0;bottom:0;width:100%;background:#fff;transform-origin:left;transform:scaleX(0)}
+#tapa{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden;z-index:60;background:#14161A}
+.tw{position:absolute;white-space:nowrap}

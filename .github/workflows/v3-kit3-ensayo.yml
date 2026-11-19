@@ -1,0 +1,63 @@
+# Ensayo del kit nuevo de reels (kit 3.0, `v3/redes/kit3/`). SÓLO A MANO. No publica, no gasta voz ni IA, no toca la base: dibuja todas las piezas del día con datos del sitio público
+# (radarbalcarce.com, sin claves) y deja los MP4 y las tapas como archivo adjunto de la corrida (se bajan de la página de la corrida, sección «Artifacts», 7 días).
+# Sirve para ver cómo sale cada pieza en la máquina de GitHub (Linux) antes de prender `KIT_3_0` (ver v3/redes/kit3/REGLAS.md). No cambia el valor de `KIT_3_0` en ningún lado.
+name: "Radar 3.0: ensayo del kit 3.0"
+
+on:
+  workflow_dispatch:
+    inputs:
+      piezas:
+        description: 'Sólo estas piezas, separadas por espacio (vacío = todas: clima-manana clima-noche clima-auspiciado repaso-manana repaso-tarde repaso-noche efemeride farmacia farmacias-3 nota-reel nota-propia nota-propia-1foto)'
+        type: string
+        default: ''
+      con_fondos:
+        description: 'Bajar los videos de fondo del clima de R2 (kit3/fondos/). Si no están subidos, el clima sale con el cielo gráfico'
+        type: string
+        default: 'si'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v3-kit3-ensayo
+  cancel-in-progress: false
+
+jobs:
+  ensayo:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      TZ: America/Argentina/Buenos_Aires
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Instalar (el repositorio y el kit)
+        run: |
+          npm ci --no-audit --no-fund
+          npm ci --no-audit --no-fund --ignore-scripts --prefix v3/redes/kit3
+      - name: Chrome para dibujar
+        run: node v3/redes/kit3/node_modules/hyperframes/bin/hyperframes.mjs browser ensure
+        continue-on-error: true
+      - name: Bajar los fondos del clima
+        if: inputs.con_fondos == 'si'
+        continue-on-error: true
+        run: node v3/redes/kit3/fondos/bajar.mjs "$RUNNER_TEMP/fondos-kit3"
+        env:
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      - name: Dibujar las piezas
+        run: node v3/redes/kit3/ensayo.mjs --salida "$RUNNER_TEMP/ensayo-kit3" --fondos "$RUNNER_TEMP/fondos-kit3" $PIEZAS
+        env:
+          PIEZAS: ${{ inputs.piezas }}
+      - name: Subir los resultados
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ensayo-kit3
+          path: ${{ runner.temp }}/ensayo-kit3
+          retention-days: 7
