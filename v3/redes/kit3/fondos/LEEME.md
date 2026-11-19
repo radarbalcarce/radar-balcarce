@@ -21,8 +21,11 @@ Deja la carpeta lista (36 videos + `fondos.json`). Si cambia algo del manifiesto
 ## Qué subir a R2 (lo hace una persona, una vez)
 
 Bucket `radar-fotos`, carpeta `kit3/fondos/`, con la misma estructura de subcarpetas que la carpeta preparada (36 archivos, por ejemplo `kit3/fondos/lluvia/pexels-12496667.mp4`).
-La lista exacta es la de `fondos.json` (`node -e "for (const l of Object.values(require('./fondos.json').estados)) for (const c of l) console.log(c.archivo)"`). Con la herramienta de Cloudflare
-(`wrangler r2 object put radar-fotos/kit3/fondos/<archivo> --file <ruta> --remote`) o arrastrando la carpeta en el panel de Cloudflare.
+La lista exacta es la de `fondos.json` (`node -e "for (const l of Object.values(require('./fondos.json').estados)) for (const c of l) console.log(c.archivo)"`). Con el programa `subir.mjs` (necesita `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY` y `CLOUDFLARE_ACCOUNT_ID` en el entorno de la terminal; `--probar` sólo cuenta):
+
+    node v3/redes/kit3/fondos/subir.mjs D:BalcarDevRadarMediaondos-clima-kit3
+
+O con la herramienta de Cloudflare (`wrangler r2 object put radar-fotos/kit3/fondos/<archivo> --file <ruta> --remote`, con `wrangler login` hecho como radarbalcarce@gmail.com) o arrastrando la carpeta en el panel de Cloudflare.
 
 ## Cómo los bajaría un workflow
 
@@ -33,5 +36,4 @@ Antes del paso que corre `correr.mjs` (o el ensayo), con los mismos secretos que
       continue-on-error: true
       env: { R2_ACCESS_KEY_ID: ..., R2_SECRET_ACCESS_KEY: ..., CLOUDFLARE_ACCOUNT_ID: ... }
 
-y en el paso que dibuja: `KIT3_FONDOS: ${{ runner.temp }}/fondos-kit3`. `bajar.mjs` no repite lo que ya está y, si falla, el clima sale con el cielo gráfico. **Hoy ningún workflow lo hace**
-(ni cambia el valor de `KIT_3_0`): es el paso que falta para prender el kit con fondos de video.
+y en el paso que dibuja: `KIT3_FONDOS: ${{ runner.temp }}/fondos-kit3`. `bajar.mjs` no repite lo que ya está y, si falla, el clima sale con el cielo gráfico. Desde el 19/11/2026 lo hace `v3-piezas.yml`.

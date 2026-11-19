@@ -1,6 +1,6 @@
 # Kit 3.0 de reels (`v3/redes/kit3/`)
 
-El kit nuevo de reels: otro dibujo para las mismas piezas. **Está apagado.** Mientras `KIT_3_0` no diga `si`, todo sale exactamente como hoy; esta carpeta no se usa para nada.
+El kit nuevo de reels: otro dibujo para las mismas piezas. **Está prendido desde el 19/11/2026** en `.github/workflows/v3-piezas.yml` (`KIT_3_0: si`). Si `KIT_3_0` no dice `si`, todo sale exactamente como antes y esta carpeta no se usa para nada.
 El guion, la voz, el cupo de voz, la compuerta de tono, el texto del posteo (con el aviso «Voz generada con inteligencia artificial.») y la publicación no cambian: son de `../piezas/correr.mjs`.
 El kit sólo cambia **cómo se dibuja el video**: HyperFrames (HTML + GSAP, dibujado en Chrome) y ffmpeg, en vez del armador de escenas de siempre.
 
@@ -36,17 +36,15 @@ está en pausa.** Cualquier otra pieza sale con el dibujo de siempre aunque el k
 | `ensayo.mjs` | Dibuja todas las piezas del día sin publicar ni gastar voz (abajo). |
 | `kit/` | El motor del kit (`kit.js`, `kit.css`). `package.json` fija HyperFrames 0.9.61 y gsap 3.12.5. |
 
-## Cómo se prende
+## Cómo está prendido
 
-1. Subir los fondos a R2 y que el workflow los baje (`fondos/LEEME.md`); hoy ningún workflow lo hace.
-2. En el workflow que corre `correr.mjs` (`v3-piezas.yml`): un paso `npm ci --prefix v3/redes/kit3 --ignore-scripts`, otro de Chrome (`hyperframes browser ensure`) y las variables `KIT_3_0: si` y `KIT3_FONDOS`.
-3. Antes, correr el ensayo a mano (`Radar 3.0: ensayo del kit 3.0`) y mirar los videos. Cada pieza tarda varios minutos en dibujarse (Chrome cuadro por cuadro): hay que mirar el tiempo del workflow.
+`v3-piezas.yml` (desde el 19/11/2026) instala el kit (`npm ci --prefix v3/redes/kit3 --ignore-scripts`), ffmpeg y Chrome (`hyperframes browser ensure`), baja los fondos de R2 (`fondos/bajar.mjs`) y pasa `KIT_3_0: si` y `KIT3_FONDOS` a `correr.mjs`. Los cuatro pasos de instalación son `continue-on-error`: si fallan, la pieza sale con el dibujo de siempre. El tiempo máximo del workflow pasó de 30 a 45 minutos por el dibujo y la instalación. Los fondos se suben una vez con `fondos/subir.mjs` (`fondos/LEEME.md`); sin ellos el clima sale con el cielo gráfico.
 
 Variables: `KIT_3_0` (`si` prende; vacío o cualquier otra cosa apaga), `KIT3_FONDOS` (carpeta de los clips), `KIT3_CALIDAD` (calidad de HyperFrames, por defecto `looks`), `KIT3_DEPURAR` (deja la carpeta de trabajo).
 
 ## Cómo se vuelve atrás
 
-- **Apagar:** sacar `KIT_3_0` (o ponerlo en `no`) y el próximo reel sale con el dibujo de siempre. No hay nada que migrar.
+- **Apagar:** sacar la línea `KIT_3_0: si` de `v3-piezas.yml` (o ponerla en `no`) y subir el cambio y el próximo reel sale con el dibujo de siempre. No hay nada que migrar.
 - **Si el kit falla** por cualquier motivo (falta Chrome, falla un dibujo, pasa el tiempo máximo de 15 minutos), `correr.mjs` dibuja la pieza como siempre y lo anota en el aviso del informe
   («kit 3.0 falló (…); salió con el dibujo de siempre»). La pieza no se pierde.
 
