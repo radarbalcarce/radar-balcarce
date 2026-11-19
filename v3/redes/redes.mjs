@@ -287,7 +287,7 @@ export function crearRedes(deps = {}) {
       let cuerpo = {};
       try { cuerpo = await pedido.json(); } catch { /* sin cuerpo */ }
       if (url.pathname === '/piezas/resultado') {
-        const r = await registrarResultado(env, cuerpo, { ahora: reloj() });
+        const r = await registrarResultado(env, cuerpo, { ahora: reloj(), avisar: (t) => decirPorTelegram(env, t, fetchFn) });
         return json(r, r.error ? 400 : 200);
       }
       const simulado = !redesActivas(env);

@@ -36,8 +36,8 @@ export async function reservarPieza(env, { pieza, dia, hora, bloque, simulado, a
 
 /** Qué pieza y qué día es una fila (para saber a qué nota pertenece su reel). null si no existe. */
 export async function piezaDeLaFila(env, id) {
-  const f = await env.DB.prepare('SELECT pieza, dia FROM piezas WHERE id = ?').bind(id).first();
-  return f ? { pieza: f.pieza, dia: f.dia } : null;
+  const f = await env.DB.prepare('SELECT pieza, dia, estado, simulado FROM piezas WHERE id = ?').bind(id).first();
+  return f ? { pieza: f.pieza, dia: f.dia, estado: f.estado, simulado: !!f.simulado } : null;
 }
 
 /** Anota en la ficha de la nota las direcciones de su reel (`ficha.reels = { facebook, instagram }`), sumando a lo que ya tenía. false si la nota no existe. */
@@ -107,7 +107,21 @@ export async function notasPropiasParaCarrusel(env, { desdeISO }) {
     ];
     return {
       id: f.id, titulo: f.titulo || '', bajada: f.bajada || '', cuerpo: analizar(f.cuerpo, []), seccion: f.seccion || '', firma: delMotor ? 'Radar Balcarce' : f.firma || '', slug: f.s_slug || f.n_slug || '', publicada: delMotor && redesDeLaNota?.pedida > (f.s_publicada || f.creada) ? redesDeLaNota.pedida : f.s_publicada || f.creada,
-      deServicio: f.id === 'mediakit' || !!analizar(f.ficha, null)?.marca, fotos, redes: analizar(f.n_redes, null),
+      deServicio: f.id === 'mediakit' || !!analizar(f.ficha, null)?.marca, fotos, fotosDelPanel: (Array.isArray(foto) ? foto : foto ? [foto] : []).filter((x) => x && typeof x === 'object'), redes: analizar(f.n_redes, null),
     };
   });
+}
+
+/** Cuántas filas de esa pieza (en cualquier día) están en ese estado: sirve para avisar un fallo una sola vez. */
+export async function intentosDeLaPieza(env, pieza, simulado, estado) {
+  const f = await env.DB.prepare('SELECT COUNT(*) AS n FROM piezas WHERE pieza = ? AND simulado = ? AND estado = ?').bind(pieza, simulado ? 1 : 0, estado).first();
+  return f?.n ?? 0;
+}
+
+/** El título de una nota y si su reel se pidió a mano (`redes.forzada` o `redes.destinos`); null si no existe. */
+export async function notaDelReelPedido(env, notaId) {
+  const f = await env.DB.prepare('SELECT titulo, redes FROM notas WHERE id = ?').bind(notaId).first().catch(() => null);
+  if (!f) return null;
+  const redes = analizar(f.redes, null);
+  return { titulo: f.titulo || '', pedidaAMano: redes?.forzada === true || (Array.isArray(redes?.destinos) && redes.destinos.length > 0) };
 }

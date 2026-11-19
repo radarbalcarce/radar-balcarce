@@ -38,10 +38,11 @@ export const PIEZAS_DEL_DIA = Object.freeze([
   { id: 'aviso-granizo', nombre: 'Aviso de granizo', arma: 'aviso', variante: 'granizo', formato: 'historia', hora: '07:00', ventana: 900, dias: TODOS, voz: 2, hashtag: 'Clima', condicional: true },
   { id: 'aviso-viento', nombre: 'Aviso de viento', arma: 'aviso', variante: 'viento', formato: 'historia', hora: '07:00', ventana: 900, dias: TODOS, voz: 2, hashtag: 'Clima', condicional: true },
   { id: 'efemeride', nombre: 'Un día como hoy', arma: 'efemeride', formato: 'reel', hora: '09:00', ventana: 180, dias: TODOS, voz: 3, hashtag: 'UnDíaComoHoy' },
-  { id: 'participa-noticias', nombre: 'Participá con noticias', arma: 'participa', variante: 'noticia', formato: 'reel', hora: '12:00', ventana: 60, dias: [1], voz: 4, hashtag: 'Participá' },
-  { id: 'participa-evento', nombre: 'Tu evento o emprendimiento', arma: 'participa', variante: 'evento', formato: 'reel', hora: '12:00', ventana: 60, dias: [2], voz: 4, hashtag: 'Participá' },
-  { id: 'participa-reclamos', nombre: 'Tu reclamo', arma: 'participa', variante: 'reclamo', formato: 'reel', hora: '12:00', ventana: 60, dias: [3], voz: 4, hashtag: 'Participá' },
-  { id: 'participa-nota', nombre: 'Tu nota', arma: 'participa', variante: 'nota', formato: 'reel', hora: '12:00', ventana: 60, dias: [5], voz: 4, hashtag: 'Participá' },
+  // PAUSADAS desde el 19/11/2026 (Hernán: «que no salga hasta que yo confirme»): el reel «Participá» que convoca a mandar material por WhatsApp o mail. Para prenderlas de nuevo, sacar `pausada: true` de las cuatro filas (el armador, el texto y las pruebas siguen en su lugar). Con `solo` se las puede ensayar a mano.
+  { id: 'participa-noticias', nombre: 'Participá con noticias', arma: 'participa', variante: 'noticia', formato: 'reel', hora: '12:00', ventana: 60, dias: [1], voz: 4, hashtag: 'Participá', pausada: true },
+  { id: 'participa-evento', nombre: 'Tu evento o emprendimiento', arma: 'participa', variante: 'evento', formato: 'reel', hora: '12:00', ventana: 60, dias: [2], voz: 4, hashtag: 'Participá', pausada: true },
+  { id: 'participa-reclamos', nombre: 'Tu reclamo', arma: 'participa', variante: 'reclamo', formato: 'reel', hora: '12:00', ventana: 60, dias: [3], voz: 4, hashtag: 'Participá', pausada: true },
+  { id: 'participa-nota', nombre: 'Tu nota', arma: 'participa', variante: 'nota', formato: 'reel', hora: '12:00', ventana: 60, dias: [5], voz: 4, hashtag: 'Participá', pausada: true },
   { id: 'noticia1', nombre: 'El repaso de la mañana', arma: 'repaso', momento: 'manana', formato: 'repaso', hora: '10:00', ventana: 180, dias: TODOS, voz: 1, hashtag: 'Noticias' },
   { id: 'noticia2', nombre: 'El repaso de la tarde', arma: 'repaso', momento: 'tarde', formato: 'repaso', hora: '15:00', ventana: 240, dias: TODOS, voz: 1, hashtag: 'Noticias' },
   { id: 'podcast', nombre: 'El repaso del día', arma: 'repaso', momento: 'noche', formato: 'repaso', hora: '21:00', ventana: 180, dias: TODOS, voz: 1, hashtag: 'Noticias' },
@@ -83,9 +84,14 @@ export const bloqueDe = (pieza) => bloqueDeLaHora(Math.floor(minutoDe(pieza.hora
 export function accionesDe(pieza) {
   const reel = [{ red: 'instagram', tipo: 'REELS' }, { red: 'facebook', tipo: 'REELS' }];
   const historia = [{ red: 'instagram', tipo: 'STORIES' }, { red: 'facebook', tipo: 'STORIES' }];
-  if (pieza.formato === 'carrusel') return [{ red: 'instagram', tipo: 'CARRUSEL' }, { red: 'facebook', tipo: 'ALBUM' }];
-  if (pieza.formato === 'historia') return [{ red: 'instagram', tipo: 'STORIES' }, { red: 'facebook', tipo: 'REELS' }, { red: 'facebook', tipo: 'STORIES' }];
-  return [...reel, ...historia];
+  let todas;
+  if (pieza.formato === 'carrusel') todas = [{ red: 'instagram', tipo: 'CARRUSEL' }, { red: 'facebook', tipo: 'ALBUM' }];
+  else if (pieza.formato === 'historia') todas = [{ red: 'instagram', tipo: 'STORIES' }, { red: 'facebook', tipo: 'REELS' }, { red: 'facebook', tipo: 'STORIES' }];
+  else todas = [...reel, ...historia];
+  // Una pieza pedida a mano desde el panel (`notas.redes.destinos`, viaja en `datos.nota.destinos`) sale sólo en las redes elegidas; sin destinos, todo como siempre.
+  // Instagram sigue siendo video con voz: sólo se filtra por red, nunca se cambia el formato.
+  const destinos = pieza.datos?.nota?.destinos;
+  return Array.isArray(destinos) && destinos.length ? todas.filter((a) => destinos.includes(a.red)) : todas;
 }
 
 // ------------------------------------------------------------------ Buffer: TikTok, YouTube Shorts y X (Hernán, 3/11: «lo más parecido a Facebook»)
@@ -109,10 +115,11 @@ export function topeDeYoutube(env) {
  * para dejarlos afuera, es el mismo mp4 y Buffer lo lee igual). Lo único que frena es el tope diario de YouTube (`youtubeHoy` = cuántos ya se dieron, `tope` = hasta cuántos) y, ya con el video
  * hecho, que dure más de 60 s (eso lo mira `publicarPorBuffer`). Sólo videos: las piezas de imagen (posteo, carrusel, enlace) no pasan por acá.
  */
-export function redesDeBuffer(pieza, { youtubeHoy = 0, tope = TOPE_YOUTUBE_POR_DIA } = {}) {
+export function redesDeBuffer(pieza, { youtubeHoy = 0, tope = TOPE_YOUTUBE_POR_DIA, destinos = null } = {}) {
   if (!pieza) return [];
   const redes = ['tiktok'];
   if (youtubeHoy < tope) redes.push('youtube');
   redes.push('twitter');
-  return redes;
+  // Pedido a mano con destinos: sólo los canales elegidos (el tope de YouTube sigue mandando).
+  return Array.isArray(destinos) && destinos.length ? redes.filter((r) => destinos.includes(r)) : redes;
 }

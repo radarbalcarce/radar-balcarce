@@ -341,15 +341,16 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
         const tapaMs = tapaDeLaPieza(pieza);
         const tapa = deps.cuadro ? await deps.cuadro(r.mp4, tapaMs).catch(() => null) : null;
         informe.acciones = await publicarPieza({ cliente, mp4, acciones, tapaMs, tapa, sinToken: (t) => String(t).split(env.META_TOKEN || '\u0000').join('[token]') });
-        const buenas = informe.acciones.filter((a) => a.estado === 'ok').length; // sólo Meta decide si la pieza salió; Buffer se suma aparte
+        let buenas = informe.acciones.filter((a) => a.estado === 'ok').length; // sólo Meta decide si la pieza salió; Buffer se suma aparte (salvo que el panel haya pedido sólo TikTok, YouTube o X: sin acciones de Meta, decide Buffer)
         if (item.buffer?.length) {
           if (deps.subirVideo && deps.publicarEnBuffer && env.BUFFER_API_KEY) {
             const huella = `${plan.dia}-${item.id}-${item.fila}`;
             informe.acciones.push(...await publicarPorBuffer({ pieza, item, mp4, huella, duracion: pieza.duracion, subirVideo: deps.subirVideo, publicarEnBuffer: deps.publicarEnBuffer, sinSecreto: (t) => String(t).split(env.BUFFER_API_KEY).join('[clave]') }));
           } else informe.aviso = `${informe.aviso ? `${informe.aviso}; ` : ''}sin BUFFER_API_KEY: no sale en TikTok, YouTube ni X`;
         }
+        if (!acciones.length) buenas = informe.acciones.filter((a) => a.estado === 'ok').length;
         informe.estado = buenas ? 'publicada' : 'error';
-        if (!buenas) informe.error = `Meta rechazó todo: ${informe.acciones.map((a) => `${a.red}/${a.tipo}: ${a.error}`).join(' | ').slice(0, 400)}`;
+        if (!buenas) informe.error = `${acciones.length ? 'Meta rechazó todo' : 'Buffer no publicó nada (el pedido era sólo TikTok, YouTube o X)'}: ${informe.acciones.map((a) => `${a.red}/${a.tipo}: ${a.error ?? a.estado}`).join(' | ').slice(0, 400)}`;
       } else {
         informe.acciones = [...simularPublicacion(acciones), ...simularBuffer(item)];
         informe.estado = 'lista';

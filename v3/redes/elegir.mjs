@@ -52,7 +52,15 @@ export function tipoDeNota(nota, reglas = REGLAS) {
 
 /** ¿La nota puede salir en esa red? Las del núcleo, siempre (salvo las que una persona mandó a mano con /redes: `forzada`, sólo en lo que pidió); las propias, sólo en las que eligió su autor (`reel` = los repasos con voz). */
 const REDES_DEL_POSTEO = ['facebook', 'instagram', 'threads', 'bluesky', 'x'];
-export const saleEn = (nota, red) => !(nota?.propia || nota?.forzada) || (nota.redesElegidas ?? []).includes(red) || (REDES_DEL_POSTEO.includes(red) && (nota.redesElegidas ?? []).includes('posteo'));
+/** Las redes que el panel puede pedir (`notas.redes.destinos`, 19/11/2026) y su nombre en `saleEn` (la X, en Buffer, se llama «twitter»; en los posteos, «x»). */
+export const DESTINOS_VALIDOS = Object.freeze(['instagram', 'facebook', 'tiktok', 'youtube', 'twitter', 'threads', 'bluesky']);
+/** Los destinos pedidos a mano (sólo las claves válidas, sin repetir). Vacío = no se pidió ninguno: todo sigue como siempre. */
+export const destinosPedidos = (redes) => (Array.isArray(redes?.destinos) ? DESTINOS_VALIDOS.filter((d) => redes.destinos.includes(d)) : []);
+export const saleEn = (nota, red) => {
+  // Si el panel pidió redes concretas (`destinos`), la nota sale sólo en ésas; sin destinos pedidos, la regla de siempre.
+  if (nota?.destinos?.length && !nota.destinos.includes(red === 'x' ? 'twitter' : red)) return false;
+  return !(nota?.propia || nota?.forzada) || (nota.redesElegidas ?? []).includes(red) || (REDES_DEL_POSTEO.includes(red) && (nota.redesElegidas ?? []).includes('posteo'));
+};
 
 /** ¿Tiene una foto que se pueda mandar? La foto sale de nota.foto.url; sin foto no hay posteo (R: todo lo que va a redes lleva imagen). */
 export function tieneFoto(nota) {

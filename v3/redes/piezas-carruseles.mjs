@@ -5,7 +5,7 @@
 //   «El finde en Balcarce» (jueves 18:00)     la agenda: la mira el programa (como la pieza `agenda`) y avisa con `conDatos`.
 //   El carrusel de una nota propia            nota de la redacción con 3 fotos o más (con dirección pública), una sola vez por nota.
 
-import { diaDeBalcarce, motivoDeExclusion, tipoDeNota, tieneFoto, mismoTema, REGLAS as REGLAS_DE_NOTAS } from './elegir.mjs';
+import { diaDeBalcarce, motivoDeExclusion, tipoDeNota, tieneFoto, mismoTema, destinosPedidos, REGLAS as REGLAS_DE_NOTAS } from './elegir.mjs';
 import { esTragediaParaRedes } from './tono.mjs';
 import { notasParaRedes } from './db.mjs';
 import * as dbp from './piezas-db.mjs';
@@ -28,6 +28,28 @@ export function fotosDeLaNota(nota) {
     salida.push(aFoto(f, salida.length));
   }
   return salida.slice(0, CARRUSEL_DE_NOTA.fotosMax);
+}
+
+/** Las redes donde sale un VIDEO (reel e historia): Meta directo y los tres canales de Buffer. Threads y Bluesky sólo llevan enlaces con imagen (posteos), nunca el reel. */
+export const DESTINOS_DE_VIDEO = Object.freeze(['instagram', 'facebook', 'tiktok', 'youtube', 'twitter']);
+
+/**
+ * Las fotos del reel de una nota: si el panel pidió algunas (`redes.fotos`, lugares de 0 en adelante dentro de la lista de `notas.foto`, la primera es la portada), esas y en ese orden (hasta 3);
+ * las que no sirven (sin dirección pública, repetidas, fuera de la lista) se saltean; si no queda ninguna, como siempre: las primeras 3 de la nota.
+ */
+export function fotosDelReel(n) {
+  const todas = fotosDeLaNota(n);
+  const pedidas = Array.isArray(n?.redes?.fotos) ? n.redes.fotos : [];
+  const elegidas = [];
+  for (const i of pedidas) {
+    if (!Number.isInteger(i) || i < 0) continue;
+    const cruda = (n.fotosDelPanel ?? [])[i];
+    const url = String(cruda?.url ?? cruda?.copia ?? '');
+    const foto = todas.find((f) => f.url === url);
+    if (foto && !elegidas.includes(foto)) elegidas.push(foto);
+    if (elegidas.length >= 3) break;
+  }
+  return (elegidas.length ? elegidas : todas).slice(0, 3).map((f, orden) => ({ ...f, orden }));
 }
 
 /** La nota propia como la necesita `armarCarrusel`: portada, fotos y firma. */
@@ -102,6 +124,7 @@ export function propiasConReel(notas, { ahora }) {
     && n.redes?.confirmada === true
     && (Array.isArray(n.redes?.lista) ? n.redes.lista.some((c) => c === 'reel' || c === 'historia') : ['todo', 'posteo-historia'].includes(n.redes?.eleccion))
     && !esTragediaParaRedes({ titulo: n.titulo, bajada: n.bajada })
+    && (!destinosPedidos(n.redes).length || destinosPedidos(n.redes).some((d) => DESTINOS_DE_VIDEO.includes(d))) // pidió sólo Threads o Bluesky: no hay reel para esas redes
     && fotosDeLaNota(n).length >= 1)
     .sort((a, b) => String(b.publicada).localeCompare(String(a.publicada)));
 }
@@ -115,7 +138,7 @@ export async function proximaNotaConReel(env, { ahora, simulado }) {
     const pieza = `reel-nota-${n.id}`;
     if (await dbp.piezaYaSalio(env, pieza, simulado)) yaSalieron += 1;
     if (!(await dbp.piezaYaSalio(env, pieza, simulado)) && (await dbp.intentosFallidosDe(env, pieza, simulado)) < 3) {
-      return { pieza, nota: { ...notaParaElCarrusel(n), bajada: n.bajada, cuerpo: n.cuerpo, fotos: fotosDeLaNota(n).slice(0, 3) } };
+      return { pieza, nota: { ...notaParaElCarrusel(n), bajada: n.bajada, cuerpo: n.cuerpo, fotos: fotosDelReel(n), ...(destinosPedidos(n.redes).length ? { destinos: destinosPedidos(n.redes) } : {}) } };
     }
   }
   // Sin nota: se cuenta en qué filtro se cayeron, para que el plan lo diga (10/11: el primer reel no salió y no había forma de saber por qué).

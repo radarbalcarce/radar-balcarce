@@ -1,5 +1,6 @@
 // Lo único de las redes que habla con D1. Todas las funciones reciben `env` (con env.DB) primero.
 import { slugDe } from './texto.mjs';
+import { destinosPedidos } from './elegir.mjs';
 
 /** Las notas propias de servicio (clima del día, media kit y las que vengan con `ficha.marca`) no van a las redes: ni en un posteo ni en un repaso. */
 export const esNotaDeServicio = (n) => n?.id === 'mediakit' || !!n?.ficha?.marca;
@@ -41,6 +42,7 @@ export async function notasPropiasParaRedes(env, { desdeISO }) {
       motivo: 'propia', medios: 0, propia: true, redesElegidas: elegidas,
       menciones: Array.isArray(redes?.menciones) ? redes.menciones : [],
       alRepaso: redes?.repaso === true, pedida: redes?.pedida ?? null, // /repaso en Telegram: va primera en el próximo repaso (sólo vale 24 h desde `pedida`)
+      ...(destinosPedidos(redes).length ? { destinos: destinosPedidos(redes) } : {}),
     };
   }).filter((n) => n.redesElegidas.length || n.alRepaso);
 }
@@ -78,7 +80,7 @@ async function notasDelNucleo(env, { desdeISO, conBorradores = false }) {
   return filas.map((f) => {
     const redes = conRedes ? analizar(f.redes, null) : null;
     const forzada = redes?.forzada === true && redes.confirmada === true && Array.isArray(redes.lista) && redes.lista.length > 0;
-    return { ...nucleoDeFila(f), ...(forzada ? { forzada: true, redesElegidas: redes.lista, pedida: redes.pedida ?? null } : {}), ...(redes?.repaso === true ? { alRepaso: true, pedida: redes.pedida ?? null } : {}), ...(Array.isArray(redes?.menciones) && redes.menciones.length ? { menciones: redes.menciones } : {}) };
+    return { ...nucleoDeFila(f), ...(forzada ? { forzada: true, redesElegidas: redes.lista, pedida: redes.pedida ?? null, ...(destinosPedidos(redes).length ? { destinos: destinosPedidos(redes) } : {}) } : {}), ...(redes?.repaso === true ? { alRepaso: true, pedida: redes.pedida ?? null } : {}), ...(Array.isArray(redes?.menciones) && redes.menciones.length ? { menciones: redes.menciones } : {}) };
   });
 }
 

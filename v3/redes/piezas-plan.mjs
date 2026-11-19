@@ -113,7 +113,8 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
 
   // Una pieza condicional (feriado, agenda, avisos de clima) sólo cuenta si el programa dijo que hay algo para contar; si no, ni se reserva ni le guarda lugar en el cupo de voz a las demás.
   // (El carrusel de una nota propia, `porNota`, no tiene fila fija: se arma más abajo, una fila por nota.)
-  const hayDato = (p) => !p.porNota && (!p.condicional || conDatos.includes(p.id) || (solo?.length > 0 && solo.includes(p.id)));
+  // Una pieza `pausada` fija (no condicional; las condicionales ya se pausan solas porque el programa no manda `conDatos`; ver piezas-del-dia.mjs) no se reserva ni le guarda lugar en el cupo de voz a las demás: sólo entra si se la pide a mano con `solo`.
+  const hayDato = (p) => !p.porNota && (!p.pausada || p.condicional || solo?.includes(p.id)) && (!p.condicional || conDatos.includes(p.id) || (solo?.length > 0 && solo.includes(p.id)));
   const candidatas = (solo?.length ? PIEZAS_DEL_DIA.filter((p) => solo.includes(p.id)) : piezasQueTocan(ahora)).filter(hayDato);
   const descartes = [];
   const avisos = []; // lo que salió pero con menos de lo ideal (un repaso de 2 notas): se anota y va al resumen del día
@@ -201,7 +202,7 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
     const fila = await dbp.reservarPieza(env, { pieza: siguiente.pieza, dia, hora: deNota.hora, bloque: null, simulado, ahoraISO, notas: null, auspicio: null, vozPrevista: conVoz ? 1 : 0 });
     if (!fila) continue;
     if (conVoz) usados += 1;
-    const buffer = deNota.formato === 'carrusel' ? [] : redesDeBuffer(deNota, { youtubeHoy, tope: topeDeYoutube(env) });
+    const buffer = deNota.formato === 'carrusel' ? [] : redesDeBuffer(deNota, { youtubeHoy, tope: topeDeYoutube(env), destinos: siguiente.nota.destinos });
     if (buffer.includes('youtube')) youtubeHoy += 1;
     salen.push({ fila, id: siguiente.pieza, nombre: siguiente.nota.titulo, arma: deNota.arma, variante: null, momento: null, formato: deNota.formato, hora: deNota.hora, horaDelDia: Math.floor(minutoDe(deNota.hora) / 60), bloque: null, saluda: false, buffer, voz: deNota.voz, hashtag: deNota.hashtag, primeraDelBloque: false, datos: { nota: siguiente.nota, ...(siguiente.nota.menciones?.length ? { menciones: siguiente.nota.menciones } : {}) } });
   }
@@ -211,13 +212,52 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
 const MODOS = new Set(['lista', 'publicada', 'error', 'sin-datos', 'sin-cupo']);
 
 /** Registra lo que contó el programa: { fila, estado, vozUsada, huella, duracion, guion, texto, archivos, acciones, error }. Devuelve { ok } o { error }. */
-export async function registrarResultado(env, cuerpo, { ahora = new Date() } = {}) {
+export async function registrarResultado(env, cuerpo, { ahora = new Date(), avisar = null } = {}) {
   const fila = Number(cuerpo?.fila);
   if (!Number.isInteger(fila) || fila <= 0) return { error: 'falta la fila' };
   if (!MODOS.has(cuerpo?.estado)) return { error: `estado desconocido: ${cuerpo?.estado}` };
+  const antes = await dbp.piezaDeLaFila(env, fila).catch(() => null); // para no avisar dos veces la misma fila
   const ok = await dbp.cerrarPieza(env, fila, cuerpo, ahora.toISOString());
   if (ok && cuerpo.estado === 'publicada') { try { await enlazarReelConSuNota(env, fila, cuerpo.acciones); } catch { /* el link es un extra: nunca rompe el cierre de la pieza */ } }
+  if (ok) { try { await avisarReelPedido(env, fila, cuerpo, antes, { avisar, ahora }); } catch (e) { console.error(`redes: no pude avisar del reel pedido: ${(e && e.message) || e}`); } }
   return ok ? { ok: true } : { error: 'no existe esa fila' };
+}
+
+/** Por qué no salió un reel, en palabras simples (para el aviso por Telegram). */
+export function motivoEnPalabras(estado, error) {
+  if (estado === 'sin-cupo') return 'se acabó el cupo de voz de hoy (15 audios por día); se vuelve a intentar mañana';
+  if (estado === 'sin-datos') return 'faltaron datos para armarlo (revisar las fotos de la nota)';
+  const e = String(error ?? '');
+  if (/foto/i.test(e)) return 'no se pudo bajar alguna foto de la nota';
+  if (/BUFFER/i.test(e)) return 'falta la clave de Buffer para TikTok, YouTube y X';
+  if (/token|OAuth|190|10/i.test(e) && /meta|token|facebook|instagram/i.test(e)) return 'Facebook o Instagram no aceptaron el token (puede haber vencido)';
+  if (/rechaz|Meta/i.test(e)) return 'Facebook e Instagram rechazaron el video';
+  return e ? `hubo un error al armarlo o publicarlo (${e.slice(0, 140)})` : 'hubo un error al armarlo o publicarlo';
+}
+
+/**
+ * Avisa por Telegram cómo terminó el reel de una nota PEDIDA A MANO (desde el panel o con /redes: la nota tiene `redes.forzada` o `redes.destinos`); los reels automáticos no avisan.
+ * Una sola vez por pieza: «Salió» cuando queda publicada (una pieza sale una vez por nota); «No salió» cuando se abandona (el tercer error) o, si faltaron datos o cupo, la primera vez.
+ * En ensayo no avisa. Nunca rompe nada: quien llama lo envuelve en try/catch.
+ */
+export async function avisarReelPedido(env, fila, cuerpo, antes, { avisar = null, ahora = new Date() } = {}) {
+  const decir = avisar;
+  if (!decir || !antes || antes.simulado || !antes.pieza.startsWith('reel-nota-')) return false;
+  if (!['publicada', 'error', 'sin-datos', 'sin-cupo'].includes(cuerpo.estado) || antes.estado === cuerpo.estado) return false;
+  const notaId = notaDeLaPieza(antes.pieza, antes.dia);
+  const nota = await dbp.notaDelReelPedido(env, notaId);
+  if (!nota?.pedidaAMano) return false;
+  const titulo = nota.titulo || 'la nota';
+  if (cuerpo.estado === 'publicada') {
+    const enlaces = [...new Set((cuerpo.acciones ?? []).filter((a) => a?.estado === 'ok' && a.tipo === 'REELS' && typeof a.url === 'string' && /^https:\/\/www\.(facebook|instagram)\.com\//.test(a.url) && !/[\s"<>]/.test(a.url)).map((a) => a.url))];
+    const redes = [...new Set((cuerpo.acciones ?? []).filter((a) => a?.estado === 'ok').map((a) => a.red))];
+    return decir(`Salió el reel de «${titulo}»: ${enlaces.length ? enlaces.join(' ') : `ya está publicado en ${redes.join(', ') || 'las redes'} (sin enlace directo)`}`);
+  }
+  // Un fallo se avisa una sola vez: el tercer error (la pieza se abandona) o, con falta de datos o de cupo, el primero.
+  const iguales = await dbp.intentosDeLaPieza(env, antes.pieza, false, cuerpo.estado);
+  const ultimo = cuerpo.estado === 'error' ? iguales >= REGLAS_PIEZAS.intentosPorPieza : iguales === 1;
+  if (!ultimo) return false;
+  return decir(`No salió el reel de «${titulo}»: ${motivoEnPalabras(cuerpo.estado, cuerpo.error)}`);
 }
 
 /** La nota a la que pertenece el reel de una pieza: la efeméride del día, el reel de una nota propia o (el clima) la nota del día; null si es un repaso, que cuenta varias. */
