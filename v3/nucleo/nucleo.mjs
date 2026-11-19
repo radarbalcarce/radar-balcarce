@@ -745,16 +745,16 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
           // Escribe sólo si la nota sigue sin foto: si mientras tanto apareció una real (o de una persona), esa gana.
           await db.ponerFotoDeNota(env, n.id, foto, IL.conIlustracionHecha(n.verificacion, { prompt: res.prompt, control: res.control, ahoraISO: c.ahoraISO }));
           il_.hechas += 1;
-        } else if (res.final) {
+        } else if (res.final || IL.demasiadosRechazos(il, res)) { // 19/11: tres rechazos del control en total (aunque sea en vueltas distintas) y la nota queda con la placa de la sección
           await anotarError(`${n.id}: ${res.motivo}`);
-          await marcar({ final: true, motivo: String(res.motivo).slice(0, 160) });
+          await marcar({ final: true, rechazos: IL.rechazosAcumulados(il, res), motivo: String(res.motivo).slice(0, 160) });
           il_.finales += 1;
         } else if (res.sinCupo) {
           break; // se acabaron las imágenes de hoy: ninguna nota gasta un intento
         } else {
           await anotarError(`${n.id}: ${res.motivo}`);
           const fallos = (Number(il.fallos) || 0) + 1;
-          await marcar(fallos >= IL.FALLOS_TECNICOS_MAXIMOS ? { final: true, fallos, motivo: `técnico: ${res.motivo}`.slice(0, 160) } : { fallos, motivo: String(res.motivo).slice(0, 160) });
+          await marcar(fallos >= IL.FALLOS_TECNICOS_MAXIMOS ? { final: true, fallos, rechazos: IL.rechazosAcumulados(il, res), motivo: `técnico: ${res.motivo}`.slice(0, 160) } : { fallos, rechazos: IL.rechazosAcumulados(il, res), motivo: String(res.motivo).slice(0, 160) });
           il_.fallos += 1;
         }
       } catch (e) {

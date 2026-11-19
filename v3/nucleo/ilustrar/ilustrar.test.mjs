@@ -6,7 +6,7 @@ import {
   CREDITO, motivoParaSaltar, busquedaAgotada, leTocaIlustrar, tonoDeLaNota, armarInstruccion, promptFinal, problemaDelPrompt, interpretarControl, controlarImagen,
   ilustrarUna, guardarIlustracion, huellaDe, generarImagen, debeBuscarFotoReal, conIlustracionHecha, conEstadoDeIlustracion, sinIlustracion, esIlustracion,
   debeRevisarFotoRealUnaVez, REVISION_FOTO_REAL, motivoPorPersona, tipoDeImagen, NEURONAS_POR_IMAGEN, NEURONAS_GRATIS_POR_DIA, POR_DIA, MODELO_DE_IMAGEN,
-  nombresDePersona, debeReabrirseLaIlustracion, estadoDeReapertura, REVISION_ILUSTRACION, varianteDeLaNota,
+  nombresDePersona, debeReabrirseLaIlustracion, estadoDeReapertura, REVISION_ILUSTRACION, RECHAZOS_DEL_CONTROL_MAXIMOS, rechazosAcumulados, demasiadosRechazos, varianteDeLaNota,
 } from './ilustrar.mjs';
 import { conCopiaPropia, esCopiaPropia } from '../../sitio/fotos-copia.mjs';
 import { creditoConPrefijo } from '../../redes/texto.mjs';
@@ -247,6 +247,26 @@ test('ilustrarUna: si el control rechaza, UN reintento con otra semilla; si pasa
   assert.deepEqual([no.ok, no.final], [false, true]);
   assert.match(no.motivo, /el control vio: texto/);
   assert.equal(ai.llamadas.length, 2, 'nunca más de dos imágenes por nota');
+});
+
+test('rechazos del control (19/11, nota 8zraady): ilustrarUna cuenta los rechazos y, sumados entre vueltas, a los 3 la nota queda final (placa de la sección) sin más IA', async () => {
+  assert.equal(RECHAZOS_DEL_CONTROL_MAXIMOS, 3);
+  const mal = { ...CONTROL_OK, texto: true };
+  // el segundo intento falla en el generador: antes eso dejaba la nota «no final» para siempre; ahora el rechazo del primero igual cuenta
+  const ai = { async run() { throw new Error('boom'); } };
+  const g = geminiFalso({ controles: [mal] });
+  let n = 0;
+  const aiMixta = { async run(...a) { n += 1; if (n === 1) return aiFalso().run(...a); throw new Error('boom'); } };
+  const r1 = await ilustrarUna(nota(), { gemini: g, ai: aiMixta });
+  assert.deepEqual([r1.ok, r1.final, r1.rechazos], [false, false, 1]);
+  const r2 = await ilustrarUna(nota(), { gemini: geminiFalso({ controles: [mal, mal] }), ai: aiFalso() });
+  assert.deepEqual([r2.final, r2.rechazos], [true, 2]);
+  assert.equal(rechazosAcumulados({ rechazos: 1 }, r2), 3);
+  assert.equal(demasiadosRechazos({ rechazos: 1 }, r1), false, '1 + 1 = 2: todavía se reintenta');
+  assert.equal(demasiadosRechazos({ rechazos: 2 }, r1), true, '2 + 1 = 3: se deja de reintentar');
+  assert.equal(demasiadosRechazos({}, { rechazos: 0 }), false);
+  assert.equal(estadoDeReapertura().rechazos, 0, 'una nota reabierta empieza de cero');
+  void ai;
 });
 
 test('ilustrarUna: un prompt que nombra gente se pide una vez más; si vuelve a fallar, final y sin generar nada', async () => {

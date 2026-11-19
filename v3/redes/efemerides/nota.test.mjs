@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  hechosDelDia, datosDelHecho, tituloDeLaNota, notaDeEfemeride, sqlDeEfemeride, fotoDeCommons, consultasDeFoto, paginaDeWikipedia, creditoDeCommons, slugDeLaNota, ID_DE_NOTA, detalleDeWikipedia, clavesDelHecho, acortarFrase,
+  hechosDelDia, datosDelHecho, tituloDeLaNota, notaDeEfemeride, sqlDeEfemeride, fotoDeCommons, consultasDeFoto, paginaDeWikipedia, creditoDeCommons, slugDeLaNota, ID_DE_NOTA, detalleDeWikipedia, clavesDelHecho, acortarFrase, articuloCorrespondeAlHecho, fraseCompleta,
 } from './nota.mjs';
 import { armarNotaDelDia } from './publicar-nota.mjs';
 import { esEfemerides, efemeridesHtml, ejeDelTiempo } from '../../sitio/vistas/efemerides-nota.mjs';
@@ -42,6 +42,34 @@ test('el título entra en 110 letras, con la fecha y, si no caben tres, «y otra
   assert.ok(t.startsWith('Un día como hoy, 12 de noviembre: ') && t.length <= 110, t);
   const largo = tituloDeLaNota('2026-11-12', [{ titulo: 'x'.repeat(100), anio: 2000 }, { titulo: 'y', anio: 1990 }, { titulo: 'z', anio: 1980 }]);
   assert.ok(largo.length <= 110, largo);
+});
+
+test('el título de la nota nunca lleva un titular cortado (19/11, caso Halo 2): entero, su forma completa más corta, o la fecha con el año', () => {
+  const halo = 'Microsoft, en asociación con Bungie, lanza el videojuego Halo 2 para la consola Xbox en todo el mundo';
+  const t = tituloDeLaNota('2026-11-09', [{ titulo: halo, anio: 2004 }, { titulo: 'Cae el muro de Berlín', anio: 1989 }, { titulo: 'Nace Carl Sagan en Brooklyn', anio: 1934 }, { titulo: 'Se funda una ciudad', anio: 1900 }]);
+  assert.ok(!t.includes('videojuego'), t); assert.ok(t.length <= 110, t);
+  assert.ok(t.includes('Cae el muro de Berlín') && t.includes('nace Carl Sagan en Brooklyn'), t);
+  // ninguno entra ni tiene forma completa: queda la fecha con el año del más nuevo
+  const largo = 'Una frase larguísima sin ninguna coma ni dos puntos ni punto intermedio que no entra de ninguna manera en el título de la nota';
+  assert.equal(tituloDeLaNota('2026-11-19', [{ titulo: largo, anio: 2004 }, { titulo: largo + ' bis', anio: 1990 }, { titulo: largo + ' tris', anio: 1980 }, { titulo: largo + ' cuarto', anio: 1970 }]), 'Un día como hoy, 19 de noviembre: 2004 y otras 3 historias');
+  assert.equal(tituloDeLaNota('2026-11-19', [{ titulo: largo, anio: 2004 }]), 'Un día como hoy, 19 de noviembre: la historia de 2004');
+  // una forma completa: lo de antes de la última coma que deja sentido
+  assert.equal(fraseCompleta('El Congreso aprueba la ley de educación común, tras años de debate', 50), 'El Congreso aprueba la ley de educación común');
+  assert.equal(fraseCompleta('Microsoft, en asociación con Bungie, lanza el videojuego Halo 2 para Xbox', 50), null, 'un inciso cortado en la coma queda trunco: no se usa');
+  assert.equal(fraseCompleta('x'.repeat(5) + ' y ' + 'z'.repeat(80), 20), null);
+  // nunca termina en una palabra colgada ni en «…»
+  for (const x of [halo, largo]) { const v = fraseCompleta(x, 58); assert.ok(v === null || (!/…$/.test(v) && !/\s(de|en|el|la|con|y)$/.test(v))); }
+});
+
+test('detalleDeWikipedia: sólo si el título del artículo aparece en el titular del hecho (caso «Microsoft Corporation» para Halo 2); ante la duda, sin bloque', async () => {
+  const extract = 'Microsoft Corporation es una empresa multinacional estadounidense de tecnología fundada en 1975 por Bill Gates y Paul Allen.';
+  const json = async () => ({ query: { pages: [{ title: 'Microsoft Corporation', extract }] } });
+  assert.deepEqual(await detalleDeWikipedia({ enlace: 'https://es.wikipedia.org/wiki/Microsoft_Corporation', titulo: 'Microsoft, en asociación con Bungie, lanza el videojuego Halo 2' }, { json }), []);
+  assert.equal((await detalleDeWikipedia({ enlace: 'https://es.wikipedia.org/wiki/Microsoft_Corporation', titulo: 'Microsoft Corporation lanza un producto nuevo' }, { json })).length, 1);
+  assert.deepEqual(await detalleDeWikipedia({ enlace: 'https://es.wikipedia.org/wiki/Microsoft_Corporation' }, { json }), [], 'sin titular, no se sabe: nada');
+  assert.equal(articuloCorrespondeAlHecho(['Halo_2', 'Halo 2'], 'Microsoft lanza el videojuego Halo 2'), true);
+  assert.equal(articuloCorrespondeAlHecho(['Saturno_(planeta)'], 'La Voyager 1 pasa junto a Saturno'), true);
+  assert.equal(articuloCorrespondeAlHecho(['Roma'], 'Un romano llega a la ciudad'), false, 'palabras completas, no pedazos');
 });
 
 test('el título baja la primera letra sólo de un verbo o un artículo, nunca de un nombre propio (caso «y amelia Earhart»)', () => {
@@ -170,7 +198,7 @@ test('consultasDeFoto: primero los nombres propios, después el título sin el l
 test('detalleDeWikipedia y clavesDelHecho: párrafos del artículo sin paréntesis; las claves empiezan por lo que pasó ese día', async () => {
   const extract = 'Saturno (símbolo) es el sexto planeta del sistema solar contando desde el Sol, el segundo en tamaño y masa después de Júpiter y uno de los pocos con anillos.\nSu nombre proviene del dios romano Saturno y fue visto desde la antigüedad.\ncorto';
   const json = async () => ({ query: { pages: [{ extract }] } });
-  const detalle = await detalleDeWikipedia({ enlace: 'https://es.wikipedia.org/wiki/Saturno_(planeta)' }, { json });
+  const detalle = await detalleDeWikipedia({ enlace: 'https://es.wikipedia.org/wiki/Saturno_(planeta)', titulo: 'La Voyager 1 pasa junto a Saturno' }, { json });
   assert.equal(detalle.length, 2); assert.ok(!detalle[0].includes('(símbolo)'));
   assert.deepEqual(await detalleDeWikipedia({ enlace: null }, { json }), []);
   const claves = clavesDelHecho({ titulo: 'La Voyager 1 pasa junto a Saturno', texto: 'La sonda Voyager 1 envía imágenes de los anillos de Saturno desde menos de 125.000 kilómetros.', detalle });

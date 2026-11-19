@@ -38,4 +38,14 @@ jobs:
         run: |
           sed -n '/Así saldría en el WhatsApp:/,$p' medicion.txt | tail -n +2 | sed '/^\s*$/d' > resumen.txt
           test -s resumen.txt || { echo "No hubo resumen para mandar"; exit 0; }
-          node v3/redaccion/telegram/herramientas.mjs decir resumen.txt
+          # 19/11: Telegram a veces no contesta (502). El aviso se reintenta 2 veces con espera; si igual falla, las estadísticas ya se midieron: el trabajo NO falla, deja un aviso amarillo en el log.
+          enviado=no
+          for intento in 1 2 3; do
+            if node v3/redaccion/telegram/herramientas.mjs decir resumen.txt; then enviado=si; break; fi
+            echo "Telegram no recibió el resumen (intento $intento de 3)."
+            [ "$intento" -lt 3 ] && sleep $((intento * 20))
+          done
+          if [ "$enviado" != "si" ]; then
+            echo "::warning title=Resumen sin enviar::Telegram no contestó en 3 intentos. Las estadísticas se midieron bien (están en el paso Medir); sólo falló el aviso."
+          fi
+          exit 0

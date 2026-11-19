@@ -7,7 +7,7 @@
 //   armarInstruccion(nota) / promptFinal(...)    el pedido a Gemini (prompt corto en inglés, con el tono y la escena de la sección) y el prompt que va al generador
 //   problemaDelPrompt(prompt, nota)              un prompt que nombra gente, armas, marcas o la escena de un hecho se descarta
 //   controlarImagen(gemini, bytes)               la visión mira la imagen terminada: sin personas, rostros, texto, logos ni nada sensible o raro
-//   ilustrarUna(nota, { gemini, ai, cupo })      prompt → imagen → control; si el control la rechaza, UN reintento; si no, queda sin imagen
+//   ilustrarUna(nota, { gemini, ai, cupo })      prompt → imagen → control; si el control la rechaza, UN reintento; si no, queda sin imagen (y devuelve `rechazos`: nucleo.mjs los suma y a los 3 la nota queda con la placa)
 //   guardarIlustracion(bucket, bytes, ...)       la guarda en R2 (`copias/<huella>.jpg`, el mismo lugar y formato que las copias propias de las fotos) y arma `nota.foto`
 //
 // Todo se inyecta (Gemini, Workers AI, R2, el azar): se prueba sin red. Una falla NUNCA tira la vuelta: devuelve { ok: false, ... } con el porqué.
@@ -36,6 +36,16 @@ export const FALLOS_TECNICOS_MAXIMOS = 3;
 export const MINUTOS_ENTRE_FALLOS = 20;
 /** Generaciones por nota: la primera y UN reintento si el control la rechaza (o el generador falla). */
 export const GENERACIONES_POR_NOTA = 2;
+/**
+ * Rechazos del control (la visión vio texto, personas, etc.) que se aceptan, sumados de todas las vueltas, para la MISMA nota (19/11, nota 8zraady: 22 horas sin foto porque cada vuelta
+ * volvía a gastar imágenes y el control volvía a rechazarlas). Al llegar acá la nota queda `final` y se muestra la placa de la sección, sin gastar más IA.
+ */
+export const RECHAZOS_DEL_CONTROL_MAXIMOS = 3;
+
+/** Los rechazos del control de esta nota: los de vueltas anteriores (`verificacion.ilustracion.rechazos`) más los de esta (`res.rechazos`). */
+export const rechazosAcumulados = (il, res) => (Number(il?.rechazos) || 0) + (Number(res?.rechazos) || 0);
+/** ¿Ya fueron demasiados rechazos del control para esta nota? Entonces se deja de reintentar y va la placa. */
+export const demasiadosRechazos = (il, res) => rechazosAcumulados(il, res) >= RECHAZOS_DEL_CONTROL_MAXIMOS;
 
 // La búsqueda de foto real (nucleo.mjs): 4 intentos, y sólo las de las últimas 24 h se reintentan. Con un motivo final, 2 intentos alcanzan.
 export const MAX_INTENTOS_DE_FOTO = 2; // 11/11 (Hernán): 2 intentos o 3 horas y se ilustra (antes 4 o 24 h); la foto real sigue buscándose y reemplaza
@@ -122,7 +132,7 @@ export function debeReabrirseLaIlustracion(nota) {
 }
 
 /** El estado que se le suma a una nota al reabrirla (idempotente: queda la versión, así no vuelve a abrirse). */
-export const estadoDeReapertura = () => ({ final: false, fallos: 0, revisionIlustracion: REVISION_ILUSTRACION });
+export const estadoDeReapertura = () => ({ final: false, fallos: 0, rechazos: 0, revisionIlustracion: REVISION_ILUSTRACION });
 
 /** ¿La búsqueda de una foto real de las fuentes ya se agotó? Entonces toca la ilustración. Las notas viejas (nadie las vuelve a buscar) cuentan como agotadas. */
 export function busquedaAgotada(nota, ahora = new Date()) {
@@ -447,6 +457,7 @@ const tema = (nota) => (esPolitica(nota) ? 'politica' : esDeporte(nota) ? 'depor
  */
 export async function ilustrarUna(nota, { gemini, ai, cupo = async () => true, azar = Math.random } = {}) {
   let generadas = 0;
+  let rechazos = 0; // veces que el control rechazó una imagen en ESTA llamada (quien llama las suma a las de antes)
   const persona = motivoPorPersona(nota);
   if (persona) return { ok: false, final: true, motivo: `no se ilustra: ${persona}`, generadas }; // sin gastar Gemini ni imagen: queda la placa
   // 1) el prompt
@@ -479,12 +490,13 @@ export async function ilustrarUna(nota, { gemini, ai, cupo = async () => true, a
       continue;
     }
     const control = await controlarImagen(gemini, bytes);
-    if (control.noPudo) return { ok: false, final: false, motivo: control.motivo, generadas };
+    if (control.noPudo) return { ok: false, final: false, motivo: control.motivo, generadas, rechazos };
     if (control.ok) return { ok: true, bytes, prompt, control, generadas };
     ultimo = control.motivo;
+    rechazos += 1;
   }
   // Si las dos veces fue el generador (no el control), no es culpa de la imagen: se reintenta en otra vuelta.
-  return { ok: false, final: /control vio/.test(ultimo), motivo: ultimo, generadas };
+  return { ok: false, final: /control vio/.test(ultimo), motivo: ultimo, generadas, rechazos };
 }
 
 // ------------------------------------------------------------------ guardar

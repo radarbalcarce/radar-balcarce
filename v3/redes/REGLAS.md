@@ -186,6 +186,8 @@ GitHub dejó de lanzar sus horarios (`schedule:`) durante horas el 10/11/2026, a
 - Los tres datos de cada hecho se calculan (años desde entonces, década o siglo, tema); nunca se inventan.
 - Foto: sólo la imagen de la página de Wikipedia del hecho si está en Wikimedia Commons con licencia libre (dominio público, CC0, CC BY, CC BY-SA); nunca bandera, mapa, logo, svg ni imagen chica; con el crédito del autor y «vía Wikimedia Commons» al pie, y el epígrafe dice de qué página es. Sin foto que sirva, la placa del medio. Es la excepción que Hernán autorizó SÓLO para las efemérides (la regla de fotos de las notas con fuentes sigue igual).
 - Idempotente: si la nota del día ya existe no se toca (salvo `forzar`, que actualiza texto, fotos y ficha, nunca su fecha, su estado ni su dirección). Sin hechos publicables ese día, no sale nota y no es una falla.
+- **El título de la nota nunca lleva un titular cortado (19/11/2026, caso «Microsoft… lanza el videojuego y otras 3 historias», que perdió «Halo 2»).** Cada hecho entra en el título entero o con su forma completa más corta (`titular.mjs`: primera oración, antes de «:» o de un guion; una coma sólo si lo que queda es una idea completa y lo que se saca es un agregado como «, tras…», nunca un inciso: «Microsoft, en asociación con Bungie, lanza…» no se corta en la coma). Un hecho sin forma completa que entre se saltea; si ninguno entra, el título lleva la fecha y el año: «Un día como hoy, 19 de noviembre: 2004 y otras 3 historias».
+- **«Para ponerlo en contexto» sólo si el artículo es del hecho (19/11/2026).** El enlace de un hecho a veces es un artículo general («Microsoft Corporation» para un videojuego). `detalleDeWikipedia` sólo trae el texto cuando el título del artículo (el del enlace o al que redirige, sin paréntesis) aparece entero como palabras en el titular del hecho; ante la duda no hay bloque (sin IA no hay otra forma segura de saberlo).
 - Pruebas: `v3/redes/efemerides/nota.test.mjs` y `disparar-acciones.test.mjs`.
 
 ## 17. El reel enlaza a su nota y la efeméride no pierde los enlaces (13/11)
@@ -236,6 +238,8 @@ GitHub dejó de lanzar sus horarios (`schedule:`) durante horas el 10/11/2026, a
 - **Lo que NO cambia:** el crédito de la foto, el nombre de un comercio y el lugar siguen con «…» si no entran (el crédito no puede perderse en silencio); la bajada de la placa del posteo ya era entera desde el 6/11 (`bajadaConcreta`); el resumen del guion en el texto del posteo de Facebook.
   Las placas de las efemérides (`efemerides/placas.mjs`) llevan frases propias y no titulares: quedan como estaban.
 - Pruebas: `titulares-enteros.test.mjs` (cinco títulos largos de notas reales —126, 119, 104, 96 y 89 caracteres— y dos de estrés, por los armadores de repaso, nota, nota propia, historia, posteo, enlace, carrusel y semana, dibujados en varios momentos, y por los textos de X, Bluesky y Threads), `piezas.test.mjs`, `servicios-nuevos.test.mjs`.
+
+**Estadísticas: el aviso por Telegram no tumba el trabajo (19/11/2026).** En `v3-estadisticas.yml`, el paso «Mandar por Telegram» reintenta el aviso 2 veces más (esperas de 20 y 40 s) y, si Telegram sigue sin contestar (502 «Telegram no contestó»), termina bien con un aviso amarillo (`::warning::`) en el log: las estadísticas ya se midieron en el paso anterior. Sólo vale después de subir el workflow (push).
 
 ## 23. Farmacias de turno: de 1 a 3 por día (17/11/2026, Hernán)
 

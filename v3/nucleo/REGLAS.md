@@ -211,6 +211,8 @@ el nombre original del medio. Nunca una foto real de un menor o una víctima.
 - **Para subir:** hace falta volver a subir el núcleo («Radar 3.0: desplegar», opción `nucleo`): el nuevo depósito `FOTOS` (`radar-fotos`, ya existe porque lo creó el sitio) y las dos variables van en su
   `wrangler.toml`. Para que las notas sin imagen de Balcarce también salgan en redes con la placa, volver a subir `redes` (`v3/redes/piezas/REGLAS.md` § 5 bis).
 
+**Tope de rechazos del control (19/11/2026, nota `8zraady`: 22 horas sin foto).** Si la visión rechaza la imagen de una misma nota 3 veces en total (`RECHAZOS_DEL_CONTROL_MAXIMOS`, contadas entre todas las vueltas en `verificacion.ilustracion.rechazos`, no sólo las dos de una vuelta), la nota queda `final` y se muestra la placa de la sección: no se gasta más Workers AI ni Gemini en ella. Antes, si el segundo intento fallaba por el generador, el rechazo del primero no contaba y la nota volvía a intentarse en cada vuelta. No hace falta migración de base (va dentro del JSON de `verificacion`). Una reapertura (`estadoDeReapertura`) vuelve el contador a cero.
+
 ### 7 quinquies. La foto de archivo (6/11/2026, Hernán; `archivo-fotos/archivo-fotos.mjs`, paso e4 de la vuelta, justo antes de ilustrar)
 
 - **Qué es.** Para una nota publicada, del núcleo, sin foto y con la búsqueda de foto real **agotada** (las mismas notas que van a ilustración: § 7 quater), se busca en la base una **nota anterior con foto real propia** que comparta un

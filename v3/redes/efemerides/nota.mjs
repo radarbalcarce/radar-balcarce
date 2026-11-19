@@ -2,6 +2,7 @@
 // si hay una libre, su foto de Wikimedia Commons con crédito), firmada «Radar Balcarce». El reel, la historia y el posteo de las 9 la enlazan.
 //
 //   hechosDelDia(pieza, dia, candidatas)   → hasta 4 hechos (la principal y las de «Y además» de la pieza, y si faltan, las mejores candidatas), de la más nueva a la más vieja
+//   detalleDeWikipedia(hecho, { json })    → los párrafos del artículo enlazado, SÓLO si el título del artículo aparece en el titular del hecho (si no, [])
 //   datosDelHecho(hecho, anioActual)       → tres datos que se calculan del año y del estilo (nada inventado)
 //   notaDeEfemeride({ dia, hechos, ... })  → la fila de la nota (la misma forma que las notas propias: v3/nucleo/notas-manuales/cargar.mjs) con `ficha.efemerides`
 //   fotoDeCommons(hecho, { json, bajar })  → { archivo, bytes, mime, credito, alt, titulo } de la página de Wikipedia del hecho, o null (sólo licencias libres)
@@ -10,6 +11,7 @@
 // Sin dependencias. La red entra por `json` (JSON de las APIs) y `bajar` (bytes de la imagen). Reglas: v3/redes/efemerides/REGLAS.md.
 import { tituloYCuerpo, esUsable } from './armar.mjs';
 import { mismoHecho } from './motor.mjs';
+import { variantesDeTitulo } from '../titular.mjs';
 
 export const FIRMA_EFEMERIDES = 'Radar Balcarce';
 export const SECCION_EFEMERIDES = 'Cultura';
@@ -167,11 +169,21 @@ async function archivoDeCommons(nombre, tituloDePagina, { json, bajar, ancho }) 
 const sinParentesis = (t) => String(t).replace(/[​-‍﻿]/g, '').replace(/\s*\([^()]*\)/g, '').replace(/\s*\[[^\]]*\]/g, '').replace(/\s+/g, ' ').trim();
 const frasesDe = (t) => sinParentesis(t).split(/(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÑ¿¡"«])/).map((x) => x.trim()).filter(Boolean);
 
+const planoDe = (t) => ' ' + String(t ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/_/g, ' ').replace(/\s*\([^()]*\)/g, '').replace(/[^a-z0-9]+/g, ' ').trim() + ' ';
+/** ¿Alguno de los títulos del artículo (sin paréntesis, sin tildes ni mayúsculas) aparece entero, como palabras completas, en el titular del hecho? */
+export function articuloCorrespondeAlHecho(titulosDelArticulo, titularDelHecho) {
+  const titular = planoDe(titularDelHecho);
+  return (titulosDelArticulo ?? []).some((t) => { const p = planoDe(t); return p.trim().length >= 3 && titular.includes(p); });
+}
+
 /** Los párrafos del comienzo del artículo de Wikipedia del hecho (hasta ~2.000 letras, sin paréntesis de fechas ni pronunciaciones, cortado en una frase entera). [] si no hay. */
 export async function detalleDeWikipedia(hecho, { json } = {}) {
   const pagina = paginaDeWikipedia(hecho?.enlace);
   if (!pagina) return [];
   const r = await json(`https://es.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&redirects=1&prop=extracts&exintro=1&explaintext=1&exsectionformat=plain&titles=${encodeURIComponent(pagina)}`);
+  // 19/11 (caso Halo 2): el enlace del hecho a veces es un artículo general («Microsoft Corporation») y su párrafo no habla del hecho. Sin IA, la única forma segura de saber que corresponde
+  // es que el título del artículo (el del enlace o al que redirige) aparezca entero en el titular del hecho; ante la duda, no hay bloque «Para ponerlo en contexto».
+  if (!articuloCorrespondeAlHecho([pagina, r?.query?.pages?.[0]?.title], hecho?.titulo)) return [];
   const texto = String(r?.query?.pages?.[0]?.extract ?? '');
   const parrafos = texto.split(/\n+/).map(sinParentesis).filter((x) => x.length > 40);
   const salida = []; let largo = 0;
@@ -204,19 +216,40 @@ export function clavesDelHecho(h, max = 3) {
 
 // ------------------------------------------------------------------ la nota
 
-/** El título de la nota: la fecha y los tres primeros hechos, cada uno en una frase corta; si no entra en 110 letras, con menos. */
+// Una forma «hasta la coma» sólo vale si lo que queda ya es una idea completa y lo que se saca es un agregado («…, tras años de debate»). Una frase que se abre con un inciso
+// («Microsoft, en asociación con Bungie, lanza el videojuego») cortada en la coma queda trunca, así que esa no se usa.
+const AGREGADO_TRAS_COMA = /^,\s+(tras|luego|despu[eé]s|mientras|donde|lo que|lo cual|con lo que|seg[uú]n|pese|a pesar|cuando|por lo que|dejando|siendo|convirti[eé]ndose|quedando|ante)\b/i;
+const cierraUnaIdea = (completo, v) => { const resto = completo.slice(v.length); return !resto.startsWith(',') || AGREGADO_TRAS_COMA.test(resto); };
+
+/** El titular del hecho ENTERO si entra en `max`; si no, su forma completa más corta que entre (v3/redes/titular.mjs: primera oración, antes de «:» o una coma); si no hay, null. Nunca cortado a mitad de frase. */
+export function fraseCompleta(titulo, max) {
+  const x = sinPunto(titulo);
+  if (x.length <= max) return x;
+  return variantesDeTitulo(x).find((v) => v.length <= max && cierraUnaIdea(x, v)) ?? null;
+}
+
+/**
+ * El título de la nota: la fecha y los tres primeros hechos con una frase COMPLETA (19/11, caso «…lanza el videojuego y otras 3 historias», que se cortó antes de «Halo 2»: nunca se recorta
+ * un titular). Si un hecho no tiene una forma completa que entre, se saltea; si ninguno, el título lleva la fecha y el año del más nuevo («Un día como hoy, 19 de noviembre: 2004 y otras 3 historias»).
+ */
 export function tituloDeLaNota(dia, hechos) {
   const f = fechaDelDia(dia);
   const cabeza = `Un día como hoy, ${f.dia} de ${f.mes}`;
-  const frases = hechos.map((h) => minuscula1(recortar(h.titulo, 58)));
+  const conFrase = hechos.map((h) => ({ h, frase: fraseCompleta(h.titulo, 58) })).filter((x) => x.frase).map((x) => ({ ...x, frase: minuscula1(x.frase) }));
+  const frases = conFrase.map((x) => x.frase);
   for (let n = Math.min(3, frases.length); n >= 2; n -= 1) {
     const t = `${cabeza}: ${frases.slice(0, n - 1).join(', ')} y ${frases[n - 1]}`;
     if (t.length <= 110) return t;
   }
   const resto = hechos.length - 1;
-  const uno = `${cabeza}: ${frases[0]}`;
-  if (resto > 0 && `${uno} y otras ${resto} historias`.length <= 110) return `${uno} y otras ${resto} historias`;
-  if (uno.length <= 110) return uno;
+  // un solo titular completo (de hasta lo que deje el largo): el del primer hecho que lo tenga
+  const sufijo = resto > 0 ? ` y otras ${resto} historias` : '';
+  for (const h of hechos) {
+    const frase = fraseCompleta(h.titulo, 110 - `${cabeza}: `.length - sufijo.length);
+    if (frase) return `${cabeza}: ${minuscula1(frase)}${sufijo}`;
+  }
+  const anio = Math.max(...hechos.map((h) => Number(h.anio) || 0));
+  if (anio > 0) return resto > 0 ? `${cabeza}: ${anio} y otras ${resto} historias` : `${cabeza}: la historia de ${anio}`;
   return `${cabeza}: ${hechos.length} historias de la fecha`;
 }
 
