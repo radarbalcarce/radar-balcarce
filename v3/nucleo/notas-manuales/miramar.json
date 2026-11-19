@@ -7,6 +7,7 @@
   "enDosLineas": "Miramar difundió precios aproximados para el verano: un departamento de un ambiente costará $60.000 en diciembre y $75.000 en enero, y una carpa por toda la temporada, $2.350.000. Son valores de referencia que cambian según el lugar.",
   "cuerpo": [
     "Miramar, uno de los destinos de la costa que más eligen las familias de Balcarce, dio a conocer las primeras tarifas de referencia para el verano 2026/2027. Los valores fueron difundidos por la prensa del destino, que aclara que son aproximados y que pueden variar según el establecimiento.",
+    "Para los balcarceños, Miramar es un destino de verano habitual. Desde Balcarce se llega por las rutas provinciales 55 y 88.",
     "En alquileres, un departamento de un ambiente costará $60.000 en diciembre y $75.000 en enero. Los más grandes, de tres o más habitaciones, pueden llegar a $1.400.000 en enero, y las casas irán de $1.000.000 a $2.500.000 según el mes. La gacetilla no precisa en todos los casos si el valor es por día o por período, por lo que conviene confirmarlo al reservar.",
     "En hotelería, un appart para dos personas con desayuno parte de $290.000 por día. Con media pensión, carpa en un balneario y cochera sube a $450.000, y a $550.000 para cuatro personas. Una hostería de una estrella tendrá la habitación doble con desayuno a $70.000, y una de dos estrellas, con carpa y cochera, a $145.000 por día.",
     "La playa es el gasto más grande: la carpa por toda la temporada costará $2.350.000; sólo enero, $1.700.000, y quince días, $1.050.000. Una sombrilla por siete días saldrá $430.000.",
@@ -19,9 +20,21 @@
     "donde": "Miramar, partido de General Alvarado",
     "cuando": "Difundidas el 19 de noviembre de 2026",
     "numeros": [
-      { "valor": "$60.000", "unidad": "", "que": "departamento de un ambiente en diciembre" },
-      { "valor": "$2.350.000", "unidad": "", "que": "carpa por toda la temporada" },
-      { "valor": "$20.000", "unidad": "", "que": "comida por persona, como mínimo" }
+      {
+        "valor": "$60.000",
+        "unidad": "",
+        "que": "departamento de un ambiente en diciembre"
+      },
+      {
+        "valor": "$2.350.000",
+        "unidad": "",
+        "que": "carpa por toda la temporada"
+      },
+      {
+        "valor": "$20.000",
+        "unidad": "",
+        "que": "comida por persona, como mínimo"
+      }
     ],
     "cronologia": [],
     "faltaSaber": [
@@ -30,7 +43,17 @@
     ]
   },
   "fuentes": [
-    { "medio": "Gacetilla de prensa del destino Miramar (Prensa Cicaré Kan), 19/11/2026", "url": "" }
+    {
+      "medio": "Gacetilla de prensa del destino Miramar (Prensa Cicaré Kan), 19/11/2026",
+      "url": ""
+    }
   ],
-  "foto": null
+  "foto": {
+    "url": "https://radarbalcarce.com/fotos-notas/miramar-verano.jpg?v=1",
+    "alt": "Vista aérea de Miramar: una arboleda en primer plano y, al fondo, los edificios de la ciudad junto al mar",
+    "credito": "Foto: Secretaría de Turismo, Cultura y Deportes de General Alvarado (miramar.tur.ar)",
+    "ancho": 1600,
+    "alto": 900,
+    "cubrir": true
+  }
 }
