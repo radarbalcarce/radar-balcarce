@@ -226,12 +226,12 @@ test('las efemérides del mes que viene se arman el día 20 a las 13:07 UTC (10:
   assert.deepEqual(archivosDe(g), ['v3-piezas.yml', 'v3-piezas.yml'], 'el 19 y el 21 sólo las piezas');
 });
 
-test('el respaldo de la base sale a la 1:40 UTC (22:40 de Balcarce) con el cron de las fotos propias, y las fotos siguen saliendo', async () => {
+test('el respaldo de la base sale a la 1:40 UTC (22:40 de Balcarce) con el cron de las fotos propias y EN LUGAR de ellas a esa hora (19/11: juntas, la copia de fotos fallaba con D1 500)', async () => {
   const g = githubDeMentira(204);
   const env = { GITHUB_TOKEN_ACCIONES: 'x' };
   await dispararAcciones({ cron: CRON_FOTOS, scheduledTime: Date.UTC(2026, 10, 18, 1, 40) }, env, { fetchFn: g.fetchFn, esperar: sinEsperar });
-  assert.deepEqual(archivosDe(g), ['v3-fotos-propias.yml', 'v3-respaldo-d1.yml']);
-  assert.deepEqual(g.pedidos[1].cuerpo.inputs, { simular: 'false' });
+  assert.deepEqual(archivosDe(g), ['v3-respaldo-d1.yml']);
+  assert.deepEqual(g.pedidos[0].cuerpo.inputs, { simular: 'false' });
   g.pedidos.length = 0;
   await dispararAcciones({ cron: CRON_FOTOS, scheduledTime: Date.UTC(2026, 10, 18, 9, 40) }, env, { fetchFn: g.fetchFn, esperar: sinEsperar });
   assert.deepEqual(archivosDe(g), ['v3-fotos-propias.yml']);
@@ -245,4 +245,17 @@ test('estadísticas ya no tiene schedule (lo manda el Worker; con los dos habrí
   assert.match(efe, /schedule:\n\s+- cron: '0 13 20 \* \*'/);
   assert.match(efe, /\(github\.event_name != 'schedule' && inputs\.automatico != 'true'\) \|\| vars\.EFEMERIDES_V3_ACTIVAS == 'si'/, 'el disparo automático espera la variable, como el horario');
   assert.match(leer('../../.github/workflows/v3-respaldo-d1.yml'), /schedule:\n\s+- cron: '20 7 \* \* \*'/);
+});
+
+test('a la 1:40 UTC sale sólo el respaldo de la base, no la copia de fotos (chocaban: D1 500 el 18 y el 19/11); a las otras horas, sólo las fotos', async () => {
+  const cron = '40 9,11,13,15,17,19,21,23,1 * * *';
+  const pedidos = [];
+  const fetchFn = async (url) => { pedidos.push(String(url)); return { status: 204 }; };
+  const env = { GITHUB_TOKEN_ACCIONES: 'x' };
+  const r1 = await dispararAcciones({ cron, scheduledTime: Date.UTC(2026, 10, 19, 1, 40) }, env, { fetchFn, esperar: async () => {} });
+  assert.deepEqual(pedidos.map((u) => u.match(/workflows\/([^/]+)/)[1]), ['v3-respaldo-d1.yml']);
+  assert.equal(r1.ok, true);
+  pedidos.length = 0;
+  await dispararAcciones({ cron, scheduledTime: Date.UTC(2026, 10, 19, 13, 40) }, env, { fetchFn, esperar: async () => {} });
+  assert.deepEqual(pedidos.map((u) => u.match(/workflows\/([^/]+)/)[1]), ['v3-fotos-propias.yml']);
 });

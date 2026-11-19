@@ -31,7 +31,9 @@ export const DISPAROS = {
   // son dos copias de días distintos (AAAA-MM-DD en hora de Balcarce), no un trabajo repetido, y el programa sólo borra después de controlar la copia nueva.
   '40 9,11,13,15,17,19,21,23,1 * * *': {
     archivo: 'v3-fotos-propias.yml', nombre: 'fotos propias', inputs: { automatico: 'true', simular: 'false', tope: '60' },
-    ademas: [{ archivo: 'v3-respaldo-d1.yml', nombre: 'respaldo de la base', aLasUTC: 1, inputs: { simular: 'false' } }],
+    // 19/11/2026: a esa hora el respaldo va EN LUGAR de la copia de fotos (`enLugarDeLoPrincipal`): el 18 y el 19/11 salieron juntos y la copia de fotos falló con «D1: HTTP 500»,
+    // porque exportar la base la deja sin atender unos segundos. La última copia de fotos del día pasa a ser la de las 20:40 de Balcarce.
+    ademas: [{ archivo: 'v3-respaldo-d1.yml', nombre: 'respaldo de la base', aLasUTC: 1, enLugarDeLoPrincipal: true, inputs: { simular: 'false' } }],
   },
 };
 
@@ -71,8 +73,11 @@ export async function dispararAcciones(evento, env, { fetchFn = fetch, avisar = 
     console.warn(`redes: falta el secreto GITHUB_TOKEN_ACCIONES: no se dispara «${disparo.nombre}» (${disparo.archivo}).`);
     return { disparo: disparo.archivo, ok: false, motivo: 'sin token' };
   }
-  let r = await despertar(disparo, token, fetchFn);
-  let intentos = 1;
+  const horaUTC = Number.isFinite(Number(evento?.scheduledTime)) ? new Date(Number(evento.scheduledTime)).getUTCHours() : null;
+  // Si a esta hora toca algo que va en lugar de lo principal (el respaldo de la base), lo principal no se lanza.
+  const reemplazado = (disparo.ademas ?? []).some((o) => o.enLugarDeLoPrincipal && horaUTC !== null && horaUTC === o.aLasUTC);
+  let r = reemplazado ? { ok: true, estado: 'no toca a esta hora' } : await despertar(disparo, token, fetchFn);
+  let intentos = reemplazado ? 0 : 1;
   if (!r.ok) {
     console.error(`redes: GitHub contestó ${r.estado} al disparar ${disparo.archivo}; se reintenta una vez.`);
     await esperar(3000);
