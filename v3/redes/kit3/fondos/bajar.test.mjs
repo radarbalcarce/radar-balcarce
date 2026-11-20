@@ -11,6 +11,19 @@ test('archivosDelManifiesto: sin repetir', () => {
   assert.deepEqual(archivosDelManifiesto(man), ['lluvia/a.mp4', 'lluvia/b.mp4', 'noche/c.mp4']);
 });
 
+test('bajarFondos con sinVerificar: lo que ya está en la carpeta no se pide a R2 (carpeta guardada con actions/cache), lo que falta sí', async () => {
+  const carpeta = fs.mkdtempSync(path.join(os.tmpdir(), 'kit3-bajar-'));
+  try {
+    fs.mkdirSync(path.join(carpeta, 'lluvia'), { recursive: true });
+    fs.writeFileSync(path.join(carpeta, 'lluvia', 'a.mp4'), 'ya estaba');
+    const pedidos = [];
+    const cliente = { leer: async (clave) => { pedidos.push(clave); return new Uint8Array([1, 2, 3]); } };
+    const r = await bajarFondos(carpeta, { cliente, manifiesto: man, sinVerificar: true });
+    assert.deepEqual(r, { bajados: 2, yaEstaban: 1, faltan: [] });
+    assert.ok(!pedidos.includes('kit3/fondos/lluvia/a.mp4'));
+  } finally { fs.rmSync(carpeta, { recursive: true, force: true }); }
+});
+
 test('bajarFondos: baja lo que falta, no repite lo que ya está y avisa lo que no hay en R2', async () => {
   const carpeta = fs.mkdtempSync(path.join(os.tmpdir(), 'kit3-bajar-'));
   try {

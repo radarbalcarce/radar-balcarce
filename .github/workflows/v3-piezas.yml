@@ -88,24 +88,85 @@ jobs:
           REDES_URL: ${{ vars.V3_REDES_URL }}
           REPETIR: ${{ inputs.repetir }}
 
-      # Kit 3.0 de reels (prendido el 19/11/2026; v3/redes/kit3/REGLAS.md). Cada paso puede fallar sin frenar la pieza: si el kit no puede dibujar, correr.mjs la saca con el dibujo de siempre.
-      # Para apagarlo: sacar `KIT_3_0: si` del paso «Armar las piezas que tocan» (los pasos de instalación pueden quedar).
-      - name: Instalar el kit 3.0
+      # Qué toca ahora, ANTES de preparar el kit: pregunta el plan al Worker (que lo RESERVA), lo guarda en un archivo y deja `hay=si` o `hay=no`. Con `no` (9 de las 17 corridas del día) se saltean
+      # todos los pasos del kit (ffmpeg, node_modules, Chrome, fondos) y el paso «Armar las piezas» termina enseguida. Con `si` el paso de armar usa ESE plan (no pide otro: ya no traería las piezas
+      # reservadas). Si este paso falla, `hay` queda vacío y se hace todo como antes (kit incluido). No arma nada ni gasta voz. v3/redes/piezas/correr.mjs, bandera `--que-toca`.
+      - name: Ver qué piezas tocan ahora
+        id: toca
         if: inputs.repetir == ''
+        continue-on-error: true
+        run: node v3/redes/piezas/correr.mjs --que-toca
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TARJETAS_DE_SERVICIO: 'no'
+          REDES_URL: ${{ vars.V3_REDES_URL }}
+          SOLO: ${{ inputs.solo }}
+          AHORA: ${{ inputs.ahora }}
+          PLAN_PIEZAS: ${{ runner.temp }}/plan-piezas.json
+          SALIDA_PIEZAS: ${{ github.workspace }}/salida-piezas
+
+      # Kit 3.0 de reels (prendido el 19/11/2026; v3/redes/kit3/REGLAS.md). Cada paso puede fallar sin frenar la pieza: si el kit no puede dibujar, correr.mjs la saca con el dibujo de siempre.
+      # Para apagarlo: sacar `KIT_3_0: si` del paso «Armar las piezas que tocan» (los pasos de instalación pueden quedar). Todos corren sólo si hay piezas para armar y guardan lo pesado con actions/cache.
+      - name: Restaurar el kit 3.0 (node_modules)
+        id: cache-kit
+        if: inputs.repetir == '' && steps.toca.outputs.hay != 'no'
+        uses: actions/cache@v4
+        with:
+          path: v3/redes/kit3/node_modules
+          key: kit3-modulos-node24-${{ hashFiles('v3/redes/kit3/package-lock.json') }}
+      - name: Instalar el kit 3.0
+        if: inputs.repetir == '' && steps.toca.outputs.hay != 'no' && steps.cache-kit.outputs.cache-hit != 'true'
         continue-on-error: true
         run: npm ci --no-audit --no-fund --ignore-scripts --prefix v3/redes/kit3
-      - name: ffmpeg y ffprobe (el kit los busca en el sistema)
-        if: inputs.repetir == ''
+      # El kit (HyperFrames) busca ffmpeg y ffprobe en el PATH y la imagen ubuntu-24.04 de GitHub NO los trae (se verificó en la lista de software de runner-images). Antes: `apt-get update` + `install`,
+      # de 4 a 12 minutos en cada corrida. Ahora: un binario estático fijo (versión y huella sha256 anotadas acá), bajado una vez y guardado con actions/cache. Si la bajada falla, cae al `apt` de antes.
+      - name: Restaurar ffmpeg y ffprobe
+        if: inputs.repetir == '' && steps.toca.outputs.hay != 'no'
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ffmpeg-7.0.2
+          key: ffmpeg-7.0.2-amd64-static
+      - name: ffmpeg y ffprobe (binario estático, el kit los busca en el PATH)
+        if: inputs.repetir == '' && steps.toca.outputs.hay != 'no'
         continue-on-error: true
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
-      - name: Chrome para dibujar (kit 3.0)
-        if: inputs.repetir == ''
+        run: |
+          dir="$HOME/.cache/ffmpeg-7.0.2"
+          bajar() {
+            [ -x "$dir/ffmpeg" ] && [ -x "$dir/ffprobe" ] && return 0
+            mkdir -p "$dir" &&
+            curl -fsSL --retry 3 --retry-delay 5 -o "$RUNNER_TEMP/ffmpeg.tar.xz" https://johnvansickle.com/ffmpeg/releases/ffmpeg-7.0.2-amd64-static.tar.xz &&
+            echo "abda8d77ce8309141f83ab8edf0596834087c52467f6badf376a6a2a4c87cf67  $RUNNER_TEMP/ffmpeg.tar.xz" | sha256sum -c - &&
+            tar -xJf "$RUNNER_TEMP/ffmpeg.tar.xz" --strip-components=1 -C "$dir" ffmpeg-7.0.2-amd64-static/ffmpeg ffmpeg-7.0.2-amd64-static/ffprobe
+          }
+          if bajar; then
+            echo "$dir" >> "$GITHUB_PATH"
+          else
+            echo "::warning::no se pudo bajar el ffmpeg estático; se instala con apt (más lento)"
+            rm -rf "$dir"
+            sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          fi
+      - name: Restaurar Chrome del kit
+        if: inputs.repetir == '' && steps.toca.outputs.hay != 'no'
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/hyperframes
+          key: kit3-chrome-${{ hashFiles('v3/redes/kit3/package-lock.json') }}
+      - name: Chrome para dibujar (kit 3.0; con el Chrome guardado sólo lo verifica)
+        if: inputs.repetir == '' && steps.toca.outputs.hay != 'no'
         continue-on-error: true
         run: node v3/redes/kit3/node_modules/hyperframes/bin/hyperframes.mjs browser ensure
+      - name: Restaurar los fondos del clima
+        if: inputs.repetir == '' && steps.toca.outputs.hay != 'no'
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/fondos-kit3
+          key: kit3-fondos-${{ hashFiles('v3/redes/kit3/fondos/fondos.json') }}
       - name: Bajar los fondos del clima (kit 3.0)
-        if: inputs.repetir == ''
+        if: inputs.repetir == '' && steps.toca.outputs.hay != 'no'
         continue-on-error: true
-        run: node v3/redes/kit3/fondos/bajar.mjs "$RUNNER_TEMP/fondos-kit3"
+        run: |
+          echo "KIT3_FONDOS=$HOME/.cache/fondos-kit3" >> "$GITHUB_ENV"
+          node v3/redes/kit3/fondos/bajar.mjs "$HOME/.cache/fondos-kit3" --sin-verificar
         env:
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
@@ -118,7 +179,7 @@ jobs:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TARJETAS_DE_SERVICIO: 'no' # 13/11: la tarjeta colgaba el programa y el clima salió 3 veces; apagada hasta arreglarla
           KIT_3_0: si # kit nuevo de reels (19/11/2026); sacar esta línea lo apaga
-          KIT3_FONDOS: ${{ runner.temp }}/fondos-kit3
+          PLAN_PIEZAS: ${{ runner.temp }}/plan-piezas.json # el plan que ya pidió «Ver qué piezas tocan» (si ese paso falló, no hay archivo y se pide acá)
           GEMINI_API_KEY_REDES: ${{ secrets.GEMINI_API_KEY_REDES }}
           GEMINI_API_KEY_REDES_V3: ${{ secrets.GEMINI_API_KEY_REDES_V3 }}
           META_TOKEN: ${{ secrets.META_TOKEN }}

@@ -10,6 +10,7 @@
 //   node v3/redes/piezas/correr.mjs                 lo que toca ahora
 //   SOLO=clima-manana,noticia1 node …/correr.mjs    ensayar esas piezas a mano (sólo con las redes apagadas; no mira el horario pero sí el cupo de voz)
 //   AHORA=2026-11-03T13:00:00Z node …/correr.mjs    ensayar a otra hora (sólo con las redes apagadas)
+//   PLAN_PIEZAS=plan.json node …/correr.mjs --que-toca   pide el plan, lo guarda en plan.json y dice cuántas piezas tocan (hay=si/no) sin armar nada; después, con el mismo PLAN_PIEZAS, la corrida de verdad usa ese plan
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -236,9 +237,11 @@ async function pedirAlWorker(url, ruta, cuerpo, { contrasena, fetchFn }) {
 
 /**
  * Una corrida completa. Todo lo de afuera entra por `deps` (en las pruebas son de mentira; `dependenciasReales` arma las de verdad).
- * @param {object} o  { env, ahora, carpeta, deps: { fetchFn, leerClima, leerFarmacia, leerEfemerides, decir, renderizar, subtitulos, clienteMeta, log } }
+ * @param {object} o  { env, ahora, carpeta, deps: { fetchFn, leerClima, leerFarmacia, leerEfemerides, decir, renderizar, subtitulos, clienteMeta, log }, soloPlan }
+ * `soloPlan` (bandera `--que-toca`): pide el plan, lo guarda en el archivo `env.PLAN_PIEZAS` y termina SIN armar nada; el plan RESERVA las piezas, así que la corrida de verdad tiene que
+ * usar ese mismo archivo (si `env.PLAN_PIEZAS` existe, `correr` lo lee en vez de pedir otro plan, que ya no traería esas piezas).
  */
-export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
+export async function correr({ env = {}, ahora = new Date(), carpeta, deps, soloPlan = false }) {
   const log = deps.log ?? console.log;
   const url = (env.REDES_URL || DIRECCION_DE_LAS_REDES).replace(/\/$/, '');
   if (!env.TELEGRAM_TOKEN) throw new Error('falta TELEGRAM_TOKEN (la contraseña entre el programa y el Worker de redes se deriva de ahí)');
@@ -273,10 +276,18 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
     previos.feriado = feriadoDelDia(feriados, diaDeHoy, elegidas);
     if (previos.feriado) conDatos.push('feriado');
   }
-  const plan = await llamar('/piezas/plan', { ...(env.AHORA ? { ahora: env.AHORA } : {}), ...(solo.length ? { solo } : {}), conDatos });
+  let plan;
+  if (!soloPlan && env.PLAN_PIEZAS && fs.existsSync(env.PLAN_PIEZAS)) {
+    plan = JSON.parse(fs.readFileSync(env.PLAN_PIEZAS, 'utf8'));
+    log('plan tomado del paso anterior (ya reservado)');
+  } else {
+    plan = await llamar('/piezas/plan', { ...(env.AHORA ? { ahora: env.AHORA } : {}), ...(solo.length ? { solo } : {}), conDatos });
+    if (soloPlan && env.PLAN_PIEZAS) { fs.mkdirSync(path.dirname(env.PLAN_PIEZAS), { recursive: true }); fs.writeFileSync(env.PLAN_PIEZAS, JSON.stringify(plan)); }
+  }
   const reloj = env.AHORA && !plan.activas ? new Date(env.AHORA) : ahora;
   log(`plan ${plan.dia}: ${plan.piezas.length} piezas, voz ${plan.vozQuedan}/${plan.vozTope}, ${plan.activas ? 'REAL' : 'ENSAYO (no se publica)'}${plan.descartes.length ? `; descartadas: ${plan.descartes.map((d) => `${d.pieza} (${d.motivo})`).join(', ')}` : ''}`);
   const salida = { dia: plan.dia, activas: plan.activas, piezas: [], descartes: plan.descartes };
+  if (soloPlan) return { ...salida, queToca: plan.piezas.length };
   if (!plan.piezas.length) return salida;
 
   fs.mkdirSync(carpeta, { recursive: true });
@@ -490,6 +501,15 @@ const esElPrograma = process.argv[1] && import.meta.url === pathToFileURL(path.r
 if (esElPrograma) {
   const carpeta = path.resolve(process.env.SALIDA_PIEZAS || path.join(RAIZ, 'salida-piezas'));
   try {
+    // `--que-toca`: sólo pregunta el plan (lo guarda en PLAN_PIEZAS) y deja `hay=si|no` en la salida del paso de GitHub; no arma nada ni gasta voz.
+    if (process.argv.includes('--que-toca')) {
+      const q = await correr({ env: process.env, carpeta, deps: await dependenciasReales(process.env), soloPlan: true });
+      const hay = q.queToca > 0 ? 'si' : 'no';
+      console.log(`toca: ${q.queToca} piezas (hay=${hay})`);
+      if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `hay=${hay}
+`);
+      process.exit(0);
+    }
     const r = await correr({ env: process.env, carpeta, deps: await dependenciasReales(process.env) });
     const malas = r.piezas.filter((p) => p.estado === 'error');
     console.log(`listo: ${r.piezas.length} piezas${malas.length ? `, ${malas.length} con error` : ''}`);

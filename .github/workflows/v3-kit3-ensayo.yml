@@ -35,25 +35,66 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Instalar (el repositorio y el kit)
-        run: |
-          npm ci --no-audit --no-fund
-          npm ci --no-audit --no-fund --ignore-scripts --prefix v3/redes/kit3
-      - name: ffmpeg y ffprobe (el kit los busca en el sistema)
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
-      - name: Chrome para dibujar
-        run: node v3/redes/kit3/node_modules/hyperframes/bin/hyperframes.mjs browser ensure
+      - name: Instalar el repositorio
+        run: npm ci --no-audit --no-fund
+      - name: Restaurar el kit 3.0 (node_modules)
+        id: cache-kit
+        uses: actions/cache@v4
+        with:
+          path: v3/redes/kit3/node_modules
+          key: kit3-modulos-node24-${{ hashFiles('v3/redes/kit3/package-lock.json') }}
+      - name: Instalar el kit 3.0
+        if: steps.cache-kit.outputs.cache-hit != 'true'
+        run: npm ci --no-audit --no-fund --ignore-scripts --prefix v3/redes/kit3
+      # El kit (HyperFrames) busca ffmpeg y ffprobe en el PATH y la imagen ubuntu-24.04 de GitHub NO los trae (se verificó en la lista de software de runner-images). Antes: `apt-get update` + `install`,
+      # de 4 a 12 minutos en cada corrida. Ahora: un binario estático fijo (versión y huella sha256 anotadas acá), bajado una vez y guardado con actions/cache. Si la bajada falla, cae al `apt` de antes.
+      - name: Restaurar ffmpeg y ffprobe
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ffmpeg-7.0.2
+          key: ffmpeg-7.0.2-amd64-static
+      - name: ffmpeg y ffprobe (binario estático, el kit los busca en el PATH)
         continue-on-error: true
+        run: |
+          dir="$HOME/.cache/ffmpeg-7.0.2"
+          bajar() {
+            [ -x "$dir/ffmpeg" ] && [ -x "$dir/ffprobe" ] && return 0
+            mkdir -p "$dir" &&
+            curl -fsSL --retry 3 --retry-delay 5 -o "$RUNNER_TEMP/ffmpeg.tar.xz" https://johnvansickle.com/ffmpeg/releases/ffmpeg-7.0.2-amd64-static.tar.xz &&
+            echo "abda8d77ce8309141f83ab8edf0596834087c52467f6badf376a6a2a4c87cf67  $RUNNER_TEMP/ffmpeg.tar.xz" | sha256sum -c - &&
+            tar -xJf "$RUNNER_TEMP/ffmpeg.tar.xz" --strip-components=1 -C "$dir" ffmpeg-7.0.2-amd64-static/ffmpeg ffmpeg-7.0.2-amd64-static/ffprobe
+          }
+          if bajar; then
+            echo "$dir" >> "$GITHUB_PATH"
+          else
+            echo "::warning::no se pudo bajar el ffmpeg estático; se instala con apt (más lento)"
+            rm -rf "$dir"
+            sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          fi
+      - name: Restaurar Chrome del kit
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/hyperframes
+          key: kit3-chrome-${{ hashFiles('v3/redes/kit3/package-lock.json') }}
+      - name: Chrome para dibujar (kit 3.0; con el Chrome guardado sólo lo verifica)
+        continue-on-error: true
+        run: node v3/redes/kit3/node_modules/hyperframes/bin/hyperframes.mjs browser ensure
+      - name: Restaurar los fondos del clima
+        if: inputs.con_fondos == 'si'
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/fondos-kit3
+          key: kit3-fondos-${{ hashFiles('v3/redes/kit3/fondos/fondos.json') }}
       - name: Bajar los fondos del clima
         if: inputs.con_fondos == 'si'
         continue-on-error: true
-        run: node v3/redes/kit3/fondos/bajar.mjs "$RUNNER_TEMP/fondos-kit3"
+        run: node v3/redes/kit3/fondos/bajar.mjs "$HOME/.cache/fondos-kit3" --sin-verificar
         env:
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       - name: Dibujar las piezas
-        run: node v3/redes/kit3/ensayo.mjs --salida "$RUNNER_TEMP/ensayo-kit3" --fondos "$RUNNER_TEMP/fondos-kit3" $PIEZAS
+        run: node v3/redes/kit3/ensayo.mjs --salida "$RUNNER_TEMP/ensayo-kit3" --fondos "$HOME/.cache/fondos-kit3" $PIEZAS
         env:
           PIEZAS: ${{ inputs.piezas }}
       - name: Subir los resultados

@@ -79,6 +79,32 @@ test('queda anotado en `archivos` si la pieza usó el kit 3.0 (marca kit3:si/no)
 });
 
 
+test('--que-toca: pide el plan UNA vez, lo guarda y no arma nada; la corrida siguiente usa ese plan (el plan reserva) y arma las mismas piezas', async () => {
+  const t = armar({ ahora: MARTES_10, avisos: true });
+  const archivo = path.join(t.carpeta, 'plan', 'plan.json');
+  const env = { ...t.env, PLAN_PIEZAS: archivo };
+  let pedidosDePlan = 0;
+  const fetchOriginal = t.deps.fetchFn;
+  t.deps.fetchFn = async (u, o) => { if (String(u).endsWith('/piezas/plan')) pedidosDePlan += 1; return fetchOriginal(u, o); };
+  const q = await correr({ env, ahora: MARTES_10, carpeta: t.carpeta, deps: t.deps, soloPlan: true });
+  assert.equal(q.queToca, 3);
+  assert.equal(q.piezas.length, 0);
+  assert.equal(t.dibujadas.length, 0);
+  assert.equal(t.pedidosDeVoz.length, 0);
+  assert.ok(fs.existsSync(archivo));
+  const r = await correr({ env, ahora: MARTES_10, carpeta: t.carpeta, deps: t.deps });
+  assert.equal(pedidosDePlan, 1, 'no vuelve a pedir el plan');
+  assert.deepEqual(r.piezas.map((p) => [p.pieza, p.estado]), [['noticia1', 'lista'], ['clima-manana', 'lista'], ['efemeride', 'lista']]);
+});
+
+test('--que-toca sin piezas para armar: queToca 0 (el workflow se salta el kit) y no rompe nada', async () => {
+  const t = armar({ ahora: new Date('2026-11-03T09:00:00.000Z'), notas: false }); // 6:00: todavía no toca nada
+  const archivo = path.join(t.carpeta, 'plan.json');
+  const q = await correr({ env: { ...t.env, PLAN_PIEZAS: archivo }, ahora: new Date('2026-11-03T09:00:00.000Z'), carpeta: t.carpeta, deps: t.deps, soloPlan: true });
+  assert.equal(q.queToca, 0);
+  assert.equal(JSON.parse(fs.readFileSync(archivo, 'utf8')).piezas.length, 0);
+});
+
 test('ENSAYO: arma las piezas con la voz y las deja guardadas, anota lo que HABRÍA publicado y NO llama a Meta', async () => {
   const t = armar({ ahora: MARTES_10, avisos: true });
   const r = await correr({ env: t.env, ahora: MARTES_10, carpeta: t.carpeta, deps: t.deps });
