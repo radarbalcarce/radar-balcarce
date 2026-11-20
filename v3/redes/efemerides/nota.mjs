@@ -118,34 +118,110 @@ export async function fotoDeCommons(hecho, { json, bajar, ancho = 960 } = {}) {
   return fotoDeCommonsPorBusqueda(hecho, { json, bajar, ancho });
 }
 
-/** Las búsquedas para la foto de un hecho: primero los nombres propios (personas, obras, lugares: «Tim Berners-Lee»), después el título sin el «En los Estados Unidos,» del comienzo. */
+/** Las frases de «evento» del hecho («batalla de la Vuelta de Obligado», «Tratado de Tordesillas»): lo concreto que pasó, mejor para buscar que el nombre del día. */
+function frasesDeEvento(hecho) {
+  const txt = `${hecho?.titulo ?? ''}. ${hecho?.texto ?? ''}`;
+  const PAL = "[A-ZÁÉÍÓÚÑ][\\wáéíóúñ'-]+";
+  const re = new RegExp(`\\b(batalla|combate|toma|sitio|guerra|revoluci[oó]n|tratado|declaraci[oó]n|bombardeo|asalto|invasi[oó]n|reconquista|defensa|bloqueo|congreso|pacto|acuerdo|cruce|campa[nñ]a)\\s+((?:(?:de|del)\\s+(?:la\\s+|el\\s+|los\\s+|las\\s+)?)?${PAL}(?:\\s+(?:(?:de|del|la|von|van|a)\\s+)?${PAL})*)`, 'gi');
+  return [...new Set([...txt.matchAll(re)].map((m) => `${m[1].charAt(0).toUpperCase()}${m[1].slice(1).toLowerCase()} ${m[2]}`.trim()))].slice(0, 2);
+}
+
+const INICIOS_QUE_NO_SON_NOMBRE = /^(?:(?:En|El|La|Los|Las|Un|Una|Se|Su|Hoy|Recuerda|D[ií]a|Nace|Nacen|Muere|Mueren|Empieza|Comienza|Termina|Finaliza|Descubre|Inventa|Crea|Funda|Inaugura|Publica|Estrena|Gana|Vence|Logra|Llega|Sale|Patenta|Presenta|Firma|Fabrica|Realiza|Obtiene|Parte|Lanza|Abre|Aparece|Primer|Primera|Nuevo|Nueva)\s+)+/;
+
+/** Las búsquedas para la foto de un hecho: primero el evento concreto («Batalla de la Vuelta de Obligado»), después los nombres propios (personas, obras, lugares: «Tim Berners-Lee»), después el título sin el «En los Estados Unidos,» del comienzo. */
 export function consultasDeFoto(hecho) {
   const t = String(hecho?.titulo ?? '').replace(/[«»"]/g, ' ').trim();
   if (!t) return [];
   const sinLugar = t.replace(/^En [^,]{3,40},\s*/, '');
   const txt = `${sinLugar}. ${hecho?.texto ?? ""}`;
   const PAL = "[A-ZÁÉÍÓÚÑ][\\wáéíóúñ'-]+";
-  const nombres = [...txt.matchAll(new RegExp(`${PAL}(?:\\s+(?:(?:de|del|la|von|van|a)\\s+)?${PAL})+`, 'g'))].map((m) => m[0].trim()).filter((n) => !/^(En|El|La|Los|Las|Un|Una)\s/.test(n) || n.split(/\s+/).length > 2);
-  return [...new Set([...nombres.slice(0, 3), sinLugar, t])];
+  const nombres = [...txt.matchAll(new RegExp(`${PAL}(?:\\s+(?:(?:de|del|la|von|van|y|a)\\s+)?${PAL})+`, 'g'))].map((m) => m[0].trim().replace(INICIOS_QUE_NO_SON_NOMBRE, '')).filter((n) => n.split(/\s+/).length >= 2); // «Nace Mahatma Gandhi» → «Mahatma Gandhi»; «En Buenos Aires» → «Buenos Aires»; «Día Internacional» no queda
+  return [...new Set([...frasesDeEvento(hecho), ...nombres.slice(0, 3), sinLugar, t])];
 }
 
-/** Segundo intento (siempre tiene que haber foto): busca en Commons con cada consulta y toma el primer archivo que sirve. */
+// ---- la elección estricta (20/11, caso «Día de la Soberanía Nacional» → una asamblea de Ecuador): la foto tiene que hablar DEL HECHO, no parecérsele en una palabra.
+// Una candidata sólo sirve si su nombre, sus categorías o su descripción en Commons traen entera (como frase seguida) una frase propia del hecho, y no nombran otro país que el hecho no menciona.
+const norm = (t) => ` ${String(t ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()} `;
+const PAISES = {
+  ecuador: 'ecuador|ecuatorian[oa]s?|ecuadorian', mexico: 'mexico|mexican[oa]s?', peru: 'peru|peruan[oa]s?|peruvian', chile: 'chile|chilen[oa]s?|chilean', bolivia: 'bolivia|bolivian[oa]s?', paraguay: 'paraguay|paraguay[oa]s?|paraguayan',
+  uruguay: 'uruguay|uruguay[oa]s?|uruguayan', brasil: 'brasil|brazil|brasilen[oa]s?|brazilian', colombia: 'colombia|colombian[oa]s?', venezuela: 'venezuela|venezolan[oa]s?|venezuelan', cuba: 'cuba|cuban[oa]s?',
+  espana: 'espana|spain|espanol(?:es|a|as)?|spanish', francia: 'francia|france|frances(?:es|a|as)?|french', inglaterra: 'inglaterra|england|britanic[oa]s?|british|reino unido|united kingdom|ingles(?:es|a|as)?|english', italia: 'italia|italy|italian[oa]s?',
+  alemania: 'alemania|germany|aleman(?:es|a|as)?|german', portugal: 'portugal|portugues(?:es|a|as)?|portuguese', rusia: 'rusia|russia|rus[oa]s?|russian|sovietic[oa]s?|soviet', china: 'china|chin[oa]s?|chinese', japon: 'japon|japan|japones(?:es|a|as)?|japanese',
+  india: 'india|indian[oa]s?', eeuu: 'estados unidos|united states|usa|estadounidens(?:e|es)', israel: 'israel|israeli', iran: 'iran|iranian', irak: 'irak|iraq|iraqi', turquia: 'turquia|turkey|turkish', grecia: 'grecia|greece|greek', polonia: 'polonia|poland|polish', catar: 'catar|qatar|qatari',
+};
+const PAISES_RE = Object.entries(PAISES).map(([k, v]) => [k, new RegExp(`\\b(?:${v})\\b`)]);
+const paisesDe = (texto) => { const t = norm(texto); return new Set(PAISES_RE.filter(([, re]) => re.test(t)).map(([k]) => k)); };
+const DE_EPOCA = /\b(paint|paintings?|pintura|oleo|oil on|grabado|engravings?|litografia|lithographs?|prints?|drawings?|dibujo|acuarela|watercolou?r|pd art|pd old|museo|museum|monumento|monument|historic|historico|siglo|century)\b/;
+const ARTE_ANTIGUO = /\b(paintings?|pintura|oleo|oil on|grabado|engravings?|litografia|lithographs?|prints?|drawings?|dibujo|acuarela|watercolou?r|pd art|pd old|retrato|portrait)\b/; // para hechos viejos: una obra de la época vale más que la foto de un monolito
+
+/** Lo que mide si una foto es del hecho: las frases propias que el hecho nombra (evento y nombres propios), cuáles son «fuertes» y los países que el texto menciona. */
+export function claveDelHecho(hecho) {
+  const consultas = consultasDeFoto(hecho);
+  const completo = consultas.at(-1), sinLugar = consultas.at(-2) ?? completo;
+  const frases = consultas.filter((c) => c !== completo && c !== sinLugar).map((c) => ({ frase: c, plano: norm(c) }));
+  const LUGARES_GENERICOS = [' buenos aires ', ' estados unidos ', ' nueva york ', ' reino unido ', ' america latina ', ' america del sur ', ' rio de la plata ', ' casa rosada ', ' mar del plata ', ' san pedro ', ' santa fe ', ' nueva zelanda ', ' costa rica ', ' puerto rico ', ' san francisco ', ' los angeles ', ' plaza de mayo ', ' nobel de quimica ', ' premio nobel ', ' primera division ', ' mundial de futbol ', ' polo sur ', ' campeonato sudamericano '];
+  const fuerte = (f) => f.frase.split(/\s+/).length >= 2 && f.frase.length >= 12 && !LUGARES_GENERICOS.includes(f.plano); // «San Pedro» (9 letras) es un lugar suelto: por sí sola no alcanza
+  const texto = `${hecho?.titulo ?? ''} ${hecho?.texto ?? ''}`;
+  return { anio: Number(hecho?.anio) || null, frases: frases.map((f) => ({ ...f, fuerte: fuerte(f) })), paises: paisesDe(texto), argentino: /\b(argentin|buenos aires|balcarce|parana|mansilla|rosas|san martin|belgrano)/.test(norm(texto)) };
+}
+
+/**
+ * Decide si un archivo de Commons ilustra el hecho. `meta` = { nombre, categorias, descripcion }. Devuelve un puntaje (> 0 sirve; 0 no sirve).
+ * Descarta lo que nombra otro país que el hecho no menciona y lo que no trae una frase fuerte del hecho (o dos frases cualesquiera).
+ * Prefiere pinturas, grabados y fotos de museos o monumentos, y a la Argentina cuando el hecho es argentino.
+ */
+export function puntajeDeFoto(clave, meta) {
+  const texto = `${meta.nombre} ${meta.categorias} ${meta.descripcion}`;
+  const pajar = norm(texto);
+  const aciertos = clave.frases.filter((f) => f.plano.trim().length >= 5 && pajar.includes(f.plano));
+  const fuertes = aciertos.filter((f) => f.fuerte);
+  if (!fuertes.length && aciertos.length < 2) return 0;
+  // otro país que el hecho no menciona: fuera, salvo que el nombre o las categorías traigan entera una frase fuerte del hecho (una batalla nombra a sus dos bandos: «Anglo-French armada…»)
+  const propio = norm(`${meta.nombre} ${meta.categorias}`);
+  if ([...paisesDe(texto)].some((p) => !clave.paises.has(p)) && !fuertes.some((f) => propio.includes(f.plano))) return 0;
+  let p = 10 * fuertes.length + 3 * aciertos.length;
+  if (clave.argentino && /\bargentin/.test(pajar)) p += 3;
+  if (DE_EPOCA.test(pajar)) p += 2;
+  if (clave.anio && clave.anio < 1930 && ARTE_ANTIGUO.test(pajar)) p += 12;
+  if (/\b(img|dsc|dscn|screenshot)\b/.test(norm(meta.nombre))) p -= 1;
+  return Math.max(p, 0.5);
+}
+
+/**
+ * Segundo intento: busca en Commons por el evento y los nombres propios del hecho, mira nombre, categorías y descripción de TODOS los resultados juntos y se queda con el que mejor corresponde (`puntajeDeFoto`).
+ * Si ninguno corresponde, null: la pieza sale con el fondo de la marca antes que con una foto equivocada.
+ */
 export async function fotoDeCommonsPorBusqueda(hecho, { json, bajar, ancho = 960 } = {}) {
-  for (const consulta of consultasDeFoto(hecho)) {
-    const r = await json(`https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&list=search&srnamespace=6&srlimit=8&srsearch=${encodeURIComponent(consulta)}`);
+  const clave = claveDelHecho(hecho);
+  if (!clave.frases.length) return null; // sin una frase propia del hecho no hay con qué comprobar que la foto sea de eso
+  const nombres = []; // en orden de búsqueda
+  for (const f of clave.frases) {
+    const r = await json(`https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&list=search&srnamespace=6&srlimit=10&srsearch=${encodeURIComponent(f.frase)}`);
     for (const x of r?.query?.search ?? []) {
-      const nombre = String(x.title ?? '').replace(/^File:/, '');
-      const f = await archivoDeCommons(nombre, consulta, { json, bajar, ancho });
-      if (f) return f;
+      const n = String(x.title ?? '').replace(/^File:/, '');
+      if (n && !NO_SIRVE.test(n) && !nombres.includes(n)) nombres.push(n);
     }
+  }
+  if (!nombres.length) return null;
+  const r = await json(`https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&iiprop=url|size|mime|extmetadata&iiurlwidth=${ancho}&titles=${nombres.slice(0, 40).map((n) => encodeURIComponent(`File:${n}`)).join('%7C')}`);
+  const porNombre = new Map((r?.query?.pages ?? []).filter((p) => p?.imageinfo?.[0]).map((p) => [String(p.title ?? '').replace(/^File:/, ''), p]));
+  const candidatas = nombres.map((n, i) => ({ n, i, p: porNombre.get(n) ?? null })).filter((c) => c.p)
+    .map((c) => {
+      const meta = c.p.imageinfo[0].extmetadata ?? {};
+      return { ...c, puntaje: puntajeDeFoto(clave, { nombre: c.n, categorias: sinEtiquetas(String(meta.Categories?.value ?? '').replace(/\|/g, ' ; ')), descripcion: sinEtiquetas(`${meta.ImageDescription?.value ?? ''} ${meta.ObjectName?.value ?? ''}`) }) };
+    })
+    .filter((c) => c.puntaje > 0).sort((a, b) => b.puntaje - a.puntaje || a.i - b.i);
+  for (const c of candidatas.slice(0, 5)) {
+    const f = await archivoDeCommons(c.n, c.n, { json, bajar, ancho, info: c.p });
+    if (f) return f;
   }
   return null;
 }
 
-/** Un archivo de Commons por su nombre: sólo licencia libre, nunca bandera, mapa ni logo. */
-async function archivoDeCommons(nombre, tituloDePagina, { json, bajar, ancho }) {
+/** Un archivo de Commons por su nombre: sólo licencia libre, nunca bandera, mapa ni logo. `info` = la página de imageinfo ya pedida (si no, se pide). */
+async function archivoDeCommons(nombre, tituloDePagina, { json, bajar, ancho, info: pagina = null }) {
   if (!nombre || NO_SIRVE.test(nombre)) return null;
-  const c = await json(`https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&iiprop=url|size|mime|extmetadata&iiurlwidth=${ancho}&titles=${encodeURIComponent(`File:${nombre}`)}`);
+  const c = pagina ? { query: { pages: [pagina] } } : await json(`https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&iiprop=url|size|mime|extmetadata&iiurlwidth=${ancho}&titles=${encodeURIComponent(`File:${nombre}`)}`);
   const info = c?.query?.pages?.[0]?.imageinfo?.[0];
   if (!info || c.query.pages[0].missing) return null; // no está en Commons (una foto sólo de es.wikipedia puede ser de uso restringido)
   const meta = info.extmetadata ?? {};

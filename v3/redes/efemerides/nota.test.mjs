@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  hechosDelDia, datosDelHecho, tituloDeLaNota, notaDeEfemeride, sqlDeEfemeride, fotoDeCommons, consultasDeFoto, paginaDeWikipedia, creditoDeCommons, slugDeLaNota, ID_DE_NOTA, detalleDeWikipedia, clavesDelHecho, acortarFrase, articuloCorrespondeAlHecho, fraseCompleta,
+  hechosDelDia, datosDelHecho, tituloDeLaNota, notaDeEfemeride, sqlDeEfemeride, fotoDeCommons, fotoDeCommonsPorBusqueda, claveDelHecho, puntajeDeFoto, consultasDeFoto, paginaDeWikipedia, creditoDeCommons, slugDeLaNota, ID_DE_NOTA, detalleDeWikipedia, clavesDelHecho, acortarFrase, articuloCorrespondeAlHecho, fraseCompleta,
 } from './nota.mjs';
 import { armarNotaDelDia } from './publicar-nota.mjs';
 import { esEfemerides, efemeridesHtml } from '../../sitio/vistas/efemerides-nota.mjs';
@@ -155,18 +155,61 @@ test('armarNotaDelDia: cada hecho tiene su placa cuadrada (con foto o la del añ
   assert.equal(await armarNotaDelDia({ dia: '2026-11-13', piezas, candidatas, json: respuestas(), bajar, dibujar }), null);
 });
 
-test('fotoDeCommonsPorBusqueda: si la página no tiene foto libre, busca en Commons por el título', async () => {
-  const llamadas = [];
-  const json = async (url) => {
-    llamadas.push(url);
-    if (url.includes('list=search')) return { query: { search: [{ title: 'File:Mapa de algo.svg' }, { title: 'File:Cometa 67P.jpg' }] } };
-    if (url.includes('prop=imageinfo')) return { query: { pages: [{ title: 'File:Cometa 67P.jpg', imageinfo: [{ url: 'https://u/x.jpg', thumburl: 'https://u/t.jpg', width: 2000, height: 1500, thumbwidth: 960, thumbheight: 720, mime: 'image/jpeg', extmetadata: { LicenseShortName: { value: 'CC BY-SA 4.0' }, Artist: { value: 'Ana' } } }] }] } };
-    return { query: { pages: [{ title: 'X' }] } }; // la página de Wikipedia no trae imagen
-  };
-  const f = await fotoDeCommons({ enlace: 'https://es.wikipedia.org/wiki/X', titulo: 'Aterrizaje en un cometa' }, { json, bajar });
-  assert.ok(f); assert.equal(f.archivoDeOrigen, 'Cometa 67P.jpg'); assert.match(f.paginaDeCommons, /commons[.]wikimedia[.]org[/]wiki[/]File:Cometa_67P[.]jpg/);
-  assert.equal(llamadas.some((u) => /Mapa/.test(u) && u.includes('imageinfo')), false, 'un mapa ni se consulta');
+// Commons simulado: `busquedas` = { consulta: [nombres] }, `archivos` = { nombre: { cats, desc } }. Todo sin red.
+const commonsSimulado = (busquedas, archivos) => async (url) => {
+  const u = decodeURIComponent(url);
+  if (u.includes('list=search')) { const q = /srsearch=(.*)$/.exec(u)[1]; return { query: { search: (busquedas[q] ?? []).map((n) => ({ title: `File:${n}` })) } }; }
+  if (u.includes('prop=imageinfo')) {
+    const nombres = /titles=(.*?)(?:&|$)/.exec(u)[1].split('|').map((t) => t.replace(/^File:/, ''));
+    return { query: { pages: nombres.filter((n) => archivos[n]).map((n) => ({ title: `File:${n}`, imageinfo: [{ url: 'https://u/x.jpg', thumburl: 'https://u/t.jpg', mime: 'image/jpeg', width: 2000, height: 1300, thumbwidth: 1600, thumbheight: 1040, extmetadata: { LicenseShortName: { value: 'Public domain' }, Artist: { value: 'Ana' }, Categories: { value: archivos[n].cats ?? '' }, ImageDescription: { value: archivos[n].desc ?? '' } } }] })) } };
+  }
+  return null;
+};
+const OBLIGADO = { titulo: 'Día de la Soberanía Nacional', texto: 'Recuerda la batalla de la Vuelta de Obligado, librada en el río Paraná, en el actual partido de San Pedro.', anio: 1845 };
+
+test('fotoDeCommonsPorBusqueda (caso 20/11): la asamblea de Ecuador por «Soberanía» queda descartada y gana la pintura de la batalla', async () => {
+  const json = commonsSimulado({
+    'Batalla de la Vuelta de Obligado': ['Batalla de la Vuelta de Obligado.jpg'],
+    'Soberanía Nacional': ['Encuentro Nacional por el Día Mundial de la Alimentación y la Soberanía Alimentaria (1).jpg'],
+    'Vuelta de Obligado': ['Vuelta de Obligado.JPG', 'Batalla de la Vuelta de Obligado.jpg'],
+    'San Pedro': ['Shipping at San Pedro (NBY 7638).jpg'],
+  }, {
+    'Encuentro Nacional por el Día Mundial de la Alimentación y la Soberanía Alimentaria (1).jpg': { cats: 'Photographs by the National Assembly of Ecuador', desc: 'Foto: Asamblea Nacional' },
+    'Vuelta de Obligado.JPG': { cats: 'Battle of Vuelta de Obligado|Self-published work', desc: 'Monolito de Homenaje Vuelta de Obligado' },
+    'Batalla de la Vuelta de Obligado.jpg': { cats: 'Paintings from Argentina|Battle of Vuelta de Obligado|Naval battles involving Argentina', desc: 'The Anglo-French armada forces its way through the Vuelta de Obligado' },
+    'Shipping at San Pedro (NBY 7638).jpg': { cats: 'San Pedro, California', desc: '' },
+  });
+  const f = await fotoDeCommonsPorBusqueda(OBLIGADO, { json, bajar });
+  assert.equal(f.archivoDeOrigen, 'Batalla de la Vuelta de Obligado.jpg', 'la pintura de la época, aunque nombre a los dos bandos, gana al monolito');
 });
+
+test('fotoDeCommonsPorBusqueda: sin foto confiable devuelve null (fondo de marca) antes que una equivocada: otro país, lugar suelto o una sola palabra en común', async () => {
+  const soloEcuador = commonsSimulado({ 'Soberanía Nacional': ['Asamblea de Ecuador.jpg'], 'Vuelta de Obligado': ['Asamblea de Ecuador.jpg'] },
+    { 'Asamblea de Ecuador.jpg': { cats: 'National Assembly of Ecuador', desc: 'bandera de Ecuador, Vuelta de Obligado' } });
+  assert.equal(await fotoDeCommonsPorBusqueda(OBLIGADO, { json: soloEcuador, bajar }), null, 'nombra a Ecuador y el hecho no');
+  const lugarSuelto = commonsSimulado({ 'San Pedro': ['Shipping at San Pedro.jpg'], 'Vuelta de Obligado': [] }, { 'Shipping at San Pedro.jpg': { cats: 'Ships', desc: 'Puerto de San Pedro' } });
+  assert.equal(await fotoDeCommonsPorBusqueda(OBLIGADO, { json: lugarSuelto, bajar }), null, '«San Pedro» solo es un lugar suelto');
+  const unaPalabra = commonsSimulado({ 'Soberanía Nacional': ['Soberanía Alimentaria.jpg'] }, { 'Soberanía Alimentaria.jpg': { cats: 'Evento', desc: 'Soberanía y alimentos, nacional' } });
+  assert.equal(await fotoDeCommonsPorBusqueda(OBLIGADO, { json: unaPalabra, bajar }), null, 'las palabras sueltas no alcanzan: tiene que estar la frase entera');
+  assert.equal(await fotoDeCommonsPorBusqueda({ titulo: 'Un hecho sin nombres propios', texto: 'nada que buscar.' }, { json: commonsSimulado({}, {}), bajar }), null);
+});
+
+test('consultasDeFoto: el evento concreto va primero y los verbos del comienzo no son parte del nombre', () => {
+  const q = consultasDeFoto(OBLIGADO);
+  assert.equal(q[0], 'Batalla de la Vuelta de Obligado'); assert.ok(q.includes('Vuelta de Obligado'));
+  assert.ok(consultasDeFoto({ titulo: 'Nace Mahatma Gandhi', texto: '' }).includes('Mahatma Gandhi'));
+  assert.equal(consultasDeFoto({ titulo: 'Nace Mahatma Gandhi', texto: '' })[0], 'Mahatma Gandhi');
+});
+
+test('puntajeDeFoto: otro país no menciona el hecho = 0; una obra de época vale más que una foto moderna cuando el hecho es viejo', () => {
+  const clave = claveDelHecho(OBLIGADO);
+  assert.equal(puntajeDeFoto(clave, { nombre: 'Vuelta de Obligado.jpg', categorias: 'Battle of Vuelta de Obligado ; Ecuador', descripcion: 'Foto de Quito, Ecuador' }) > 0, true, 'una frase fuerte en el nombre o las categorías salva a las batallas con dos bandos');
+  assert.equal(puntajeDeFoto(clave, { nombre: 'Asamblea.jpg', categorias: 'Ecuador', descripcion: 'Vuelta de Obligado' }), 0, 'si la frase sólo está en la descripción y hay otro país, no sirve');
+  const pintura = puntajeDeFoto(clave, { nombre: 'A.jpg', categorias: 'Paintings from Argentina ; Battle of Vuelta de Obligado', descripcion: '' });
+  const monolito = puntajeDeFoto(clave, { nombre: 'B.jpg', categorias: 'Battle of Vuelta de Obligado ; Self-published work', descripcion: '' });
+  assert.ok(pintura > monolito);
+});
+
 
 // ---------------------------------------------------------------- la vista del sitio
 

@@ -33,7 +33,7 @@ async function fotoDeUnHecho(hecho, traer) {
 /** { datos (data URI), ancho, alto, credito } o null. `efemeride` es la de efemerides-piezas.json ({ principal: { titulo, cuerpo } }). */
 export async function fotoDeLaEfemeride(efemeride, { traer = globalThis.fetch } = {}) {
   const p = efemeride?.principal;
-  return p?.titulo ? fotoDeUnHecho({ titulo: p.titulo, texto: p.cuerpo ?? '', enlace: p.enlace }, traer) : null;
+  return p?.titulo ? fotoDeUnHecho({ titulo: p.titulo, texto: p.cuerpo ?? '', enlace: p.enlace, anio: p.anio }, traer) : null;
 }
 
 /**
@@ -43,7 +43,7 @@ export async function fotoDeLaEfemeride(efemeride, { traer = globalThis.fetch } 
  */
 export async function fotosDeLaEfemeride({ principal, ademas = null }, { traer = globalThis.fetch } = {}) {
   const uno = await fotoDeLaEfemeride({ principal }, { traer });
-  let dos = ademas?.texto ? await fotoDeUnHecho({ titulo: ademas.texto, texto: ademas.texto }, traer) : null;
+  let dos = ademas?.texto ? await fotoDeUnHecho({ titulo: ademas.texto, texto: ademas.texto, anio: ademas.anio }, traer) : null;
   if (dos && uno && ((dos.archivo && dos.archivo === uno.archivo) || dos.datos === uno.datos)) dos = null;
   return { principal: uno, ademas: dos };
 }
