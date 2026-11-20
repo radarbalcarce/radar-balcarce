@@ -218,7 +218,7 @@ function adaptarFarmacia(pieza, P, ctx) {
     marcas, hasta: String(e.hasta ?? 'De turno hasta mañana a las 8:30.').replace(/\.$/, '').replace(/^De turno hasta/i, 'Turno hasta'),
   };
   return {
-    plantilla: 'farmacias', datos, fotos: [], fondo: null,
+    plantilla: 'farmacias', datos, fotos: [], fondo: null, subsTop: SUBS_TOP,
     hl: { bg: MARCA.verde, fg: '#fff' }, rotulo: { txt: n === 1 ? 'Farmacia de turno' : 'Farmacias de turno', bg: MARCA.verde },
     scrim: 'linear-gradient(180deg,rgba(6,12,10,.55) 0%,rgba(6,12,10,.4) 55%,rgba(6,12,10,.55) 100%)',
   };

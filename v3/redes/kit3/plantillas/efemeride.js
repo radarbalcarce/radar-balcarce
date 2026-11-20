@@ -7,16 +7,15 @@ const GRAD = 'linear-gradient(165deg,#3A1A14 0%,#14161A 62%,#0B0D10 100%)';
 const EM = (K, texto) => Math.min(360, K.fit(texto, 960, 360, 120, 0.6)); // el tamaño del año gigante: el que entra en 960 de ancho
 const anioTop = (em, PT) => Math.round(PT - em * 0.55); // el número monta sobre la línea: casi todo arriba, la base sobre el papel
 const AN = (em) => 'position:absolute;left:60px;font-family:SS4;font-weight:900;font-size:' + em + 'px;line-height:1;letter-spacing:-.03em;white-space:nowrap;font-variant-numeric:tabular-nums;color:' + TINTA + ';z-index:5;text-shadow:0 0 30px rgba(243,235,216,.35);';
-const planoDe = (f, o) => Object.assign({ src: f ? f.src : null, w: f ? f.w : 1080, h: f ? f.h : 1920, panel: PAPEL, regla: ROJO, grad: GRAD }, o);
+const planoDe = (f, o) => Object.assign({ src: f ? f.src : null, w: f ? f.w : 1080, h: f ? f.h : 1920, panel: PAPEL, regla: ROJO, grad: GRAD, fijo: 880, fijoEscena: 880 }, o); // la efeméride lleva mucho texto bajo la foto: su alto fijo sigue en 880
 const alturaDe = (K, texto, tam, lh, k) => K.lineasDe(texto, 960, tam, k) * tam * lh;
 function tapa(K, S) {
   const T = K.TAPA, D = S.datos, f = D.foto;
   K.div(T, '', 'position:absolute;inset:0;background:' + PAPEL);
   const PT = K.fotoEstatica(T, planoDe(f, { off: 240, maxH: 1000, minH: 900 })).PTt, TIT = PT + 150; // la foto arranca en la fila 240: la grilla (285-1635) no le corta la cabeza
-  K.div(T, '', 'position:absolute;left:0;top:0;width:1080px;height:420px;background:linear-gradient(180deg,rgba(8,10,14,.35) 0%,rgba(8,10,14,0) 100%)');
   const em = EM(K, String(D.anio));
   K.div(T, '', AN(em) + 'top:' + anioTop(em, PT) + 'px', String(D.anio));
-  K.div(T, '', 'position:absolute;left:60px;top:296px;height:58px;padding:0 24px;display:flex;align-items:center;background:' + ROJO + ';color:#fff;font-weight:700;font-size:28px;letter-spacing:.16em;text-transform:uppercase;border-radius:4px;z-index:6;white-space:nowrap', D.rotulo);
+  K.div(T, '', 'position:absolute;left:60px;top:91px;height:58px;padding:0 24px;display:flex;align-items:center;background:' + ROJO + ';color:#fff;font-weight:700;font-size:28px;letter-spacing:.16em;text-transform:uppercase;border-radius:4px;z-index:6;white-space:nowrap', D.rotulo);
   const tam = K.fitBox(D.titulo, 960, 110, 54, 34, 1.12, 0.62);
   const t = K.div(T, '', 'position:absolute;left:60px;top:' + TIT + 'px;width:960px;font-weight:700;font-size:' + tam + 'px;line-height:1.12;letter-spacing:.01em;text-transform:uppercase;color:' + TINTA + ';z-index:6;text-wrap:balance', '');
   t.textContent = D.titulo;
@@ -33,10 +32,10 @@ function escenas(K, S) {
   // el año gigante sobre la línea: corre hasta el del hecho y, con la voz del segundo hecho, hasta el de ese hecho
   const em = EM(K, String(D.anio));
   const a1 = K.div(K.CT, '', AN(em) + 'top:' + anioTop(em, PT1) + 'px', String(D.anioDesde));
-  TL.set(a1, { autoAlpha: 0 }, 0); TL.set(a1, { autoAlpha: 1 }, 0.6);
-  TL.fromTo(a1, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' }, 0.6);
+  TL.set(a1, { autoAlpha: 0 }, 0); TL.set(a1, { autoAlpha: 1 }, 0.3);
+  TL.fromTo(a1, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' }, 0.3);
   const cont = { v: D.anioDesde };
-  TL.fromTo(cont, { v: D.anioDesde }, { v: D.anio, duration: 1.5, ease: 'power3.out', onUpdate() { a1.textContent = String(Math.round(cont.v)); } }, 0.7);
+  TL.fromTo(cont, { v: D.anioDesde }, { v: D.anio, duration: 1.5, ease: 'power3.out', onUpdate() { a1.textContent = String(Math.round(cont.v)); } }, 0.4);
   if (A && A.anio) {
     TL.fromTo(cont, { v: D.anio }, { v: A.anio, duration: 1.0, ease: 'power3.inOut', onUpdate() { a1.textContent = String(Math.round(cont.v)); } }, tA);
     if (PT2 !== PT1) TL.to(a1, { y: PT2 - PT1, duration: 0.6, ease: 'power3.inOut' }, tA);
@@ -44,10 +43,10 @@ function escenas(K, S) {
   // la franja, fase 1: el hecho y cuánto hace
   const tam = K.fitBox(D.titulo, 960, 110, 54, 34, 1.12, 0.62);
   const t1 = K.div(K.CT, '', 'position:absolute;left:60px;top:' + T1 + 'px;width:960px');
-  K.linea(t1, D.titulo, '', 'font-weight:700;font-size:' + tam + 'px;line-height:1.12;letter-spacing:.01em;text-transform:uppercase;color:' + TINTA + ';text-wrap:balance', 1.1, { salida: tA !== null ? tA - 0.05 : null });
+  K.linea(t1, D.titulo, '', 'font-weight:700;font-size:' + tam + 'px;line-height:1.12;letter-spacing:.01em;text-transform:uppercase;color:' + TINTA + ';text-wrap:balance', 0.45, { salida: tA !== null ? tA - 0.05 : null });
   if (D.hace) {
     const h = K.div(K.CT, '', 'position:absolute;left:60px;top:' + Math.round(T1 + alturaDe(K, D.titulo, tam, 1.12, 0.62) + 12) + 'px;font-weight:600;font-size:40px;color:' + TINTA + ';opacity:.85;white-space:nowrap', D.hace);
-    K.aparece(h, 1.4, { y: 20, salida: tA !== null ? tA - 0.05 : null });
+    K.aparece(h, 0.7, { y: 20, salida: tA !== null ? tA - 0.05 : null });
   }
   // fase 2: «También, en 1493…»: su foto, su año y su texto
   if (A) {

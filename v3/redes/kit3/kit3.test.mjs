@@ -211,7 +211,7 @@ test('subtítulos: terminan antes de la fila 1480 (la interfaz de Instagram empi
 
 test('las fotos de una pieza miden todas lo mismo y el titular termina antes de los subtítulos', () => {
   const kit = fs.readFileSync(path.join(AQUI, 'kit', 'kit.js'), 'utf8');
-  assert.match(kit, /FOTO_ALTO = 880/);
+  assert.match(kit, /FOTO_ALTO = 980/);
   assert.match(kit, /if \(!o\.maxH && !o\.minH\) \{[\s\S]*?const PT = o\.fijo \|\| FOTO_ALTO;/, 'las escenas usan el alto fijo');
   for (const f of ['repaso.js', 'nota.js']) {
     const fuente = fs.readFileSync(path.join(AQUI, 'plantillas', f), 'utf8');
@@ -225,4 +225,48 @@ test('el cierre del repaso no repite las tres noticias: queda la última foto co
   assert.doesNotMatch(fuente, /Todo en<|'Todo en'/, 'sin la placa «Todo en Radar Balcarce»');
   assert.doesNotMatch(fuente, /src: null, t0: tFin/, 'sin la placa de cierre que reemplazaba a la foto');
   assert.match(fuente, /radarbalcarce\.com/);
+});
+
+test('repaso: sin el cuadradito con el número ni las rayitas encima de las fotos', () => {
+  const fuente = fs.readFileSync(path.join(AQUI, 'plantillas', 'repaso.js'), 'utf8');
+  assert.doesNotMatch(fuente, /numero[(]K/);
+  assert.doesNotMatch(fuente, /function numero/);
+});
+
+test('tapas: la foto no se desenfoca ni se espeja (ni arriba ni en ningún borde) y pasa a la escena con una transición continua', () => {
+  const kit = fs.readFileSync(path.join(AQUI, 'kit', 'kit.js'), 'utf8');
+  const a = kit.indexOf('function fotoEstatica');
+  const cuerpo = kit.slice(a, kit.indexOf('const fx = {', a));
+  assert.ok(!/blur|scaleY[(]-1[)]/.test(cuerpo), 'fotoEstatica no desenfoca ni espeja');
+  assert.ok(cuerpo.includes('<= 0.4'), 'cubre mientras el recorte de los costados no pase del 40 %');
+  assert.ok(cuerpo.includes('#14161A 0px'), 'si no, banda del color del panel con degradado');
+  assert.ok(kit.includes('parent.__transicion = tr'));
+  assert.ok(kit.includes('M.fromTo(tr.im, { x: tr.x0'), 'la foto de la tapa se acomoda en su lugar de escena');
+  assert.ok(kit.includes('(tr.PTt - tr.PT)'), 'el alto baja hasta el alto fijo de la escena');
+});
+
+test('farmacias: la cruz grande no queda detrás de los subtítulos (filas 1264 a 1480)', () => {
+  const fuente = fs.readFileSync(path.join(AQUI, 'plantillas', 'farmacias.js'), 'utf8');
+  const m = fuente.match(/: \[(\d+), (\d+), (\d+)\]\[idx % 3\], S = estatico \? 560 : (\d+)/); // la parte del video (no la de la tapa)
+  assert.ok(m, 'no encuentro la posición de la cruz');
+  for (const cy of [m[1], m[2], m[3]]) assert.ok(Number(cy) + Number(m[4]) / 2 <= 1264, 'la cruz termina antes de los subtítulos');
+});
+
+test('kit/kit.js es JavaScript válido (un error de sintaxis deja el video en blanco)', () => {
+  const fuente = fs.readFileSync(path.join(AQUI, 'kit', 'kit.js'), 'utf8');
+  assert.doesNotThrow(() => new Function(fuente));
+  for (const f of plantillas) assert.doesNotThrow(() => new Function(fs.readFileSync(path.join(AQUI, 'plantillas', f), 'utf8').replace(/export default/g, 'return')), f);
+});
+
+test('tapas: filas 0-240 son una banda lisa, la foto empieza en la fila 240 sin recorte por arriba y el rótulo va en la banda', () => {
+  const kit = fs.readFileSync(path.join(AQUI, 'kit', 'kit.js'), 'utf8');
+  const a = kit.indexOf('function fotoEstatica');
+  const cuerpo = kit.slice(a, kit.indexOf('const fx = {', a));
+  assert.ok(cuerpo.includes('top: off, width: iw0'), 'la foto arranca en la fila off (240), pegada arriba, recortando sólo por abajo');
+  for (const f of ['repaso.js', 'nota.js', 'efemeride.js']) {
+    const fuente = fs.readFileSync(path.join(AQUI, 'plantillas', f), 'utf8');
+    assert.match(fuente, /left:60px;top:91px;height:58px/, `${f}: el rótulo va centrado en la banda (filas 0-240)`);
+    assert.doesNotMatch(fuente, /height:420px;background:linear-gradient/, `${f}: sin velo oscuro sobre la parte alta de la foto`);
+    assert.match(fuente, /off: 240/, f);
+  }
 });

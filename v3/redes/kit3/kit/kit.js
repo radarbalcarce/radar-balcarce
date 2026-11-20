@@ -4,7 +4,7 @@ window.Radar = (function () {
   function div(parent, cls, css, html) { const d = document.createElement('div'); if (cls) d.className = cls; if (css) d.style.cssText = css; if (html != null) d.innerHTML = html; parent.appendChild(d); return d; }
   function rng(seed) { return function () { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-  const FOTO_ALTO = 880; /* el alto de TODAS las fotos de las escenas; el texto va debajo, entre FOTO_ALTO y la fila 1255, y los subtítulos terminan antes de la fila 1480 (la interfaz de Instagram empieza en la 1540) */
+  const FOTO_ALTO = 980; /* el alto de TODAS las fotos de las escenas; el texto va debajo, entre FOTO_ALTO y la fila 1255, y los subtítulos terminan antes de la fila 1480 (la interfaz de Instagram empieza en la 1540) */
   let TL, ROOT, PL, CT, S;
 
   /* La geometria de una foto (puro): va SIEMPRE a todo el ancho (1080), pegada arriba (y=0), sin margenes. Se permite recortar hasta un 34 % del lado que sobra:
@@ -112,24 +112,35 @@ window.Radar = (function () {
     f.textContent = texto; aparece(f, t0 + 0.3, { y: 0, d: 0.4, salida: t1 != null ? t1 - 0.05 : null });
     return f;
   }
-  /* una foto quieta (para las tapas): a todo el ancho, pegada arriba, misma geometria que `foto`; o.panel / o.regla dibujan el panel de abajo. Devuelve la geometria ({ PT, ... }) */
+  /* una foto quieta (para las tapas). Regla de la grilla del feed (recorte 4:5, filas 285-1635): las filas 0 a o.off (240) son una BANDA LISA #14161A (sin desenfoque ni espejo) y la foto empieza en la fila o.off, a todo el ancho,
+     y NUNCA se recorta por arriba: si sobra alto se recorta por abajo (arriba y centrado), así la grilla pierde como mucho 45 px del borde superior de la foto y las cabezas quedan enteras. El alto de la foto es el de siempre (geom).
+     Si la foto es tan apaisada que cubrir ese alto obligaría a recortar más del 40 % de los costados, va entera a todo el ancho, pegada al panel, con la banda más alta y un degradado suave hacia la foto. El rótulo de la tapa va en la banda.
+     o.panel / o.regla dibujan el panel de abajo. Deja en parent.__transicion lo que hace falta para llevar la foto a su lugar de escena (alto fijo desde la fila 0): ver run(). Devuelve { PTt, ... }. */
   function fotoEstatica(parent, o) {
-    const R = regionDeFoto(parent, o), g = R.g, off = o.off || 0;
-    g.PTt = g.PT + off; // donde termina la foto en la tapa (la foto arranca en `off`: la grilla 285-1635 la muestra casi desde su borde superior)
-    if (off && o.src) { // las filas 0..off: la continuacion de la misma foto desenfocada y oscurecida (sin borde ni sombra)
-      const st = div(parent, '', 'position:absolute;left:0;top:0;width:' + W + 'px;height:' + (off + 2) + 'px;overflow:hidden;background:#14161A');
+    const g0 = geom(o), PTt = g0.PT + (o.off || 0);
+    const off = o.off || 0, AH = g0.PT; // la foto ocupa las filas off .. off + AH
+    const reg = div(parent, '', 'position:absolute;left:0;top:0;width:' + W + 'px;height:' + PTt + 'px;overflow:hidden;background:' + (o.src ? 'transparent' : '#14161A'));
+    const g = Object.assign({}, g0, { PTt }); let tr = null;
+    if (!o.src) {
+      div(reg, '', 'position:absolute;inset:0;background:' + (o.grad || 'linear-gradient(165deg,#222B38 0%,#14161A 58%,#0B0D10 100%)'));
+      [260, 520, 780, 1040].forEach((d) => div(reg, 'anillo', 'width:' + d + 'px;height:' + d + 'px;left:' + (540 - d / 2) + 'px;top:' + ((o.yc || PTt / 2.2) - d / 2) + 'px;border-color:rgba(255,255,255,.14);border-width:4px'));
+    } else {
+      const s0 = Math.max(W / o.w, AH / o.h), iw0 = o.w * s0, ih0 = o.h * s0;
+      let from, suave = 0;
+      if (1 - W / iw0 <= 0.4) from = { left: (W - iw0) / 2, top: off, width: iw0, height: ih0 };
+      else { const s = W / o.w, ih = o.h * s; from = { left: 0, top: off + AH - ih, width: W, height: ih }; suave = 170; }
+      const e = geom({ src: o.src, w: o.w, h: o.h, fijo: o.fijoEscena });
+      /* la imagen vive en su lugar de ESCENA y la tapa la lleva a la posición de tapa con una transformación (mover y escalar con transform: sin saltos de píxel) */
       const im = new Image(); im.src = o.src;
-      if (g.modo === 'cobertura') { // la misma foto espejada hacia arriba (sus filas de arriba siguen del otro lado de la costura), desenfocada: se lee como cielo/fondo
-        im.style.cssText = 'position:absolute;max-width:none;width:' + g.iw + 'px;height:' + g.ih + 'px;left:' + g.left + 'px;top:' + (off - g.top - g.ih) + 'px;transform:scaleY(-1);filter:blur(34px) brightness(.7) saturate(1.05)';
-      } else {
-        const cv = Math.max(W / o.w, 700 / o.h) * 1.1;
-        im.style.cssText = 'position:absolute;max-width:none;width:' + o.w * cv + 'px;height:' + o.h * cv + 'px;left:' + (W - o.w * cv) / 2 + 'px;top:0;filter:blur(36px) brightness(.4) saturate(.95)';
-      }
-      st.appendChild(im);
-    } else if (off) div(parent, '', 'position:absolute;left:0;top:0;width:' + W + 'px;height:' + (off + 2) + 'px;background:' + (o.grad || 'linear-gradient(165deg,#222B38 0%,#14161A 100%)'));
-    if (g.modo === 'sin') [260, 520, 780, 1040].forEach((d) => div(R.reg, 'anillo', 'width:' + d + 'px;height:' + d + 'px;left:' + (540 - d / 2) + 'px;top:' + (off + (o.yc || g.PT / 2.2) - d / 2) + 'px;border-color:rgba(255,255,255,.14);border-width:4px'));
-    if (o.panel) div(parent, '', 'position:absolute;left:0;top:' + g.PTt + 'px;width:' + W + 'px;height:' + (H - g.PTt) + 'px;background:' + o.panel);
-    if (o.regla) div(parent, '', 'position:absolute;left:0;top:' + g.PTt + 'px;width:' + W + 'px;height:10px;background:' + o.regla);
+      im.style.cssText = 'position:absolute;max-width:none;transform-origin:0 0;left:' + e.left + 'px;top:' + e.top + 'px;width:' + e.iw + 'px;height:' + e.ih + 'px';
+      reg.appendChild(im);
+      const band = div(reg, '', 'position:absolute;left:0;top:0;width:' + W + 'px;height:' + Math.round(from.top + suave) + 'px;background:' + (suave ? 'linear-gradient(180deg,#14161A 0px,#14161A ' + Math.round(from.top) + 'px,rgba(20,22,26,0) 100%)' : '#14161A'));
+      const sc = from.width / e.iw;
+      tr = { reg, im, band, PTt, PT: e.PT, x0: from.left - e.left, y0: from.top - e.top, s0: sc };
+    }
+    parent.__transicion = tr;
+    if (o.panel) div(parent, '', 'position:absolute;left:0;top:' + PTt + 'px;width:' + W + 'px;height:' + (H - PTt) + 'px;background:' + o.panel);
+    if (o.regla) div(parent, '', 'position:absolute;left:0;top:' + PTt + 'px;width:' + W + 'px;height:10px;background:' + o.regla);
     return g;
   }
   const fx = {
@@ -239,8 +250,23 @@ window.Radar = (function () {
         div(tp, '', caja + ';text-shadow:0 2px 12px rgba(0,0,0,.55)', mk('#FAF8F3', '#C7381C'));
       }
       if (K.kit === 'k2') div(tp, '', 'position:absolute;left:60px;top:1394px;height:36px;font-family:SS4;font-weight:900;font-size:34px;line-height:36px;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.65);white-space:nowrap;z-index:9', 'Radar Balcarce');
-      M.fromTo(tp, { clipPath: 'inset(0% 0 0 0)' }, { clipPath: 'inset(0% 0 100% 0)', duration: 0.45, ease: 'power3.inOut' }, T0 - 0.05);
-      M.set(tp, { display: 'none' }, T0 + 0.5);
+      const tr = tp.__transicion;
+      if (tr) {
+        /* la tapa pasa a la primera escena sin corte: la foto (la misma de la primera escena, que ya está debajo) baja de alto y se acomoda en su lugar de escena (alto fijo desde la fila 0) en 0,5 s, mientras el
+           resto de la tapa (título, lista, marca, panel) sube y se desvanece; al final la foto se funde con la de la escena (que es la misma) y la tapa se va. La tapa quieta (t = 0,3 s) no cambia. */
+        tp.style.background = 'transparent';
+        const resto = Array.prototype.filter.call(tp.children, (c) => c !== tr.reg);
+        const D = 0.5, E = 'power3.inOut';
+        M.to(resto, { y: -50, opacity: 0, duration: 0.25, ease: 'power1.in' }, T0);
+        M.fromTo(tr.reg, { clipPath: 'inset(0px 0px 0px 0px)' }, { clipPath: 'inset(0px 0px ' + (tr.PTt - tr.PT) + 'px 0px)', duration: D, ease: E }, T0);
+        M.fromTo(tr.im, { x: tr.x0, y: tr.y0, scale: tr.s0 }, { x: 0, y: 0, scale: 1, duration: D, ease: E }, T0);
+        if (tr.band) M.to(tr.band, { opacity: 0, y: -60, duration: 0.3, ease: 'power2.in' }, T0);
+        M.to(tr.reg, { opacity: 0, duration: 0.12, ease: 'none' }, T0 + D);
+        M.set(tp, { display: 'none' }, T0 + D + 0.15);
+      } else {
+        M.fromTo(tp, { clipPath: 'inset(0% 0 0 0)' }, { clipPath: 'inset(0% 0 100% 0)', duration: 0.45, ease: 'power3.inOut' }, T0 - 0.05);
+        M.set(tp, { display: 'none' }, T0 + 0.5);
+      }
     }
     M.set({}, {}, T0 + spec.dur);
     window.__timelines = window.__timelines || {}; window.__timelines['main'] = M; M.seek(0);

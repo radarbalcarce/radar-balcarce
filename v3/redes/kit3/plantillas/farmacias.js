@@ -14,9 +14,12 @@ function fondoGrafico(K, cont, t0, t1, idx, estatico) {
     const c = K.div(cont, '', 'position:absolute;left:' + ((i * 211 + idx * 90) % 1000) + 'px;top:' + ((i * 397) % 1900) + 'px;opacity:' + (0.05 + r * 0.07), cruzSvg(sz, 'none', '#fff'));
     if (!estatico) TL.to(c, { y: -420 - r * 300, duration: 9 + r * 6, ease: 'none', repeat: 4 }, t0);
   }
-  const cx = [860, 330, 860][idx % 3], cy = [1230, 1250, 1210][idx % 3], S = 560;
-  const halo = K.div(cont, '', 'position:absolute;left:' + (cx - 420) + 'px;top:' + (cy - 420) + 'px;width:840px;height:840px;border-radius:50%;background:radial-gradient(closest-side,rgba(46,200,120,.3),rgba(46,200,120,0))');
-  const g = K.div(cont, '', 'position:absolute;left:' + (cx - S / 2) + 'px;top:' + (cy - S / 2) + 'px;width:' + S + 'px;height:' + S + 'px;filter:drop-shadow(0 0 40px rgba(70,230,150,.55))', cruzSvg(S, 'rgba(123,224,174,.7)', 'rgba(255,255,255,0)'));
+  /* la cruz grande queda arriba de los subtítulos (que ocupan las filas 1264-1480): chica, a la derecha y con su resplandor acotado, así el cartel se lee limpio (Hernán, 19/11) */
+  /* en la TAPA (sin subtítulos) la cruz sigue grande y abajo; en el video, chica y arriba de los subtítulos */
+  const cx = estatico ? [860, 330, 860][idx % 3] : [880, 860, 880][idx % 3], cy = estatico ? [1230, 1250, 1210][idx % 3] : [1090, 1100, 1090][idx % 3], S = estatico ? 560 : 300;
+  const HR = estatico ? 420 : 260;
+  const halo = K.div(cont, '', 'position:absolute;left:' + (cx - HR) + 'px;top:' + (cy - HR) + 'px;width:' + HR * 2 + 'px;height:' + HR * 2 + 'px;border-radius:50%;background:radial-gradient(closest-side,rgba(46,200,120,.3),rgba(46,200,120,0))');
+  const g = K.div(cont, '', 'position:absolute;left:' + (cx - S / 2) + 'px;top:' + (cy - S / 2) + 'px;width:' + S + 'px;height:' + S + 'px;filter:drop-shadow(0 0 28px rgba(70,230,150,.5))', cruzSvg(S, 'rgba(123,224,174,.7)', 'rgba(255,255,255,0)'));
   const path = g.querySelector('path'), L = path.getTotalLength();
   path.style.strokeDasharray = L; path.style.strokeDashoffset = estatico ? 0 : L;
   if (estatico) { path.setAttribute('fill', 'rgba(31,168,98,.3)'); path.setAttribute('stroke', 'rgba(123,224,174,.7)'); }

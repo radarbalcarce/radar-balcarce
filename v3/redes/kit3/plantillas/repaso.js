@@ -3,21 +3,13 @@
    Lee SPEC.datos (desde-pieza.mjs). */
 const ROJO = '#C7381C', PAPEL = '#FAF8F3';
 const PANEL = '#14161A';
-function numero(K, parent, i, n, css) { // cuadrado rojo con el numero grande + una barra de avance por nota
-  const w = K.div(parent, '', css + ';display:flex;align-items:center;gap:22px');
-  K.div(w, '', 'width:104px;height:104px;background:' + ROJO + ';color:#fff;font-family:SS4;font-weight:900;font-size:84px;line-height:104px;text-align:center;border-radius:6px;box-shadow:0 6px 24px rgba(0,0,0,.4)', String(i + 1));
-  const b = K.div(w, '', 'display:flex;gap:10px');
-  for (let k = 0; k < n; k++) K.div(b, '', 'width:58px;height:12px;border-radius:4px;background:' + (k === i ? PAPEL : 'rgba(255,255,255,.35)'));
-  return w;
-}
 const planoDe = (f, o) => Object.assign({ src: f ? f.src : null, w: f ? f.w : 1080, h: f ? f.h : 1920, panel: PANEL }, o);
 function tapa(K, S) {
   const T = K.TAPA, D = S.datos, N = D.notas;
   K.div(T, '', 'position:absolute;inset:0;background:#14161A');
   const nf = N.find((x) => x.foto);
   const PT = K.fotoEstatica(T, planoDe(nf ? nf.foto : null, { off: 240, maxH: 900, minH: 900 })).PTt; // la foto arranca en la fila 240: la grilla (285-1635) no le corta la cabeza
-  K.div(T, '', 'position:absolute;left:0;top:0;width:1080px;height:420px;background:linear-gradient(180deg,rgba(8,10,14,.4) 0%,rgba(8,10,14,0) 100%)');
-  K.div(T, '', 'position:absolute;left:60px;top:315px;height:58px;padding:0 24px;display:flex;align-items:center;background:' + ROJO + ';color:#fff;font-weight:700;font-size:28px;letter-spacing:.16em;text-transform:uppercase;border-radius:4px;white-space:nowrap', 'Repaso · ' + D.momentoTexto);
+  K.div(T, '', 'position:absolute;left:60px;top:91px;height:58px;padding:0 24px;display:flex;align-items:center;background:' + ROJO + ';color:#fff;font-weight:700;font-size:28px;letter-spacing:.16em;text-transform:uppercase;border-radius:4px;white-space:nowrap', 'Repaso · ' + D.momentoTexto);
   K.div(T, '', 'position:absolute;left:60px;top:' + (PT + 28) + 'px;font-family:SS4;font-weight:900;font-size:' + K.fit(D.titulo, 960, 84, 56, 0.5) + 'px;line-height:1;color:#FAF8F3;white-space:nowrap', D.titulo);
   // la lista: la letra más grande que deje los tres titulares enteros entre el título y la fila 1530
   const LT = PT + 130;
@@ -38,16 +30,14 @@ function escenas(K, S) {
   const a = 'font-family:SS4;font-weight:900;color:#fff;text-shadow:0 6px 30px rgba(0,0,0,.55);';
   const PTS = N.map((x) => K.geom(planoDe(x.foto, {})).PT); // dónde termina cada foto: ahí empieza su panel y su titular
   const tit = K.div(K.CT, '', 'position:absolute;left:60px;top:' + (PTS[0] + 25) + 'px;width:960px');
-  K.linea(tit, D.l1, '', a + 'font-size:140px;line-height:1', 0.2, { d: 0.6, salida: t[0] - 0.1 });
-  K.linea(tit, D.l2, '', a + 'font-size:96px;line-height:1.05', 0.38, { d: 0.6, salida: t[0] - 0.1 });
+  K.linea(tit, D.l1, '', a + 'font-size:140px;line-height:1', 0.3, { d: 0.6, salida: t[0] - 0.1 });
+  K.linea(tit, D.l2, '', a + 'font-size:96px;line-height:1.05', 0.42, { d: 0.6, salida: t[0] - 0.1 });
   N.forEach((nota, i) => {
     const t0 = i === 0 ? 0 : t[i], t1 = i < n - 1 ? t[i + 1] : FIN, tn = t[i], f = nota.foto, tSale = i < n - 1 ? t1 : tFin; // la última foto sigue hasta el cierre con el logo
     K.foto(planoDe(f, { t0, t1, entrada: i === 0 ? 'corte' : ENTRADAS[i % 3], de: 0.5, dir: i % 2 ? -1 : 1, z: 10 + i * 2 }));
-    const tam = K.fitBox(nota.titular, 960, 1255 - PTS[i] - 25, 62, 38, 1.1, 0.54);
+    const tam = K.fitBox(nota.titular, 960, 1255 - PTS[i] - 25, 62, 38, 1.1, 0.6);
     const bloque = K.div(K.CT, '', 'position:absolute;left:60px;top:' + (PTS[i] + 25) + 'px;width:960px');
     K.linea(bloque, nota.titular, '', 'font-family:SS4;font-weight:900;font-size:' + tam + 'px;line-height:1.1;color:#fff;text-wrap:balance;text-shadow:0 4px 22px rgba(0,0,0,.6)', tn + 0.35, { d: 0.6, salida: tSale - 0.05 });
-    const num = numero(K, K.CT, i, n, 'position:absolute;left:60px;top:276px');
-    K.aparece(num, tn + 0.1, { y: 0, from: { x: -60 }, salida: tSale - 0.05 });
   });
   // el cierre: NO se repiten las tres noticias (la tapa ya las tiene). Mientras la voz dice «Todo en Radar Balcarce punto com» la última foto sigue en pantalla y, en lugar de su titular, queda la firma de la marca
   const fb = K.div(K.CT, '', 'position:absolute;left:60px;top:' + (PTS[n - 1] + 25) + 'px;width:960px');
