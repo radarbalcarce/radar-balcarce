@@ -484,7 +484,7 @@ test('cargar una nota: el formulario, con las 14 secciones y la firma por defect
   assert.match(h, /Cargar una nota/);
   assert.match(h, /value="Hernán Accomo"/);
   assert.equal((h.match(/<option /g) || []).length, 14 + 2); // las 14 secciones y los 2 tipos del gráfico propio
-  assert.match(h, /Todavía no revisa la IA/);
+  assert.match(h, /todavía no llama a la IA/);
   // Un error: vuelve el formulario con lo escrito y el aviso, y no se guarda nada.
   const r = await t.post('/panel/pedir', s, NOTA_OK({ titulo: 'Un título <b>cortado</b>…', cuerpo: 'Sólo un párrafo.' }));
   assert.equal(r.status, 400);

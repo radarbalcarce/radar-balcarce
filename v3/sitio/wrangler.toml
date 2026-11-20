@@ -1,6 +1,6 @@
 # El sitio de Radar 3.0 (ver REGLAS.md). Lo sube el workflow «Radar 3.0: desplegar» (opción sitio).
 name = "radar-sitio"
-main = "worker.mjs"
+main = "principal.mjs"
 compatibility_date = "2026-10-01"
 workers_dev = true
 # El respaldo al sitio viejo (ORIGEN_VIEJO, en radar-balcarce.pages.dev) es un pedido a otro sitio de Cloudflare: sin esta bandera, desde workers.dev da error 1019
@@ -14,6 +14,12 @@ database_name = "radar-nucleo"
 database_id = "REEMPLAZADO_POR_EL_WORKFLOW"
 
 # Las fotos de las notas viejas (/fotos-notas/*) y las tipografías (/fuentes/*): se copian con scripts/copiar-fotos.mjs. El workflow crea el depósito si no existe.
+# Los .md (PERFIL, REDACCION) entran al bundle como texto: los usa «Nota desde el material crudo» del panel (REGLAS § 13).
+[[rules]]
+type = "Text"
+globs = ["**/*.md"]
+fallthrough = true
+
 [[r2_buckets]]
 binding = "FOTOS"
 bucket_name = "radar-fotos"

@@ -81,6 +81,7 @@ Automovilismo, Agro, Economía, Ciencia, Cultura, Tecnología y Argentina. Lo de
 - **Firma:** «Redacción Radar Balcarce», con la leyenda «escrita con IA a partir de N fuentes y verificada contra ellas». Las notas que
   pide Hernán: «Hernán Accomo».
 - Lo que nunca: inventar, agregar lo que ninguna fuente dice, copiar oraciones, adjetivar, «en las últimas horas», «según trascendió».
+- **Lo mismo desde el panel (20/11):** «Nota con IA» (`/panel/crudo`, `sitio/REGLAS.md` § 13) arma una nota propia desde el material crudo de Hernán con estos mismos dos pedidos (`redactar` y `verificar`, sin reescritura), la misma clave, el mismo freno mensual (`costo.mjs`) y la tarea `panel-crudo` en `uso_ia`.
 
 ### 5 bis. El respaldo de texto: Mistral (10/11/2026; `redactar/mistral.mjs`)
 

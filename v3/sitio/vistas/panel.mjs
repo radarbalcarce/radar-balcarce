@@ -65,7 +65,7 @@ export const DESTINOS_DEL_REEL = [['instagram', 'Instagram'], ['facebook', 'Face
 
 /** La barra de arriba: de acá se llega a cada pantalla. «Estado» sólo la ven los dueños (los editores no entran). */
 export function menuDe(rol, activa) {
-  const items = [['notas', '/panel', 'Notas'], ['redes', '/panel/redes', 'Redes de hoy'], ['pedir', '/panel/pedir', 'Cargar una nota'], ...(rol === 'dueno' ? [['ajustes', '/panel/ajustes', 'Estado']] : [])];
+  const items = [['notas', '/panel', 'Notas'], ['redes', '/panel/redes', 'Redes de hoy'], ['pedir', '/panel/pedir', 'Cargar una nota'], ['crudo', '/panel/crudo', 'Nota con IA'], ...(rol === 'dueno' ? [['ajustes', '/panel/ajustes', 'Estado']] : [])];
   return `<nav class="navbar" aria-label="Secciones del panel">${items.map(([c, h, t]) => `<a href="${h}"${c === activa ? ' class="activa" aria-current="page"' : ''}>${t}</a>`).join('')}</nav>`;
 }
 
@@ -189,6 +189,7 @@ export const MENSAJES_OK = {
   'borrador-guardado': 'Listo, el borrador quedó guardado. Todavía no se ve en el sitio.',
   'publicada-nueva': 'Listo, la nota quedó publicada. El sitio la muestra en unos minutos.',
   descartada: 'Listo, el borrador quedó descartado.',
+  'nota-armada': 'La IA armó la nota. Leela con cuidado: todavía es un borrador, no se ve en el sitio ni sale a las redes hasta que toques «Publicar».',
 };
 export const MENSAJES_ERROR = {
   titulo: 'El título tiene que tener entre 3 y 300 letras.',
@@ -228,6 +229,14 @@ export const MENSAJES_ERROR = {
   video: 'Ese enlace no es de un video de YouTube. Pegá la dirección completa del video (o su código de 11 letras).',
   'sin-permiso': 'Tu usuario no puede hacer eso: es sólo para los dueños del panel.',
   'no-borrador': 'Ese borrador ya no existe o ya se publicó.',
+  'crudo-corto': 'Pegá más material: con menos de 200 letras la IA no tiene de dónde armar una nota.',
+  'crudo-largo': 'El material es demasiado largo (hasta 16.000 letras). Dividilo en dos notas o sacá lo que no haga falta.',
+  'sin-clave-ia': 'El sitio todavía no tiene la clave de la IA cargada (hay que desplegar el sitio con la clave de Gemini). No se gastó nada.',
+  'tope-ia': 'Hoy ya se usaron todos los pedidos de IA del panel (20 notas por día). Probá mañana o escribila a mano en «Cargar una nota».',
+  'freno-ia': 'Este mes se llegó al freno de gasto de la IA (US$ 7) y el respaldo gratis tampoco puede hoy. Escribila a mano en «Cargar una nota».',
+  'ia-fallo': 'La IA no respondió (o se cortó). Probá de nuevo en un rato; lo que pegaste sigue en el formulario.',
+  'ia-invalida': 'La IA devolvió algo que no se pudo usar (por ejemplo, una nota muy corta). Tocá el botón de nuevo; si sigue igual, pasale más material.',
+  'verificacion-pendiente': 'La verificación marcó oraciones sin respaldo en tu material. Editá la nota y guardala, o tildá «Lo revisé y la quiero publicar así» al publicar.',
   'fotos-no-subidas': 'El borrador quedó guardado, pero las fotos no se pudieron subir. Probá de nuevo desde «Fotos».',
 };
 
@@ -372,7 +381,7 @@ ${fotos}
 </section>
 <section class="caja"><h2>¿Cuándo sale?</h2>
 <p>El reloj de las piezas lo arma en su próxima vuelta (de 8 a 23 h) y respeta el cupo de voz del día (15 audios). Una nota tiene un solo reel.</p>
-<p class="nota-chica">Importante: por ahora el reloj de las redes todavía no mira qué redes ni qué fotos elegiste: usa las de siempre. Queda anotado para cuando las respete.</p>
+<p class="nota-chica">El reloj de las piezas respeta las redes y las fotos que elijas acá al armar el reel.</p>
 ${usables.length ? '<button type="submit">🎬 Pedir el reel</button>' : ''}
 </section>
 </form>`;

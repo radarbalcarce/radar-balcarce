@@ -4,7 +4,8 @@
 // Nunca pasa por la caché pública: cada respuesta es `no-store`, `noindex` y con su propia política de contenido.
 import { BASE, SECCIONES, slugDe, jsonONull, parrafosDe, ranuraDe } from './util.mjs';
 import { paginaSinSesion, paginaEntrar, paginaEnlaceVencido, paginaPanelError, paginaLista, paginaNota, paginaReel, DESTINOS_DEL_REEL } from './vistas/panel.mjs';
-import { paginaRedesDeHoy, paginaEstado, paginaPedir, paginaBorrador, paginaEditarBorrador } from './vistas/panel-nuevas.mjs';
+import { paginaRedesDeHoy, paginaEstado, paginaPedir, paginaBorrador, paginaEditarBorrador, paginaCrudo } from './vistas/panel-nuevas.mjs';
+import { validarCrudo, armarNotaDesdeCrudo } from './panel-crudo.mjs';
 import { datosDeRedesDeHoy, datosDeEstado, piezasDeLaNota } from './panel-redes.mjs';
 import { configuracionDeAccess, verificarAccess, CABECERA_ACCESS } from './panel-acceso.mjs';
 import { crearBorrador, guardarBorrador, publicarBorrador, descartarBorrador, filaDeBorrador, borradoresRecientes, borradorParaVer } from './panel-pedir.mjs';
@@ -437,10 +438,39 @@ async function subirAlBorrador(env, fila, archivos, credito, ahora) {
   return cambiarFotos(env, { id: fila.id, titulo: fila.titulo, foto: fila.foto }, fd, ahora);
 }
 
+/** Revisa las fotos del formulario ANTES de gastar IA: cantidad, peso y tipo (por sus primeros bytes). Devuelve el código de error o null. */
+async function revisarFotos(env, form) {
+  const archivos = form.getAll('fotos').filter((x) => x && typeof x === 'object' && typeof x.arrayBuffer === 'function' && x.size > 0);
+  if (!archivos.length) return null;
+  if (archivos.length > MAX_FOTOS) return 'muchas-fotos';
+  if (archivos.some((a) => a.size > MAX_BYTES_FOTO)) return 'foto-grande';
+  for (const a of archivos) if (!tipoDeImagen(new Uint8Array(await a.arrayBuffer()))) return 'foto-formato';
+  if (!env.FOTOS) return 'sin-deposito';
+  return null;
+}
+
 const rutaDelBorrador = (id) => `/panel/borrador/${encodeURIComponent(id)}`;
 
-async function atenderBorradores(env, ruta, metodo, form, { url, csrf, ahora, cache, ctx }) {
+async function atenderBorradores(env, ruta, metodo, form, { url, csrf, ahora, cache, ctx, textos, ia, traerIA }) {
   const rol = ctx.rol;
+  // «Nota desde el material crudo»: el formulario (GET) y el armado con IA (POST). Siempre termina en un BORRADOR: nunca publica.
+  if (ruta === '/panel/crudo') {
+    if (metodo === 'GET') return html(paginaCrudo({ csrf, rol, error: url.searchParams.get('error') }));
+    const v = validarCrudo(form);
+    if (v.error) return html(paginaCrudo({ csrf, rol, valores: v.valores, error: v.error }), 400);
+    const malaFoto = await revisarFotos(env, form);
+    if (malaFoto) return html(paginaCrudo({ csrf, rol, valores: v.valores, error: malaFoto }), 400);
+    const r = await armarNotaDesdeCrudo(env, v.datos, { por: ctx.por, ahora, textos, ia, fetch: traerIA });
+    if (r.error) return html(paginaCrudo({ csrf, rol, valores: v.valores, error: r.error }), r.error === 'ia-invalida' || r.error === 'ia-fallo' ? 502 : 400);
+    if (r.noPublicar) return html(paginaCrudo({ csrf, rol, valores: v.valores, error: 'no-publicar', motivo: r.noPublicar }), 200);
+    const archivos = form.getAll('fotos').filter((x) => x && typeof x === 'object' && typeof x.arrayBuffer === 'function' && x.size > 0);
+    let fotos = null;
+    if (archivos.length) {
+      const fila = await filaDeBorrador(env, r.id);
+      fotos = await subirAlBorrador(env, fila, archivos, v.datos.credito, ahora);
+    }
+    return irA(`${rutaDelBorrador(r.id)}?${fotos?.error ? 'error=fotos-no-subidas' : 'ok=nota-armada'}`);
+  }
   if (ruta === '/panel/pedir') {
     if (metodo === 'GET') return html(paginaPedir({ csrf, rol, borradores: await borradoresRecientes(env), ok: url.searchParams.get('ok'), error: url.searchParams.get('error') }));
     const r = await crearBorrador(env, form, { por: ctx.por, ahora, subirFotos: (fila, archivos, credito) => subirAlBorrador(env, fila, archivos, credito, ahora) });
@@ -470,7 +500,8 @@ async function atenderBorradores(env, ruta, metodo, form, { url, csrf, ahora, ca
     return irA(r.error ? `${rutaDelBorrador(id)}?error=${r.error}` : `${rutaDelBorrador(id)}?ok=${r.ok}`);
   }
   if (accion === 'publicar') {
-    const r = await publicarBorrador(env, f, { por: ctx.por, ahora });
+    const r = await publicarBorrador(env, f, { por: ctx.por, ahora, aceptado: String(form.get('acepto') ?? '') === 'si' });
+    if (r.error) return irA(`${rutaDelBorrador(id)}?error=${r.error}`);
     await purgar(cache, url.origin, rutasAPurgar({ id: f.id, titulo: f.titulo, s_slug: r.slug }, f.seccion));
     return irA(`/panel/nota/${encodeURIComponent(id)}?ok=${r.ok}`);
   }
@@ -503,15 +534,15 @@ async function identidadDe(pedido, env, ahora, traer, fuera) {
 }
 
 /** Atiende todo /panel y /panel/…. `cache`: la caché pública (para borrar la página de una nota cambiada); nada del panel se guarda ahí. `traer`: el fetch de las claves de Access (se inyecta en las pruebas). */
-export async function manejarPanel(pedido, env, { ahora = new Date(), cache = null, traer = globalThis.fetch } = {}) {
+export async function manejarPanel(pedido, env, { ahora = new Date(), cache = null, traer = globalThis.fetch, textos = {}, ia = null, traerIA = null } = {}) {
   const fuera = { cookie: null };
-  const r = await atender(pedido, env, { ahora, cache, traer }, fuera);
+  const r = await atender(pedido, env, { ahora, cache, traer, textos, ia, traerIA }, fuera);
   // La sesión de Telegram se estira con el uso: si hoy se renovó, la cookie nueva viaja con la respuesta.
   if (fuera.cookie) r.headers.append('set-cookie', fuera.cookie);
   return r;
 }
 
-async function atender(pedido, env, { ahora, cache, traer }, fuera) {
+async function atender(pedido, env, { ahora, cache, traer, textos, ia, traerIA }, fuera) {
   const url = new URL(pedido.url);
   const ruta = url.pathname.replace(/\/+$/, '') || '/';
   const metodo = pedido.method === 'HEAD' ? 'GET' : pedido.method;
@@ -567,8 +598,8 @@ async function atender(pedido, env, { ahora, cache, traer }, fuera) {
     if (metodo === 'GET') return html(paginaEstado({ datos: await datosDeEstado(env, ahora), csrf, rol }));
   }
 
-  if (ruta === '/panel/pedir' || ruta.startsWith('/panel/borrador/')) {
-    const r = await atenderBorradores(env, ruta, metodo, form, { url, csrf, ahora, cache, ctx });
+  if (ruta === '/panel/pedir' || ruta === '/panel/crudo' || ruta.startsWith('/panel/borrador/')) {
+    const r = await atenderBorradores(env, ruta, metodo, form, { url, csrf, ahora, cache, ctx, textos, ia, traerIA });
     if (r) return r;
   }
 

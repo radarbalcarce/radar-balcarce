@@ -52,7 +52,7 @@ function slugDeNota(titulo) {
  * Lo que dice el formulario → { datos } o { error } (código de texto fijo). `valores` siempre vuelve para dibujar el formulario de nuevo sin perder lo escrito.
  * Reglas: título entero (3 a 300, nunca termina en «…» ni en puntos suspensivos), bajada (1 a 600), sección de las 14, al menos 3 párrafos, firma (1 a 80), fuente con https, video de YouTube.
  */
-export function validarNota(form) {
+export function validarNota(form, { minParrafos = MIN_PARRAFOS } = {}) {
   const v = {
     titulo: unaLinea(form.get('titulo')), bajada: unaLinea(form.get('bajada')), seccion: String(form.get('seccion') ?? ''), cuerpo: limpio(form.get('cuerpo')),
     firma: unaLinea(form.get('firma')) || POR_DEFECTO_FIRMA, fuenteMedio: unaLinea(form.get('fuente_medio')), fuenteUrl: String(form.get('fuente_url') ?? '').trim(),
@@ -68,7 +68,7 @@ export function validarNota(form) {
   if (!NOMBRES_DE_SECCION.includes(v.seccion)) return error('seccion');
   if (v.cuerpo.length > 40000) return error('cuerpo');
   const parrafos = parrafosDelFormulario(v.cuerpo);
-  if (parrafos.length < MIN_PARRAFOS) return error('pocos-parrafos');
+  if (parrafos.length < minParrafos) return error('pocos-parrafos');
   if (v.firma.length > 80) return error('firma');
   if (v.fuenteMedio.length > 80) return error('fuente-medio');
   let fuente = null;
@@ -101,7 +101,7 @@ const objeto = (x) => (x && typeof x === 'object' && !Array.isArray(x) ? { ...x 
 
 /** El borrador de una nota hecha en el panel (estado borrador y origen redacción), o null. */
 export async function filaDeBorrador(env, id) {
-  const f = await env.DB.prepare(`SELECT n.id, n.titulo, n.bajada, n.cuerpo, n.seccion, n.estado, n.foto, n.ficha, n.fuentes, n.firma, n.creada, n.origen, n.slug, s.slug AS s_slug, s.extra AS s_extra
+  const f = await env.DB.prepare(`SELECT n.id, n.titulo, n.bajada, n.cuerpo, n.seccion, n.en_dos_lineas, n.estado, n.foto, n.ficha, n.fuentes, n.firma, n.creada, n.origen, n.slug, s.slug AS s_slug, s.extra AS s_extra
     FROM notas n LEFT JOIN sitio_notas s ON s.id = n.id WHERE n.id = ? AND n.estado = 'borrador' AND n.origen = 'redaccion'`).bind(id).first();
   return f || null;
 }
@@ -133,30 +133,39 @@ export function borradorParaVer(f) {
     grafico: normalizarGrafico(ficha.grafico).grafico ?? null,
     fotos: (Array.isArray(fotos) ? fotos : fotos ? [fotos] : []).filter((x) => x && typeof x === 'object').map((x) => ({ url: x.url ?? '', credito: x.credito ?? '' })),
     carga: ficha.carga ?? null,
+    enDosLineas: f.en_dos_lineas || '',
+    ficha: { que: ficha.que ?? '', quien: ficha.quien ?? '', donde: ficha.donde ?? '', cuando: ficha.cuando ?? '', numeros: Array.isArray(ficha.numeros) ? ficha.numeros : [], faltaSaber: Array.isArray(ficha.faltaSaber) ? ficha.faltaSaber : [] },
+    crudo: ficha.crudo && typeof ficha.crudo === 'object' ? ficha.crudo : null,
   };
 }
 
 const COLUMNAS = 'id, historia_id, creada, titulo, bajada, cuerpo, seccion, en_dos_lineas, ficha, no_publicar, verificacion, foto, fuentes, fecha_hecho, firma, pedidos, estado, origen, slug, publicada_en, redes';
+
+/** Guarda un borrador ya validado (lo comparten «Cargar una nota» y «Nota desde el material crudo»): la fila de notas (estado borrador, origen redacción) y la de sitio_notas. Devuelve el id. */
+export async function insertarBorrador(env, { datos, ficha, dosLineas, verificacion, pedidos = 0 }, { ahora }) {
+  let id = idNuevo();
+  for (let i = 0; i < 5 && await env.DB.prepare('SELECT 1 AS x FROM notas WHERE id = ?').bind(id).first(); i++) id = idNuevo();
+  const cuando = ahora.toISOString();
+  const slug = slugDeNota(datos.titulo);
+  const redes = { eleccion: 'solo-web', lista: [], confirmada: true, elegida: cuando };
+  await env.DB.prepare(`INSERT INTO notas (${COLUMNAS}) VALUES (${COLUMNAS.split(', ').map(() => '?').join(', ')})`).bind(
+    id, `redaccion-${id}`, cuando, datos.titulo, datos.bajada, JSON.stringify(datos.parrafos), datos.seccion, dosLineas || datos.bajada, JSON.stringify(ficha), null,
+    JSON.stringify(verificacion), null, JSON.stringify(datos.fuentes), cuando, datos.firma, pedidos,
+    'borrador', 'redaccion', slug, null, JSON.stringify(redes),
+  ).run();
+  await env.DB.prepare('INSERT INTO sitio_notas (id, slug, publicada_en, origen, extra) VALUES (?, ?, ?, ?, ?)')
+    .bind(id, slug, cuando, 'redaccion', datos.video ? JSON.stringify({ video: datos.video }) : null).run();
+  return id;
+}
 
 /** Crea el borrador. Devuelve { id } (y `fotos` con el resultado de subirlas, si había) o { error, valores }. `subirFotos(fila, archivos, credito)` la pone el panel (la misma subida de la ficha). */
 export async function crearBorrador(env, form, { por, ahora, subirFotos }) {
   const v = validarNota(form);
   if (v.error) return v;
   const { datos } = v;
-  let id = idNuevo();
-  for (let i = 0; i < 5 && await env.DB.prepare('SELECT 1 AS x FROM notas WHERE id = ?').bind(id).first(); i++) id = idNuevo();
-  const cuando = ahora.toISOString();
-  const slug = slugDeNota(datos.titulo);
-  const ficha = { pideCriterio: datos.pideCriterio, carga: { por, cuando } };
+  const ficha = { pideCriterio: datos.pideCriterio, carga: { por, cuando: ahora.toISOString() } };
   if (datos.grafico) ficha.grafico = datos.grafico;
-  const redes = { eleccion: 'solo-web', lista: [], confirmada: true, elegida: cuando };
-  await env.DB.prepare(`INSERT INTO notas (${COLUMNAS}) VALUES (${COLUMNAS.split(', ').map(() => '?').join(', ')})`).bind(
-    id, `redaccion-${id}`, cuando, datos.titulo, datos.bajada, JSON.stringify(datos.parrafos), datos.seccion, datos.bajada, JSON.stringify(ficha), null,
-    JSON.stringify({ oracionesQuitadas: [], reescrita: false, propia: true, panel: true }), null, JSON.stringify(datos.fuentes), cuando, datos.firma, 0,
-    'borrador', 'redaccion', slug, null, JSON.stringify(redes),
-  ).run();
-  await env.DB.prepare('INSERT INTO sitio_notas (id, slug, publicada_en, origen, extra) VALUES (?, ?, ?, ?, ?)')
-    .bind(id, slug, cuando, 'redaccion', datos.video ? JSON.stringify({ video: datos.video }) : null).run();
+  const id = await insertarBorrador(env, { datos, ficha, dosLineas: datos.bajada, verificacion: { oracionesQuitadas: [], reescrita: false, propia: true, panel: true }, pedidos: 0 }, { ahora });
   let fotos = null;
   const archivos = form.getAll('fotos').filter((x) => x && typeof x === 'object' && typeof x.arrayBuffer === 'function' && x.size > 0);
   if (archivos.length && subirFotos) {
@@ -168,17 +177,20 @@ export async function crearBorrador(env, form, { por, ahora, subirFotos }) {
 
 /** Guarda lo que se cambió en el formulario de un borrador (texto, firma, fuente, video, casilla del criterio). Devuelve { ok } o { error, valores }. */
 export async function guardarBorrador(env, f, form, { por, ahora }) {
-  const v = validarNota(form);
+  const ficha = objeto(analizar(f.ficha, {}));
+  // Una nota armada por la IA puede tener menos de 3 párrafos (el mínimo de ella son 70 palabras): editarla no puede pedirle más que eso.
+  const v = validarNota(form, { minParrafos: ficha.crudo ? 1 : MIN_PARRAFOS });
   if (v.error) return v;
   const { datos } = v;
-  const ficha = objeto(analizar(f.ficha, {}));
   ficha.pideCriterio = datos.pideCriterio;
+  // Editar y guardar es revisar: levanta el freno de «la verificación marcó algo» (la persona vio el texto y lo dejó como quiso).
+  if (ficha.crudo?.verificacion?.marcadas?.length && !ficha.crudo.aceptada) ficha.crudo = { ...ficha.crudo, aceptada: { por, cuando: ahora.toISOString(), como: 'edicion' } };
   if (datos.grafico) ficha.grafico = datos.grafico; else delete ficha.grafico;
   ficha.editada = { por, cuando: ahora.toISOString() };
   // El slug (dirección) se fija a gusto mientras es borrador: sigue al título.
   const slug = slugDeNota(datos.titulo);
   await env.DB.prepare('UPDATE notas SET titulo = ?, bajada = ?, cuerpo = ?, seccion = ?, en_dos_lineas = ?, ficha = ?, fuentes = ?, firma = ?, slug = ? WHERE id = ? AND estado = ?')
-    .bind(datos.titulo, datos.bajada, JSON.stringify(datos.parrafos), datos.seccion, datos.bajada, JSON.stringify(ficha), JSON.stringify(datos.fuentes), datos.firma, slug, f.id, 'borrador').run();
+    .bind(datos.titulo, datos.bajada, JSON.stringify(datos.parrafos), datos.seccion, !f.en_dos_lineas || f.en_dos_lineas === f.bajada ? datos.bajada : f.en_dos_lineas, JSON.stringify(ficha), JSON.stringify(datos.fuentes), datos.firma, slug, f.id, 'borrador').run();
   const extra = objeto(analizar(f.s_extra, {}));
   if (datos.video) extra.video = datos.video; else delete extra.video;
   await env.DB.prepare('INSERT INTO sitio_notas (id, slug, publicada_en, origen, extra) VALUES (?, ?, ?, ?, ?) ON CONFLICT(id) DO UPDATE SET slug = excluded.slug, extra = excluded.extra')
@@ -187,11 +199,26 @@ export async function guardarBorrador(env, f, form, { por, ahora }) {
 }
 
 /** Publica un borrador: pasa a `publicada` con la hora de ahora (también en sitio_notas, que ordena el sitio) y las redes en `solo-web`. Devuelve { ok, purgar } o { error }. */
-export async function publicarBorrador(env, f, { por, ahora }) {
+export async function publicarBorrador(env, f, { por, ahora, aceptado = false }) {
   const cuando = ahora.toISOString();
   const ficha = objeto(analizar(f.ficha, {}));
+  // Una nota armada por la IA cuya verificación marcó algo no sale hasta que la persona la edite o la acepte a propósito (casilla del botón Publicar).
+  const crudo = ficha.crudo && typeof ficha.crudo === 'object' ? { ...ficha.crudo } : null;
+  if (crudo?.verificacion?.marcadas?.length && !crudo.aceptada) {
+    if (!aceptado) return { error: 'verificacion-pendiente' };
+    crudo.aceptada = { por, cuando, como: 'casilla' };
+  }
   ficha.publicada = { por, cuando };
-  const redes = { eleccion: 'solo-web', lista: [], confirmada: true, elegida: cuando };
+  let redes = { eleccion: 'solo-web', lista: [], confirmada: true, elegida: cuando };
+  // «Que salga en reel» pedido en el formulario del material crudo: se aplica recién al publicar (lo mismo que guarda la pantalla del reel de la nota).
+  if (crudo?.reel?.destinos?.length) {
+    const fotos = analizar(f.foto, null);
+    const lista = (Array.isArray(fotos) ? fotos : fotos ? [fotos] : []).filter((x) => x && typeof x === 'object');
+    const usables = lista.map((x, i) => [i, String(x.url ?? '')]).filter(([, u]) => u.toLowerCase().startsWith('https://')).map(([i]) => i).slice(0, Math.min(3, Math.max(1, Number(crudo.reel.fotos) || 1)));
+    if (usables.length) redes = { eleccion: 'elegidas', lista: ['reel'], confirmada: true, elegida: cuando, forzada: true, pedida: cuando, destinos: crudo.reel.destinos, fotos: usables };
+    else crudo.reel = { ...crudo.reel, sinFoto: true };
+  }
+  if (crudo) ficha.crudo = crudo;
   // Primero la fila de sitio_notas (la hora de orden), después el estado: si algo falla entre los dos pasos, la nota sigue siendo borrador y no se ve.
   const slug = f.slug || slugDeNota(f.titulo);
   await env.DB.prepare('INSERT INTO sitio_notas (id, slug, publicada_en, origen) VALUES (?, ?, ?, ?) ON CONFLICT(id) DO UPDATE SET publicada_en = excluded.publicada_en').bind(f.id, slug, cuando, 'redaccion').run();

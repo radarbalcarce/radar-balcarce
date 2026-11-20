@@ -1,7 +1,7 @@
 // Las pantallas nuevas del panel (etapas 2, 4 y 5 del plan): «Redes de hoy», «Estado» y «Cargar una nota» (formulario, vista previa de un borrador).
 // Mismas reglas que vistas/panel.mjs: HTML armado en el servidor, todo lo que viene de la base o del formulario pasa por `esc`, botones de 44 px, nada de afuera.
 import { esc, SECCIONES, fechaCorta } from '../util.mjs';
-import { marco, aviso, opciones, fotoMostrable, badge } from './panel.mjs';
+import { marco, aviso, opciones, fotoMostrable, badge, DESTINOS_DEL_REEL } from './panel.mjs';
 import { nombreDeRed } from '../panel-redes.mjs';
 import { REGLAS_PIEZAS } from '../../redes/piezas-plan.mjs';
 import { graficoHtml } from './grafico-nota.mjs';
@@ -111,7 +111,7 @@ function formulario({ csrf, accion, valores, borrador = null }) {
 <p class="nota-chica">Sólo videos del canal de Radar o de Se hace. Se guarda nada más que el código del video; sale después del primer párrafo.</p>
 ${graficoBloque(v)}
 <label class="sala"><input type="checkbox" name="pide_criterio" value="si"${v.pideCriterio ? ' checked' : ''} ${CASILLA}> Pasarla por el criterio de Radar (IA)</label>
-<p class="nota-chica">Todavía no revisa la IA: la casilla queda anotada en la nota y, por ahora, la revisa la redacción antes de dejarla a la vista.</p>`;
+<p class="nota-chica">Esta casilla todavía no llama a la IA: sólo queda anotada. Si querés que la IA arme la nota con tu criterio y la verifique, usá «Nota con IA» (arriba).</p>`;
   const fotos = borrador ? '' : `<label for="fotos-nuevas">Fotos (opcional; JPG, PNG o WEBP, hasta 10, de 8 MB cada una)</label><input type="file" id="fotos-nuevas" name="fotos" accept="image/jpeg,image/png,image/webp" multiple>
 <label for="credito-fotos">Crédito de las fotos</label><input type="text" id="credito-fotos" name="credito" value="Radar Balcarce" maxlength="200">`;
   const enctype = borrador ? '' : ' enctype="multipart/form-data"';
@@ -155,6 +155,15 @@ ${b.parrafos.length ? '' : video}
 ${fuente}
 ${b.fotos.length > 1 ? `<p class="nota-chica">Más fotos: ${b.fotos.length - 1}.</p>` : ''}
 </article>`;
+  const marcadas = b.crudo?.verificacion?.marcadas ?? [];
+  const bloqueada = marcadas.length > 0 && !b.crudo?.aceptada;
+  const rojo = marcadas.length
+    ? `<div class="error" role="alert" style="font-weight:400"><strong>${b.crudo.verificacion.noCorrio ? 'La verificación no pudo correr.' : 'La verificación marcó oraciones que ninguna parte de tu material respalda, y se sacaron del texto:'}</strong><ul>${marcadas.map((m) => `<li>${esc(m)}</li>`).join('')}</ul><p>${bloqueada ? 'No se puede publicar hasta que edites la nota y la guardes, o la aceptes a propósito al publicar.' : 'Ya la revisaste.'}</p></div>`
+    : '';
+  const graficoSin = b.crudo?.verificacion?.graficoDescartado ? `<p class="nota-chica">La IA propuso un gráfico pero se descartó (una cifra no estaba tal cual en tu material: ${esc(b.crudo.verificacion.graficoDescartado)}). Podés cargarlo a mano en «Seguir editando».</p>` : '';
+  const f = b.ficha;
+  const filasFicha = [['Qué', f.que], ['Quién', f.quien], ['Dónde', f.donde], ['Cuándo', f.cuando]].filter(([, x]) => x);
+  const ficha = b.crudo ? `<details class="caja"><summary>Lo que armó la IA (ficha)</summary>${b.enDosLineas ? `<p><strong>En dos líneas:</strong> ${esc(b.enDosLineas)}</p>` : ''}${filasFicha.map(([k, x]) => `<p><strong>${k}:</strong> ${esc(x)}</p>`).join('')}${f.numeros.length ? `<p><strong>Números:</strong> ${f.numeros.map((n) => esc([n?.valor, n?.unidad, n?.que].filter(Boolean).join(' '))).join(' · ')}</p>` : ''}${f.faltaSaber.length ? `<p><strong>Falta saber:</strong> ${f.faltaSaber.map((x) => esc(x)).join(' · ')}</p>` : ''}${b.crudo.reel ? `<p><strong>Reel pedido:</strong> ${esc(b.crudo.reel.destinos.join(', '))}, con ${esc(String(b.crudo.reel.fotos))} foto(s); se anota al publicar.</p>` : ''}${b.crudo.seccionPorIA ? '<p class="nota-chica">La sección la eligió la IA: cambiala en «Seguir editando» si no va ahí.</p>' : ''}</details>` : '';
   const criterio = b.pideCriterio ? '<p class="error" role="status" style="font-weight:400">Pidió pasar por el criterio de Radar (IA): todavía no lo hace la IA, la revisa la redacción antes de publicar.</p>' : '';
   const fotosActuales = b.fotos.length
     ? `<form method="post" action="${base}/fotos">${oculto}<input type="hidden" name="accion" value="guardar">
@@ -173,10 +182,12 @@ ${b.fotos.map((f, i) => { const u = fotoMostrable(f.url); return `<div class="fo
 <h1>Vista previa</h1>
 ${aviso(ok, error)}
 <p class="nota-chica">Así queda el texto. Todavía es un borrador: no se ve en el sitio ni sale a las redes.</p>
+${rojo}${graficoSin}
 ${criterio}
 ${vista}
+${ficha}
 <section class="caja"><div class="rapidas">
-<form method="post" action="${base}/publicar" onsubmit="return confirm('¿Publicar la nota? Se va a ver en el sitio.')">${oculto}<button type="submit">Publicar</button></form>
+<form method="post" action="${base}/publicar" onsubmit="return confirm('¿Publicar la nota? Se va a ver en el sitio.')">${oculto}${bloqueada ? '<label class="sala"><input type="checkbox" name="acepto" value="si" style="width:22px;height:22px"> Lo revisé y la quiero publicar así</label>' : ''}<button type="submit">Publicar</button></form>
 <a class="boton claro" href="${base}/editar">Seguir editando</a>
 <form method="post" action="${base}/descartar" onsubmit="return confirm('¿Descartar el borrador? Deja de aparecer en el panel.')">${oculto}<button class="peligro" type="submit">Descartar</button></form>
 </div><p class="nota-chica">Publicada, queda como una nota propia: firma «${esc(b.firma)}», origen redacción, y sin salir a las redes hasta que pidas un reel desde la nota.</p></section>
@@ -193,4 +204,43 @@ ${aviso(null, error)}
 <section class="caja">${formulario({ csrf, accion: `/panel/borrador/${encodeURIComponent(b.id)}/editar`, valores: v, borrador: b })}</section>
 <p class="nota-chica">Las fotos se cambian desde la vista previa («Fotos»).</p>`;
   return marco('Seguir editando', cuerpo, { csrf, rol, activa: 'pedir' });
+}
+
+// ------------------------------------------------------------------------------------------------------------ nota desde el material crudo
+
+const MOTIVOS_DE_FRENO = { menor: 'identifica a un menor', victima: 'identifica a una víctima', sepelios: 'es una lista de sepelios', 'sin-material': 'el material no alcanza para una nota que se sostenga', extranjero: 'pasó afuera y no toca a la Argentina', verificacion: 'la verificación sacó casi todo el texto: lo que pegaste no respalda lo que armó la IA', otro: 'tiene un freno legal o editorial' };
+
+export const VALORES_CRUDO_VACIOS = Object.freeze({ crudo: '', seccion: 'ia', firma: 'Hernán Accomo', origen: '', fuenteUrl: '', credito: 'Radar Balcarce', reel: false, destinos: ['instagram', 'facebook', 'tiktok', 'youtube'], reelFotos: 1 });
+
+/** GET /panel/crudo: un campo grande para pegar todo el material, las fotos y un botón. Termina siempre en un borrador (nunca publica). */
+export function paginaCrudo({ csrf, rol = 'dueno', valores = VALORES_CRUDO_VACIOS, error = null, motivo = null }) {
+  const v = { ...VALORES_CRUDO_VACIOS, ...valores };
+  const freno = error === 'no-publicar'
+    ? `<p class="error" role="alert">La IA no armó la nota: ${esc(MOTIVOS_DE_FRENO[String(motivo)] ?? 'tiene un freno legal o editorial')}. Nada se guardó ni se publicó. Lo que pegaste sigue acá abajo.</p>`
+    : aviso(null, error);
+  const casilla = (nombre, valor, etiqueta, marcada) => `<label class="sala"><input type="checkbox" name="${nombre}" value="${esc(valor)}"${marcada ? ' checked' : ''} ${CASILLA}> ${etiqueta}</label>`;
+  const cuerpo = `<h1>Nota con IA</h1>
+${freno}
+<p class="nota-chica">Pegá todo lo que tengas del tema (gacetilla, notas sueltas, audio pasado a texto, datos) y sumá las fotos. La IA arma la nota con el criterio de Radar y la verifica contra lo que pegaste. Queda como <strong>borrador</strong>: la ves, la editás y recién ahí la publicás.</p>
+<form method="post" action="/panel/crudo" enctype="multipart/form-data" class="caja">
+<input type="hidden" name="csrf" value="${esc(csrf)}">
+<label for="crudo">Todo el material <span class="nota-chica">(entre 200 y 16.000 letras)</span></label>
+<textarea id="crudo" name="crudo" maxlength="16000" required style="min-height:340px">${esc(v.crudo)}</textarea>
+<label for="fotos-crudo">Fotos (opcional; JPG, PNG o WEBP, hasta 10, de 8 MB cada una; la primera es la de portada)</label><input type="file" id="fotos-crudo" name="fotos" accept="image/jpeg,image/png,image/webp" multiple>
+<label for="credito-crudo">Crédito de las fotos</label><input type="text" id="credito-crudo" name="credito" value="${esc(v.credito)}" maxlength="200">
+<label for="seccion-crudo">Sección</label><select id="seccion-crudo" name="seccion">${opciones([['ia', 'Que decida la IA'], ...SECCIONES.map((s) => [s.nombre, s.nombre])], v.seccion)}</select>
+<label for="firma-crudo">Firma</label><input type="text" id="firma-crudo" name="firma" value="${esc(v.firma)}" maxlength="80" required>
+<details class="caja" style="margin-top:12px"><summary>De dónde sale el material (opcional)</summary>
+<label for="origen-crudo">Quién lo dio (por ejemplo «Municipalidad de Balcarce»)</label><input type="text" id="origen-crudo" name="origen" value="${esc(v.origen)}" maxlength="80">
+<label for="fuente-crudo">Enlace (https://…)</label><input type="text" id="fuente-crudo" name="fuente_url" value="${esc(v.fuenteUrl)}" maxlength="500" inputmode="url">
+<p class="nota-chica">Si lo completás, sale en «Fuentes» de la nota y como fuente del gráfico. Si no, la nota no lleva fuentes.</p></details>
+<details class="caja"${v.reel ? ' open' : ''}><summary>Que salga en reel (opcional)</summary>
+${casilla('reel', 'si', 'Pedir un reel cuando publique la nota', v.reel)}
+${DESTINOS_DEL_REEL.map(([c, t]) => casilla('destinos', c, esc(t), v.destinos.includes(c))).join('\n')}
+<label for="reel-fotos">Fotos del reel (las primeras de las que subas)</label><select id="reel-fotos" name="reel_fotos">${opciones([['1', '1 foto'], ['2', '2 fotos'], ['3', '3 fotos']], String(v.reelFotos))}</select>
+<p class="nota-chica">El reel se pide recién cuando publiques la nota, y necesita al menos una foto.</p></details>
+<button type="submit" onclick="this.form.classList.add('trabajando')">Que la IA arme la nota</button>
+<p class="nota-chica">Tarda hasta un minuto. Hace dos pedidos a la IA (escribir y verificar) y cuenta para el gasto del mes. No publica nada.</p>
+</form>`;
+  return marco('Nota con IA', cuerpo, { csrf, rol, activa: 'crudo' });
 }

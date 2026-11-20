@@ -283,7 +283,7 @@ async function armar(dep) {
 
 // ------------------------------------------------------------------------------------------------------------ la redacción
 
-const REGLAS_DE_LA_NOTA_PROPIA = `# Esta es una NOTA PROPIA (manda sobre lo anterior si se contradicen)
+export const REGLAS_DE_LA_NOTA_PROPIA = `# Esta es una NOTA PROPIA (manda sobre lo anterior si se contradicen)
 
 - Va firmada «${FIRMA}», dueño y director de Radar. Escribís en su nombre, de vos, con su impronta y su postura (la del PERFIL: ameno, cercano, correcto; críticos de la gestión, positivos, pro diversidad). Acá SÍ se opina, y el cierre es una idea fuerte, no un resumen.
 - La postura se apoya SOLO en lo que él contó o en el enlace. No inventes datos, nombres, cifras, fechas, cargos, citas ni lugares que no estén en el material, y no completes de memoria: si algo no está, no lo digas. Si dijo una opinión, es suya; si el material no tiene postura, informá con tono propio sin inventarle una.

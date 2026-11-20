@@ -6,6 +6,8 @@
 
 El bot es **la única puerta** por la que una persona le habla al sistema desde el celular, y por la que el sistema le avisa a esa persona. Reemplaza al WhatsApp de avisos y al panel del celular viejo (las pestañas «Escribir», «retirar» y «corregir»).
 
+**Nota con IA desde el panel (20/11/2026).** Lo mismo que hace el bot con una nota propia (armar la nota con tu criterio desde lo que le pasás) existe también en el panel, en «Nota con IA» (`/panel/crudo`): un campo grande para pegar todo el material, botón para las fotos y un botón «Que la IA arme la nota». Reutiliza las reglas de la nota propia del bot, hace los dos pedidos de siempre (escribir y verificar), nunca publica sola (deja un borrador con vista previa) y si la verificación marca algo no deja publicar hasta que lo revises. Detalle en `v3/sitio/REGLAS.md` § 13. Al panel se entra con `/panel` en este bot.
+
 Con el bot se pueden hacer tres cosas:
 
 | Para qué | Cómo |

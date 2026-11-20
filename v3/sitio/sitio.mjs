@@ -235,7 +235,7 @@ const noEncontrada = (contexto) => respuesta(paginaNoEncontrada({ contexto }), {
 /**
  * `traer`: el fetch para el clima y la farmacia (en las pruebas, uno falso). `ahora`: el reloj (en las pruebas, fijo).
  */
-export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = () => new Date(), azar = Math.random } = {}) {
+export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = () => new Date(), azar = Math.random, textos = {}, ia = null } = {}) {
   async function armar(pedido, env, ctx, cache) {
     const url = new URL(pedido.url);
     const ruta = url.pathname.replace(/\/+$/, '') || '/';
@@ -529,7 +529,7 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       // El panel privado (panel.mjs): antes que todo lo demás, nunca por la caché pública ni por el contador; acepta POST.
       if (esRutaDelPanel(url.pathname) && url.hostname !== 'www.radarbalcarce.com') {
         const cache = opciones && 'cache' in opciones ? opciones.cache : (typeof caches !== 'undefined' ? caches.default : null);
-        return conCabecerasDeSeguridad(await manejarPanel(pedido, env, { ahora: ahora(), cache, traer })); // `traer`: sólo lo usa Cloudflare Access (las claves públicas del equipo), si está prendido
+        return conCabecerasDeSeguridad(await manejarPanel(pedido, env, { ahora: ahora(), cache, traer, textos, ia })); // `traer`: sólo lo usa Cloudflare Access (las claves públicas del equipo), si está prendido
       }
       const r = conCabecerasDeSeguridad(await manejarSinCabeceras(pedido, env, ctx, opciones));
       // El contador propio (REGLAS.md § 11): se ve cada pedido acá, salga la página de la caché o recién armada. Nunca rompe ni demora la respuesta.

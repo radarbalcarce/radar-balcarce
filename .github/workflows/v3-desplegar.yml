@@ -209,6 +209,17 @@ jobs:
         working-directory: v3/sitio
         run: npx --yes wrangler@4.139.0 deploy --config wrangler.generado.toml --keep-vars
 
+      # La IA de «Nota desde el material crudo» (panel): la MISMA clave paga de Gemini y la de Mistral que usa el núcleo. Van por pipe: no se imprimen. Los vacíos no se cargan.
+      - name: Cargar las claves de IA del sitio (nota desde el material crudo)
+        if: env.QUE == 'sitio'
+        working-directory: v3/sitio
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY_RESPALDO }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+        run: |
+          [ -n "$GEMINI_API_KEY" ] || echo "GEMINI_API_KEY_RESPALDO no está en GitHub Secrets: el panel no puede armar notas con IA."
+          node -e 'const s={};for(const k of ["GEMINI_API_KEY","MISTRAL_API_KEY"])if(process.env[k])s[k]=process.env[k];if(!Object.keys(s).length)process.exit(3);process.stdout.write(JSON.stringify(s))' | npx --yes wrangler@4.139.0 secret bulk --config wrangler.generado.toml || echo "Ningún secreto para cargar."
+
       # Los .sql son INSERT OR IGNORE en tandas de 100 notas: se puede correr cuantas veces haga falta, no pisa lo que ya está.
       - name: Generar y correr la migración del archivo viejo
         if: env.QUE == 'migrar'
