@@ -7,6 +7,11 @@ export const normalizar = (s = '') => String(s).normalize('NFD').replace(/[̀-ͯ
 
 const FIN_FRASE = /[.?!]["»”)]*$/;
 const FIN_CLAUSULA = /[.,;:?!]["»”)]*$/;
+/** ¿La palabra cierra una oración / una cláusula? Por su puntuación o por lo que dijo la voz (el alineador de la voz saca los signos y deja `fin` y `coma`). */
+const esFin = (p) => FIN_FRASE.test(p.w) || p.fin === true;
+const esClausula = (p) => FIN_CLAUSULA.test(p.w) || p.fin === true || p.coma === true;
+/** Una pausa de la voz más larga que esto (segundos) parte el cartel aunque no haya signo. */
+const HUECO_QUE_PARTE = 0.3;
 const COLGANTES = /^(y|e|o|de|del|con|en|a|al|la|el|los|las|un|una|por|para|que|su|sus)$/i;
 
 /** Las palabras del guion con tiempos estimados: `PALABRAS_POR_SEGUNDO` por segundo corrido, desde `inicio`. { w, a, b } con a y b en segundos. */
@@ -18,7 +23,7 @@ export function palabrasEstimadas(guion, { inicio = INICIO_VOZ_ESTIMADA, porSegu
 /** Las palabras que devolvió la voz (`{ texto, desde, hasta }`) con la forma del kit. Descarta lo que no trae tiempos. */
 export function palabrasDeLaVoz(palabras) {
   const buenas = (palabras ?? []).filter((p) => p && String(p.texto ?? '').trim() && Number.isFinite(p.desde) && Number.isFinite(p.hasta));
-  return buenas.map((p) => ({ w: String(p.texto).trim(), a: Number(p.desde.toFixed(3)), b: Number(Math.max(p.hasta, p.desde + 0.05).toFixed(3)) }));
+  return buenas.map((p) => ({ w: String(p.texto).trim(), a: Number(p.desde.toFixed(3)), b: Number(Math.max(p.hasta, p.desde + 0.05).toFixed(3)), ...(p.finFrase ? { fin: true } : {}), ...(p.pausa ? { coma: true } : {}) }));
 }
 
 /** Reparte las palabras en carteles (`g`): hasta 4 palabras y 24 letras, cortando donde hay punto o coma; un cartel no termina en «de», «con»… ni queda con una sola palabra. */
@@ -30,15 +35,15 @@ export function agruparEnCarteles(P, { maxPalabras = CARTEL.maxPalabras, maxCara
   P.forEach((p, i) => {
     g.push(p);
     const sig = P[i + 1];
-    if (FIN_CLAUSULA.test(p.w) || g.length >= maxPalabras || (sig && g.length >= 2 && largo([...g, sig]) > maxCaracteres)) cerrar();
+    if (esClausula(p) || g.length >= maxPalabras || (sig && sig.a - p.b > HUECO_QUE_PARTE) || (sig && g.length >= 2 && largo([...g, sig]) > maxCaracteres)) cerrar();
   });
   cerrar();
   for (let i = grupos.length - 1; i > 0; i -= 1) { // un cartel de una palabra se junta con el anterior si entra y el anterior no cerró una frase
-    if (grupos[i].length > 1 || FIN_FRASE.test(grupos[i - 1].at(-1).w)) continue;
+    if (grupos[i].length > 1 || esFin(grupos[i - 1].at(-1)) || grupos[i].at(0).a - grupos[i - 1].at(-1).b > HUECO_QUE_PARTE) continue;
     if (largo([...grupos[i - 1], ...grupos[i]]) <= maxCaracteres + 2 && grupos[i - 1].length + 1 <= maxPalabras + 1) { grupos[i - 1] = [...grupos[i - 1], ...grupos[i]]; grupos.splice(i, 1); }
   }
   for (let i = 0; i < grupos.length - 1; i += 1) { // «con» / «de» al final de un cartel abre el siguiente
-    while (grupos[i].length > 1 && !FIN_CLAUSULA.test(grupos[i].at(-1).w) && COLGANTES.test(normalizar(grupos[i].at(-1).w))) grupos[i + 1] = [grupos[i].pop(), ...grupos[i + 1]];
+    while (grupos[i].length > 1 && !esClausula(grupos[i].at(-1)) && COLGANTES.test(normalizar(grupos[i].at(-1).w))) grupos[i + 1] = [grupos[i].pop(), ...grupos[i + 1]];
   }
   return grupos.flatMap((arr, n) => arr.map((p) => ({ ...p, g: n })));
 }
@@ -62,7 +67,7 @@ export const tiempoDe = (P, i, fallback = 0, antes = 0.12) => (i >= 0 && P[i] ? 
 
 /** El índice de la palabra donde termina la frase que contiene la palabra `i` (la que cierra con punto), o -1. */
 export function finDeFrase(P, i) {
-  for (let k = Math.max(0, i); k < P.length; k += 1) if (FIN_FRASE.test(P[k].w)) return k;
+  for (let k = Math.max(0, i); k < P.length; k += 1) if (esFin(P[k])) return k;
   return -1;
 }
 

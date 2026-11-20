@@ -20,7 +20,7 @@ function escenas(K, S) {
     const t0 = i === 0 ? 0 : t[i], t1 = i < E.length - 1 ? t[i + 1] : FIN, f = e.foto, tn = t[i];
     K.foto(planoDe(f, { t0, t1, entrada: ENTRADAS[i % 4], dir: i % 2 ? -1 : 1, z: i * 2 + 1 }));
     const PT = K.geom(planoDe(f, {})).PT;
-    const tam = K.fitBox(e.titular, 960, 1420 - PT - 25, i === 0 ? 70 : 64, 38, 1.08, 0.56);
+    const tam = K.fitBox(e.titular, 960, 1255 - PT - 25, i === 0 ? 70 : 64, 38, 1.08, 0.56);
     const b = K.div(K.CT, '', 'position:absolute;left:60px;top:' + (PT + 25) + 'px;width:960px');
     K.linea(b, e.titular, '', 'font-family:SS4;font-weight:900;font-size:' + tam + 'px;line-height:1.08;color:#fff;text-wrap:balance;text-shadow:0 5px 26px rgba(0,0,0,.55)', tn + 0.35, { d: 0.6, salida: i < E.length - 1 ? t1 - 0.05 : null });
     if (D.firma) K.firma(D.firma, tn, i < E.length - 1 ? t1 : null);

@@ -15,7 +15,7 @@
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import ffmpeg from 'ffmpeg-static';
-import { repartir } from './tiempos.mjs';
+import { repartir, unirPausas } from './tiempos.mjs';
 
 const correr = promisify(execFile);
 
@@ -50,7 +50,7 @@ async function silencios(archivo, { umbral = '-32dB', minimo = 0.18 } = {}) {
   while ((m = re.exec(salida)) !== null) {
     pausas.push({ desde: Math.max(0, +m[1]), hasta: +m[2] });
   }
-  return pausas;
+  return unirPausas(pausas);
 }
 
 /**

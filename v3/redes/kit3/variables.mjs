@@ -13,6 +13,10 @@ export const COLA_SEGUNDOS = 0.7;
 export const INICIO_VOZ_ESTIMADA = 0.4;
 /** El contenido de las escenas vive entre la fila 270 y la 1440 (zona segura del kit); ningún texto importante pasa de TEXTO_HASTA_Y (1670). */
 export const ZONA = Object.freeze({ arriba: 270, abajo: 1440, textoHasta: TEXTO_HASTA_Y });
+/** Los subtítulos (caja de 216 px, anclada abajo: hasta dos renglones) terminan antes de la fila 1480: la interfaz de Instagram Reels (cuenta, texto del posteo) empieza en la 1540, y los íconos de la derecha ocupan los últimos ~130 px del ancho. Caja de 60 a 940 (140 libres a la derecha). */
+export const SUBS_TOP = 1264;
+export const SUBS_FILA_FINAL = 1480;
+export const SUBS_DERECHA = 940;
 /** Subtítulos: hasta 4 palabras y 24 letras por cartel. */
 export const CARTEL = Object.freeze({ maxPalabras: 4, maxCaracteres: 24 });
 /** Piezas que el kit sabe dibujar (id de la pieza armada). Lo demás sale con el dibujo de siempre. */

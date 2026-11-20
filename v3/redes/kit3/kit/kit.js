@@ -4,6 +4,7 @@ window.Radar = (function () {
   function div(parent, cls, css, html) { const d = document.createElement('div'); if (cls) d.className = cls; if (css) d.style.cssText = css; if (html != null) d.innerHTML = html; parent.appendChild(d); return d; }
   function rng(seed) { return function () { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const FOTO_ALTO = 880; /* el alto de TODAS las fotos de las escenas; el texto va debajo, entre FOTO_ALTO y la fila 1255, y los subtítulos terminan antes de la fila 1480 (la interfaz de Instagram empieza en la 1540) */
   let TL, ROOT, PL, CT, S;
 
   /* La geometria de una foto (puro): va SIEMPRE a todo el ancho (1080), pegada arriba (y=0), sin margenes. Se permite recortar hasta un 34 % del lado que sobra:
@@ -13,6 +14,14 @@ window.Radar = (function () {
      'sin': sin foto, fondo de la marca. Devuelve { modo, PT, iw, ih, left, top }. */
   function geom(o) {
     o = o || {};
+    /* ALTO FIJO (las escenas de video): todas las fotos de una pieza miden lo mismo (FOTO_ALTO) y el panel de texto empieza siempre en la misma fila. La foto cubre de borde a borde con recorte centrado
+       (sesgado hacia arriba para no cortar cabezas: en vertical se recorta más abajo que arriba); si es muy apaisada se recortan los costados. Sin foto, el fondo de la marca con el mismo alto. */
+    if (!o.maxH && !o.minH) {
+      const PT = o.fijo || FOTO_ALTO;
+      if (!o.src) return { modo: 'sin', PT, iw: W, ih: PT, left: 0, top: 0 };
+      const s = Math.max(W / o.w, PT / o.h), iw = o.w * s, ih = o.h * s, sesgo = o.h > o.w ? 0.15 : 0.35;
+      return { modo: 'cobertura', PT, iw, ih, left: (W - iw) / 2, top: -(ih - PT) * sesgo };
+    }
     const MAXH = o.maxH || 1090, MINH = o.minH || 900, F = 0.66;
     if (!o || !o.src) return { modo: 'sin', PT: MAXH, iw: W, ih: MAXH, left: 0, top: 0 };
     const Hn = o.h * W / o.w;
@@ -195,7 +204,7 @@ window.Radar = (function () {
       TL.set(d, { opacity: 0 }, b);
       idx.forEach((i) => {
         const p = spec.palabras[i], el = '#w' + i;
-        TL.set(el, { color: SF, textShadow: SH }, 0);
+        TL.set(el, { color: SF, textShadow: SH, opacity: 0 }, 0); TL.set(el, { opacity: 1 }, p.a); /* la palabra no se ve hasta que se dice */
         TL.set(el, { backgroundColor: hl.bg, color: hl.fg, textShadow: 'none' }, p.a);
         TL.set(el, { backgroundColor: 'rgba(0,0,0,0)', color: SF, textShadow: SH }, Math.max(p.b, p.a + 0.05));
       });

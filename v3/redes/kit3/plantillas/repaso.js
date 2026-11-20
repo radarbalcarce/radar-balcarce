@@ -41,26 +41,16 @@ function escenas(K, S) {
   K.linea(tit, D.l1, '', a + 'font-size:140px;line-height:1', 0.2, { d: 0.6, salida: t[0] - 0.1 });
   K.linea(tit, D.l2, '', a + 'font-size:96px;line-height:1.05', 0.38, { d: 0.6, salida: t[0] - 0.1 });
   N.forEach((nota, i) => {
-    const t0 = i === 0 ? 0 : t[i], t1 = i < n - 1 ? t[i + 1] : tFin, tn = t[i], f = nota.foto;
+    const t0 = i === 0 ? 0 : t[i], t1 = i < n - 1 ? t[i + 1] : FIN, tn = t[i], f = nota.foto, tSale = i < n - 1 ? t1 : tFin; // la última foto sigue hasta el cierre con el logo
     K.foto(planoDe(f, { t0, t1, entrada: i === 0 ? 'corte' : ENTRADAS[i % 3], de: 0.5, dir: i % 2 ? -1 : 1, z: 10 + i * 2 }));
-    const tam = K.fitBox(nota.titular, 960, 1420 - PTS[i] - 25, 62, 38, 1.1, 0.54);
+    const tam = K.fitBox(nota.titular, 960, 1255 - PTS[i] - 25, 62, 38, 1.1, 0.54);
     const bloque = K.div(K.CT, '', 'position:absolute;left:60px;top:' + (PTS[i] + 25) + 'px;width:960px');
-    K.linea(bloque, nota.titular, '', 'font-family:SS4;font-weight:900;font-size:' + tam + 'px;line-height:1.1;color:#fff;text-wrap:balance;text-shadow:0 4px 22px rgba(0,0,0,.6)', tn + 0.35, { d: 0.6, salida: t1 - 0.05 });
+    K.linea(bloque, nota.titular, '', 'font-family:SS4;font-weight:900;font-size:' + tam + 'px;line-height:1.1;color:#fff;text-wrap:balance;text-shadow:0 4px 22px rgba(0,0,0,.6)', tn + 0.35, { d: 0.6, salida: tSale - 0.05 });
     const num = numero(K, K.CT, i, n, 'position:absolute;left:60px;top:276px');
-    K.aparece(num, tn + 0.1, { y: 0, from: { x: -60 }, salida: t1 - 0.05 });
+    K.aparece(num, tn + 0.1, { y: 0, from: { x: -60 }, salida: tSale - 0.05 });
   });
-  // el cierre del repaso: «Todo en Radar Balcarce» con las tres notas; la última foto no queda colgada
-  K.foto({ src: null, t0: tFin, t1: FIN, entrada: 'fundido', de: 0.45, z: 15, panel: PANEL });
-  const cab = K.div(K.CT, '', 'position:absolute;left:60px;top:300px;width:960px');
-  K.linea(cab, 'Todo en', '', a + 'font-size:110px;line-height:1', tFin + 0.3, { d: 0.6 });
-  K.linea(cab, 'Radar <span style="color:' + ROJO + '">Balcarce</span>', '', a + 'font-size:124px;line-height:1.05', tFin + 0.45, { d: 0.6 });
-  let tam = 28;
-  for (const s of [40, 38, 36, 34, 32, 30, 28]) { const alto = N.reduce((x, y) => x + K.lineasDe(y.titular, 830, s, 0.56) * (s + 8), 0) + 36 * (n - 1); tam = s; if (alto <= 560) break; }
-  const lista = K.div(K.CT, '', 'position:absolute;left:60px;top:640px;width:960px;display:flex;flex-direction:column;gap:36px');
-  N.forEach((x, i) => {
-    const fila = K.div(lista, '', 'display:flex;align-items:flex-start;gap:26px');
-    K.div(fila, '', 'flex:none;width:64px;height:64px;background:' + ROJO + ';color:#fff;font-family:SS4;font-weight:900;font-size:50px;line-height:64px;text-align:center;border-radius:6px;margin-top:2px', String(i + 1));
-    K.div(fila, '', 'width:830px;font-weight:700;font-size:' + tam + 'px;line-height:' + (tam + 8) + 'px;color:#FAF8F3;text-wrap:balance', x.titular);
-    K.aparece(fila, tFin + 0.6 + i * 0.25, { y: 24 });
-  });
+  // el cierre: NO se repiten las tres noticias (la tapa ya las tiene). Mientras la voz dice «Todo en Radar Balcarce punto com» la última foto sigue en pantalla y, en lugar de su titular, queda la firma de la marca
+  const fb = K.div(K.CT, '', 'position:absolute;left:60px;top:' + (PTS[n - 1] + 25) + 'px;width:960px');
+  K.linea(fb, 'Radar <span style="color:' + ROJO + '">Balcarce</span>', '', a + 'font-size:130px;line-height:1.05', tFin + 0.1, { d: 0.6 });
+  K.linea(fb, 'radarbalcarce.com', '', 'font-family:Inter;font-weight:600;color:#fff;text-shadow:0 4px 22px rgba(0,0,0,.6);font-size:54px;line-height:1.3', tFin + 0.3, { d: 0.6 });
 }

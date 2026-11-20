@@ -17,8 +17,8 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#14161A;font-fam
 .mask{overflow:hidden;padding-bottom:.16em;margin-bottom:-.16em}
 .mask>span{display:inline-block;will-change:transform}
 #rotulo{position:absolute;left:60px;top:290px;height:58px;padding:0 24px;display:flex;align-items:center;font-weight:700;font-size:28px;letter-spacing:.16em;text-transform:uppercase;border-radius:4px;white-space:nowrap}
-#subs{position:absolute;left:60px;top:1090px;width:900px;height:216px}
-.sg{position:absolute;left:0;bottom:0;width:900px;display:flex;flex-wrap:wrap;justify-content:center;gap:2px 12px;opacity:0}
+#subs{position:absolute;left:60px;top:1090px;width:880px;height:216px}
+.sg{position:absolute;left:0;bottom:0;width:880px;display:flex;flex-wrap:wrap;justify-content:center;gap:2px 12px;opacity:0}
 .sw{display:inline-block;font-weight:700;font-size:88px;line-height:1.08;padding:0 16px 6px;border-radius:16px;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.75);white-space:nowrap}
 .sg.ch .sw{font-size:76px}
 #cierre{position:absolute;left:0;top:0;width:1080px;height:1920px;background:var(--papel);display:flex;flex-direction:column;align-items:center;justify-content:center;clip-path:inset(100% 0 0 0);z-index:50}

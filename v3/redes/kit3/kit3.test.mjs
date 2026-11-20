@@ -8,7 +8,7 @@ import { agruparEnCarteles, buscarFrase, duracionDelKit, inicioDeLasPartes, pala
 import { ESTADOS, estadoBase, estadoDelCielo, renglonesDelCielo } from './cielo.mjs';
 import { clipsDisponibles, comandoDelFondo, manifiesto, planosDelFondo } from './fondo.mjs';
 import { argumentosDeMezcla } from './kit3.mjs';
-import { CARTEL, T0, TEXTO_HASTA_Y, ZONA, kit3Prendido } from './variables.mjs';
+import { CARTEL, SUBS_DERECHA, SUBS_FILA_FINAL, SUBS_TOP, T0, TEXTO_HASTA_Y, ZONA, kit3Prendido } from './variables.mjs';
 import { jsonSeguro } from './armar.mjs';
 
 const AQUI = import.meta.dirname;
@@ -147,4 +147,82 @@ test('correr.mjs: el kit sólo se carga detrás del interruptor y con respaldo a
   assert.match(fuente, /catch \(e\) \{[\s\S]{0,120}kit3 = \{ usado: false/, 'si falla, lo anota');
   assert.match(fuente, /armarVideo\(armarEscenaDeVideo\(lista\)/, 'y sigue el dibujo de siempre');
   assert.ok(!/^import .*kit3\/(kit3|desde-pieza|armar|fondo)/m.test(fuente), 'ningún import estático pesado del kit en correr.mjs');
+});
+
+// ------------------------------------------------------------------ subtítulos que no se adelantan a la voz (repaso de la noche, 19/11/2026)
+
+/** El alineador de la voz (`reels/alinear.mjs`) saca los signos de las palabras y deja `finFrase` / `pausa`: así llegan a `palabrasDeLaVoz`. */
+const dichas = (texto, desde, hasta, extra = {}) => ({ texto, desde, hasta, finFrase: false, pausa: false, ...extra });
+const REPASO = [
+  dichas('Estas', 0.26, 0.66), dichas('son', 0.66, 0.9), dichas('las', 0.9, 1.0), dichas('tres', 1.0, 1.26), dichas('noticias', 1.26, 1.86, { finFrase: true }),
+  dichas('Facundo', 3.07, 3.5), dichas('Conte', 3.5, 3.79), dichas('compartió', 3.79, 4.23), dichas('su', 4.23, 4.37), dichas('experiencia', 4.37, 4.95), dichas('en', 4.95, 5.09), dichas('un', 5.09, 5.24),
+  dichas('retiro', 5.24, 5.67), dichas('espiritual', 5.67, 6.25), dichas('en', 6.25, 6.4), dichas('Córdoba', 6.4, 6.83, { finFrase: true }),
+  dichas('Siniestro', 7.96, 8.43), dichas('vial', 8.43, 8.6), dichas('en', 8.6, 8.75), dichas('avenida', 8.75, 9.4), dichas('Favaloro', 9.4, 10.1), dichas('tras', 10.1, 10.26), dichas('una', 10.26, 10.46),
+  dichas('descompensación', 10.46, 11.24), dichas('al', 11.24, 11.4), dichas('volante', 11.4, 11.86, { finFrase: true }),
+  dichas('Anthropic', 13.15, 13.65), dichas('debutó', 13.65, 14.1), dichas('en', 14.1, 14.2), dichas('la', 14.2, 14.3), dichas('bolsa', 14.3, 14.7), dichas('de', 14.7, 14.8), dichas('Nueva', 14.8, 15.1),
+  dichas('York', 15.1, 15.4), dichas('con', 15.4, 15.5), dichas('un', 15.5, 15.6), dichas('fuerte', 15.6, 16.0), dichas('salto', 16.0, 16.4), dichas('en', 16.4, 16.5), dichas('sus', 16.5, 16.7),
+  dichas('acciones', 16.7, 17.36, { finFrase: true }),
+  dichas('Todo', 18.02, 18.37), dichas('en', 18.37, 18.54), dichas('Radar', 18.54, 18.88), dichas('Balcarce', 18.88, 19.39), dichas('punto', 19.39, 19.73), dichas('com', 19.73, 19.9, { finFrase: true }),
+];
+
+test('subtítulos: un cartel nunca cruza el final de una oración aunque la voz no traiga signos («al volante» / «Anthropic»)', () => {
+  const P = agruparEnCarteles(palabrasDeLaVoz(REPASO));
+  assert.equal(P.length, REPASO.length);
+  const porCartel = new Map();
+  for (const p of P) porCartel.set(p.g, [...(porCartel.get(p.g) ?? []), p]);
+  for (const g of porCartel.values()) {
+    for (const p of g.slice(0, -1)) assert.ok(!p.fin, `«${p.w}» cierra una oración y el cartel sigue con otra`);
+    for (let i = 1; i < g.length; i += 1) assert.ok(g[i].a - g[i - 1].b <= 0.3, 'un cartel no junta palabras separadas por una pausa larga');
+  }
+  const cartelDe = (w) => porCartel.get(P.find((p) => p.w === w).g).map((p) => p.w);
+  assert.ok(!cartelDe('Anthropic').includes('volante'), 'Anthropic no comparte cartel con la oración anterior');
+  assert.ok(!cartelDe('Todo').includes('acciones'));
+});
+
+test('subtítulos: el cartel de una palabra sólo se muestra hasta unos 0,1 s antes de que se diga (la palabra nunca se adelanta)', () => {
+  const P = agruparEnCarteles(palabrasDeLaVoz(REPASO));
+  const porCartel = new Map();
+  for (const p of P) porCartel.set(p.g, [...(porCartel.get(p.g) ?? []), p]);
+  for (const g of porCartel.values()) assert.ok(g[0].a - 0.04 >= g[0].a - 0.1, 'el cartel aparece con su primera palabra');
+  const kit = fs.readFileSync(path.join(AQUI, 'kit', 'kit.js'), 'utf8');
+  assert.match(kit, /TL\.set\(el, \{ opacity: 1 \}, p\.a\)/, 'cada palabra se hace visible recién cuando se dice');
+  assert.match(kit, /Math\.max\(first\.a - 0\.04, 0\)/, 'el cartel aparece 0,04 s antes de su primera palabra, no más');
+});
+
+test('el alineador de la voz une los tramos de silencio pegados (una pausa partida en dos movía a la oración siguiente medio segundo antes)', async () => {
+  const { unirPausas } = await import('../../../reels/tiempos.mjs');
+  const medida = [{ desde: 1.856, hasta: 2.4316 }, { desde: 2.4329, hasta: 3.0696 }, { desde: 6.831, hasta: 7.4043 }, { desde: 7.4048, hasta: 7.9603 }, { desde: 17.358, hasta: 18.025 }];
+  const u = unirPausas(medida);
+  assert.equal(u.length, 3, 'las pausas partidas en dos vuelven a ser una');
+  assert.equal(u[0].hasta, 3.0696);
+  assert.equal(u[1].hasta, 7.9603);
+  assert.deepEqual(unirPausas([]), []);
+});
+
+test('subtítulos: terminan antes de la fila 1480 (la interfaz de Instagram empieza en la 1540) y dejan 140 px libres a la derecha', () => {
+  assert.ok(SUBS_TOP + 216 <= SUBS_FILA_FINAL && SUBS_FILA_FINAL <= 1480);
+  assert.ok(SUBS_DERECHA <= 1080 - 140);
+  const css = fs.readFileSync(path.join(AQUI, 'kit', 'kit.css'), 'utf8');
+  assert.match(css, /#subs\{[^}]*left:60px;[^}]*width:880px;[^}]*height:216px/);
+  assert.match(css, /\.sg\{[^}]*width:880px/);
+  const adaptador = fs.readFileSync(path.join(AQUI, 'desde-pieza.mjs'), 'utf8');
+  assert.ok(!/subsTop:\s*1440/.test(adaptador), 'ninguna pieza vuelve a poner los subtítulos en la fila 1440');
+});
+
+test('las fotos de una pieza miden todas lo mismo y el titular termina antes de los subtítulos', () => {
+  const kit = fs.readFileSync(path.join(AQUI, 'kit', 'kit.js'), 'utf8');
+  assert.match(kit, /FOTO_ALTO = 880/);
+  assert.match(kit, /if \(!o\.maxH && !o\.minH\) \{[\s\S]*?const PT = o\.fijo \|\| FOTO_ALTO;/, 'las escenas usan el alto fijo');
+  for (const f of ['repaso.js', 'nota.js']) {
+    const fuente = fs.readFileSync(path.join(AQUI, 'plantillas', f), 'utf8');
+    assert.match(fuente, /1255 - /, `${f}: el titular entra antes de la fila 1255`);
+    assert.doesNotMatch(fuente, /1420 - /, f);
+  }
+});
+
+test('el cierre del repaso no repite las tres noticias: queda la última foto con la firma de la marca', () => {
+  const fuente = fs.readFileSync(path.join(AQUI, 'plantillas', 'repaso.js'), 'utf8');
+  assert.doesNotMatch(fuente, /Todo en<|'Todo en'/, 'sin la placa «Todo en Radar Balcarce»');
+  assert.doesNotMatch(fuente, /src: null, t0: tFin/, 'sin la placa de cierre que reemplazaba a la foto');
+  assert.match(fuente, /radarbalcarce\.com/);
 });

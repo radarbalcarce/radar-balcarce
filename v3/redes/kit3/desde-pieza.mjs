@@ -5,6 +5,7 @@
 // Lo que no cambia: el guion es el de la pieza (el que lee la voz: el saludo sólo está si el armador lo puso, sin «paraguas» ni «de acá»), el aviso «Voz generada con inteligencia artificial.» sigue
 // en el texto del posteo (eso lo arma `publicar.mjs`, no el video) y a una foto que no baja el armador la saca antes. Los tiempos son los de la voz (`palabras` de `reels/alinear.mjs`) o, sin
 // audio, los estimados a 2,5 palabras por segundo.
+import { SUBS_TOP } from './variables.mjs';
 import { comentarioDelDia } from '../piezas/armadores.mjs';
 import { estadoDelCielo, renglonesDelCielo } from './cielo.mjs';
 import {
@@ -146,7 +147,7 @@ function adaptarRepaso(pieza, P, ctx) {
   });
   const datos = { titulo: `El repaso ${l2}`, l1: 'El repaso', l2, notas, t: t.slice(0, placas.length + 1), momento, momentoTexto: { manana: 'Mañana', tarde: 'Tarde', noche: 'Noche' }[momento] ?? 'Hoy' };
   return {
-    plantilla: 'repaso', datos, fotos, fondo: null, subsTop: 1440,
+    plantilla: 'repaso', datos, fotos, fondo: null, subsTop: SUBS_TOP,
     hl: { bg: MARCA.rojo, fg: '#fff' },
     scrim: 'linear-gradient(180deg,rgba(8,10,14,.4) 0%,rgba(8,10,14,0) 16%)',
   };
@@ -174,7 +175,7 @@ function adaptarEfemeride(pieza, P, ctx) {
   };
   return {
     plantilla: 'efemeride', datos, fotos, fondo: null,
-    hl: { bg: MARCA.rojo, fg: '#fff' }, marcaClara: true, rotulo: { txt: datos.rotulo, bg: MARCA.rojo }, subsTop: 1440, subs: { fg: MARCA.tinta, sh: 'none' },
+    hl: { bg: MARCA.rojo, fg: '#fff' }, marcaClara: true, rotulo: { txt: datos.rotulo, bg: MARCA.rojo }, subsTop: SUBS_TOP, subs: { fg: MARCA.tinta, sh: 'none' },
     scrim: 'linear-gradient(180deg,rgba(8,10,14,.35) 0%,rgba(8,10,14,0) 16%)',
   };
 }
@@ -241,7 +242,7 @@ function adaptarNota(pieza, P, ctx) {
     tapa: { titulo: primera.titulo, foto: escenas[0].foto },
   };
   return {
-    plantilla: 'nota', datos, fotos, fondo: null, subsTop: 1440,
+    plantilla: 'nota', datos, fotos, fondo: null, subsTop: SUBS_TOP,
     scrim: 'linear-gradient(180deg,rgba(8,10,14,.4) 0%,rgba(8,10,14,0) 16%)',
     hl: { bg: colorSeccion, fg: '#fff' },
     rotulo: { txt: primera.seccion, bg: colorSeccion },

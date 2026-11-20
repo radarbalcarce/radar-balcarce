@@ -70,6 +70,21 @@ export const silabas = (p) => {
   return Math.max(1, dicha.split(/\s+/).reduce((a, w) => a + silabasDeLetras(w), 0));
 };
 
+/**
+ * ffmpeg (silencedetect) a veces parte UNA pausa en dos tramos pegados (el segundo empieza 1 ms después de que termina el primero). Si cada tramo cuenta como una pausa,
+ * el reparto corta en el final del primero y la voz de la oración siguiente se muestra más de medio segundo antes de decirse (repaso del 19/11/2026: «Anthropic»).
+ * Une los tramos separados por menos de `hueco` segundos.
+ */
+export function unirPausas(pausas, hueco = 0.06) {
+  const salida = [];
+  for (const p of [...(pausas ?? [])].sort((a, b) => a.desde - b.desde)) {
+    const ult = salida.at(-1);
+    if (ult && p.desde - ult.hasta <= hueco) ult.hasta = Math.max(ult.hasta, p.hasta);
+    else salida.push({ desde: p.desde, hasta: p.hasta });
+  }
+  return salida;
+}
+
 const TERMINA_FRASE = /[.!?…]$/;
 const TERMINA_CLAUSULA = /[.,;:!?…]$/;
 
