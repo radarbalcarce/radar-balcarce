@@ -1,0 +1,29 @@
+# Borra publicaciones ya hechas en Facebook e Instagram por su id (los de `piezas.acciones`). SÓLO A MANO. No toca TikTok, YouTube ni X (lo de Buffer se borra en cada red).
+# Hecho el 20/11/2026: la efeméride de ese día salió con una foto equivocada y Hernán pidió borrarla. Ver v3/redes/borrar-publicaciones.mjs.
+name: "Radar 3.0: borrar publicaciones"
+
+on:
+  workflow_dispatch:
+    inputs:
+      ids:
+        description: 'Qué borrar, como red:id separados por coma (ej. facebook:1659307855849781,instagram:18127642172477264)'
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  borrar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Borrar en Meta
+        run: node v3/redes/borrar-publicaciones.mjs
+        env:
+          META_TOKEN: ${{ secrets.META_TOKEN }}
+          IDS: ${{ inputs.ids }}
