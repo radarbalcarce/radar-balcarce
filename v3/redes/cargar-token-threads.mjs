@@ -19,7 +19,7 @@ export async function cargarTokenEnElWorker({ env = process.env, fetchFn = fetch
   return { cargado: j?.cargado === true, ...(j?.motivo ? { motivo: String(j.motivo).slice(0, 120) } : {}) };
 }
 
-if (process.argv[1] && import.meta.url === new URL(`file:///${process.argv[1].replace(/\/g, '/')}`).href) {
+if (process.argv[1] && import.meta.url === (await import('node:url')).pathToFileURL((await import('node:path')).resolve(process.argv[1])).href) {
   try {
     const r = await cargarTokenEnElWorker();
     console.log(r.cargado ? 'Token de Threads cargado en el Worker (desde ahora se renueva solo).' : `Token de Threads: no se cargó (${r.motivo ?? 'sin motivo'}).`);
