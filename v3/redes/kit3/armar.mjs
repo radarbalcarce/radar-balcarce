@@ -2,11 +2,53 @@
 // las fotos ya bajadas y, si hay, el fondo de video del clima. No dibuja nada (eso lo hace `kit3.mjs` con `hyperframes render`). Sin red.
 import fs from 'node:fs';
 import path from 'node:path';
+import { createRequire } from 'node:module';
 import { T0 } from './variables.mjs';
+import { rellenoDeFoto } from './relleno.mjs';
 
 export const AQUI = import.meta.dirname;
+let _radar;
+/** El motor del kit (kit/kit.js) cargado en Node con un `window` falso, para usar su geometría pura (`encuadre`). */
+export function motorDelKit() {
+  if (!_radar) { const v = {}; new Function('window', fs.readFileSync(path.join(AQUI, 'kit', 'kit.js'), 'utf8'))(v); _radar = v.Radar; }
+  return _radar;
+}
+
+/** Qué se hizo con cada imagen y por qué (para el log de la pieza): «foto entera: parece un gráfico con texto», «foto entera: cubrirla recortaría más de 22 % por costado» o «foto cubriendo la caja». */
+export function decisionesDeFotos(fotos, rellenos, alto = 980) {
+  const { encuadre } = motorDelKit();
+  return (fotos ?? []).map((f) => {
+    const r = rellenos[`fotos/${f.clave}.${f.ext}`] ?? null;
+    const e = encuadre(f.ancho, f.alto, 1080, alto, f.alto > f.ancho ? 0.15 : 0.35, null, !!r?.grafico);
+    const dato = r ? ` (dominantes ${r.dominantes}, planos ${r.planos}, bordes ${r.bordes})` : '';
+    if (e.modo === 'cobertura') return `foto ${f.clave}: cubre la caja${r?.grafico ? ' (parece un gráfico pero el recorte es chico)' : ''}${dato}`;
+    return `foto ${f.clave}: foto entera: ${e.motivo === 'grafico' ? 'parece un gráfico con texto' : 'cubrirla recortaría más del 22 % por costado'}${dato}`;
+  });
+}
 const RAIZ = path.join(AQUI, '..', '..', '..');
 export const PLANTILLAS = ['clima', 'repaso', 'efemeride', 'farmacias', 'nota', 'numero'];
+
+let _ffmpeg;
+/** El ffmpeg del repositorio (`ffmpeg-static`) o el del sistema. */
+function ffmpegDelRepo() {
+  if (_ffmpeg === undefined) { try { _ffmpeg = createRequire(import.meta.url)('ffmpeg-static') || 'ffmpeg'; } catch { _ffmpeg = 'ffmpeg'; } }
+  return _ffmpeg;
+}
+
+/** Copia de los datos de la pieza donde cada foto ({ src: 'fotos/…', w, h }) trae `relleno` ({ lados, arriba }): el color liso que rellena el espacio que sobra cuando va entera. */
+export function conRellenos(datos, rellenos) {
+  const ir = (v) => {
+    if (Array.isArray(v)) return v.map(ir);
+    if (v && typeof v === 'object') {
+      const o = {};
+      for (const [k, x] of Object.entries(v)) o[k] = ir(x);
+      if (typeof o.src === 'string' && rellenos[o.src]) o.relleno = rellenos[o.src];
+      return o;
+    }
+    return v;
+  };
+  return ir(datos);
+}
 
 /** El JSON de la pieza para meterlo en un <script>: sin `</script>` ni separadores de línea raros. */
 const BS = String.fromCharCode(92);
@@ -48,11 +90,16 @@ export function escribirProyecto(pieza, dir, { fondoMp4 = null, tapaFondoJpg = n
   fs.cpSync(path.join(RAIZ, 'reels', 'marca', 'fuentes'), path.join(dir, 'fonts'), { recursive: true });
   fs.copyFileSync(gsap, path.join(dir, 'gsap.min.js'));
   fs.copyFileSync(path.join(AQUI, 'kit', 'hyperframes.json'), path.join(dir, 'hyperframes.json'));
+  const rellenos = {};
   for (const f of pieza.fotos ?? []) {
     const m = String(f.datos).match(/^data:image\/[a-z+]+;base64,(.*)$/s);
     if (!m) throw new Error(`la foto ${f.clave} no viene como data URI`);
-    fs.writeFileSync(path.join(dir, 'fotos', `${f.clave}.${f.ext}`), Buffer.from(m[1], 'base64'));
+    const bytes = Buffer.from(m[1], 'base64');
+    fs.writeFileSync(path.join(dir, 'fotos', `${f.clave}.${f.ext}`), bytes);
+    rellenos[`fotos/${f.clave}.${f.ext}`] = rellenoDeFoto(bytes, ffmpegDelRepo()); // color liso de los bordes: rellena el espacio cuando la foto va entera
   }
+  pieza = { ...pieza, datos: conRellenos(pieza.datos, rellenos) };
+  if (Array.isArray(pieza.avisos)) pieza.avisos.push(...decisionesDeFotos(pieza.fotos, rellenos, pieza.plantilla === 'efemeride' ? 880 : 980)); // el mismo arreglo que ve el informe de la pieza
   if (fondoMp4) fs.copyFileSync(fondoMp4, path.join(dir, 'fondo.mp4'));
   if (tapaFondoJpg) fs.copyFileSync(tapaFondoJpg, path.join(dir, 'fotos', 'tapa-fondo.jpg'));
   const spec = especificacion(pieza, { video: fondoMp4 ? 'fondo.mp4' : null, tapaFondo: !!tapaFondoJpg });

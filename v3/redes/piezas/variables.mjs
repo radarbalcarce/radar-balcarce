@@ -68,7 +68,7 @@ export const REPASO = congelar({
   maxNotas: 3, minNotas: 2, minDeBalcarce: 1, porNota: 9, cierre: 3, objetivo: 30, maximo: 38,
 });
 /** La efeméride de hoy, versión corta (un hecho y un «Y además»): la misma escena, ~15 s, a prueba una semana (Hernán 3/11). */
-export const EFEMERIDE = congelar({ segundos: 15, maximo: 20, principalesEnVideo: 1, ademasEnVideo: 1 });
+export const EFEMERIDE = congelar({ segundos: 15, maximo: 40, principalesEnVideo: 1, ademasEnVideo: 3 }); // `segundos`: lo mínimo; la duración real la manda la voz (hasta `maximo`), con una escena por cada hecho que ella dice
 // Las farmacias de turno son de 1 a 3 por día (Hernán, 17/11): la ficha tiene lugar para 3. Si el cronograma trae más, algo anda mal con los datos (no se corta en silencio: la pieza falla y el resumen del día lo cuenta).
 export const FARMACIA = congelar({ segundos: 14, minimo: 6, maximo: 20, fichasMaximo: 3 });
 /** Una nota como reel: tres placas de las del repaso (la foto y el titular, y dos hechos), ~25 s. */

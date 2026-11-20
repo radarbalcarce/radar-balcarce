@@ -115,6 +115,9 @@ export async function fotoDeCommons(hecho, { json, bajar, ancho = 960 } = {}) {
     const f = await archivoDeCommons(p?.pageimage, p?.title, { json, bajar, ancho });
     if (f) return f;
   }
+  const delSujeto = await fotoDeWikipediaPorSujeto(hecho, { json, bajar, ancho });
+  if (delSujeto) return delSujeto;
+  if (/^D[ií]a\b/i.test(String(hecho?.titulo ?? '').trim())) return null; // un «Día de…» sin artículo propio con imagen: sin foto (20/11: «Día de la Enfermería Argentina» → la foto de una enfermera)
   return fotoDeCommonsPorBusqueda(hecho, { json, bajar, ancho });
 }
 
@@ -129,14 +132,19 @@ function frasesDeEvento(hecho) {
 const INICIOS_QUE_NO_SON_NOMBRE = /^(?:(?:En|El|La|Los|Las|Un|Una|Se|Su|Hoy|Recuerda|D[ií]a|Nace|Nacen|Muere|Mueren|Empieza|Comienza|Termina|Finaliza|Descubre|Inventa|Crea|Funda|Inaugura|Publica|Estrena|Gana|Vence|Logra|Llega|Sale|Patenta|Presenta|Firma|Fabrica|Realiza|Obtiene|Parte|Lanza|Abre|Aparece|Primer|Primera|Nuevo|Nueva)\s+)+/;
 
 /** Las búsquedas para la foto de un hecho: primero el evento concreto («Batalla de la Vuelta de Obligado»), después los nombres propios (personas, obras, lugares: «Tim Berners-Lee»), después el título sin el «En los Estados Unidos,» del comienzo. */
-export function consultasDeFoto(hecho) {
+function partesDeConsulta(hecho) {
   const t = String(hecho?.titulo ?? '').replace(/[«»"]/g, ' ').trim();
-  if (!t) return [];
+  if (!t) return null;
   const sinLugar = t.replace(/^En [^,]{3,40},\s*/, '');
   const txt = `${sinLugar}. ${hecho?.texto ?? ""}`;
   const PAL = "[A-ZÁÉÍÓÚÑ][\\wáéíóúñ'-]+";
   const nombres = [...txt.matchAll(new RegExp(`${PAL}(?:\\s+(?:(?:de|del|la|von|van|y|a)\\s+)?${PAL})+`, 'g'))].map((m) => m[0].trim().replace(INICIOS_QUE_NO_SON_NOMBRE, '')).filter((n) => n.split(/\s+/).length >= 2); // «Nace Mahatma Gandhi» → «Mahatma Gandhi»; «En Buenos Aires» → «Buenos Aires»; «Día Internacional» no queda
-  return [...new Set([...frasesDeEvento(hecho), ...nombres.slice(0, 3), sinLugar, t])];
+  return { propias: [...new Set([...frasesDeEvento(hecho), ...nombres.slice(0, 3)])], sinLugar, t };
+}
+
+export function consultasDeFoto(hecho) {
+  const p = partesDeConsulta(hecho);
+  return p ? [...new Set([...p.propias, p.sinLugar, p.t])] : [];
 }
 
 // ---- la elección estricta (20/11, caso «Día de la Soberanía Nacional» → una asamblea de Ecuador): la foto tiene que hablar DEL HECHO, no parecérsele en una palabra.
@@ -156,9 +164,8 @@ const ARTE_ANTIGUO = /\b(paintings?|pintura|oleo|oil on|grabado|engravings?|lito
 
 /** Lo que mide si una foto es del hecho: las frases propias que el hecho nombra (evento y nombres propios), cuáles son «fuertes» y los países que el texto menciona. */
 export function claveDelHecho(hecho) {
-  const consultas = consultasDeFoto(hecho);
-  const completo = consultas.at(-1), sinLugar = consultas.at(-2) ?? completo;
-  const frases = consultas.filter((c) => c !== completo && c !== sinLugar).map((c) => ({ frase: c, plano: norm(c) }));
+  // 20/11: antes se sacaban «el título» y «el título sin lugar» cortando los dos últimos de la lista; cuando el título no empieza con «En X,» los dos son el mismo y se perdía el último nombre propio.
+  const frases = (partesDeConsulta(hecho)?.propias ?? []).map((c) => ({ frase: c, plano: norm(c) }));
   const LUGARES_GENERICOS = [' buenos aires ', ' estados unidos ', ' nueva york ', ' reino unido ', ' america latina ', ' america del sur ', ' rio de la plata ', ' casa rosada ', ' mar del plata ', ' san pedro ', ' santa fe ', ' nueva zelanda ', ' costa rica ', ' puerto rico ', ' san francisco ', ' los angeles ', ' plaza de mayo ', ' nobel de quimica ', ' premio nobel ', ' primera division ', ' mundial de futbol ', ' polo sur ', ' campeonato sudamericano '];
   const fuerte = (f) => f.frase.split(/\s+/).length >= 2 && f.frase.length >= 12 && !LUGARES_GENERICOS.includes(f.plano); // «San Pedro» (9 letras) es un lugar suelto: por sí sola no alcanza
   const texto = `${hecho?.titulo ?? ''} ${hecho?.texto ?? ''}`;
@@ -191,8 +198,18 @@ export function puntajeDeFoto(clave, meta) {
  * Segundo intento: busca en Commons por el evento y los nombres propios del hecho, mira nombre, categorías y descripción de TODOS los resultados juntos y se queda con el que mejor corresponde (`puntajeDeFoto`).
  * Si ninguno corresponde, null: la pieza sale con el fondo de la marca antes que con una foto equivocada.
  */
+/** El archivo tiene que nombrar al sujeto del hecho (alguna palabra de 4 letras o más de su nombre): «Boca vence a Real Madrid» no se ilustra con un archivo de Independiente. Sin sujeto, no se exige. */
+function traeElSujeto(m, sujeto) {
+  if (!sujeto) return true;
+  const pajar = norm(`${m.nombre} ${m.categorias} ${m.descripcion}`);
+  const palabras = norm(sujeto).trim().split(' ').filter((w) => w.length >= 4);
+  return !palabras.length || palabras.some((w) => pajar.includes(` ${w} `));
+}
+
 export async function fotoDeCommonsPorBusqueda(hecho, { json, bajar, ancho = 960 } = {}) {
   const clave = claveDelHecho(hecho);
+  // el sujeto exigido es el nombre del titular; un «Día de…» o un evento («Batalla de…») ya se comprueba con su propia frase
+  const sujeto = /^D[ií]a\b/i.test(String(hecho?.titulo ?? '').trim()) || frasesDeEvento(hecho).length ? null : (sujetosDeWikipedia(hecho, 1)[0] ?? null);
   if (!clave.frases.length) return null; // sin una frase propia del hecho no hay con qué comprobar que la foto sea de eso
   const nombres = []; // en orden de búsqueda
   for (const f of clave.frases) {
@@ -208,7 +225,10 @@ export async function fotoDeCommonsPorBusqueda(hecho, { json, bajar, ancho = 960
   const candidatas = nombres.map((n, i) => ({ n, i, p: porNombre.get(n) ?? null })).filter((c) => c.p)
     .map((c) => {
       const meta = c.p.imageinfo[0].extmetadata ?? {};
-      return { ...c, puntaje: puntajeDeFoto(clave, { nombre: c.n, categorias: sinEtiquetas(String(meta.Categories?.value ?? '').replace(/\|/g, ' ; ')), descripcion: sinEtiquetas(`${meta.ImageDescription?.value ?? ''} ${meta.ObjectName?.value ?? ''}`) }) };
+      const m = { nombre: c.n, categorias: sinEtiquetas(String(meta.Categories?.value ?? '').replace(/\|/g, ' ; ')), descripcion: sinEtiquetas(`${meta.ImageDescription?.value ?? ''} ${meta.ObjectName?.value ?? ''}`) };
+      const puntaje = puntajeDeFoto(clave, m);
+      const retratoAjeno = /^(?:dra?|ing|lic|prof)\.?\s/i.test(c.n) && !/^(?:Nace|Muere)\b/.test(String(hecho?.titulo ?? '')); // «Dra. Mercedes Prámparo.jpg» no ilustra la fundación de una asociación
+      return { ...c, puntaje: puntaje > 0 && !retratoAjeno && traeElSujeto(m, sujeto) ? puntaje : 0 };
     })
     .filter((c) => c.puntaje > 0).sort((a, b) => b.puntaje - a.puntaje || a.i - b.i);
   for (const c of candidatas.slice(0, 5)) {
@@ -218,9 +238,86 @@ export async function fotoDeCommonsPorBusqueda(hecho, { json, bajar, ancho = 960
   return null;
 }
 
+// ---- la foto por el SUJETO del hecho (20/11): la imagen principal del artículo de Wikipedia de la persona o cosa de la que habla el hecho («Nace Voltaire» → «Voltaire»). Es la fuente más confiable;
+// si no da nada, recién ahí la búsqueda estricta en Commons. Un artículo sólo vale si su título ES el sujeto (sin tildes ni paréntesis), y su imagen tiene que estar en Commons con licencia libre.
+const NO_ES_SUJETO = /^(?:Dia|Dias|Internacional|Nacional|Mundial|Hoy|Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto|Septiembre|Octubre|Noviembre|Diciembre|Lunes|Martes|Miercoles|Jueves|Viernes|Sabado|Domingo|Primer|Primera|Premio|Copa)$/;
+const CONECTORES_DE_NOMBRE = '(?:de|del|la|von|van|da|der|di|le|el)';
+
+/** El sujeto del hecho: su titular entero si empieza con «Día de…», la frase de evento («Batalla de…») y el primer nombre del titular (un nombre suelto como «Voltaire» o «ARPANET» sirve). Sin países, lugares genéricos ni palabras como «Día». */
+export function sujetosDeWikipedia(hecho, max = 4) {
+  const titulo = String(hecho?.titulo ?? '').replace(/[«»"]/g, ' ').replace(/^En [^,]{3,40},\s*/, '').trim();
+  if (!titulo) return [];
+  const PAL = "[A-ZÁÉÍÓÚÑ][\\wáéíóúñ'-]+";
+  const re = new RegExp(`${PAL}(?:\\s+(?:${CONECTORES_DE_NOMBRE}\\s+)?${PAL})*`, 'g');
+  const buenos = (t) => {
+    const limpio = t.trim().replace(INICIOS_QUE_NO_SON_NOMBRE, '').trim();
+    if (!limpio || NO_ES_SUJETO.test(norm(limpio).trim().split(' ')[0]) || limpio.length < 4) return null;
+    const p = norm(limpio);
+    if (paisesDe(limpio).size && limpio.split(/\s+/).length === 1) return null; // «Argentina» sola no es el sujeto
+    if (LUGARES_GENERICOS_DE_SUJETO.includes(p)) return null;
+    return limpio;
+  };
+  const deTitulo = [...titulo.matchAll(re)].map((m) => buenos(m[0])).filter(Boolean);
+  const enteroDelTitulo = titulo;
+  // sólo el PRIMER nombre del titular: el segundo ya es otra cosa (en «Pascual Pérez es campeón en Tokio», Tokio no es el sujeto)
+  const principal = deTitulo.slice(0, 1); // el texto no aporta sujeto: «Se inaugura el subte de Buenos Aires» no es «Plaza de Mayo»
+  const lista = [...(enteroDelTitulo && /^(?:D[ií]a|Batalla|Tratado|Guerra|Revoluci)/i.test(enteroDelTitulo) ? [enteroDelTitulo] : []), ...frasesDeEvento(hecho), ...principal];
+  return [...new Map(lista.map((n) => [norm(n), n])).values()].slice(0, max);
+}
+const LUGARES_GENERICOS_DE_SUJETO = [' buenos aires ', ' estados unidos ', ' nueva york ', ' reino unido ', ' america latina ', ' america del sur ', ' rio de la plata ', ' paris ', ' londres ', ' madrid ', ' roma ', ' africa ', ' europa ', ' asia ', ' america ', ' mundo ', ' ciudad '];
+
+const sinParen = (t) => norm(String(t ?? '').replace(/\s*\([^()]*\)/g, ''));
+/** ¿El título del artículo es el sujeto? Igual (sin tildes ni paréntesis) o, siendo de los dos primeros resultados, trae sus palabras seguidas («Einstein» → «Albert Einstein»). */
+export function tituloEsElSujeto(titulo, sujeto, posicion = 0) {
+  const t = sinParen(titulo).trim(), c = norm(sujeto).trim();
+  if (!t || !c) return false;
+  if (t === c) return true;
+  return posicion < 2 && c.replace(/ /g, '').length >= 5 && ` ${t} `.includes(` ${c} `);
+}
+
+const PALABRAS_SUELTAS = new Set(['primer', 'primera', 'sobre', 'entre', 'donde', 'desde', 'nacio', 'publica', 'publican', 'vence', 'gana', 'argentina', 'argentino', 'mundo', 'mundial', 'conocido', 'estados', 'unidos', 'lanza', 'firma', 'firman', 'sale', 'funda', 'establece', 'inaugura', 'comienzan', 'presenta']);
+const palabrasDe = (t) => norm(t).trim().split(' ').filter((w) => w.length >= 5 && !PALABRAS_SUELTAS.has(w));
+/** ¿La imagen principal de este artículo es del sujeto? Sí si su nombre de archivo trae el nombre del sujeto («Albert_Einstein_Head», «ManuelDeFalla») o si la presentación del artículo comparte con el hecho alguna palabra que no sea el sujeto
+ * (caso «Racing»: el artículo de la remada no habla de Cruzeiro ni de la Copa Sudamericana; el de Fontanarrosa en español tiene de imagen un bar de barcos). */
+export function imagenEsDelSujeto({ archivo, introduccion }, sujeto, hecho, modo = 'nombre') {
+  const compacto = norm(archivo).replace(/ /g, '');
+  if (modo === 'nombre') return palabrasDe(sujeto).concat(norm(sujeto).trim().split(' ').filter((w) => w.length >= 4)).some((w) => compacto.includes(w.replace(/ /g, '')));
+  const propias = new Set(palabrasDe(sujeto));
+  const del_hecho = palabrasDe(`${hecho?.titulo ?? ''} ${hecho?.texto ?? ''}`).filter((w) => !propias.has(w));
+  const intro = new Set(palabrasDe(introduccion));
+  return new Set(del_hecho.filter((w) => intro.has(w))).size >= 2;
+}
+
+const NO_SIRVE_DE_SUJETO = /(^|[^a-z])(flag|bandera|escudo|coat[ _]of[ _]arms|logo|logotipo|icon|signature|firma)([^a-z]|$)|.(svg|pdf|tif|tiff|ogv|webm)$/i; // el mapa lógico de ARPANET es su imagen principal: acá un mapa o un diagrama del propio sujeto sirve
+
+async function imagenDeSujeto(idioma, sujeto, hecho, modo, { json, bajar, ancho }) {
+  const r = await json(`https://${idioma}.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&list=search&srnamespace=0&srlimit=3&srsearch=${encodeURIComponent(sujeto)}`);
+  const hits = r?.query?.search ?? [];
+  const i = hits.findIndex((h, k) => tituloEsElSujeto(h.title, sujeto, k));
+  if (i < 0) return null;
+  const a = await json(`https://${idioma}.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&redirects=1&prop=pageimages%7Cpageprops%7Cextracts&piprop=name&ppprop=disambiguation&exintro=1&explaintext=1&titles=${encodeURIComponent(hits[i].title)}`);
+  const p = a?.query?.pages?.[0];
+  if (!p || p.pageprops?.disambiguation !== undefined || !p.pageimage || NO_SIRVE_DE_SUJETO.test(p.pageimage)) return null;
+  if (!imagenEsDelSujeto({ archivo: p.pageimage, introduccion: p.extract }, sujeto, hecho, modo)) return null;
+  return archivoDeCommons(p.pageimage, p.title, { json, bajar, ancho, sinFiltroDeNombre: true });
+}
+
+/** La imagen principal del artículo de Wikipedia (español y, si no, inglés) del sujeto del hecho; null si no hay una libre en Commons. Prueba hasta los dos primeros sujetos. */
+export async function fotoDeWikipediaPorSujeto(hecho, { json, bajar, ancho = 960 } = {}) {
+  const clave = claveDelHecho(hecho);
+  for (const s of sujetosDeWikipedia(hecho).slice(0, 2)) {
+    for (const [idioma, modo] of [['es', 'nombre'], ['en', 'nombre'], ['es', 'intro'], ['en', 'intro']]) {
+      const f = await imagenDeSujeto(idioma, s, hecho, modo, { json, bajar, ancho });
+      // un archivo cuyo nombre nombra otro país que el hecho no menciona (caso Ecuador) no sirve
+      if (f && ![...paisesDe(f.archivoDeOrigen)].some((p) => !clave.paises.has(p))) return { ...f, sujeto: s };
+    }
+  }
+  return null;
+}
+
 /** Un archivo de Commons por su nombre: sólo licencia libre, nunca bandera, mapa ni logo. `info` = la página de imageinfo ya pedida (si no, se pide). */
-async function archivoDeCommons(nombre, tituloDePagina, { json, bajar, ancho, info: pagina = null }) {
-  if (!nombre || NO_SIRVE.test(nombre)) return null;
+async function archivoDeCommons(nombre, tituloDePagina, { json, bajar, ancho, info: pagina = null, sinFiltroDeNombre = false }) {
+  if (!nombre || (!sinFiltroDeNombre && NO_SIRVE.test(nombre))) return null;
   const c = pagina ? { query: { pages: [pagina] } } : await json(`https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&iiprop=url|size|mime|extmetadata&iiurlwidth=${ancho}&titles=${encodeURIComponent(`File:${nombre}`)}`);
   const info = c?.query?.pages?.[0]?.imageinfo?.[0];
   if (!info || c.query.pages[0].missing) return null; // no está en Commons (una foto sólo de es.wikipedia puede ser de uso restringido)

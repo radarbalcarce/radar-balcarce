@@ -174,27 +174,49 @@ function adaptarRepaso(pieza, P, ctx) {
 
 // ------------------------------------------------------------------ efeméride
 
+/**
+ * Los segundos (de contenido) en que la voz empieza cada «además» de la efeméride: la palabra del año («1905») o, si el hecho no tiene año, «Además»; se buscan en orden, después del hecho principal.
+ * Si la voz no dijo la palabra, se reparte lo que falta en partes iguales. Cada escena dura al menos 2,5 s. Puro.
+ */
+export function iniciosDeLosHechos(P, anioPrincipal, ademas) {
+  const patrones = ademas.map((o) => (o.anio ? String(o.anio) : 'ademas'));
+  const [iAnio] = buscarMarcas(P, [String(anioPrincipal)]);
+  const idx = buscarMarcas(P, patrones, { desde: iAnio >= 0 ? iAnio + 1 : 0 });
+  const fin = P.length ? P.at(-1).b : 0;
+  const tiempos = [];
+  idx.forEach((i, k) => {
+    const previo = tiempos.length ? tiempos.at(-1) : 0;
+    const faltan = idx.length - k;
+    const reparto = previo + (Math.max(fin - previo, 3) / (faltan + 1));
+    const t = i >= 0 ? tiempoDe(P, i, 0, 0.35) : reparto;
+    tiempos.push(Number(Math.max(t, previo + 2.5).toFixed(2)));
+  });
+  return tiempos;
+}
+
 function adaptarEfemeride(pieza, P, ctx) {
   const e = pieza.escenas[0].datos;
   const fotos = [];
-  const foto = fotoParaElKit(ctx.fotoEfemeride ?? null, fotos);
-  const fotoAdemas = fotoParaElKit(ctx.fotoEfemerideAdemas ?? null, fotos);
-  const ademas = e.ademas?.[0] ?? null;
-  const [iTambien] = ademas ? buscarMarcas(P, ['tambien']) : [-1];
-  const tAdemas = ademas ? (iTambien >= 0 ? tiempoDe(P, iTambien) : Number(((P[Math.floor(P.length * 0.6)]?.a ?? 6) - 0.12).toFixed(2))) : null;
+  // Las fotos por hecho: ctx.fotosEfemeride = [principal, ...además] (null si un hecho no tiene foto libre confiable); sin eso, las dos de siempre (principal y primer además).
+  const delCtx = ctx.fotosEfemeride ?? [ctx.fotoEfemeride ?? null, ctx.fotoEfemerideAdemas ?? null];
+  const foto = fotoParaElKit(delCtx[0] ?? null, fotos);
+  const ademas = e.ademas ?? [];
+  const inicios = iniciosDeLosHechos(P, e.principal.anio, ademas);
   const [, m, dia] = String(e.fecha).split('-');
-  const hace = e.anioActual - e.principal.anio;
+  const haceDe = (anio) => (anio && e.anioActual - anio > 0 ? `Hace ${e.anioActual - anio} ${e.anioActual - anio === 1 ? 'año' : 'años'}` : '');
+  const hace = haceDe(e.principal.anio);
+  const hechos = [
+    { anio: e.principal.anio, texto: e.principal.titulo, hace, foto, t: 0 },
+    ...ademas.map((o, k) => ({ anio: o.anio ?? null, texto: o.texto, hace: haceDe(o.anio), foto: fotoParaElKit(delCtx[k + 1] ?? null, fotos), t: inicios[k] })),
+  ];
   const datos = {
     rotulo: `Un día como hoy · ${Number(dia)} ${MESES_CORTOS[Number(m) - 1]}`,
     anio: e.principal.anio, anioDesde: Math.max(1, e.principal.anio - 100),
-    titulo: e.principal.titulo,
-    hace: hace > 0 ? `Hace ${hace} ${hace === 1 ? 'año' : 'años'}` : '',
-    ademas: ademas ? { anio: ademas.anio, texto: ademas.texto, foto: fotoAdemas, hace: e.anioActual - ademas.anio > 0 ? `Hace ${e.anioActual - ademas.anio} años` : '' } : null, tAdemas,
-    foto,
+    titulo: e.principal.titulo, hace, hechos, foto,
   };
   return {
     plantilla: 'efemeride', datos, fotos, fondo: null,
-    hl: { bg: MARCA.rojo, fg: '#fff' }, marcaClara: true, rotulo: { txt: datos.rotulo, bg: MARCA.rojo }, subsTop: SUBS_TOP, subs: { fg: MARCA.tinta, sh: 'none' },
+    hl: { bg: MARCA.rojo, fg: '#fff' }, marcaClara: true, rotulo: { txt: datos.rotulo, bg: MARCA.rojo, top: 91 }, subsTop: SUBS_TOP, subs: { fg: MARCA.tinta, sh: 'none' },
     scrim: 'linear-gradient(180deg,rgba(8,10,14,.35) 0%,rgba(8,10,14,0) 16%)',
   };
 }
@@ -330,15 +352,15 @@ const ADAPTADORES = {
 /**
  * La pieza armada → lo que dibuja el kit.
  * @param {object} pieza  la que devuelve un armador (tipo 'video'), con las fotos ya bajadas (`resolverFotos`).
- * @param {object} [o]    `palabras`: las de la voz ({ texto, desde, hasta }), si hay audio; `fotoEfemeride` y `fotoEfemerideAdemas`: { datos, ancho, alto, credito } de la foto del hecho principal y del segundo hecho; `colorDeSeccion(seccion)`.
+ * @param {object} [o]    `palabras`: las de la voz ({ texto, desde, hasta }), si hay audio; `fotosEfemeride`: [{ datos, ancho, alto, credito } | null] la foto de cada hecho de la efeméride, en orden (principal y «además»; o, como antes, `fotoEfemeride` y `fotoEfemerideAdemas`); `colorDeSeccion(seccion)`.
  * @returns {{ id, plantilla, guion, dur, estimado, palabras, datos, fotos, fondo, hl, scrim, rotulo?, marcaClara?, avisos }}
  */
-export function desdePieza(pieza, { palabras = null, fotoEfemeride = null, fotoEfemerideAdemas = null, colorDeSeccion = null, graficos = false } = {}) {
+export function desdePieza(pieza, { palabras = null, fotoEfemeride = null, fotoEfemerideAdemas = null, fotosEfemeride = null, colorDeSeccion = null, graficos = false } = {}) {
   if (!aplicaKit3(pieza)) throw new Error(`el kit 3.0 no dibuja «${pieza?.id}»`);
   if (!pieza.guion) throw new Error('la pieza no tiene guion');
   const { P, estimadas } = palabrasDelKit(pieza.guion, palabras);
   const adaptar = pieza.id.startsWith('repaso') ? adaptarRepaso : ADAPTADORES[pieza.id];
-  const r = adaptar(pieza, P, { fotoEfemeride, fotoEfemerideAdemas, colorDeSeccion, graficos });
+  const r = adaptar(pieza, P, { fotoEfemeride, fotoEfemerideAdemas, fotosEfemeride, colorDeSeccion, graficos });
   const avisos = [...(r.avisos ?? [])];
   if (estimadas) avisos.push('subtítulos con tiempos estimados (sin voz alineada)');
   for (const f of r.fotos) if (!f.credito) avisos.push(`la foto ${f.clave} no trae crédito`);

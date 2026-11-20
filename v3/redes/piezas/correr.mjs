@@ -462,10 +462,10 @@ export async function dependenciasReales(env = process.env) {
         try {
           const { aplicaKit3, dibujarConKit3 } = await import('../kit3/kit3.mjs');
           if (aplicaKit3(lista)) {
-            const { fotosDeLaEfemeride } = await import('../kit3/efemeride-foto.mjs');
+            const { fotosDeLosHechos } = await import('../kit3/efemeride-foto.mjs');
             const { colorDeSeccion } = await import('../../../reels/placa.mjs');
-            const hechos = lista.id === 'efemeride' ? await fotosDeLaEfemeride({ principal: lista.escenas?.[0]?.datos?.principal, ademas: lista.escenas?.[0]?.datos?.ademas?.[0] }) : null;
-            const k = await dibujarConKit3(lista, destino, { voz, palabras, fotoEfemeride: hechos?.principal ?? null, fotoEfemerideAdemas: hechos?.ademas ?? null, colorDeSeccion, env, log: (m) => console.log(`  ${m}`) });
+            const fotosEfemeride = lista.id === 'efemeride' ? await fotosDeLosHechos({ principal: lista.escenas?.[0]?.datos?.principal, ademas: lista.escenas?.[0]?.datos?.ademas ?? [] }) : null;
+            const k = await dibujarConKit3(lista, destino, { voz, palabras, fotosEfemeride, colorDeSeccion, env, log: (m) => console.log(`  ${m}`) });
             return { mp4: k.mp4, duracion: k.duracion, fotosQueNoBajaron, urlsQueNoBajaron, kit3: { usado: true, ms: k.ms, avisos: k.avisos, estimado: k.estimado, tapa: k.tapa, creditos: k.creditos } };
           }
         } catch (e) { console.log(`  kit 3.0 falló: ${e.message}`); kit3 = { usado: false, error: e.message }; }

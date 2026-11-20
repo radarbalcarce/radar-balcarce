@@ -55,9 +55,9 @@ export function argumentosDeMezcla({ crudo, voz = null, destino, total }) {
  * @param {string} destino  ruta del mp4
  * @param {object} [o]  { voz: ruta del audio, palabras: las de la voz, fotoEfemeride, colorDeSeccion, env, trabajo, log }
  */
-export async function dibujarConKit3(pieza, destino, { voz = null, palabras = null, fotoEfemeride = null, fotoEfemerideAdemas = null, colorDeSeccion = null, env = process.env, trabajo = null, soloTapa = false, log = () => {} } = {}) {
+export async function dibujarConKit3(pieza, destino, { voz = null, palabras = null, fotoEfemeride = null, fotoEfemerideAdemas = null, fotosEfemeride = null, colorDeSeccion = null, env = process.env, trabajo = null, soloTapa = false, log = () => {} } = {}) {
   const inicio = Date.now();
-  const spec = desdePieza(pieza, { palabras, fotoEfemeride, fotoEfemerideAdemas, colorDeSeccion, graficos: graficosPrendidos(env) });
+  const spec = desdePieza(pieza, { palabras, fotoEfemeride, fotoEfemerideAdemas, fotosEfemeride, colorDeSeccion, graficos: graficosPrendidos(env) });
   const carpeta = trabajo ?? fs.mkdtempSync(path.join(os.tmpdir(), 'kit3-'));
   const proyecto = path.join(carpeta, 'proyecto');
   const ffmpeg = await ffmpegDelRepo();

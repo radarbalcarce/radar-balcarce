@@ -239,15 +239,16 @@ test('repaso: el rótulo del momento y la voz según la hora; se dibuja con la l
 
 // ------------------------------------------------------------------ efeméride
 
-test('efeméride corta: la escena de hoy con el hecho y un solo «Y además», unos 15 s', () => {
+test('efeméride: una escena por cada hecho que dice la voz (principal y todos los «además» que entran), la duración la manda el guion (15 a 40 s)', () => {
   const p = armarEfemeride(EFEMERIDE_DE_PRUEBA, { fecha: HOY, anioActual: 2026 });
   assert.deepEqual(p.escenas.map((e) => e.tipo), ['efemeride']);
-  assert.equal(p.duracion, EFEMERIDE.segundos);
-  assert.ok(p.duracion <= EFEMERIDE.maximo);
-  assert.equal(p.escenas[0].datos.ademas.length, 1);
-  assert.match(p.guion, /1870/); assert.match(p.guion, /También, en 1950/); assert.ok(!/1903/.test(p.guion), 'sólo un «También»');
+  assert.ok(p.duracion >= EFEMERIDE.segundos && p.duracion <= EFEMERIDE.maximo);
+  assert.equal(p.escenas[0].datos.ademas.length, 2, 'los dos «además» entran');
+  assert.match(p.guion, /1870/); assert.match(p.guion, /También, en 1950/); assert.match(p.guion, /En 1903:/);
+  assert.ok(contarPalabras(p.guion) <= presupuestoDeVoz(p.duracion), 'la voz entra en la duración');
   assert.match(p.escenas[0].datos.ademas[0].texto, /^Argentina ganó/);
   assert.match(armarEfemeride(EFEMERIDE_DE_PRUEBA, { fecha: HOY, tambien: EFEMERIDE_DE_PRUEBA.ademas[1] }).guion, /1903/);
+  assert.equal(armarEfemeride(EFEMERIDE_DE_PRUEBA, { fecha: HOY, tambien: EFEMERIDE_DE_PRUEBA.ademas[1] }).escenas[0].datos.ademas.length, 1, 'tambien fuerza uno solo');
   assert.throws(() => armarEfemeride({}, { fecha: HOY }), /principal/);
   assert.throws(() => armarEfemeride(EFEMERIDE_DE_PRUEBA, {}), /fecha/);
   const svg = escenaDeVideo(p).cuadro(8, p.duracion);

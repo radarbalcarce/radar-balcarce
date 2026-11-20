@@ -26,7 +26,7 @@ async function fotoDeUnHecho(hecho, traer) {
     if (!hecho?.titulo) return null;
     const f = await fotoDeCommons(hecho, { json: (u) => json(u, traer), bajar: (u) => bajar(u, traer), ancho: 1600 });
     if (!f?.bytes || f.bytes.length < MIN_BYTES || !f.credito) return null;
-    return { datos: `data:${f.mime};base64,${Buffer.from(f.bytes).toString('base64')}`, ancho: f.ancho, alto: f.alto, credito: f.credito, archivo: f.archivoDeOrigen ?? null };
+    return { datos: `data:${f.mime};base64,${Buffer.from(f.bytes).toString('base64')}`, ancho: f.ancho, alto: f.alto, credito: f.credito, archivo: f.archivoDeOrigen ?? null, sujeto: f.sujeto ?? null };
   } catch { return null; }
 }
 
@@ -46,4 +46,19 @@ export async function fotosDeLaEfemeride({ principal, ademas = null }, { traer =
   let dos = ademas?.texto ? await fotoDeUnHecho({ titulo: ademas.texto, texto: ademas.texto, anio: ademas.anio }, traer) : null;
   if (dos && uno && ((dos.archivo && dos.archivo === uno.archivo) || dos.datos === uno.datos)) dos = null;
   return { principal: uno, ademas: dos };
+}
+
+/**
+ * La foto de CADA hecho que dice la voz (el principal y todos los «además», en orden): la del hecho principal por su página de Wikipedia, las demás por la búsqueda estricta en Commons (`fotoDeCommonsPorBusqueda`:
+ * sin una frase propia del hecho que coincida, null y la escena sale con el fondo de la marca). Si dos hechos resultan en el mismo archivo, el segundo queda sin foto (nunca la misma foto para otro hecho).
+ * @returns {Promise<Array<object|null>>} una por hecho, en el mismo orden
+ */
+export async function fotosDeLosHechos({ principal, ademas = [] }, { traer = globalThis.fetch } = {}) {
+  const salida = [await fotoDeLaEfemeride({ principal }, { traer })];
+  for (const o of ademas) {
+    let f = o?.texto ? await fotoDeUnHecho({ titulo: o.texto, texto: o.texto, anio: o.anio }, traer) : null;
+    if (f && salida.some((x) => x && ((f.archivo && f.archivo === x.archivo) || f.datos === x.datos))) f = null;
+    salida.push(f);
+  }
+  return salida;
 }

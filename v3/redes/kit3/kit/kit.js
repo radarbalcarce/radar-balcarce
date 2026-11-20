@@ -7,48 +7,80 @@ window.Radar = (function () {
   const FOTO_ALTO = 980; /* el alto de TODAS las fotos de las escenas; el texto va debajo, entre FOTO_ALTO y la fila 1255, y los subtítulos terminan antes de la fila 1480 (la interfaz de Instagram empieza en la 1540) */
   let TL, ROOT, PL, CT, S;
 
-  /* La geometria de una foto (puro): va SIEMPRE a todo el ancho (1080), pegada arriba (y=0), sin margenes. Se permite recortar hasta un 34 % del lado que sobra:
-     alto mostrado = min(1090, altoNaturalA1080 / 0.66), con un minimo de 900. El panel empieza donde termina la foto (PT).
-     modo 'cobertura': la foto llena el ancho y el alto (recorte centrado a los lados; en vertical, sesgado hacia arriba, y en retratos sin recortar la cabeza).
-     modos 'ancha' (panoramica extrema) y 'angosta' (retrato muy angosto): aun recortando 34 % no llena; se usa un relleno desenfocado oscuro, sin sombra ni borde de tarjeta.
-     'sin': sin foto, fondo de la marca. Devuelve { modo, PT, iw, ih, left, top }. */
+  /* REGLA DE LAS IMÁGENES COMPLETAS (Hernán, 20/11): hay dos tipos de imagen y se tratan distinto (los distingue relleno.mjs, sin IA: fondos planos y pocos colores dominantes = GRÁFICO).
+     GRÁFICO (flyer, placa, afiche, captura con texto): nunca pierde más de ~8 % por costado (16 % por eje, ya contando el zoom de 1,06); si para llenar la caja habría que recortar más, va ENTERA (contain), centrada.
+     FOTO: cubre la caja de borde a borde como siempre (recorte centrado, sesgo arriba en verticales para no cortar cabezas), aunque pierda más del 8 %; sólo si habría que recortar más de ~22 % por costado (44 % por eje) va entera.
+     El espacio que sobra de una imagen entera se rellena con un color liso sacado de los bordes de la propia imagen (spec: datos.*.foto.relleno, calculado en armar.mjs con ffmpeg), con una transición suave de 32 px.
+     Nunca desenfocado ni espejado. En la duda gana FOTO (cubrir). */
+  const RECORTE_MAX = 0.16, RECORTE_FOTO = 0.44, ZOOM_MAX = 1.06, HOLGURA = 1 / ZOOM_MAX, FUNDIDO = 32, PANEL_COLOR = '#14161A';
+  /* puro: cómo entra una foto de w × h en una caja cw × ch. modo 'cobertura' (llena la caja; recorte centrado, sesgado hacia arriba con 'sesgo' 0..0.5) o 'entera' (contain; con una holgura de 1/1,06 para que el zoom lento
+     termine justo contra la caja y nunca la desborde). 'forzar' ('cobertura' | 'entera') evita que la tapa y la escena decidan distinto. Devuelve { modo, iw, ih, left, top, recorteX, recorteY, motivo } (motivo de la foto entera: 'grafico' o 'recorte'; recorte = fracción total que se pierde
+     de cada eje, al final del zoom). */
+  function encuadre(w, h, cw, ch, sesgo, forzar, grafico) {
+    const s = Math.max(cw / w, ch / h), iw = w * s, ih = h * s;
+    const rx = 1 - (cw / iw) / ZOOM_MAX, ry = 1 - (ch / ih) / ZOOM_MAX;
+    const tope = grafico ? RECORTE_MAX : RECORTE_FOTO, cubre = forzar ? forzar === 'cobertura' : Math.max(rx, ry) <= tope + 1e-9;
+    if (cubre) return { modo: 'cobertura', iw, ih, left: (cw - iw) / 2, top: -(ih - ch) * sesgo, recorteX: Math.max(0, rx), recorteY: Math.max(0, ry) };
+    const f = Math.min(cw / w, ch / h) * HOLGURA, ew = w * f, eh = h * f;
+    return { modo: 'entera', iw: ew, ih: eh, left: (cw - ew) / 2, top: (ch - eh) / 2, recorteX: 0, recorteY: 0, motivo: grafico ? 'grafico' : 'recorte' };
+  }
+  const esGrafico = (o) => !!(o && o.relleno && typeof o.relleno === 'object' && o.relleno.grafico);
+  /* el color de relleno de una foto entera: el de los costados si sobra más espacio a los lados, el de arriba y abajo si sobra más arriba y abajo (sin dato: el color del panel) */
+  function colorRelleno(o, e, cw, ch) {
+    const r = o.relleno; if (!r) return PANEL_COLOR;
+    if (typeof r === 'string') return r;
+    if (!r.lados && !r.arriba) return PANEL_COLOR;
+    return ((cw - e.iw) >= (ch - e.ih) ? r.lados : r.arriba) || PANEL_COLOR;
+  }
+  /* La geometria de una foto (puro): va SIEMPRE a todo el ancho (1080) y alto fijo, pegada arriba (y=0), sin margenes. Cubre o va entera segun `encuadre` (regla de arriba).
+     'sin': sin foto, fondo de la marca. Devuelve { modo, PT, iw, ih, left, top, relleno, recorteX, recorteY }. Con maxH/minH (sólo la tapa, que mide el alto de su caja) PT sale del alto natural de la foto. */
   function geom(o) {
     o = o || {};
-    /* ALTO FIJO (las escenas de video): todas las fotos de una pieza miden lo mismo (FOTO_ALTO) y el panel de texto empieza siempre en la misma fila. La foto cubre de borde a borde con recorte centrado
-       (sesgado hacia arriba para no cortar cabezas: en vertical se recorta más abajo que arriba); si es muy apaisada se recortan los costados. Sin foto, el fondo de la marca con el mismo alto. */
     if (!o.maxH && !o.minH) {
       const PT = o.fijo || FOTO_ALTO;
       if (!o.src) return { modo: 'sin', PT, iw: W, ih: PT, left: 0, top: 0 };
-      const s = Math.max(W / o.w, PT / o.h), iw = o.w * s, ih = o.h * s, sesgo = o.h > o.w ? 0.15 : 0.35;
-      return { modo: 'cobertura', PT, iw, ih, left: (W - iw) / 2, top: -(ih - PT) * sesgo };
+      let e = encuadre(o.w, o.h, W, PT, o.h > o.w ? 0.15 : 0.35, null, esGrafico(o));
+      const m = o.margenArriba || 0; // una imagen ENTERA no pisa lo que va arriba (el rótulo de la efeméride): se centra en lo que queda debajo
+      if (e.modo === 'entera' && m) { e = encuadre(o.w, o.h, W, PT - m, 0, 'entera', esGrafico(o)); e.top += m; e.cy = m + (PT - m) / 2; }
+      return Object.assign({ PT, cy: e.cy || PT / 2, relleno: e.modo === 'entera' ? colorRelleno(o, e, W, PT) : null }, e);
     }
     const MAXH = o.maxH || 1090, MINH = o.minH || 900, F = 0.66;
-    if (!o || !o.src) return { modo: 'sin', PT: MAXH, iw: W, ih: MAXH, left: 0, top: 0 };
+    if (!o.src) return { modo: 'sin', PT: MAXH, iw: W, ih: MAXH, left: 0, top: 0 };
     const Hn = o.h * W / o.w;
-    if (Hn / F < MINH) { const s = W / (o.w * F), iw = o.w * s, ih = o.h * s; return { modo: 'ancha', PT: MINH, iw, ih, left: (W - iw) / 2, top: (MINH - ih) / 2 }; }
-    if (Hn > MAXH / F) { const iw = o.w * MAXH / o.h; return { modo: 'angosta', PT: MAXH, iw, ih: MAXH, left: (W - iw) / 2, top: 0 }; }
-    const PT = Math.round(Math.min(MAXH, Hn / F)), s = Math.max(W / o.w, PT / o.h), iw = o.w * s, ih = o.h * s, sesgo = o.h > o.w ? 0 : 0.35;
-    return { modo: 'cobertura', PT, iw, ih, left: (W - iw) / 2, top: -(ih - PT) * sesgo };
+    const PT = Hn / F < MINH ? MINH : (Hn > MAXH / F ? MAXH : Math.round(Math.min(MAXH, Hn / F)));
+    const e = encuadre(o.w, o.h, W, PT, o.h > o.w ? 0 : 0.35, null, esGrafico(o));
+    return Object.assign({ PT, relleno: e.modo === 'entera' ? colorRelleno(o, e, W, PT) : null }, e);
   }
-  /* la region de la foto (0..PT) con la foto adentro; `parent` la recibe. Devuelve { reg, g, im } */
+  /* la foto dentro de una caja de iw × ih en (left, top). Cobertura: la imagen sola. Entera: la imagen con un fundido de 32 px hacia el relleno en los cuatro bordes (dos máscaras anidadas, una por eje).
+     Devuelve la caja (es lo que se mueve y escala). */
+  function ponerImagen(parent, o, e) {
+    const box = div(parent, '', 'position:absolute;left:' + e.left + 'px;top:' + e.top + 'px;width:' + e.iw + 'px;height:' + e.ih + 'px;transform-origin:0 0');
+    let dentro = box;
+    if (e.modo === 'entera') {
+      const fx_ = Math.min(FUNDIDO, e.iw / 4), fy_ = Math.min(FUNDIDO, e.ih / 4);
+      const mascara = (d, dir, f) => { const g = 'linear-gradient(' + dir + ',transparent 0,#000 ' + f + 'px,#000 calc(100% - ' + f + 'px),transparent 100%)'; d.style.webkitMaskImage = g; d.style.maskImage = g; };
+      const m1 = div(box, '', 'position:absolute;inset:0'); mascara(m1, '90deg', fx_);
+      const m2 = div(m1, '', 'position:absolute;inset:0'); mascara(m2, '180deg', fy_);
+      dentro = m2;
+    }
+    const im = new Image(); im.src = o.src;
+    im.style.cssText = 'position:absolute;max-width:none;left:0;top:0;width:100%;height:100%;filter:' + (o.filtro || 'none');
+    dentro.appendChild(im);
+    return box;
+  }
+  /* la region de la foto (0..PT) con la foto adentro; `parent` la recibe. Devuelve { reg, g, im, wrap } */
   function regionDeFoto(parent, o) {
     const g = geom(o), reg = div(parent, '', 'position:absolute;left:0;top:' + (o.off || 0) + 'px;width:' + W + 'px;height:' + g.PT + 'px;overflow:hidden;background:#14161A');
     if (g.modo === 'sin') {
       div(reg, '', 'position:absolute;inset:0;background:' + (o.grad || 'linear-gradient(165deg,#222B38 0%,#14161A 58%,#0B0D10 100%)'));
       return { reg, g, im: null };
     }
-    if (g.modo !== 'cobertura') { // relleno desenfocado, oscuro y parejo
-      const bg = new Image(); bg.src = o.src; const cv = Math.max(W / o.w, g.PT / o.h) * 1.2;
-      bg.style.cssText = 'position:absolute;max-width:none;width:' + o.w * cv + 'px;height:' + o.h * cv + 'px;left:' + (W - o.w * cv) / 2 + 'px;top:' + (g.PT - o.h * cv) / 2 + 'px;filter:blur(40px) ' + (o.fondoFiltro || 'brightness(.32) saturate(.9)');
-      reg.appendChild(bg);
-    }
     const wrap = div(reg, '', 'position:absolute;left:0;top:0;width:' + W + 'px;height:' + g.PT + 'px');
-    const im = new Image(); im.src = o.src;
-    im.style.cssText = 'position:absolute;max-width:none;width:' + g.iw + 'px;height:' + g.ih + 'px;left:' + g.left + 'px;top:' + g.top + 'px;filter:' + (o.filtro || 'none');
-    wrap.appendChild(im);
+    if (g.modo === 'entera') div(wrap, '', 'position:absolute;inset:0;background:' + g.relleno + ';filter:' + (o.filtro || 'none')); // relleno liso (el mismo oscurecido que la foto)
+    const im = ponerImagen(wrap, o, g);
     return { reg, g, im, wrap };
   }
-  /* foto a todo el ancho, pegada arriba, con movimiento suave (zoom lento hacia adentro 1.00 -> 1.06, ya cubriendo: nunca se ve el borde) y, si se pide, el panel de abajo (o.panel = color; o.regla = color de la regla).
+  /* foto a todo el ancho, pegada arriba, con movimiento suave (zoom lento hacia adentro 1.00 -> 1.06, ya cubriendo; en foto entera termina justo contra la caja: nunca se ve el borde ni se corta texto) y, si se pide, el panel de abajo (o.panel = color; o.regla = color de la regla).
      o: src,w,h,t0,t1,entrada(corte|izq|der|arriba|abajo|fundido),de,dir,z0,z1,panel,regla; sin src: fondo de la marca con anillos. Devuelve el plano (con .PT). */
   function foto(o) {
     const pl = div(PL, 'plano'); pl.style.zIndex = o.z != null ? o.z : PL.children.length;
@@ -58,7 +90,7 @@ window.Radar = (function () {
     if (g.modo === 'sin') {
       fx.anillos(R.reg, { n: 4, cx: 540, cy: o.yc || g.PT / 2, color: o.anillo || 'rgba(255,255,255,.16)', t0: o.t0, t1: o.t1 + 1, max: 6 });
     } else {
-      R.wrap.style.transformOrigin = (540 + dir * 70) + 'px 0px';
+      R.wrap.style.transformOrigin = g.modo === 'entera' ? '540px ' + g.cy + 'px' : (540 + dir * 70) + 'px 0px'; /* entera: el zoom parte del centro de la caja y termina justo contra ella (holgura de 1/1,06): la foto nunca sale de la caja */
       TL.fromTo(R.wrap, { scale: o.z0 || 1.0 }, { scale: o.z1 || 1.06, duration: dur, ease: 'sine.inOut' }, o.t0);
     }
     if (o.panel) div(kb, '', 'position:absolute;left:0;top:' + g.PT + 'px;width:' + W + 'px;height:' + (H - g.PT) + 'px;background:' + o.panel);
@@ -113,9 +145,9 @@ window.Radar = (function () {
     return f;
   }
   /* una foto quieta (para las tapas). Regla de la grilla del feed (recorte 4:5, filas 285-1635): las filas 0 a o.off (240) son una BANDA LISA #14161A (sin desenfoque ni espejo) y la foto empieza en la fila o.off, a todo el ancho,
-     y NUNCA se recorta por arriba: si sobra alto se recorta por abajo (arriba y centrado), así la grilla pierde como mucho 45 px del borde superior de la foto y las cabezas quedan enteras. El alto de la foto es el de siempre (geom).
-     Si la foto es tan apaisada que cubrir ese alto obligaría a recortar más del 40 % de los costados, va entera a todo el ancho, pegada al panel, con la banda más alta y un degradado suave hacia la foto. El rótulo de la tapa va en la banda.
-     o.panel / o.regla dibujan el panel de abajo. Deja en parent.__transicion lo que hace falta para llevar la foto a su lugar de escena (alto fijo desde la fila 0): ver run(). Devuelve { PTt, ... }. */
+     y NUNCA se recorta por arriba: si sobra alto se recorta por abajo, así la grilla pierde como mucho 45 px del borde superior de la foto y las cabezas quedan enteras. El alto de la caja de la foto es el de siempre (geom).
+     Foto entera (regla de las fotos completas, ver `encuadre`): la tapa decide igual que la escena; va entera dentro de la caja, sobre el relleno liso de sus bordes, con un degradado de 36 px desde la banda hacia el relleno.
+     El rótulo de la tapa va en la banda. o.panel / o.regla dibujan el panel de abajo. Deja en parent.__transicion lo que hace falta para llevar la foto a su lugar de escena (alto fijo desde la fila 0): ver run(). Devuelve { PTt, ... }. */
   function fotoEstatica(parent, o) {
     const g0 = geom(o), PTt = g0.PT + (o.off || 0);
     const off = o.off || 0, AH = g0.PT; // la foto ocupa las filas off .. off + AH
@@ -125,16 +157,16 @@ window.Radar = (function () {
       div(reg, '', 'position:absolute;inset:0;background:' + (o.grad || 'linear-gradient(165deg,#222B38 0%,#14161A 58%,#0B0D10 100%)'));
       [260, 520, 780, 1040].forEach((d) => div(reg, 'anillo', 'width:' + d + 'px;height:' + d + 'px;left:' + (540 - d / 2) + 'px;top:' + ((o.yc || PTt / 2.2) - d / 2) + 'px;border-color:rgba(255,255,255,.14);border-width:4px'));
     } else {
-      const s0 = Math.max(W / o.w, AH / o.h), iw0 = o.w * s0, ih0 = o.h * s0;
+      const e = geom({ src: o.src, w: o.w, h: o.h, relleno: o.relleno, fijo: o.fijoEscena, margenArriba: o.margenArriba }); // la escena decide si va entera o cubriendo
+      const t = encuadre(o.w, o.h, W, AH, 0, e.modo); // la tapa, con la misma decisión: cubriendo recorta sólo por abajo (arriba pegada a la fila off)
       let from, suave = 0;
-      if (1 - W / iw0 <= 0.4) from = { left: (W - iw0) / 2, top: off, width: iw0, height: ih0 };
-      else { const s = W / o.w, ih = o.h * s; from = { left: 0, top: off + AH - ih, width: W, height: ih }; suave = 170; }
-      const e = geom({ src: o.src, w: o.w, h: o.h, fijo: o.fijoEscena });
+      if (e.modo === 'entera') {
+        div(reg, '', 'position:absolute;inset:0;background:' + e.relleno + ';filter:' + (o.filtro || 'none')); // relleno liso: lo mismo que se ve debajo, así no hay saltos al pasar a la escena
+        from = { left: t.left, top: off + t.top, width: t.iw, height: t.ih }; suave = 36;
+      } else from = { left: t.left, top: off, width: t.iw, height: t.ih };
       /* la imagen vive en su lugar de ESCENA y la tapa la lleva a la posición de tapa con una transformación (mover y escalar con transform: sin saltos de píxel) */
-      const im = new Image(); im.src = o.src;
-      im.style.cssText = 'position:absolute;max-width:none;transform-origin:0 0;left:' + e.left + 'px;top:' + e.top + 'px;width:' + e.iw + 'px;height:' + e.ih + 'px';
-      reg.appendChild(im);
-      const band = div(reg, '', 'position:absolute;left:0;top:0;width:' + W + 'px;height:' + Math.round(from.top + suave) + 'px;background:' + (suave ? 'linear-gradient(180deg,#14161A 0px,#14161A ' + Math.round(from.top) + 'px,rgba(20,22,26,0) 100%)' : '#14161A'));
+      const im = ponerImagen(reg, o, e);
+      const band = div(reg, '', 'position:absolute;left:0;top:0;width:' + W + 'px;height:' + Math.round(off + suave) + 'px;background:' + (suave ? 'linear-gradient(180deg,#14161A 0px,#14161A ' + Math.round(off) + 'px,rgba(20,22,26,0) 100%)' : '#14161A'));
       const sc = from.width / e.iw;
       tr = { reg, im, band, PTt, PT: e.PT, x0: from.left - e.left, y0: from.top - e.top, s0: sc };
     }
@@ -195,7 +227,7 @@ window.Radar = (function () {
     const K = { W, H, div, foto, linea, aparece, contar, fx, fit, fitBox, lineasDe, fotoEstatica, geom, firma, TL, PL, CT, ROOT, rng, clamp, SC: scrim, T0, M, kit: spec.kit || 'k1' };
     escenas(K, spec);
     if (spec.rotulo) {
-      const r = div(ROOT, '', ''); r.id = 'rotulo'; r.style.cssText += `;background:${spec.rotulo.bg};color:${spec.rotulo.fg || '#fff'};z-index:30`; r.textContent = spec.rotulo.txt;
+      const r = div(ROOT, '', ''); r.id = 'rotulo'; r.style.cssText += `;background:${spec.rotulo.bg};color:${spec.rotulo.fg || '#fff'};z-index:30${spec.rotulo.top != null ? ';top:' + spec.rotulo.top + 'px' : ''}`; /* rotulo.top: la efeméride lo sube a la fila 91 (el de la tapa) para que una imagen entera no quede debajo */ r.textContent = spec.rotulo.txt;
       TL.set(r, { autoAlpha: 0 }, 0); TL.set(r, { autoAlpha: 1 }, 0.15); TL.fromTo(r, { x: -60 }, { x: 0, duration: 0.5, ease: 'power3.out' }, 0.15);
     }
     const subs = div(ROOT, '', 'z-index:30'); subs.id = 'subs'; if (spec.subsTop != null) subs.style.top = spec.subsTop + 'px';
@@ -271,5 +303,5 @@ window.Radar = (function () {
     M.set({}, {}, T0 + spec.dur);
     window.__timelines = window.__timelines || {}; window.__timelines['main'] = M; M.seek(0);
   }
-  return { run, div, rng };
+  return { run, div, rng, encuadre, geom, RECORTE_MAX, RECORTE_FOTO, ZOOM_MAX };
 })();

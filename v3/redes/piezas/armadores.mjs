@@ -186,31 +186,43 @@ export function armarRepaso(notas, { fecha = '', ...opciones } = {}) {
 // ------------------------------------------------------------------ 7. la efeméride corta
 
 /**
- * «Un día como hoy», corta (15 s, a prueba una semana): **la escena de hoy** (el año que corre hacia atrás, el título, el cuerpo) con el hecho principal y un solo
- * «Y además». Las otras quedan en la nota de la web. `efemeride` es la de `web/data/efemerides-piezas.json`: `{ fecha, principal: { anio, titulo, cuerpo }, ademas: [{
- * anio, texto }] }`; `tambien` elige cuál de `ademas` (por defecto la primera); `fecha` (AAAA-MM-DD) si la efeméride no la trae.
+ * «Un día como hoy»: **una escena por cada hecho que dice la voz** (Hernán, 20/11: «cuenta sólo una cosa»; acordado el 17 y el 19/11: una foto y un año por cada hecho). El hecho principal y todos los «además» del
+ * día, en el mismo orden, hasta donde entra la voz en `EFEMERIDE.maximo` segundos (~40): si el guion es más largo se recortan «además» desde el final y la voz tampoco los dice (no puede decir algo que no se ve).
+ * La duración la manda la voz: acá sale del largo del guion (entre `segundos` y `maximo`). `efemeride` es la de `web/data/efemerides-piezas.json`: `{ fecha, principal: { anio, titulo, cuerpo }, ademas: [{
+ * anio, texto }] }` (un «además» puede no tener año: «Día de la Enfermería Argentina»); `tambien` fuerza un único «además».
  */
 export function armarEfemeride(efemeride, { fecha = null, anioActual = new Date().getFullYear(), tambien = null, ...opciones } = {}) {
   const p = efemeride?.principal;
   if (!p?.anio || !p?.titulo) throw new Error('efeméride: falta el hecho principal');
   const dia = fecha ?? efemeride.fecha;
   if (!esFechaIso(dia)) throw new Error('efeméride: falta la fecha (AAAA-MM-DD)');
-  const otro = tambien ?? efemeride.ademas?.[0] ?? null;
+  const candidatos = (tambien ? [tambien] : (efemeride.ademas ?? [])).filter((o) => o?.texto).slice(0, EFEMERIDE.ademasEnVideo);
   const saludo = saludoPara(opciones);
-  const total = EFEMERIDE.segundos;
   const resumen = primeraFrase(p.cuerpo ?? '');
-  const texto = otro ? String(otro.texto).replace(/^Argentina gana\b/, 'Argentina ganó').replace(/\.$/, '') : '';
   const intro = unir(saludo, `Un día como hoy, en ${p.anio}.`);
-  const resto = Math.max(10, presupuestoDeVoz(total) - contarPalabras(intro));
-  const hecho = partesQueEntran([`${p.titulo}.`, resumen], otro ? Math.floor(resto * 0.62) : resto);
-  const tambienVoz = otro ? acortarPalabras(`También, en ${otro.anio}: ${texto}.`, Math.max(6, resto - contarPalabras(hecho))) : '';
+  const tope = presupuestoDeVoz(EFEMERIDE.maximo);
+  const hecho = partesQueEntran([`${p.titulo}.`, resumen], Math.min(30, Math.max(10, tope - contarPalabras(intro))));
+  const ademas = [], voces = [];
+  let usadas = contarPalabras(intro) + contarPalabras(hecho);
+  for (const [i, o] of candidatos.entries()) {
+    const texto = String(o.texto).replace(/^Argentina gana\b/, 'Argentina ganó').replace(/\.$/, '');
+    const prefijo = o.anio ? (i === 0 ? `También, en ${o.anio}:` : `En ${o.anio}:`) : 'Además,';
+    const lugar = tope - usadas;
+    if (lugar < contarPalabras(prefijo) + 4) break; // no entra: éste y los que siguen se van (la voz no puede decir algo que no se ve)
+    const voz = acortarPalabras(`${prefijo} ${texto}.`, Math.min(lugar, 32));
+    if (contarPalabras(voz) <= contarPalabras(prefijo)) break;
+    usadas += contarPalabras(voz); voces.push(voz);
+    ademas.push({ anio: o.anio ?? null, texto: fraseEnPantalla(texto, 120) });
+  }
+  const guion = unir(intro, hecho, ...voces);
+  const total = Math.min(EFEMERIDE.maximo, Math.max(EFEMERIDE.segundos, Math.ceil(contarPalabras(guion) / PALABRAS_POR_SEGUNDO + SEGUNDOS_DE_ADORNO)));
   return video('efemeride', [
     escena('efemeride', total, {
       fecha: dia,
       principal: { anio: p.anio, titulo: p.titulo, cuerpo: fraseEnPantalla(resumen, 170) },
-      ademas: otro ? [{ anio: otro.anio, texto: fraseEnPantalla(texto, 120) }] : [],
+      ademas,
       anioActual,
-    }, unir(intro, hecho, tambienVoz)),
+    }, guion),
   ], { voz: 'locutora', saludo, extra: { dia: dia, color: 'Cultura y agenda' } });
 }
 

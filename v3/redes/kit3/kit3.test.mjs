@@ -238,8 +238,8 @@ test('tapas: la foto no se desenfoca ni se espeja (ni arriba ni en ningún borde
   const a = kit.indexOf('function fotoEstatica');
   const cuerpo = kit.slice(a, kit.indexOf('const fx = {', a));
   assert.ok(!/blur|scaleY[(]-1[)]/.test(cuerpo), 'fotoEstatica no desenfoca ni espeja');
-  assert.ok(cuerpo.includes('<= 0.4'), 'cubre mientras el recorte de los costados no pase del 40 %');
-  assert.ok(cuerpo.includes('#14161A 0px'), 'si no, banda del color del panel con degradado');
+  assert.ok(cuerpo.includes('encuadre(o.w, o.h, W, AH, 0, e.modo)'), 'la tapa decide igual que la escena (cubre con poco recorte o va entera)');
+  assert.ok(cuerpo.includes('#14161A 0px'), 'foto entera: banda del color del panel con degradado hacia el relleno');
   assert.ok(kit.includes('parent.__transicion = tr'));
   assert.ok(kit.includes('M.fromTo(tr.im, { x: tr.x0'), 'la foto de la tapa se acomoda en su lugar de escena');
   assert.ok(kit.includes('(tr.PTt - tr.PT)'), 'el alto baja hasta el alto fijo de la escena');
@@ -262,7 +262,7 @@ test('tapas: filas 0-240 son una banda lisa, la foto empieza en la fila 240 sin 
   const kit = fs.readFileSync(path.join(AQUI, 'kit', 'kit.js'), 'utf8');
   const a = kit.indexOf('function fotoEstatica');
   const cuerpo = kit.slice(a, kit.indexOf('const fx = {', a));
-  assert.ok(cuerpo.includes('top: off, width: iw0'), 'la foto arranca en la fila off (240), pegada arriba, recortando sólo por abajo');
+  assert.ok(cuerpo.includes('top: off, width: t.iw'), 'la foto arranca en la fila off (240), pegada arriba, recortando sólo por abajo');
   for (const f of ['repaso.js', 'nota.js', 'efemeride.js']) {
     const fuente = fs.readFileSync(path.join(AQUI, 'plantillas', f), 'utf8');
     assert.match(fuente, /left:60px;top:91px;height:58px/, `${f}: el rótulo va centrado en la banda (filas 0-240)`);

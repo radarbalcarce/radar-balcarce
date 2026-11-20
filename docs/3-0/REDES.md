@@ -55,7 +55,7 @@ Cada pieza usa **las escenas de hoy** (el mismo dibujo, las mismas animaciones, 
 | **El clima** (mañana y noche) | Video 9:16 | 15 a 20 segundos | Cielo animado, temperatura que cuenta hasta su valor, los días que siguen. Con auspicio, **22 s** |
 | **Clima auspiciado** | Igual que el clima | 22 s | La voz dice al inicio «el clima de hoy lo auspicia [comercio]» y una franja fija «Auspicia · comercio · @cuenta» desde el segundo 3 hasta el final |
 | **El repaso** (mañana, tarde, noche) | Video 9:16 | 21 s con 2 notas, **30 s con 3** | Máximo 3 notas; **al menos una de Balcarce**; lista numerada de tapa y cierre |
-| **Un día como hoy** (efeméride) | Video 9:16 | 15 s | Un hecho principal y un «también». *A prueba una semana* (Hernán, 3/11) y se compara el alcance |
+| **Un día como hoy** (efeméride) | Video 9:16 | 15 a 40 s (la manda la voz) | Una escena por cada hecho que dice la voz: el principal y hasta 3 «además», cada uno con su año y su foto (20/11) |
 | **Farmacia de turno** | Video 9:16 | 14 s | Hasta 3 farmacias con dirección y teléfono; «De turno hasta mañana a las 8:30» |
 | **Participá** | Video 9:16 | 18 s | La pregunta, el WhatsApp 2266 51-1612 que se tipea, el mail |
 | **Nota de Balcarce o nacional** (reel) | Video 9:16 | 25 s | Tres placas con la foto y el hecho |

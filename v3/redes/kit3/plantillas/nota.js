@@ -2,7 +2,7 @@
    sección en su color; el titular (en la primera) o una frase de la nota (en las otras) ENTERO, en serif blanco, DEBAJO de la foto sobre fondo oscuro; los subtítulos más abajo. Ningún crédito de foto dentro del video
    (va en el texto del posteo); la nota propia firma «Por Hernán Accomo» a la derecha del rótulo (es la firma de la nota, no un crédito). Sin foto, fondo de la marca. Lee SPEC.datos (desde-pieza.mjs). */
 const PANEL = '#14161A';
-const planoDe = (f, o) => Object.assign({ src: f ? f.src : null, w: f ? f.w : 1080, h: f ? f.h : 1920, panel: PANEL }, o);
+const planoDe = (f, o) => Object.assign({ src: f ? f.src : null, w: f ? f.w : 1080, h: f ? f.h : 1920, relleno: f ? f.relleno : null, panel: PANEL }, o);
 function tapa(K, S) {
   const T = K.TAPA, D = S.datos, X = D.tapa, f = X.foto;
   K.div(T, '', 'position:absolute;inset:0;background:#14161A');

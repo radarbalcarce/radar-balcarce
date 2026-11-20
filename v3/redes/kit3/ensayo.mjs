@@ -16,7 +16,7 @@ import {
 import { efemerideDelDia, fechaLarga, leerClima } from '../piezas/datos.mjs';
 import { resolverFotos, USER_AGENT } from '../piezas/fotos.mjs';
 import { dibujarConKit3, kit3Prendido } from './kit3.mjs';
-import { fotosDeLaEfemeride } from './efemeride-foto.mjs';
+import { fotosDeLosHechos } from './efemeride-foto.mjs';
 
 const RAIZ = path.join(import.meta.dirname, '..', '..', '..');
 const SITIO = 'https://radarbalcarce.com';
@@ -98,14 +98,16 @@ async function main() {
   const soloTapa = args.includes('--solo-tapa'); // sólo la tapa de cada pieza (PNG), sin dibujar el video
   const fondos = valor('--fondos') ?? process.env.KIT3_FONDOS ?? '';
   const salida = path.resolve(valor('--salida') ?? 'salida-kit3');
-  const pedidas = args.filter((a, i) => !a.startsWith('--') && args[i - 1] !== '--fondos' && args[i - 1] !== '--salida');
+  const pedidas = args.filter((a, i) => !a.startsWith('--') && args[i - 1] !== '--fondos' && args[i - 1] !== '--salida' && args[i - 1] !== '--dia');
   const lista = pedidas.length ? pedidas : PIEZAS_DEL_ENSAYO;
   if (kit3Prendido(process.env)) console.log('(KIT_3_0 está prendido, pero el ensayo siempre dibuja con el kit y nunca publica)');
   fs.mkdirSync(salida, { recursive: true });
   const env = { ...process.env, KIT3_FONDOS: fondos };
 
   const ahora = new Date();
-  const dia = hoyEnBalcarce(ahora);
+  const diaPedido = valor('--dia'); // AAAA-MM-DD: dibuja la efeméride de otra fecha (y pone esa fecha en el rótulo)
+  if (diaPedido && !/^\d{4}-\d{2}-\d{2}$/.test(diaPedido)) throw new Error('--dia tiene que ser AAAA-MM-DD');
+  const dia = diaPedido ?? hoyEnBalcarce(ahora);
   console.log(`ensayo del kit 3.0 · ${dia} · ${sinRed ? 'sin red (ejemplos)' : 'datos del sitio público'} · fondos: ${fondos || '(sin clips: cielo gráfico)'} · salida: ${salida}`);
 
   let notas;
@@ -115,6 +117,7 @@ async function main() {
   }
   const clima = (!sinRed && await leerClima({})) || (() => { const p = JSON.parse(fs.readFileSync(path.join(RAIZ, 'web', 'data', 'portada.json'), 'utf8')); return { ahora: p.clima.ahora, dias: p.clima.dias }; })();
   const efemerides = JSON.parse(fs.readFileSync(path.join(RAIZ, 'web', 'data', 'efemerides-piezas.json'), 'utf8'));
+  if (diaPedido && !efemerideDelDia(efemerides, dia)) throw new Error(`no hay efeméride armada para ${dia} en web/data/efemerides-piezas.json`);
   const efemeride = efemerideDelDia(efemerides, dia) ?? efemerideDelDia(efemerides, Object.keys(efemerides.dias).sort().at(-1));
   const repaso = notasDelRepaso(notas);
   // La nota de Balcarce y la propia salen de notas DISTINTAS entre sí y de las del repaso (para que el feed de muestra no repita la misma foto); si no alcanzan, se repite lo mínimo.
@@ -145,11 +148,10 @@ async function main() {
     try {
       const armada = piezas[id]();
       const pieza = await resolverFotos(armada);
-      const hechos = id === 'efemeride' ? await fotosDeLaEfemeride({ principal: efemeride.principal, ademas: pieza.escenas?.[0]?.datos?.ademas?.[0] }) : null;
-      const fotoEfemeride = hechos?.principal ?? null;
-      if (id === 'efemeride') console.log(`  efeméride: principal ${fotoEfemeride ? `foto de Commons (${fotoEfemeride.credito})` : 'sin foto libre: fondo de la marca'}; segundo hecho ${hechos.ademas ? `foto de Commons (${hechos.ademas.credito})` : 'sin foto libre propia'}`);
+      const fotosEfemeride = id === 'efemeride' ? await fotosDeLosHechos({ principal: efemeride.principal, ademas: pieza.escenas?.[0]?.datos?.ademas ?? [] }) : null;
+      if (id === 'efemeride') (pieza.escenas?.[0]?.datos?.ademas ? [efemeride.principal, ...pieza.escenas[0].datos.ademas] : [efemeride.principal]).forEach((h, k) => console.log(`  efeméride, hecho ${k + 1} (${h.anio ?? 'sin año'}): ${fotosEfemeride[k] ? `foto de Commons (${fotosEfemeride[k].credito})` : 'sin foto libre confiable: fondo de la marca'}`));
       const { colorDeSeccion } = await import('../../../reels/placa.mjs');
-      const r = await dibujarConKit3(pieza, path.join(salida, `${id}.mp4`), { env, soloTapa, fotoEfemeride, fotoEfemerideAdemas: hechos?.ademas ?? null, colorDeSeccion, log: (t) => console.log(`  ${t}`) });
+      const r = await dibujarConKit3(pieza, path.join(salida, `${id}.mp4`), { env, soloTapa, fotosEfemeride, colorDeSeccion, log: (t) => console.log(`  ${t}`) });
       const info = { pieza: id, idDeLaPieza: pieza.id, guion: pieza.guion, palabrasDelGuion: pieza.guion.split(/\s+/).length, duracion: r.duracion, segundosEnDibujar: Math.round(r.ms / 1000), avisos: r.avisos, fondo: r.fondo, creditosParaElPosteo: r.creditos, tapa: path.basename(r.tapa ?? ''), notas: id.startsWith('repaso') ? pieza.escenas.filter((e) => e.tipo === 'placa-nota').map((e) => e.datos.titulo) : undefined };
       fs.writeFileSync(path.join(salida, `${id}.json`), JSON.stringify(info, null, 2));
       resumen.push({ pieza: id, ok: true, duracion: r.duracion, segundos: Math.round(r.ms / 1000) });

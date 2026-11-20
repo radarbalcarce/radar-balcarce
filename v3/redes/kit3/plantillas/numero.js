@@ -4,7 +4,7 @@
    Lee SPEC.datos (desde-pieza.mjs, `adaptarNumero`). */
 const PANEL = '#14161A', PAPEL = '#FAF8F3', ROJO = '#C7381C';
 const FOTO_ESCENA = 640; /* la foto de esta pieza es más baja que la de las notas: el número manda */
-const planoDe = (f, o) => Object.assign({ src: f ? f.src : null, w: f ? f.w : 1080, h: f ? f.h : 1920, panel: PANEL }, o);
+const planoDe = (f, o) => Object.assign({ src: f ? f.src : null, w: f ? f.w : 1080, h: f ? f.h : 1920, relleno: f ? f.relleno : null, panel: PANEL }, o);
 const textoDe = (c, pre, suf) => (pre || '') + c.texto + (suf || '');
 function tapa(K, S) {
   const T = K.TAPA, D = S.datos, p = D.principal;

@@ -3,7 +3,7 @@
    Lee SPEC.datos (desde-pieza.mjs). */
 const ROJO = '#C7381C', PAPEL = '#FAF8F3';
 const PANEL = '#14161A';
-const planoDe = (f, o) => Object.assign({ src: f ? f.src : null, w: f ? f.w : 1080, h: f ? f.h : 1920, panel: PANEL }, o);
+const planoDe = (f, o) => Object.assign({ src: f ? f.src : null, w: f ? f.w : 1080, h: f ? f.h : 1920, relleno: f ? f.relleno : null, panel: PANEL }, o);
 function tapa(K, S) {
   const T = K.TAPA, D = S.datos, N = D.notas;
   K.div(T, '', 'position:absolute;inset:0;background:#14161A');
