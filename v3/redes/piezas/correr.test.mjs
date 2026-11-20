@@ -65,6 +65,20 @@ function armar({ ahora, activas = false, vozNueva = true, clima = CLIMA, farmaci
 
 const MARTES_10 = new Date('2026-11-03T13:00:00.000Z');
 
+test('queda anotado en `archivos` si la pieza usó el kit 3.0 (marca kit3:si/no) para medir formato nuevo contra viejo', async () => {
+  const t = armar({ ahora: MARTES_10, avisos: true });
+  const original = t.deps.renderizar;
+  t.deps.renderizar = async (pieza, destino, o) => { const r = await original(pieza, destino, o); return destino.includes('clima-manana') ? { ...r, kit3: { usado: true, duracion: pieza.duracion } } : destino.includes('efemeride') ? { ...r, kit3: { usado: false, error: 'x' } } : r; };
+  await correr({ env: t.env, ahora: MARTES_10, carpeta: t.carpeta, deps: t.deps });
+  const marcaDe = (id) => JSON.parse(fs.readFileSync(path.join(t.carpeta, `${id}.json`), 'utf8')).archivos.filter((a) => a.startsWith('kit3:'));
+  const enBase = Object.fromEntries(t.sqlite.prepare('SELECT pieza, archivos FROM piezas').all().map((f) => [f.pieza, JSON.parse(f.archivos)]));
+  assert.deepEqual(marcaDe('clima-manana'), ['kit3:si']);
+  assert.deepEqual(marcaDe('efemeride'), ['kit3:no']);
+  assert.deepEqual(marcaDe('noticia1'), ['kit3:no']);
+  assert.ok(enBase['clima-manana'].includes('kit3:si'));
+});
+
+
 test('ENSAYO: arma las piezas con la voz y las deja guardadas, anota lo que HABRÍA publicado y NO llama a Meta', async () => {
   const t = armar({ ahora: MARTES_10, avisos: true });
   const r = await correr({ env: t.env, ahora: MARTES_10, carpeta: t.carpeta, deps: t.deps });

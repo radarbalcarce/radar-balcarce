@@ -1,0 +1,82 @@
+# Radar 3.0: compara los reels e historias con el formato NUEVO (kit 3.0, desde el 20/11/2026) contra el VIEJO, por red y por tipo de pieza (Hernán, 19-20/11).
+# Sólo a mano: Actions → «Radar 3.0: comparar formatos nuevos y viejos» → Run workflow. No gasta voz ni IA; sólo lee (la tabla de piezas de la base y los insights de Meta). No cambia nada solo.
+# Lee la tabla `piezas` de la base D1 radar-nucleo (como v3-nota-efemeride.yml), le pregunta a Meta cómo le fue a cada pieza y deja el informe como artefacto y por Telegram.
+# Secretos que usa (ya existen): META_TOKEN, CLOUDFLARE_API_TOKEN y CLOUDFLARE_ACCOUNT_ID (leer la base), TELEGRAM_TOKEN. Explicación: docs/3-0/MEDIR-FORMATOS-NUEVOS.md.
+name: 'Radar 3.0: comparar formatos nuevos y viejos'
+
+on:
+  workflow_dispatch:
+    inputs:
+      desde:
+        description: 'Día desde el que cuenta el formato nuevo (AAAA-MM-DD)'
+        type: string
+        default: '2026-11-20'
+      telegram:
+        description: '¿Mandar el resumen por Telegram?'
+        type: choice
+        options: [si, no]
+        default: si
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v3-comparar-formatos
+  cancel-in-progress: false
+
+jobs:
+  comparar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      TZ: America/Argentina/Buenos_Aires
+      META_TOKEN: ${{ secrets.META_TOKEN }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+      DESDE: ${{ inputs.desde }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Pruebas
+        run: node --test v3/redes/comparar-formatos.test.mjs
+
+      - name: Leer las piezas publicadas de la base
+        run: |
+          case "$DESDE" in [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;; *) echo "desde inválido: $DESDE"; exit 1;; esac
+          DB=$(npx --yes wrangler@4.139.0 d1 list --json | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const l=JSON.parse(s.slice(s.indexOf('[')));const x=l.find(n=>n.name==='radar-nucleo');process.stdout.write(x?x.uuid:'')})")
+          test -n "$DB" || { echo "No encuentro la base radar-nucleo"; exit 1; }
+          printf 'name = "comparar-formatos"\ncompatibility_date = "2026-10-01"\n[[d1_databases]]\nbinding = "DB"\ndatabase_name = "radar-nucleo"\ndatabase_id = "%s"\n' "$DB" > wrangler.generado.toml
+          # Sólo lectura: las piezas publicadas de verdad desde 8 días antes del corte.
+          npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --json --command="SELECT pieza, dia, estado, simulado, creada, actualizada, duracion, archivos, acciones FROM piezas WHERE simulado = 0 AND estado = 'publicada' AND dia >= date('$DESDE', '-8 days') ORDER BY id;" > piezas.json
+          test -s piezas.json || { echo "La base no devolvió piezas"; exit 1; }
+
+      - name: Comparar
+        run: node v3/redes/comparar-formatos.mjs --piezas=piezas.json --desde="$DESDE" --salida=comparacion-formatos
+
+      - name: Guardar el informe
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: comparacion-formatos
+          path: comparacion-formatos/
+          retention-days: 30
+          if-no-files-found: ignore
+
+      - name: Mandar por Telegram
+        if: ${{ inputs.telegram == 'si' }}
+        run: |
+          test -s comparacion-formatos/telegram.txt || { echo "No hubo resumen para mandar"; exit 0; }
+          enviado=no
+          for intento in 1 2 3; do
+            if node v3/redaccion/telegram/herramientas.mjs decir comparacion-formatos/telegram.txt; then enviado=si; break; fi
+            echo "Telegram no recibió el resumen (intento $intento de 3)."
+            [ "$intento" -lt 3 ] && sleep $((intento * 20))
+          done
+          if [ "$enviado" != "si" ]; then
+            echo "::warning title=Resumen sin enviar::Telegram no contestó en 3 intentos. El informe está en el artefacto «comparacion-formatos»."
+          fi
+          exit 0

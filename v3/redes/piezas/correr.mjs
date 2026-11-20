@@ -337,6 +337,9 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
       const acciones = accionesConTexto(pieza, item);
       informe.texto = acciones[0]?.pie || textoDePieza(pieza, item, 'facebook');
       informe.archivos = mudo ? [`${item.id}.mp4`, `${item.id}.json`] : [`${item.id}.mp4`, `${item.id}.mp3`, `${item.id}.json`];
+      // Medición por pieza (v3/redes/comparar-formatos.mjs): el uso del kit 3.0 queda anotado en la fila de la base como una marca más en `archivos` (sin columna nueva, sin desplegar el Worker).
+      informe.kit3 = { usado: r.kit3?.usado === true, prendido: r.kit3 !== undefined };
+      informe.archivos.push(`kit3:${informe.kit3.usado ? 'si' : 'no'}`);
 
       if (plan.activas) {
         const cliente = deps.clienteMeta();
