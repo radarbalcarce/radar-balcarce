@@ -317,3 +317,13 @@ jobs:
           GITHUB_TOKEN_ACCIONES: ${{ secrets.RELOJ_GITHUB_TOKEN }}
         run: |
           node -e 'const s={};for(const k of ["META_TOKEN","TELEGRAM_TOKEN","CLOUDFLARE_ANALYTICS_TOKEN","CLOUDFLARE_ACCOUNT_ID","GITHUB_TOKEN_ACCIONES"])if(process.env[k])s[k]=process.env[k];process.stdout.write(JSON.stringify(s))' | npx --yes wrangler@4.139.0 secret bulk --config wrangler.generado.toml
+
+      # El PRIMER token de Threads (20/11/2026): el Worker lo guarda cifrado en su base y desde ahí lo renueva solo (una vez por día mira si pasaron 30 días). Sólo se carga si el Worker
+      # todavía no tiene uno que sirva; el secreto THREADS_TOKEN de GitHub queda como respaldo (los programas lo usan si el Worker no contesta). El token no se imprime nunca.
+      - name: Cargar el token de Threads en el Worker (sólo si no tiene uno)
+        if: env.QUE == 'redes'
+        continue-on-error: true
+        run: node v3/redes/cargar-token-threads.mjs
+        env:
+          THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}

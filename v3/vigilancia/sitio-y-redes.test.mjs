@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { DIRECCION } from '../redaccion/telegram/worker.mjs';
 import { chequear, evaluar, textoDeArreglo } from './vigilancia.mjs';
 import { crearDeps } from './worker.mjs';
-import { minutosEnVentana, notasDelFeed, traerWeb, evaluarWeb, evaluarRedes } from './sitio-y-redes.mjs';
+import { minutosEnVentana, notasDelFeed, traerWeb, evaluarWeb, evaluarRedes, evaluarTokenDeThreads, arregloDeSitioYRedes } from './sitio-y-redes.mjs';
 import { resumirActividad } from '../redes/db.mjs';
 
 // 2026-11-03 18:00 en Balcarce (21:00 UTC): de día.
@@ -175,4 +175,21 @@ test('crearDeps.traer mira el sitio con el fetch que se le da y las redes por su
   assert.ok(pedidos[0][0].endsWith('/actividad') && pedidos[0][1]);
   // Sin el enlace a redes: null (no se juzga).
   assert.equal((await crearDeps({ ESTADO: env.ESTADO }, { fetchDeAfuera: f }).traer()).redes, null);
+});
+
+test('token de Threads: avisa si la renovación falló 2 veces, si faltan menos de 10 días, si es ilegible o no está cargado; sano o con las redes apagadas, no avisa', () => {
+  const claves = (threadsToken, activas = true) => evaluarTokenDeThreads({ actividad: { activas, redes: {}, threadsToken } }).map((p) => p.clave);
+  assert.deepEqual(claves({ hay: true, diasRestantes: 45, fallosSeguidos: 0 }), []);
+  assert.deepEqual(claves({ hay: true, diasRestantes: 45, fallosSeguidos: 1 }), [], 'una falla suelta no alcanza');
+  assert.deepEqual(claves({ hay: true, diasRestantes: null, fallosSeguidos: 0 }), [], 'vencimiento desconocido y sin fallas: nada');
+  assert.deepEqual(claves({ hay: true, diasRestantes: 40, fallosSeguidos: 2, ultimoError: 'HTTP 400' }), ['threads-token-falla']);
+  assert.deepEqual(claves({ hay: true, diasRestantes: 9, fallosSeguidos: 0 }), ['threads-token-vence']);
+  assert.deepEqual(claves({ hay: true, diasRestantes: 9, fallosSeguidos: 3 }), ['threads-token-falla', 'threads-token-vence']);
+  assert.match(evaluarTokenDeThreads({ actividad: { activas: true, threadsToken: { hay: true, diasRestantes: -1, fallosSeguidos: 0 } } })[0].texto, /VENCIÓ/);
+  assert.deepEqual(claves({ hay: false, ilegible: true }), ['threads-token-ilegible']);
+  assert.deepEqual(claves({ hay: false }), ['threads-token-sin-cargar']);
+  assert.deepEqual(claves({ hay: true, diasRestantes: 1, fallosSeguidos: 9 }, false), [], 'redes apagadas: no se juzga');
+  assert.deepEqual(evaluarTokenDeThreads({ actividad: { activas: true, redes: {} } }), [], 'un Worker viejo que no informa el token: no se juzga');
+  assert.deepEqual(evaluarTokenDeThreads({ actividad: null }), []);
+  assert.match(arregloDeSitioYRedes('threads-token-falla'), /se renovó/);
 });

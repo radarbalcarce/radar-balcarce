@@ -23,6 +23,8 @@ export const DISPAROS = {
       { archivo: 'v3-nota-efemeride.yml', nombre: 'nota de Un día como hoy', aLasUTC: 10, inputs: { automatico: 'true' } },
       { archivo: 'v3-estadisticas.yml', nombre: 'estadísticas', aLasUTC: 0, inputs: { telegram: 'si' } },
       { archivo: 'v3-efemerides.yml', nombre: 'armar Un día como hoy y los feriados del mes que viene', aLasUTC: 13, diaDelMesUTC: 20, inputs: { automatico: 'true' } },
+      // 20/11/2026: no despierta ningún workflow: el Worker renueva SOLO el token de Threads (threads-token.mjs) una vez por día, a las 9:07 de Balcarce. Corre aunque falte el token de GitHub.
+      { accion: 'renovar-token-threads', nombre: 'renovar el token de Threads', aLasUTC: 12 },
     ],
   },
   // Copia de fotos, cada 2 horas a los :40 de 6:40 a 22:40 de Balcarce (9-23/2 y 1 en UTC, escrito en lista porque es lo más seguro para Cloudflare).
@@ -65,13 +67,15 @@ export async function despertar({ archivo, inputs }, token, fetchFn = fetch) {
  * Lo que hace el `scheduled` cuando el cron es uno de DISPAROS. `avisar(texto)` es opcional (Telegram). No tira nunca.
  * Devuelve { disparo, ok, estado, intentos } o { disparo, ok: false, motivo } si no hay token.
  */
-export async function dispararAcciones(evento, env, { fetchFn = fetch, avisar = null, esperar = esperarDeVerdad } = {}) {
+export async function dispararAcciones(evento, env, { fetchFn = fetch, avisar = null, esperar = esperarDeVerdad, acciones = {} } = {}) {
   const disparo = DISPAROS[evento?.cron];
   if (!disparo) return { ok: false, motivo: 'ese cron no dispara nada' };
   const token = String(env?.GITHUB_TOKEN_ACCIONES ?? '').trim();
   if (!token) {
     console.warn(`redes: falta el secreto GITHUB_TOKEN_ACCIONES: no se dispara «${disparo.nombre}» (${disparo.archivo}).`);
-    return { disparo: disparo.archivo, ok: false, motivo: 'sin token' };
+    // Las tareas propias del Worker (no dependen de GitHub) corren igual.
+    const propias = await correrPropias(disparo, evento, acciones);
+    return { disparo: disparo.archivo, ok: false, motivo: 'sin token', ...(propias.length ? { ademas: propias } : {}) };
   }
   const horaUTC = Number.isFinite(Number(evento?.scheduledTime)) ? new Date(Number(evento.scheduledTime)).getUTCHours() : null;
   // Si a esta hora toca algo que va en lugar de lo principal (el respaldo de la base), lo principal no se lanza.
@@ -100,6 +104,7 @@ export async function dispararAcciones(evento, env, { fetchFn = fetch, avisar = 
   for (const otro of disparo.ademas ?? []) {
     if (hora === null || hora !== otro.aLasUTC) continue;
     if (otro.diaDelMesUTC && new Date(Number(evento.scheduledTime)).getUTCDate() !== otro.diaDelMesUTC) continue;
+    if (otro.accion) continue; // las tareas propias se corren aparte (correrPropias)
     let o = await despertar(otro, token, fetchFn);
     if (!o.ok) { await esperar(3000); o = await despertar(otro, token, fetchFn); }
     if (!o.ok && avisar) {
@@ -107,5 +112,23 @@ export async function dispararAcciones(evento, env, { fetchFn = fetch, avisar = 
     }
     ademas.push({ disparo: otro.archivo, ok: o.ok, estado: o.estado });
   }
+  ademas.push(...await correrPropias(disparo, evento, acciones));
   return { disparo: disparo.archivo, ok: r.ok, estado: r.estado, intentos, ...(ademas.length ? { ademas } : {}) };
+}
+
+/** Las tareas del campo `ademas` que no son un workflow (`accion`): las corre el propio Worker, sólo a su hora. Nunca tira: devuelve [{ accion, ok, ... }]. */
+async function correrPropias(disparo, evento, acciones = {}) {
+  const hora = Number.isFinite(Number(evento?.scheduledTime)) ? new Date(Number(evento.scheduledTime)).getUTCHours() : null;
+  const salida = [];
+  for (const otro of disparo.ademas ?? []) {
+    if (!otro.accion || hora === null || hora !== otro.aLasUTC) continue;
+    try {
+      const r = await acciones[otro.accion]?.();
+      salida.push({ accion: otro.accion, ok: r?.ok !== false, ...(r?.estado ? { estado: r.estado } : {}) });
+    } catch (e) {
+      console.error(`redes: ${otro.accion}: ${(e && e.message) || e}`);
+      salida.push({ accion: otro.accion, ok: false });
+    }
+  }
+  return salida;
 }

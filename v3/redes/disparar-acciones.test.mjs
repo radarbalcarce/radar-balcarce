@@ -53,7 +53,7 @@ test('los inputs que manda el Worker existen en los workflows (GitHub rechaza co
     const t = leer(`../../.github/workflows/${d.archivo}`);
     const declarados = new Set([...t.slice(t.indexOf('workflow_dispatch:'), t.indexOf('permissions:')).matchAll(/^      ([a-z]+):\n        description:/gm)].map((m) => m[1]));
     for (const k of Object.keys(d.inputs)) assert.ok(declarados.has(k), `${d.archivo}: el input «${k}» no está declarado`);
-    for (const o of d.ademas ?? []) {
+    for (const o of (d.ademas ?? []).filter((x) => x.archivo)) {
       const u = leer(`../../.github/workflows/${o.archivo}`);
       const dec = new Set([...u.slice(u.indexOf('workflow_dispatch:'), u.indexOf('permissions:')).matchAll(/^      ([a-z]+):\n        description:/gm)].map((m) => m[1]));
       for (const k of Object.keys(o.inputs)) assert.ok(dec.has(k), `${o.archivo}: el input «${k}» no está declarado`);

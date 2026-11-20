@@ -33,11 +33,11 @@ export const VENCIMIENTOS = Object.freeze([
     fuente: 'v3/sitio/vistas/agentes.mjs, docs/3-0/PENDIENTES-3-0.md',
   },
   {
-    clave: 'threads-token', nombre: 'Token de Threads (THREADS_TOKEN)', fecha: '2027-01-04', estimada: true,
-    que: 'El token de larga duración de Threads vence a los 60 días y el programa no lo renueva solo. Si vence, Threads deja de publicar.',
-    quien: 'Hernán', como: 'Renovarlo en la consola de Meta (Threads API, token de larga duración) y pegarlo en el secreto THREADS_TOKEN de GitHub; después, Claude despliega las redes.',
-    nota: 'Fecha estimada: el secreto se cargó el 5/11/2026 y la regla de Threads son 60 días. Hernán la confirma mirando el token en la consola de Meta y Claude corrige la fecha.',
-    fuente: 'v3/redes/threads.mjs (línea 2), fecha de carga del secreto en GitHub',
+    clave: 'threads-token', nombre: 'Token de Threads (THREADS_TOKEN)', fecha: 'no-vence',
+    que: 'El token de larga duración de Threads vale 60 días, pero desde el 20/11/2026 el Worker de redes lo renueva solo (una vez por día mira si pasaron 30 días). Si la renovación falla dos veces seguidas, o faltan menos de 10 días, la vigilancia avisa por Telegram (no por esta tabla).',
+    quien: 'Nadie (se renueva solo)', como: 'Sólo si el aviso de la vigilancia dice que no pudo: generar un token nuevo en la consola de Meta (Threads API, token de larga duración), pegarlo en el secreto THREADS_TOKEN de GitHub y subir «redes» con «Radar 3.0: desplegar».',
+    nota: 'Se renueva solo: no tiene fecha fija. Lo vigila evaluarTokenDeThreads (sitio-y-redes.mjs) con lo que informa el Worker en /actividad.',
+    fuente: 'v3/redes/threads-token.mjs, v3/redes/REGLAS.md § 25',
   },
   {
     clave: 'reloj-github-token', nombre: 'Llave de GitHub del reloj (RELOJ_GITHUB_TOKEN)', fecha: 'desconocida', avisos: [30, 14, 7, 1],

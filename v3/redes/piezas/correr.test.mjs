@@ -488,3 +488,74 @@ test('armarDelPlan: el número del día arma con su nota y su cifra; sin una de 
   assert.throws(() => armarDelPlan({ ...op, datos: { nota } }, { dia: '2026-11-03' }), SinDatos);
   assert.throws(() => armarDelPlan({ ...op, datos: { numero } }, { dia: '2026-11-03' }), SinDatos);
 });
+
+// ------------------------------------------------------------------ Threads y Bluesky reciben también el video (REGLAS § 25)
+
+function conSociales(t, { threads = 'ok', bluesky = 'ok' } = {}) {
+  const llamadas = { subidas: [], buffer: [], threads: [], bluesky: [] };
+  t.deps.subirVideo = async (archivo, o) => { llamadas.subidas.push(o.nombre); return `https://publico/${o.huella}/${o.nombre}`; };
+  t.deps.publicarEnBuffer = async (o) => { llamadas.buffer.push(o.url); return { [o.redes[0]]: { ok: true, id: 'b' } }; };
+  t.deps.clienteThreadsVideo = async () => ({ publicarVideo: async (o) => { llamadas.threads.push(o); if (threads === 'error') throw new Error('Threads rechazó el video'); return { id: 'th1' }; } });
+  t.deps.clienteBluesky = () => ({ publicarVideo: async (o) => { llamadas.bluesky.push(o); if (bluesky === 'error') throw new Error('Bluesky rechazó el video'); return { uri: 'at://bs1' }; } });
+  return llamadas;
+}
+const ENV_SOCIALES = { BUFFER_API_KEY: 'buf', THREADS_VIDEOS: 'si', BLUESKY_VIDEOS: 'si', BLUESKY_APP_PASSWORD: 'p', THREADS_USER_ID: '1' };
+
+test('REAL: el video sale también en Threads y Bluesky con su texto, el mp4 se sube UNA vez para Buffer y Threads, y cada red queda anotada con su resultado', async () => {
+  const t = armar({ ahora: MARTES_10_CON_CLIMA, activas: true });
+  const ll = conSociales(t);
+  const r = await correr({ env: { ...t.env, ...ENV_SOCIALES }, ahora: MARTES_10_CON_CLIMA, carpeta: t.carpeta, deps: t.deps });
+  const clima = r.piezas.find((p) => p.pieza === 'clima-manana');
+  assert.equal(clima.estado, 'publicada');
+  const de = (red) => clima.acciones.filter((a) => a.red === red && a.tipo === 'VIDEO').map((a) => a.estado);
+  assert.deepEqual(de('threads'), ['ok']); assert.deepEqual(de('bluesky'), ['ok']);
+  const publicadas = r.piezas.filter((p) => p.estado === 'publicada').length;
+  assert.ok(publicadas >= 1);
+  assert.equal(ll.threads.length, publicadas); assert.equal(ll.bluesky.length, publicadas, 'una vez por pieza publicada');
+  const delClima = ll.threads.find((o) => o.video.endsWith('clima-manana.mp4'));
+  assert.ok(delClima.video.startsWith('https://publico/'));
+  assert.ok(ll.buffer.includes(delClima.video), 'Buffer y Threads leen la misma dirección');
+  assert.equal(ll.subidas.filter((n) => n === 'clima-manana.mp4').length, 1, 'el mp4 se sube una sola vez');
+  assert.ok(ll.threads[0].texto.includes('Voz generada con inteligencia artificial.') && ll.bluesky[0].texto.includes('Voz generada con inteligencia artificial.'));
+  assert.ok(ll.bluesky[0].texto.length <= 300);
+  const enBase = t.filas().find((f) => f.pieza === 'clima-manana');
+  assert.match(enBase.acciones, /"red":"threads"/);
+});
+
+test('REAL: si Threads o Bluesky fallan, la pieza queda PUBLICADA igual (Meta y Buffer mandan) y el error queda anotado en esa red', async () => {
+  const t = armar({ ahora: MARTES_10_CON_CLIMA, activas: true });
+  conSociales(t, { threads: 'error', bluesky: 'error' });
+  const r = await correr({ env: { ...t.env, ...ENV_SOCIALES }, ahora: MARTES_10_CON_CLIMA, carpeta: t.carpeta, deps: t.deps });
+  const clima = r.piezas.find((p) => p.pieza === 'clima-manana');
+  assert.equal(clima.estado, 'publicada');
+  assert.equal(clima.error, undefined);
+  assert.deepEqual(clima.acciones.filter((a) => a.tipo === 'VIDEO' && (a.red === 'threads' || a.red === 'bluesky')).map((a) => [a.red, a.estado, a.error]), [['threads', 'error', 'Threads rechazó el video'], ['bluesky', 'error', 'Bluesky rechazó el video']]);
+  assert.ok(clima.acciones.some((a) => a.red === 'facebook' && a.estado === 'ok'));
+  assert.ok(t.filas().every((f) => f.estado === 'publicada'));
+});
+
+test('REAL: sin los interruptores no sale nada en Threads ni Bluesky; si Meta rechaza todo, tampoco (la pieza se reintenta y no se duplicaría)', async () => {
+  const t = armar({ ahora: MARTES_10_CON_CLIMA, activas: true });
+  const ll = conSociales(t);
+  const sin = await correr({ env: { ...t.env, BUFFER_API_KEY: 'buf' }, ahora: MARTES_10_CON_CLIMA, carpeta: t.carpeta, deps: t.deps });
+  assert.equal(ll.threads.length + ll.bluesky.length, 0);
+  assert.ok(sin.piezas.every((p) => !p.acciones?.some((a) => a.red === 'threads' && a.estado === 'ok')));
+  const m = armar({ ahora: MARTES_10_CON_CLIMA, activas: true });
+  const l2 = conSociales(m);
+  m.deps.clienteMeta = () => ({ publicarVideoEnInstagram: async () => { throw new Error('Meta dijo no'); }, publicarVideoEnFacebook: async () => { throw new Error('Meta dijo no'); } });
+  const env = { ...m.env, ...ENV_SOCIALES };
+  delete env.BUFFER_API_KEY; // sin Buffer: sólo decide Meta
+  const r = await correr({ env, ahora: MARTES_10_CON_CLIMA, carpeta: m.carpeta, deps: m.deps });
+  assert.equal(r.piezas.find((p) => p.pieza === 'clima-manana').estado, 'error');
+  assert.equal(l2.threads.length + l2.bluesky.length, 0);
+});
+
+test('ENSAYO: no llama a ninguna red; anota «simulada» sólo en las prendidas', async () => {
+  const t = armar({ ahora: MARTES_10, avisos: true });
+  const ll = conSociales(t);
+  const r = await correr({ env: { ...t.env, THREADS_VIDEOS: 'si', BLUESKY_VIDEOS: 'no' }, ahora: MARTES_10, carpeta: t.carpeta, deps: t.deps });
+  const clima = r.piezas.find((p) => p.pieza === 'clima-manana');
+  assert.ok(clima.acciones.some((a) => a.red === 'threads' && a.estado === 'simulada'));
+  assert.ok(!clima.acciones.some((a) => a.red === 'bluesky'));
+  assert.equal(ll.threads.length + ll.bluesky.length + ll.subidas.length, 0);
+});

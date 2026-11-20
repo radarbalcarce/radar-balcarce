@@ -24,7 +24,7 @@ test('la tabla real: claves únicas, fechas ISO o una de las tres palabras, y ca
   assert.equal(f('security-txt').fecha, '2027-11-07');
   assert.equal(f('reloj-github-token').fecha, 'desconocida');
   assert.ok(f('vigilante-github-token').retirado);
-  assert.equal(f('threads-token').estimada, true);
+  assert.equal(f('threads-token').fecha, 'no-vence'); // se renueva solo desde el 20/11/2026
 });
 
 test('diasHasta cuenta días de calendario', () => {

@@ -105,3 +105,8 @@ se reintenta); `nombreDePlaca` y `conPlaca` ya aceptaban una nota sin foto; el p
 `servicios-nuevos.test.mjs`.
 
 **Kit 3.0 (19/11, prendido con `KIT_3_0: si` en `v3-piezas.yml`; sacar esa línea lo apaga):** con `KIT_3_0=si` `correr.mjs` dibuja clima, repaso, efeméride, farmacias, reel de nota y nota propia con el kit nuevo de `v3/redes/kit3/` (HyperFrames); si falla, cae al dibujo de siempre y lo anota en el aviso del informe. Sin la variable no cambia nada. Reglas: `v3/redes/kit3/REGLAS.md`.
+
+## 6. Los videos también van a Threads y Bluesky (20/11/2026)
+
+El mp4 de cada pieza que va a TikTok sale además en Threads y Bluesky (`videos-sociales.mjs`), con su texto adaptado a 500 y 300 caracteres y siempre con el aviso de la voz con IA. Nunca cambia el estado de la pieza ni
+la frena; se anota por red en `acciones`. Interruptores `THREADS_VIDEOS` y `BLUESKY_VIDEOS` en `v3-piezas.yml`. El detalle y los límites de cada API están en `../REGLAS.md` § 26.

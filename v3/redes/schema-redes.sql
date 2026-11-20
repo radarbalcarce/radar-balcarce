@@ -55,3 +55,14 @@ CREATE TABLE IF NOT EXISTS estadisticas (
   actualizada TEXT NOT NULL,      -- ISO UTC de la última medición
   PRIMARY KEY (dia, metrica)
 );
+
+-- El token de Threads vigente (v3/redes/threads-token.mjs, 20/11/2026): UNA fila (id = 1). El token va CIFRADO (AES-GCM, clave derivada de TELEGRAM_TOKEN): un respaldo de la base nunca lo lleva en claro.
+CREATE TABLE IF NOT EXISTS threads_token (
+  id INTEGER PRIMARY KEY CHECK (id = 1),
+  token_cifrado TEXT NOT NULL,
+  actualizado TEXT NOT NULL,      -- ISO UTC de la última vez que se guardó (carga o renovación)
+  vence TEXT,                     -- ISO UTC; vacío = no se sabe (se carga a mano: lo dice la primera renovación)
+  fallos_seguidos INTEGER NOT NULL DEFAULT 0,
+  ultimo_error TEXT,              -- sin el token
+  ultimo_intento TEXT
+);

@@ -179,12 +179,19 @@ jobs:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TARJETAS_DE_SERVICIO: 'no' # 13/11: la tarjeta colgaba el programa y el clima salió 3 veces; apagada hasta arreglarla
           KIT_3_0: si # kit nuevo de reels (19/11/2026); sacar esta línea lo apaga
+          # Threads y Bluesky reciben también el VIDEO de cada pieza (20/11/2026, REGLAS § 26). Una falla ahí nunca frena la pieza. «no» apaga esa red.
+          THREADS_VIDEOS: si # API oficial de Threads (video_url pública del mp4 en R2); el token lo pide al Worker (se renueva solo) y, si no contesta, usa THREADS_TOKEN
+          BLUESKY_VIDEOS: 'no' # servicio de video de Bluesky: sin probar contra la cuenta real; pasarlo a «si» después de ver una pieza salir (REGLAS § 26)
           KIT3_GRAFICOS: si # gráfico animado dentro de los reels (prendido el 20/11/2026, Hernán); si falla, la pieza sale sin gráfico; «no» lo apaga
           PLAN_PIEZAS: ${{ runner.temp }}/plan-piezas.json # el plan que ya pidió «Ver qué piezas tocan» (si ese paso falló, no hay archivo y se pide acá)
           GEMINI_API_KEY_REDES: ${{ secrets.GEMINI_API_KEY_REDES }}
           GEMINI_API_KEY_REDES_V3: ${{ secrets.GEMINI_API_KEY_REDES_V3 }}
           META_TOKEN: ${{ secrets.META_TOKEN }}
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+          BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
+          THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }} # respaldo: el token vigente lo tiene el Worker
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

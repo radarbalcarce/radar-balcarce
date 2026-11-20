@@ -91,3 +91,9 @@ conectado (núcleo, bot, redes, sitio, mail, token: sólo sí o no). Nunca secre
 - KV `ESTADO` propio (qué avisó, el último chequeo, el último informe). El workflow lo crea.
 - Enlaces a los Workers `radar-nucleo` y `radar-telegram` (y, cuando exista, `radar-sitio`).
 - Para el mail de respaldo: Email Routing activo en `radarbalcarce.com` y `radarbalcarce@gmail.com` verificada como destino.
+
+## 8. El token de Threads (20/11/2026)
+
+El Worker `radar-redes` renueva solo el token de Threads (`v3/redes/REGLAS.md` § 25) y lo informa en `GET /actividad` (`threadsToken`: si hay, cuándo vence, fallos seguidos; nunca el token). `evaluarTokenDeThreads` avisa por
+Telegram si la renovación falló 2 veces seguidas (`threads-token-falla`), si faltan menos de 10 días (`threads-token-vence`), si el guardado es ilegible (`threads-token-ilegible`) o si el Worker todavía no tiene token
+(`threads-token-sin-cargar`, aviso suave: hay que subir «redes»). En la tabla de vencimientos el token pasó a «no vence» (se renueva solo).

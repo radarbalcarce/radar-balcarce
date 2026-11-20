@@ -14,6 +14,13 @@ export const SERVICIO_BLUESKY = 'https://bsky.social';
 export const HANDLE_BLUESKY = 'radarbalcarce.bsky.social';
 export const MAXIMO_BLUESKY = 300; // grafemas por posteo
 export const MAXIMO_IMAGEN_BLUESKY = 950_000; // bytes (el tope de la API es 1.000.000)
+// Video (servicio de video de Bluesky: https://video.bsky.app). El esquema oficial (app.bsky.embed.video) acepta mp4 de hasta 300 MB; el servicio de video limitó a 100 MB y 3 minutos y a unos 25 videos
+// por día. Se usan los valores prudentes (100 MB, 180 s): un video que no entra se anota como omitido, no como falla.
+export const SERVICIO_DE_VIDEO_BLUESKY = 'https://video.bsky.app';
+export const MAXIMO_VIDEO_BLUESKY_BYTES = 100_000_000;
+export const MAXIMO_VIDEO_BLUESKY_SEG = 180;
+// Cuánto se espera a que el servicio procese el video (2 s al principio, después 5 s; ~3 minutos en total).
+export const ESPERAS_DE_VIDEO_BLUESKY_MS = [2000, 2000, 2000, 3000, 3000, ...Array(34).fill(5000)];
 
 const limpiar = (t) => String(t ?? '').replace(/\s+/g, ' ').trim();
 const segmentador = new Intl.Segmenter('es', { granularity: 'grapheme' });
@@ -67,7 +74,7 @@ export function sinSecretos(texto, secretos = []) {
  * @param {object} o  { handle, password (la «contraseña de aplicación»), fetchFn, servicio, espera }
  * @returns {{ iniciar, publicarEnlace }}
  */
-export function crearClienteBluesky({ handle = HANDLE_BLUESKY, password, fetchFn = fetch, servicio = SERVICIO_BLUESKY, espera = 20_000, ahora = () => new Date() }) {
+export function crearClienteBluesky({ handle = HANDLE_BLUESKY, password, fetchFn = fetch, servicio = SERVICIO_BLUESKY, servicioDeVideo = SERVICIO_DE_VIDEO_BLUESKY, espera = 20_000, ahora = () => new Date(), dormir = (ms) => new Promise((r) => setTimeout(r, ms)), esperasDeVideo = ESPERAS_DE_VIDEO_BLUESKY_MS }) {
   if (!password) throw new Error('Falta la contraseña de aplicación de Bluesky (BLUESKY_APP_PASSWORD).');
   let sesion = null;
   const limpio = (t) => sinSecretos(t, [password, sesion?.accessJwt, sesion?.refreshJwt]);
@@ -76,6 +83,18 @@ export function crearClienteBluesky({ handle = HANDLE_BLUESKY, password, fetchFn
     const headers = { 'content-type': tipo };
     if (sesion) headers.authorization = `Bearer ${sesion.accessJwt}`;
     const r = await fetchFn(`${servicio}/xrpc/${camino}`, { method: 'POST', headers, body: bytes ?? JSON.stringify(cuerpo), signal: AbortSignal.timeout(espera) });
+    let j = null;
+    try { j = await r.json(); } catch { /* sin cuerpo */ }
+    if (!r.ok) throw new ErrorSocial(limpio(`Bluesky ${camino}: HTTP ${r.status} ${j?.error ?? ''} ${j?.message ?? ''}`.trim()).slice(0, 300), { http: r.status, red: 'bluesky' });
+    return j;
+  }
+
+  /** GET de una consulta XRPC en `base`, con la sesión (o con el token de servicio si se pasa `autorizacion`; '' = sin autorización). */
+  async function consultar(base, camino, params, autorizacion = null) {
+    const headers = {};
+    const bearer = autorizacion ?? sesion?.accessJwt;
+    if (bearer) headers.authorization = `Bearer ${bearer}`;
+    const r = await fetchFn(`${base}/xrpc/${camino}?${new URLSearchParams(params)}`, { method: 'GET', headers, signal: AbortSignal.timeout(espera) });
     let j = null;
     try { j = await r.json(); } catch { /* sin cuerpo */ }
     if (!r.ok) throw new ErrorSocial(limpio(`Bluesky ${camino}: HTTP ${r.status} ${j?.error ?? ''} ${j?.message ?? ''}`.trim()).slice(0, 300), { http: r.status, red: 'bluesky' });
@@ -106,6 +125,53 @@ export function crearClienteBluesky({ handle = HANDLE_BLUESKY, password, fetchFn
           collection: 'app.bsky.feed.post',
           record: { $type: 'app.bsky.feed.post', text: texto, createdAt: ahora().toISOString(), langs: ['es'], facets: facetasDe(texto), embed: { $type: 'app.bsky.embed.external', external: externo } },
         },
+      });
+      return { uri: r?.uri ?? null, cid: r?.cid ?? null };
+    },
+
+    /**
+     * Un VIDEO (flujo oficial del servicio de video): 1) token de servicio (com.atproto.server.getServiceAuth, para el DID del PDS de la cuenta y el método uploadBlob, 30 minutos),
+     * 2) subida a video.bsky.app (app.bsky.video.uploadVideo), 3) espera a JOB_STATE_COMPLETED (app.bsky.video.getJobStatus, que devuelve el blob), 4) el posteo con
+     * `app.bsky.embed.video` (el enlace del texto va como faceta). `video` = { bytes, nombre }; `duracion` en segundos si se sabe. Devuelve { uri, cid }.
+     */
+    async publicarVideo({ texto, video, alt = '', aspectRatio = null, duracion = null }) {
+      await this.iniciar();
+      if (grafemas(texto) > MAXIMO_BLUESKY) throw new ErrorSocial(`el texto tiene ${grafemas(texto)} grafemas (el tope es ${MAXIMO_BLUESKY})`, { red: 'bluesky' });
+      if (!video?.bytes?.length) throw new ErrorSocial('falta el video', { red: 'bluesky' });
+      if (video.bytes.length > MAXIMO_VIDEO_BLUESKY_BYTES) throw new ErrorSocial(`el video pesa ${video.bytes.length} bytes (tope prudente ${MAXIMO_VIDEO_BLUESKY_BYTES})`, { red: 'bluesky' });
+      if (duracion != null && duracion > MAXIMO_VIDEO_BLUESKY_SEG) throw new ErrorSocial(`el video dura ${Math.round(duracion)} s (tope ${MAXIMO_VIDEO_BLUESKY_SEG})`, { red: 'bluesky' });
+      // El DID del PDS sale del documento DID de la sesión; si no viene, o el servicio no lo acepta, se prueba con el host del servicio (bsky.social).
+      const hostDelPds = (() => { try { const s = (sesion.didDoc?.service ?? []).find((x) => x.type === 'AtprotoPersonalDataServer' || String(x.id).endsWith('#atproto_pds')); return s ? new URL(s.serviceEndpoint).host : null; } catch { return null; } })();
+      const candidatos = [...new Set([hostDelPds, new URL(servicio).host].filter(Boolean))];
+      let autorizacion = null;
+      let ultimo = null;
+      for (const host of candidatos) {
+        try {
+          const exp = Math.floor(ahora().getTime() / 1000) + 30 * 60;
+          autorizacion = (await consultar(servicio, 'com.atproto.server.getServiceAuth', { aud: `did:web:${host}`, lxm: 'com.atproto.repo.uploadBlob', exp: String(exp) }))?.token;
+          if (autorizacion) break;
+        } catch (e) { ultimo = e; }
+      }
+      if (!autorizacion) throw ultimo ?? new ErrorSocial('Bluesky no dio el token de servicio para subir el video', { red: 'bluesky' });
+      const nombre = String(video.nombre || 'video.mp4').replace(/[^A-Za-z0-9._-]/g, '_').slice(0, 80);
+      const rs = await fetchFn(`${servicioDeVideo}/xrpc/app.bsky.video.uploadVideo?${new URLSearchParams({ did: sesion.did, name: nombre })}`, {
+        method: 'POST', headers: { authorization: `Bearer ${autorizacion}`, 'content-type': 'video/mp4' }, body: video.bytes, signal: AbortSignal.timeout(Math.max(espera, 120_000)),
+      });
+      let subida = null;
+      try { subida = await rs.json(); } catch { /* sin cuerpo */ }
+      // 409 «already_exists»: el mismo video ya se subió (reintento): trae el jobId del trabajo que ya está andando.
+      if (!rs.ok && !(rs.status === 409 && subida?.jobId)) throw new ErrorSocial(limpio(`Bluesky uploadVideo: HTTP ${rs.status} ${subida?.error ?? ''} ${subida?.message ?? ''}`.trim()).slice(0, 300), { http: rs.status, red: 'bluesky' });
+      let estado = subida?.jobStatus ?? (subida?.jobId ? { jobId: subida.jobId, state: subida.state } : null);
+      if (!estado?.jobId) throw new ErrorSocial('Bluesky no devolvió el trabajo de video', { red: 'bluesky' });
+      for (let i = 0; !(estado.state === 'JOB_STATE_COMPLETED' && estado.blob); i++) {
+        if (estado.state === 'JOB_STATE_FAILED') throw new ErrorSocial(limpio(`Bluesky no procesó el video: ${estado.error ?? estado.message ?? estado.failureCode ?? 'sin detalle'}`).slice(0, 300), { red: 'bluesky' });
+        if (i >= esperasDeVideo.length) throw new ErrorSocial(`Bluesky: el video no terminó de procesarse a tiempo (${estado.state ?? 'sin estado'})`, { red: 'bluesky' });
+        await dormir(esperasDeVideo[i]);
+        estado = (await consultar(servicioDeVideo, 'app.bsky.video.getJobStatus', { jobId: estado.jobId }, '')).jobStatus ?? estado;
+      }
+      const embed = { $type: 'app.bsky.embed.video', video: estado.blob, alt: limpiar(alt).slice(0, 1000), ...(aspectRatio?.width > 0 && aspectRatio?.height > 0 ? { aspectRatio: { width: aspectRatio.width, height: aspectRatio.height } } : {}) };
+      const r = await pedir('com.atproto.repo.createRecord', {
+        cuerpo: { repo: sesion.did, collection: 'app.bsky.feed.post', record: { $type: 'app.bsky.feed.post', text: texto, createdAt: ahora().toISOString(), langs: ['es'], facets: facetasDe(texto), embed } },
       });
       return { uri: r?.uri ?? null, cid: r?.cid ?? null };
     },

@@ -13,6 +13,7 @@
 | **Notas sin foto** | Notas publicadas hace más de 3 horas sin foto ni ilustración |
 | **El sitio `radarbalcarce.com`**, mirado desde afuera como un lector | La portada no da 200 o no muestra notas; el feed o el mapa del sitio no responden; ninguna nota nueva en 2 horas de día; alguna de las 5 notas más nuevas da error |
 | **Las redes** (Facebook, Instagram, Bluesky, Threads, X), con lo que registra `radar-redes` | Una red lleva demasiadas horas sin publicar (dentro del horario de 8 a 22) o falló 3 veces seguidas |
+| **El token de Threads** (nuevo, 20/11), con lo que informa `radar-redes` | La renovación automática falló 2 veces seguidas; faltan menos de 10 días y no se renovó; el token guardado no se puede leer |
 | **El bot de Telegram** | No responde, no tiene token o tiene mal el webhook. Si el bot está caído, avisa por mail |
 | **Vencimientos** (nuevo, 17/11) | Ver el punto 3 |
 
@@ -46,7 +47,7 @@ La vigilancia avisa **por Telegram, una sola vez**, 30, 14, 7 y 1 días antes (e
 | Dominio `radarbalcarce.com` | **21/09/2027** | Hernán | Pagar la renovación en DonWeb. Si vence, se cae el sitio y los enlaces de las redes |
 | Las dos voces propias de Gemini | **29/09/2027** | Claude, con el visto bueno de Hernán | Crearlas de nuevo con «Crear voces» y cambiar los identificadores en `CRITERIO-REDES.md` § 6. Si vencen, los reels dejan de tener voz |
 | `security.txt` del sitio | **7/11/2027** | Claude | Subir la fecha «Expires» en `v3/sitio/vistas/agentes.mjs` y desplegar el sitio |
-| Token de Threads (`THREADS_TOKEN`) | **4/1/2027, fecha estimada, sin confirmar** (vale 60 días; el secreto se cargó el 5/11/2026 y el programa no lo renueva solo) | Hernán | Renovarlo en la consola de Meta (Threads, token de larga duración) y pegarlo en GitHub. Hernán confirma la fecha real mirando el token |
+| Token de Threads (`THREADS_TOKEN`) | **Se renueva solo** (desde el 20/11/2026) | Nadie | El Worker `radar-redes` guarda el token vigente (cifrado, en su base) y lo renueva cada 30 días (`v3/redes/threads-token.mjs`, `v3/redes/REGLAS.md` § 25). La vigilancia avisa por Telegram si la renovación falla dos veces seguidas o si faltan menos de 10 días; sólo entonces habría que generar uno nuevo en la consola de Meta, pegarlo en el secreto `THREADS_TOKEN` de GitHub y subir «redes». El secreto de GitHub se deja cargado como respaldo |
 | Llave de GitHub del reloj (`RELOJ_GITHUB_TOKEN`) | **Desconocida** (ver punto 2) | Hernán | GitHub → Developer settings → Fine-grained tokens; si hace falta, crear otra con «Actions: lectura y escritura» sólo sobre este repositorio |
 | Llave de Cloudflare para desplegar (`CLOUDFLARE_API_TOKEN`) | **Desconocida** | Hernán | Cloudflare → My Profile → API Tokens: ver «Expires on» |
 | `RADAR_GITHUB_TOKEN` | **Desconocida** (ni siquiera está claro que el 3.0 la use) | Hernán / Claude | Mirar la fecha; si Claude confirma que no se usa, borrar el secreto |
@@ -60,7 +61,7 @@ Sobre las claves de IA (Gemini, Mistral, Groq): no tienen fecha de vencimiento, 
 
 1. **Esta semana (15 minutos):** Hernán mira en GitHub la fecha de `RELOJ_GITHUB_TOKEN` (punto 2) y en Cloudflare la de `CLOUDFLARE_API_TOKEN`, y se las pasa a Claude para cargarlas. Si alguna vence en menos de 60 días, renovarla ya.
 2. **Cuando suene un aviso de vencimiento:** el mensaje dice qué es, cuándo vence y cómo se renueva; después de renovar, avisarle a Claude para que ponga la fecha nueva en la tabla (lo hace una vez, en `vencimientos.mjs`, y despliega la vigilancia). Sin ese cambio, la fecha vieja seguiría figurando.
-3. **Hacia el 20/12/2026:** empezar a pensar en el token de Threads (vence ~4/1/2027) y renovarlo antes de fin de año.
+3. ~~Hacia el 20/12/2026: el token de Threads~~ **Ya no hace falta** (20/11/2026): se renueva solo. Lo único que hay que hacer es subir «redes» una vez, para que el Worker reciba el primero.
 4. **El lunes de cada semana:** leer el resumen «qué hay que renovar en los próximos 60 días».
 
 ## 5. Para borrar o desactivar (lo aprueba el dueño; nada de esto se tocó)

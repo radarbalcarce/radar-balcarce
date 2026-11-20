@@ -136,6 +136,33 @@ export function evaluarRedes({ ahora, actividad }) {
   return problemas;
 }
 
+// ---------------------------------------------------------------------------------------------- el token de Threads (se renueva solo, v3/redes/threads-token.mjs)
+export const FALLAS_DE_RENOVACION_THREADS = 2;  // la renovación diaria falló dos veces seguidas
+export const DIAS_ANTES_DE_VENCER_THREADS = 10; // faltan menos de 10 días y no se renovó
+
+/**
+ * Problemas del token de Threads. `actividad.threadsToken` lo contesta GET /actividad del Worker de redes (nunca trae el token):
+ *   { hay, ilegible?, vence, diasRestantes, fallosSeguidos, ultimoError }. Con las redes apagadas, o si el Worker todavía no lo informa, no se juzga nada.
+ */
+export function evaluarTokenDeThreads({ actividad }) {
+  const t = actividad?.threadsToken;
+  if (!actividad || actividad.activas === false || !t) return [];
+  const problemas = [];
+  if (t.ilegible) {
+    problemas.push({ clave: 'threads-token-ilegible', texto: 'El token de Threads guardado en el Worker de redes no se puede leer (cambió TELEGRAM_TOKEN). Hay que cargarlo de nuevo: subir «redes» con «Radar 3.0: desplegar».', confirmar: 1 });
+  } else if (t.hay === false) {
+    problemas.push({ clave: 'threads-token-sin-cargar', texto: 'El Worker de redes todavía no tiene el token de Threads: no se renueva solo (se usa el secreto de GitHub, que vence a los 60 días). Se carga subiendo «redes» con «Radar 3.0: desplegar».', confirmar: 3 });
+  }
+  if ((t.fallosSeguidos ?? 0) >= FALLAS_DE_RENOVACION_THREADS) {
+    const motivo = t.ultimoError ? ` Último error: ${String(t.ultimoError).replace(/s+/g, ' ').slice(0, 140)}` : '';
+    problemas.push({ clave: 'threads-token-falla', texto: `La renovación automática del token de Threads falló ${t.fallosSeguidos} veces seguidas.${motivo}`, confirmar: 1 });
+  }
+  if (Number.isFinite(t.diasRestantes) && t.diasRestantes < DIAS_ANTES_DE_VENCER_THREADS) {
+    problemas.push({ clave: 'threads-token-vence', texto: t.diasRestantes < 0 ? 'El token de Threads VENCIÓ: Threads ya no publica. Hay que generar uno nuevo en la consola de Meta y cargarlo como THREADS_TOKEN.' : `Al token de Threads le quedan ${t.diasRestantes} días y no se renovó: Threads dejará de publicar si vence.`, confirmar: 1 });
+  }
+  return problemas;
+}
+
 /** El «volvió a andar» de las claves de este módulo (null si la clave no es de acá). */
 export function arregloDeSitioYRedes(clave) {
   const fijos = {
@@ -150,5 +177,7 @@ export function arregloDeSitioYRedes(clave) {
   if (m) return `${NOMBRE_DE_RED[m[1]] ?? m[1]} volvió a publicar.`;
   m = /^red-falla:(.+)$/.exec(clave);
   if (m) return `${NOMBRE_DE_RED[m[1]] ?? m[1]} ya no falla al publicar.`;
+  const token = { 'threads-token-falla': 'el token de Threads se renovó.', 'threads-token-vence': 'el token de Threads se renovó y vuelve a tener margen.', 'threads-token-sin-cargar': 'el Worker de redes ya tiene el token de Threads.', 'threads-token-ilegible': 'el token de Threads se pudo leer de nuevo.' };
+  if (token[clave]) return token[clave];
   return null;
 }

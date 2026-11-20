@@ -13,6 +13,18 @@ export const MAXIMO_THREADS = 500;
 export const ETIQUETA_THREADS = '#Balcarce';
 // Cuánto se espera a que Threads termine de armar el posteo antes de publicarlo (las esperas crecen: 1, 2, 3, 5 s… hasta sumar ~30 s).
 export const ESPERAS_DE_ESTADO_MS = [1000, 2000, 3000, 5000, 5000, 5000, 5000, 4000];
+// Un VIDEO tarda más: Threads pide esperar unos 30 s y el estado puede seguir en IN_PROGRESS. Hasta ~3 minutos (5 s los primeros 30 s, después 10 s).
+export const ESPERAS_DE_VIDEO_MS = [5000, 5000, 5000, 5000, 5000, 5000, ...Array(15).fill(10_000)];
+// Lo que Threads acepta de un video (documentación oficial, developers.facebook.com/docs/threads/posts): hasta 300 s y 1 GB, MP4 o MOV, 23 a 60 cuadros por segundo, ancho hasta 1920.
+export const MAXIMO_VIDEO_THREADS_SEG = 300;
+export const MAXIMO_VIDEO_THREADS_BYTES = 1_000_000_000;
+
+/** El texto de un posteo de video de Threads: lo mide como Threads (un emoji cuenta por sus bytes en UTF-8; el resto, por carácter visible). */
+export const medidaDeThreads = (t) => {
+  let n = 0;
+  for (const g of new Intl.Segmenter('es', { granularity: 'grapheme' }).segment(String(t ?? ''))) n += /[𐀀-􏿿]/u.test(g.segment) ? new TextEncoder().encode(g.segment).length : 1;
+  return n;
+};
 const CODIGO_NO_LISTO = 24; // «el recurso no existe / no terminó de procesarse»: se publicó antes de tiempo
 
 /** El texto del posteo de Threads: título · enlace · una etiqueta · crédito de la foto (si entra). */
@@ -31,7 +43,7 @@ export function textoDeThreads(nota, sitio = SITIO) {
  * @param {object} o  { token, userId, fetchFn, base, espera }
  * @returns {{ publicarEnlace }}
  */
-export function crearClienteThreads({ token, userId, fetchFn = fetch, base = BASE_THREADS, espera = 20_000, dormir = (ms) => new Promise((r) => setTimeout(r, ms)), esperasDeEstado = ESPERAS_DE_ESTADO_MS }) {
+export function crearClienteThreads({ token, userId, fetchFn = fetch, base = BASE_THREADS, espera = 20_000, dormir = (ms) => new Promise((r) => setTimeout(r, ms)), esperasDeEstado = ESPERAS_DE_ESTADO_MS, esperasDeVideo = ESPERAS_DE_VIDEO_MS }) {
   if (!token) throw new Error('Falta el token de Threads (THREADS_TOKEN).');
   if (!userId) throw new Error('Falta el número de la cuenta de Threads (THREADS_USER_ID).');
   const limpio = (t) => sinSecretos(t, [token]);
@@ -64,14 +76,39 @@ export function crearClienteThreads({ token, userId, fetchFn = fetch, base = BAS
   }
 
   /** Espera a que el contenedor esté FINISHED. ERROR o EXPIRED cortan con un error claro. Si pasa el tiempo sin saberlo, sigue (el publicar se reintenta una vez). */
-  async function esperarContenedor(id) {
-    for (let i = 0; i <= esperasDeEstado.length; i++) {
+  async function esperarContenedor(id, esperas = esperasDeEstado) {
+    for (let i = 0; i <= esperas.length; i++) {
       const { status, mensaje } = await estadoDe(id).catch(() => ({ status: null, mensaje: '' }));
       if (status === 'FINISHED' || status === 'PUBLISHED') return status;
       if (status === 'ERROR' || status === 'EXPIRED') throw new ErrorSocial(`Threads: el posteo quedó en estado ${status}${mensaje ? ` (${mensaje})` : ''}`, { red: 'threads' });
-      if (i < esperasDeEstado.length) await dormir(esperasDeEstado[i]);
+      if (i < esperas.length) await dormir(esperas[i]);
     }
     return null;
+  }
+
+  /** Crea un contenedor (con el reintento de «me» si el número de cuenta no es el del token), espera a que termine y lo publica. Devuelve { id }. */
+  async function crearYPublicar(params, esperas, { exigirTerminado = false } = {}) {
+    const crear = (quien) => pedir(`${quien}/threads`, params);
+    let quien = userId;
+    let contenedor;
+    try { contenedor = await crear(quien); } catch (e) {
+      if (!/does not exist|no existe/i.test(String(e?.message))) throw e;
+      quien = 'me';
+      contenedor = await crear(quien);
+    }
+    if (!contenedor?.id) throw new ErrorSocial('Threads no devolvió el contenedor', { red: 'threads' });
+    const estado = await esperarContenedor(contenedor.id, esperas);
+    // Un video que no llegó a FINISHED no se publica a ciegas: se avisa y queda para anotar como error (no se reintenta solo: sería otro posteo).
+    if (exigirTerminado && estado === null) throw new ErrorSocial('Threads: el video no terminó de procesarse a tiempo', { red: 'threads' });
+    const publicar = () => pedir(`${quien}/threads_publish`, { creation_id: contenedor.id });
+    let publicado;
+    try { publicado = await publicar(); } catch (e) {
+      if (e?.codigo !== CODIGO_NO_LISTO) throw e;
+      await dormir(esperas[0] ?? 1000);
+      await esperarContenedor(contenedor.id, esperas);
+      publicado = await publicar();
+    }
+    return { id: publicado?.id ?? null };
   }
 
   return {
@@ -101,6 +138,18 @@ export function crearClienteThreads({ token, userId, fetchFn = fetch, base = BAS
         publicado = await publicar();
       }
       return { id: publicado?.id ?? null };
+    },
+
+    /**
+     * Un VIDEO: contenedor `media_type=VIDEO` con la dirección pública del mp4 (la misma de R2 que usa Buffer, /video/<huella>/<nombre>.mp4 del Worker de redes), espera al estado
+     * FINISHED y publica. `duracion` y `bytes` (si se saben) se controlan contra los límites oficiales ANTES de pedir nada. Devuelve { id }.
+     */
+    async publicarVideo({ texto, video, duracion = null, bytes = null }) {
+      if (!video) throw new ErrorSocial('falta la dirección pública del video', { red: 'threads' });
+      if (medidaDeThreads(texto) > MAXIMO_THREADS) throw new ErrorSocial(`el texto tiene ${medidaDeThreads(texto)} caracteres (el tope es ${MAXIMO_THREADS})`, { red: 'threads' });
+      if (duracion != null && duracion > MAXIMO_VIDEO_THREADS_SEG) throw new ErrorSocial(`el video dura ${Math.round(duracion)} s (Threads acepta hasta ${MAXIMO_VIDEO_THREADS_SEG})`, { red: 'threads' });
+      if (bytes != null && bytes > MAXIMO_VIDEO_THREADS_BYTES) throw new ErrorSocial(`el video pesa ${bytes} bytes (Threads acepta hasta 1 GB)`, { red: 'threads' });
+      return crearYPublicar({ media_type: 'VIDEO', video_url: video, text: texto }, esperasDeVideo, { exigirTerminado: true });
     },
   };
 }

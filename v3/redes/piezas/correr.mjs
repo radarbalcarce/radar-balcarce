@@ -34,6 +34,8 @@ import { CIERRE_DESPUES_DE_LA_VOZ, FINDE } from './variables.mjs';
 import { tarjetaDeServicio, tarjetasPrendidas, REDES_DE_TARJETA } from './tarjeta-servicio.mjs';
 import { sinSecretos, crearClienteBluesky, HANDLE_BLUESKY } from '../bluesky.mjs';
 import { crearClienteThreads } from '../threads.mjs';
+import { tokenVigente } from '../threads-token.mjs';
+import { publicarVideosSociales, simularVideosSociales } from './videos-sociales.mjs';
 
 const RAIZ = path.join(import.meta.dirname, '..', '..', '..');
 export const DIRECCION_DE_LAS_REDES = 'https://radar-redes.radarbalcarce.workers.dev';
@@ -201,7 +203,7 @@ export async function hacerTarjetas({ item, datos, plan, carpeta, env, deps, inf
         log(`${item.id}: tarjeta threads: subiendo la imagen pública`);
         const url = await deps.subirImagenPublica(imagen, { prefijo: `tar-${String(plan.dia).replace(/-/g, '')}-${item.id}` });
         log(`${item.id}: tarjeta threads: imagen subida, publicando`);
-        const r = await deps.clienteThreads().publicarEnlace({ texto: t.textos.threads, enlace: t.enlace, imagen: url });
+        const r = await (await deps.clienteThreads()).publicarEnlace({ texto: t.textos.threads, enlace: t.enlace, imagen: url });
         salida.push({ red, estado: 'ok', id: r.id });
         log(`${item.id}: tarjeta threads: ok`);
       }
@@ -214,6 +216,8 @@ export async function hacerTarjetas({ item, datos, plan, carpeta, env, deps, inf
 
 /** Cuánto puede tardar todo lo posterior a publicar, por pieza (R42). Se cambia con TOPE_DE_EXTRAS_MS. */
 export const TOPE_DE_EXTRAS_MS = 60_000;
+/** Threads y Bluesky procesan el video unos minutos cada uno (hasta ~3 min de espera por red): tope de los dos juntos, por pieza. */
+export const TOPE_DE_VIDEOS_SOCIALES_MS = 540_000;
 
 /**
  * Corre un trabajo extra (lo que va DESPUÉS de publicar y de contarle al Worker) con un tope duro: si la promesa no resuelve, se la abandona. Nunca tira: devuelve { ok, error? }.
@@ -362,18 +366,30 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps, solo
         const tapaMs = r.kit3?.usado ? 300 : tapaDeLaPieza(pieza);
         const tapa = deps.cuadro ? await deps.cuadro(r.mp4, tapaMs).catch(() => null) : null;
         informe.acciones = await publicarPieza({ cliente, mp4, acciones, tapaMs, tapa, sinToken: (t) => String(t).split(env.META_TOKEN || '\u0000').join('[token]') });
+        // El mp4 se sube UNA vez al depósito público (Buffer y Threads leen la misma dirección).
+        const huellaDelVideo = `${plan.dia}-${item.id}-${item.fila}`;
+        let subida = null;
+        const subirUnaVez = (...a) => { subida ??= deps.subirVideo(...a).catch((e) => { subida = null; throw e; }); return subida; };
         let buenas = informe.acciones.filter((a) => a.estado === 'ok').length; // sólo Meta decide si la pieza salió; Buffer se suma aparte (salvo que el panel haya pedido sólo TikTok, YouTube o X: sin acciones de Meta, decide Buffer)
         if (item.buffer?.length) {
           if (deps.subirVideo && deps.publicarEnBuffer && env.BUFFER_API_KEY) {
             const huella = `${plan.dia}-${item.id}-${item.fila}`;
-            informe.acciones.push(...await publicarPorBuffer({ pieza, item, mp4, huella, duracion: pieza.duracion, subirVideo: deps.subirVideo, publicarEnBuffer: deps.publicarEnBuffer, sinSecreto: (t) => String(t).split(env.BUFFER_API_KEY).join('[clave]') }));
+            informe.acciones.push(...await publicarPorBuffer({ pieza, item, mp4, huella, duracion: pieza.duracion, subirVideo: subirUnaVez, publicarEnBuffer: deps.publicarEnBuffer, sinSecreto: (t) => String(t).split(env.BUFFER_API_KEY).join('[clave]') }));
           } else informe.aviso = `${informe.aviso ? `${informe.aviso}; ` : ''}sin BUFFER_API_KEY: no sale en TikTok, YouTube ni X`;
         }
         if (!acciones.length) buenas = informe.acciones.filter((a) => a.estado === 'ok').length;
         informe.estado = buenas ? 'publicada' : 'error';
+        // Threads y Bluesky (el mismo video): sólo si la pieza salió, y NUNCA cambian su estado ni la frenan; cada red queda anotada con el suyo (REGLAS § 26).
+        if (buenas && deps.clienteThreadsVideo) {
+          const sociales = [];
+          const tope = Number(env.TOPE_DE_VIDEOS_SOCIALES_MS) > 0 ? Number(env.TOPE_DE_VIDEOS_SOCIALES_MS) : TOPE_DE_VIDEOS_SOCIALES_MS;
+          const rs = await conTope(() => publicarVideosSociales({ pieza, item, mp4, duracion: pieza.duracion, subirVideo: () => subirUnaVez(mp4, { huella: huellaDelVideo, nombre: `${item.id}.mp4` }), clienteThreads: deps.clienteThreadsVideo, clienteBluesky: deps.clienteBluesky, env, salida: sociales, sinSecreto: (t) => String(t).split(env.THREADS_TOKEN || '\u0000').join('[token]') }), tope, `${item.id}: videos en Threads y Bluesky`, log);
+          informe.acciones.push(...sociales);
+          if (!rs.ok) for (const red of ['threads', 'bluesky']) if (!sociales.some((s) => s.red === red)) informe.acciones.push({ red, tipo: 'VIDEO', estado: 'error', error: rs.error });
+        }
         if (!buenas) informe.error = `${acciones.length ? 'Meta rechazó todo' : 'Buffer no publicó nada (el pedido era sólo TikTok, YouTube o X)'}: ${informe.acciones.map((a) => `${a.red}/${a.tipo}: ${a.error ?? a.estado}`).join(' | ').slice(0, 400)}`;
       } else {
-        informe.acciones = [...simularPublicacion(acciones), ...simularBuffer(item)];
+        informe.acciones = [...simularPublicacion(acciones), ...simularBuffer(item), ...simularVideosSociales(item, env)];
         informe.estado = 'lista';
       }
       escribirRegistro = () => fs.writeFileSync(`${base}.json`, JSON.stringify({ ...informe, habriaPublicadoA: reloj.toISOString(), programada: item.hora, pieza: item.id, guionAlineado: voz?.palabras?.length ?? 0 }, null, 2));
@@ -488,7 +504,13 @@ export async function dependenciasReales(env = process.env) {
       try { const a = path.join(tmp, 'tarjeta.jpg'); fs.writeFileSync(a, imagen.bytes); return await this.subirLamina(a, o); } finally { fs.rmSync(tmp, { recursive: true, force: true }); }
     },
     clienteBluesky: () => crearClienteBluesky({ handle: env.BLUESKY_HANDLE || HANDLE_BLUESKY, password: env.BLUESKY_APP_PASSWORD }),
-    clienteThreads: () => crearClienteThreads({ token: env.THREADS_TOKEN, userId: env.THREADS_USER_ID }),
+    // El token de Threads vigente lo guarda y lo renueva el Worker de redes (threads-token.mjs); si no contesta, el secreto THREADS_TOKEN de siempre.
+    clienteThreadsVideo: async () => {
+      if (!env.THREADS_USER_ID || !env.TELEGRAM_TOKEN) return null;
+      const { token } = await tokenVigente({ url: (env.REDES_URL || DIRECCION_DE_LAS_REDES), contrasena: await contrasenaDelWebhook(env.TELEGRAM_TOKEN), respaldo: env.THREADS_TOKEN });
+      return token ? crearClienteThreads({ token, userId: env.THREADS_USER_ID }) : null;
+    },
+    clienteThreads: async function clienteThreads() { return (await this.clienteThreadsVideo()) ?? crearClienteThreads({ token: env.THREADS_TOKEN, userId: env.THREADS_USER_ID }); },
     subirVideo: async (archivo, { huella, nombre }) => {
       const r2 = clienteR2({ cuenta: env.CLOUDFLARE_ACCOUNT_ID, bucket: env.R2_RENDER || 'radar-render', accessKey: env.R2_ACCESS_KEY_ID, secretKey: env.R2_SECRET_ACCESS_KEY });
       await r2.guardar(`listos/${huella}/${nombre}`, typeof archivo === 'string' ? fs.readFileSync(archivo) : archivo, 'video/mp4'); // llega el mp4 ya en memoria (o, si no, su ruta)

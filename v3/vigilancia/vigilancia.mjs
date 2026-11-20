@@ -1,6 +1,6 @@
 // Radar 3.0, etapa F: la vigilancia. Lógica pura e inyectable (sin red, sin Cloudflare): worker.mjs la conecta con los Workers y el KV
 // de verdad, y vigilancia.test.mjs la prueba con falsos. Las reglas, en palabras de persona, están en REGLAS.md.
-import { evaluarWeb, evaluarRedes, arregloDeSitioYRedes } from './sitio-y-redes.mjs';
+import { evaluarWeb, evaluarRedes, evaluarTokenDeThreads, arregloDeSitioYRedes } from './sitio-y-redes.mjs';
 import { decidirVencimientos } from './vencimientos.mjs';
 
 export const MINUTOS_SIN_VUELTA = 40;        // el núcleo tiene que haber hecho una vuelta en los últimos 40 minutos
@@ -144,7 +144,7 @@ export function evaluar({ ahora, nucleo, bot, direccionDelBot, web = null, redes
   }
 
   // El sitio publicado y las redes (sitio-y-redes.mjs). Si no se pudieron mirar (null), no se inventan problemas.
-  problemas.push(...evaluarWeb({ ahora, web }), ...evaluarRedes({ ahora, actividad: redes }));
+  problemas.push(...evaluarWeb({ ahora, web }), ...evaluarRedes({ ahora, actividad: redes }), ...evaluarTokenDeThreads({ actividad: redes }));
 
   return problemas;
 }

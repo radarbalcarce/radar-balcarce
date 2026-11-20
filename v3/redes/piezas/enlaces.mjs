@@ -13,6 +13,7 @@ import { armarEnlace } from './armadores.mjs';
 import { contrasenaDelWebhook } from '../redes.mjs';
 import { crearClienteBluesky, descripcionDeTarjeta, HANDLE_BLUESKY, MAXIMO_IMAGEN_BLUESKY, sinSecretos } from '../bluesky.mjs';
 import { crearClienteThreads } from '../threads.mjs';
+import { tokenVigente } from '../threads-token.mjs';
 import { DIRECCION_DE_LAS_REDES } from './correr.mjs';
 
 const RAIZ = path.join(import.meta.dirname, '..', '..', '..');
@@ -80,7 +81,7 @@ export async function correrEnlaces({ env = {}, ahora = new Date(), carpeta, dep
         await cuenta('ok', { idExterno: r.id });
       } else {
         // Con la placa de su nota (item.imagen, pública en el Worker) Threads no elige imagen; sin ella, texto + enlace como antes.
-        const r = await deps.clienteThreads().publicarEnlace({ texto: item.texto, enlace: item.enlace, imagen: item.imagen ?? null });
+        const r = await (await deps.clienteThreads()).publicarEnlace({ texto: item.texto, enlace: item.enlace, imagen: item.imagen ?? null });
         await cuenta('ok', { idExterno: r.id });
       }
     } catch (e) {
@@ -126,7 +127,11 @@ export async function dependenciasReales(env = process.env) {
       } finally { fs.rmSync(tmp, { recursive: true, force: true }); }
     },
     clienteBluesky: () => crearClienteBluesky({ handle: env.BLUESKY_HANDLE || HANDLE_BLUESKY, password: env.BLUESKY_APP_PASSWORD }),
-    clienteThreads: () => crearClienteThreads({ token: env.THREADS_TOKEN, userId: env.THREADS_USER_ID }),
+    // El token vigente lo tiene el Worker de redes (se renueva solo, threads-token.mjs); si no contesta, el secreto THREADS_TOKEN.
+    clienteThreads: async () => {
+      const { token } = await tokenVigente({ url: (env.REDES_URL || DIRECCION_DE_LAS_REDES), contrasena: await contrasenaDelWebhook(env.TELEGRAM_TOKEN), respaldo: env.THREADS_TOKEN });
+      return crearClienteThreads({ token: token ?? env.THREADS_TOKEN, userId: env.THREADS_USER_ID });
+    },
     publicarImagenEnBuffer: async (o) => (await import('../../../redes/buffer.mjs')).publicarFoto(o, { env, fetchFn: fetch }),
   };
 }

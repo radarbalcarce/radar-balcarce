@@ -18,6 +18,7 @@ import { planearEnlaces, registrarEnlace } from './enlaces.mjs';
 import { medirDia, compararSemanas, lineasDeLaComparacion } from './estadisticas.mjs';
 import { claveDeVideo, servirVideo } from './video-publico.mjs';
 import { esCronDeDisparo, dispararAcciones } from './disparar-acciones.mjs';
+import { cargarSiNoHay, leerToken, renovarSiToca, estadoPublico as estadoDelTokenDeThreads } from './threads-token.mjs';
 
 /** El cron del resumen del día: 01:05 UTC = 22:05 de Balcarce. Cualquier otro cron es una vuelta. */
 export const CRON_DEL_RESUMEN = '5 1 * * *';
@@ -313,6 +314,19 @@ export function crearRedes(deps = {}) {
       if (cuerpo?.ahora && simulado) { const d = new Date(cuerpo.ahora); if (!Number.isNaN(d.getTime())) opciones.ahora = d; }
       return json({ activas: !simulado, ...(await planearEnlaces(env, opciones)) });
     }
+    // El token de Threads vigente (threads-token.mjs): los programas de GitHub Actions lo piden acá con la contraseña de siempre; si no hay, usan el secreto THREADS_TOKEN.
+    // /threads/token/cargar lo usa el workflow de despliegue para el PRIMER token (no pisa uno que ya sirva). Nunca se registra el token.
+    if (pedido.method === 'POST' && (url.pathname === '/threads/token' || url.pathname === '/threads/token/cargar')) {
+      const no = await autorizado(pedido, env);
+      if (no) return no;
+      let cuerpo = {};
+      try { cuerpo = await pedido.json(); } catch { /* sin cuerpo */ }
+      try {
+        if (url.pathname === '/threads/token/cargar') return json(await cargarSiNoHay(env, cuerpo?.token, { ahora: reloj() }));
+        const f = await leerToken(env);
+        return f?.token ? json({ token: f.token, vence: f.vence, actualizado: f.actualizado }) : json({ error: 'sin token' }, 404);
+      } catch { return json({ error: 'no se pudo leer' }, 500); }
+    }
     // El video listo para Buffer (TikTok, YouTube, X): listos/<huella>/<nombre>.mp4 del depósito del render; GET, HEAD y Range (video-publico.mjs). Reemplaza la ruta /video/ del Worker viejo de tareas.
     if ((pedido.method === 'GET' || pedido.method === 'HEAD') && url.pathname.startsWith('/video/')) {
       const clave = claveDeVideo(url.pathname);
@@ -351,7 +365,8 @@ export function crearRedes(deps = {}) {
       const ahora = reloj();
       const desde = new Date(ahora.getTime() - 24 * 3600 * 1000).toISOString();
       const redes = await db.actividadDeRedes(env, { desdeISO: desde, redes: ['facebook', 'instagram', 'bluesky', 'threads', 'x'] }).catch(() => null);
-      return redes ? json({ ok: true, activas: redesActivas(env), ahora: ahora.toISOString(), desde, redes }) : json({ error: 'no se pudo leer' }, 500);
+      const threadsToken = await estadoDelTokenDeThreads(env, ahora);
+      return redes ? json({ ok: true, activas: redesActivas(env), ahora: ahora.toISOString(), desde, redes, threadsToken }) : json({ error: 'no se pudo leer' }, 500);
     }
     if (pedido.method === 'GET' && url.pathname === '/piezas/estado') {
       const no = await autorizado(pedido, env);
@@ -366,7 +381,8 @@ export function crearRedes(deps = {}) {
   async function programado(evento, env) {
     // Los crons que sólo despiertan un workflow de GitHub Actions (piezas y fotos propias; disparar-acciones.mjs): no son una vuelta de posteos.
     if (esCronDeDisparo(evento?.cron)) {
-      return dispararAcciones(evento, env, { fetchFn: deps.fetchGithub ?? fetchFn, avisar: (t) => decirPorTelegram(env, t, fetchFn), esperar: deps.esperar });
+      return dispararAcciones(evento, env, { fetchFn: deps.fetchGithub ?? fetchFn, avisar: (t) => decirPorTelegram(env, t, fetchFn), esperar: deps.esperar,
+        acciones: { 'renovar-token-threads': () => renovarSiToca(env, { ahora: reloj(), fetchFn }) } });
     }
     if (evento?.cron === CRON_DEL_RESUMEN) return resumen(env);
     return vuelta(env);
