@@ -134,8 +134,8 @@ test('las plantillas no ponen marca de agua ni el nombre de otro medio sobre las
   }
 });
 
-test('Participá no está en el kit (está en pausa)', () => {
-  assert.ok(!plantillas.some((f) => /particip/i.test(f)));
+test('Participá está en el kit (las tres convocatorias aprobadas y las dos versiones de «Sumá tu marca»): una sola plantilla con sus variantes', () => {
+  assert.ok(plantillas.includes('participa.js'));
 });
 
 test('correr.mjs: el kit sólo se carga detrás del interruptor y con respaldo al dibujo de siempre', () => {

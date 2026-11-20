@@ -29,7 +29,7 @@ function conNotas() {
 test('la tabla de horarios es la de hoy: mismas piezas, horas, ventanas, días y prioridad que redes/piezas-del-dia.mjs (mientras exista el viejo)', async (t) => {
   let viejo;
   try { ({ PIEZAS_DEL_DIA: viejo } = await import('../../redes/piezas-del-dia.mjs')); } catch { t.skip('el sistema viejo ya no está'); return; }
-  for (const p of PIEZAS_DEL_DIA.filter((x) => !x.id.startsWith('aviso-') && x.formato !== 'carrusel' && !x.porNota && x.id !== 'numero-del-dia')) {
+  for (const p of PIEZAS_DEL_DIA.filter((x) => !x.id.startsWith('aviso-') && x.formato !== 'carrusel' && !x.porNota && x.id !== 'numero-del-dia' && !(x.arma === 'participa' && x.id !== 'participa-reclamos'))) { // Participá: desde el 20/11/2026 manda la tabla de v3 (17:00, L a V); el viejo no se toca
     const v = viejo.find((x) => x.id === p.id);
     assert.ok(v, `${p.id} no está en la tabla vieja`);
     assert.deepEqual([p.hora, p.ventana, [...p.dias], p.voz, p.hashtag], [v.hora, v.ventana, [...v.dias], v.voz, v.hashtag], p.id);
@@ -43,8 +43,14 @@ test('la tabla de horarios es la de hoy: mismas piezas, horas, ventanas, días y
 test('qué toca a cada hora: respeta la hora, la ventana, el día de la semana y la medianoche', () => {
   const piezasQueTocan = (x) => piezasQueTocanConCondicionales(x).filter((p) => !p.condicional && p.formato !== 'carrusel' && !p.porNota); // las condicionales se prueban aparte
   assert.deepEqual(ids(piezasQueTocan(AHORA)).sort(), ['efemeride', 'noticia1']); // martes 11:00: el clima de la mañana terminó a las 11 (7:00 + 240) y Participá es a las 12
-  assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-03T15:05:00Z'))).sort(), ['noticia1', 'participa-evento']); // martes 12:05 (el repaso de las 11 dura hasta las 14)
-  assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-04T15:05:00Z'))), ['participa-reclamos', 'noticia1']); // miércoles 12:05
+  assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-03T15:05:00Z'))).sort(), ['noticia1']); // martes 12:05 (el repaso de las 11 dura hasta las 14); Participá es a las 17
+  assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-02T20:05:00Z'))).sort(), ['noticia2', 'participa-noticias']); // lunes 17:05: «¿Viste algo?»
+  assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-03T20:05:00Z'))).sort(), ['noticia2', 'participa-nota']); // martes 17:05: «Tu nota»
+  assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-04T20:05:00Z'))).sort(), ['noticia2', 'participa-evento']); // miércoles 17:05: «Tu evento…»
+  assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-05T20:05:00Z'))).sort(), ['noticia2', 'participa-marca']); // jueves 17:05: «Sumá tu marca» (en pausa)
+  assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-06T20:05:00Z'))).sort(), ['noticia2', 'participa-noticias']); // viernes 17:05: «¿Viste algo?»
+  assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-07T20:05:00Z'))).sort(), ['noticia2', 'utiles']); // sábado 17:05: Teléfonos útiles, sin Participá
+  assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-04T15:05:00Z'))), ['participa-reclamos', 'noticia1']); // miércoles 12:05 (el reclamo sigue pausado)
   assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-03T10:00:00Z'))), ['clima-manana']); // 7:00 en punto arranca el clima
   assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-03T09:59:00Z'))), []); // 6:59: nada
   assert.ok(ids(piezasQueTocan(new Date('2026-11-04T01:30:00Z'))).includes('podcast')); // 22:30 del martes: el repaso de la noche (22:00 + 180)

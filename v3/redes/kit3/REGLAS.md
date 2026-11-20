@@ -6,8 +6,8 @@ El kit sólo cambia **cómo se dibuja el video**: HyperFrames (HTML + GSAP, dibu
 
 ## Qué piezas dibuja
 
-Clima de la mañana y de la noche (también con auspicio), repaso (mañana, tarde y noche), efeméride, farmacias (de 1 a 3), reel de una nota de Balcarce y nota propia (de 1 a 3 fotos). **«Participá» no está:
-está en pausa.** Cualquier otra pieza sale con el dibujo de siempre aunque el kit esté prendido.
+Clima de la mañana y de la noche (también con auspicio), repaso (mañana, tarde y noche), efeméride, farmacias (de 1 a 3), reel de una nota de Balcarce y nota propia (de 1 a 3 fotos). «Participá» (las cuatro convocatorias, ver «Participá» más abajo) está en el kit, pero sus filas siguen en pausa.
+Cualquier otra pieza sale con el dibujo de siempre aunque el kit esté prendido.
 
 ## Lo que hace, en palabras de una persona
 
@@ -78,6 +78,16 @@ Variables: `KIT_3_0` (`si` prende; vacío o cualquier otra cosa apaga), `KIT3_FO
 
 Arma todas las piezas del día con datos reales del sitio público (o con `--ejemplos`, sin red), **sin voz** (subtítulos estimados), sin publicar y sin base de datos. Deja por pieza un MP4, la tapa (PNG)
 y un JSON. También como workflow manual: «Radar 3.0: ensayo del kit 3.0» (los deja como archivo adjunto de la corrida).
+
+## Participá (20/11/2026)
+
+`plantillas/participa.js` dibuja las convocatorias con una función por variante (`viste`, `nota`, `evento`, `marcaA`, `marcaB`); `desde-pieza.mjs` (`adaptarParticipa`) saca de la voz el segundo de cada cosa que se ve (las palabras clave de cada pregunta y las del cierre). Los subtítulos cubren el saludo y todo lo que sigue a la pregunta (la pregunta ya está escrita en pantalla) y van siempre sobre fondo oscuro (el papel de «Tu nota» y de «Sumá tu marca A» llega hasta la fila 1250).
+Las cuatro fotos fijas de «¿Viste algo?» son archivos del kit (`fotos-participa/`: avenida, plaza, navidad, obra); sus créditos (`FOTOS_PARTICIPA`) viajan en `creditosFijos` y van al texto del posteo. Ningún texto pasa de x = 940 (la columna de íconos de Instagram) ni de la fila 1250.
+«Sumá tu marca» lleva números reales del alcance (`ALCANCE_PARTICIPA`, `piezas/variables.mjs`). Para actualizarlos, con `wrangler` logueado y una config temporal fuera del repo con el `database_id` de `radar-nucleo` (`wrangler d1 list --json`): `SELECT dia, metrica, valor FROM estadisticas WHERE dia >= date('now','-28 day')`; `paginas_vistas` y `visitas` se suman, `fb_alcance` e `ig_alcance` también (suma de alcances diarios). Si algún número falta o es bajo, se usa el que existe y el cartel dice de qué días es.
+
+## Música de fondo (preparada, apagada)
+
+Ver `v3/redes/musica/LICENCIAS.md`: cuatro temas propios (ACE-Step, uso comercial permitido), 30 s cada uno, normalizados a -23 LUFS. Con `MUSICA_3_0: si` (mismo paso de `v3-piezas.yml` que `KIT_3_0`) la mezcla (`argumentosDeMezcla`) suma la cama 10 dB por debajo de la voz (`MUSICA_DEL_KIT.dbBajoLaVoz`), con fundido de 0,5 s al entrar y de 1 s al salir; sin voz (ensayo mudo, `ensayo-participa.mjs --musica`) sólo baja 3 dB para poder oírla. Hoy sólo las convocatorias tienen tema. La Biblioteca de audio de YouTube no se usa en redes (licencia fuera de YouTube sin verificar).
 
 ## Pruebas
 

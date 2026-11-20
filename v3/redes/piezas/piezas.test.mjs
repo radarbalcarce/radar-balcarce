@@ -391,17 +391,22 @@ test('farmacia: 14 s, la escena de hoy, sin «N°», con el nombre y la direcci�
   assert.match(svg, /Santa Inés/); assert.match(svg, /Calle 17, 537/); assert.match(svg, /42-4301/); assert.match(svg, /De turno hasta mañana a las 8:30/);
 });
 
-test('Participá: 18 s, la escena de hoy, cinco variantes (cuatro de hoy y una nueva), con el WhatsApp dicho dígito por dígito', () => {
+test('Participá: 18 s, la escena de hoy, seis variantes (las tres aprobadas el 20/11, «Sumá tu marca» en pausa, y reclamo y encuesta del viejo): las nuevas cierran con la voz común (sin leer el número); las viejas dicen el WhatsApp dígito por dígito', () => {
   for (const v of Object.keys(VARIANTES_DE_PARTICIPA)) {
     const p = armarParticipa(v, {});
     assert.equal(p.duracion, 18, v);
     assert.deepEqual(p.escenas.map((e) => e.tipo), ['participa']);
-    assert.match(p.guion, /2 2 6 6, 5 1, 1 6 1 2/, v);
+    if (VARIANTES_DE_PARTICIPA[v].cierre) { assert.ok(p.guion.endsWith('Escribinos por WhatsApp o por mail. Radar Balcarce es tu espacio.'), v); assert.doesNotMatch(p.guion, /2 2 6 6/, v); } else assert.match(p.guion, /2 2 6 6, 5 1, 1 6 1 2/, v);
     assert.equal(p.escenas[0].datos.numero, '2266 51-1612');
     const svg = escenaDeVideo(p).cuadro(8, 18);
     assert.match(svg, /2266 51-1612/, v); assert.match(svg, /redaccion@radarbalcarce\.com/, v);
   }
-  assert.equal(Object.keys(VARIANTES_DE_PARTICIPA).length, 5);
+  assert.equal(Object.keys(VARIANTES_DE_PARTICIPA).length, 6);
+  assert.equal(armarParticipa('noticia', { saludo: null }).guion, '¿Viste algo que tendría que ser noticia? Mandanos la foto o el dato. Antes de publicar, lo chequeamos. Escribinos por WhatsApp o por mail. Radar Balcarce es tu espacio.');
+  assert.equal(armarParticipa('nota', { saludo: null }).guion, '¿Tenés algo para contar de tu club, tu escuela o tu barrio? Mandanos tu nota o tu historia. Escribinos por WhatsApp o por mail. Radar Balcarce es tu espacio.');
+  assert.equal(armarParticipa('evento', { saludo: null }).guion, '¿Organizás un evento, una feria o tenés un comercio? Contanos qué, cuándo y dónde, y lo sumamos a la agenda de Balcarce. Escribinos por WhatsApp o por mail. Radar Balcarce es tu espacio.');
+  assert.equal(armarParticipa('marca', { saludo: null }).guion, '¿Querés que tu comercio acompañe las noticias de Balcarce? Escribinos y te contamos cómo anunciar en Radar. Escribinos por WhatsApp o por mail. Radar Balcarce es tu espacio.');
+  assert.equal(armarParticipa('marca', { diseno: 'b' }).diseno, 'b');
   assert.equal(VARIANTES_DE_PARTICIPA.noticia.pregunta, '¿Viste algo que tendría que ser noticia?', 'la de hoy');
   assert.throws(() => armarParticipa('inventada'), /variante/);
 });

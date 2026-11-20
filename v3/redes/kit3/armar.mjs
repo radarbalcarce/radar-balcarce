@@ -26,7 +26,7 @@ export function decisionesDeFotos(fotos, rellenos, alto = 980) {
   });
 }
 const RAIZ = path.join(AQUI, '..', '..', '..');
-export const PLANTILLAS = ['clima', 'repaso', 'efemeride', 'farmacias', 'nota', 'numero'];
+export const PLANTILLAS = ['clima', 'repaso', 'efemeride', 'farmacias', 'nota', 'numero', 'participa'];
 
 let _ffmpeg;
 /** El ffmpeg del repositorio (`ffmpeg-static`) o el del sistema. */
@@ -100,6 +100,7 @@ export function escribirProyecto(pieza, dir, { fondoMp4 = null, tapaFondoJpg = n
   }
   pieza = { ...pieza, datos: conRellenos(pieza.datos, rellenos) };
   if (Array.isArray(pieza.avisos)) pieza.avisos.push(...decisionesDeFotos(pieza.fotos, rellenos, pieza.plantilla === 'efemeride' ? 880 : 980)); // el mismo arreglo que ve el informe de la pieza
+  if (pieza.plantilla === 'participa') for (const f of fs.readdirSync(path.join(AQUI, 'fotos-participa'))) fs.copyFileSync(path.join(AQUI, 'fotos-participa', f), path.join(dir, 'fotos', f)); // las fotos fijas de «¿Viste algo?»
   if (fondoMp4) fs.copyFileSync(fondoMp4, path.join(dir, 'fondo.mp4'));
   if (tapaFondoJpg) fs.copyFileSync(tapaFondoJpg, path.join(dir, 'fotos', 'tapa-fondo.jpg'));
   const spec = especificacion(pieza, { video: fondoMp4 ? 'fondo.mp4' : null, tapaFondo: !!tapaFondoJpg });

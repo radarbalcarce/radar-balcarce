@@ -79,6 +79,10 @@ export const NUMERO_DEL_DIA = congelar({ segundos: 15, maximo: 22 });
 export const NOTA_PROPIA = congelar({ fotosMin: 1, fotosMax: 3, segundosSegunFotos: congelar({ 1: 14, 2: 22, 3: 30 }), maximo: 35 });
 export const HISTORIA_DE_NOTA = congelar({ segundos: 6 }); // se ve ~5 s por pantalla (sin confirmar)
 export const PARTICIPA = congelar({ segundos: 18, maximo: 25 });
+/** «Sumá tu marca» tiene dos diseños armados (20/11/2026): 'a' (sobria, papel y tinta) y 'b' (dinámica, celular y contadores). Hernán elige uno: cambiar esta línea. */
+export const DISENO_DE_MARCA = 'a';
+/** Los números reales del alcance (tabla `estadisticas` de la base `radar-nucleo`, del 6 al 19/11/2026: las 14 jornadas que hay medidas) para «Sumá tu marca». Los alcances de Facebook e Instagram son la suma de los alcances diarios. Se actualizan a mano con la consulta de `kit3/REGLAS.md`; nunca se inventan. */
+export const ALCANCE_PARTICIPA = congelar({ desde: '2026-11-06', hasta: '2026-11-19', dias: 14, paginasVistas: 2928, visitas: 2643, fbAlcance: 27710, igAlcance: 3861, texto: 'Radar Balcarce · 6 al 19 de noviembre · alcance diario sumado' });
 /** Las piezas de servicio que el sistema viejo hacía y 3.0 suma el 3/11: la escena es la de hoy. La voz alarga la última escena si hace falta (`ajustarALaVoz`). */
 export const AGENDA = congelar({ segundos: 16, maximo: 25, eventosMax: 4, diasAdelante: 4 });
 export const UTILES = congelar({ segundos: 20, maximo: 30 });

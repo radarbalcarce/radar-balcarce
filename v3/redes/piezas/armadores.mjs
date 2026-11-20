@@ -12,7 +12,7 @@
 // `opciones.primeraDelBloque`, o `opciones.saludo` ya resuelto). Las reglas, en palabras de persona, están en `REGLAS.md`.
 import {
   AGENDA, SEMANA, FINDE, AVISO_DE_CLIMA, AVISO_DE_IA_TEXTO, CARRUSEL_MAX_INSTAGRAM, FERIADO, UTILES, CARRUSEL_MIN_FOTOS, CLIMA, EFEMERIDE, FARMACIA, FIRMA_DE_HERNAN, FIRMA_DE_REDACCION, HISTORIA_DE_NOTA, IMAGEN_ENLACE,
-  IMAGEN_FEED_ALTO, IMAGEN_FEED_ANCHO, MOMENTOS_DEL_REPASO, NOTA_PROPIA, NOTA_REEL, NUMERO_DEL_DIA, PARTICIPA, REPASO, VIDEO_ALTO, VIDEO_ANCHO, WHATSAPP, MUSICA, PALABRAS_POR_SEGUNDO, SEGUNDOS_DE_ADORNO,
+  IMAGEN_FEED_ALTO, IMAGEN_FEED_ANCHO, MOMENTOS_DEL_REPASO, NOTA_PROPIA, NOTA_REEL, NUMERO_DEL_DIA, PARTICIPA, DISENO_DE_MARCA, REPASO, VIDEO_ALTO, VIDEO_ANCHO, WHATSAPP, MUSICA, PALABRAS_POR_SEGUNDO, SEGUNDOS_DE_ADORNO,
 } from './variables.mjs';
 import {
   acortarPalabras, conPunto, contarPalabras, direccionHablada, frases, ganchoDe, hablarCuenta, hablarNumero, momentoDe, nombrePropio, partesQueEntran, presupuestoDeVoz,
@@ -519,32 +519,45 @@ export function armarFarmacia(farmacias, { fecha = null, hasta = 'De turno hasta
 
 // ------------------------------------------------------------------ 14. Participá
 
-/** Las variantes: las cuatro de hoy (`redes/participa.mjs`) y una quinta, «¿qué querés que contemos?», con el mismo formato (no existe hoy). */
+/**
+ * Las variantes: las tres convocatorias aprobadas por Hernán el 20/11/2026 (noticia = «¿Viste algo?», nota = «Tu nota», evento = «Tu evento, tu feria, tu comercio»), la 4.ª «Sumá tu marca» (marca,
+ * en pausa hasta que se apruebe y se elija entre sus dos diseños) y dos del sistema viejo (reclamo, encuesta) que siguen con el dibujo de siempre. Las cuatro nuevas llevan `cierre: true`: su voz termina con el cierre común.
+ */
 export const VARIANTES_DE_PARTICIPA = Object.freeze({
-  noticia: { id: 'participa-noticias', ...PIEZAS_PARTICIPA['participa-noticias'] },
-  evento: { id: 'participa-evento', ...PIEZAS_PARTICIPA['participa-evento'] },
+  noticia: { id: 'participa-noticias', ...PIEZAS_PARTICIPA['participa-noticias'], cierre: true },
+  evento: { id: 'participa-evento', ...PIEZAS_PARTICIPA['participa-evento'], cierre: true },
   reclamo: { id: 'participa-reclamos', ...PIEZAS_PARTICIPA['participa-reclamos'] },
-  nota: { id: 'participa-nota', ...PIEZAS_PARTICIPA['participa-nota'] },
+  nota: { id: 'participa-nota', ...PIEZAS_PARTICIPA['participa-nota'], cierre: true },
+  marca: { id: 'participa-marca', ...PIEZAS_PARTICIPA['participa-marca'], cierre: true },
   encuesta: {
     id: 'participa-encuesta', rotulo: 'Contanos', seccion: 'Balcarce', pregunta: '¿Qué querés que contemos?', pie1: 'Decinos qué te interesa y lo buscamos.', pie2: 'Lo chequeamos antes de publicar.',
     voz: ['¿Qué querés que contemos? Decinos qué te interesa y lo buscamos.'],
   },
 });
 
+/** El cierre común de las convocatorias (la voz no lee el número: va en pantalla). */
+export const CIERRE_DE_PARTICIPA = 'Escribinos por WhatsApp o por mail. Radar Balcarce es tu espacio.';
+
 /**
- * Participá (18 s): **la escena de hoy** (la pregunta grande, la franja verde de WhatsApp con el número que se tipea, el sobre del mail y los dos pies). Cinco variantes.
- * La voz dice el número dígito por dígito. Con fotos de la gente: todavía no (Hernán 3/11: después).
+ * Participá (de 13 a 17 s): con el kit 3.0, la plantilla de su variante (`kit3/plantillas/participa.js`); sin él, **la escena de siempre** (la pregunta grande, la franja verde de WhatsApp con el número que se tipea,
+ * el sobre del mail y los dos pies). La voz es la aprobada por Hernán, entera (sin recortes) y con el cierre común; las viejas (reclamo, encuesta) dicen el número dígito por dígito.
+ * `opciones.diseno` ('a' | 'b'): sólo para «Sumá tu marca», que tiene dos diseños hasta que se elija uno (`DISENO_DE_MARCA`).
  */
 export function armarParticipa(variante = 'noticia', opciones = {}) {
   const v = VARIANTES_DE_PARTICIPA[variante];
   if (!v) throw new Error(`participá: no conozco la variante «${variante}»`);
   const saludo = saludoPara(opciones);
-  const como = `Escribinos por WhatsApp al ${hablarNumero(WHATSAPP)}, o por mail.`;
-  const cap = presupuestoDeVoz(PARTICIPA.segundos) - contarPalabras(saludo) - contarPalabras(como);
-  const pregunta = partesQueEntran(frases(v.voz.join(' ')), cap);
+  let voz;
+  if (v.cierre) voz = unir(saludo, ...v.voz, CIERRE_DE_PARTICIPA);
+  else {
+    const como = `Escribinos por WhatsApp al ${hablarNumero(WHATSAPP)}, o por mail.`;
+    const cap = presupuestoDeVoz(PARTICIPA.segundos) - contarPalabras(saludo) - contarPalabras(como);
+    voz = unir(saludo, partesQueEntran(frases(v.voz.join(' ')), cap), como);
+  }
+  const diseno = variante === 'marca' ? (opciones.diseno ?? DISENO_DE_MARCA) : null;
   return video(`participa-${variante}`, [
-    escena('participa', PARTICIPA.segundos, { p: { rotulo: v.rotulo, pregunta: v.pregunta, pie1: v.pie1, pie2: v.pie2 }, seccion: v.seccion, numero: WHATSAPP }, unir(saludo, pregunta, como)),
-  ], { voz: opciones.voz ?? 'locutor', saludo, extra: { variante } });
+    escena('participa', PARTICIPA.segundos, { p: { rotulo: v.rotulo, pregunta: v.pregunta, pie1: v.pie1, pie2: v.pie2 }, seccion: v.seccion, numero: WHATSAPP }, voz),
+  ], { voz: opciones.voz ?? 'locutor', saludo, extra: { variante, ...(diseno ? { diseno } : {}) } });
 }
 
 // ------------------------------------------------------------------ 15 a 18. las piezas de servicio que 3.0 suma el 3/11 (agenda, útiles, feriado, aviso de clima)

@@ -197,12 +197,13 @@ test('aviso: si Telegram falla (tira o responde que no), el resultado de la piez
 
 // ------------------------------------------------------------------ Participá en pausa
 
-test('Participá está en pausa (19/11): ninguna de sus cuatro filas se reserva sola ni gasta lugar del cupo de voz; con `solo` se las puede ensayar', async () => {
+test('Participá está en pausa (Hernán pidió dejarlo listo sin prender, 20/11): ninguna de sus cinco filas se reserva sola ni gasta lugar del cupo de voz; con `solo` se las puede ensayar', async () => {
   const filas = PIEZAS_DEL_DIA.filter((p) => p.arma === 'participa');
-  assert.equal(filas.length, 4);
+  assert.equal(filas.length, 5);
+  assert.ok(filas.filter((p) => p.id !== 'participa-reclamos').every((p) => p.hora === '17:00' && p.voz === 5 && p.margenDeVoz === 2), 'a las 17:00 y con prioridad de voz baja');
   assert.ok(filas.every((p) => p.pausada === true));
   const { DB } = baseDePrueba();
-  const martes = new Date('2026-11-03T15:05:00Z'); // 12:05 de Balcarce: tocaría «Tu evento o emprendimiento»
+  const martes = new Date('2026-11-04T20:05:00Z'); // miércoles 17:05 de Balcarce: tocaría «Tu evento o emprendimiento»
   const plan = await planear({ DB }, { ahora: martes, simulado: true });
   assert.ok(!plan.piezas.some((p) => p.arma === 'participa'));
   assert.ok(!plan.descartes.some((d) => d.pieza.startsWith('participa')));

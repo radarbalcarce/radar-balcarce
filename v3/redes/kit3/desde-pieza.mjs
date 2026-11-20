@@ -13,7 +13,9 @@ import {
 } from './tiempos.mjs';
 import { acentoClaro, datosParaLaPlantilla, prefijoYSufijo, tramoDelGrafico } from './grafico.mjs';
 import { formatoDeLaCifra } from '../piezas/datos-de-nota.mjs';
-import { CIERRE_SEGUNDOS, COLA_SEGUNDOS, FOTOS_MAXIMO, MARCA, PIEZAS_DEL_KIT } from './variables.mjs';
+import { CIERRE_SEGUNDOS, COLA_SEGUNDOS, FOTOS_MAXIMO, FOTOS_PARTICIPA, MARCA, PIEZAS_DEL_KIT } from './variables.mjs';
+import { ALCANCE_PARTICIPA } from '../piezas/variables.mjs';
+import { WHATSAPP, MAIL_REDACCION } from '../../../redes/participa.mjs';
 
 export const aplicaKit3 = (pieza) => pieza?.tipo === 'video' && PIEZAS_DEL_KIT.includes(pieza.id);
 
@@ -343,10 +345,85 @@ function adaptarNumero(pieza, P, ctx) {
   };
 }
 
+// ------------------------------------------------------------------ Participá (20/11/2026)
+
+/** Los segundos (de contenido) de una lista de palabras clave buscadas en orden (patrones como en `buscarMarcas`); lo que la voz no dijo se estima 0,6 s después de la anterior. { nombre: segundo }. */
+function marcasDe(P, nombres, patrones, desde = 0) {
+  const idx = buscarMarcas(P, patrones, { desde });
+  const m = {};
+  let previo = -0.5;
+  idx.forEach((i, k) => {
+    let t = tiempoDe(P, i, -1);
+    if (t < 0) t = previo + 0.6;
+    t = Number(Math.max(t, previo + 0.02).toFixed(2));
+    m[nombres[k]] = t;
+    previo = t;
+  });
+  return m;
+}
+/** El índice de la ÚLTIMA palabra que empieza con `texto` (el cierre común vuelve a decir «Escribinos»). */
+function ultimaPalabra(P, texto) {
+  let k = -1;
+  P.forEach((p, i) => { if (normalizar(p.w).startsWith(normalizar(texto))) k = i; });
+  return k;
+}
+
+const PARTICIPA_TEMAS = {
+  viste: { chip: 'Participá', chipBg: '#C7381C', chipFg: '#fff', hl: { bg: '#FAF8F3', fg: '#C7381C' }, scrim: 'linear-gradient(0deg,rgba(8,10,14,.5) 0%,rgba(8,10,14,0) 26%)', rotuloFg: '#C7381C', rotuloBg: '#FAF8F3' },
+  nota: { chip: 'Tu nota', chipBg: '#9D2C8F', chipFg: '#fff', hl: { bg: '#9D2C8F', fg: '#fff' }, scrim: 'linear-gradient(0deg,rgba(8,10,14,.35) 0%,rgba(8,10,14,0) 20%)', rotuloFg: '#fff', rotuloBg: '#9D2C8F' },
+  evento: { chip: 'Tu evento', chipBg: '#9D2C8F', chipFg: '#fff', hl: { bg: '#E8A33C', fg: '#14161A' }, scrim: 'linear-gradient(0deg,rgba(8,10,14,.35) 0%,rgba(8,10,14,0) 20%)', rotuloFg: '#fff', rotuloBg: '#9D2C8F' },
+  marcaA: { chip: 'Sumá tu marca', chipBg: '#FAF8F3', chipFg: '#14161A', hl: { bg: '#C7381C', fg: '#fff' }, scrim: 'linear-gradient(0deg,rgba(8,10,14,.35) 0%,rgba(8,10,14,0) 20%)', rotuloFg: '#14161A', rotuloBg: '#FAF8F3' },
+  marcaB: { chip: 'Sumá tu marca', chipBg: '#FAF8F3', chipFg: '#17357F', hl: { bg: '#FAF8F3', fg: '#17357F' }, scrim: 'linear-gradient(0deg,rgba(8,10,14,.35) 0%,rgba(8,10,14,0) 20%)', rotuloFg: '#17357F', rotuloBg: '#FAF8F3', fondo: 'linear-gradient(165deg,#1F4FB5 0%,#17357F 55%,#0E2257 100%)' },
+};
+
+/**
+ * Las convocatorias de Participá: «¿Viste algo?» (`noticia`), «Tu nota» (`nota`), «Tu evento…» (`evento`) y «Sumá tu marca» (`marca`, con dos diseños, A y B, hasta que Hernán elija).
+ * Las marcas son palabras de la voz (`marcasDe`): cada cosa que se ve entra cuando la voz dice su palabra. Los subtítulos cubren el saludo y todo lo que sigue a la pregunta (la pregunta ya está escrita en pantalla).
+ * Los números de «Sumá tu marca» son los reales de `ALCANCE_PARTICIPA` (nunca se inventan).
+ */
+function adaptarParticipa(pieza, P, ctx) {
+  const v = pieza.variante ?? pieza.id.replace(/^participa-/, '');
+  const clave = v === 'noticia' ? 'viste' : v === 'marca' ? (String(pieza.diseno ?? 'a').toLowerCase() === 'b' ? 'marcaB' : 'marcaA') : v;
+  const tema = PARTICIPA_TEMAS[clave];
+  if (!tema) throw new Error(`participá: el kit no dibuja la variante «${v}»`);
+  const iEsc = ultimaPalabra(P, 'escribinos');
+  const c = marcasDe(P, ['escribinos', 'whatsapp', 'mail', 'radar', 'balcarce', 'es', 'tu', 'espacio'], ['escribinos', 'whatsapp', 'mail', 'radar', 'balcarce', 'es', 'tu', 'espacio'], Math.max(0, iEsc));
+  const datos = {
+    variante: clave, chip: tema.chip, chipBg: tema.chipBg, chipFg: tema.chipFg, color: tema.chipBg, whatsapp: WHATSAPP, mail: MAIL_REDACCION, c,
+    fondo: tema.fondo ?? 'linear-gradient(165deg,#D6401F 0%,#C7381C 45%,#8E2410 100%)',
+  };
+  let creditosFijos = [];
+  if (clave === 'viste') {
+    datos.m = marcasDe(P, ['viste', 'algo', 'noticia', 'mandanos', 'chequeamos'], ['viste', 'algo', 'noticia', 'mandanos', 'chequeamos']);
+    const [, iAlgo, iNoticia] = buscarMarcas(P, ['viste', 'algo', 'noticia']);
+    datos.resto = iAlgo >= 0 && iNoticia > iAlgo ? P.slice(iAlgo + 1, iNoticia + 1).map((p) => ({ w: p.w, a: Number(Math.max(0, p.a - 0.05).toFixed(2)) })) : [{ w: 'que tendría que ser noticia?', a: datos.m.noticia }];
+    datos.fotos = FOTOS_PARTICIPA.map((f) => ({ id: f.id, hora: f.hora }));
+    datos.tRespuesta = Number(Math.min(datos.m.chequeamos - 0.4, c.escribinos - 0.7).toFixed(2));
+    const desde = datos.m.mandanos + 0.1, paso = Math.max(0.4, Math.min(0.85, (datos.tRespuesta - 0.5 - desde) / (FOTOS_PARTICIPA.length - 1)));
+    datos.tFotos = FOTOS_PARTICIPA.map((_, i) => Number((desde + i * paso).toFixed(2)));
+    creditosFijos = [...new Set(FOTOS_PARTICIPA.map((f) => f.credito))];
+  } else if (clave === 'nota') {
+    datos.m = marcasDe(P, ['tenes', 'para', 'contar', 'club', 'escuela', 'barrio', 'mandanos', 'historia'], ['tenes', 'para', 'contar', 'club', 'escuela', 'barrio', 'mandanos', 'historia']);
+  } else if (clave === 'evento') {
+    datos.m = marcasDe(P, ['organizas', 'un1', 'evento', 'una', 'feria', 'o', 'tenes', 'un2', 'comercio', 'que', 'cuando', 'donde', 'agenda'], ['organizas', 'un', 'evento', 'una', 'feria', 'o', 'tenes', 'un', 'comercio', 'que', 'cuando', 'donde', 'agenda']);
+  } else {
+    datos.m = marcasDe(P, ['queres', 'tu', 'comercio', 'acompane', 'las', 'noticias', 'de', 'balcarce', 'escribinos', 'contamos', 'anunciar', 'radar'], ['queres', 'tu', 'comercio', 'acompane', 'las', 'noticias', 'de', 'balcarce', 'escribinos', 'contamos', 'anunciar', 'radar']);
+    datos.alcance = { paginasVistas: ALCANCE_PARTICIPA.paginasVistas, fbAlcance: ALCANCE_PARTICIPA.fbAlcance, igAlcance: ALCANCE_PARTICIPA.igAlcance, texto: ALCANCE_PARTICIPA.texto };
+    datos.cierre = ['Tu comercio,', 'en el medio de', 'Balcarce'];
+  }
+  const nSaludo = palabrasDe(pieza.saludo);
+  const iFin = finDeFrase(P, nSaludo);
+  return {
+    plantilla: 'participa', datos, fotos: [], fondo: null, subsTop: SUBS_TOP, creditosFijos,
+    subtitulosDesde: { saludo: nSaludo, desde: iFin >= 0 ? iFin + 1 : nSaludo },
+    hl: tema.hl, scrim: tema.scrim, rotulo: { txt: tema.chip, bg: tema.rotuloBg, fg: tema.rotuloFg, top: 91 },
+  };
+}
+
 // ------------------------------------------------------------------ la entrada
 
 const ADAPTADORES = {
-  clima: adaptarClima, 'clima-auspiciado': adaptarClima, efemeride: adaptarEfemeride, farmacia: adaptarFarmacia, 'nota-reel': adaptarNota, 'nota-propia': adaptarNota, 'numero-del-dia': adaptarNumero,
+  clima: adaptarClima, 'clima-auspiciado': adaptarClima, 'participa-noticia': adaptarParticipa, 'participa-nota': adaptarParticipa, 'participa-evento': adaptarParticipa, 'participa-marca': adaptarParticipa, efemeride: adaptarEfemeride, farmacia: adaptarFarmacia, 'nota-reel': adaptarNota, 'nota-propia': adaptarNota, 'numero-del-dia': adaptarNumero,
 };
 
 /**
@@ -366,7 +443,7 @@ export function desdePieza(pieza, { palabras = null, fotoEfemeride = null, fotoE
   for (const f of r.fotos) if (!f.credito) avisos.push(`la foto ${f.clave} no trae crédito`);
   return {
     id: pieza.id, kit: 'k1', marcaTapa: true, marcaClara: false, ...r,
-    guion: pieza.guion, palabras: P, estimado: estimadas, dur: duracionDelKit(P, { cola: COLA_SEGUNDOS, cierre: CIERRE_SEGUNDOS }), avisos,
+    guion: pieza.guion, palabras: r.subtitulosDesde ? [...P.slice(0, r.subtitulosDesde.saludo), ...P.slice(r.subtitulosDesde.desde)] : P, estimado: estimadas, dur: duracionDelKit(P, { cola: COLA_SEGUNDOS, cierre: CIERRE_SEGUNDOS }), avisos,
   };
 }
 

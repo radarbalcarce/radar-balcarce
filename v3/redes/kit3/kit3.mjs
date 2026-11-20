@@ -12,7 +12,7 @@ import { promisify } from 'node:util';
 import { AQUI, escribirProyecto } from './armar.mjs';
 import { aplicaKit3, desdePieza } from './desde-pieza.mjs';
 import { armarFondo } from './fondo.mjs';
-import { T0, kit3Prendido } from './variables.mjs';
+import { MUSICA_DEL_KIT, T0, kit3Prendido, musica3Prendida } from './variables.mjs';
 import { graficosPrendidos } from './grafico.mjs';
 
 const correr = promisify(execFile);
@@ -30,16 +30,33 @@ const hyperframes = () => {
   return bin;
 };
 
-/** Los argumentos de ffmpeg que juntan el video mudo del kit con la voz (si hay; entra después de la tapa, `T0`) o con silencio, 48 kHz estéreo, AAC, +faststart. */
-export function argumentosDeMezcla({ crudo, voz = null, destino, total }) {
+/** La ruta del tema de fondo de una pieza, o null (música apagada, pieza sin tema o archivo que falta). */
+export function rutaDeLaMusica(idDePieza, env = process.env) {
+  if (!musica3Prendida(env)) return null;
+  const tema = MUSICA_DEL_KIT.temas[idDePieza];
+  const ruta = tema ? path.join(AQUI, '..', 'musica', tema) : null;
+  return ruta && fs.existsSync(ruta) ? ruta : null;
+}
+
+/**
+ * Los argumentos de ffmpeg que juntan el video mudo del kit con la voz (si hay; entra después de la tapa, `T0`) o con silencio, 48 kHz estéreo, AAC, +faststart.
+ * Con `musica` (ruta de un tema ya normalizado a -23 LUFS): una cama que baja `dbBajoLaVoz` dB (o `dbSinVoz` sin voz), con fundido al entrar y al salir, mezclada sin tocar el volumen de la voz.
+ */
+export function argumentosDeMezcla({ crudo, voz = null, destino, total, musica = null }) {
   const t = total.toFixed(2);
   const entradas = ['-i', crudo];
   let filtro = null;
   let mapa = '1:a';
+  const cama = (n) => `[${n}:a]aresample=48000,aformat=channel_layouts=stereo,volume=${voz ? MUSICA_DEL_KIT.dbBajoLaVoz : MUSICA_DEL_KIT.dbSinVoz}dB,atrim=0:${t},afade=t=in:st=0:d=${MUSICA_DEL_KIT.entradaSegundos},afade=t=out:st=${Math.max(0, total - MUSICA_DEL_KIT.salidaSegundos).toFixed(2)}:d=${MUSICA_DEL_KIT.salidaSegundos}[m]`;
   if (voz) {
     entradas.push('-i', voz);
     filtro = `[1:a]aresample=48000,adelay=${Math.round(T0 * 1000)}|${Math.round(T0 * 1000)},apad=whole_dur=${t}[a]`;
     mapa = '[a]';
+    if (musica) { entradas.push('-stream_loop', '-1', '-i', musica); filtro += `;${cama(2)};[a][m]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[mix]`; mapa = '[mix]'; }
+  } else if (musica) {
+    entradas.push('-stream_loop', '-1', '-i', musica);
+    filtro = cama(1);
+    mapa = '[m]';
   } else entradas.push('-f', 'lavfi', '-t', t, '-i', 'anullsrc=r=48000:cl=stereo');
   return [
     '-y', '-loglevel', 'error', ...entradas, ...(filtro ? ['-filter_complex', filtro] : []),
@@ -82,7 +99,7 @@ export async function dibujarConKit3(pieza, destino, { voz = null, palabras = nu
     await correr(process.execPath, [bin, 'render', proyecto, '--format', 'mp4', '-q', env.KIT3_CALIDAD || 'looks', '-o', crudo, '--quiet'], { cwd: proyecto, maxBuffer: 1024 * 1024 * 80, timeout: 15 * 60_000 });
     if (!fs.existsSync(crudo)) throw new Error('HyperFrames no dejó el video');
     fs.mkdirSync(path.dirname(destino), { recursive: true });
-    const m = spawnSync(ffmpeg, argumentosDeMezcla({ crudo, voz, destino, total }), { maxBuffer: 1024 * 1024 * 40 });
+    const m = spawnSync(ffmpeg, argumentosDeMezcla({ crudo, voz, destino, total, musica: rutaDeLaMusica(pieza.id, env) }), { maxBuffer: 1024 * 1024 * 40 });
     if (m.status !== 0 || !fs.existsSync(destino)) throw new Error(`ffmpeg no pudo armar el mp4: ${String(m.stderr ?? '').slice(0, 300)}`);
     // La tapa: un cuadro quieto de los primeros 0,8 s (la misma imagen del feed), entero y recortado para la grilla.
     const base = destino.replace(/\.mp4$/i, '');
@@ -92,7 +109,7 @@ export async function dibujarConKit3(pieza, destino, { voz = null, palabras = nu
     if (fs.existsSync(tapa)) spawnSync(ffmpeg, ['-y', '-loglevel', 'error', '-i', tapa, '-vf', 'crop=1080:1350:0:285', tapaGrilla]);
     const ms = Date.now() - inicio;
     log(`kit3 ${pieza.id}: listo en ${(ms / 1000).toFixed(0)} s`);
-    return { mp4: destino, tapa: fs.existsSync(tapa) ? tapa : null, tapaGrilla: fs.existsSync(tapaGrilla) ? tapaGrilla : null, duracion: total, ms, avisos: spec.avisos, estimado: spec.estimado, fondo: fondo?.clips ?? null, creditos: [...new Set((spec.fotos ?? []).map((f) => f.credito).filter(Boolean))] };
+    return { mp4: destino, tapa: fs.existsSync(tapa) ? tapa : null, tapaGrilla: fs.existsSync(tapaGrilla) ? tapaGrilla : null, duracion: total, ms, avisos: spec.avisos, estimado: spec.estimado, fondo: fondo?.clips ?? null, creditos: [...new Set([...(spec.creditosFijos ?? []), ...(spec.fotos ?? []).map((f) => f.credito)].filter(Boolean))] };
   } finally {
     if (!trabajo && !env.KIT3_DEPURAR) { try { fs.rmSync(carpeta, { recursive: true, force: true, maxRetries: 5, retryDelay: 400 }); } catch { /* en Windows Chrome puede tardar en soltar la carpeta: limpiar es lo de menos y nunca tira abajo una pieza ya dibujada */ } }
   }
