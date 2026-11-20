@@ -43,4 +43,6 @@ function escenas(K, S) {
   const fb = K.div(K.CT, '', 'position:absolute;left:60px;top:' + (PTS[n - 1] + 25) + 'px;width:960px');
   K.linea(fb, 'Radar <span style="color:' + ROJO + '">Balcarce</span>', '', a + 'font-size:130px;line-height:1.05', tFin + 0.1, { d: 0.6 });
   K.linea(fb, 'radarbalcarce.com', '', 'font-family:Inter;font-weight:600;color:#fff;text-shadow:0 4px 22px rgba(0,0,0,.6);font-size:54px;line-height:1.3', tFin + 0.3, { d: 0.6 });
+  /* el gráfico animado (sólo con KIT3_GRAFICOS=si y si la nota trae uno válido; desde-pieza.mjs lo deja en SPEC.datos.grafico): si algo falla al dibujarlo, el video sale igual sin gráfico */
+  if (D.grafico) { try { RadarDatos.grafico(K, D.grafico); } catch (e) { /* sin gráfico */ } }
 }

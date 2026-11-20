@@ -1,4 +1,5 @@
 // Lo de las piezas de video que habla con D1 (tabla `piezas`, ver schema-redes.sql). Todas las funciones reciben `env` (con env.DB) primero.
+import { graficoDeFicha } from './piezas/datos-de-nota.mjs';
 const lista = (r) => (r && r.results) || [];
 const analizar = (s, def) => { try { return s ? JSON.parse(s) : def; } catch { return def; } };
 const texto = (v) => (v == null ? null : typeof v === 'string' ? v : JSON.stringify(v));
@@ -107,7 +108,7 @@ export async function notasPropiasParaCarrusel(env, { desdeISO }) {
     ];
     return {
       id: f.id, titulo: f.titulo || '', bajada: f.bajada || '', cuerpo: analizar(f.cuerpo, []), seccion: f.seccion || '', firma: delMotor ? 'Radar Balcarce' : f.firma || '', slug: f.s_slug || f.n_slug || '', publicada: delMotor && redesDeLaNota?.pedida > (f.s_publicada || f.creada) ? redesDeLaNota.pedida : f.s_publicada || f.creada,
-      deServicio: f.id === 'mediakit' || !!analizar(f.ficha, null)?.marca, fotos, fotosDelPanel: (Array.isArray(foto) ? foto : foto ? [foto] : []).filter((x) => x && typeof x === 'object'), redes: analizar(f.n_redes, null),
+      deServicio: f.id === 'mediakit' || !!analizar(f.ficha, null)?.marca, grafico: graficoDeFicha(analizar(f.ficha, null)), fotos, fotosDelPanel: (Array.isArray(foto) ? foto : foto ? [foto] : []).filter((x) => x && typeof x === 'object'), redes: analizar(f.n_redes, null),
     };
   });
 }

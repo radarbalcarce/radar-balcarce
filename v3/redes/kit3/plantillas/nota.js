@@ -24,4 +24,6 @@ function escenas(K, S) {
     K.linea(b, e.titular, '', 'font-family:SS4;font-weight:900;font-size:' + tam + 'px;line-height:1.08;color:#fff;text-wrap:balance;text-shadow:0 5px 26px rgba(0,0,0,.55)', tn + 0.35, { d: 0.6, salida: i < E.length - 1 ? t1 - 0.05 : null });
     if (D.firma) K.firma(D.firma, tn, i < E.length - 1 ? t1 : null);
   });
+  /* el gráfico animado (sólo con KIT3_GRAFICOS=si y si la nota trae uno válido; desde-pieza.mjs lo deja en SPEC.datos.grafico): si algo falla al dibujarlo, el video sale igual sin gráfico */
+  if (D.grafico) { try { RadarDatos.grafico(K, D.grafico); } catch (e) { /* sin gráfico */ } }
 }

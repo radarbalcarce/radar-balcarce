@@ -13,6 +13,7 @@ import { AQUI, escribirProyecto } from './armar.mjs';
 import { aplicaKit3, desdePieza } from './desde-pieza.mjs';
 import { armarFondo } from './fondo.mjs';
 import { T0, kit3Prendido } from './variables.mjs';
+import { graficosPrendidos } from './grafico.mjs';
 
 const correr = promisify(execFile);
 export { aplicaKit3, kit3Prendido };
@@ -56,7 +57,7 @@ export function argumentosDeMezcla({ crudo, voz = null, destino, total }) {
  */
 export async function dibujarConKit3(pieza, destino, { voz = null, palabras = null, fotoEfemeride = null, fotoEfemerideAdemas = null, colorDeSeccion = null, env = process.env, trabajo = null, soloTapa = false, log = () => {} } = {}) {
   const inicio = Date.now();
-  const spec = desdePieza(pieza, { palabras, fotoEfemeride, fotoEfemerideAdemas, colorDeSeccion });
+  const spec = desdePieza(pieza, { palabras, fotoEfemeride, fotoEfemerideAdemas, colorDeSeccion, graficos: graficosPrendidos(env) });
   const carpeta = trabajo ?? fs.mkdtempSync(path.join(os.tmpdir(), 'kit3-'));
   const proyecto = path.join(carpeta, 'proyecto');
   const ffmpeg = await ffmpegDelRepo();

@@ -6,7 +6,7 @@ import { T0 } from './variables.mjs';
 
 export const AQUI = import.meta.dirname;
 const RAIZ = path.join(AQUI, '..', '..', '..');
-export const PLANTILLAS = ['clima', 'repaso', 'efemeride', 'farmacias', 'nota'];
+export const PLANTILLAS = ['clima', 'repaso', 'efemeride', 'farmacias', 'nota', 'numero'];
 
 /** El JSON de la pieza para meterlo en un <script>: sin `</script>` ni separadores de línea raros. */
 const BS = String.fromCharCode(92);
@@ -21,11 +21,12 @@ export function especificacion(pieza, { video = null, tapaFondo = false } = {}) 
 }
 
 /** El index.html del proyecto (la tapa es la capa que cubre los primeros 0,8 s: el kit la dibuja con `tapa(K, S)` de la plantilla). */
-export function htmlDelProyecto(spec, { escenas, css, kit }) {
+export function htmlDelProyecto(spec, { escenas, css, kit, datos = '' }) {
   return `<!doctype html><html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=1080, height=1920"/>
 <script src="gsap.min.js"></script><style>${css}</style></head><body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="${Number((spec.dur + spec.T0).toFixed(2))}" data-width="1080" data-height="1920"></div>
 <script>${kit}</script>
+<script>${datos}</script>
 <script>const SPEC=${jsonSeguro(spec)};${escenas}
 Radar.run(SPEC, escenas, typeof tapa === 'function' ? tapa : null);</script></body></html>`;
 }
@@ -59,6 +60,7 @@ export function escribirProyecto(pieza, dir, { fondoMp4 = null, tapaFondoJpg = n
     escenas: dePlantilla(pieza.plantilla),
     css: fs.readFileSync(path.join(AQUI, 'kit', 'kit.css'), 'utf8'),
     kit: fs.readFileSync(path.join(AQUI, 'kit', 'kit.js'), 'utf8'),
+    datos: fs.readFileSync(path.join(AQUI, 'kit', 'datos.js'), 'utf8'),
   });
   fs.writeFileSync(path.join(dir, 'index.html'), html);
   return { dir, html };

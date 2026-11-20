@@ -12,12 +12,13 @@
 // `opciones.primeraDelBloque`, o `opciones.saludo` ya resuelto). Las reglas, en palabras de persona, están en `REGLAS.md`.
 import {
   AGENDA, SEMANA, FINDE, AVISO_DE_CLIMA, AVISO_DE_IA_TEXTO, CARRUSEL_MAX_INSTAGRAM, FERIADO, UTILES, CARRUSEL_MIN_FOTOS, CLIMA, EFEMERIDE, FARMACIA, FIRMA_DE_HERNAN, FIRMA_DE_REDACCION, HISTORIA_DE_NOTA, IMAGEN_ENLACE,
-  IMAGEN_FEED_ALTO, IMAGEN_FEED_ANCHO, MOMENTOS_DEL_REPASO, NOTA_PROPIA, NOTA_REEL, PARTICIPA, REPASO, VIDEO_ALTO, VIDEO_ANCHO, WHATSAPP, MUSICA, PALABRAS_POR_SEGUNDO, SEGUNDOS_DE_ADORNO,
+  IMAGEN_FEED_ALTO, IMAGEN_FEED_ANCHO, MOMENTOS_DEL_REPASO, NOTA_PROPIA, NOTA_REEL, NUMERO_DEL_DIA, PARTICIPA, REPASO, VIDEO_ALTO, VIDEO_ANCHO, WHATSAPP, MUSICA, PALABRAS_POR_SEGUNDO, SEGUNDOS_DE_ADORNO,
 } from './variables.mjs';
 import {
   acortarPalabras, conPunto, contarPalabras, direccionHablada, frases, ganchoDe, hablarCuenta, hablarNumero, momentoDe, nombrePropio, partesQueEntran, presupuestoDeVoz,
   primeraFrase, saludoDe, tituloEnPantalla, topeDeVoz, fraseEnPantalla,
 } from './voz.mjs';
+import { graficoDeFicha } from './datos-de-nota.mjs';
 import { PIEZAS_PARTICIPA } from '../../../redes/participa.mjs';
 import { pantallasDeUtiles, queDiceLaVoz } from '../../../ingesta/utiles.mjs';
 
@@ -61,6 +62,9 @@ const fotoDe = (foto, epigrafe) => (foto ? { ...foto, epigrafe: epigrafe ?? foto
 
 const parrafos = (nota) => (Array.isArray(nota.cuerpo) ? nota.cuerpo : String(nota.cuerpo ?? '').split(/\n{2,}/))
   .map((p) => String(p).replace(/\[foto \d+\]/gi, '').trim()).filter(Boolean);
+
+/** `{ grafico }` si la nota trae un gráfico propio válido (el kit 3.0 lo anima si `KIT3_GRAFICOS` está prendido; el dibujo de siempre lo ignora). */
+const conGrafico = (nota) => { const g = graficoDeFicha({ grafico: nota?.grafico }); return g ? { grafico: g } : {}; };
 
 const esFechaIso = (f) => /^\d{4}-\d{2}-\d{2}$/.test(String(f ?? ''));
 
@@ -155,7 +159,7 @@ export function armarRepaso(notas, { fecha = '', ...opciones } = {}) {
       const cap = i === 0 ? Math.max(8, tope - contarPalabras(apertura)) : tope;
       const voz = partesQueEntran([conPunto(nota.titulo), ...frases(nota.bajada ?? '').slice(0, 1)], cap);
       return escena('placa-nota', REPASO.porNota, {
-        rotulo: titulo, i, n, titulo: tituloEnPantalla(nota.titulo), seccion: nota.seccion, foto: fotoDe(nota.foto), marca: i === 0 ? null : nota.titulo,
+        rotulo: titulo, i, n, titulo: tituloEnPantalla(nota.titulo), seccion: nota.seccion, foto: fotoDe(nota.foto), marca: i === 0 ? null : nota.titulo, ...conGrafico(nota),
         ...(i === 0 ? { palabrasDeApertura: contarPalabras(apertura) } : {}), // el resaltado de la lista arranca cuando la voz llega a la primera noticia, no con el saludo
       }, i === 0 ? unir(apertura, voz) : voz);
     }),
@@ -226,7 +230,7 @@ export function armarNotaReel(nota, opciones = {}) {
   const base = { rotulo, n: 3, seccion: nota.seccion };
   const cierre = contarPalabras(CIERRE_NOTA);
   const escenas = [
-    escena('placa-nota', d1, { ...base, i: 0, titulo: tituloEnPantalla(nota.titulo), foto: fotoA, marca: null },
+    escena('placa-nota', d1, { ...base, i: 0, titulo: tituloEnPantalla(nota.titulo), foto: fotoA, marca: null, ...conGrafico(nota) },
       unir(saludo, partesQueEntran([ganchoDe(nota.titulo), fr[0]], Math.max(8, topeDeVoz(d1 - 0.5, total) - contarPalabras(saludo))))),
     escena('placa-nota', d2, { ...base, i: 1, titulo: tituloEnPantalla(fr[1]), foto: fotoB, marca: fr[1] }, partesQueEntran([fr[1]], topeDeVoz(d2, total))),
     escena('placa-nota', d3, { ...base, i: 2, titulo: tituloEnPantalla(fr[2]), foto: fotoC, marca: fr[2] },
@@ -287,11 +291,51 @@ export function armarNotaPropia(nota, opciones = {}) {
       voz = partesQueEntran([frase], cap);
     }
     return escena('placa-nota', porPlaca, {
-      rotulo: 'Nota de Radar Balcarce', i, n, titulo: i === 0 ? tituloEnPantalla(nota.titulo) : tituloEnPantalla(frase), seccion: nota.seccion, foto: fotoDe(f), firma,
+      rotulo: 'Nota de Radar Balcarce', i, n, titulo: i === 0 ? tituloEnPantalla(nota.titulo) : tituloEnPantalla(frase), seccion: nota.seccion, foto: fotoDe(f), firma, ...(i === 0 ? conGrafico(nota) : {}),
       marca: i === 0 ? null : frase,
     }, ultima ? unir(voz, CIERRE_NOTA_PROPIA) : voz);
   });
   return video('nota-propia', escenas, { voz: opciones.voz ?? 'locutora', saludo, extra: { notaId: nota.id ?? null, seccion: nota.seccion, firma, requiereOkDeHernan: true } });
+}
+
+// ------------------------------------------------------------------ 10 ter. «El número del día» (20/11/2026)
+
+/** Cómo se dice una unidad en voz alta: «$» → pesos, «u$s» → dólares, «%» → por ciento; lo demás tal cual. */
+export function unidadHablada(unidad = '') {
+  const u = String(unidad ?? '').replace(/\s+/g, ' ').trim();
+  if (/^(\$|ar\$)$/i.test(u)) return 'pesos';
+  if (/^(us\$|u\$s)$/i.test(u)) return 'dólares';
+  if (u === '%') return 'por ciento';
+  return u;
+}
+
+/** El gráfico de una nota para la escena de datos del video: sólo si es válido (la misma revisión que el sitio). Un gráfico mal formado no se dibuja y la pieza sale igual. */
+export function graficoParaElVideo(nota) {
+  return graficoDeFicha({ grafico: nota?.grafico });
+}
+
+/**
+ * «El número del día»: un reel de ~15 s con la cifra más fuerte de una nota de las últimas 24 h (la elige el Worker: `numeroDelDia` de datos-de-nota.mjs). `nota`: { id, titulo, bajada, seccion,
+ * foto, slug }; `numero`: { principal: { valor, n, unidad, que, fuente }, comparacion: { valor, n, unidad, que } | null, variacion: { valor, n, unidad, que, baja } | null }.
+ * La voz es corta: «El número del día.», la cifra con su unidad y qué es, y la comparación (o la variación) si la hay, y el cierre. Nada se inventa: todo sale de `ficha.numeros` de la nota.
+ * Es UNA escena de placa de nota (si el kit 3.0 no puede dibujarlo, sale la placa de la nota con esa voz); el kit lo dibuja con su plantilla propia.
+ */
+export function armarNumeroDelDia(nota, numero, opciones = {}) {
+  exigirNota(nota, 'número del día');
+  const p = numero?.principal;
+  if (!p || !Number.isFinite(Number(p.n)) || !String(p.que ?? '').trim() || !String(p.unidad ?? '').trim()) throw new Error('número del día: falta la cifra con su unidad y qué es');
+  const saludo = saludoPara(opciones);
+  const dicho = (c) => `${String(c.valor).replace(/^\s*(?:US\$|u\$s|\$|ar\$)\s*/i, '').replace(/\s*(?:%|por ciento)\s*$/i, '')} ${unidadHablada(c.unidad)}`.replace(/\s+/g, ' ').trim();
+  const principal = partesQueEntran([`${dicho(p)}: ${String(p.que).replace(/[.\s]+$/, '')}.`], 22);
+  let segunda = '';
+  if (numero.comparacion) segunda = partesQueEntran([`Frente a ${String(numero.comparacion.que).replace(/[.\s]+$/, '')}: ${dicho(numero.comparacion)}.`], 20);
+  else if (numero.variacion) segunda = partesQueEntran([`${dicho(numero.variacion)}: ${String(numero.variacion.que).replace(/[.\s]+$/, '')}.`], 18);
+  const voz = unir(saludo, 'El número del día.', principal, segunda, CIERRE_NOTA);
+  const total = NUMERO_DEL_DIA.segundos;
+  const hablado = { principal: { valor: String(p.valor), n: Number(p.n), unidad: p.unidad, que: p.que, fuente: p.fuente ?? '' }, comparacion: numero.comparacion ? { valor: String(numero.comparacion.valor), n: Number(numero.comparacion.n), unidad: numero.comparacion.unidad, que: numero.comparacion.que } : null, variacion: numero.variacion ? { valor: String(numero.variacion.valor), n: Number(numero.variacion.n), unidad: numero.variacion.unidad, que: numero.variacion.que, baja: !!numero.variacion.baja } : null };
+  return video('numero-del-dia', [
+    escena('placa-nota', total, { rotulo: 'El número del día', i: 0, n: 1, titulo: tituloEnPantalla(nota.titulo), seccion: nota.seccion, foto: fotoDe(nota.foto), marca: null, numeroDelDia: hablado }, voz),
+  ], { voz: opciones.voz ?? 'locutora', saludo, extra: { notaId: nota.id ?? null, seccion: nota.seccion, numeroDelDia: hablado } });
 }
 
 // ------------------------------------------------------------------ 10 bis. pieza escrita a mano (sin foto, texto literal)
@@ -553,7 +597,7 @@ export function armarAviso(aviso, clima, { fecha = null, ...opciones } = {}) {
 
 /** Todos los armadores por nombre (lo que usa el ejemplo y quien conecte la publicación). */
 export const ARMADORES = Object.freeze({
-  clima: armarClima, repaso: armarRepaso, efemeride: armarEfemeride, 'nota-reel': armarNotaReel, 'nota-propia': armarNotaPropia, 'pieza-escrita': armarPiezaEscrita, 'historia-nota': armarHistoriaDeNota,
+  'numero-del-dia': armarNumeroDelDia, clima: armarClima, repaso: armarRepaso, efemeride: armarEfemeride, 'nota-reel': armarNotaReel, 'nota-propia': armarNotaPropia, 'pieza-escrita': armarPiezaEscrita, 'historia-nota': armarHistoriaDeNota,
   posteo: armarPosteo, carrusel: armarCarrusel, farmacia: armarFarmacia, participa: armarParticipa, enlace: armarEnlace,
   agenda: armarAgenda, utiles: armarUtiles, feriado: armarFeriado, aviso: armarAviso,
   'carrusel-nota': armarCarrusel, 'carrusel-semana': armarCarruselSemana, 'carrusel-finde': armarCarruselFinde,

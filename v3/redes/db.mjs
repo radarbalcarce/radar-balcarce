@@ -1,6 +1,7 @@
 // Lo único de las redes que habla con D1. Todas las funciones reciben `env` (con env.DB) primero.
 import { slugDe } from './texto.mjs';
 import { destinosPedidos } from './elegir.mjs';
+import { graficoDeFicha, numerosDeFicha } from './piezas/datos-de-nota.mjs';
 
 /** Las notas propias de servicio (clima del día, media kit y las que vengan con `ficha.marca`) no van a las redes: ni en un posteo ni en un repaso. */
 export const esNotaDeServicio = (n) => n?.id === 'mediakit' || !!n?.ficha?.marca;
@@ -39,6 +40,7 @@ export async function notasPropiasParaRedes(env, { desdeISO }) {
       id: f.id, titulo: f.titulo || '', bajada: f.bajada || '', enDosLineas: f.en_dos_lineas || '', seccion: f.seccion || '',
       foto: Array.isArray(foto) ? foto[0] ?? null : foto, noPublicar: analizar(f.no_publicar, null),
       deServicio: esNotaDeServicio({ id: f.id, ficha: analizar(f.ficha, null) }), slug: f.s_slug || slugDe(f.titulo), publicada: f.s_publicada || f.creada,
+      grafico: graficoDeFicha(analizar(f.ficha, null)), numeros: numerosDeFicha(analizar(f.ficha, null)),
       motivo: 'propia', medios: 0, propia: true, redesElegidas: elegidas,
       menciones: Array.isArray(redes?.menciones) ? redes.menciones : [],
       alRepaso: redes?.repaso === true, pedida: redes?.pedida ?? null, // /repaso en Telegram: va primera en el próximo repaso (sólo vale 24 h desde `pedida`)
@@ -93,6 +95,8 @@ const nucleoDeFila = (f) => ({
     foto: analizar(f.foto, null),
     noPublicar: analizar(f.no_publicar, null),
     deServicio: esNotaDeServicio({ id: f.id, ficha: analizar(f.ficha, null) }),
+    grafico: graficoDeFicha(analizar(f.ficha, null)), // el gráfico propio de la nota (ficha.grafico, ya revisado) y sus cifras: los usan el reel y «El número del día»
+    numeros: numerosDeFicha(analizar(f.ficha, null)),
     slug: f.s_slug || slugDe(f.titulo),
     publicada: f.s_publicada || f.creada,
     motivo: f.motivo || '',

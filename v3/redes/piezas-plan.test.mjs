@@ -27,7 +27,7 @@ function conNotas() {
 test('la tabla de horarios es la de hoy: mismas piezas, horas, ventanas, días y prioridad que redes/piezas-del-dia.mjs (mientras exista el viejo)', async (t) => {
   let viejo;
   try { ({ PIEZAS_DEL_DIA: viejo } = await import('../../redes/piezas-del-dia.mjs')); } catch { t.skip('el sistema viejo ya no está'); return; }
-  for (const p of PIEZAS_DEL_DIA.filter((x) => !x.id.startsWith('aviso-') && x.formato !== 'carrusel' && !x.porNota)) {
+  for (const p of PIEZAS_DEL_DIA.filter((x) => !x.id.startsWith('aviso-') && x.formato !== 'carrusel' && !x.porNota && x.id !== 'numero-del-dia')) {
     const v = viejo.find((x) => x.id === p.id);
     assert.ok(v, `${p.id} no está en la tabla vieja`);
     assert.deepEqual([p.hora, p.ventana, [...p.dias], p.voz, p.hashtag], [v.hora, v.ventana, [...v.dias], v.voz, v.hashtag], p.id);
@@ -419,4 +419,60 @@ test('planear: una nota que salió como posteo anteayer no vuelve al repaso (ven
   t.sqlite.prepare("INSERT INTO publicaciones (red, nota_id, seccion, tipo, cuando, dia, estado, simulado, texto) VALUES ('facebook', 'locC', 'Balcarce', 'local', ?, ?, 'ok', 1, 'x')").run(`${anteayer}T15:00:00.000Z`, anteayer);
   const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true, solo: ['noticia1'] });
   assert.deepEqual(p.piezas[0].datos.notasIds, ['locA', 'locB', 'locD']); // locC ya salió como posteo
+});
+
+// ─── «El número del día» (20/11/2026) ───────────────────────────────────────────────────────────────────────────────────────────────────────────────
+const A_LAS_13 = new Date('2026-11-03T16:10:00.000Z'); // martes 13:10 de Balcarce
+const conCifra = (t, id = 'eco11111') => {
+  guardarNota(t.sqlite, { id, titulo: 'La balanza comercial sumó un superávit de u$s 3.394 millones en octubre', seccion: 'Economía', motivo: 'popular', medios: ['a', 'b', 'c', 'd', 'e', 'f'], creada: hace(90, A_LAS_13), estado: 'borrador' });
+  const ficha = { numeros: [
+    { valor: 'u$s 3.394', unidad: 'millones de dólares', que: 'superávit comercial de octubre', fuente: 'INDEC' },
+    { valor: 'u$s 813', unidad: 'millones de dólares', que: 'superávit comercial de octubre de 2025', fuente: 'INDEC' },
+  ] };
+  t.sqlite.prepare('UPDATE notas SET ficha = ? WHERE id = ?').run(JSON.stringify(ficha), id);
+  return t;
+};
+
+test('el número del día: la fila de la tabla está prendida (20/11/2026) y no es condicional (sale sólo si hay una cifra fuerte)', () => {
+  const fila = PIEZAS_DEL_DIA.find((p) => p.id === 'numero-del-dia');
+  assert.ok(fila);
+  assert.ok(!fila.pausada);
+  assert.ok(!fila.condicional);
+  assert.equal(fila.formato, 'reel');
+});
+
+test('el número del día prendido: a las 13 con una cifra fuerte se reserva solo, sin pedirlo a mano', async () => {
+  const t = conCifra(conNotas());
+  const p = await planear({ DB: t.DB }, { ahora: A_LAS_13, simulado: true });
+  assert.ok(p.piezas.some((x) => x.id === 'numero-del-dia'));
+});
+
+test('el número del día pedido a mano: elige la nota con la cifra y su comparación, y gasta un solo audio', async () => {
+  const t = conCifra(conNotas());
+  const p = await planear({ DB: t.DB }, { ahora: A_LAS_13, simulado: true, solo: ['numero-del-dia'] });
+  assert.equal(p.piezas.length, 1);
+  const n = p.piezas[0];
+  assert.equal(n.id, 'numero-del-dia');
+  assert.equal(n.datos.nota.id, 'eco11111');
+  assert.equal(n.datos.numero.principal.n, 3394);
+  assert.equal(n.datos.numero.comparacion.n, 813);
+  assert.deepEqual(n.datos.notasIds, ['eco11111']);
+  assert.equal(p.vozQuedan, REGLAS_PIEZAS.audiosPorDia - 1);
+});
+
+test('el número del día sin cifra que valga: no sale, no se reserva y no gasta voz', async () => {
+  const t = conNotas(); // notas sin ficha.numeros
+  const p = await planear({ DB: t.DB }, { ahora: A_LAS_13, simulado: true, solo: ['numero-del-dia'] });
+  assert.equal(p.piezas.length, 0);
+  assert.ok(p.descartes.some((d) => d.pieza === 'numero-del-dia' && d.motivo === 'sin-numero-fuerte'));
+  assert.equal(p.vozQuedan, REGLAS_PIEZAS.audiosPorDia);
+  assert.equal(t.sqlite.prepare("SELECT COUNT(*) AS n FROM piezas").get().n, 0);
+});
+
+test('el número del día deja pasar a lo que ya existe cuando queda poco cupo (margen de voz)', async () => {
+  const t = conCifra(conNotas());
+  // con 2 audios en total, el número del día (voz 5, margen 2) no entra si hace falta guardar lugar; los repasos y el clima siguen como antes
+  const p = await planear({ DB: t.DB, VOZ_TOPE_DIARIO: '2' }, { ahora: A_LAS_13, simulado: true, solo: ['numero-del-dia'] });
+  assert.equal(p.piezas.length, 0);
+  assert.ok(p.descartes.some((d) => d.pieza === 'numero-del-dia' && d.motivo === 'sin-cupo-de-voz'));
 });

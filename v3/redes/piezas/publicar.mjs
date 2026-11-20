@@ -60,6 +60,8 @@ export function textoDePieza(pieza, item, red) {
   }
   // La nota propia: la bajada (el resumen del guion arrancaba con el mismo titular de la primera línea: se leía dos veces, 10/11).
   else if (item.arma === 'nota-propia' && item.datos?.nota?.bajada) lineas.push(limpiar(item.datos.nota.bajada));
+  // «El número del día»: la nota de la que sale la cifra (el título) y la fuente de la cifra; la voz ya la dijo.
+  else if (item.arma === 'numero-del-dia' && item.datos?.nota?.titulo) lineas.push(limpiar(item.datos.nota.titulo), ...(item.datos.numero?.principal?.fuente ? [`Fuente de la cifra: ${limpiar(item.datos.numero.principal.fuente)}.`] : []));
   // La pieza escrita a mano (guion literal): el texto del posteo también va escrito a mano, línea por línea.
   else if (item.arma === 'pieza-escrita' && item.datos?.texto?.length) lineas.push(...item.datos.texto.map(limpiar));
   else lineas.push(resumenDelGuion(pieza.guion));
@@ -69,7 +71,7 @@ export function textoDePieza(pieza, item, red) {
   const servicio = SERVICIOS_CON_PAGINA[item.arma];
   // Si la pieza tiene su nota del día (la efeméride, el clima de mañana), el enlace va a la nota: el sitio acepta cualquier título delante del id y redirige a la dirección de siempre.
   const notaDelDia = notaDeLaPiezaEnLaWeb(item);
-  if ((item.arma === 'nota-propia' || item.arma === 'pieza-escrita') && item.datos?.nota?.id) lineas.push('', red === 'instagram' ? 'La nota completa: link en la bio.' : `La nota completa: ${ponerOrigen(enlaceDeNota(item.datos.nota), { fuente: red === 'youtube' ? 'youtube' : 'facebook', campana: 'reel-nota', contenido: item.datos.nota.id })}`);
+  if ((item.arma === 'nota-propia' || item.arma === 'pieza-escrita' || item.arma === 'numero-del-dia') && item.datos?.nota?.id) lineas.push('', red === 'instagram' ? 'La nota completa: link en la bio.' : `La nota completa: ${ponerOrigen(enlaceDeNota(item.datos.nota), { fuente: red === 'youtube' ? 'youtube' : 'facebook', campana: 'reel-nota', contenido: item.datos.nota.id })}`);
   else if (notaDelDia) lineas.push('', red === 'instagram' ? 'La nota completa: link en la bio.' : `La nota completa: ${ponerOrigen(notaDelDia, { fuente: red === 'youtube' ? 'youtube' : 'facebook', campana: 'nota', contenido: item.id ?? item.arma })}`);
   else if (red === 'instagram') lineas.push('', 'Todo en Radar Balcarce: link en la bio.');
   else if (servicio) lineas.push('', `${servicio.frase}: ${ponerOrigen(`${SITIO}${servicio.camino}`, { fuente: 'facebook', campana: 'servicio', contenido: item.id ?? item.arma })}`);

@@ -6,6 +6,7 @@ import { filaDeLista } from './portada.mjs';
 import { esClimaDiario, fotoDelClima, actualizadaHtml, enlacesDelVideoHtml } from './clima-diario.mjs';
 import { esEfemerides, efemeridesHtml, rotuloDeEfemeride } from './efemerides-nota.mjs';
 import { graficoDeNota, graficoHtml } from './grafico-nota.mjs';
+import { lineaDeTiempoHtml } from './linea-de-tiempo.mjs';
 
 export const FIRMA_IA = 'Redacción Radar Balcarce';
 
@@ -40,7 +41,7 @@ export function firmaDe(n) {
 }
 
 /** Los bloques que salen de la ficha. Devuelve el HTML (vacío si no hay con qué). */
-export function bloquesDeFicha(ficha) {
+export function bloquesDeFicha(ficha, { conLineaDeTiempo = false, seccion = 'Balcarce' } = {}) {
   if (!ficha || typeof ficha !== 'object') return '';
   const partes = [];
 
@@ -50,7 +51,10 @@ export function bloquesDeFicha(ficha) {
   }
 
   const cron = (Array.isArray(ficha.cronologia) ? ficha.cronologia : []).filter((c) => c && lleno(c.fecha) && lleno(c.que));
-  if (cron.length >= 3) {
+  // Con el interruptor NOTAS_CON_LINEA_DE_TIEMPO del sitio, la cronología se dibuja como línea de tiempo (con su lista ordenada para lectores); sin él, la lista de siempre.
+  const linea = conLineaDeTiempo ? lineaDeTiempoHtml(ficha, { seccion }) : '';
+  if (linea) partes.push(linea);
+  else if (cron.length >= 3) {
     partes.push(`<section class="bloque" id="cronologia"><h2>Cronología</h2><ol>${cron.map((c) => `<li><strong>${esc(c.fecha)}:</strong> ${esc(c.que)}</li>`).join('')}</ol></section>`);
   }
 
@@ -238,7 +242,7 @@ export function placaDeNota(n, ranura) {
   return `<div class="placa-nota" style="--pc:${colorDe(ranura)}" aria-hidden="true"><em>${esc(n.seccion)}</em><b>Radar<i>Balcarce</i></b></div>`;
 }
 
-export function paginaDeNota(n, { indexar, contexto, seguir = [], contadas = [], conGrafico = false }) {
+export function paginaDeNota(n, { indexar, contexto, seguir = [], contadas = [], conGrafico = false, conLineaDeTiempo = false }) {
   const parrafos = parrafosDe(n.cuerpo);
   const canonico = rutaDeNota(n);
   const ranura = ranuraDe(n.seccion);
@@ -259,7 +263,7 @@ ${esEfemerides(n) ? '' : foto ? figura({ url: foto.url, alt: foto.alt || n.titul
 ${esClimaDiario(n) ? lugarRotativo(contexto, 'clima', 'C1') : ''}${esEfemerides(n) ? efemeridesHtml(n) : cuerpoHtml(n, parrafos, contexto, { conGrafico })}
 </div>
 ${enlacesDelVideoHtml(n)}
-${esEfemerides(n) ? '' : bloquesDeFicha(n.ficha)}
+${esEfemerides(n) ? '' : bloquesDeFicha(n.ficha, { conLineaDeTiempo, seccion: n.seccion })}
 ${firmaHtml(n) ? `<p class="firma">${firmaHtml(n)}</p>` : ''}
 ${fuentesHtml(n.fuentes || [])}
 ${compartirHtml(n, canonico)}

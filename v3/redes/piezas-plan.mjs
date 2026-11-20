@@ -8,6 +8,7 @@ import { diaDeBalcarce, motivoDeExclusion, tipoDeNota, tieneFoto, saleEn, REGLAS
 import { mediosParaPublicar } from '../nucleo/elegir/elegir.mjs'; // el piso de medios con que el sitio publica lo de afuera: un solo lugar (el núcleo)
 import { notasParaRedes, publicacionesDelDia } from './db.mjs';
 import * as dbp from './piezas-db.mjs';
+import { numeroDelDia } from './piezas/datos-de-nota.mjs';
 import { datosDeLaSemana, proximaNotaConCarrusel, proximaNotaConReel } from './piezas-carruseles.mjs';
 
 export const REGLAS_PIEZAS = Object.freeze({
@@ -95,7 +96,7 @@ function completarRepaso(validas, { primeras, localesYa, reglas, tipo }) {
 }
 
 /** La nota como la necesita el armador (la forma de v3/nucleo/CONTRATO.md, sólo lo que hace falta; sin el cuerpo). */
-const paraElArmador = (n) => ({ deBalcarce: tipoDeNota(n) === 'local', id: n.id, titulo: n.titulo, bajada: n.bajada, seccion: n.seccion, firma: 'Redacción Radar Balcarce', foto: n.foto ? { url: n.foto.url, credito: n.foto.credito ?? '', alt: n.titulo, ancho: n.foto.ancho, alto: n.foto.alto } : null });
+const paraElArmador = (n) => ({ deBalcarce: tipoDeNota(n) === 'local', id: n.id, titulo: n.titulo, bajada: n.bajada, seccion: n.seccion, firma: 'Redacción Radar Balcarce', foto: n.foto ? { url: n.foto.url, credito: n.foto.credito ?? '', alt: n.titulo, ancho: n.foto.ancho, alto: n.foto.alto } : null, ...(n.grafico ? { grafico: n.grafico } : {}) });
 
 const cuentanComoHecha = new Set(['en-curso', 'lista', 'publicada']);
 const hablaEnElBloque = (f) => cuentanComoHecha.has(f.estado);
@@ -157,7 +158,7 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
   let youtubeHoy = filas.filter((f) => cuentanComoHecha.has(f.estado)).reduce((s, f) => s + ((f.acciones ?? []).some((a) => a.red === 'youtube' && a.estado !== 'error' && a.estado !== 'omitida') ? 1 : 0), 0);
   for (const p of pendientes) {
     const reservar = PIEZAS_DEL_DIA.filter((x) => x.voz < p.voz && porSalirHoy(x) && !salen.some((s) => s.id === x.id)).length;
-    if (!p.sinVoz && tope - usados - reservar <= 0) { descartes.push({ pieza: p.id, motivo: 'sin-cupo-de-voz', quedan: Math.max(0, tope - usados), reservadas: reservar }); continue; }
+    if (!p.sinVoz && tope - usados - reservar - (p.margenDeVoz ?? 0) <= 0) { descartes.push({ pieza: p.id, motivo: 'sin-cupo-de-voz', quedan: Math.max(0, tope - usados), reservadas: reservar }); continue; }
 
     let datos = {};
     let notas = null;
@@ -169,6 +170,14 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
       // Con 2 notas (no alcanzaron 3 sin repetir, ni mirando 48 h) el repaso sale corto y queda anotado por qué; el resumen del día lo cuenta.
       if (motivoDelRepaso) avisos.push({ pieza: p.id, motivo: `repaso-corto (${motivoDelRepaso})`, notas: elegidas.length });
       datos = { notas: elegidas.map(paraElArmador), notasIds: elegidas.map((n) => n.id), sinBalcarce: !elegidas.some((n) => tipoDeNota(n) === 'local'), ...(motivoDelRepaso ? { motivoCorto: motivoDelRepaso } : {}), ...(de48h ? { de48h } : {}) };
+      notas = datos.notasIds;
+    } else if (p.arma === 'numero-del-dia') {
+      // «El número del día» (20/11/2026): lo decide el Worker con las notas de las últimas 24 h (misma compuerta que los repasos). Sin cifra que valga no se reserva nada: la pieza no sale ese día y no toca el cupo de voz.
+      notasCargadas ??= (await notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - (reglas.edadDeRespaldoHoras ?? reglas.edadDeLasNotasHoras) * 3600_000).toISOString(), conBorradores: simulado })).filter((n) => !n.propia || n.alRepaso);
+      const elegida = numeroDelDia(notasCargadas, { ahora, yaUsadas: [...notasDeHoy, ...salen.flatMap((s) => s.datos.notasIds ?? [])] });
+      if (!elegida) { descartes.push({ pieza: p.id, motivo: 'sin-numero-fuerte' }); continue; }
+      const { principal, comparacion, variacion } = elegida.numero;
+      datos = { nota: { ...paraElArmador(elegida.nota), slug: elegida.nota.slug }, numero: { principal, comparacion, variacion }, notasIds: [elegida.nota.id] };
       notas = datos.notasIds;
     } else if (p.arma === 'clima') {
       auspicio = auspicioDelDia(await dbp.avisosDelClima(env, dia), dia);

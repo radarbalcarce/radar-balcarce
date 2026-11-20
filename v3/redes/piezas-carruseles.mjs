@@ -138,7 +138,7 @@ export async function proximaNotaConReel(env, { ahora, simulado }) {
     const pieza = `reel-nota-${n.id}`;
     if (await dbp.piezaYaSalio(env, pieza, simulado)) yaSalieron += 1;
     if (!(await dbp.piezaYaSalio(env, pieza, simulado)) && (await dbp.intentosFallidosDe(env, pieza, simulado)) < 3) {
-      return { pieza, nota: { ...notaParaElCarrusel(n), bajada: n.bajada, cuerpo: n.cuerpo, fotos: fotosDelReel(n), ...(destinosPedidos(n.redes).length ? { destinos: destinosPedidos(n.redes) } : {}) } };
+      return { pieza, nota: { ...notaParaElCarrusel(n), bajada: n.bajada, cuerpo: n.cuerpo, fotos: fotosDelReel(n), ...(n.grafico ? { grafico: n.grafico } : {}), ...(destinosPedidos(n.redes).length ? { destinos: destinosPedidos(n.redes) } : {}) } };
     }
   }
   // Sin nota: se cuenta en qué filtro se cayeron, para que el plan lo diga (10/11: el primer reel no salió y no había forma de saber por qué).

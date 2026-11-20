@@ -20,7 +20,7 @@ export const SUBS_DERECHA = 940;
 /** Subtítulos: hasta 4 palabras y 24 letras por cartel. */
 export const CARTEL = Object.freeze({ maxPalabras: 4, maxCaracteres: 24 });
 /** Piezas que el kit sabe dibujar (id de la pieza armada). Lo demás sale con el dibujo de siempre. */
-export const PIEZAS_DEL_KIT = Object.freeze(['clima', 'clima-auspiciado', 'repaso-manana', 'repaso-tarde', 'repaso-noche', 'efemeride', 'farmacia', 'nota-reel', 'nota-propia']);
+export const PIEZAS_DEL_KIT = Object.freeze(['clima', 'clima-auspiciado', 'repaso-manana', 'repaso-tarde', 'repaso-noche', 'efemeride', 'farmacia', 'nota-reel', 'nota-propia', 'numero-del-dia']);
 /** El tope de fotos por pieza de nota. */
 export const FOTOS_MAXIMO = 3;
 /** Los colores de la marca para las piezas sin sección. */

@@ -426,7 +426,7 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       const indexarNota = indexar && !noSeIndexa(nota);
       // «Lo más contado»: lo de las últimas 48 horas con más fuentes, sin repetir lo que ya está en «Seguí leyendo».
       const contadas = masContadas(ultimas, { ahora: ahora(), excluir: [nota.id, ...seguir.map((x) => x.id)] });
-      return { r: respuesta(paginaDeNota(nota, { indexar: indexarNota, contexto: contextoNota, seguir, contadas, conGrafico: env.NOTAS_CON_GRAFICO === 'si' }), { cache: contextoNota.publicidad.hayAvisos ? CACHE.conAvisos : CACHE.nota, indexar: indexarNota }), cachear: true };
+      return { r: respuesta(paginaDeNota(nota, { indexar: indexarNota, contexto: contextoNota, seguir, contadas, conGrafico: env.NOTAS_CON_GRAFICO === 'si', conLineaDeTiempo: env.NOTAS_CON_LINEA_DE_TIEMPO === 'si' }), { cache: contextoNota.publicidad.hayAvisos ? CACHE.conAvisos : CACHE.nota, indexar: indexarNota }), cachear: true };
     }
 
     if (ruta === '/buscar') {

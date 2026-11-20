@@ -11,6 +11,8 @@ import { estadoDelCielo, renglonesDelCielo } from './cielo.mjs';
 import {
   agruparEnCarteles, buscarFrase, buscarMarcas, duracionDelKit, finDeFrase, inicioDeLasPartes, normalizar, palabrasDeLaVoz, palabrasEstimadas, tiempoDe,
 } from './tiempos.mjs';
+import { acentoClaro, datosParaLaPlantilla, prefijoYSufijo, tramoDelGrafico } from './grafico.mjs';
+import { formatoDeLaCifra } from '../piezas/datos-de-nota.mjs';
 import { CIERRE_SEGUNDOS, COLA_SEGUNDOS, FOTOS_MAXIMO, MARCA, PIEZAS_DEL_KIT } from './variables.mjs';
 
 export const aplicaKit3 = (pieza) => pieza?.tipo === 'video' && PIEZAS_DEL_KIT.includes(pieza.id);
@@ -128,6 +130,22 @@ const lluviaTexto = (p) => (p > 0 ? `Lluvia ${p} %` : 'Sin lluvia');
 
 // ------------------------------------------------------------------ repaso
 
+/** El gráfico del repaso: el de la PRIMERA nota que lo traiga, en el tramo de voz que sigue a su titular (máximo uno por pieza). Nunca tira: si algo no sirve, el repaso sale sin gráfico. */
+function graficoDelRepaso({ placas, P, t, apertura }) {
+  try {
+    const i = placas.findIndex((e) => e.datos?.grafico);
+    if (i < 0) return null;
+    const durTotal = duracionDelKit(P, { cola: COLA_SEGUNDOS, cierre: CIERRE_SEGUNDOS });
+    const tFin = Math.min(t[placas.length] ?? durTotal - CIERRE_SEGUNDOS, durTotal - CIERRE_SEGUNDOS - 0.8);
+    const iIni = i === 0 ? (apertura || 0) : P.findIndex((p) => p.a >= t[i] + 0.1);
+    const limite = (i < placas.length - 1 ? t[i + 1] : tFin) - 0.1;
+    const tramo = tramoDelGrafico(P, iIni, limite);
+    if (!tramo) return { datos: null, avisos: ['el gráfico de la nota no entra en el tiempo de su voz: sale sin gráfico'] };
+    const datos = datosParaLaPlantilla(placas[i].datos.grafico, { ...tramo, color: MARCA.rojo });
+    return datos ? { datos, avisos: [] } : { datos: null, avisos: ['el gráfico de la nota no es válido: sale sin gráfico'] };
+  } catch (e) { return { datos: null, avisos: [`el gráfico falló (${String(e?.message ?? e).slice(0, 80)}): sale sin gráfico`] }; }
+}
+
 function adaptarRepaso(pieza, P, ctx) {
   const placas = pieza.escenas.filter((e) => e.tipo === 'placa-nota');
   const lista = pieza.escenas.find((e) => e.tipo === 'placa-lista');
@@ -145,9 +163,10 @@ function adaptarRepaso(pieza, P, ctx) {
     const f = fotoParaElKit(e.datos.foto, fotos);
     return { titular: e.datos.titulo, foto: f };
   });
-  const datos = { titulo: `El repaso ${l2}`, l1: 'El repaso', l2, notas, t: t.slice(0, placas.length + 1), momento, momentoTexto: { manana: 'Mañana', tarde: 'Tarde', noche: 'Noche' }[momento] ?? 'Hoy' };
+  const grafico = ctx.graficos ? graficoDelRepaso({ placas, P, t, apertura }) : null;
+  const datos = { titulo: `El repaso ${l2}`, l1: 'El repaso', l2, notas, t: t.slice(0, placas.length + 1), momento, ...(grafico?.datos ? { grafico: grafico.datos } : {}), momentoTexto: { manana: 'Mañana', tarde: 'Tarde', noche: 'Noche' }[momento] ?? 'Hoy' };
   return {
-    plantilla: 'repaso', datos, fotos, fondo: null, subsTop: SUBS_TOP,
+    plantilla: 'repaso', datos, fotos, fondo: null, subsTop: SUBS_TOP, avisos: grafico?.avisos ?? [],
     hl: { bg: MARCA.rojo, fg: '#fff' },
     scrim: 'linear-gradient(180deg,rgba(8,10,14,.4) 0%,rgba(8,10,14,0) 16%)',
   };
@@ -226,6 +245,22 @@ function adaptarFarmacia(pieza, P, ctx) {
 
 // ------------------------------------------------------------------ notas (reel de nota y nota propia)
 
+/** El gráfico del reel de una nota: va después del titular, en el tramo de voz de la frase que sigue, y termina antes del cierre hablado («La nota completa, en Radar Balcarce punto com»). */
+function graficoDeLaNota({ primera, P, pieza, color }) {
+  try {
+    if (!primera.grafico) return null;
+    const iIni = palabrasDe(pieza.saludo);
+    let cierre = -1; // donde empieza la última oración: el cierre hablado
+    for (let k = P.length - 2; k >= 0; k -= 1) if (/[.?!]["»”)]*$/.test(P[k].w) || P[k].fin === true) { cierre = k + 1; break; }
+    const durTotal = duracionDelKit(P, { cola: COLA_SEGUNDOS, cierre: CIERRE_SEGUNDOS });
+    const limite = (cierre > 0 ? P[cierre].a : durTotal - CIERRE_SEGUNDOS) - 0.15;
+    const tramo = tramoDelGrafico(P, iIni, limite);
+    if (!tramo) return { datos: null, avisos: ['el gráfico de la nota no entra en el tiempo de su voz: sale sin gráfico'] };
+    const datos = datosParaLaPlantilla(primera.grafico, { ...tramo, color });
+    return datos ? { datos, avisos: [] } : { datos: null, avisos: ['el gráfico de la nota no es válido: sale sin gráfico'] };
+  } catch (e) { return { datos: null, avisos: [`el gráfico falló (${String(e?.message ?? e).slice(0, 80)}): sale sin gráfico`] }; }
+}
+
 function adaptarNota(pieza, P, ctx) {
   const placas = pieza.escenas.filter((e) => e.tipo === 'placa-nota');
   const primera = placas[0].datos;
@@ -237,22 +272,59 @@ function adaptarNota(pieza, P, ctx) {
     const f = fotoParaElKit(e.datos.foto, fotos);
     return { titular: e.datos.titulo, foto: f };
   });
+  const grafico = ctx.graficos ? graficoDeLaNota({ primera, P, pieza, color: colorSeccion }) : null;
   const datos = {
+    ...(grafico?.datos ? { grafico: grafico.datos } : {}),
     seccion: primera.seccion, color: colorSeccion, firma: primera.firma ? `Por ${primera.firma}` : '', escenas, t: t.slice(0, escenas.length),
     tapa: { titulo: primera.titulo, foto: escenas[0].foto },
   };
   return {
-    plantilla: 'nota', datos, fotos, fondo: null, subsTop: SUBS_TOP,
+    plantilla: 'nota', datos, fotos, fondo: null, subsTop: SUBS_TOP, avisos: grafico?.avisos ?? [],
     scrim: 'linear-gradient(180deg,rgba(8,10,14,.4) 0%,rgba(8,10,14,0) 16%)',
     hl: { bg: colorSeccion, fg: '#fff' },
     rotulo: { txt: primera.seccion, bg: colorSeccion },
   };
 }
 
+// ------------------------------------------------------------------ «El número del día»
+
+const ES_SIGNO = /^(\$|us\$|u\$s|ar\$|%)$/i;
+const decimalesDe = (n) => { const x = String(Math.round(n * 100) / 100); return x.includes('.') ? x.split('.')[1].length : 0; };
+
+function adaptarNumero(pieza, P, ctx) {
+  const esc = pieza.escenas[0].datos;
+  const nd = esc.numeroDelDia;
+  const color = ctx.colorDeSeccion?.(esc.seccion) ?? MARCA.rojo;
+  const fotos = [];
+  const foto = fotoParaElKit(esc.foto, fotos);
+  const p = nd.principal;
+  const signo = ES_SIGNO.test(String(p.unidad).trim());
+  const { pre, suf } = signo ? prefijoYSufijo(p.unidad) : { pre: '', suf: '' };
+  // Las marcas de la voz: la cifra arranca cuando termina «El número del día.»; la comparación o la variación, cuando la voz dice «Frente a…».
+  const [iNum] = buscarMarcas(P, ['numero']);
+  const iFin = iNum >= 0 ? finDeFrase(P, iNum) : -1;
+  const tCifra = iFin >= 0 && P[iFin + 1] ? tiempoDe(P, iFin + 1, 0.9) : 0.9;
+  const [iFrente] = nd.comparacion ? buscarMarcas(P, ['frente'], { desde: Math.max(0, iFin) }) : [-1];
+  const tSegunda = nd.comparacion || nd.variacion ? (iFrente >= 0 ? tiempoDe(P, iFrente) : Number((tCifra + 3.2).toFixed(2))) : null;
+  const k = (c) => ({ n: c.n, dec: decimalesDe(c.n), texto: formatoDeLaCifra(c.n), que: c.que, unidad: c.unidad });
+  const datos = {
+    seccion: esc.seccion, color, acento: acentoClaro(color), foto, titulo: esc.titulo,
+    principal: { ...k(p), pre, suf, unidadAparte: signo ? '' : String(p.unidad).trim() },
+    comparacion: nd.comparacion ? { ...k(nd.comparacion), maximo: Math.max(p.n, nd.comparacion.n) } : null,
+    variacion: nd.variacion ? { ...k(nd.variacion), baja: !!nd.variacion.baja } : null,
+    fuente: p.fuente || '', tCifra: Math.max(0.5, tCifra), tSegunda,
+  };
+  return {
+    plantilla: 'numero', datos, fotos, fondo: null, subsTop: SUBS_TOP,
+    scrim: 'linear-gradient(180deg,rgba(8,10,14,.4) 0%,rgba(8,10,14,0) 16%)',
+    hl: { bg: color, fg: '#fff' }, rotulo: { txt: `${esc.seccion} · El número del día`, bg: color },
+  };
+}
+
 // ------------------------------------------------------------------ la entrada
 
 const ADAPTADORES = {
-  clima: adaptarClima, 'clima-auspiciado': adaptarClima, efemeride: adaptarEfemeride, farmacia: adaptarFarmacia, 'nota-reel': adaptarNota, 'nota-propia': adaptarNota,
+  clima: adaptarClima, 'clima-auspiciado': adaptarClima, efemeride: adaptarEfemeride, farmacia: adaptarFarmacia, 'nota-reel': adaptarNota, 'nota-propia': adaptarNota, 'numero-del-dia': adaptarNumero,
 };
 
 /**
@@ -261,13 +333,13 @@ const ADAPTADORES = {
  * @param {object} [o]    `palabras`: las de la voz ({ texto, desde, hasta }), si hay audio; `fotoEfemeride` y `fotoEfemerideAdemas`: { datos, ancho, alto, credito } de la foto del hecho principal y del segundo hecho; `colorDeSeccion(seccion)`.
  * @returns {{ id, plantilla, guion, dur, estimado, palabras, datos, fotos, fondo, hl, scrim, rotulo?, marcaClara?, avisos }}
  */
-export function desdePieza(pieza, { palabras = null, fotoEfemeride = null, fotoEfemerideAdemas = null, colorDeSeccion = null } = {}) {
+export function desdePieza(pieza, { palabras = null, fotoEfemeride = null, fotoEfemerideAdemas = null, colorDeSeccion = null, graficos = false } = {}) {
   if (!aplicaKit3(pieza)) throw new Error(`el kit 3.0 no dibuja «${pieza?.id}»`);
   if (!pieza.guion) throw new Error('la pieza no tiene guion');
   const { P, estimadas } = palabrasDelKit(pieza.guion, palabras);
   const adaptar = pieza.id.startsWith('repaso') ? adaptarRepaso : ADAPTADORES[pieza.id];
-  const r = adaptar(pieza, P, { fotoEfemeride, fotoEfemerideAdemas, colorDeSeccion });
-  const avisos = [];
+  const r = adaptar(pieza, P, { fotoEfemeride, fotoEfemerideAdemas, colorDeSeccion, graficos });
+  const avisos = [...(r.avisos ?? [])];
   if (estimadas) avisos.push('subtítulos con tiempos estimados (sin voz alineada)');
   for (const f of r.fotos) if (!f.credito) avisos.push(`la foto ${f.clave} no trae crédito`);
   return {

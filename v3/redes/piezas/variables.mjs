@@ -74,6 +74,8 @@ export const FARMACIA = congelar({ segundos: 14, minimo: 6, maximo: 20, fichasMa
 /** Una nota como reel: tres placas de las del repaso (la foto y el titular, y dos hechos), ~25 s. */
 export const NOTA_REEL = congelar({ escenas: congelar([8, 8.5, 8.5]), segundos: 25, maximo: 35 });
 /** La nota propia, como la de Halloween: una placa por foto (de 1 a 3). Con una dura 14 s, con dos 22 y con tres 30. */
+/** «El número del día» (20/11/2026): un reel corto con la voz que ajusta la duración. */
+export const NUMERO_DEL_DIA = congelar({ segundos: 15, maximo: 22 });
 export const NOTA_PROPIA = congelar({ fotosMin: 1, fotosMax: 3, segundosSegunFotos: congelar({ 1: 14, 2: 22, 3: 30 }), maximo: 35 });
 export const HISTORIA_DE_NOTA = congelar({ segundos: 6 }); // se ve ~5 s por pantalla (sin confirmar)
 export const PARTICIPA = congelar({ segundos: 18, maximo: 25 });

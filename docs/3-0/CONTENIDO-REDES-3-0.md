@@ -63,6 +63,8 @@ Todas las redes publican de verdad (`REDES_ACTIVAS = "si"`). Cupo de voz: **15 a
 
 ---
 
+**Nuevo el 20/11, prendido ese mismo día por pedido de Hernán (tres interruptores, ver `v3/redes/kit3/REGLAS.md`):** (1) **gráfico animado dentro de los reels** del repaso, de una nota y de una nota propia, cuando la nota trae su gráfico: una escena corta después de la foto con el titular, sin audio extra; (2) **«El número del día»**, un reel diario a las 13:00 con la cifra más fuerte de las notas de las últimas 24 horas (con su comparación si la hay); si ese día no hay una cifra clara, no sale, y no le quita voz a las demás piezas; (3) la **línea de tiempo** en la página de la nota (sitio, no redes).
+
 ## B. Lo que pidió Hernán el 17/11, contra lo que hay hoy
 
 | Pedido | Hoy | Diferencia | Qué hay que cambiar |

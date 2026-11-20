@@ -471,3 +471,14 @@ test('el crédito de las fotos va en el texto del posteo («Foto: …»), nunca 
   assert.ok(ef.indexOf('Foto:') < ef.indexOf('#'));
   assert.doesNotMatch(textoDePieza({ guion: 'x' }, item, 'facebook'), /Fotos?:/);
 });
+
+test('armarDelPlan: el número del día arma con su nota y su cifra; sin una de las dos, SinDatos (la pieza no sale)', () => {
+  const op = { horaDelDia: 13, primeraDelBloque: false, arma: 'numero-del-dia', id: 'numero-del-dia' };
+  const nota = { id: 'e1', titulo: 'La balanza comercial sumó un superávit', seccion: 'Economía', foto: null };
+  const numero = { principal: { valor: 'u$s 3.394', n: 3394, unidad: 'millones de dólares', que: 'superávit comercial de octubre', fuente: 'INDEC' }, comparacion: null, variacion: null };
+  const p = armarDelPlan({ ...op, datos: { nota, numero } }, { dia: '2026-11-03' });
+  assert.equal(p.id, 'numero-del-dia');
+  assert.ok(p.guion.length > 20);
+  assert.throws(() => armarDelPlan({ ...op, datos: { nota } }, { dia: '2026-11-03' }), SinDatos);
+  assert.throws(() => armarDelPlan({ ...op, datos: { numero } }, { dia: '2026-11-03' }), SinDatos);
+});

@@ -251,3 +251,10 @@ salvo el «¿seguro?» de Retirar; nada de afuera.
 - **Mapas del sitio:** sólo `sitemap.xml` y `sitemap-news.xml` están cargados en Search Console (el `sitemap-index.xml` viejo se sacó el 13/11: redirigía a `sitemap.xml` y contaba doble).
 - **Botones unificados.** Descargar y Compartir de cualquier imagen o gráfico (`.graf-acciones`: infografías de efemérides, gráfico del dólar, gráficos de notas) tienen un solo estilo y un solo guion (`GUION_DEL_MENU`, `vistas/base.mjs`). El gráfico del dólar se baja como imagen de la marca 1200×800 (`graficoDolarParaImagen`, SVG→PNG en el navegador con un Blob, nunca `data:` en el HTML).
 - **Formato de marca en toda imagen compartible:** fondo papel, raya de tinta y cierre «Radar Balcarce» + radarbalcarce.com (`docs/3-0/FORMATO-DE-IMAGENES.md`). La placa de una nota sin foto lleva radarbalcarce.com.
+
+## 18. La línea de tiempo de una nota (20/11)
+
+- **Qué es.** Si la ficha de la nota trae `cronologia` con **3 o más hechos con fecha y texto** (hasta 12), la sección «Cronología» se dibuja como una línea de tiempo vertical (HTML y CSS propios, sin librerías ni scripts, `vistas/linea-de-tiempo.mjs`): un punto por hecho, la fecha y lo que pasó; los puntos llevan el color de la sección y el último el rojo de la marca. Con menos de 3 hechos no se dibuja nada y la nota queda como antes.
+- **Interruptor:** `NOTAS_CON_LINEA_DE_TIEMPO` en `wrangler.toml` (prendido, «si», desde el 20/11/2026; `sitio.mjs` lo lee). En «no», la nota se ve exactamente como siempre.
+- **Accesible y de celular:** el dibujo se esconde a los lectores de pantalla (`aria-hidden`) y una lista ordenada fuera de la vista dice los mismos hechos; en pantallas de hasta 560 px la fecha pasa encima del texto y el punto queda a la izquierda. El texto de la ficha se escapa.
+- **Hay que desplegar sólo `sitio`.** Pruebas: `vistas/linea-de-tiempo.test.mjs`.

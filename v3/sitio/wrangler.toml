@@ -29,6 +29,8 @@ bucket_name = "radar-fotos"
 INDEXAR = "si"
 # Gráfico propio en las notas (sitio/REGLAS § 17, 19/11): "si" dibuja `ficha.grafico` después del segundo párrafo de la nota. "no" = no se dibuja nada (las notas con gráfico se ven como siempre).
 NOTAS_CON_GRAFICO = "si"
+# Línea de tiempo en las notas (sitio/REGLAS § 18, 20/11): "si" dibuja `ficha.cronologia` (3 hechos con fecha o más) como una línea de tiempo con puntos, con su lista ordenada para lectores. "no" = la lista de siempre. APAGADO hasta que Hernán lo confirme.
+NOTAS_CON_LINEA_DE_TIEMPO = "si"
 # Cloudflare Web Analytics (sin cookies): el token público del sitio de Web Analytics que ya existe en la cuenta. Vacío = sin medición.
 CF_BEACON = "63fea16828ce46988d62382b0fbabf60"
 # AdSense y Google Analytics, APAGADOS. Con valor aparece el aviso de cookies, el script (sólo si el lector acepta) y /ads.txt. Formatos: ca-pub-1234567890123456 y G-XXXXXXXXXX.

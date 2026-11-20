@@ -49,6 +49,14 @@ está en pausa.** Cualquier otra pieza sale con el dibujo de siempre aunque el k
 
 Variables: `KIT_3_0` (`si` prende; vacío o cualquier otra cosa apaga), `KIT3_FONDOS` (carpeta de los clips), `KIT3_CALIDAD` (calidad de HyperFrames, por defecto `looks`), `KIT3_DEPURAR` (deja la carpeta de trabajo).
 
+## El gráfico animado dentro del reel y «El número del día» (20/11/2026)
+
+- **Gráfico dentro del reel.** Si la nota trae `ficha.grafico` válido (barras o línea, de 3 a 8 datos; la misma validación que el sitio), el repaso, el reel de una nota y el de una nota propia suman **una escena de gráfico** después de la foto con el titular: una hoja de papel de borde a borde (filas 372 a 1236, contenido entre x = 60 y 920) con el título, las barras (la más alta en rojo, las demás del color de la sección) o la línea, cuenta de las cifras y la fuente al pie. Nunca pasa de la fila 1245: los subtítulos siguen en 1264 a 1480 y no se toca la franja que tapa Instagram (desde la 1540) ni los 140 px de la derecha.
+- **No agrega audio ni segundos de voz:** reparte el tiempo de la voz que ya hay. Entra cuando la voz termina de decir el titular, dura entre 3,4 y 7,5 segundos y termina antes del cierre hablado; la foto con el titular se ve al menos 2,4 segundos. Si no hay tiempo, la pieza sale **sin gráfico** y queda un aviso. Máximo **un gráfico por pieza** (el de la primera nota que lo trae). Si algo falla al dibujarlo, la pieza sale igual sin gráfico.
+- **Interruptor:** variable `KIT3_GRAFICOS` (prendida en `v3-piezas.yml` desde el 20/11/2026) (`si` lo prende; vacío o cualquier otra cosa lo apaga), que `v3-piezas.yml` pasa en el paso «Armar las piezas que tocan», junto a `KIT_3_0`. Apagado, todo sale como antes. Código: `grafico.mjs` (tiempos y datos), `kit/datos.js` (dibujo), `desde-pieza.mjs` (adaptador).
+- **«El número del día»** (`plantillas/numero.js`, diseño del ejemplo 1): la foto de la nota arriba, la cifra enorme que cuenta hasta su valor (Inter, nunca serif), qué es y, debajo, la comparación en dos barras, o la variación con flecha, o el titular si no hay nada; al pie la fuente. El crédito de la foto no va en el video. Qué nota y qué cifra lo decide el Worker (ver `v3/redes/piezas/REGLAS.md`).
+- **Ensayo mudo:** `node v3/redes/kit3/ensayo-datos.mjs <piezas>` (grafico-nota, grafico-repaso, grafico-linea, numero-del-dia, numero-comparacion, numero-variacion, numero-solo) con notas reales; no gasta voz ni IA. Pruebas: `datos.test.mjs`.
+
 ## Cómo se vuelve atrás
 
 - **Apagar:** sacar la línea `KIT_3_0: si` de `v3-piezas.yml` (o ponerla en `no`) y subir el cambio y el próximo reel sale con el dibujo de siempre. No hay nada que migrar.
