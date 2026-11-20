@@ -9,7 +9,8 @@ name: "Radar 3.0: piezas de redes"
 #
 # Corre una vez por hora de 7:07 a 23:07 de Balcarce (las ventanas de las piezas son de una hora o más, así que no hace falta más; menos corridas = menos minutos si el repositorio pasa a privado).
 # A mano: Actions → «Radar 3.0: piezas de redes» → Run workflow. `solo` ensaya esas piezas (por ejemplo clima-manana,noticia1) aunque no toquen ahora; `ahora` ensaya a otra hora
-# (ISO, por ejemplo 2026-11-03T13:00:00Z). Las dos sólo valen con las redes apagadas.
+# (ISO, por ejemplo 2026-11-03T13:00:00Z). Las dos sólo valen con las redes apagadas. `rehacer` (20/11/2026) es lo contrario: arma y PUBLICA de verdad esa pieza una vez más hoy, fuera de ventana
+# (sólo con las redes prendidas; v3/redes/piezas/REGLAS.md, «Rehacer una pieza»). El reloj (disparar-acciones) nunca lo manda.
 #
 # Secretos de GitHub (los pega una persona, nunca en un chat): TELEGRAM_TOKEN (de ahí sale la contraseña con el Worker), GEMINI_API_KEY_REDES (la voz), META_TOKEN (sólo para publicar de
 # verdad) y, opcional, GEMINI_API_KEY_REDES_V3: una clave de voz aparte para el ensayo, para no gastar el cupo de la clave que usa el sistema viejo.
@@ -35,6 +36,10 @@ on:
         default: ''
       repetir:
         description: 'VOLVER A PUBLICAR una nota (su id, por ejemplo ls3twi6) en Facebook e Instagram con la placa nueva, sin borrar el posteo anterior. Dibuja la placa si falta. Vacío = nada. Sólo corre este paso'
+        type: string
+        default: ''
+      rehacer:
+        description: 'REHACER y PUBLICAR de verdad una pieza una vez más hoy (su id de la tabla, por ejemplo efemeride), aunque esté fuera de su ventana y ya figure publicada; la anterior queda «rehecha». Sólo con las redes prendidas, hasta 3 veces por pieza y día. Antes hay que borrar la publicación vieja. Vacío = nada'
         type: string
         default: ''
       ahora:
@@ -101,6 +106,7 @@ jobs:
           TARJETAS_DE_SERVICIO: 'no'
           REDES_URL: ${{ vars.V3_REDES_URL }}
           SOLO: ${{ inputs.solo }}
+          REHACER: ${{ inputs.rehacer }}
           AHORA: ${{ inputs.ahora }}
           PLAN_PIEZAS: ${{ runner.temp }}/plan-piezas.json
           SALIDA_PIEZAS: ${{ github.workspace }}/salida-piezas
@@ -200,6 +206,7 @@ jobs:
           VOZ_CACHE: ${{ github.workspace }}/.cache/voz-v3
           SALIDA_PIEZAS: ${{ github.workspace }}/salida-piezas
           SOLO: ${{ inputs.solo }}
+          REHACER: ${{ inputs.rehacer }}
           AHORA: ${{ inputs.ahora }}
 
       # Bluesky y Threads: las notas que ya salieron en Facebook, como enlace (título + enlace + imagen 1,91:1). Sigue aunque las piezas hayan fallado; sin secretos no publica.

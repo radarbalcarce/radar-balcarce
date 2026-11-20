@@ -110,3 +110,14 @@ se reintenta); `nombreDePlaca` y `conPlaca` ya aceptaban una nota sin foto; el p
 
 El mp4 de cada pieza que va a TikTok sale además en Threads y Bluesky (`videos-sociales.mjs`), con su texto adaptado a 500 y 300 caracteres y siempre con el aviso de la voz con IA. Nunca cambia el estado de la pieza ni
 la frena; se anota por red en `acciones`. Interruptores `THREADS_VIDEOS` y `BLUESKY_VIDEOS` en `v3-piezas.yml`. El detalle y los límites de cada API están en `../REGLAS.md` § 26.
+
+## 7. Rehacer una pieza (20/11/2026)
+
+Si una pieza ya publicada salió mal (por ejemplo la efeméride con una foto equivocada), se puede armar y publicar **una vez más hoy**, aunque esté fuera de su ventana. Es sólo a mano; el reloj nunca lo manda.
+
+1. **Borrar la publicación vieja primero.** Facebook: workflow «Radar 3.0: borrar publicaciones». Instagram, TikTok, YouTube y X: a mano. Rehacer no borra nada.
+2. Lanzar: `gh workflow run "Radar 3.0: piezas de redes" --repo radarbalcarce/radar-balcarce -f rehacer=efemeride` (el id es el de la tabla de `piezas-del-dia.mjs`; vale un solo id).
+3. Usa los datos de hoy (la efeméride del día, las notas de ahora) y el cupo de voz normal: si no hay cupo, no sale y el plan lo dice (`sin-cupo-de-voz`); la publicación anterior queda como estaba en la base.
+4. En la base, la fila anterior de esa pieza pasa a estado `rehecha` (el resumen del día y el panel no la cuentan) y la nueva es una fila más con su propio resultado. Un audio ya gastado sigue contando en el cupo; la memoria de voces evita pagarlo de nuevo si el guion es el mismo.
+5. Tope: 3 rehechos por pieza y por día (`tope-de-rehechos`). Un id que no existe, una pieza de una nota (`reel-nota-…`) o las redes apagadas se rechazan con un error. Si esa pieza está armándose (reserva en curso, hasta 45 minutos), tampoco se pisa (`rehacer-en-curso`).
+6. Con las redes apagadas no se usa: para ensayar siguen `solo` y `ahora`. Código: `rehacer` en `planear` (`piezas-plan.mjs`), `REHACER` en `piezas/correr.mjs`, `rehacer` en `v3-piezas.yml`. Para que valga hay que subir el workflow (push) y desplegar `redes`.

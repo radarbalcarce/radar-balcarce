@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS piezas (
   hora TEXT,                      -- la hora programada (HH:MM)
   bloque TEXT,                    -- manana | tarde | noche (para quién saluda)
   simulado INTEGER NOT NULL DEFAULT 1,   -- 1 = ensayo: se arma y se guarda, no se publica
-  estado TEXT NOT NULL,           -- 'en-curso' | 'lista' (ensayo) | 'publicada' | 'error' | 'sin-datos' | 'sin-cupo'
+  estado TEXT NOT NULL,           -- 'en-curso' | 'lista' (ensayo) | 'publicada' | 'error' | 'sin-datos' | 'sin-cupo' | 'rehecha' (la que se volvió a armar a mano con `rehacer`)
   creada TEXT NOT NULL,           -- ISO UTC: cuándo se reservó
   actualizada TEXT NOT NULL,
   voz_usada INTEGER NOT NULL DEFAULT 0,  -- audios que gastó (0 si salió de la memoria de voces)

@@ -99,6 +99,20 @@ function completarRepaso(validas, { primeras, localesYa, reglas, tipo }) {
 const paraElArmador = (n) => ({ deBalcarce: tipoDeNota(n) === 'local', id: n.id, titulo: n.titulo, bajada: n.bajada, seccion: n.seccion, firma: 'Redacción Radar Balcarce', foto: n.foto ? { url: n.foto.url, credito: n.foto.credito ?? '', alt: n.titulo, ancho: n.foto.ancho, alto: n.foto.alto } : null, ...(n.grafico ? { grafico: n.grafico } : {}) });
 
 const cuentanComoHecha = new Set(['en-curso', 'lista', 'publicada']);
+
+/** Cuántas veces se puede rehacer una pieza por día (para que un error de tipeo no llene las redes). */
+export const TOPE_DE_REHECHOS = 3;
+
+/** Valida la lista `rehacer`: ids que existan en la tabla de piezas (las de una nota, `porNota`, no se rehacen así). Devuelve el texto del error o null. */
+export function validarRehacer(rehacer) {
+  if (rehacer == null || (Array.isArray(rehacer) && !rehacer.length)) return null;
+  if (!Array.isArray(rehacer)) return 'rehacer tiene que ser una lista de ids de piezas';
+  for (const id of rehacer) {
+    const p = PIEZAS_DEL_DIA.find((x) => x.id === id);
+    if (!p || p.porNota) return `rehacer: no existe la pieza «${id}» (ids válidos: ${PIEZAS_DEL_DIA.filter((x) => !x.porNota).map((x) => x.id).join(', ')})`;
+  }
+  return null;
+}
 const hablaEnElBloque = (f) => cuentanComoHecha.has(f.estado);
 
 /**
@@ -106,7 +120,13 @@ const hablaEnElBloque = (f) => cuentanComoHecha.has(f.estado);
  * Cada pieza de `piezas` ya quedó reservada ('en-curso') en la base: si el programa no vuelve en 45 minutos, la reserva vence y se reintenta.
  * @param {object} o  { ahora, simulado, solo? (lista de ids para ensayar a mano, ignora el horario pero no el cupo ni las reservas), conDatos? (ids de las piezas condicionales —feriado, agenda, avisos de clima— que el programa vio que tienen algo para contar: sin eso no entran) }
  */
-export async function planear(env, { ahora = new Date(), simulado = true, solo = null, conDatos = [], reglas = REGLAS_PIEZAS } = {}) {
+export async function planear(env, { ahora = new Date(), simulado = true, solo = null, conDatos = [], rehacer = [], reglas = REGLAS_PIEZAS } = {}) {
+  // `rehacer` (20/11/2026): ids de piezas que se arman y publican UNA VEZ MÁS hoy, fuera de ventana y aunque ya figuren como hechas (la anterior queda 'rehecha'). Sólo con las redes reales; el reloj nunca lo manda.
+  const errorRehacer = validarRehacer(rehacer);
+  if (errorRehacer) throw new Error(errorRehacer);
+  if (rehacer?.length && simulado) throw new Error('rehacer sólo vale con las redes prendidas (REDES_ACTIVAS = si)');
+  const aRehacer = new Set(rehacer ?? []);
+  if (aRehacer.size) solo = [...new Set([...(solo ?? []), ...aRehacer])];
   const dia = diaDeBalcarce(ahora);
   const ahoraISO = ahora.toISOString();
   await dbp.vencerReservas(env, { dia, simulado, antesDeISO: new Date(ahora.getTime() - reglas.reservaVenceMinutos * 60_000).toISOString(), ahoraISO });
@@ -122,6 +142,12 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
   const pendientes = [];
   for (const p of candidatas) {
     const suyas = filas.filter((f) => f.pieza === p.id);
+    if (aRehacer.has(p.id)) { // rehacer: ignora la ventana, lo ya hecho y los errores del día; sólo frena una reserva viva (se está armando) y el tope de rehechos
+      if (suyas.some((f) => f.estado === 'en-curso')) { descartes.push({ pieza: p.id, motivo: 'rehacer-en-curso' }); continue; }
+      if (await dbp.rehechosDe(env, p.id, dia, simulado) >= TOPE_DE_REHECHOS) { descartes.push({ pieza: p.id, motivo: 'tope-de-rehechos' }); continue; }
+      pendientes.push(p);
+      continue;
+    }
     if (suyas.some((f) => cuentanComoHecha.has(f.estado))) continue;
     if (suyas.filter((f) => f.estado === 'error').length >= reglas.intentosPorPieza) { descartes.push({ pieza: p.id, motivo: 'abandonada-por-errores' }); continue; }
     pendientes.push(p);
@@ -135,7 +161,7 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
   const { minuto } = relojDeBalcarce(ahora);
   const porSalirHoy = (p) => hayDato(p) && piezasDeHoy(ahora).some((x) => x.id === p.id) && !filas.some((f) => f.pieza === p.id && cuentanComoHecha.has(f.estado)) && minuto < Math.min(1440, minutoDe(p.hora) + p.ventana);
 
-  const notasDeHoy = filas.filter((f) => cuentanComoHecha.has(f.estado)).flatMap((f) => f.notas ?? []);
+  const notasDeHoy = filas.filter((f) => cuentanComoHecha.has(f.estado) && !aRehacer.has(f.pieza)).flatMap((f) => f.notas ?? []);
   // Una nota sale en UN formato (Hernán, 23/10: «la misma nota como posteo y en los resúmenes aburre»): lo que ya salió como posteo de Facebook hoy o ayer y lo que contó un repaso de ayer no entra en un repaso.
   const ayer = diaDeBalcarce(new Date(ahora.getTime() - 24 * 3600_000));
   const yaContadas = []; // ya salieron como posteo de Facebook (no frena a la que una persona mandó a un repaso con /repaso)
@@ -191,7 +217,8 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
     // Un aviso de clima sale cuando se lo detecta, no a su hora: habla con el estilo del momento en que sale y, como no saluda, no cuenta como la pieza que "ya habló" del bloque.
     const bloque = p.arma === 'aviso' ? bloqueDeLaHora(Math.floor(minuto / 60)) : bloqueDe(p);
     const saluda = p.arma !== 'aviso';
-    const otraHablo = filas.some((f) => f.bloque === bloque && hablaEnElBloque(f)) || salen.some((s) => s.bloque === bloque && s.saluda);
+    const otraHablo = filas.some((f) => f.bloque === bloque && hablaEnElBloque(f) && !aRehacer.has(f.pieza)) || salen.some((s) => s.bloque === bloque && s.saluda);
+    if (aRehacer.has(p.id)) await dbp.marcarRehecha(env, p.id, dia, simulado, ahoraISO); // recién ahora (ya hay cupo y datos): la anterior deja de contar y libera el lugar
     const fila = await dbp.reservarPieza(env, { pieza: p.id, dia, hora: p.hora, bloque: saluda ? bloque : null, simulado, ahoraISO, notas, auspicio, vozPrevista: p.sinVoz ? 0 : 1 });
     if (!fila) continue;
     if (!p.sinVoz) usados += 1;

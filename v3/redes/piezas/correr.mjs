@@ -10,6 +10,7 @@
 //   node v3/redes/piezas/correr.mjs                 lo que toca ahora
 //   SOLO=clima-manana,noticia1 node …/correr.mjs    ensayar esas piezas a mano (sólo con las redes apagadas; no mira el horario pero sí el cupo de voz)
 //   AHORA=2026-11-03T13:00:00Z node …/correr.mjs    ensayar a otra hora (sólo con las redes apagadas)
+//   REHACER=efemeride node …/correr.mjs             volver a armar y PUBLICAR esa pieza hoy, fuera de ventana (sólo con las redes prendidas; la anterior queda «rehecha»)
 //   PLAN_PIEZAS=plan.json node …/correr.mjs --que-toca   pide el plan, lo guarda en plan.json y dice cuántas piezas tocan (hay=si/no) sin armar nada; después, con el mismo PLAN_PIEZAS, la corrida de verdad usa ese plan
 import fs from 'node:fs';
 import path from 'node:path';
@@ -259,7 +260,9 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps, solo
   // Las piezas condicionales (feriado, agenda, avisos de clima) sólo se piden si hay algo para contar: se mira ANTES de pedir el plan, para no reservarles lugar en el cupo de voz de balde.
   const cuando = env.AHORA ? new Date(env.AHORA) : ahora;
   const diaDeHoy = diaDeBalcarce(cuando);
-  const queMirar = condicionalesQueTocan(cuando, solo);
+  // REHACER (20/11/2026, a mano): ids de piezas que se arman y publican una vez más hoy, fuera de ventana y con las redes REALES. El Worker lo valida y lo rechaza con las redes apagadas. El reloj nunca lo manda.
+  const rehacer = String(env.REHACER ?? '').split(',').map((s) => s.trim()).filter(Boolean);
+  const queMirar = condicionalesQueTocan(cuando, [...solo, ...rehacer]);
   const previos = { clima: null, agenda: null, feriado: null, aviso: null, finde: null };
   const conDatos = [];
   if (queMirar.some((p) => p.arma === 'aviso')) {
@@ -288,7 +291,7 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps, solo
     plan = JSON.parse(fs.readFileSync(env.PLAN_PIEZAS, 'utf8'));
     log('plan tomado del paso anterior (ya reservado)');
   } else {
-    plan = await llamar('/piezas/plan', { ...(env.AHORA ? { ahora: env.AHORA } : {}), ...(solo.length ? { solo } : {}), conDatos });
+    plan = await llamar('/piezas/plan', { ...(env.AHORA ? { ahora: env.AHORA } : {}), ...(solo.length ? { solo } : {}), ...(rehacer.length ? { rehacer } : {}), conDatos });
     if (soloPlan && env.PLAN_PIEZAS) { fs.mkdirSync(path.dirname(env.PLAN_PIEZAS), { recursive: true }); fs.writeFileSync(env.PLAN_PIEZAS, JSON.stringify(plan)); }
   }
   const reloj = env.AHORA && !plan.activas ? new Date(env.AHORA) : ahora;

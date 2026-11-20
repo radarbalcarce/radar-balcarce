@@ -13,7 +13,7 @@ import { publicarEnInstagram } from './instagram/publicar.mjs';
 import { crearCliente, ErrorMeta, PAGINA_DE_FACEBOOK, sinToken } from './meta.mjs';
 import * as db from './db.mjs';
 import * as dbp from './piezas-db.mjs';
-import { planear, registrarResultado, lineasDeLasPiezas } from './piezas-plan.mjs';
+import { planear, registrarResultado, lineasDeLasPiezas, validarRehacer } from './piezas-plan.mjs';
 import { planearEnlaces, registrarEnlace } from './enlaces.mjs';
 import { medirDia, compararSemanas, lineasDeLaComparacion } from './estadisticas.mjs';
 import { claveDeVideo, servirVideo } from './video-publico.mjs';
@@ -297,6 +297,13 @@ export function crearRedes(deps = {}) {
       if (!opciones.ahora) opciones.ahora = reloj();
       if (Array.isArray(cuerpo?.solo) && cuerpo.solo.length && simulado) opciones.solo = cuerpo.solo.map(String);
       if (Array.isArray(cuerpo?.conDatos)) opciones.conDatos = cuerpo.conDatos.map(String);
+      // `rehacer: [id]` (a mano, sólo con las redes reales): vuelve a armar y publicar esa pieza hoy aunque esté fuera de ventana. El reloj nunca lo manda.
+      if (cuerpo?.rehacer !== undefined && !(Array.isArray(cuerpo.rehacer) && !cuerpo.rehacer.length)) {
+        const mal = validarRehacer(Array.isArray(cuerpo.rehacer) ? cuerpo.rehacer.map(String) : cuerpo.rehacer);
+        if (mal) return json({ error: mal }, 400);
+        if (simulado) return json({ error: 'rehacer sólo vale con las redes prendidas (REDES_ACTIVAS = si)' }, 400);
+        opciones.rehacer = cuerpo.rehacer.map(String);
+      }
       return json({ activas: !simulado, ...(await planear(env, opciones)) });
     }
     // Bluesky y Threads: el programa de GitHub Actions (v3/redes/piezas/enlaces.mjs) pide qué notas toca publicar, dibuja la imagen de enlace, llama a las APIs y cuenta cómo salió.

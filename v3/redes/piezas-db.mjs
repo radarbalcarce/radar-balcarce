@@ -35,6 +35,18 @@ export async function reservarPieza(env, { pieza, dia, hora, bloque, simulado, a
   }
 }
 
+/** Cuántas veces ya se rehízo esa pieza ese día (filas en estado 'rehecha'). */
+export async function rehechosDe(env, pieza, dia, simulado) {
+  const f = await env.DB.prepare("SELECT COUNT(*) AS n FROM piezas WHERE pieza = ? AND dia = ? AND simulado = ? AND estado = 'rehecha'").bind(pieza, dia, simulado ? 1 : 0).first();
+  return f?.n ?? 0;
+}
+
+/** Marca como 'rehecha' lo que la pieza tenía hecho ese día (lista o publicada), para que el resumen y el panel no la cuenten dos veces y se libere el lugar de la reserva. Devuelve cuántas filas marcó. */
+export async function marcarRehecha(env, pieza, dia, simulado, ahoraISO) {
+  const r = await env.DB.prepare("UPDATE piezas SET estado = 'rehecha', actualizada = ? WHERE pieza = ? AND dia = ? AND simulado = ? AND estado IN ('lista', 'publicada')").bind(ahoraISO, pieza, dia, simulado ? 1 : 0).run();
+  return r?.meta?.changes ?? 0;
+}
+
 /** Qué pieza y qué día es una fila (para saber a qué nota pertenece su reel). null si no existe. */
 export async function piezaDeLaFila(env, id) {
   const f = await env.DB.prepare('SELECT pieza, dia, estado, simulado FROM piezas WHERE id = ?').bind(id).first();

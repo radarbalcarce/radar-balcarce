@@ -479,3 +479,78 @@ test('el número del día deja pasar a lo que ya existe cuando queda poco cupo (
   assert.equal(p.piezas.length, 0);
   assert.ok(p.descartes.some((d) => d.pieza === 'numero-del-dia' && d.motivo === 'sin-cupo-de-voz'));
 });
+
+// ---- Rehacer una pieza (20/11/2026): a mano, con las redes reales, fuera de ventana y aunque ya figure publicada ----
+const TARDE = new Date('2026-11-03T20:00:00.000Z'); // 17:00 de Balcarce: la efeméride (9:00 a 12:00) ya pasó
+const publicar = (t, fila) => t.sqlite.prepare("UPDATE piezas SET estado = 'publicada', voz_usada = 1 WHERE id = ?").run(fila);
+
+test('rehacer: una pieza publicada y fuera de su ventana se reserva de nuevo; la anterior queda «rehecha»', async () => {
+  const t = conNotas();
+  const a = await planear({ DB: t.DB }, { ahora: AHORA, simulado: false, solo: ['efemeride'] });
+  publicar(t, a.piezas[0].fila);
+  assert.deepEqual(ids((await planear({ DB: t.DB }, { ahora: TARDE, simulado: false })).piezas.filter((p) => p.id === 'efemeride')), []); // sin rehacer: nada
+  const b = await planear({ DB: t.DB }, { ahora: TARDE, simulado: false, rehacer: ['efemeride'] });
+  assert.deepEqual(ids(b.piezas), ['efemeride']);
+  const filas = t.sqlite.prepare("SELECT id, estado FROM piezas WHERE pieza = 'efemeride' ORDER BY id").all();
+  assert.deepEqual(filas.map((f) => f.estado), ['rehecha', 'en-curso']);
+  assert.equal(filas[1].id, b.piezas[0].fila);
+});
+
+test('rehacer: sin `rehacer` el plan es el de siempre (la pieza ya hecha no se repite)', async () => {
+  const t = conNotas();
+  const a = await planear({ DB: t.DB }, { ahora: AHORA, simulado: false, solo: ['efemeride'] });
+  publicar(t, a.piezas[0].fila);
+  const b = await planear({ DB: t.DB }, { ahora: AHORA, simulado: false, solo: ['efemeride'] });
+  assert.deepEqual(b.piezas, []);
+  assert.equal(t.sqlite.prepare("SELECT COUNT(*) AS n FROM piezas WHERE estado = 'rehecha'").get().n, 0);
+  const c = await planear({ DB: t.DB }, { ahora: AHORA, simulado: false, rehacer: [] });
+  assert.deepEqual(c.piezas.filter((p) => p.id === 'efemeride'), []);
+});
+
+test('rehacer: un id que no existe (o una pieza de nota) se rechaza, también por HTTP; con las redes apagadas tampoco vale', async () => {
+  const t = conNotas();
+  await assert.rejects(planear({ DB: t.DB }, { ahora: TARDE, simulado: false, rehacer: ['efemerid'] }), /no existe la pieza/);
+  await assert.rejects(planear({ DB: t.DB }, { ahora: TARDE, simulado: false, rehacer: ['reel-nota'] }), /no existe la pieza/);
+  await assert.rejects(planear({ DB: t.DB }, { ahora: TARDE, simulado: true, rehacer: ['efemeride'] }), /redes prendidas/);
+  const redes = crearRedes({ ahora: () => TARDE });
+  const real = { DB: t.DB, TELEGRAM_TOKEN: TOKEN, REDES_ACTIVAS: 'si' };
+  const mal = await pedir(redes, real, '/piezas/plan', { rehacer: ['nada'] });
+  assert.equal(mal.status, 400);
+  assert.match((await mal.json()).error, /no existe la pieza/);
+  const apagadas = await pedir(redes, { ...real, REDES_ACTIVAS: 'no' }, '/piezas/plan', { rehacer: ['efemeride'] });
+  assert.equal(apagadas.status, 400);
+  const bien = await (await pedir(redes, real, '/piezas/plan', { rehacer: ['efemeride'] })).json();
+  assert.deepEqual(ids(bien.piezas), ['efemeride']);
+  assert.equal(bien.activas, true);
+});
+
+test('rehacer: respeta el cupo de voz (sin cupo no sale y la anterior no se toca) y el tope de 3 rehechos por pieza y día', async () => {
+  const t = conNotas();
+  const a = await planear({ DB: t.DB }, { ahora: AHORA, simulado: false, solo: ['efemeride'] });
+  publicar(t, a.piezas[0].fila);
+  const sin = await planear({ DB: t.DB, VOZ_TOPE_DIARIO: '1' }, { ahora: TARDE, simulado: false, rehacer: ['efemeride'] });
+  assert.deepEqual(sin.piezas, []);
+  assert.equal(sin.descartes[0].motivo, 'sin-cupo-de-voz');
+  assert.equal(t.sqlite.prepare("SELECT estado FROM piezas WHERE id = ?").get(a.piezas[0].fila).estado, 'publicada');
+  // el tope: tres rehechos y el cuarto se frena
+  const u = conNotas();
+  const primera = await planear({ DB: u.DB }, { ahora: AHORA, simulado: false, solo: ['efemeride'] });
+  publicar(u, primera.piezas[0].fila);
+  for (let i = 0; i < 3; i++) {
+    const r = await planear({ DB: u.DB }, { ahora: TARDE, simulado: false, rehacer: ['efemeride'] });
+    assert.equal(r.piezas.length, 1, `rehecho ${i + 1}`);
+    publicar(u, r.piezas[0].fila);
+  }
+  const cuarto = await planear({ DB: u.DB }, { ahora: TARDE, simulado: false, rehacer: ['efemeride'] });
+  assert.deepEqual(cuarto.piezas, []);
+  assert.equal(cuarto.descartes[0].motivo, 'tope-de-rehechos');
+  assert.equal(u.sqlite.prepare("SELECT COUNT(*) AS n FROM piezas WHERE estado = 'publicada'").get().n, 1);
+});
+
+test('rehacer: una reserva en curso (se está armando) no se pisa', async () => {
+  const t = conNotas();
+  await planear({ DB: t.DB }, { ahora: AHORA, simulado: false, solo: ['efemeride'] });
+  const r = await planear({ DB: t.DB }, { ahora: new Date(AHORA.getTime() + 60_000), simulado: false, rehacer: ['efemeride'] });
+  assert.deepEqual(r.piezas, []);
+  assert.equal(r.descartes[0].motivo, 'rehacer-en-curso');
+});
