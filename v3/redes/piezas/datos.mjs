@@ -41,12 +41,16 @@ export function aClimaDePieza(j) {
   };
 }
 
-export async function leerClima({ traer = fetch } = {}) {
-  try {
-    const r = await traer(URL_DEL_CLIMA, { signal: AbortSignal.timeout(15_000) });
-    if (!r.ok) return null;
-    return aClimaDePieza(await r.json());
-  } catch { return null; }
+export async function leerClima({ traer = fetch, intentos = 3, espera = 4000 } = {}) {
+  // 20/11/2026: el clima de la mañana no salió porque Open-Meteo no respondió una vez; ahora se reintenta (hasta 3 veces, 4 s entre una y otra) antes de dar la pieza por «sin datos».
+  for (let i = 0; i < intentos; i += 1) {
+    try {
+      const r = await traer(URL_DEL_CLIMA, { signal: AbortSignal.timeout(15_000) });
+      if (r.ok) { const c = aClimaDePieza(await r.json()); if (c) return c; }
+    } catch { /* se reintenta */ }
+    if (i < intentos - 1 && espera > 0) await new Promise((ok) => setTimeout(ok, espera));
+  }
+  return null;
 }
 
 /** La farmacia de turno como la pide `armarFarmacia`: { fecha, farmacias: [{ nombre, direccion, telefono }] }, o null. `leerDelSitio` es `leerFarmacia` de v3/sitio/datos-del-dia.mjs. */
