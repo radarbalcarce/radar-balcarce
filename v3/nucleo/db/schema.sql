@@ -82,3 +82,20 @@ CREATE TABLE IF NOT EXISTS dudas (
   cuando TEXT NOT NULL,
   respuesta INTEGER NOT NULL
 );
+
+-- Las entradas de sehace.com que ya se usaron (o se descartaron) para las notas diarias automáticas (REGLAS § 14). Una fila por entrada (slug = la última parte de la dirección).
+-- estado: 'sembrada' (venía de docs/3-0/sehace-usadas.json), 'en-curso' (se está escribiendo), 'publicada' (nota_id) o 'descartada' (motivo: no_publicar, verificacion, corta, ia-fallo…).
+CREATE TABLE IF NOT EXISTS sehace_usadas (
+  slug TEXT PRIMARY KEY,
+  estado TEXT NOT NULL,
+  motivo TEXT,
+  categoria TEXT,
+  nota_id TEXT,
+  cuando TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_sehace_usadas_cuando ON sehace_usadas (cuando);
+INSERT OR IGNORE INTO sehace_usadas (slug, estado, motivo, cuando) VALUES ('2026-11-05-gemini-omni', 'sembrada', 'publicada a mano', '2026-11-05T00:00:00.000Z');
+INSERT OR IGNORE INTO sehace_usadas (slug, estado, motivo, cuando) VALUES ('2026-11-09-fable-5-2', 'sembrada', 'publicada a mano', '2026-11-09T00:00:00.000Z');
+INSERT OR IGNORE INTO sehace_usadas (slug, estado, motivo, cuando) VALUES ('2026-11-12-gemini-4-hydrogen', 'sembrada', 'publicada a mano', '2026-11-12T00:00:00.000Z');
+INSERT OR IGNORE INTO sehace_usadas (slug, estado, motivo, cuando) VALUES ('a-fondo-01-esta-voz-no-la-grabe-yo', 'sembrada', 'publicada a mano', '2026-11-17T00:00:00.000Z');
+INSERT OR IGNORE INTO sehace_usadas (slug, estado, motivo, cuando) VALUES ('a-fondo-02-gpu-gratis-en-la-nube', 'sembrada', 'publicada a mano', '2026-11-18T00:00:00.000Z');

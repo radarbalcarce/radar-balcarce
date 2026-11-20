@@ -16,6 +16,7 @@ import * as db from './db/db.mjs';
 import * as IL from './ilustrar/ilustrar.mjs';
 import * as AF from './archivo-fotos/archivo-fotos.mjs';
 import { queToca, horaLocal, idDeLaNota, traerPronostico, comparar, redactarNotaDelClima, plantilla as plantillaDelClima, parrafoDeActualizacion, estadoDelDia, FIRMA_CLIMA, FUENTE_CLIMA, TIPO_DE_NOTA } from './clima/clima.mjs';
+import { sehaceDelDia, activo as sehaceActivo, TOPE_POR_DIA as SEHACE_TOPE_POR_DIA } from './sehace/sehace.mjs';
 import { DIRECCION, contrasenaDelWebhook } from '../redaccion/telegram/worker.mjs';
 
 // ---------------------------------------------------------------------------------------------- constantes
@@ -215,7 +216,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     const c = contexto(env, deps);
     const r = {
       cuando: c.ahoraISO, fuentesLeidas: 0, fuentesConError: [], articulosNuevos: 0, articulosPospuestos: 0, historiasNuevas: 0, unidas: 0, dudas: 0,
-      elegidas: 0, noSalen: {}, pedidosAMistral: 0, redactadas: 0, publicadas: 0, publicadasPendientes: 0, fotosReintentadas: 0, fotosEncontradas: 0, frenadasPorLey: 0, errores: [], sinClaveGemini: false, topeDiario: false, topeDeDudas: false, frenoMensual: false, clima: null,
+      elegidas: 0, noSalen: {}, pedidosAMistral: 0, redactadas: 0, publicadas: 0, publicadasPendientes: 0, fotosReintentadas: 0, fotosEncontradas: 0, frenadasPorLey: 0, errores: [], sinClaveGemini: false, topeDiario: false, topeDeDudas: false, frenoMensual: false, clima: null, sehace: null,
     };
     const error = (donde, e) => {
       const msg = `${donde}: ${String((e && e.message) || e).slice(0, 200)}`;
@@ -376,6 +377,14 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
 
     // (g) la nota diaria del clima (REGLAS § 12): sale a las 7:30 y a las 19:00 se actualiza si el pronóstico cambió mucho
     await climaDelDia(env, c, gem, r, error);
+
+    // (h) las notas diarias desde sehace.com (REGLAS § 14): a las 10, 14 y 18 de Balcarce, una por ventana, sólo con SEHACE_AUTOMATICO = si. Fuera de su ventana no hace nada (ni un pedido).
+    try {
+      r.sehace = await sehaceDelDia({ env, ahora: c.ahora, fetch: c.fetchFn, gem, perfil, redaccion, publica: publica(env), azar: c.azar, error });
+    } catch (e) {
+      r.sehace = { accion: 'error', error: String((e && e.message) || e).slice(0, 120) };
+      error('sehace', e);
+    }
 
     try { await db.anotarFuente(env, '_vuelta', true, null, c.ahoraISO); } catch (e) { error('anotar vuelta', e); }
     r.pedidosAMistral = gem.estado.mistralEstaVuelta;
@@ -937,6 +946,12 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       const tope = Math.floor(numero(env.NUCLEO_ARCHIVO_POR_VUELTA, ARCHIVO_POR_VUELTA));
       fotosDeArchivo = { activas: !!env.FOTOS && tope > 0, total: cuenta.total, ultimos7d: cuenta.desde, hoy: hoy.size, topePorVuelta: tope, ultimoError: ult?.ultima_falla ? String(ult.ultima_falla).slice(0, 200) : null };
     } catch (e) { console.error(`salud fotosDeArchivo: ${e.message}`); }
+    // Las notas desde sehace.com (REGLAS § 14): si está prendido, cuántas salieron hoy, cuáles se descartaron y por qué. Si la consulta falla, /salud sigue.
+    let sehace = null;
+    try {
+      const filas = await db.sehaceDesde(env, desde);
+      sehace = { activo: sehaceActivo(env), topePorDia: SEHACE_TOPE_POR_DIA, publicadasHoy: filas.filter((f) => f.estado === 'publicada').length, descartadasHoy: filas.filter((f) => f.estado === 'descartada').map((f) => ({ slug: f.slug, motivo: String(f.motivo || '').slice(0, 100) })) };
+    } catch (e) { console.error(`salud sehace: ${e.message}`); }
     // Cómo viene la selección del día: notas publicadas, nacionales contra el cupo de esta hora y por qué quedó afuera cada historia. Si falla, /salud sigue.
     let seleccion = null;
     try {
@@ -969,6 +984,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       rehacerMigradas: rehacer,
       ilustraciones,
       fotosDeArchivo,
+      sehace,
       sinFoto7d,
       sinFotoViejas,
       claves: { gemini: !!env.GEMINI_API_KEY, telegram: !!env.TELEGRAM_TOKEN },

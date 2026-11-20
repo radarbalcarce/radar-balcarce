@@ -502,3 +502,51 @@ export async function notaCompleta(env, id) {
     foto: analizar(f.foto, null), fuentes: analizar(f.fuentes, []), fechaHecho: f.fecha_hecho, firma: f.firma, pedidos: f.pedidos, estado: f.estado,
   };
 }
+
+// ------------------------------------------------------------------------------------------ las notas diarias desde sehace.com (REGLAS § 14)
+
+/** Todas las entradas de sehace.com ya vistas: { slug, estado, motivo, categoria, notaId, cuando }. La tabla es chica (una fila por entrada del blog). */
+export async function sehaceUsadas(env) {
+  const r = await env.DB.prepare('SELECT slug, estado, motivo, categoria, nota_id, cuando FROM sehace_usadas').all();
+  return lista(r).map((f) => ({ slug: f.slug, estado: f.estado, motivo: f.motivo, categoria: f.categoria, notaId: f.nota_id, cuando: f.cuando }));
+}
+
+/** Se queda con la entrada (estado `en-curso`). Devuelve false si ya estaba tomada: así dos vueltas que se pisan no publican la misma dos veces. */
+export async function sehaceTomar(env, slug, categoria, cuando) {
+  try {
+    await env.DB.prepare("INSERT INTO sehace_usadas (slug, estado, categoria, cuando) VALUES (?, 'en-curso', ?, ?)").bind(slug, categoria ?? null, cuando).run();
+    return true;
+  } catch { return false; }
+}
+
+/** Cierra la entrada: `publicada` (con la nota) o `descartada` (con el motivo). */
+export async function sehaceCerrar(env, slug, estado, { motivo = null, notaId = null, cuando = new Date().toISOString() } = {}) {
+  await env.DB.prepare('UPDATE sehace_usadas SET estado = ?, motivo = ?, nota_id = ?, cuando = ? WHERE slug = ?').bind(estado, motivo, notaId, cuando, slug).run();
+}
+
+/** Suelta la entrada (falla pasajera: red, IA caída): vuelve a poder elegirse en otra vuelta. */
+export async function sehaceSoltar(env, slug) {
+  await env.DB.prepare("DELETE FROM sehace_usadas WHERE slug = ? AND estado = 'en-curso'").bind(slug).run();
+}
+
+/** Las filas de entradas publicadas, descartadas o en curso desde `desdeISO` (para los topes). */
+export async function sehaceDesde(env, desdeISO) {
+  const r = await env.DB.prepare("SELECT slug, estado, motivo, categoria, cuando FROM sehace_usadas WHERE cuando >= ? AND estado IN ('publicada', 'descartada', 'en-curso') ORDER BY cuando").bind(desdeISO).all();
+  return lista(r);
+}
+
+const COLUMNAS_PROPIA = 'id, historia_id, creada, titulo, bajada, cuerpo, seccion, en_dos_lineas, ficha, no_publicar, verificacion, foto, fuentes, fecha_hecho, firma, pedidos, estado, origen, slug, publicada_en, redes';
+
+/**
+ * Una nota propia (origen `redaccion`, la misma fila que arman el bot y el panel: `notas` + `sitio_notas`). Necesita las columnas de `schema-redaccion.sql` y la tabla de `schema-sitio.sql`.
+ * `publicada` = sale ya (estado `publicada`, con fecha de publicación); si no, queda `borrador` y el sitio no la muestra.
+ */
+export async function insertarNotaPropia(env, n, { publicada = true } = {}) {
+  const redes = { eleccion: 'solo-web', lista: [], confirmada: true, elegida: n.creada };
+  await env.DB.prepare(`INSERT INTO notas (${COLUMNAS_PROPIA}) VALUES (${COLUMNAS_PROPIA.split(', ').map(() => '?').join(', ')})`).bind(
+    n.id, `redaccion-${n.id}`, n.creada, n.titulo, n.bajada, json(n.cuerpo), n.seccion, n.enDosLineas ?? n.bajada, json(n.ficha), null,
+    json(n.verificacion), json(n.foto), json(n.fuentes), n.creada, n.firma, n.pedidos || 0,
+    publicada ? 'publicada' : 'borrador', 'redaccion', n.slug, publicada ? n.creada : null, json(redes),
+  ).run();
+  await env.DB.prepare('INSERT INTO sitio_notas (id, slug, publicada_en, origen, extra) VALUES (?, ?, ?, ?, NULL)').bind(n.id, n.slug, n.creada, 'redaccion').run();
+}
