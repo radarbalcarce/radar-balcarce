@@ -102,10 +102,21 @@ test('busquedaAgotada: 2 intentos (11/11; antes 4), un motivo final con 2 intent
   assert.equal(busquedaAgotada(nota({ creada: hace(2), verificacion: { fotoIntentos: 4 } }), AHORA), true);
   assert.equal(busquedaAgotada(nota({ creada: hace(2), verificacion: { fotoIntentos: 3, fotoMotivo: 'error-vision' } }), AHORA), false);
   assert.equal(busquedaAgotada(nota({ creada: hace(2), verificacion: { fotoIntentos: 2, fotoMotivo: 'todas-con-marca' } }), AHORA), true);
-  assert.equal(busquedaAgotada(nota({ creada: hace(2), verificacion: { fotoIntentos: 1, fotoMotivo: 'chicas' } }), AHORA), false);
+  assert.equal(busquedaAgotada(nota({ seccion: 'Deportes', creada: hace(2), verificacion: { fotoIntentos: 1, fotoMotivo: 'chicas' } }), AHORA), false);
   assert.equal(busquedaAgotada(nota({ creada: hace(2), verificacion: { fotoIntentos: 2, fotoMotivo: 'error-vision' } }), AHORA), false, 'error-vision no es un motivo final');
   assert.equal(busquedaAgotada(nota({ creada: hace(30), verificacion: { fotoIntentos: 1 } }), AHORA), true, 'más de 24 h: nadie la vuelve a buscar');
   assert.equal(busquedaAgotada(nota({ creada: hace(2), verificacion: {} }), AHORA), false);
+});
+
+test('busquedaAgotada: una nota de BALCARCE con la foto ya descartada (menores, víctimas, sin candidatas…) se ilustra en la primera vuelta posible; las demás esperan la segunda de 45 minutos', () => {
+  const v = (fotoMotivo, fotoIntentos = 1) => ({ fotoIntentos, fotoMotivo });
+  for (const motivo of ['todas-con-menor-o-victima', 'sin-candidatas', 'chicas', 'logo-o-forma', 'todas-con-marca', 'todas-descartadas']) {
+    assert.equal(busquedaAgotada(nota({ seccion: 'Balcarce', creada: hace(1), verificacion: v(motivo) }), AHORA), true, motivo);
+    assert.equal(busquedaAgotada(nota({ seccion: 'Deportes', creada: hace(1), verificacion: v(motivo) }), AHORA), false, `${motivo}: fuera de Balcarce se espera`);
+  }
+  assert.equal(busquedaAgotada(nota({ seccion: 'Balcarce', creada: hace(1), verificacion: v('error-vision') }), AHORA), false, 'si la visión no pudo decidir no se sabe nada de la foto');
+  assert.equal(busquedaAgotada(nota({ seccion: 'Balcarce', creada: hace(1), verificacion: {} }), AHORA), false, 'sin ningún intento de foto, todavía no');
+  assert.deepEqual(leTocaIlustrar(nota({ seccion: 'Balcarce', creada: hace(1), verificacion: v('todas-con-menor-o-victima') }), AHORA), { toca: true, motivo: null });
 });
 
 test('leTocaIlustrar: sólo con la búsqueda agotada; lo resuelto, lo saltado y un intento reciente no', () => {

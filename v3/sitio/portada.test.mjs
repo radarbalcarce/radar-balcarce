@@ -489,6 +489,22 @@ test('fotos: la destacada y las tarjetas son 16:9 en todos los anchos y las foto
   assert.match(clima, /^<img [^>]*src="https:\/\/radarbalcarce\.com\/fotos-notas\/clima-tormenta-[123]\.jpg"/, 'la nota del clima lleva su ilustración también en las tarjetas');
 });
 
+test('foto.esPlaca (un gráfico o placa con texto, p. ej. la portada de Se hace): entera en listas, tarjetas y portada, sobre el color de la sección; sin la marca, recorta como siempre', async () => {
+  const { ESTILOS } = await import('./vistas/base.mjs');
+  assert.match(ESTILOS, /img.fotoplaca{object-fit:contain!important}/);
+  const { imagenODePlaca, esPlaca } = await import('./vistas/portada.mjs');
+  const foto = { url: 'https://radarbalcarce.com/foto/0123456789abcdef01234567.jpg', alt: 'Placa con texto', esPlaca: true, cubrir: false, ancho: 1200, alto: 630 };
+  for (const medidas of [{ ancho: 200, alto: 134 }, { ancho: 480, alto: 320 }, { ancho: 640, alto: 400 }]) {
+    const h = imagenODePlaca({ foto, seccion: 'Tecnología' }, medidas);
+    assert.match(h, /^<img class="fotoplaca" style="background:var\(--s-tecnologia\)" /, 'entera y con el color de la sección de fondo');
+  }
+  assert.match(imagenODePlaca({ foto: { ...foto, fondo: '#102030' }, seccion: 'Tecnología' }, { ancho: 200, alto: 134 }), /style="background:#102030"/, 'un fondo propio (color dominante) manda');
+  assert.match(imagenODePlaca({ foto: { ...foto, fondo: 'red;x' }, seccion: 'Tecnología' }, { ancho: 200, alto: 134 }), /style="background:var\(--s-tecnologia\)"/, 'un fondo inválido no entra al HTML');
+  assert.ok(esPlaca(foto) && !esPlaca({ ...foto, esPlaca: undefined }) && !esPlaca(null));
+  const comun = imagenODePlaca({ foto: { url: 'https://otro.example/a.jpg', alt: 'x' }, seccion: 'Tecnología' }, { ancho: 200, alto: 134 });
+  assert.ok(!/fotoplaca/.test(comun), 'una foto común se recorta como siempre');
+});
+
 test('la nota sin foto muestra una placa de su sección (color y nombre) en vez de nada; con foto no hay placa; el clima diario no la lleva', async () => {
   const { paginaDeNota, placaDeNota } = await import('./vistas/nota.mjs');
   const base = { id: 'n1', titulo: 'Una nota sin foto', bajada: 'b', cuerpo: ['uno', 'dos'], seccion: 'Cultura', publicada: '2026-11-05T12:00:00.000Z', fuentes: [], origen: 'nucleo' };
@@ -497,6 +513,6 @@ test('la nota sin foto muestra una placa de su sección (color y nombre) en vez 
   const con = paginaDeNota({ ...base, foto: { url: 'https://img.test/a.jpg', credito: 'x' } }, { indexar: true, contexto: {}, seguir: [], contadas: [] });
   assert.ok(!con.includes('<div class="placa-nota"'));
   assert.match(con, /<figure><img src="https:\/\/img\.test\/a\.jpg"/);
-  assert.match(sin, /og:image" content="[^"]*og-default/);
+  assert.match(sin, /og:image" content="[^"]*og-seccion\/cultura\.png/);
   assert.ok(String(placaDeNota).length > 0);
 });

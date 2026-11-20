@@ -108,6 +108,7 @@ Pruebas: `corte.test.mjs` (respaldo, feed, www, indexación) y `corte-script.tes
 ## Nota sin foto: placa de su sección (6/11)
 
 La página de una nota sin foto muestra una placa de su sección (`placaDeNota` en `vistas/nota.mjs`, estilo `.placa-nota`: color y nombre, sólo CSS) en vez de nada; el clima diario no la lleva. Las tarjetas y filas de la portada ya tenían su placa (`imagenODePlaca`). El `og:image` de una nota sin foto sigue siendo el genérico (una imagen por sección pide generar PNG con `scripts/imagen-og.mjs`; no se hizo). Prueba: `portada.test.mjs`.
+**Placa con texto y nota sin foto (20/11/2026).** (1) `foto.esPlaca = true` (lo pone el núcleo en la portada de Se hace, una placa 1200×630 con texto grande) hace que `imagenODePlaca` la dibuje ENTERA (`img.fotoplaca`, `object-fit: contain`, fondo del color de la sección o `foto.fondo` si es un hex válido) en portada, listas, tarjetas y relacionadas; en la nota ya se veía entera. Las imágenes con texto nunca se cortan. (2) Una nota sin foto muestra la placa de su sección desde el primer momento (en la nota y en las listas) y comparte `/og-seccion/<sección>.png` (1200×630, una por sección, generadas con `scripts/imagen-og-secciones.mjs` en `og-secciones.mjs`) en `og:image`, `twitter:image` y el JSON-LD, hasta que llega la foto o la ilustración. Pruebas: `portada.test.mjs`, `vistas-previas.test.mjs`.
 
 ## 11. El contador propio de lecturas y de avisos (10/11)
 

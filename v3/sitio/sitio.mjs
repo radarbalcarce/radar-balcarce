@@ -16,6 +16,7 @@ import { sitemapIndice, sitemapDelMes, sitemapDePaginas, rss, robots } from './v
 import { masContadas } from './db/mas-contadas.mjs';
 import { servirEstatico } from './estaticos.mjs';
 import { OG_DEFAULT_BASE64 } from './og-default.mjs';
+import { OG_SECCIONES } from './og-secciones.mjs';
 import { leerAgenda, eventoDeRuta } from './agenda.mjs';
 import { icsDeEvento } from './eventos.mjs';
 import { leerLiga, leerCampeonatoF1 } from './tablas.mjs';
@@ -492,6 +493,12 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       // La imagen propia del medio para las vistas previas (scripts/imagen-og.mjs); va dentro del Worker, sin depender del depósito.
       if (url.pathname === '/og-default.png') {
         const bytes = Uint8Array.from(atob(OG_DEFAULT_BASE64), (c) => c.charCodeAt(0));
+        return new Response(pedido.method === 'HEAD' ? null : bytes, { status: 200, headers: { 'content-type': 'image/png', 'cache-control': 'public, max-age=86400, s-maxage=604800', 'content-length': String(bytes.length) } });
+      }
+      // La placa de cada sección como imagen para compartir (scripts/imagen-og-secciones.mjs): la que lleva una nota sin foto hasta que llega la foto o la ilustración.
+      const ogSeccion = /^\/og-seccion\/([a-z]+)\.png$/.exec(url.pathname);
+      if (ogSeccion && Object.hasOwn(OG_SECCIONES, ogSeccion[1])) {
+        const bytes = Uint8Array.from(atob(OG_SECCIONES[ogSeccion[1]]), (c) => c.charCodeAt(0));
         return new Response(pedido.method === 'HEAD' ? null : bytes, { status: 200, headers: { 'content-type': 'image/png', 'cache-control': 'public, max-age=86400, s-maxage=604800', 'content-length': String(bytes.length) } });
       }
       // Direcciones sueltas del sitio viejo (índice de notas, imágenes de vista previa): 301 a lo que las reemplaza (restos-del-viejo.mjs).

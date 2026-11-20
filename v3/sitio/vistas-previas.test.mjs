@@ -33,8 +33,30 @@ test('la sección, la búsqueda y la nota sin foto usan la imagen del medio en o
   }
   const r = await ir(env, '/nota/una-nota-sin-foto-sinfoto');
   const html = await r.text();
-  assert.ok(html.includes(`og:image" content="${DEFECTO}"`));
-  assert.match(html, /"image":\["https:\/\/radarbalcarce\.com\/og-default\.png"\]/);
+  const PLACA = 'https://radarbalcarce.com/og-seccion/balcarce.png';
+  assert.ok(html.includes(`og:image" content="${PLACA}"`), 'la nota sin foto comparte la placa de su sección, no el logo genérico');
+  assert.ok(html.includes(`twitter:image" content="${PLACA}"`));
+  assert.ok(html.includes('<div class="placa-nota"'), 'y muestra la placa de su sección adentro');
+  assert.match(html, /"image":\["https:\/\/radarbalcarce\.com\/og-seccion\/balcarce\.png"\]/);
+});
+
+test('/og-seccion/<sección>.png: una placa PNG de 1200 × 630 por cada una de las 14 secciones, con los colores de la marca; lo que no es sección no se sirve', async () => {
+  const { env } = baseDePrueba();
+  const { PLACAS } = await import('./scripts/imagen-og-secciones.mjs');
+  assert.deepEqual(Object.keys(PLACAS).sort(), SECCIONES.map((s) => s.ranura).sort());
+  const { ESTILOS } = await import('./vistas/base.mjs');
+  for (const [ranura, [, color]] of Object.entries(PLACAS)) {
+    assert.ok(ESTILOS.includes('--s-' + ranura + ':' + color), 'el color de ' + ranura + ' es el de la marca');
+    const r = await ir(env, '/og-seccion/' + ranura + '.png');
+    assert.equal(r.status, 200, ranura);
+    assert.equal(r.headers.get('content-type'), 'image/png');
+    const b = new Uint8Array(await r.arrayBuffer());
+    assert.deepEqual([...b.slice(0, 8)], [137, 80, 78, 71, 13, 10, 26, 10]);
+    const v = new DataView(b.buffer, b.byteOffset);
+    assert.deepEqual([v.getUint32(16), v.getUint32(20)], [1200, 630]);
+  }
+  assert.notEqual((await ir(env, '/og-seccion/inventada.png')).status, 200);
+  assert.notEqual((await ir(env, '/og-seccion/constructor.png')).status, 200);
 });
 
 test('una nota con foto propia sigue usando su foto', async () => {

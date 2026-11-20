@@ -223,7 +223,7 @@ export function datosEstructurados(n, { parrafos, canonico, indexar }) {
     inLanguage: 'es-AR',
     isAccessibleForFree: true,
     articleSection: n.seccion,
-    image: [foto ? foto.url : IMAGEN_DEL_MEDIO],
+    image: [foto ? foto.url : placaOgDeNota(n)],
     wordCount: palabras(parrafos.join(' ')),
     author: persona ? { '@type': 'Person', name: persona } : { '@type': 'Organization', name: NOMBRE, url: `${BASE}/quienes-somos` },
     publisher: { '@type': 'NewsMediaOrganization', name: NOMBRE, url: BASE, logo: { '@type': 'ImageObject', url: `${BASE}/icon-512.png`, width: 512, height: 512 } },
@@ -237,6 +237,9 @@ export function datosEstructurados(n, { parrafos, canonico, indexar }) {
  * La nota sin foto (Hernán, 6/11): en vez de nada, una placa de su sección (el color y el nombre; el titular ya está arriba). No va en el clima diario, que arma su propia imagen.
  * Es de adorno (aria-hidden) y liviana: un bloque de CSS, sin imagen que bajar.
  */
+/** La imagen para compartir de una nota SIN foto: la placa de su sección (1200 × 630, /og-seccion/<sección>.png), hasta que llega la foto o la ilustración. */
+export const placaOgDeNota = (n) => `${BASE}/og-seccion/${ranuraDe(n.seccion)}.png`;
+
 export function placaDeNota(n, ranura) {
   if (esClimaDiario(n)) return '';
   return `<div class="placa-nota" style="--pc:${colorDe(ranura)}" aria-hidden="true"><em>${esc(n.seccion)}</em><b>Radar<i>Balcarce</i></b></div>`;
@@ -276,7 +279,7 @@ ${masContadasHtml(contadas)}
     canonico,
     indexar,
     cuerpo,
-    imagen: foto?.url,
+    imagen: foto?.url ?? placaOgDeNota(n),
     contexto,
     tipo: 'article',
     lugarPie: conFijo ? null : 'N2',

@@ -117,7 +117,23 @@ const meta = (html, propiedad) => {
 };
 
 /**
- * El HTML de una entrada → { titulo, bajada, aviso, cuerpo, texto, portada (https de sehace.com o null), alt, serie }.
+ * El video de YouTube de la entrada (su reel/short o un video del canal de Hernán), como id de 11 caracteres, o null. Mira embeds (youtube.com/embed/…, youtube-nocookie.com/embed/…),
+ * youtu.be/…, youtube.com/shorts/…, youtube.com/watch?v=… y youtube.com/live/… en cualquier parte del HTML; el primero que aparece. Un enlace al canal (@usuario) o a una lista no cuenta.
+ */
+export function videoDeEntrada(html) {
+  const h = sinEntidades(String(html ?? '')).split('\/').join('/');
+  const patrones = [
+    /(?:https?:)?\/\/(?:www\.|m\.)?youtube(?:-nocookie)?\.com\/(?:embed|shorts|live|v)\/([A-Za-z0-9_-]{11})(?![A-Za-z0-9_-])/gi,
+    /(?:https?:)?\/\/(?:www\.|m\.)?youtube\.com\/watch\?(?:[^"'\s<>#]*&)?v=([A-Za-z0-9_-]{11})(?![A-Za-z0-9_-])/gi,
+    /(?:https?:)?\/\/youtu\.be\/([A-Za-z0-9_-]{11})(?![A-Za-z0-9_-])/gi,
+  ];
+  let mejor = null;
+  for (const re of patrones) for (const m of h.matchAll(re)) if (!mejor || m.index < mejor.i) mejor = { i: m.index, id: m[1] };
+  return mejor ? mejor.id : null;
+}
+
+/**
+ * El HTML de una entrada → { titulo, bajada, aviso, cuerpo, texto, portada (https de sehace.com o null), alt, video (id de YouTube o null), serie }.
  * `texto` es el material completo para la IA: título, bajada, «cómo armé esta nota» y el cuerpo, con los párrafos separados por una línea en blanco.
  */
 export function paginaDeEntrada(html, url) {
@@ -142,7 +158,7 @@ export function paginaDeEntrada(html, url) {
       if (u.protocol === 'https:' && u.hostname === 'sehace.com') portada = u.toString();
     } catch { /* sin portada */ }
   }
-  return { titulo, bajada, aviso, cuerpo, texto, portada, alt: meta(h, 'og:image:alt').slice(0, 200), serie: SERIE.test(`${titulo}\n${bajada}\n${cuerpo}`) };
+  return { titulo, bajada, aviso, cuerpo, texto, portada, alt: meta(h, 'og:image:alt').slice(0, 200), video: videoDeEntrada(h), serie: SERIE.test(`${titulo}\n${bajada}\n${cuerpo}`) };
 }
 
 // ------------------------------------------------------------------------------------------ la portada
@@ -164,7 +180,7 @@ export function medidasDeImagen(b) {
 
 /**
  * Baja la portada de la entrada (sólo https de sehace.com) y la guarda en el depósito `radar-fotos` como copia propia (`copias/<huella>.jpg`, la misma de las fotos de las notas: el sitio la sirve en /foto/<huella>.jpg).
- * Devuelve el `foto` de la nota, o { motivo } si no se pudo (la nota sale sin foto: la ilustración del núcleo la cubre). Una imagen que no es JPEG ni PNG de verdad, o de más de 4 MB, no se guarda.
+ * Devuelve el `foto` de la nota (marcada `esPlaca`: la portada de Se hace es una placa con texto y el sitio la muestra entera, nunca recortada), o { motivo } si no se pudo (la nota sale sin foto: la ilustración del núcleo la cubre). Una imagen que no es JPEG ni PNG de verdad, o de más de 4 MB, no se guarda.
  */
 export async function copiarPortada({ url, alt, titulo }, { fetch: fetchFn, bucket, ahoraISO, base = 'https://radarbalcarce.com' }) {
   if (!url) return { motivo: 'sin-portada' };
@@ -189,7 +205,7 @@ export async function copiarPortada({ url, alt, titulo }, { fetch: fetchFn, buck
   const copia = `${base}/foto/${huella}.jpg`;
   return {
     foto: {
-      url: copia, alt: alt || `Portada de la entrada «${titulo}» de sehace.com`, credito: CREDITO_FOTO, ancho, alto, cubrir: true,
+      url: copia, alt: alt || `Portada de la entrada «${titulo}» de sehace.com`, credito: CREDITO_FOTO, ancho, alto, esPlaca: true, cubrir: false,
       copia, copiaChica: copia, copiaAncho: ancho, copiaAlto: alto, copiaEn: ahoraISO, original: url,
     },
   };
@@ -329,6 +345,7 @@ export async function sehaceDelDia({ env, ahora, fetch: fetchFn, gem, perfil = '
   const fila = {
     id, creada: ahoraISO, titulo, bajada, cuerpo, seccion: SECCION, enDosLineas: nota.enDosLineas || bajada, firma: FIRMA, pedidos: r.pedidos,
     slug: slugDe(titulo) || 'nota', foto: portada.foto ?? null,
+    ...(pagina.video ? { extra: { video: { youtube: pagina.video, titulo: titulo.slice(0, 120) } } } : {}),
     fuentes: [{ medio: MEDIO, url: entrada.url }],
     ficha: {
       ...fichaIA, ...(grafico ? { grafico } : {}), pideCriterio: false, carga: { por: 'sehace-automatico', cuando: ahoraISO },
@@ -348,5 +365,5 @@ export async function sehaceDelDia({ env, ahora, fetch: fetchFn, gem, perfil = '
     try { await db.sehaceSoltar(env, entrada.slug); } catch { /* queda en curso: no se vuelve a tocar en 30 minutos */ }
     return { accion: 'error', error: 'guardar', slug: entrada.slug };
   }
-  return { accion: sale ? 'publicada' : 'borrador', id, slug: entrada.slug, categoria: entrada.categoria, pedidos: r.pedidos, quitadas: r.quitadas.length, foto: !!portada.foto, ...(portada.motivo ? { fotoMotivo: portada.motivo } : {}) };
+  return { accion: sale ? 'publicada' : 'borrador', id, slug: entrada.slug, categoria: entrada.categoria, pedidos: r.pedidos, quitadas: r.quitadas.length, foto: !!portada.foto, video: !!pagina.video, ...(portada.motivo ? { fotoMotivo: portada.motivo } : {}) };
 }

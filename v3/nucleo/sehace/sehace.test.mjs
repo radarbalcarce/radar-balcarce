@@ -137,6 +137,32 @@ test('la página de la entrada: título, bajada, «cómo armé», cuerpo sin nav
   assert.equal(paginaDeEntrada(pagina('X', { cuerpo: 'Hache y Clau fueron a la plaza' }), 'https://sehace.com/blog/x/').serie, true);
 });
 
+test('el video de la entrada: embed, shorts, youtu.be y watch?v= se reconocen; el canal y las listas no; sin video, null', () => {
+  const v = (h) => S.videoDeEntrada(h);
+  assert.equal(v('<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"></iframe>'), 'dQw4w9WgXcQ');
+  assert.equal(v('<iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"></iframe>'), 'dQw4w9WgXcQ');
+  assert.equal(v('<a class="n2-red yt" href="https://www.youtube.com/shorts/j7DxGqFDTH4" rel="noopener">Miralo</a>'), 'j7DxGqFDTH4');
+  assert.equal(v('<a href="https://youtu.be/dQw4w9WgXcQ?t=3">x</a>'), 'dQw4w9WgXcQ');
+  assert.equal(v('<a href="https://www.youtube.com/watch?feature=share&amp;v=dQw4w9WgXcQ">x</a>'), 'dQw4w9WgXcQ');
+  assert.equal(v('<script type="application/ld+json">{"embedUrl":"https:\/\/www.youtube.com\/embed\/dQw4w9WgXcQ"}</script>'), 'dQw4w9WgXcQ', 'también en el JSON-LD');
+  assert.equal(v('<a href="https://www.youtube.com/@hacheaccomo?sub_confirmation=1">canal</a><a href="https://www.youtube.com/playlist?list=PLabcdefghijk">lista</a>'), null);
+  assert.equal(v('<a href="https://www.youtube.com/shorts/corto">x</a>'), null, 'id que no es de 11 caracteres');
+  assert.equal(v('<p>sin nada</p>'), null);
+  assert.equal(v('<a href="https://youtu.be/AAAAAAAAAAA">uno</a><a href="https://www.youtube.com/shorts/BBBBBBBBBBB">dos</a>'), 'AAAAAAAAAAA', 'el primero que aparece');
+  assert.equal(paginaDeEntrada(pagina('Con video', { extra: '<a href="https://www.youtube.com/shorts/j7DxGqFDTH4">Miralo</a>' }), 'https://sehace.com/blog/x/').video, 'j7DxGqFDTH4');
+  assert.equal(paginaDeEntrada(pagina('Sin video'), 'https://sehace.com/blog/x/').video, null);
+});
+
+test('una entrada con video publica la nota con sitio_notas.extra.video (el mismo formato del panel)', { skip: sinSqlite }, async () => {
+  const m = montar({ items: [NOVEDAD], paginas: { '2026-11-19-gemini-4-neon': pagina('Gemini 4 Neon: el modelo del medio de Google', { portada: '/img/og/2026-11-19-gemini-4-neon.jpg', extra: '<div class="n2-redes"><a href="https://www.youtube.com/shorts/j7DxGqFDTH4">Miralo</a></div>' }) } });
+  const r = await m.correr(D10);
+  assert.equal(r.accion, 'publicada');
+  assert.equal(r.video, true);
+  const [n] = m.notas();
+  const extra = JSON.parse(m.sqlite.prepare('SELECT extra FROM sitio_notas WHERE id = ?').get(n.id).extra);
+  assert.deepEqual(extra, { video: { youtube: 'j7DxGqFDTH4', titulo: n.titulo } });
+});
+
 test('las medidas de la portada salen de los bytes', () => {
   assert.deepEqual(medidasDeImagen(JPG), { alto: 630, ancho: 1200 });
 });
@@ -190,7 +216,8 @@ test('a las 10 publica UNA nota: Tecnología, firma de Hernán, fuente única Se
   const foto = JSON.parse(n.foto);
   assert.equal(foto.credito, 'Imagen: sehace.com');
   assert.equal(foto.alt, 'Placa azul de Gemini 4 Neon: el modelo del medio de Google');
-  assert.equal(foto.cubrir, true);
+  assert.equal(foto.esPlaca, true, 'la portada de Se hace es una placa con texto: el sitio la muestra entera');
+  assert.equal(foto.cubrir, false);
   assert.deepEqual([foto.ancho, foto.alto], [1200, 630]);
   assert.match(foto.url, /^https:\/\/radarbalcarce\.com\/foto\/[0-9a-f]{24}\.jpg$/);
   assert.equal(foto.copia, foto.url);
@@ -198,6 +225,8 @@ test('a las 10 publica UNA nota: Tecnología, firma de Hernán, fuente única Se
   assert.ok(m.objetos.has(clave), 'la copia está en R2');
   assert.equal(m.objetos.get(clave).httpMetadata.contentType, 'image/jpeg');
   assert.ok(m.sqlite.prepare('SELECT 1 FROM sitio_notas WHERE id = ?').get(n.id), 'el sitio la ve (sitio_notas)');
+  assert.equal(m.sqlite.prepare('SELECT extra FROM sitio_notas WHERE id = ?').get(n.id).extra, null, 'sin video en la entrada, sin video en la nota');
+  assert.equal(r.video, false);
   assert.deepEqual({ ...m.filas().find((f) => f.slug === '2026-11-19-gemini-4-neon') }, { slug: '2026-11-19-gemini-4-neon', estado: 'publicada', motivo: null, nota_id: n.id });
   // las instrucciones de Hernán viajan en el pedido de redacción, y la verificación recibe el texto de la entrada
   const p1 = m.ia.prompts[0];

@@ -134,6 +134,9 @@ export function debeReabrirseLaIlustracion(nota) {
 /** El estado que se le suma a una nota al reabrirla (idempotente: queda la versión, así no vuelve a abrirse). */
 export const estadoDeReapertura = () => ({ final: false, fallos: 0, rechazos: 0, revisionIlustracion: REVISION_ILUSTRACION });
 
+/** ¿Es una nota de la sección Balcarce? */
+const esDeBalcarce = (nota) => plano(nota?.seccion) === 'balcarce';
+
 /** ¿La búsqueda de una foto real de las fuentes ya se agotó? Entonces toca la ilustración. Las notas viejas (nadie las vuelve a buscar) cuentan como agotadas. */
 export function busquedaAgotada(nota, ahora = new Date()) {
   const v = nota?.verificacion || {};
@@ -141,6 +144,8 @@ export function busquedaAgotada(nota, ahora = new Date()) {
   // Si la visión no pudo decidir (cupo, red), esos intentos no cuentan como búsqueda hecha: se espera a las 3 horas.
   if (intentos >= MAX_INTENTOS_DE_FOTO && v.fotoMotivo !== 'error-vision') return true;
   if (MOTIVOS_FINALES.includes(v.fotoMotivo) && intentos >= INTENTOS_CON_MOTIVO_FINAL) return true;
+  // 20/11 (Hernán: «todo lleva imagen, siempre»; caso de la escuela de handball): una nota de BALCARCE cuya foto ya se buscó y se descartó (menores, víctimas, logos, sin candidatas…) no espera la segunda vuelta de 45 minutos: se ilustra en la primera posible.
+  if (esDeBalcarce(nota) && MOTIVOS_FINALES.includes(v.fotoMotivo) && intentos >= 1) return true;
   const creada = new Date(nota?.creada).getTime();
   return Number.isFinite(creada) && new Date(ahora).getTime() - creada > HORAS_DE_REINTENTO_DE_FOTO * HORA;
 }

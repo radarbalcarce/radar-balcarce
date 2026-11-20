@@ -548,5 +548,5 @@ export async function insertarNotaPropia(env, n, { publicada = true } = {}) {
     json(n.verificacion), json(n.foto), json(n.fuentes), n.creada, n.firma, n.pedidos || 0,
     publicada ? 'publicada' : 'borrador', 'redaccion', n.slug, publicada ? n.creada : null, json(redes),
   ).run();
-  await env.DB.prepare('INSERT INTO sitio_notas (id, slug, publicada_en, origen, extra) VALUES (?, ?, ?, ?, NULL)').bind(n.id, n.slug, n.creada, 'redaccion').run();
+  await env.DB.prepare('INSERT INTO sitio_notas (id, slug, publicada_en, origen, extra) VALUES (?, ?, ?, ?, ?)').bind(n.id, n.slug, n.creada, 'redaccion', n.extra ? json(n.extra) : null).run();
 }

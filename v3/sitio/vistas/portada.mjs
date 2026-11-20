@@ -46,6 +46,10 @@ const nombreDe = (n) => rotuloDe(normalizarSeccion(n.seccion));
 const chip = (n) => `<span class="chip" style="--cc:${colorDe(ranuraDe(n.seccion))}">${esc(nombreDe(n))}</span>`;
 const cuando = (n, ahora) => `<span class="hora">· <time datetime="${esc(n.publicada)}">${esc(hace(n.publicada, ahora))}</time></span>`;
 
+/** ¿La foto es un gráfico o una placa con texto (se muestra entera, nunca recortada)? Marca nueva `esPlaca`; la `cubrir === false` explícita de una foto con copia propia también. */
+export const esPlaca = (foto) => !!foto && foto.esPlaca === true;
+const fondoDePlaca = (foto, n) => (/^#[0-9a-f]{3,8}$/i.test(String(foto.fondo ?? '')) ? foto.fondo : colorDe(ranuraDe(n.seccion)));
+
 /** La foto de la nota, o la placa con el color de su sección. `proporcion` es el ancho/alto que se reserva. */
 export function imagenODePlaca(n, { ancho, alto, cargar = 'lazy', prioridad = false } = {}) {
   // Con copia propia, la portada y las listas usan la versión chica (640 px, fotos-copia.mjs); la grande queda para la nota y lo que se comparte.
@@ -54,7 +58,9 @@ export function imagenODePlaca(n, { ancho, alto, cargar = 'lazy', prioridad = fa
   const url = foto ? urlSegura((foto.chica && Number(ancho) <= 640 && urlSegura(foto.chica)) || foto.url) : null;
   if (url) {
     // `foto.cubrir`: una foto propia (no un gráfico) que se recorta 16:9 como las demás (la vertical del cometa de «Un día como hoy» se veía altísima: 12/11).
-    const propia = /\/fotos-notas\//.test(url) && !foto.cubrir ? ' class="fotopropia"' : '';
+    let propia = /\/fotos-notas\//.test(url) && !foto.cubrir ? ' class="fotopropia"' : '';
+    // `foto.esPlaca`: un gráfico o una placa con texto (la portada de una entrada de Se hace): nunca se recorta; entera, con el color de su sección (o `foto.fondo`) en los costados (20/11).
+    if (esPlaca(foto)) propia = ` class="fotoplaca" style="background:${fondoDePlaca(foto, n)}"`;
     return `<img${propia} src="${esc(url)}" alt="${esc(foto.alt || '')}" width="${ancho}" height="${alto}" loading="${cargar}" decoding="async"${prioridad ? ' fetchpriority="high"' : ''}>`;
   }
   return `<div class="placa" style="--pc:${colorDe(ranuraDe(n.seccion))}" aria-hidden="true"><em>${esc(nombreDe(n))}</em><strong>${esc(recorte(n.titulo, 120))}</strong><b>Radar<i>Balcarce</i></b></div>`;
