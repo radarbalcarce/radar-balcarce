@@ -63,7 +63,7 @@ NOTAS_CON_GRAFICO = "si"
 
 # Notas diarias desde sehace.com (REGLAS § 14, 20/11): a las 10, 14 y 18 de Balcarce la vuelta toma UNA entrada del blog de Hernán y la publica en Tecnología con su firma (hasta 3 por día, 2 pedidos de IA cada una).
 # Reemplaza a la tarea programada de la PC («radar-notas-desde-sehace»): hay que desactivar aquella. "no" (o sacarla) lo apaga del todo.
-SEHACE_AUTOMATICO = "no"
+SEHACE_AUTOMATICO = "si"
 
 # Respaldo de texto (REGLAS § 5 bis): si Gemini falla o el freno mensual cortó, redactar, verificar y la duda siguen por Mistral (plan gratis).
 # Sólo texto: fotos e ilustraciones nunca van a Mistral. Sin el secreto MISTRAL_API_KEY no se llama a nadie y todo queda como antes.
