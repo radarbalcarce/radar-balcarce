@@ -212,14 +212,14 @@ export function armarEfemeride(efemeride, { fecha = null, anioActual = new Date(
     const voz = acortarPalabras(`${prefijo} ${texto}.`, Math.min(lugar, 32));
     if (contarPalabras(voz) <= contarPalabras(prefijo)) break;
     usadas += contarPalabras(voz); voces.push(voz);
-    ademas.push({ anio: o.anio ?? null, texto: fraseEnPantalla(texto, 120) });
+    ademas.push({ anio: o.anio ?? null, texto: fraseEnPantalla(texto, 120), ...(o.foto ? { foto: o.foto } : {}) });
   }
   const guion = unir(intro, hecho, ...voces);
   const total = Math.min(EFEMERIDE.maximo, Math.max(EFEMERIDE.segundos, Math.ceil(contarPalabras(guion) / PALABRAS_POR_SEGUNDO + SEGUNDOS_DE_ADORNO)));
   return video('efemeride', [
     escena('efemeride', total, {
       fecha: dia,
-      principal: { anio: p.anio, titulo: p.titulo, cuerpo: fraseEnPantalla(resumen, 170) },
+      principal: { anio: p.anio, titulo: p.titulo, cuerpo: fraseEnPantalla(resumen, 170), ...(p.foto ? { foto: p.foto } : {}) },
       ademas,
       anioActual,
     }, guion),

@@ -56,13 +56,13 @@ export function hechosDelDia(pieza, candidatas = []) {
   for (const p of deLaPieza) {
     const c = mapa.get(p.id);
     // Lo que escribió una persona en la pieza manda sobre la candidata (el texto), pero el enlace y el estilo salen de la candidata.
-    sumar({ ...(c ?? {}), id: p.id, anio: p.anio, titulo: p.titulo ?? c?.titulo, texto: p.cuerpo || p.texto || c?.texto, origen: c?.origen ?? 'pieza', estilo: c?.estilo, enlace: c?.enlace ?? null, deLaPieza: true });
+    sumar({ ...(c ?? {}), id: p.id, anio: p.anio, titulo: p.titulo ?? c?.titulo, texto: p.cuerpo || p.texto || c?.texto, origen: c?.origen ?? 'pieza', estilo: c?.estilo, enlace: c?.enlace ?? null, deLaPieza: true, fotoElegida: p.foto ?? null });
   }
   for (const c of [...candidatas].filter(esUsable).sort((a, b) => (b.puntaje ?? 0) - (a.puntaje ?? 0))) sumar(c);
   return elegidos
     .map((c) => {
       const t = c.deLaPieza && c.titulo && !c.titulo.endsWith('…') ? { titulo: c.titulo, cuerpo: c.texto && c.texto !== c.titulo ? c.texto : '' } : tituloYCuerpo(c);
-      return { id: c.id, anio: c.anio, titulo: sinPunto(t.titulo), texto: t.cuerpo ? sinPunto(t.cuerpo) + '.' : '', enlace: c.enlace ?? null, estilo: c.estilo ?? null, origen: c.origen ?? null };
+      return { id: c.id, anio: c.anio, titulo: sinPunto(t.titulo), texto: t.cuerpo ? sinPunto(t.cuerpo) + '.' : '', enlace: c.enlace ?? null, estilo: c.estilo ?? null, origen: c.origen ?? null, ...(c.fotoElegida ? { fotoElegida: c.fotoElegida } : {}) };
     })
     .sort((a, b) => b.anio - a.anio);
 }
@@ -84,9 +84,9 @@ export function datosDelHecho(h, anioActual) {
 
 // ------------------------------------------------------------------ las fotos libres de Commons
 
-const LICENCIA_LIBRE = /^(public domain|pd\b|cc0|cc[- ]by(?:[- ]sa)?[- ]\d(?:\.\d)?(?:[- ]igo)?|cc[- ]by(?:[- ]sa)?$|attribution)/i;
-const NO_SIRVE = /(^|[^a-z])(flag|bandera|escudo|coat[ _]of[ _]arms|logo|logotipo|map|mapa|locator|icon|signature|firma|diagram|chart|gr[aá]fico)([^a-z]|$)|\.(svg|pdf|tif|tiff|ogv|webm)$/i;
-const sinEtiquetas = (t) => String(t ?? '').replace(/<[^>]*>/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#0?39;/g, "'").replace(/\s+/g, ' ').trim();
+export const LICENCIA_LIBRE = /^(public domain|pd\b|cc0|cc[- ]by(?:[- ]sa)?[- ]\d(?:\.\d)?(?:[- ]igo)?|cc[- ]by(?:[- ]sa)?$|attribution)/i;
+export const NO_SIRVE = /(^|[^a-z])(flag|bandera|escudo|coat[ _]of[ _]arms|logo|logotipo|map|mapa|locator|icon|signature|firma|diagram|chart|gr[aá]fico)([^a-z]|$)|\.(svg|pdf|tif|tiff|ogv|webm)$/i;
+export const sinEtiquetas = (t) => String(t ?? '').replace(/<[^>]*>/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#0?39;/g, "'").replace(/\s+/g, ' ').trim();
 export const PUBLICADOR_DE_COMMONS = 'vía Wikimedia Commons';
 
 /** El título de la página de Wikipedia de un enlace (`https://es.wikipedia.org/wiki/Saturno_(planeta)` → `Saturno_(planeta)`), o null si no es una página de artículo. */
@@ -104,21 +104,36 @@ export function creditoDeCommons({ autor, licencia }) {
 }
 
 /**
+ * La foto ELEGIDA DE ANTEMANO por una persona (20/11, Hernán: «todo tiene que tener foto»): `{ commons: 'File:Nombre.jpg', credito: 'Quién' }` en el hecho de efemerides-piezas.json.
+ * Se verifica que exista en Commons y tenga licencia libre (dominio público, CC0, CC BY, CC BY-SA); si no, null y el hecho sigue con Wikipedia y la búsqueda estricta. El crédito del json reemplaza al autor de Commons.
+ */
+export async function fotoElegidaDeCommons(elegida, { json, bajar, ancho = 960 } = {}) {
+  const nombre = String(elegida?.commons ?? '').replace(/^File:/i, '').replace(/_/g, ' ').trim();
+  if (!nombre) return null;
+  const f = await archivoDeCommons(nombre, nombre, { json, bajar, ancho, sinFiltroDeNombre: true, fija: true });
+  if (!f) return null;
+  const credito = elegida.credito ? creditoDeCommons({ autor: String(elegida.credito), licencia: f.licencia }) : f.credito;
+  return { ...f, credito, origen: 'fija' };
+}
+
+/**
  * La foto de la página de Wikipedia de un hecho, SÓLO si está en Wikimedia Commons con licencia libre (dominio público, CC0, CC BY, CC BY-SA). Nunca una bandera, un mapa o un logo.
  * `json(url)` devuelve el JSON (o null); `bajar(url)` los bytes `{ bytes, mime }` (o null).
  */
 export async function fotoDeCommons(hecho, { json, bajar, ancho = 960 } = {}) {
+  if (hecho?.fotoElegida?.commons) { const e = await fotoElegidaDeCommons(hecho.fotoElegida, { json, bajar, ancho }); if (e) return e; } // primero la elegida a mano
   const pagina = paginaDeWikipedia(hecho?.enlace);
   if (pagina) {
     const a = await json(`https://es.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&redirects=1&prop=pageimages&piprop=name&titles=${encodeURIComponent(pagina)}`);
     const p = a?.query?.pages?.[0];
     const f = await archivoDeCommons(p?.pageimage, p?.title, { json, bajar, ancho });
-    if (f) return f;
+    if (f) return { ...f, origen: 'wikipedia' };
   }
   const delSujeto = await fotoDeWikipediaPorSujeto(hecho, { json, bajar, ancho });
-  if (delSujeto) return delSujeto;
+  if (delSujeto) return { ...delSujeto, origen: 'wikipedia' };
   if (/^D[ií]a\b/i.test(String(hecho?.titulo ?? '').trim())) return null; // un «Día de…» sin artículo propio con imagen: sin foto (20/11: «Día de la Enfermería Argentina» → la foto de una enfermera)
-  return fotoDeCommonsPorBusqueda(hecho, { json, bajar, ancho });
+  const buscada = await fotoDeCommonsPorBusqueda(hecho, { json, bajar, ancho });
+  return buscada ? { ...buscada, origen: 'commons' } : null;
 }
 
 /** Las frases de «evento» del hecho («batalla de la Vuelta de Obligado», «Tratado de Tordesillas»): lo concreto que pasó, mejor para buscar que el nombre del día. */
@@ -316,7 +331,7 @@ export async function fotoDeWikipediaPorSujeto(hecho, { json, bajar, ancho = 960
 }
 
 /** Un archivo de Commons por su nombre: sólo licencia libre, nunca bandera, mapa ni logo. `info` = la página de imageinfo ya pedida (si no, se pide). */
-async function archivoDeCommons(nombre, tituloDePagina, { json, bajar, ancho, info: pagina = null, sinFiltroDeNombre = false }) {
+async function archivoDeCommons(nombre, tituloDePagina, { json, bajar, ancho, info: pagina = null, sinFiltroDeNombre = false, fija = false }) {
   if (!nombre || (!sinFiltroDeNombre && NO_SIRVE.test(nombre))) return null;
   const c = pagina ? { query: { pages: [pagina] } } : await json(`https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&iiprop=url|size|mime|extmetadata&iiurlwidth=${ancho}&titles=${encodeURIComponent(`File:${nombre}`)}`);
   const info = c?.query?.pages?.[0]?.imageinfo?.[0];
@@ -324,7 +339,8 @@ async function archivoDeCommons(nombre, tituloDePagina, { json, bajar, ancho, in
   const meta = info.extmetadata ?? {};
   const licencia = sinEtiquetas(meta.LicenseShortName?.value);
   if (!LICENCIA_LIBRE.test(licencia) || /non-?free|fair use|copyrighted/i.test(`${licencia} ${meta.Copyrighted?.value ?? ''}`) || meta.NonFree?.value === 'true') return null;
-  if (!/^image\/(jpeg|png|webp)$/.test(info.mime ?? '') || info.width < 500) return null;
+  const mimeOk = /^image\/(jpeg|png|webp)$/.test(info.mime ?? '') || (fija && /^image\/tiff?$/.test(info.mime ?? '') && /\.(jpe?g|png)(\?|$)/i.test(info.thumburl ?? '')); // un .tif elegido a mano se baja por la miniatura jpg/png que da Commons (`iiurlwidth`)
+  if (!mimeOk || info.width < 500) return null;
   const url = info.thumburl || info.url;
   const bajada = await bajar(url);
   if (!bajada?.bytes?.length) return null;
@@ -332,7 +348,7 @@ async function archivoDeCommons(nombre, tituloDePagina, { json, bajar, ancho, in
   const titulo = sinEtiquetas(tituloDePagina);
   return {
     mime, bytes: bajada.bytes, ancho: info.thumbwidth ?? info.width, alto: info.thumbheight ?? info.height, titulo,
-    credito: creditoDeCommons({ autor: sinEtiquetas(meta.Artist?.value), licencia }), alt: `Imagen de «${titulo}»`, archivoDeOrigen: nombre,
+    licencia, credito: creditoDeCommons({ autor: sinEtiquetas(meta.Artist?.value), licencia }), alt: `Imagen de «${titulo}»`, archivoDeOrigen: nombre,
     paginaDeCommons: `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(nombre.replace(/ /g, '_'))}`,
   };
 }

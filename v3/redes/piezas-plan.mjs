@@ -59,8 +59,9 @@ export function repasoConMotivo(notas, { ahora, yaUsadas = [], yaContadas = [], 
   // La regla de cada nota: la edad que se mira y el piso de medios del sitio para esa sección y ese día (no el de los posteos: 5).
   const reglaDe = (n, horas) => ({ ...REGLAS_DE_NOTAS, edadMaximaHoras: horas, mediosParaNacional: mediosParaPublicar(n.seccion, ahora) });
   const tipo = (n, horas) => tipoDeNota(comoEs(n), reglaDe(n, horas));
-  // Lo de Balcarce no necesita foto (va con la placa de su sección); lo de afuera sí. La ley y el tono valen para todo.
-  const validasHasta = (horas) => notas.filter((n) => !usadas.has(n.id) && !motivoDeExclusion(tipo(n, horas) === 'local' && !tieneFoto(n) ? { ...comoEs(n), foto: { url: 'https://placa.local/sin-foto' } } : comoEs(n), { ahora, reglas: reglaDe(n, horas) }));
+  // REGLAS § 27 («todo lleva foto», 20/11): ninguna nota sin foto entra al repaso, tampoco las de Balcarce con la placa de su sección (la foto puede ser la propia o la ilustración del sitio: el núcleo la guarda en `nota.foto`).
+  // Si no alcanzan notas con foto, el repaso sale con menos (2) o no sale; nunca con un fondo vacío. La ley y el tono valen para todo.
+  const validasHasta = (horas) => notas.filter((n) => !usadas.has(n.id) && !motivoDeExclusion(comoEs(n), { ahora, reglas: reglaDe(n, horas) }));
   const hasta24 = validasHasta(horasBase);
   const soloAmpliadas = validasHasta(horasAmpliadas).filter((n) => !hasta24.includes(n));
   const primeras = hasta24.filter(pedida).sort((a, b) => String(b.pedida).localeCompare(String(a.pedida))).slice(0, reglas.notasPorRepaso);
@@ -255,14 +256,29 @@ export async function registrarResultado(env, cuerpo, { ahora = new Date(), avis
   const antes = await dbp.piezaDeLaFila(env, fila).catch(() => null); // para no avisar dos veces la misma fila
   const ok = await dbp.cerrarPieza(env, fila, cuerpo, ahora.toISOString());
   if (ok && cuerpo.estado === 'publicada') { try { await enlazarReelConSuNota(env, fila, cuerpo.acciones); } catch { /* el link es un extra: nunca rompe el cierre de la pieza */ } }
-  if (ok) { try { await avisarReelPedido(env, fila, cuerpo, antes, { avisar, ahora }); } catch (e) { console.error(`redes: no pude avisar del reel pedido: ${(e && e.message) || e}`); } }
+  if (ok) {
+    let avisado = false;
+    try { avisado = await avisarReelPedido(env, fila, cuerpo, antes, { avisar, ahora }); } catch (e) { console.error(`redes: no pude avisar del reel pedido: ${(e && e.message) || e}`); }
+    if (!avisado) { try { await avisarSinFoto(env, fila, cuerpo, antes, { avisar }); } catch (e) { console.error(`redes: no pude avisar de la pieza sin foto: ${(e && e.message) || e}`); } }
+  }
   return ok ? { ok: true } : { error: 'no existe esa fila' };
+}
+
+/**
+ * REGLAS § 27 («todo lleva foto»): una pieza que no se arma porque le falta la foto (`sin-datos` con «sin foto» en el motivo: la efeméride sin foto del hecho principal, una nota propia sin ninguna foto) se avisa por Telegram,
+ * una sola vez, para que una persona cargue la foto y la rehaga (input `rehacer`). En ensayo no avisa.
+ */
+export async function avisarSinFoto(env, fila, cuerpo, antes, { avisar = null } = {}) {
+  if (!avisar || !antes || antes.simulado || cuerpo?.estado !== 'sin-datos' || antes.estado === 'sin-datos' || !/sin foto/i.test(String(cuerpo.error ?? ''))) return false;
+  const que = antes.pieza === 'efemeride' ? `«Un día como hoy» del ${antes.dia}` : `la pieza «${antes.pieza}» del ${antes.dia}`;
+  const como = antes.pieza === 'efemeride' ? ' Cargá la foto del hecho en web/data/efemerides-piezas.json (campo «foto») y rehacela con «rehacer» en «Radar 3.0: piezas de redes».' : ' Cargale una foto a la nota y volvé a pedirlo.';
+  return avisar(`No salió ${que}: ${String(cuerpo.error).slice(0, 200)}.${como}`);
 }
 
 /** Por qué no salió un reel, en palabras simples (para el aviso por Telegram). */
 export function motivoEnPalabras(estado, error) {
   if (estado === 'sin-cupo') return 'se acabó el cupo de voz de hoy (15 audios por día); se vuelve a intentar mañana';
-  if (estado === 'sin-datos') return 'faltaron datos para armarlo (revisar las fotos de la nota)';
+  if (estado === 'sin-datos') return /sin foto/i.test(String(error ?? '')) ? 'la nota no tiene ninguna foto (cargale una y volvé a pedirlo)' : 'faltaron datos para armarlo (revisar las fotos de la nota)';
   const e = String(error ?? '');
   if (/foto/i.test(e)) return 'no se pudo bajar alguna foto de la nota';
   if (/BUFFER/i.test(e)) return 'falta la clave de Buffer para TikTok, YouTube y X';

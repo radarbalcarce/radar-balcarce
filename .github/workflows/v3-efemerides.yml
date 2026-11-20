@@ -11,6 +11,8 @@ name: "Radar 3.0: armar Un día como hoy y los feriados"
 # `simular` (por defecto en «no» cuando corre solo): arma todo y lo cuenta en el resumen, pero no escribe ni commitea.
 # `desde` y `dias` (opcionales): otro tramo (por ejemplo 2026-12-01 y 31); vacío = el mes que sigue a hoy.
 # Si el mes queda con menos de un tercio de los días armados, la corrida falla (y el vigilante se entera por el correo de GitHub).
+# Al final revisa las FOTOS del mes que viene (v3/redes/efemerides/revisar-fotos.mjs, 20/11/2026: «todo tiene que tener foto»): qué foto saldría en cada hecho y, para los que quedan SIN FOTO, candidatas de Commons y Wikipedia en una hoja de
+# contacto (artefacto «revision-fotos»), y manda por Telegram cuántos hechos quedan sin foto. No carga nada solo: una persona elige y pone «foto» en el hecho de web/data/efemerides-piezas.json. Usa el secreto TELEGRAM_TOKEN (ya existe).
 
 on:
   schedule:
@@ -51,6 +53,7 @@ jobs:
       SIMULAR: ${{ inputs.simular }}
       DESDE: ${{ inputs.desde }}
       DIAS: ${{ inputs.dias }}
+      TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -58,7 +61,7 @@ jobs:
           node-version: '24'
 
       - name: Pruebas
-        run: node --test v3/redes/efemerides/efemerides.test.mjs
+        run: node --test v3/redes/efemerides/efemerides.test.mjs v3/redes/efemerides/nota.test.mjs v3/redes/efemerides/sujeto-foto.test.mjs v3/redes/efemerides/revisar-fotos.test.mjs
 
       - name: Armar el mes
         run: |
@@ -87,3 +90,39 @@ jobs:
           done
           git fetch -q origin main
           [ "$(git rev-list --count origin/main..HEAD)" = 0 ] || { echo "No se pudo subir el resultado después de tres intentos"; exit 1; }
+
+      # Las fotos del mes que viene, hecho por hecho (REGLAS § 27, regla 7). Va después de guardar el mes: lee web/data/efemerides-piezas.json ya con los días nuevos. Nunca frena la corrida.
+      - name: Revisar las fotos del mes
+        id: fotos
+        if: env.SIMULAR != 'true'
+        continue-on-error: true
+        run: |
+          npm install --no-audit --no-fund --no-save @resvg/resvg-js || echo "Sin resvg: la revisión sale sin la hoja de contacto."
+          args="--mes-que-viene"
+          if [[ "$DESDE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then args="--desde=$DESDE"; if [[ "$DIAS" =~ ^[0-9]{1,2}$ ]]; then args="$args --dias=$DIAS"; else args="$args --dias=31"; fi; fi
+          node v3/redes/efemerides/revisar-fotos.mjs $args --salida=revision-fotos | tee revision.txt
+          { echo '### Fotos del mes que viene'; echo '```'; head -n 1 revision-fotos/lista.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Guardar la revisión de fotos
+        if: always() && steps.fotos.outcome != 'skipped'
+        uses: actions/upload-artifact@v4
+        with:
+          name: revision-fotos
+          path: revision-fotos/
+          retention-days: 30
+          if-no-files-found: ignore
+
+      - name: Avisar por Telegram cuántos hechos quedan sin foto
+        if: always() && steps.fotos.outcome == 'success'
+        run: |
+          test -s revision-fotos/telegram.txt || { echo "No hubo resumen para mandar"; exit 0; }
+          enviado=no
+          for intento in 1 2 3; do
+            if node v3/redaccion/telegram/herramientas.mjs decir revision-fotos/telegram.txt; then enviado=si; break; fi
+            echo "Telegram no recibió el aviso (intento $intento de 3)."
+            [ "$intento" -lt 3 ] && sleep $((intento * 20))
+          done
+          if [ "$enviado" != "si" ]; then
+            echo "::warning title=Aviso sin enviar::Telegram no contestó en 3 intentos. La lista de hechos sin foto está en el artefacto «revision-fotos»."
+          fi
+          exit 0

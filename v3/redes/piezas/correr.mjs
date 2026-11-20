@@ -92,6 +92,7 @@ export function armarDelPlan(item, {
       return armarCarruselFinde(finde, { fechaTexto: `Desde el ${fechaLarga(ahora).toLowerCase()}` });
     case 'nota-propia':
       if (!item.datos?.nota) throw new SinDatos('falta la nota del reel');
+      if (![item.datos.nota.foto, ...(item.datos.nota.fotos ?? [])].some((f) => f && (f.url || f.ruta))) throw new SinDatos('nota propia sin foto: el reel no se arma'); // REGLAS § 27: todo lleva foto
       return armarNotaPropia(item.datos.nota, op);
     case 'numero-del-dia':
       if (!item.datos?.nota || !item.datos?.numero) throw new SinDatos('falta la nota o la cifra del número del día');
@@ -317,7 +318,15 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps, solo
     const informe = { pieza: item.id, fila: item.fila, estado: 'error', vozUsada: false };
     let escribirRegistro = null; // vuelve a escribir el .json de la pieza (lo llama quien termina los extras)
     try {
-      let pieza = armarDelPlan(item, { dia: plan.dia, ahora: reloj, ...datos });
+      // REGLA «todo lleva foto» (REGLAS § 27): la efeméride se arma sólo con los hechos que tienen foto; un «además» sin foto se saca (pantalla y voz) y se anota; sin foto el principal, no sale.
+      let datosDeLaPieza = datos;
+      if (item.arma === 'efemeride' && datos.efemeride && deps.fotosDeLaEfemeride) {
+        const conFoto = await deps.fotosDeLaEfemeride(datos.efemeride);
+        if (conFoto.sinPrincipal) throw new SinDatos('efeméride sin foto para el hecho principal');
+        datosDeLaPieza = { ...datos, efemeride: conFoto.efemeride };
+        if (conFoto.sacados?.length) informe.aviso = `sin foto, sacados de la pieza: ${conFoto.sacados.map((x) => `${x.anio ?? 'HOY'} ${String(x.texto).slice(0, 50)}`).join(' | ')}`;
+      }
+      let pieza = armarDelPlan(item, { dia: plan.dia, ahora: reloj, ...datosDeLaPieza });
       const huella = huellaDeLaPieza(pieza);
       Object.assign(informe, { huella, guion: pieza.guion });
       if (pieza.tipo === 'carrusel') {
@@ -441,6 +450,7 @@ export async function dependenciasReales(env = process.env) {
       elegidas: (() => { try { return JSON.parse(fs.readFileSync(path.join(RAIZ, 'web', 'data', 'efemerides-elegidas.json'), 'utf8')); } catch { return null; } })(),
     }),
     leerEfemerides: async () => JSON.parse(fs.readFileSync(path.join(RAIZ, 'web', 'data', 'efemerides-piezas.json'), 'utf8')),
+    fotosDeLaEfemeride: async (efemeride) => (await import('../kit3/efemeride-foto.mjs')).efemerideConFotos(efemeride),
     async decir(guion, destino, { voz, pieza, bloque, activas }) {
       // En ensayo con clave aparte (_V3) habla con ésa; en real, con GEMINI_API_KEY_REDES, como hoy.
       if (!activas && env.GEMINI_API_KEY_REDES_V3) process.env.GEMINI_API_KEY_REDES = env.GEMINI_API_KEY_REDES_V3;

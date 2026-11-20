@@ -559,3 +559,31 @@ test('ENSAYO: no llama a ninguna red; anota «simulada» sólo en las prendidas'
   assert.ok(!clima.acciones.some((a) => a.red === 'bluesky'));
   assert.equal(ll.threads.length + ll.bluesky.length + ll.subidas.length, 0);
 });
+
+test('REGLAS § 27 (todo lleva foto): un «además» de la efeméride sin foto se saca de la pieza y de la voz, y queda anotado; con foto de todos, sale entera', async () => {
+  const t = armar({ ahora: MARTES_10 });
+  t.deps.fotosDeLaEfemeride = async (ef) => ({ efemeride: { ...ef, ademas: [] }, fotos: [{}], sacados: [{ anio: 1990, texto: 'Pasa algo más.' }], sinPrincipal: false });
+  const r = await correr({ env: t.env, ahora: MARTES_10, carpeta: t.carpeta, deps: t.deps });
+  const ef = r.piezas.find((p) => p.pieza === 'efemeride');
+  assert.equal(ef.estado, 'lista');
+  assert.match(ef.aviso, /sin foto, sacados de la pieza: 1990/);
+  const voz = t.pedidosDeVoz.find((v) => /1978/.test(v.guion));
+  assert.ok(voz && !/1990|Pasa algo más/.test(voz.guion), 'la voz no nombra el hecho sacado');
+  assert.equal(t.dibujadas.find((d) => d.pieza.id === 'efemeride').pieza.escenas[0].datos.ademas.length, 0, 'ni la pantalla');
+  const t2 = armar({ ahora: MARTES_10 });
+  const r2 = await correr({ env: t2.env, ahora: MARTES_10, carpeta: t2.carpeta, deps: t2.deps });
+  assert.equal(r2.piezas.find((p) => p.pieza === 'efemeride').estado, 'lista', 'sin la verificación inyectada (ensayo de las pruebas) todo sigue como siempre');
+});
+
+test('REGLAS § 27 (todo lleva foto): la efeméride sin foto del hecho PRINCIPAL no sale: estado sin-datos con su motivo, sin gastar voz', async () => {
+  const t = armar({ ahora: MARTES_10 });
+  t.deps.fotosDeLaEfemeride = async (ef) => ({ efemeride: ef, fotos: [], sacados: [], sinPrincipal: true });
+  const r = await correr({ env: t.env, ahora: MARTES_10, carpeta: t.carpeta, deps: t.deps });
+  const ef = r.piezas.find((p) => p.pieza === 'efemeride');
+  assert.equal(ef.estado, 'sin-datos');
+  assert.match(ef.error, /efeméride sin foto para el hecho principal/);
+  assert.ok(!t.pedidosDeVoz.some((v) => /1978/.test(v.guion)), 'no se gasta la voz de la efeméride');
+  assert.ok(!t.dibujadas.some((d) => d.pieza.id === 'efemeride'));
+  const fila = t.filas().find((f) => f.pieza === 'efemeride');
+  assert.equal(fila.estado, 'sin-datos');
+});
