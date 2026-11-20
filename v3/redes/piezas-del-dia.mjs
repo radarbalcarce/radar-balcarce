@@ -86,7 +86,8 @@ export function accionesDe(pieza) {
   const historia = [{ red: 'instagram', tipo: 'STORIES' }, { red: 'facebook', tipo: 'STORIES' }];
   let todas;
   if (pieza.formato === 'carrusel') todas = [{ red: 'instagram', tipo: 'CARRUSEL' }, { red: 'facebook', tipo: 'ALBUM' }];
-  else if (pieza.formato === 'historia') todas = [{ red: 'instagram', tipo: 'STORIES' }, { red: 'facebook', tipo: 'REELS' }, { red: 'facebook', tipo: 'STORIES' }];
+  // Hernán, 19/11/2026: «el clima y la farmacia en Instagram, que sean reel también: que salga todo en todas». Las piezas de formato 'historia' salen igual que un reel: reel e historia en las dos redes.
+  else if (pieza.formato === 'historia') todas = [...reel, ...historia];
   else todas = [...reel, ...historia];
   // Una pieza pedida a mano desde el panel (`notas.redes.destinos`, viaja en `datos.nota.destinos`) sale sólo en las redes elegidas; sin destinos, todo como siempre.
   // Instagram sigue siendo video con voz: sólo se filtra por red, nunca se cambia el formato.

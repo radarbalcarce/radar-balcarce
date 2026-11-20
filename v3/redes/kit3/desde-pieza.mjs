@@ -110,7 +110,7 @@ function adaptarClima(pieza, P, ctx) {
       numero: noche ? clima.ahora.temp : d.max,
       titulo: noche ? cielo : cielo,
       chips: noche
-        ? [{ t: lluviaTexto(manana.lluvia), claro: true }, { t: `Mañana: mín ${manana.min}° · máx ${manana.max}°`, claro: false }]
+        ? [{ t: `Mañana: mín ${manana.min}° · máx ${manana.max}°`, claro: false }, { t: manana.lluvia > 0 ? `Lluvia mañana ${manana.lluvia} %` : 'Mañana sin lluvia', claro: true }]
         : [{ t: `Mín ${d.min}°`, claro: false }, { t: `Lluvia ${d.lluvia ?? 0} %`, claro: true }],
     },
   };

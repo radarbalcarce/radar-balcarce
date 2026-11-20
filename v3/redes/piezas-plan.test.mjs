@@ -49,13 +49,13 @@ test('qué toca a cada hora: respeta la hora, la ventana, el día de la semana y
   assert.ok(!ids(piezasQueTocan(new Date('2026-11-04T03:10:00Z'))).includes('podcast')); // 00:10 del miércoles: ya no sale lo del martes
 });
 
-test('bloques y acciones: mañana 5 a 11, tarde 12 a 18, noche 19 a 4; el reel va a las dos redes y la historia también (el clima, historia en las dos y reel en Facebook)', () => {
+test('bloques y acciones: mañana 5 a 11, tarde 12 a 18, noche 19 a 4; el reel va a las dos redes y la historia también (el clima y la farmacia, igual: reel e historia en las dos, 19/11)', () => {
   assert.deepEqual([4, 5, 11, 12, 18, 19, 23].map(bloqueDeLaHora), ['noche', 'manana', 'manana', 'tarde', 'tarde', 'noche', 'noche']);
   assert.equal(bloqueDe(PIEZAS_DEL_DIA.find((p) => p.id === 'noticia2')), 'tarde');
   const reel = accionesDe(PIEZAS_DEL_DIA.find((p) => p.id === 'noticia1')).map((a) => `${a.red}/${a.tipo}`);
   assert.deepEqual(reel, ['instagram/REELS', 'facebook/REELS', 'instagram/STORIES', 'facebook/STORIES']);
   const clima = accionesDe(PIEZAS_DEL_DIA.find((p) => p.id === 'clima-manana')).map((a) => `${a.red}/${a.tipo}`);
-  assert.deepEqual(clima, ['instagram/STORIES', 'facebook/REELS', 'facebook/STORIES']);
+  assert.deepEqual(clima, ['instagram/REELS', 'facebook/REELS', 'instagram/STORIES', 'facebook/STORIES']);
   assert.equal(minutoDe('07:30'), 450);
 });
 

@@ -59,7 +59,9 @@ function tapa(K, S) {
   K.div(T, '', 'position:absolute;left:40px;top:482px;font-size:620px;' + NUM, grados(X.numero));
   const tam = K.fit(X.titulo, 960, 150, 70, 0.56);
   K.div(T, '', 'position:absolute;left:60px;top:1100px;white-space:nowrap;font-size:' + tam + 'px;' + SERIF, X.titulo);
-  X.chips.forEach((c, i) => K.div(T, '', 'position:absolute;left:' + (60 + (i ? (noche ? 300 : 280) : 0)) + 'px;top:1300px;height:72px;padding:0 30px;display:flex;align-items:center;background:' + (c.claro ? '#fff' : AZUL) + ';color:' + (c.claro ? '#14161A' : '#fff') + ';border-radius:8px;font-weight:700;font-size:40px;white-space:nowrap', c.t));
+  /* las pastillas van en una fila que se acomoda sola (si no entran en el ancho, la segunda baja): con lugares fijos se pisaban cuando el texto era largo */
+  const filaChips = K.div(T, '', 'position:absolute;left:60px;top:1300px;width:960px;display:flex;flex-wrap:wrap;gap:16px', '');
+  X.chips.forEach((c) => K.div(filaChips, '', 'height:72px;padding:0 30px;display:flex;align-items:center;background:' + (c.claro ? '#fff' : AZUL) + ';color:' + (c.claro ? '#14161A' : '#fff') + ';border-radius:8px;font-weight:700;font-size:40px;white-space:nowrap', c.t));
 }
 function escenas(K, S) {
   const D = S.datos, TL = K.TL, sec = D.secuencia;
