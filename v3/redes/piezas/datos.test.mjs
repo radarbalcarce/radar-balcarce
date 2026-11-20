@@ -16,3 +16,14 @@ test('leerClima: con una respuesta 500 seguida de otra 500, sigue intentando y n
   assert.equal(await leerClima({ traer, espera: 0, intentos: 2 }), null);
   assert.equal(llamadas, 2);
 });
+
+import { despedidaDelClima } from './armadores.mjs';
+test('la despedida del clima cambia con el día: viernes, sábado y domingo distintos, y la noche del finde', () => {
+  assert.equal(despedidaDelClima('2026-11-18'), 'Que tengan un buen día.'); // miércoles
+  assert.equal(despedidaDelClima('2026-11-20'), 'Que tengan un buen viernes.');
+  assert.equal(despedidaDelClima('2026-11-21'), 'Buen sábado.');
+  assert.equal(despedidaDelClima('2026-11-22'), 'Buen domingo.');
+  assert.equal(despedidaDelClima('2026-11-18', true), 'Que descansen.');
+  assert.equal(despedidaDelClima('2026-11-20', true), 'Que disfruten la noche.');
+  assert.equal(despedidaDelClima('2026-11-21', true), 'Que disfruten la noche.');
+});

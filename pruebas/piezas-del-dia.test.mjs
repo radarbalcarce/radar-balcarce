@@ -29,7 +29,7 @@ test('cada fila de la tabla está completa y no se repite', () => {
     assert.ok(p.etiqueta && p.hashtag && p.nombre, p.id);
     if (p.formato === 'repaso') assert.ok(p.titulo && p.momento, p.id);
   }
-  assert.equal(piezaDelDia('farmacia').hora, '19:00');
+  assert.equal(piezaDelDia('farmacia').hora, '18:00');
   assert.equal(piezaDelDia('no-existe'), undefined);
 });
 

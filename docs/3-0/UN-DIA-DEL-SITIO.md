@@ -31,12 +31,12 @@ Todas las horas son de Balcarce.
 | **7:30 (primera vuelta desde esa hora)** | El núcleo publica la **nota diaria del clima**. Si Open-Meteo no responde en toda la mañana (hasta las 12:00), ese día no sale | núcleo |
 | **8:00** | **Informe de la vigilancia** por Telegram. Empiezan los posteos con foto en Facebook e Instagram (hasta las 22:00, con 90 minutos entre uno y otro) | vigilancia, redes |
 | **9:00** | «Un día como hoy» (reel con voz) | piezas |
-| **10:00** | El repaso de la mañana (3 notas, al menos 1 de Balcarce) | piezas |
+| **11:00** | El repaso de la mañana (3 notas, al menos 1 de Balcarce) | piezas |
 | **12:00** | Participá (lunes, martes, miércoles y viernes; el jueves no hay pieza en la 3.0) | piezas |
 | **15:00** | El repaso de la tarde | piezas |
-| **19:00** | Farmacia de turno. **Entre las 19:00 y las 22:00** el núcleo vuelve a pedir el clima: si cambió de forma importante, **actualiza la misma nota** con un párrafo «Actualización de las 19» | piezas, núcleo |
+| **18:00** | Farmacia de turno. **Entre las 19:00 y las 22:00** el núcleo vuelve a pedir el clima: si cambió de forma importante, **actualiza la misma nota** con un párrafo «Actualización de las 19» | piezas, núcleo |
 | **20:00** | El clima de la noche. **Informe de la vigilancia** por Telegram | piezas, vigilancia |
-| **21:00** | El repaso del día | piezas |
+| **22:00** | El repaso del día | piezas |
 | **21:30** | **Resumen del núcleo** por Telegram: cuántas notas publicó ese día. Ahí se hace también la **limpieza diaria** de la base | núcleo |
 | **22:00** | Último posteo del día en Facebook e Instagram | redes |
 | **22:05** | **Resumen de redes** por Telegram: qué salió (o habría salido) en cada red | redes |

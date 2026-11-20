@@ -275,7 +275,7 @@ test('el feriado y la agenda: salen con datos, y sin datos no se reservan', asyn
 });
 
 test('ENSAYO: Buffer queda simulado (TikTok, YouTube, X) y no se sube ni se llama a nadie; REAL: se sube una vez y sale por cada canal con el mismo video', async () => {
-  const ahora = new Date('2026-11-03T13:00:00Z'); // martes 10:00
+  const ahora = new Date('2026-11-03T14:00:00Z'); // martes 11:00
   const env = { TELEGRAM_TOKEN: TOKEN, GEMINI_API_KEY_REDES_V3: 'x' };
   const ensayo = armarCorrida({ ahora });
   const r = await correr({ env, ahora, carpeta: ensayo.carpeta, deps: ensayo.deps });

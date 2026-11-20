@@ -41,7 +41,7 @@ export const PIEZAS_DEL_DIA = Object.freeze([
   {
     // 300 minutos: el turno dura hasta la mañana siguiente y sirve toda la noche (el 21/09 se cerró una ventana más corta y no salió).
     id: 'farmacia', nombre: 'Farmacia de turno', formato: 'historia', reelEnFacebook: true,
-    hora: '19:00', ventana: 300, dias: TODOS, voz: 2, etiqueta: 'farmacia', hashtag: 'FarmaciaDeTurno',
+    hora: '18:00', ventana: 300, dias: TODOS, voz: 2, etiqueta: 'farmacia', hashtag: 'FarmaciaDeTurno',
     porQue: 'A la hora en que cierran las demás farmacias.',
   },
   {
@@ -88,7 +88,7 @@ export const PIEZAS_DEL_DIA = Object.freeze([
   // podcast no se renombran: están en el libro y las estadísticas.
   {
     id: 'noticia1', nombre: 'El repaso de la mañana', titulo: 'El repaso de la mañana', momento: 'manana', formato: 'repaso',
-    hora: '10:00', ventana: 180, dias: TODOS, voz: 1, etiqueta: 'podcast mañana', hashtag: 'Noticias',
+    hora: '11:00', ventana: 180, dias: TODOS, voz: 1, etiqueta: 'podcast mañana', hashtag: 'Noticias',
   },
   {
     id: 'noticia2', nombre: 'El repaso de la tarde', titulo: 'El repaso de la tarde', momento: 'tarde', formato: 'repaso',
@@ -96,7 +96,7 @@ export const PIEZAS_DEL_DIA = Object.freeze([
   },
   {
     id: 'podcast', nombre: 'El repaso del día', titulo: 'El repaso del día', momento: 'noche', formato: 'repaso',
-    hora: '21:00', ventana: 180, dias: TODOS, voz: 1, etiqueta: 'podcast noche', hashtag: 'Noticias',
+    hora: '22:00', ventana: 180, dias: TODOS, voz: 1, etiqueta: 'podcast noche', hashtag: 'Noticias',
   },
 ].map((p) => Object.freeze({ ...p, dias: Object.freeze([...p.dias]) })));
 

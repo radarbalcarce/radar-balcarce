@@ -221,7 +221,7 @@ function adaptarFarmacia(pieza, P, ctx) {
     const largoNombre = palabrasDe(lista[0].nombre);
     marcas = [tiempoDe(P, iNom, frac(0.2)), iNom2 >= 0 ? tiempoDe(P, iNom2 + largoNombre, frac(0.42)) : frac(0.42), tiempoDe(P, iGuarda, frac(0.78))];
   } else {
-    // «Farmacia de turno esta noche: A y B. A, dirección. B, dirección. Guardá el dato.»: cada ficha entra cuando la voz repite su nombre para decir la dirección.
+    // «Farmacia de turno hoy: A y B. A, dirección. B, dirección. Guardá el dato.»: cada ficha entra cuando la voz repite su nombre para decir la dirección.
     let desde = Math.max(0, iNoche) + 1;
     const indices = [];
     lista.forEach((f, i) => {

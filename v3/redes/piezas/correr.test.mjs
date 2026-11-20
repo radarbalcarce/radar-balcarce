@@ -26,6 +26,9 @@ const CLIMA = {
 const EFEMERIDES = { dias: { [DIA]: { fecha: DIA, principal: { anio: 1978, titulo: 'Se inaugura el puente', cuerpo: 'Un hecho que cambió la zona. Y siguió.' }, ademas: [{ anio: 1990, texto: 'Pasa algo más.' }] } } };
 const FARMACIA = { fecha: DIA, farmacias: [{ nombre: 'Santa Inés', direccion: 'Calle 17 N° 537', telefono: '42-1234' }] };
 
+// Desde el 20/11 el repaso de la mañana es a las 11 y el clima de la mañana termina a las 11: ningún instante junta los tres. En ensayo (redes apagadas) se piden a mano con SOLO; con las redes reales no hay forma y cada prueba real dice lo que toca a esa hora.
+const TRIO_DE_LA_MANANA = ['noticia1', 'clima-manana', 'efemeride'];
+
 function armar({ ahora, activas = false, vozNueva = true, clima = CLIMA, farmacia = FARMACIA, efemerides = EFEMERIDES, tope, notas = true, avisos = false }) {
   const base = baseDePrueba();
   if (notas) {
@@ -60,10 +63,12 @@ function armar({ ahora, activas = false, vozNueva = true, clima = CLIMA, farmaci
   };
   const carpeta = fs.mkdtempSync(path.join(os.tmpdir(), 'piezas-'));
   const filas = () => base.sqlite.prepare('SELECT pieza, estado, voz_usada, huella, duracion, guion, acciones, texto, error FROM piezas ORDER BY id').all();
-  return { ...base, deps, carpeta, llamadasMeta, pedidosDeVoz, dibujadas, filas, env: { TELEGRAM_TOKEN: TOKEN, META_TOKEN: 'EAAB-secreto', GEMINI_API_KEY_REDES_V3: 'clave-v3-de-prueba' }, ahora };
+  return { ...base, deps, carpeta, llamadasMeta, pedidosDeVoz, dibujadas, filas, env: { TELEGRAM_TOKEN: TOKEN, META_TOKEN: 'EAAB-secreto', GEMINI_API_KEY_REDES_V3: 'clave-v3-de-prueba', ...(!activas && ahora.getTime() === MARTES_10.getTime() ? { SOLO: TRIO_DE_LA_MANANA.join(',') } : {}) }, ahora };
 }
 
-const MARTES_10 = new Date('2026-11-03T13:00:00.000Z');
+const MARTES_10 = new Date('2026-11-03T14:00:00.000Z');
+// Para lo que sólo pide el clima de la mañana con las redes reales (donde SOLO no vale): a las 10 todavía está en ventana (7:00 + 240) y el repaso de la mañana (11:00) aún no.
+const MARTES_10_CON_CLIMA = new Date('2026-11-03T13:00:00.000Z');
 
 test('queda anotado en `archivos` si la pieza usó el kit 3.0 (marca kit3:si/no) para medir formato nuevo contra viejo', async () => {
   const t = armar({ ahora: MARTES_10, avisos: true });
@@ -129,7 +134,7 @@ test('ENSAYO: arma las piezas con la voz y las deja guardadas, anota lo que HABR
 
 test('ENSAYO sin la clave de voz propia (GEMINI_API_KEY_REDES_V3): video MUDO con subtítulos estimados, no se pide ningún audio y el .json dice «sin voz: ensayo»', async () => {
   const t = armar({ ahora: MARTES_10 });
-  const env = { TELEGRAM_TOKEN: TOKEN, META_TOKEN: 'x' };
+  const env = { TELEGRAM_TOKEN: TOKEN, META_TOKEN: 'x', SOLO: TRIO_DE_LA_MANANA.join(',') };
   const r = await correr({ env, ahora: MARTES_10, carpeta: t.carpeta, deps: t.deps });
   assert.equal(t.pedidosDeVoz.length, 0);
   assert.deepEqual(r.piezas.map((p) => p.estado), ['lista', 'lista', 'lista']);
@@ -281,7 +286,8 @@ test('ensayo a mano (SOLO y AHORA): arma esas piezas aunque no toquen ahora; en 
   const r = await correr({ env: { ...t.env, SOLO: 'farmacia', AHORA: '2026-11-03T22:30:00Z' }, ahora: MARTES_10, carpeta: t.carpeta, deps: t.deps });
   assert.deepEqual(r.piezas.map((p) => p.pieza), ['farmacia']);
   assert.equal(t.dibujadas[0].pieza.id, 'farmacia');
-  assert.match(t.pedidosDeVoz[0].guion, /^Buenas noches, Balcarce\. Farmacia de turno esta noche: Santa Inés\. Santa Inés, Calle 17, 537\./); // sin «N°»
+  // Desde el 20/11 la farmacia es a las 18 (bloque de la tarde): de tarde nunca hay saludo (voz.mjs), así que ya no abre con «Buenas noches, Balcarce.».
+  assert.match(t.pedidosDeVoz[0].guion, /^Farmacia de turno hoy: Santa Inés\. Santa Inés, Calle 17, 537\./); // sin «N°»
 });
 
 // ------------------------------------------------------------------ los armadores desde el plan, el ajuste a la voz y los textos
@@ -427,7 +433,7 @@ test('caso Espinoza (12/11): una nota de AFUERA cuya foto no baja no sale con la
 });
 
 test('R42 (13/11, el clima salió 3 veces): la pieza se marca en el Worker ANTES de la tarjeta; una tarjeta que nunca resuelve se abandona con su tope y el programa termina', async () => {
-  const t = armar({ ahora: MARTES_10, activas: true });
+  const t = armar({ ahora: MARTES_10_CON_CLIMA, activas: true });
   const estadosAlEmpezar = [];
   t.deps.imagenDeTarjeta = () => { estadosAlEmpezar.push(t.filas().map((f) => [f.pieza, f.estado])); return new Promise(() => {}); }; // nunca resuelve
   t.deps.clienteBluesky = () => { throw new Error('no debería llegar'); };
@@ -435,7 +441,7 @@ test('R42 (13/11, el clima salió 3 veces): la pieza se marca en el Worker ANTES
   const registros = [];
   t.deps.log = (m) => registros.push(m);
   const antes = Date.now();
-  const r = await correr({ env, ahora: MARTES_10, carpeta: t.carpeta, deps: t.deps });
+  const r = await correr({ env, ahora: MARTES_10_CON_CLIMA, carpeta: t.carpeta, deps: t.deps });
   assert.ok(Date.now() - antes < 5000, 'terminó, no se colgó');
   assert.ok(estadosAlEmpezar.length >= 1, 'se intentó la tarjeta');
   // Cuando arrancó la tarjeta, el Worker ya tenía la pieza como publicada.

@@ -85,15 +85,15 @@ Tabla de `v3/redes/piezas-del-dia.mjs` (hora de Balcarce). «Ventana» es cuánt
 |---|---|---|---|---|---|
 | 07:00 | El clima de la mañana | Todos | 4 h | 2 | Instagram: historia. Facebook: reel e historia |
 | 09:00 | Un día como hoy | Todos | 3 h | 3 | Reel e historia en Facebook e Instagram |
-| 10:00 | El repaso de la mañana | Todos | 3 h | 1 | Reel e historia en las dos |
+| 11:00 | El repaso de la mañana | Todos | 3 h | 1 | Reel e historia en las dos |
 | 12:00 | Participá con noticias | Lunes | 1 h | 4 (opcional) | Reel e historia en las dos |
 | 12:00 | Tu evento o emprendimiento | Martes | 1 h | 4 | Ídem |
 | 12:00 | Tu reclamo | Miércoles | 1 h | 4 | Ídem |
 | 12:00 | Tu nota | Viernes | 1 h | 4 | Ídem |
 | 15:00 | El repaso de la tarde | Todos | 4 h | 1 | Reel e historia en las dos |
-| 19:00 | Farmacia de turno | Todos | 5 h | 2 | Instagram: historia. Facebook: reel e historia |
+| 18:00 | Farmacia de turno | Todos | 5 h | 2 | Instagram: historia. Facebook: reel e historia |
 | 20:00 | El clima de la noche | Todos | 4 h | 2 | Instagram: historia. Facebook: reel e historia |
-| 21:00 | El repaso del día | Todos | 3 h | 1 | Reel e historia en las dos |
+| 22:00 | El repaso del día | Todos | 3 h | 1 | Reel e historia en las dos |
 
 **Jueves:** a las 12:00 la tabla del sistema viejo ponía la agenda. En la 3.0 esa pieza todavía no existe, así que **el jueves no sale nada a esa hora**.
 

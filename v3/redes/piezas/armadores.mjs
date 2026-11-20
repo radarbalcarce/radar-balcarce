@@ -32,6 +32,19 @@ function saludoPara(opciones = {}) {
   return opciones.saludo !== undefined ? opciones.saludo : saludoDe(opciones);
 }
 
+/**
+ * La despedida del clima según el día (Hernán, 20/11/2026: «que los textos de los audios queden acordes al horario y al día, que siga siendo ameno»).
+ * Mañana: «Que tengan un buen día» entre semana, «buen viernes», «buen sábado», «buen domingo». Noche: «Que descansen», y el viernes y el sábado, «Que disfruten la noche».
+ */
+export function despedidaDelClima(fecha, noche = false) {
+  const dia = /^\d{4}-\d{2}-\d{2}$/.test(String(fecha ?? '')) ? new Date(`${fecha}T12:00:00Z`).getUTCDay() : -1;
+  if (noche) return dia === 5 || dia === 6 ? 'Que disfruten la noche.' : 'Que descansen.';
+  if (dia === 5) return 'Que tengan un buen viernes.';
+  if (dia === 6) return 'Buen sábado.';
+  if (dia === 0) return 'Buen domingo.';
+  return 'Que tengan un buen día.';
+}
+
 /** Cierra una pieza de video: suma la duración, junta el guion y le pone el aviso de IA si habla. */
 function video(id, escenas, { voz = null, saludo = null, extra = {} } = {}) {
   const guion = unir(...escenas.map((e) => e.voz));
@@ -114,7 +127,7 @@ export function armarClima(clima, { auspicio = null, fecha = null, ...opciones }
     comentario.voz,
     // Si el comentario ya habló de la lluvia, no se repite el porcentaje (Hernán, 3/11: «el texto repite lo mismo»).
     `${noche ? 'Mañana' : 'Hoy'}: máxima de ${d.max}, mínima de ${d.min}.${comentario.icono === 'lluvia' ? '' : ` Lluvia: ${d.lluvia} por ciento.`}`,
-    noche ? 'Que descansen.' : 'Que tengan un buen día.',
+    despedidaDelClima(hoy, noche),
   );
   const segundos = CLIMA.segundos + (auspicio ? CLIMA.auspicioExtra : 0);
   return video(auspicio ? 'clima-auspiciado' : 'clima', [
@@ -483,7 +496,7 @@ export function armarFarmacia(farmacias, { fecha = null, hasta = 'De turno hasta
   const saludo = saludoPara(opciones);
   const nombres = lista.map((f) => f.nombre).join(' y ');
   const dir = lista.map((f) => `${f.nombre}, ${f.direccion}.`).join(' ');
-  const voz = unir(saludo, `Farmacia de turno esta noche: ${nombres}.`, dir, 'Guardá el dato.');
+  const voz = unir(saludo, `Farmacia de turno hoy: ${nombres}.`, dir, 'Guardá el dato.');
   // 14 s; con tres fichas la voz es más larga y la pieza sube lo que haga falta (hasta el máximo): la ficha de 3 tiene que entrar completa, dicha sin apuro.
   const segundos = Math.min(FARMACIA.maximo, Math.max(FARMACIA.segundos, Math.ceil(contarPalabras(voz) / PALABRAS_POR_SEGUNDO + SEGUNDOS_DE_ADORNO)));
   return video('farmacia', [

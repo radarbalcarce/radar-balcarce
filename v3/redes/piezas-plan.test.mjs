@@ -11,7 +11,9 @@ import { armarRepaso } from './piezas/armadores.mjs';
 import { contrasenaDelWebhook } from './redes.mjs';
 import { baseDePrueba, guardarNota } from './ayuda-pruebas.mjs';
 
-const AHORA = new Date('2026-11-03T13:00:00.000Z'); // martes 10:00 de Balcarce
+const AHORA = new Date('2026-11-03T14:00:00.000Z'); // martes 11:00 de Balcarce
+// Desde el 20/11 el repaso de la mañana es a las 11 y el clima de la mañana termina a las 11: ya no hay un instante en que toquen los tres, así que las pruebas que necesitan los tres a la vez los piden a mano con `solo`.
+const TRIO = ['noticia1', 'clima-manana', 'efemeride'];
 const DIA = '2026-11-03';
 const hace = (min, desde = AHORA) => new Date(desde.getTime() - min * 60_000).toISOString();
 const ids = (lista) => lista.map((p) => p.id);
@@ -40,12 +42,12 @@ test('la tabla de horarios es la de hoy: mismas piezas, horas, ventanas, días y
 
 test('qué toca a cada hora: respeta la hora, la ventana, el día de la semana y la medianoche', () => {
   const piezasQueTocan = (x) => piezasQueTocanConCondicionales(x).filter((p) => !p.condicional && p.formato !== 'carrusel' && !p.porNota); // las condicionales se prueban aparte
-  assert.deepEqual(ids(piezasQueTocan(AHORA)).sort(), ['clima-manana', 'efemeride', 'noticia1']); // martes 10:00: Participá es a las 12
-  assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-03T15:05:00Z'))).sort(), ['noticia1', 'participa-evento']); // martes 12:05 (el repaso de las 10 dura hasta las 13)
+  assert.deepEqual(ids(piezasQueTocan(AHORA)).sort(), ['efemeride', 'noticia1']); // martes 11:00: el clima de la mañana terminó a las 11 (7:00 + 240) y Participá es a las 12
+  assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-03T15:05:00Z'))).sort(), ['noticia1', 'participa-evento']); // martes 12:05 (el repaso de las 11 dura hasta las 14)
   assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-04T15:05:00Z'))), ['participa-reclamos', 'noticia1']); // miércoles 12:05
   assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-03T10:00:00Z'))), ['clima-manana']); // 7:00 en punto arranca el clima
   assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-03T09:59:00Z'))), []); // 6:59: nada
-  assert.ok(ids(piezasQueTocan(new Date('2026-11-04T01:30:00Z'))).includes('podcast')); // 22:30 del martes: el repaso de la noche (21:00 + 180)
+  assert.ok(ids(piezasQueTocan(new Date('2026-11-04T01:30:00Z'))).includes('podcast')); // 22:30 del martes: el repaso de la noche (22:00 + 180)
   assert.ok(!ids(piezasQueTocan(new Date('2026-11-04T03:10:00Z'))).includes('podcast')); // 00:10 del miércoles: ya no sale lo del martes
 });
 
@@ -91,7 +93,7 @@ test('planear: reserva lo que toca con sus datos; el repaso lleva las notas de l
   const t = conNotas();
   t.sqlite.prepare("INSERT INTO avisos (id, comercio, enlace, lugares) VALUES ('sweet', 'Sweet Candy Bar', 'https://instagram.com/_sweet.candy.bar', '[\"clima\",\"pie\"]')").run();
   t.sqlite.prepare("INSERT INTO avisos (id, comercio, lugares) VALUES ('otro', 'Sin clima', '[\"pie\"]')").run();
-  const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true });
+  const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true, solo: TRIO });
   assert.equal(p.dia, DIA);
   assert.deepEqual(p.piezas.map((x) => x.id), ['noticia1', 'clima-manana', 'efemeride']); // por prioridad de voz
   const repaso = p.piezas[0];
@@ -101,7 +103,7 @@ test('planear: reserva lo que toca con sus datos; el repaso lleva las notas de l
   assert.equal(repaso.primeraDelBloque, true);
   const clima = p.piezas[1];
   assert.deepEqual(clima.datos.auspicio, { comercio: 'Sweet Candy Bar', cuenta: '@_sweet.candy.bar' });
-  assert.equal(clima.primeraDelBloque, false); // el repaso de la mañana (10:00) se reservó antes que el clima de las 7 en este plan: saluda quien se reservó primero
+  assert.equal(clima.primeraDelBloque, false); // el repaso de la mañana (11:00) se reservó antes que el clima de las 7 en este plan: saluda quien se reservó primero
   assert.equal(p.vozQuedan, REGLAS_PIEZAS.audiosPorDia - 3); // 3 reservas, del cupo de 15
   const filas = t.sqlite.prepare('SELECT pieza, estado, simulado, voz_usada FROM piezas ORDER BY id').all();
   assert.equal(filas.length, 3);
@@ -110,11 +112,11 @@ test('planear: reserva lo que toca con sus datos; el repaso lleva las notas de l
 
 test('planear dos veces seguidas no reserva dos veces la misma pieza; una reserva cortada vence a los 45 minutos y se reintenta', async () => {
   const t = conNotas();
-  const a = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true });
+  const a = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true, solo: TRIO });
   assert.equal(a.piezas.length, 3);
-  const b = await planear({ DB: t.DB }, { ahora: new Date(AHORA.getTime() + 60_000), simulado: true });
+  const b = await planear({ DB: t.DB }, { ahora: new Date(AHORA.getTime() + 60_000), simulado: true, solo: TRIO });
   assert.equal(b.piezas.length, 0);
-  const c = await planear({ DB: t.DB }, { ahora: new Date(AHORA.getTime() + 50 * 60_000), simulado: true });
+  const c = await planear({ DB: t.DB }, { ahora: new Date(AHORA.getTime() + 50 * 60_000), simulado: true, solo: TRIO });
   assert.deepEqual(c.piezas.map((x) => x.id).sort(), ['clima-manana', 'efemeride', 'noticia1'].sort()); // la corrida se cortó: se vuelven a pedir
   assert.equal(t.sqlite.prepare("SELECT COUNT(*) AS n FROM piezas WHERE estado = 'error'").get().n, 3);
 });
@@ -123,8 +125,8 @@ test('el cupo de voz: tope diario y reserva para las más importantes que faltan
   assert.equal(topeDeVoz({}), 15);
   assert.equal(topeDeVoz({ VOZ_TOPE_DIARIO: '4' }), 4);
   const t = conNotas();
-  // Con 2 audios, a las 10 de la mañana: el repaso de ahora sale; el clima no, porque faltan dos repasos (15 y 21) que valen más.
-  const p = await planear({ DB: t.DB, VOZ_TOPE_DIARIO: '2' }, { ahora: AHORA, simulado: true });
+  // Con 2 audios, a las 11 de la mañana: el repaso de ahora sale; el clima no, porque faltan dos repasos (15 y 21) que valen más.
+  const p = await planear({ DB: t.DB, VOZ_TOPE_DIARIO: '2' }, { ahora: AHORA, simulado: true, solo: TRIO });
   assert.deepEqual(p.piezas.map((x) => x.id), ['noticia1']);
   assert.deepEqual(p.descartes.filter((d) => d.pieza !== 'reel-nota').map((d) => `${d.pieza}:${d.motivo}`).sort(), ['clima-manana:sin-cupo-de-voz', 'efemeride:sin-cupo-de-voz']);
   // Sin ningún audio, nada sale.
@@ -134,11 +136,11 @@ test('el cupo de voz: tope diario y reserva para las más importantes que faltan
 
 test('lo gastado cuenta: una pieza armada con la voz de la memoria (voz_usada = 0) devuelve el audio al cupo; un error también cuenta lo que gastó', async () => {
   const t = conNotas();
-  const a = await planear({ DB: t.DB, VOZ_TOPE_DIARIO: '7' }, { ahora: AHORA, simulado: true });
+  const a = await planear({ DB: t.DB, VOZ_TOPE_DIARIO: '7' }, { ahora: AHORA, simulado: true, solo: TRIO });
   assert.equal(a.piezas.length, 3);
   assert.equal(a.vozQuedan, 4);
   for (const x of a.piezas) t.sqlite.prepare('UPDATE piezas SET estado = ?, voz_usada = ? WHERE id = ?').run(x.id === 'clima-manana' ? 'error' : 'lista', x.id === 'efemeride' ? 0 : 1, x.fila);
-  const b = await planear({ DB: t.DB, VOZ_TOPE_DIARIO: '7' }, { ahora: new Date(AHORA.getTime() + 20 * 60_000), simulado: true });
+  const b = await planear({ DB: t.DB, VOZ_TOPE_DIARIO: '7' }, { ahora: new Date(AHORA.getTime() + 20 * 60_000), simulado: true, solo: TRIO });
   assert.deepEqual(b.piezas.map((x) => x.id), ['clima-manana']); // sólo la que falló; el audio de la efeméride (memoria de voces) volvió al cupo
   assert.equal(b.vozQuedan, 4);
 });
@@ -146,7 +148,7 @@ test('lo gastado cuenta: una pieza armada con la voz de la memoria (voz_usada = 
 test('tres errores en el día y esa pieza se abandona; sin notas suficientes el repaso se descarta y no gasta voz', async () => {
   const t = baseDePrueba();
   for (let i = 0; i < 3; i += 1) t.sqlite.prepare("INSERT INTO piezas (pieza, dia, simulado, estado, creada, actualizada, voz_usada) VALUES ('clima-manana', ?, 1, 'error', ?, ?, 0)").run(DIA, hace(100), hace(100));
-  const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true });
+  const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true, solo: TRIO });
   assert.ok(p.descartes.some((d) => d.pieza === 'clima-manana' && d.motivo === 'abandonada-por-errores'));
   assert.ok(p.descartes.some((d) => d.pieza === 'noticia1' && d.motivo === 'sin-notas'));
   assert.ok(!p.piezas.some((x) => x.id === 'noticia1' || x.id === 'clima-manana'));
@@ -154,8 +156,8 @@ test('tres errores en el día y esa pieza se abandona; sin notas suficientes el 
 
 test('ensayo y real no se mezclan: lo reservado en simulación no frena lo real, y con redes reales sólo cuentan las notas publicadas', async () => {
   const t = conNotas();
-  await planear({ DB: t.DB }, { ahora: AHORA, simulado: true });
-  const real = await planear({ DB: t.DB }, { ahora: AHORA, simulado: false });
+  await planear({ DB: t.DB }, { ahora: AHORA, simulado: true, solo: TRIO });
+  const real = await planear({ DB: t.DB }, { ahora: AHORA, simulado: false, solo: TRIO });
   assert.ok(!real.piezas.some((x) => x.id === 'noticia1')); // las notas están en borrador: el repaso real no las ve
   assert.ok(real.piezas.some((x) => x.id === 'clima-manana'));
 });
@@ -184,7 +186,7 @@ test('HTTP: /piezas/plan y /piezas/resultado piden la contraseña; el resultado 
   const env = { DB: t.DB, TELEGRAM_TOKEN: TOKEN, REDES_ACTIVAS: 'no', TELEGRAM: { fetch: async (u, i) => { avisos.push(JSON.parse(i.body)); return { ok: true }; } } };
   const redes = crearRedes({ ahora: () => AHORA });
   assert.equal((await pedir(redes, env, '/piezas/plan', {}, { clave: false })).status, 403);
-  const plan = await (await pedir(redes, env, '/piezas/plan', {})).json();
+  const plan = await (await pedir(redes, env, '/piezas/plan', { solo: TRIO })).json();
   assert.equal(plan.activas, false);
   assert.equal(plan.piezas.length, 3);
   assert.equal((await pedir(redes, env, '/piezas/resultado', { fila: 999, estado: 'lista' })).status, 400);
@@ -209,7 +211,7 @@ test('HTTP: el ensayo a otra hora y a mano (`ahora`, `solo`) sólo vale con las 
   const redes = crearRedes({ ahora: () => AHORA });
   const real = await (await pedir(redes, env, '/piezas/plan', { ahora: '2026-11-03T23:30:00Z', solo: ['podcast'] })).json();
   assert.equal(real.activas, true);
-  assert.ok(!real.piezas.some((p) => p.id === 'podcast')); // 10:00: no toca el repaso de la noche
+  assert.ok(!real.piezas.some((p) => p.id === 'podcast')); // 11:00: no toca el repaso de la noche
   const t2 = conNotas();
   const ensayo = await (await pedir(crearRedes({ ahora: () => AHORA }), { DB: t2.DB, TELEGRAM_TOKEN: TOKEN, REDES_ACTIVAS: 'no' }, '/piezas/plan', { solo: ['podcast'] })).json();
   assert.deepEqual(ensayo.piezas.map((p) => p.id), ['podcast']);
@@ -234,7 +236,7 @@ test('caso real 3/11: notas de Balcarce en otras secciones (Cultura, Política) 
   guardarNota(t.sqlite, { id: 'club111', titulo: 'El Club de Leones organiza un torneo de burako', seccion: 'Cultura', motivo: 'balcarce', creada: hace(60), estado: 'borrador', foto: null });
   guardarNota(t.sqlite, { id: 'obras22', titulo: 'Gustavo Torres detalló el avance de las obras', seccion: 'Política', motivo: 'balcarce', creada: hace(90), estado: 'borrador' });
   guardarNota(t.sqlite, { id: 'cordon3', titulo: 'La Municipalidad realiza obras de cordón cuneta', seccion: 'Balcarce', motivo: 'balcarce', creada: hace(120), estado: 'borrador', foto: null });
-  const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true });
+  const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true, solo: TRIO });
   const repaso = p.piezas.find((x) => x.id === 'noticia1');
   assert.ok(repaso, 'el repaso tiene que reservarse');
   assert.equal(repaso.datos.sinBalcarce, false);
@@ -248,7 +250,7 @@ test('caso real 3/11: notas de Balcarce en otras secciones (Cultura, Política) 
 test('si de verdad no hay ninguna nota de Balcarce, el repaso sale con las más contadas y el plan lo anota', async () => {
   const t = baseDePrueba();
   for (const [id, m] of [['n1', 9], ['n2', 7], ['n3', 6]]) guardarNota(t.sqlite, { id, titulo: `Titular ${id}`, seccion: 'Política', motivo: 'popular', medios: Array.from({ length: m }, (_, i) => `m${i}`), creada: hace(60), estado: 'borrador' });
-  const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true });
+  const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true, solo: TRIO });
   const repaso = p.piezas.find((x) => x.id === 'noticia1');
   assert.equal(repaso.datos.sinBalcarce, true);
   assert.deepEqual(repaso.datos.notasIds, ['n1', 'n2', 'n3']);
@@ -268,7 +270,7 @@ test('las notas de servicio (clima del día con ficha.marca, media kit, o sin hi
   const todas = await notasParaRedes({ DB: t.DB }, { desdeISO: hace(600), conBorradores: true });
   assert.ok(!todas.some((n) => n.id === 'sinhist'));
   assert.deepEqual(todas.filter((n) => n.deServicio).map((n) => n.id).sort(), ['clima-d', 'mediakit']);
-  const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true });
+  const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true, solo: TRIO });
   assert.deepEqual(p.piezas.find((x) => x.id === 'noticia1').datos.notasIds.sort(), ['real111', 'real222']);
   const { motivoDeExclusion } = await import('./elegir.mjs');
   assert.equal(motivoDeExclusion(todas.find((n) => n.id === 'clima-d'), { ahora: AHORA }), 'de-servicio');
@@ -422,7 +424,8 @@ test('planear: una nota que salió como posteo anteayer no vuelve al repaso (ven
 });
 
 // ─── «El número del día» (20/11/2026) ───────────────────────────────────────────────────────────────────────────────────────────────────────────────
-const A_LAS_13 = new Date('2026-11-03T16:10:00.000Z'); // martes 13:10 de Balcarce
+// 14:10 y no 13:10: desde el 20/11 el repaso de la mañana (11:00 + 180) dura hasta las 14 y a las 13:10 todavía se llevaría la nota de la cifra; el número del día dura de 13 a 16.
+const A_LAS_13 = new Date('2026-11-03T17:10:00.000Z'); // martes 14:10 de Balcarce
 const conCifra = (t, id = 'eco11111') => {
   guardarNota(t.sqlite, { id, titulo: 'La balanza comercial sumó un superávit de u$s 3.394 millones en octubre', seccion: 'Economía', motivo: 'popular', medios: ['a', 'b', 'c', 'd', 'e', 'f'], creada: hace(90, A_LAS_13), estado: 'borrador' });
   const ficha = { numeros: [
@@ -441,7 +444,7 @@ test('el número del día: la fila de la tabla está prendida (20/11/2026) y no 
   assert.equal(fila.formato, 'reel');
 });
 
-test('el número del día prendido: a las 13 con una cifra fuerte se reserva solo, sin pedirlo a mano', async () => {
+test('el número del día prendido: dentro de su hora (13 a 16, ensayado a las 14:10) con una cifra fuerte se reserva solo, sin pedirlo a mano', async () => {
   const t = conCifra(conNotas());
   const p = await planear({ DB: t.DB }, { ahora: A_LAS_13, simulado: true });
   assert.ok(p.piezas.some((x) => x.id === 'numero-del-dia'));
