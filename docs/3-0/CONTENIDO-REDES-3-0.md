@@ -10,7 +10,7 @@ Palabras que se usan: **reel** = video vertical de Instagram/Facebook; **histori
 
 Todas las redes publican de verdad (`REDES_ACTIVAS = "si"`). Cupo de voz: **15 audios por día**, fijos; el reparto va por prioridad (repaso, después clima y farmacia, después efeméride y feriado, al final lo opcional). Todo lo que habla lleva «Voz generada con inteligencia artificial.» y pasa por la compuerta de tono (R41) y por los frenos legales.
 
-**Dónde sale cada formato** (`accionesDe`, `piezas-del-dia.mjs`): una **historia** de la tabla (clima, farmacia, avisos) sale, desde el 19/11/2026, igual que un reel: **reel e historia en Instagram y en Facebook** (antes en Instagram era sólo historia). **Excepción (20/11/2026):** el repaso de la noche, en Facebook, sale sólo como historia, porque Facebook reparte unos 5 o 6 reels por día y ése, el último, daba 2 a 8 vistas; un **reel** (repaso, efeméride, Participá, útiles, feriado, nota propia) sale como reel e historia en las dos. **TikTok, YouTube Shorts y X** reciben el mismo mp4 de todas las piezas de video por Buffer (YouTube con tope de 12 por día y sin los de más de 60 s). Threads y Bluesky no reciben video.
+**Dónde sale cada formato** (`accionesDe`, `piezas-del-dia.mjs`): una **historia** de la tabla (clima, farmacia, avisos) sale, desde el 19/11/2026, igual que un reel: **reel e historia en Instagram y en Facebook** (antes en Instagram era sólo historia); un **reel** (repaso, efeméride, Participá, útiles, feriado, nota propia) sale como reel e historia en las dos. **TikTok, YouTube Shorts y X** reciben el mismo mp4 de todas las piezas de video por Buffer (YouTube con tope de 12 por día y sin los de más de 60 s). Threads y Bluesky no reciben video.
 
 ### A.1 Piezas de video con voz (reloj de las piezas)
 

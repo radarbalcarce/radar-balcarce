@@ -48,9 +48,7 @@ export const PIEZAS_DEL_DIA = Object.freeze([
   { id: 'participa-nota', nombre: 'Tu nota', arma: 'participa', variante: 'nota', formato: 'reel', hora: '12:00', ventana: 60, dias: [5], voz: 4, hashtag: 'Participá', pausada: true },
   { id: 'noticia1', nombre: 'El repaso de la mañana', arma: 'repaso', momento: 'manana', formato: 'repaso', hora: '10:00', ventana: 180, dias: TODOS, voz: 1, hashtag: 'Noticias' },
   { id: 'noticia2', nombre: 'El repaso de la tarde', arma: 'repaso', momento: 'tarde', formato: 'repaso', hora: '15:00', ventana: 240, dias: TODOS, voz: 1, hashtag: 'Noticias' },
-  // `facebookSoloHistoria` (20/11/2026, Hernán: «si hay que ajustar los horarios de todo, hacelo»): Facebook reparte unos 5 o 6 reels por día de la página y el repaso de la noche, que sale último,
-  // dio 2 a 8 vistas los 7 días medidos (13 al 19/11). En Facebook sale sólo como historia (llega igual a los seguidores) y deja el cupo de reels a lo que rinde; en Instagram, TikTok, YouTube y X sigue igual.
-  { id: 'podcast', nombre: 'El repaso del día', arma: 'repaso', momento: 'noche', formato: 'repaso', hora: '21:00', facebookSoloHistoria: true, ventana: 180, dias: TODOS, voz: 1, hashtag: 'Noticias' },
+  { id: 'podcast', nombre: 'El repaso del día', arma: 'repaso', momento: 'noche', formato: 'repaso', hora: '21:00', ventana: 180, dias: TODOS, voz: 1, hashtag: 'Noticias' },
 ].map((p) => Object.freeze({ ...p, dias: Object.freeze([...p.dias]) })));
 
 export const piezaDelDia = (id) => PIEZAS_DEL_DIA.find((p) => p.id === id);
@@ -94,7 +92,6 @@ export function accionesDe(pieza) {
   // Hernán, 19/11/2026: «el clima y la farmacia en Instagram, que sean reel también: que salga todo en todas». Las piezas de formato 'historia' salen igual que un reel: reel e historia en las dos redes.
   else if (pieza.formato === 'historia') todas = [...reel, ...historia];
   else todas = [...reel, ...historia];
-  if ((piezaDelDia(pieza.id) ?? pieza).facebookSoloHistoria) todas = todas.filter((a) => !(a.red === 'facebook' && a.tipo === 'REELS'));
   // Una pieza pedida a mano desde el panel (`notas.redes.destinos`, viaja en `datos.nota.destinos`) sale sólo en las redes elegidas; sin destinos, todo como siempre.
   // Instagram sigue siendo video con voz: sólo se filtra por red, nunca se cambia el formato.
   const destinos = pieza.datos?.nota?.destinos;

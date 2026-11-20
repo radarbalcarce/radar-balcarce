@@ -57,9 +57,6 @@ test('bloques y acciones: mañana 5 a 11, tarde 12 a 18, noche 19 a 4; el reel v
   const clima = accionesDe(PIEZAS_DEL_DIA.find((p) => p.id === 'clima-manana')).map((a) => `${a.red}/${a.tipo}`);
   assert.deepEqual(clima, ['instagram/REELS', 'facebook/REELS', 'instagram/STORIES', 'facebook/STORIES']);
   assert.equal(minutoDe('07:30'), 450);
-  // 20/11/2026: el repaso de la noche, en Facebook, sólo como historia (Facebook reparte 5 o 6 reels por día y ése salía último con 2 a 8 vistas)
-  const noche = accionesDe(PIEZAS_DEL_DIA.find((p) => p.id === 'podcast')).map((a) => `${a.red}/${a.tipo}`);
-  assert.deepEqual(noche, ['instagram/REELS', 'instagram/STORIES', 'facebook/STORIES']);
 });
 
 test('el repaso: Balcarce primero (hasta 2), completa con lo más contado, sin tragedias, sin foto ni repetidas del mismo día; sin Balcarce o con menos de 2, no hay repaso', () => {
