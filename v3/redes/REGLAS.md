@@ -294,3 +294,17 @@ GitHub dejó de lanzar sus horarios (`schedule:`) durante horas el 10/11/2026, a
   hasta ver una pieza salir en la cuenta real (la subida de video de Bluesky no se pudo probar contra la cuenta). Se prende cambiando esa línea y subiendo el workflow.
 - Los secretos `THREADS_TOKEN`, `THREADS_USER_ID`, `BLUESKY_APP_PASSWORD` y la variable `BLUESKY_HANDLE` ahora también están en ese paso (antes sólo en «Publicar los enlaces»).
 - Pruebas: `piezas/videos-sociales.test.mjs` (textos, clientes con fetch de mentira) y las del final de `piezas/correr.test.mjs`.
+
+## 27. Criterios de calidad que no se negocian (20/11/2026, Hernán: «estas cosas no pueden seguir pasando»)
+
+Lo que sale en redes sale en siete lugares a la vez y no se puede deshacer del todo: estas reglas van ANTES que cualquier otra cosa. Si una pieza no las cumple, **no sale** (y se avisa), en vez de salir mal.
+
+1. **Todo lleva foto o imagen.** Ningún hecho, ninguna noticia y ninguna escena sale con el fondo vacío. Orden para conseguirla: la foto elegida de antemano (efemérides: campo `foto` de cada hecho en `web/data/efemerides-piezas.json`), la de la propia nota, la imagen principal del artículo de Wikipedia del protagonista, Commons con regla estricta. Si no hay ninguna confiable, ese hecho se saca de la pieza (pantalla y voz) y se avisa; nunca sale sin imagen.
+2. **La foto tiene que ser de lo que se cuenta.** Nada de fotos que sólo coinciden en una palabra (caso 20/11: la Asamblea de Ecuador para la Vuelta de Obligado). Ante la duda, otra foto o se saca el hecho.
+3. **Nada cortado.** Ni titulares, ni palabras de un flyer o placa (los gráficos con texto van enteros), ni cabezas en la grilla del feed (recorte 4:5, filas 285–1635), ni nada debajo de la fila 1480 o en los 140 px de la derecha (lo tapa Instagram).
+4. **Lo que se dice, se ve.** La voz no nombra nada que no esté en pantalla, y la pantalla cambia al ritmo de la voz (cada hecho o noticia entra cuando se lo nombra).
+5. **Se lee.** Años, cifras y titulares con contraste suficiente sobre cualquier foto (velo o banda cuando haga falta).
+6. **Sin marcas de otros medios ni créditos dentro de la imagen** (el crédito va en el texto del posteo), sin menores ni víctimas, compuerta de tono R41.
+7. **Antes de prender un cambio visual:** ensayo en GitHub y revisión cuadro por cuadro (tapa, grilla 4:5, cada escena, zona tapada por Instagram) con fotos difíciles (oscura, clara, flyer con texto, vertical). Las efemérides del mes que viene se revisan hecho por hecho el día 20 (`efemerides/revisar-fotos.mjs`): ninguno queda sin foto elegida.
+8. **Se hace lo que se pidió.** Si aparece una mejor idea, se propone; no se aplica sola.
+9. **Si algo salió mal:** se borra donde se pueda (workflow «Radar 3.0: borrar publicaciones» para Facebook; Instagram, TikTok, YouTube y X a mano) y se rehace con el input `rehacer` de «Radar 3.0: piezas de redes».
