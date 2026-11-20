@@ -14,8 +14,8 @@ on:
       telegram:
         description: '¿Mandar el resumen por Telegram?'
         type: choice
-        options: [si, no]
-        default: si
+        options: ['si', 'no']
+        default: 'si'
 
 permissions:
   contents: read
