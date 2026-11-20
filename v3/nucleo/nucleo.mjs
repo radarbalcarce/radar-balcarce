@@ -15,6 +15,7 @@ import { elegirFotoConMotivo } from './fotos/fotos.mjs';
 import * as db from './db/db.mjs';
 import * as IL from './ilustrar/ilustrar.mjs';
 import * as AF from './archivo-fotos/archivo-fotos.mjs';
+import * as ST from './archivo-fotos/stock.mjs';
 import { queToca, horaLocal, idDeLaNota, traerPronostico, comparar, redactarNotaDelClima, plantilla as plantillaDelClima, parrafoDeActualizacion, estadoDelDia, FIRMA_CLIMA, FUENTE_CLIMA, TIPO_DE_NOTA } from './clima/clima.mjs';
 import { sehaceDelDia, activo as sehaceActivo, TOPE_POR_DIA as SEHACE_TOPE_POR_DIA } from './sehace/sehace.mjs';
 import { DIRECCION, contrasenaDelWebhook } from '../redaccion/telegram/worker.mjs';
@@ -152,7 +153,8 @@ export const publica = (env) => /^s*s[ií]s*$/i.test(String((env && env.NUCLEO_P
 export const RESERVA_PARA_REDACTAR = 0.4;
 const reserva = (tope) => Math.floor(tope * RESERVA_PARA_REDACTAR);
 
-export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
+export function crearNucleo({ fuentes, perfil, redaccion, umbrales, stock: stockCrudo = [] }) {
+  const stock = ST.cargarStock(stockCrudo); // el stock de fotos propio (v3/sitio/fotos-propias/stock.json), REGLAS § 7 paso 2 bis
   const nombreDeFuente = new Map(fuentes.map((f) => [f.id, f.nombre]));
   const fuentePorId = new Map(fuentes.map((f) => [f.id, f]));
 
@@ -653,7 +655,8 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     const archivoPorVuelta = Math.max(0, Math.floor(numero(env.NUCLEO_ARCHIVO_POR_VUELTA, ARCHIVO_POR_VUELTA)));
     const ilustra = !!env.AI?.run && porVueltaIl > 0 && porDia > 0;
     const porVuelta = ilustra ? porVueltaIl : 0;
-    if (!ilustra && !archivoPorVuelta) return;
+    const conStock = stock.length > 0 && String(env.NUCLEO_STOCK_FOTOS ?? '').toLowerCase() !== 'no'; // NUCLEO_STOCK_FOTOS=no apaga el stock
+    if (!ilustra && !archivoPorVuelta && !conStock) return;
     const il_ = { reales: 0, saltadas: 0, intentadas: 0, hechas: 0, finales: 0, fallos: 0, imagenesHoy: 0 }; // los contadores; sólo salen en el informe (r.ilustraciones) si la ilustración está encendida
     if (ilustra) r.ilustraciones = il_;
     const marca = `ilustrar-${c.dia}`;
@@ -716,11 +719,17 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       }
     }
     // 2 bis) la foto de archivo: una foto real propia de una nota anterior que muestra el mismo lugar o la misma institución. Lo que la recibe ya no se ilustra.
+    // El stock de fotos propio va antes que todo: sin IA ni R2, sólo etiquetas que coinciden con el tema de la nota.
     let aIlustrar = tocan;
-    if (archivoPorVuelta && tocan.length) {
+    let delStock = new Set();
+    if (conStock && tocan.length) {
+      try { delStock = await fotosDeStock(env, c, r, error, tocan); } catch (e) { error('foto de stock', e); }
+      aIlustrar = tocan.filter((n) => !delStock.has(n.id));
+    }
+    if (archivoPorVuelta && aIlustrar.length) {
       try {
-        const servidas = await fotosDeArchivo(env, c, gem, r, error, tocan.slice(0, archivoPorVuelta));
-        aIlustrar = tocan.filter((n) => !servidas.has(n.id));
+        const servidas = await fotosDeArchivo(env, c, gem, r, error, aIlustrar.slice(0, archivoPorVuelta));
+        aIlustrar = aIlustrar.filter((n) => !servidas.has(n.id));
       } catch (e) { error('foto de archivo', e); }
       if (r.topeDiario) return;
     }
@@ -769,6 +778,29 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       }
     }
     il_.imagenesHoy = hechasHoy;
+  }
+
+  // El stock de fotos propio (REGLAS § 7, paso 2 bis; stock.json): para las notas que agotaron la búsqueda de foto real, una foto del stock cuya etiqueta (una frase entera) coincide con el tema
+  // de la nota. Sin IA: no gasta nada. Una misma foto no sale en dos notas del día. Devuelve el conjunto de ids que recibieron foto. Una falla nunca rompe la vuelta.
+  async function fotosDeStock(env, c, r, error, notas) {
+    const servidas = new Set();
+    const aMirar = notas.filter((n) => !n.verificacion?.archivoFoto?.hecha && !AF.motivoParaNoRecibir(n) && ST.buscarEnStock(n, stock));
+    if (!aMirar.length) return servidas;
+    let usadosHoy;
+    try { usadosHoy = await db.stockUsadoDesde(env, rangoDelDia(c.dia).desde); } catch (e) { error('foto de stock: leer lo usado hoy', e); return servidas; }
+    const cont = (r.fotosDeStock = r.fotosDeStock || { hechas: 0 });
+    for (const n of aMirar) {
+      const hallada = ST.buscarEnStock(n, stock, { usadosHoy });
+      if (!hallada) continue;
+      try {
+        // Escribe sólo si la nota sigue sin foto: si mientras tanto apareció una real, esa gana.
+        await db.ponerFotoDeNota(env, n.id, ST.armarFotoDeStock(hallada.entrada), AF.conEstadoDeArchivo(n.verificacion, ST.estadoDeStock(hallada.entrada, hallada.etiqueta, c.ahoraISO)));
+        usadosHoy.add(hallada.entrada.archivo);
+        servidas.add(n.id);
+        cont.hechas += 1;
+      } catch (e) { error(`foto de stock ${n.id}`, e); }
+    }
+    return servidas;
   }
 
   // La foto de archivo (REGLAS § 7, paso 2 bis): para las notas que agotaron la búsqueda de foto real, busca en la base una nota anterior con foto real PROPIA (copia en R2) que comparta un lugar o una

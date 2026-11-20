@@ -5,12 +5,13 @@
 // Secretos: GEMINI_API_KEY (la clave paga) y TELEGRAM_TOKEN. Binding AI (Workers AI) y DB (D1). Ver REGLAS.md y CONTRATO.md.
 import fuentesJson from './fuentes.json' with { type: 'json' };
 import umbrales from './agrupar/umbrales.json' with { type: 'json' };
+import stock from '../sitio/fotos-propias/stock.json' with { type: 'json' };
 import perfil from './PERFIL.md';
 import redaccion from './redactar/REDACCION.md';
 import { cargarFuentes } from './fuentes.mjs';
 import { crearNucleo } from './nucleo.mjs';
 
-const nucleo = crearNucleo({ fuentes: cargarFuentes(fuentesJson), perfil, redaccion, umbrales });
+const nucleo = crearNucleo({ fuentes: cargarFuentes(fuentesJson), perfil, redaccion, umbrales, stock });
 
 export default {
   fetch(pedido, env) {

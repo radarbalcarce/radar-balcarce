@@ -105,7 +105,7 @@ export function lugaresEnTexto(texto) {
   return salida;
 }
 
-const textoDeLaFicha = (f) => {
+export const textoDeLaFicha = (f) => {
   if (!f || typeof f !== 'object') return '';
   const extra = [f.entidades, f.lugares, f.instituciones].flatMap((x) => (Array.isArray(x) ? x : [])).map((e) => (typeof e === 'string' ? e : e?.nombre ?? '')).filter(Boolean);
   return [f.donde, f.quien, f.que, ...extra].filter((x) => typeof x === 'string' && x).join('. ');

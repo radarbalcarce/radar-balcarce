@@ -438,6 +438,14 @@ export async function huellasDeArchivoDesde(env, desdeISO) {
   return huellas;
 }
 
+// Los archivos del stock de fotos propio (archivo-fotos/stock.mjs) que se pusieron desde `desdeISO`: una misma foto de stock no sale en dos notas del mismo día.
+export async function stockUsadoDesde(env, desdeISO) {
+  const r = await env.DB.prepare(
+    `SELECT json_extract(verificacion, '$.archivoFoto.stock') AS archivo FROM notas WHERE foto LIKE '%"stock":true%' AND json_extract(verificacion, '$.archivoFoto.cuando') >= ?`,
+  ).bind(desdeISO).all();
+  return new Set(lista(r).map((f) => f.archivo).filter(Boolean));
+}
+
 // Cuántas notas llevan foto de archivo, y cuántas desde `desdeISO` (para /salud).
 export async function contarFotosDeArchivo(env, desdeISO) {
   const c = async (sql, ...p) => ((await env.DB.prepare(sql).bind(...p).first()) || {}).n || 0;
