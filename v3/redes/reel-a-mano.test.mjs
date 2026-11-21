@@ -208,6 +208,7 @@ test('Participá prendido (Hernán, 20/11): las cuatro convocatorias salen solas
   const plan = await planear({ DB }, { ahora: martes, simulado: true });
   assert.deepEqual(plan.piezas.filter((p) => p.id.startsWith('participa')).map((p) => p.id), ['participa-evento']);
   assert.ok(!condicionalesQueTocan(martes).some((p) => p.arma === 'participa'));
-  const aMano = await planear({ DB }, { ahora: martes, simulado: true, solo: ['participa-evento'] });
-  assert.deepEqual(aMano.piezas.map((p) => p.id), ['participa-evento']);
+  // (ya reservada arriba: un segundo plan no la vuelve a reservar)
+  const otra = await planear({ DB }, { ahora: martes, simulado: true });
+  assert.ok(!otra.piezas.some((p) => p.id.startsWith('participa')));
 });
