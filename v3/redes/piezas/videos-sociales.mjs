@@ -5,7 +5,7 @@
 // Una falla acá NUNCA frena ni marca como fallida la pieza en Meta o Buffer: cada red queda anotada en `acciones` con su propio estado (`ok`, `error`, `omitida`, `simulada`) y se sigue.
 // Interruptores (variables de GitHub en el paso de armar las piezas de v3-piezas.yml): THREADS_VIDEOS y BLUESKY_VIDEOS; «no» apaga esa red.
 import { AVISO_DE_IA_TEXTO, HASHTAGS_FIJOS, DIRECCION_DEL_SITIO } from './variables.mjs';
-import { creditosDeLasFotos, notaDeLaPiezaEnLaWeb, resumenDelGuion } from './publicar.mjs';
+import { creditosDeLasFotos, lineaDeCreditos, notaDeLaPiezaEnLaWeb, resumenDelGuion, resumenEscrito } from './publicar.mjs';
 import { enlaceDeNota, SITIO } from '../texto.mjs';
 import { acortarA, grafemas, sinSecretos, MAXIMO_BLUESKY, MAXIMO_VIDEO_BLUESKY_SEG, MAXIMO_VIDEO_BLUESKY_BYTES } from '../bluesky.mjs';
 import { medidaDeThreads, MAXIMO_THREADS, ETIQUETA_THREADS, MAXIMO_VIDEO_THREADS_SEG, MAXIMO_VIDEO_THREADS_BYTES } from '../threads.mjs';
@@ -47,7 +47,8 @@ function cuerposPosibles(pieza, item) {
   if (item.arma === 'nota-propia' && item.datos?.nota?.bajada) base = limpiar(item.datos.nota.bajada);
   else if (item.arma === 'numero-del-dia' && item.datos?.nota?.titulo) base = limpiar(item.datos.nota.titulo);
   else if (item.arma === 'pieza-escrita' && item.datos?.texto?.length) base = item.datos.texto.map(limpiar).join(' ');
-  else base = resumenDelGuion(pieza.guion, 260);
+  else base = resumenEscrito(pieza, item, 260);
+  if (!base) return [''];
   const cortos = [base, resumenDelGuion(base, 160), resumenDelGuion(base, 90)];
   return [...new Set([...cortos, ''])];
 }
@@ -62,8 +63,7 @@ export function textoDeVideo(pieza, item, red) {
   const medir = red === 'threads' ? medidaDeThreads : grafemas;
   const etiquetas = red === 'threads' ? ETIQUETA_THREADS : `${HASHTAGS_FIJOS} #${item.hashtag}`;
   const { url, frase } = enlaceDeLaPieza(item);
-  const creditos = creditosDeLasFotos(pieza);
-  const credito = creditos.length ? `${creditos.length === 1 ? 'Foto' : 'Fotos'}: ${creditos.join(' · ')}` : '';
+  const credito = lineaDeCreditos(creditosDeLasFotos(pieza));
   const nombre = limpiar(item.nombre);
   const armar = ({ cuerpo, conCredito, conFrase, conEtiquetas, titulo = nombre }) => [
     titulo, cuerpo, conFrase ? `${frase}: ${url}` : url, conCredito ? credito : '', AVISO_DE_IA_TEXTO, conEtiquetas ? etiquetas : '',

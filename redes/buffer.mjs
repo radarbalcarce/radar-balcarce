@@ -92,6 +92,19 @@ export function textoParaX(texto) {
   const partes = String(texto ?? '').split(/\n\s*\n/).map((p) => p.replace(/\s+/g, ' ').trim()).filter(Boolean);
   const titular = partes[0] ?? 'Radar Balcarce';
   const tags = partes.filter((p) => /^(#\S+\s*)+$/.test(p)).at(-1) ?? '';
+  // El video habla con voz de IA (Radar 3.0, 20/11/2026): el aviso y las cuentas nombradas viajan con el titular y los hashtags; lo que se achica, si hace falta, es el titular.
+  const aviso = partes.find((p) => /^Voz generada con inteligencia artificial\.$/.test(p)) ?? '';
+  const menciones = partes.find((p) => /^(@\S+\s*)+$/.test(p)) ?? '';
+  if (aviso || menciones) {
+    const fijas = [menciones, aviso].filter(Boolean);
+    for (const resto of [[...fijas, ...(tags ? [tags] : [])], fijas, aviso ? [aviso] : []]) {
+      const lugar = LARGO_EN_X - resto.reduce((n, p) => n + p.length + 2, 0);
+      if (titular.length <= lugar) return [titular, ...resto].join('\n\n');
+    }
+    const lugar = LARGO_EN_X - (aviso ? aviso.length + 2 : 0);
+    const corte = titular.slice(0, lugar - 1);
+    return [corte.slice(0, Math.max(corte.lastIndexOf(' '), 20)).trim() + '…', ...(aviso ? [aviso] : [])].join('\n\n');
+  }
   const conTags = `${titular}\n\n${tags}`;
   const junto = tags && conTags.length <= LARGO_EN_X ? conTags : titular;
   if (junto.length <= LARGO_EN_X) return junto;

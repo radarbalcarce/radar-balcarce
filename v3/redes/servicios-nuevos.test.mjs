@@ -187,7 +187,7 @@ test('Buffer: el texto de cada canal (TikTok con «link en la bio», YouTube con
   assert.match(textoParaBuffer(pieza, item, 'tiktok'), /link en la bio/);
   assert.match(textoParaBuffer(pieza, item, 'youtube'), /radarbalcarce\.com/);
   const x = textoParaBuffer(pieza, item, 'twitter');
-  assert.match(x, /^El repaso de la mañana: Una · Dos\n\n#Balcarce #RadarBalcarce #Noticias$/);
+  assert.match(x, /^El repaso de la mañana: Una · Dos\n\nVoz generada con inteligencia artificial\.\n\n#Balcarce #RadarBalcarce #Noticias$/); // el video habla: el aviso viaja también en X (20/11/2026)
   assert.doesNotMatch(x, /https?:|radarbalcarce\.com/);
 });
 

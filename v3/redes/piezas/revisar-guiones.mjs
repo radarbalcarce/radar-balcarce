@@ -118,35 +118,35 @@ function normalizar2(s) { return String(s).normalize('NFD').replace(/[̀-ͯ]/g, 
 
 // ------------------------------------------------------------------ los datos de ejemplo (variados a propósito)
 
-const dia = (n, extra = {}) => ({ fecha: `2026-11-${String(n).padStart(2, '0')}`, dia: 'x', max: 22, min: 11, lluvia: 10, viento: 12, cielo: 'Despejado', ...extra });
-const clima = (hoy, manana, ahora = {}) => ({ ahora: { temp: 17, sensacion: 17, viento: 8, rumbo: 'SE', cielo: 'Parcialmente nublado', esDeDia: true, ...ahora }, dias: [hoy, manana, dia(Number(hoy.fecha.slice(8)) + 2)] });
-const foto = (n) => ({ url: `https://ejemplo.test/foto${n}.jpg`, credito: 'Foto: Diario de prueba', alt: 'una foto', ancho: 1600, alto: 900 });
-const nota = (extra = {}) => ({
+export const dia = (n, extra = {}) => ({ fecha: `2026-11-${String(n).padStart(2, '0')}`, dia: 'x', max: 22, min: 11, lluvia: 10, viento: 12, cielo: 'Despejado', ...extra });
+export const clima = (hoy, manana, ahora = {}) => ({ ahora: { temp: 17, sensacion: 17, viento: 8, rumbo: 'SE', cielo: 'Parcialmente nublado', esDeDia: true, ...ahora }, dias: [hoy, manana, dia(Number(hoy.fecha.slice(8)) + 2)] });
+export const foto = (n) => ({ url: `https://ejemplo.test/foto${n}.jpg`, credito: 'Foto: Diario de prueba', alt: 'una foto', ancho: 1600, alto: 900 });
+export const nota = (extra = {}) => ({
   id: 'n1', titulo: 'El Municipio inauguró la nueva sala de primeros auxilios del polideportivo', bajada: 'La obra se hizo con fondos propios. Atenderá a deportistas y vecinos todos los días.',
   cuerpo: ['El Municipio abrió este martes la nueva sala de primeros auxilios del polideportivo. Tiene dos camillas y un equipo de reanimación.', 'Funcionará de lunes a domingo, de ocho a veintidós. Atenderá a quienes usan las canchas y las piletas.', 'La inversión superó los dos millones de pesos y salió del presupuesto municipal. El intendente dijo que habrá más obras.'],
   seccion: 'Balcarce', firma: 'Redacción Radar Balcarce', foto: foto(1), ...extra,
 });
-const notaDe = (n, seccion, titulo) => ({ id: `n${n}`, titulo, bajada: 'Es un dato que se conoció durante la tarde. Hay detalles que todavía se están confirmando.', seccion, foto: foto(n) });
-const propia = () => nota({ id: 'p1', firma: 'Hernán Accomo', titulo: 'Halloween en la plaza: un kiosco convocó a cientos de vecinos disfrazados', portada: foto(0), fotos: [1, 2, 3].map((n) => ({ ...foto(n), epigrafe: `Epígrafe ${n}` })) });
-const propiaUna = () => nota({ id: 'p2', firma: 'Hernán Accomo', titulo: 'Un vecino de Balcarce ganó el torneo provincial de ajedrez', bajada: 'Tiene quince años y practica desde los seis. Lo felicitaron en el club.', fotos: [foto(1)], portada: foto(1) });
-const turno = (nombre, direccion, telefono = '') => ({ nombre, direccion, telefono });
-const FARM = {
+export const notaDe = (n, seccion, titulo) => ({ id: `n${n}`, titulo, bajada: 'Es un dato que se conoció durante la tarde. Hay detalles que todavía se están confirmando.', seccion, foto: foto(n) });
+export const propia = () => nota({ id: 'p1', firma: 'Hernán Accomo', titulo: 'Halloween en la plaza: un kiosco convocó a cientos de vecinos disfrazados', portada: foto(0), fotos: [1, 2, 3].map((n) => ({ ...foto(n), epigrafe: `Epígrafe ${n}` })) });
+export const propiaUna = () => nota({ id: 'p2', firma: 'Hernán Accomo', titulo: 'Un vecino de Balcarce ganó el torneo provincial de ajedrez', bajada: 'Tiene quince años y practica desde los seis. Lo felicitaron en el club.', fotos: [foto(1)], portada: foto(1) });
+export const turno = (nombre, direccion, telefono = '') => ({ nombre, direccion, telefono });
+export const FARM = {
   una: [turno('GALINDO', 'Calle 18 N° 715 entre 19 y 21', '42-1100')],
   dos: [turno('GALINDO', 'Calle 18 N° 715 entre 19 y 21', '42-1100'), turno('NORTE', 'Av. 39 N° 793', '42-2200')],
   tres: [turno('DEL CERRO', 'Calle 28 N° 920 e/ 27 y 29', '42-1611'), turno('Santa Inés', 'Calle 17 N° 537'), turno('SOL', 'Av. Chaves esquina 15')],
   ultima: [turno('Farmacia Central', 'Calle 20 N° 400')],
 };
-const EFE = (ademas = [], principal = {}) => ({
+export const EFE = (ademas = [], principal = {}) => ({
   fecha: '2026-11-20', principal: { anio: 1845, titulo: 'Combate de la Vuelta de Obligado', cuerpo: 'La flota anglo-francesa chocó con las baterías argentinas en el río Paraná. Se recuerda como una defensa de la soberanía.', ...principal }, ademas,
 });
-const HECHOS = [{ anio: 1950, texto: 'Argentina gana el primer Mundial de básquet, en el Luna Park' }, { anio: 1903, texto: 'Se funda un club de fútbol en el barrio' }, { texto: 'Día de la Enfermería Argentina' }, { anio: 1810, texto: 'Se crea la primera biblioteca pública de Buenos Aires' }];
-const NUM = { id: 'e1', titulo: 'La balanza comercial', seccion: 'Economía', foto: foto(1) };
-const AVISOS = [
+export const HECHOS = [{ anio: 1950, texto: 'Argentina gana el primer Mundial de básquet, en el Luna Park' }, { anio: 1903, texto: 'Se funda un club de fútbol en el barrio' }, { texto: 'Día de la Enfermería Argentina' }, { anio: 1810, texto: 'Se crea la primera biblioteca pública de Buenos Aires' }];
+export const NUM = { id: 'e1', titulo: 'La balanza comercial', seccion: 'Economía', foto: foto(1) };
+export const AVISOS = [
   { tipo: 'helada', titulo: 'Alerta por helada fuerte', texto: 'Mañana la mínima será de menos dos grados. Cubrí las plantas y abrigate bien.', dia: 'mañana' },
   { tipo: 'granizo', titulo: 'Aviso por granizo', texto: 'Hay riesgo de tormentas fuertes con granizo esta tarde. Guardá el auto bajo techo.', dia: 'hoy' },
   { tipo: 'viento', titulo: 'Viento fuerte en la zona', texto: 'Habrá ráfagas de hasta sesenta kilómetros por hora. Asegurá lo que pueda volarse.', dia: 'hoy' },
 ];
-const EVENTOS = [{ nombre: 'Feria del Libro', cuando: 'sábado 20:30', lugar: 'la plaza Mitre' }, { nombre: 'Peña folklórica', cuando: 'domingo 21:00', lugar: 'el club Independiente' }, { nombre: 'Torneo de bochas', cuando: 'sábado', lugar: '' }, { nombre: 'Cine al aire libre', cuando: 'viernes 22:00', lugar: 'el parque' }];
+export const EVENTOS = [{ nombre: 'Feria del Libro', cuando: 'sábado 20:30', lugar: 'la plaza Mitre' }, { nombre: 'Peña folklórica', cuando: 'domingo 21:00', lugar: 'el club Independiente' }, { nombre: 'Torneo de bochas', cuando: 'sábado', lugar: '' }, { nombre: 'Cine al aire libre', cuando: 'viernes 22:00', lugar: 'el parque' }];
 
 /** Todas las piezas con voz, armadas con datos de ejemplo: [{ nombre, pieza }]. Si un armador falla se informa como hallazgo grave (no se esconde). */
 export function piezasDeEjemplo() {
