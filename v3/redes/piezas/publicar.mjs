@@ -1,7 +1,7 @@
 // El texto de cada pieza de video en Facebook e Instagram y la publicación (reel y historia) con el cliente de Meta de siempre (redes/meta.mjs: sube el mp4 directo, en dos pasos).
 // Sólo corre con REDES_ACTIVAS en «si»; en ensayo se arma el mismo texto y se anota lo que se HABRÍA publicado. Puro salvo `publicarPieza`, que recibe el cliente.
 import { createHash } from 'node:crypto';
-import { AVISO_DE_IA_TEXTO, HASHTAGS_FIJOS, DIRECCION_DEL_SITIO } from './variables.mjs';
+import { AVISO_DE_IA_TEXTO, HASHTAGS_FIJOS, DIRECCION_DEL_SITIO, WHATSAPP } from './variables.mjs';
 import { accionesDe, MAXIMO_DE_UN_SHORT_SEG } from '../piezas-del-dia.mjs';
 import { ponerOrigen, enlaceDeNota, SITIO } from '../texto.mjs';
 import { tituloQueEntra } from '../titular.mjs';
@@ -139,6 +139,8 @@ export function textoDePieza(pieza, item, red) {
   else if (resumenEscrito(pieza, item)) lineas.push(resumenEscrito(pieza, item));
   // Las cuentas que se nombran en el texto (la persona de la nota y la nuestra), si se pidieron: «@fulano @radarbalcarce» (10/11, reel de Benjamín Luque Cuenca).
   if (item.datos?.menciones?.length) lineas.push('', item.datos.menciones.join(' '));
+  // Las convocatorias: el contacto escrito en el texto (en el video sólo está en pantalla), así se puede copiar (20/11/2026).
+  if (item.arma === 'participa') lineas.push('', `WhatsApp: ${WHATSAPP}`, 'Mail: redaccion@radarbalcarce.com');
   if (pieza.auspicio) lineas.push('', `El clima de hoy lo auspicia ${pieza.auspicio.comercio}${pieza.auspicio.cuenta ? ` (${pieza.auspicio.cuenta})` : ''}.`);
   const servicio = SERVICIOS_CON_PAGINA[item.arma];
   // Si la pieza tiene su nota del día (la efeméride, el clima de mañana), el enlace va a la nota: el sitio acepta cualquier título delante del id y redirige a la dirección de siempre.
