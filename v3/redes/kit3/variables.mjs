@@ -46,7 +46,6 @@ export const FOTOS_DE_PARTICIPA = Object.freeze({
     { id: 'evento-tradicion', hora: '10:13', credito: 'Municipalidad de Balcarce' },
   ]),
   marca: Object.freeze([
-    { id: 'marca-cocineros', hora: '9:30', credito: 'Radio Gabal (FM 104.1)' },
     { id: 'marca-esquina', hora: '9:30', credito: 'Radio Gabal (FM 104.1)' },
     { id: 'marca-carpas', hora: '9:31', credito: 'Municipalidad de Balcarce' },
     { id: 'marca-vinoteca', hora: '9:31', credito: 'The Wines Co. (@thewinesco)' },

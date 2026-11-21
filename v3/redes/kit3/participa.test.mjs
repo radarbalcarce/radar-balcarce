@@ -43,7 +43,7 @@ test('la serie: cada convocatoria tiene sus fotos reales (archivos que existen, 
   const vistas = new Set();
   for (const [clave, v] of [['viste', 'noticia'], ['nota', 'nota'], ['evento', 'evento'], ['marca', 'marca']]) {
     const todas = FOTOS_DE_PARTICIPA[clave];
-    assert.equal(todas.length, 4, clave);
+    assert.ok(todas.length >= 3 && todas.length <= 4, clave); // marca: 3 (20/11 se sacó una foto que no se pudo confirmar de Balcarce)
     for (const f of todas) {
       assert.ok(fs.existsSync(path.join(AQUI, 'fotos-participa', `${f.id}.jpg`)), f.id);
       assert.ok(f.credito, `${f.id} sin crédito`);
@@ -84,11 +84,11 @@ test('con la voz real (palabras alineadas) las marcas siguen a la voz', () => {
   assert.ok(Math.abs(r.datos.m.a - 0.88) < 0.01, 'la primera palabra de la voz (a 1 s) menos 0,12');
 });
 
-test('la tabla de piezas: tres convocatorias aprobadas y la de marca, a las 17:00 de lunes a viernes, voz baja, todo en pausa hasta que Hernán lo prenda', () => {
+test('la tabla de piezas: tres convocatorias aprobadas y la de marca, a las 17:00 de lunes a viernes, voz baja, prendidas el 20/11/2026 por Hernán', () => {
   const filas = PIEZAS_DEL_DIA.filter((p) => ['participa-noticias', 'participa-nota', 'participa-evento', 'participa-marca'].includes(p.id));
   assert.equal(filas.length, 4);
   const porDia = {};
-  for (const p of filas) { assert.equal(p.hora, '17:00'); assert.equal(p.ventana, 60); assert.equal(p.voz, 5); assert.equal(p.margenDeVoz, 2); assert.equal(p.pausada, true); for (const d of p.dias) porDia[d] = p.id; }
+  for (const p of filas) { assert.equal(p.hora, '17:00'); assert.equal(p.ventana, 60); assert.equal(p.voz, 5); assert.equal(p.margenDeVoz, 2); assert.ok(!p.pausada); for (const d of p.dias) porDia[d] = p.id; }
   assert.deepEqual(porDia, { 1: 'participa-noticias', 2: 'participa-nota', 3: 'participa-evento', 4: 'participa-marca', 5: 'participa-noticias' });
   assert.ok(!filas.some((p) => p.dias.includes(6) || p.dias.includes(0)), 'el sábado es de Teléfonos útiles');
 });

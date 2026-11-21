@@ -43,8 +43,8 @@ export const PIEZAS_PARTICIPA = {
   'participa-marca': {
     ...deLaTabla('participa-marca'), rotulo: 'Sumá tu marca', seccion: 'Balcarce',
     pregunta: '¿Querés que tu comercio acompañe las noticias de Balcarce?', pie1: 'Escribinos y te contamos cómo anunciar.', pie2: 'Tu comercio, en el medio de Balcarce.',
-    sub: 'Escribinos y te contamos cómo anunciar en Radar',
-    voz: ['¿Querés que tu comercio acompañe las noticias de Balcarce? Escribinos y te contamos cómo anunciar en Radar.'],
+    sub: 'Te contamos cómo anunciar en Radar',
+    voz: ['¿Querés que tu comercio acompañe las noticias de Balcarce? Te contamos cómo anunciar en Radar.'],
   },
 };
 

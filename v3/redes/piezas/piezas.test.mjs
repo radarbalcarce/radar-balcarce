@@ -405,7 +405,7 @@ test('Participá: 18 s, la escena de hoy, seis variantes (las tres aprobadas el 
   assert.equal(armarParticipa('noticia', { saludo: null }).guion, '¿Viste algo que tendría que ser noticia? Mandanos la foto o el dato. Antes de publicar, lo chequeamos. Escribinos por WhatsApp o por mail. Radar Balcarce es tu espacio.');
   assert.equal(armarParticipa('nota', { saludo: null }).guion, '¿Tenés algo para contar de tu club, tu escuela o tu barrio? Mandanos tu nota o tu historia. Escribinos por WhatsApp o por mail. Radar Balcarce es tu espacio.');
   assert.equal(armarParticipa('evento', { saludo: null }).guion, '¿Organizás un evento, una feria o tenés un comercio? Contanos qué, cuándo y dónde, y lo sumamos a la agenda de Balcarce. Escribinos por WhatsApp o por mail. Radar Balcarce es tu espacio.');
-  assert.equal(armarParticipa('marca', { saludo: null }).guion, '¿Querés que tu comercio acompañe las noticias de Balcarce? Escribinos y te contamos cómo anunciar en Radar. Escribinos por WhatsApp o por mail. Radar Balcarce es tu espacio.');
+  assert.equal(armarParticipa('marca', { saludo: null }).guion, '¿Querés que tu comercio acompañe las noticias de Balcarce? Te contamos cómo anunciar en Radar. Escribinos por WhatsApp o por mail. Radar Balcarce es tu espacio.');
   assert.equal(VARIANTES_DE_PARTICIPA.noticia.pregunta, '¿Viste algo que tendría que ser noticia?', 'la de hoy');
   assert.throws(() => armarParticipa('inventada'), /variante/);
 });
