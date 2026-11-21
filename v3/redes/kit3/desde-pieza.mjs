@@ -13,7 +13,7 @@ import {
 } from './tiempos.mjs';
 import { acentoClaro, datosParaLaPlantilla, prefijoYSufijo, tramoDelGrafico } from './grafico.mjs';
 import { formatoDeLaCifra } from '../piezas/datos-de-nota.mjs';
-import { CIERRE_SEGUNDOS, COLA_SEGUNDOS, FOTOS_MAXIMO, FOTOS_PARTICIPA, MARCA, PIEZAS_DEL_KIT } from './variables.mjs';
+import { CIERRE_SEGUNDOS, COLA_SEGUNDOS, FOTOS_DE_PARTICIPA, FOTOS_MAXIMO, MARCA, PIEZAS_DEL_KIT } from './variables.mjs';
 import { ALCANCE_PARTICIPA } from '../piezas/variables.mjs';
 import { WHATSAPP, MAIL_REDACCION } from '../../../redes/participa.mjs';
 
@@ -237,24 +237,27 @@ function adaptarFarmacia(pieza, P, ctx) {
   const lista = e.farmacias;
   const n = lista.length;
   const primeras = lista.map((f) => f.nombre.split(/\s+/)[0]);
-  const [iNoche] = buscarMarcas(P, ['noche']);
+  // «Farmacia de turno hoy: A, en dirección; y B, en dirección. Guardá el dato.» (20/11/2026): cada nombre se dice UNA sola vez y la ficha entra cuando la voz lo dice.
+  const [iTurno, iHoy] = buscarMarcas(P, ['turno', 'hoy']);
+  const desde = iHoy >= 0 ? iHoy + 1 : (iTurno >= 0 ? iTurno + 1 : 0);
   const frac = (f) => Number(((P[Math.min(P.length - 1, Math.floor(P.length * f))]?.a ?? 0) - 0.12).toFixed(2));
   let marcas;
   if (n === 1) {
-    const [iNom, iNom2, iGuarda] = buscarMarcas(P, [primeras[0], primeras[0], 'guarda'], { desde: Math.max(0, iNoche) });
+    // El nombre, la dirección (la palabra que sigue a «Nombre, en») y «Guardá el dato».
+    const [iNom, iGuarda] = buscarMarcas(P, [primeras[0], 'guarda'], { desde });
     const largoNombre = palabrasDe(lista[0].nombre);
-    marcas = [tiempoDe(P, iNom, frac(0.2)), iNom2 >= 0 ? tiempoDe(P, iNom2 + largoNombre, frac(0.42)) : frac(0.42), tiempoDe(P, iGuarda, frac(0.78))];
+    const iDir = iNom >= 0 ? iNom + largoNombre + 1 : -1;
+    marcas = [tiempoDe(P, iNom, frac(0.2)), iDir >= 0 && P[iDir] ? tiempoDe(P, iDir, frac(0.42)) : frac(0.42), tiempoDe(P, iGuarda, frac(0.78))];
   } else {
-    // «Farmacia de turno hoy: A y B. A, dirección. B, dirección. Guardá el dato.»: cada ficha entra cuando la voz repite su nombre para decir la dirección.
-    let desde = Math.max(0, iNoche) + 1;
+    let d = desde;
     const indices = [];
     lista.forEach((f, i) => {
-      const [iPrimera] = buscarMarcas(P, [primeras[i]], { desde });
-      const [iSegunda] = iPrimera >= 0 ? buscarMarcas(P, [primeras[i]], { desde: iPrimera + 1 }) : [-1];
-      indices.push(iSegunda);
-      if (iSegunda >= 0) desde = iSegunda + 1;
+      const [iNom] = buscarMarcas(P, [primeras[i]], { desde: d });
+      indices.push(iNom);
+      if (iNom >= 0) d = iNom + 1;
     });
     marcas = crecientes(indices.map((k, i) => tiempoDe(P, k, frac(0.25 + (0.5 * i) / n))), 1.5);
+    marcas[0] = Math.max(marcas[0], 1.2); // la tapa «De turno hoy» alcanza a leerse
   }
   const datos = {
     modo: n, nombres: lista.map((f) => f.nombre), dir: lista.map((f) => renglonesDeLaDireccion(f.direccion)), tel: lista.map((f) => f.telefono || ''),
@@ -368,55 +371,75 @@ function ultimaPalabra(P, texto) {
   return k;
 }
 
-const PARTICIPA_TEMAS = {
-  viste: { chip: 'Participá', chipBg: '#C7381C', chipFg: '#fff', hl: { bg: '#FAF8F3', fg: '#C7381C' }, scrim: 'linear-gradient(0deg,rgba(8,10,14,.5) 0%,rgba(8,10,14,0) 26%)', rotuloFg: '#C7381C', rotuloBg: '#FAF8F3' },
-  nota: { chip: 'Tu nota', chipBg: '#9D2C8F', chipFg: '#fff', hl: { bg: '#9D2C8F', fg: '#fff' }, scrim: 'linear-gradient(0deg,rgba(8,10,14,.35) 0%,rgba(8,10,14,0) 20%)', rotuloFg: '#fff', rotuloBg: '#9D2C8F' },
-  evento: { chip: 'Tu evento', chipBg: '#9D2C8F', chipFg: '#fff', hl: { bg: '#E8A33C', fg: '#14161A' }, scrim: 'linear-gradient(0deg,rgba(8,10,14,.35) 0%,rgba(8,10,14,0) 20%)', rotuloFg: '#fff', rotuloBg: '#9D2C8F' },
-  marcaA: { chip: 'Sumá tu marca', chipBg: '#FAF8F3', chipFg: '#14161A', hl: { bg: '#C7381C', fg: '#fff' }, scrim: 'linear-gradient(0deg,rgba(8,10,14,.35) 0%,rgba(8,10,14,0) 20%)', rotuloFg: '#14161A', rotuloBg: '#FAF8F3' },
-  marcaB: { chip: 'Sumá tu marca', chipBg: '#FAF8F3', chipFg: '#17357F', hl: { bg: '#FAF8F3', fg: '#17357F' }, scrim: 'linear-gradient(0deg,rgba(8,10,14,.35) 0%,rgba(8,10,14,0) 20%)', rotuloFg: '#17357F', rotuloBg: '#FAF8F3', fondo: 'linear-gradient(165deg,#1F4FB5 0%,#17357F 55%,#0E2257 100%)' },
+/**
+ * La serie «Participá» (20/11/2026): las cuatro convocatorias comparten el dibujo de «¿Viste algo?» (rojo Balcarce, la pregunta grande, las fotos reales que llegan a un chat, la respuesta, el contacto), y cambian
+ * las palabras y las fotos. `ma`/`mb`: las palabras de la voz donde entran las dos partes del título; `fin`: la última palabra de la pregunta; `ir`: donde la voz empieza a pedir y llegan las fotos (`retraso`:
+ * segundos de corrimiento); `rep`: donde la voz contesta; `n`: el máximo de fotos; `fsB`: el cuerpo de la segunda parte del título (entra entera en el ancho).
+ */
+const SERIE_PARTICIPA = {
+  viste: {
+    chip: 'Participá', color: '#C7381C', fondo: 'linear-gradient(165deg,#D6401F 0%,#C7381C 45%,#8E2410 100%)', brillo: 'rgba(255,140,90,.28)', a: '¿Viste', b: 'algo?', fsB: 330, ma: 'viste', mb: 'algo', fin: 'noticia', ir: 'mandanos', rep: 'chequeamos', n: 4,
+    resto: 'que tendría que ser noticia?', ayuda: 'Una calle, una obra, algo que pasó.', tapaTexto: 'Mandanos la foto o el dato.', respuesta: '¡Gracias! Lo chequeamos antes de publicar.',
+  },
+  nota: {
+    chip: 'Tu nota', color: '#9D2C8F', fondo: 'linear-gradient(165deg,#B53BA6 0%,#9D2C8F 45%,#6A1B60 100%)', brillo: 'rgba(255,150,240,.28)', a: '¿Tenés', b: 'algo?', fsB: 330, ma: 'tenes', mb: 'algo', fin: 'barrio', ir: 'mandanos', rep: 'historia', n: 4,
+    resto: 'para contar de tu club, tu escuela o tu barrio?', ayuda: 'Tu club, tu escuela, tu barrio.', tapaTexto: 'Mandanos tu nota o tu historia.', respuesta: '¡Gracias! Te escribimos por acá.',
+  },
+  evento: {
+    chip: 'Tu evento', color: '#0F766E', fondo: 'linear-gradient(165deg,#169488 0%,#0F766E 45%,#0A4F4A 100%)', brillo: 'rgba(120,240,220,.25)', a: '¿Tu', b: 'evento?', fsB: 215, ma: 'organizas', mb: 'evento', fin: 'comercio', ir: 'contanos', rep: 'agenda', n: 4,
+    resto: 'una feria o tenés un comercio?', ayuda: 'Una feria, una fiesta, tu comercio.', tapaTexto: 'Contanos qué, cuándo y dónde.', respuesta: '¡Gracias! Lo sumamos a la agenda.',
+  },
+  marca: {
+    chip: 'Sumá tu marca', color: '#8A6500', fondo: 'linear-gradient(165deg,#A87A0A 0%,#8A6500 45%,#5C4300 100%)', brillo: 'rgba(255,215,120,.28)', a: '¿Tu', b: 'comercio?', fsB: 172, ma: 'queres', mb: 'comercio', fin: 'balcarce', ir: 'balcarce', retraso: 0.1, rep: 'anunciar', n: 3, conAlcance: true,
+    resto: 'acompañe las noticias de Balcarce?', ayuda: '', tapaTexto: 'Anunciá tu comercio en Radar.', respuesta: '¡Hola! Así llega Radar a Balcarce:',
+  },
 };
+// El color de cada una es el de su sección del manual de marca (Balcarce, Cultura, Deportes, Economía): `color` (letra de la caja clara, chip, subtítulo resaltado), `fondo` y `brillo`.
+const PARTICIPA_TEMA = { chipFg: '#fff', scrim: 'linear-gradient(0deg,rgba(8,10,14,.5) 0%,rgba(8,10,14,0) 26%)', rotuloBg: '#FAF8F3' };
 
 /**
- * Las convocatorias de Participá: «¿Viste algo?» (`noticia`), «Tu nota» (`nota`), «Tu evento…» (`evento`) y «Sumá tu marca» (`marca`, con dos diseños, A y B, hasta que Hernán elija).
- * Las marcas son palabras de la voz (`marcasDe`): cada cosa que se ve entra cuando la voz dice su palabra. Los subtítulos cubren el saludo y todo lo que sigue a la pregunta (la pregunta ya está escrita en pantalla).
- * Los números de «Sumá tu marca» son los reales de `ALCANCE_PARTICIPA` (nunca se inventan).
+ * Las convocatorias de Participá: «¿Viste algo?» (`noticia`), «Tu nota» (`nota`), «Tu evento…» (`evento`) y «Sumá tu marca» (`marca`). Las cuatro con el mismo dibujo (ver `SERIE_PARTICIPA`) y fotos reales de Balcarce
+ * (`FOTOS_DE_PARTICIPA`). Cada cosa que se ve entra cuando la voz dice su palabra (`marcasDe`). «Sumá tu marca» suma en la respuesta el alcance real en Facebook e Instagram (`ALCANCE_PARTICIPA`, nunca inventado)
+ * y el aviso de ejemplo «Tu comercio acá» sobre la última foto.
  */
 function adaptarParticipa(pieza, P, ctx) {
   const v = pieza.variante ?? pieza.id.replace(/^participa-/, '');
-  const clave = v === 'noticia' ? 'viste' : v === 'marca' ? (String(pieza.diseno ?? 'a').toLowerCase() === 'b' ? 'marcaB' : 'marcaA') : v;
-  const tema = PARTICIPA_TEMAS[clave];
-  if (!tema) throw new Error(`participá: el kit no dibuja la variante «${v}»`);
+  const clave = v === 'noticia' ? 'viste' : v;
+  const cfg = SERIE_PARTICIPA[clave];
+  if (!cfg) throw new Error(`participá: el kit no dibuja la variante «${v}»`);
   const iEsc = ultimaPalabra(P, 'escribinos');
   const c = marcasDe(P, ['escribinos', 'whatsapp', 'mail', 'radar', 'balcarce', 'es', 'tu', 'espacio'], ['escribinos', 'whatsapp', 'mail', 'radar', 'balcarce', 'es', 'tu', 'espacio'], Math.max(0, iEsc));
+  const igual = cfg.ir === cfg.fin; // la misma palabra marca el fin de la pregunta y el pedido (no se busca dos veces)
+  const m0 = marcasDe(P, igual ? ['a', 'b', 'fin', 'rep'] : ['a', 'b', 'fin', 'ir', 'rep'], igual ? [cfg.ma, cfg.mb, cfg.fin, cfg.rep] : [cfg.ma, cfg.mb, cfg.fin, cfg.ir, cfg.rep]);
+  const m = igual ? { a: m0.a, b: m0.b, fin: m0.fin, ir: m0.fin, rep: m0.rep } : m0;
+  const [, iB, iFin] = buscarMarcas(P, [cfg.ma, cfg.mb, cfg.fin]);
+  const resto = iB >= 0 && iFin > iB ? P.slice(iB + 1, iFin + 1).map((p) => ({ w: p.w, a: Number(Math.max(0, p.a - 0.05).toFixed(2)) })) : [{ w: cfg.resto, a: m.fin }];
+  const tR = Number(Math.min(m.rep - (cfg.conAlcance ? 0.2 : 0.4), c.escribinos - (cfg.conAlcance ? 1.6 : 0.7)).toFixed(2));
+  const tB = Number((m.ir + (cfg.retraso ?? -0.1)).toFixed(2));
+  const desde = cfg.retraso !== undefined ? tB + 0.2 : m.ir + 0.1;
+  const fotosTodas = FOTOS_DE_PARTICIPA[clave];
+  const cabe = Math.floor((tR - 0.45 - desde) / 0.4) + 1;
+  const n = Math.max(2, Math.min(cfg.n, cabe, fotosTodas.length));
+  const paso = n > 1 ? Math.max(0.4, Math.min(0.85, (tR - 0.45 - desde) / (n - 1))) : 0;
+  const fotos = fotosTodas.slice(0, n);
   const datos = {
-    variante: clave, chip: tema.chip, chipBg: tema.chipBg, chipFg: tema.chipFg, color: tema.chipBg, whatsapp: WHATSAPP, mail: MAIL_REDACCION, c,
-    fondo: tema.fondo ?? 'linear-gradient(165deg,#D6401F 0%,#C7381C 45%,#8E2410 100%)',
+    variante: clave, chip: cfg.chip, chipBg: cfg.color, chipFg: PARTICIPA_TEMA.chipFg, color: cfg.color, whatsapp: WHATSAPP, mail: MAIL_REDACCION, c, m,
+    fondo: cfg.fondo, brillo: cfg.brillo,
+    a: cfg.a, b: cfg.b, fsB: cfg.fsB, resto, ayuda: cfg.ayuda, tapaTexto: cfg.tapaTexto, respuesta: cfg.respuesta, tB, tRespuesta: tR,
+    fotos: fotos.map((f, i) => ({ id: f.id, hora: f.hora, ...(cfg.conAlcance && i === n - 1 ? { aviso: true } : {}) })),
+    tFotos: fotos.map((_, i) => Number((desde + i * paso).toFixed(2))),
   };
-  let creditosFijos = [];
-  if (clave === 'viste') {
-    datos.m = marcasDe(P, ['viste', 'algo', 'noticia', 'mandanos', 'chequeamos'], ['viste', 'algo', 'noticia', 'mandanos', 'chequeamos']);
-    const [, iAlgo, iNoticia] = buscarMarcas(P, ['viste', 'algo', 'noticia']);
-    datos.resto = iAlgo >= 0 && iNoticia > iAlgo ? P.slice(iAlgo + 1, iNoticia + 1).map((p) => ({ w: p.w, a: Number(Math.max(0, p.a - 0.05).toFixed(2)) })) : [{ w: 'que tendría que ser noticia?', a: datos.m.noticia }];
-    datos.fotos = FOTOS_PARTICIPA.map((f) => ({ id: f.id, hora: f.hora }));
-    datos.tRespuesta = Number(Math.min(datos.m.chequeamos - 0.4, c.escribinos - 0.7).toFixed(2));
-    const desde = datos.m.mandanos + 0.1, paso = Math.max(0.4, Math.min(0.85, (datos.tRespuesta - 0.5 - desde) / (FOTOS_PARTICIPA.length - 1)));
-    datos.tFotos = FOTOS_PARTICIPA.map((_, i) => Number((desde + i * paso).toFixed(2)));
-    creditosFijos = [...new Set(FOTOS_PARTICIPA.map((f) => f.credito))];
-  } else if (clave === 'nota') {
-    datos.m = marcasDe(P, ['tenes', 'para', 'contar', 'club', 'escuela', 'barrio', 'mandanos', 'historia'], ['tenes', 'para', 'contar', 'club', 'escuela', 'barrio', 'mandanos', 'historia']);
-  } else if (clave === 'evento') {
-    datos.m = marcasDe(P, ['organizas', 'un1', 'evento', 'una', 'feria', 'o', 'tenes', 'un2', 'comercio', 'que', 'cuando', 'donde', 'agenda'], ['organizas', 'un', 'evento', 'una', 'feria', 'o', 'tenes', 'un', 'comercio', 'que', 'cuando', 'donde', 'agenda']);
-  } else {
-    datos.m = marcasDe(P, ['queres', 'tu', 'comercio', 'acompane', 'las', 'noticias', 'de', 'balcarce', 'escribinos', 'contamos', 'anunciar', 'radar'], ['queres', 'tu', 'comercio', 'acompane', 'las', 'noticias', 'de', 'balcarce', 'escribinos', 'contamos', 'anunciar', 'radar']);
-    datos.alcance = { paginasVistas: ALCANCE_PARTICIPA.paginasVistas, fbAlcance: ALCANCE_PARTICIPA.fbAlcance, igAlcance: ALCANCE_PARTICIPA.igAlcance, texto: ALCANCE_PARTICIPA.texto };
+  if (cfg.conAlcance) {
+    datos.alcance = { fbAlcance: ALCANCE_PARTICIPA.fbAlcance, igAlcance: ALCANCE_PARTICIPA.igAlcance, texto: ALCANCE_PARTICIPA.texto };
     datos.cierre = ['Tu comercio,', 'en el medio de', 'Balcarce'];
   }
+  const creditosFijos = [...new Set(fotos.map((f) => f.credito))];
   const nSaludo = palabrasDe(pieza.saludo);
-  const iFin = finDeFrase(P, nSaludo);
+  const iFinSaludo = finDeFrase(P, nSaludo);
   return {
     plantilla: 'participa', datos, fotos: [], fondo: null, subsTop: SUBS_TOP, creditosFijos,
-    subtitulosDesde: { saludo: nSaludo, desde: iFin >= 0 ? iFin + 1 : nSaludo },
-    hl: tema.hl, scrim: tema.scrim, rotulo: { txt: tema.chip, bg: tema.rotuloBg, fg: tema.rotuloFg, top: 91 },
+    subtitulosDesde: { saludo: nSaludo, desde: iFinSaludo >= 0 ? iFinSaludo + 1 : nSaludo },
+    hl: { bg: PARTICIPA_TEMA.rotuloBg, fg: cfg.color }, scrim: PARTICIPA_TEMA.scrim, rotulo: { txt: cfg.chip, bg: PARTICIPA_TEMA.rotuloBg, fg: cfg.color, top: 91 },
   };
 }
 

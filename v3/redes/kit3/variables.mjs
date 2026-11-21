@@ -21,13 +21,39 @@ export const SUBS_DERECHA = 940;
 export const CARTEL = Object.freeze({ maxPalabras: 4, maxCaracteres: 24 });
 /** Piezas que el kit sabe dibujar (id de la pieza armada). Lo demás sale con el dibujo de siempre. */
 export const PIEZAS_DEL_KIT = Object.freeze(['clima', 'clima-auspiciado', 'repaso-manana', 'repaso-tarde', 'repaso-noche', 'efemeride', 'farmacia', 'nota-reel', 'nota-propia', 'numero-del-dia', 'participa-noticia', 'participa-nota', 'participa-evento', 'participa-marca']);
-/** Las fotos fijas de «¿Viste algo?» (archivos del kit en `fotos-participa/`, copias propias del sitio de notas de Balcarce de la vida cotidiana: calles, plazas, obras, fiestas), con la hora que dice el chat y el crédito que va en el texto del posteo (nunca dentro del video). */
-export const FOTOS_PARTICIPA = Object.freeze([
-  { id: 'avenida', hora: '12:41', credito: 'Municipalidad de Balcarce' },
-  { id: 'plaza', hora: '12:41', credito: 'Municipalidad de Balcarce' },
-  { id: 'navidad', hora: '12:42', credito: 'Radio Gabal (FM 104.1)' },
-  { id: 'obra', hora: '12:42', credito: 'Diario La Vanguardia' },
-]);
+/**
+ * Las fotos fijas de la serie «Participá» (20/11/2026): copias propias, de notas ya publicadas en radarbalcarce.com, en `fotos-participa/` (1.200 px). Una serie por convocatoria, con la hora que dice el chat y el crédito
+ * que va en el texto del posteo (nunca sobre la imagen). Todas de Balcarce y de fuentes de Balcarce; ni víctimas, ni hechos policiales, ni marcas de otros medios como protagonistas. «Sumá tu marca» sólo muestra comercios
+ * y ferias; el aviso «Tu comercio acá» (de ejemplo, nunca un comercio real) se pone sobre la última foto que se ve.
+ */
+export const FOTOS_DE_PARTICIPA = Object.freeze({
+  viste: Object.freeze([
+    { id: 'avenida', hora: '12:41', credito: 'Municipalidad de Balcarce' },
+    { id: 'plaza', hora: '12:41', credito: 'Municipalidad de Balcarce' },
+    { id: 'navidad', hora: '12:42', credito: 'Radio Gabal (FM 104.1)' },
+    { id: 'obra', hora: '12:42', credito: 'Diario La Vanguardia' },
+  ]),
+  nota: Object.freeze([
+    { id: 'nota-club', hora: '19:05', credito: 'Radio Gabal (FM 104.1)' },
+    { id: 'nota-escuela', hora: '19:05', credito: 'Diario La Vanguardia' },
+    { id: 'nota-mayores', hora: '19:06', credito: 'Municipalidad de Balcarce' },
+    { id: 'nota-piano', hora: '19:06', credito: 'Municipalidad de Balcarce' },
+  ]),
+  evento: Object.freeze([
+    { id: 'evento-postre', hora: '10:12', credito: 'Radio Mitre' },
+    { id: 'evento-libro', hora: '10:12', credito: 'Infórmese Primero (FM 104.9)' },
+    { id: 'evento-fiesta', hora: '10:13', credito: 'Radio Gabal (FM 104.1)' },
+    { id: 'evento-tradicion', hora: '10:13', credito: 'Municipalidad de Balcarce' },
+  ]),
+  marca: Object.freeze([
+    { id: 'marca-cocineros', hora: '9:30', credito: 'Radio Gabal (FM 104.1)' },
+    { id: 'marca-esquina', hora: '9:30', credito: 'Radio Gabal (FM 104.1)' },
+    { id: 'marca-carpas', hora: '9:31', credito: 'Municipalidad de Balcarce' },
+    { id: 'marca-vinoteca', hora: '9:31', credito: 'The Wines Co. (@thewinesco)' },
+  ]),
+});
+/** Las de «¿Viste algo?» (nombre de antes). */
+export const FOTOS_PARTICIPA = FOTOS_DE_PARTICIPA.viste;
 /** El tope de fotos por pieza de nota. */
 export const FOTOS_MAXIMO = 3;
 /** Los colores de la marca para las piezas sin sección. */
@@ -40,7 +66,7 @@ export const MARCA = Object.freeze({ tinta: '#14161A', papel: '#FAF8F3', rojo: '
  */
 export const MUSICA_DEL_KIT = Object.freeze({
   dbBajoLaVoz: -10, dbSinVoz: -3, entradaSegundos: 0.5, salidaSegundos: 1.0,
-  temas: Object.freeze({ 'participa-noticia': 'ambiente-foco.mp3', 'participa-nota': 'piano-calido.mp3', 'participa-evento': 'lofi-calmo.mp3', 'participa-marca': 'chillhop-curioso.mp3' }),
+  temas: Object.freeze({ 'participa-noticia': 'ambiente-foco.mp3', 'participa-nota': 'ambiente-foco.mp3', 'participa-evento': 'ambiente-foco.mp3', 'participa-marca': 'ambiente-foco.mp3' }), // el mismo tema para toda la serie (se reconoce)
 });
 /** ¿Está prendida la música del kit? Sólo con `MUSICA_3_0` en «si». */
 export const musica3Prendida = (env = process.env) => /^(s[ií]|true|1)$/i.test(String(env?.MUSICA_3_0 ?? '').trim());

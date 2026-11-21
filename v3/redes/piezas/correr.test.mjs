@@ -287,7 +287,7 @@ test('ensayo a mano (SOLO y AHORA): arma esas piezas aunque no toquen ahora; en 
   assert.deepEqual(r.piezas.map((p) => p.pieza), ['farmacia']);
   assert.equal(t.dibujadas[0].pieza.id, 'farmacia');
   // Desde el 20/11 la farmacia es a las 18 (bloque de la tarde): de tarde nunca hay saludo (voz.mjs), así que ya no abre con «Buenas noches, Balcarce.».
-  assert.match(t.pedidosDeVoz[0].guion, /^Farmacia de turno hoy: Santa Inés\. Santa Inés, Calle 17, 537\./); // sin «N°»
+  assert.match(t.pedidosDeVoz[0].guion, /^Farmacia de turno hoy: Santa Inés, en calle 17 al 537\. Guardá el dato\.$/); // sin «N°» y el nombre UNA sola vez (20/11)
 });
 
 // ------------------------------------------------------------------ los armadores desde el plan, el ajuste a la voz y los textos
@@ -295,7 +295,7 @@ test('ensayo a mano (SOLO y AHORA): arma esas piezas aunque no toquen ahora; en 
 test('armarDelPlan: cada pieza con sus datos; si falta el dato de afuera, SinDatos', () => {
   const op = { id: 'x', horaDelDia: 9, primeraDelBloque: true, datos: {} };
   assert.equal(armarDelPlan({ ...op, arma: 'clima', id: 'clima-noche' }, { dia: DIA, clima: CLIMA }).id, 'clima');
-  assert.match(armarDelPlan({ ...op, arma: 'clima', id: 'clima-noche', horaDelDia: 20 }, { dia: DIA, clima: CLIMA }).guion, /Mañana: máxima de 23/);
+  assert.match(armarDelPlan({ ...op, arma: 'clima', id: 'clima-noche', horaDelDia: 20 }, { dia: DIA, clima: CLIMA }).guion, /Máxima de 23/);
   assert.equal(armarDelPlan({ ...op, arma: 'efemeride' }, { dia: DIA, efemeride: efemerideDelDia(EFEMERIDES, DIA) }).id, 'efemeride');
   assert.equal(armarDelPlan({ ...op, arma: 'participa', variante: 'reclamo' }, { dia: DIA }).id, 'participa-reclamo');
   assert.throws(() => armarDelPlan({ ...op, arma: 'clima' }, { dia: DIA }), SinDatos);

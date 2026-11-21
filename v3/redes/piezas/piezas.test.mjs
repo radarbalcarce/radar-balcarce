@@ -144,7 +144,7 @@ test('clima: la escena de hoy entera, de 15 a 20 s, números del día y cierre s
   assert.match(p.guion, /16 grados/); assert.match(p.guion, /máxima de 23/); assert.match(p.guion, /mínima de 9/); assert.match(p.guion, /Que tengan un buen día/);
   const noche = armarClima(CLIMA_DE_PRUEBA, { fecha: HOY, hora: 20, primeraDelBloque: true });
   assert.equal(noche.escenas[0].datos.momento, 'noche');
-  assert.match(noche.guion, /máxima de 21/); assert.match(noche.guion, /Que descansen/); assert.match(noche.guion, /Buenas noches/);
+  assert.match(noche.guion, /Máxima de 21/); assert.ok(!/Mañana.*Mañana/.test(noche.guion), '«Mañana» una sola vez de noche'); assert.match(noche.guion, /Que descansen/); assert.match(noche.guion, /Buenas noches/);
   assert.throws(() => armarClima({}), /clima/);
   assert.throws(() => armarClima({ ...CLIMA_DE_PRUEBA, dias: [{ dia: 'mar', max: 1, min: 0 }] }), /fecha/);
 });
@@ -383,7 +383,7 @@ test('farmacia: 14 s, la escena de hoy, sin «N°», con el nombre y la direcci�
   assert.equal(p.duracion, 14);
   assert.deepEqual(p.escenas.map((e) => e.tipo), ['farmacia']);
   assert.ok(!/N°|Nº/.test(p.guion) && !/N°|Nº/.test(JSON.stringify(p.escenas)), 'sin «N°»');
-  assert.match(p.guion, /Santa Inés y Del Patio/); assert.match(p.guion, /Calle 17, 537/); assert.match(p.guion, /Avenida 39, 793/); assert.match(p.guion, /Guardá el dato/);
+  assert.match(p.guion, /Farmacias de turno hoy: Santa Inés, en calle 17 al 537; y Del Patio, en avenida 39 al 793\./); assert.match(p.guion, /Guardá el dato/);
   assert.equal(direccionHablada('Calle 17 N° 537'), 'Calle 17, 537');
   assert.throws(() => armarFarmacia([], { fecha: HOY }), /farmacia/);
   assert.throws(() => armarFarmacia(FARMACIAS, {}), /fecha/);
@@ -406,7 +406,6 @@ test('Participá: 18 s, la escena de hoy, seis variantes (las tres aprobadas el 
   assert.equal(armarParticipa('nota', { saludo: null }).guion, '¿Tenés algo para contar de tu club, tu escuela o tu barrio? Mandanos tu nota o tu historia. Escribinos por WhatsApp o por mail. Radar Balcarce es tu espacio.');
   assert.equal(armarParticipa('evento', { saludo: null }).guion, '¿Organizás un evento, una feria o tenés un comercio? Contanos qué, cuándo y dónde, y lo sumamos a la agenda de Balcarce. Escribinos por WhatsApp o por mail. Radar Balcarce es tu espacio.');
   assert.equal(armarParticipa('marca', { saludo: null }).guion, '¿Querés que tu comercio acompañe las noticias de Balcarce? Escribinos y te contamos cómo anunciar en Radar. Escribinos por WhatsApp o por mail. Radar Balcarce es tu espacio.');
-  assert.equal(armarParticipa('marca', { diseno: 'b' }).diseno, 'b');
   assert.equal(VARIANTES_DE_PARTICIPA.noticia.pregunta, '¿Viste algo que tendría que ser noticia?', 'la de hoy');
   assert.throws(() => armarParticipa('inventada'), /variante/);
 });
@@ -627,4 +626,16 @@ test('farmacia: de 1 a 3 por día — la ficha de 3 entra (texto arriba de la zo
   // Cuatro: el cronograma está mal (o cambió); salen unas y otras no sería publicar un dato falso.
   assert.throws(() => armarFarmacia([...tres, { nombre: 'Otra', direccion: 'Calle 9 N° 100' }], { fecha: HOY }), /trae 4 farmacias de turno y son de 1 a 3/);
   assert.ok(FARMACIA.fichasMaximo === 3);
+});
+
+test('farmacia (20/11, Hernán: «Galindo. Galindo»): cada nombre se dice una sola vez, seguido de su dirección; singular o plural según cuántas hay', () => {
+  const una = armarFarmacia([{ nombre: 'GALINDO', direccion: 'Calle 18 N° 715 entre 19 y 21', telefono: '42-1100' }], { fecha: HOY });
+  assert.equal(una.guion, 'Farmacia de turno hoy: Galindo, en calle 18 al 715, entre 19 y 21. Guardá el dato.');
+  const dos = armarFarmacia([{ nombre: 'GALINDO', direccion: 'Calle 18 N° 715 entre 19 y 21' }, { nombre: 'NORTE', direccion: 'Av. 39 N° 793' }], { fecha: HOY });
+  assert.equal(dos.guion, 'Farmacias de turno hoy: Galindo, en calle 18 al 715, entre 19 y 21; y Norte, en avenida 39 al 793. Guardá el dato.');
+  const tres = armarFarmacia([{ nombre: 'Del Cerro', direccion: 'Calle 28 N° 920 e/ 27 y 29' }, { nombre: 'Santa Inés', direccion: 'Calle 17 N° 537' }, { nombre: 'Sol', direccion: 'Av. Chaves esquina 15' }], { fecha: HOY });
+  assert.equal(tres.guion, 'Farmacias de turno hoy: Del Cerro, en calle 28 al 920, entre 27 y 29; Santa Inés, en calle 17 al 537; y Sol, en avenida Chaves, esquina 15. Guardá el dato.');
+  for (const p of [una, dos, tres]) for (const f of p.escenas[0].datos.farmacias) assert.equal(p.guion.split(f.nombre).length - 1, 1, `${f.nombre} una sola vez`);
+  // la pantalla sigue con los nombres y las direcciones de siempre (sin «N°»)
+  assert.equal(una.escenas[0].datos.farmacias[0].direccion, 'Calle 18, 715 entre 19 y 21');
 });

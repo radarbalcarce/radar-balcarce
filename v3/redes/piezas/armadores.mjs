@@ -12,7 +12,7 @@
 // `opciones.primeraDelBloque`, o `opciones.saludo` ya resuelto). Las reglas, en palabras de persona, están en `REGLAS.md`.
 import {
   AGENDA, SEMANA, FINDE, AVISO_DE_CLIMA, AVISO_DE_IA_TEXTO, CARRUSEL_MAX_INSTAGRAM, FERIADO, UTILES, CARRUSEL_MIN_FOTOS, CLIMA, EFEMERIDE, FARMACIA, FIRMA_DE_HERNAN, FIRMA_DE_REDACCION, HISTORIA_DE_NOTA, IMAGEN_ENLACE,
-  IMAGEN_FEED_ALTO, IMAGEN_FEED_ANCHO, MOMENTOS_DEL_REPASO, NOTA_PROPIA, NOTA_REEL, NUMERO_DEL_DIA, PARTICIPA, DISENO_DE_MARCA, REPASO, VIDEO_ALTO, VIDEO_ANCHO, WHATSAPP, MUSICA, PALABRAS_POR_SEGUNDO, SEGUNDOS_DE_ADORNO,
+  IMAGEN_FEED_ALTO, IMAGEN_FEED_ANCHO, MOMENTOS_DEL_REPASO, NOTA_PROPIA, NOTA_REEL, NUMERO_DEL_DIA, PARTICIPA, REPASO, VIDEO_ALTO, VIDEO_ANCHO, WHATSAPP, MUSICA, PALABRAS_POR_SEGUNDO, SEGUNDOS_DE_ADORNO,
 } from './variables.mjs';
 import {
   acortarPalabras, conPunto, contarPalabras, direccionHablada, frases, ganchoDe, hablarCuenta, hablarNumero, momentoDe, nombrePropio, partesQueEntran, presupuestoDeVoz,
@@ -126,7 +126,8 @@ export function armarClima(clima, { auspicio = null, fecha = null, ...opciones }
     `Ahora hay ${clima.ahora.temp} grados, ${cielo}.`,
     comentario.voz,
     // Si el comentario ya habló de la lluvia, no se repite el porcentaje (Hernán, 3/11: «el texto repite lo mismo»).
-    `${noche ? 'Mañana' : 'Hoy'}: máxima de ${d.max}, mínima de ${d.min}.${comentario.icono === 'lluvia' ? '' : ` Lluvia: ${d.lluvia} por ciento.`}`,
+    // De noche el comentario ya empieza con «Mañana» (comentarioDelDia): no se repite la palabra (20/11/2026, «Mañana, … Mañana: máxima…»).
+    `${noche ? 'Máxima' : 'Hoy: máxima'} de ${d.max}, mínima de ${d.min}.${comentario.icono === 'lluvia' ? '' : ` Lluvia: ${d.lluvia} por ciento.`}`,
     despedidaDelClima(hoy, noche),
   );
   const segundos = CLIMA.segundos + (auspicio ? CLIMA.auspicioExtra : 0);
@@ -232,6 +233,19 @@ const CIERRE_NOTA = 'La nota completa, en Radar Balcarce punto com.';
 const CIERRE_NOTA_PROPIA = 'La nota completa, en Radar Balcarce punto com.';
 
 /** Las frases de una nota para contarla en placas: la bajada y las dos primeras oraciones de cada párrafo, sin repetir. */
+/** Saca las frases que repiten (3 palabras seguidas) algo ya dicho: el titular o una frase anterior. Si quedan pocas, devuelve las originales. */
+export function sinRepetirLoDicho(lista, antes = [], minimo = 3) {
+  const clave = (t) => String(t ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9ñ]+/g, ' ').trim().split(' ').filter(Boolean);
+  const trios = (t) => { const w = clave(t); const o = new Set(); for (let i = 0; i + 2 < w.length; i += 1) o.add(w.slice(i, i + 3).join(' ')); return o; };
+  const dicho = new Set(antes.flatMap((a) => [...trios(a)]));
+  const salida = [];
+  for (const f of lista) {
+    const t = trios(f);
+    if ([...t].some((x) => dicho.has(x))) continue;
+    salida.push(f); t.forEach((x) => dicho.add(x));
+  }
+  return salida.length >= minimo ? salida : lista;
+}
 const frasesDeLaNota = (nota, porParrafo = 1) => [...frases(nota.bajada ?? ''), ...parrafos(nota).flatMap((p) => frases(p).slice(0, porParrafo))].filter((f, i, a) => a.indexOf(f) === i);
 
 // ------------------------------------------------------------------ 9. nota de Balcarce o nacional (reel)
@@ -244,7 +258,7 @@ const frasesDeLaNota = (nota, porParrafo = 1) => [...frases(nota.bajada ?? ''), 
 export function armarNotaReel(nota, opciones = {}) {
   exigirNota(nota, 'nota');
   const saludo = saludoPara(opciones);
-  const fr = frasesDeLaNota(nota);
+  const fr = sinRepetirLoDicho(frasesDeLaNota(nota), [nota.titulo]);
   if (fr.length < 3) throw new Error('nota: no alcanzan las frases para contar el hecho');
   const total = NOTA_REEL.segundos;
   const [d1, d2, d3] = NOTA_REEL.escenas;
@@ -494,6 +508,16 @@ export function armarCarruselFinde(eventos, { fechaTexto = null } = {}) {
 }
 // ------------------------------------------------------------------ 8. farmacia de turno
 
+/** Cómo se dice una dirección en voz alta. */
+export function direccionParaDecir(d = '') {
+  // «Calle 18, 715 entre 19 y 21» → «calle 18 al 715, entre 19 y 21»; «Avenida 39, 793» → «avenida 39 al 793».
+  let t = String(d ?? '').replace(/\s+/g, ' ').trim().replace(/\be\/\s*/gi, 'entre ');
+  t = t.replace(/^(Calle|Avenida|Diagonal|Av\.)\b/, (m) => m.toLowerCase());
+  t = t.replace(/,\s*(\d+)/, ' al $1');
+  t = t.replace(/,?\s+(entre|esquina)\s/i, ', $1 ');
+  return t;
+}
+
 /**
  * La farmacia de turno (14 s): **la escena de hoy** (la cruz verde que late y una ficha por farmacia con su dirección, sin «N°», y su teléfono; la franja de abajo con
  * el hasta cuándo). `farmacias`: `[{ nombre, direccion, telefono }]` (como en `portada.json`, `farmacias.proximos[].detalle`); hasta 3. `fecha`: AAAA-MM-DD.
@@ -506,9 +530,11 @@ export function armarFarmacia(farmacias, { fecha = null, hasta = 'De turno hasta
   if (!lista.length) throw new Error('farmacia: falta la farmacia de turno');
   if (!esFechaIso(fecha)) throw new Error('farmacia: falta la fecha (AAAA-MM-DD)');
   const saludo = saludoPara(opciones);
-  const nombres = lista.map((f) => f.nombre).join(' y ');
-  const dir = lista.map((f) => `${f.nombre}, ${f.direccion}.`).join(' ');
-  const voz = unir(saludo, `Farmacia de turno hoy: ${nombres}.`, dir, 'Guardá el dato.');
+  // 20/11/2026 (Hernán: el audio decía dos veces «Galindo»): cada nombre se dice UNA sola vez, seguido de su dirección.
+  const dichas = lista.map((f) => `${f.nombre}, en ${direccionParaDecir(f.direccion)}`);
+  const cuerpo = dichas.length === 1 ? `${dichas[0]}.` : `${dichas.slice(0, -1).join('; ')}; y ${dichas.at(-1)}.`;
+  const encabezado = lista.length === 1 ? 'Farmacia de turno hoy:' : 'Farmacias de turno hoy:';
+  const voz = unir(saludo, `${encabezado} ${cuerpo}`, 'Guardá el dato.');
   // 14 s; con tres fichas la voz es más larga y la pieza sube lo que haga falta (hasta el máximo): la ficha de 3 tiene que entrar completa, dicha sin apuro.
   const segundos = Math.min(FARMACIA.maximo, Math.max(FARMACIA.segundos, Math.ceil(contarPalabras(voz) / PALABRAS_POR_SEGUNDO + SEGUNDOS_DE_ADORNO)));
   return video('farmacia', [
@@ -541,7 +567,6 @@ export const CIERRE_DE_PARTICIPA = 'Escribinos por WhatsApp o por mail. Radar Ba
 /**
  * Participá (de 13 a 17 s): con el kit 3.0, la plantilla de su variante (`kit3/plantillas/participa.js`); sin él, **la escena de siempre** (la pregunta grande, la franja verde de WhatsApp con el número que se tipea,
  * el sobre del mail y los dos pies). La voz es la aprobada por Hernán, entera (sin recortes) y con el cierre común; las viejas (reclamo, encuesta) dicen el número dígito por dígito.
- * `opciones.diseno` ('a' | 'b'): sólo para «Sumá tu marca», que tiene dos diseños hasta que se elija uno (`DISENO_DE_MARCA`).
  */
 export function armarParticipa(variante = 'noticia', opciones = {}) {
   const v = VARIANTES_DE_PARTICIPA[variante];
@@ -554,10 +579,9 @@ export function armarParticipa(variante = 'noticia', opciones = {}) {
     const cap = presupuestoDeVoz(PARTICIPA.segundos) - contarPalabras(saludo) - contarPalabras(como);
     voz = unir(saludo, partesQueEntran(frases(v.voz.join(' ')), cap), como);
   }
-  const diseno = variante === 'marca' ? (opciones.diseno ?? DISENO_DE_MARCA) : null;
   return video(`participa-${variante}`, [
     escena('participa', PARTICIPA.segundos, { p: { rotulo: v.rotulo, pregunta: v.pregunta, pie1: v.pie1, pie2: v.pie2 }, seccion: v.seccion, numero: WHATSAPP }, voz),
-  ], { voz: opciones.voz ?? 'locutor', saludo, extra: { variante, ...(diseno ? { diseno } : {}) } });
+  ], { voz: opciones.voz ?? 'locutor', saludo, extra: { variante } });
 }
 
 // ------------------------------------------------------------------ 15 a 18. las piezas de servicio que 3.0 suma el 3/11 (agenda, útiles, feriado, aviso de clima)

@@ -107,3 +107,29 @@ test('textoDeCredito: no repite «Foto:»', () => {
   assert.equal(textoDeCredito('Foto: La Voz'), 'Foto: La Voz');
   assert.equal(textoDeCredito(''), '');
 });
+
+test('farmacias (20/11): cada nombre se dice UNA sola vez y cada ficha entra cuando la voz dice ESE nombre', () => {
+  const f = [{ nombre: 'GALINDO', direccion: 'Calle 18 N° 715 entre 19 y 21', telefono: '42-1100' }, { nombre: 'NORTE', direccion: 'Av. 39 N° 793', telefono: '' }, { nombre: 'Del Sol', direccion: 'Av. Chaves esquina 15', telefono: '' }];
+  for (const cuantas of [1, 2, 3]) {
+    const pieza = armarFarmacia(f.slice(0, cuantas), { fecha: '2026-11-19', hora: 18 });
+    const palabras = pieza.guion.split(/\s+/).map((w) => w.replace(/[.,;:]/g, '').toLowerCase());
+    const k = desdePieza(pieza, { palabras: voz(pieza.guion) });
+    assert.equal(k.estimado, false);
+    assert.equal(k.datos.modo, cuantas);
+    const inicios = f.slice(0, cuantas).map((x) => palabras.indexOf(x.nombre.split(' ')[0].toLowerCase()));
+    f.slice(0, cuantas).forEach((x, i) => {
+      const primera = x.nombre.split(' ')[0].toLowerCase();
+      assert.equal(palabras.filter((w) => w === primera).length, 1, `${x.nombre} se dice una sola vez (${cuantas} farmacias)`);
+      const esperado = Number((0.4 + 0.35 * inicios[i] - 0.12).toFixed(2));
+      if (cuantas === 1 || i > 0) assert.ok(Math.abs(k.datos.marcas[i] - esperado) < 0.01, `la ficha ${i + 1} entra con su nombre: ${k.datos.marcas[i]} y no ${esperado} (${cuantas} farmacias)`);
+      else assert.ok(k.datos.marcas[0] >= 1.2 && k.datos.marcas[0] >= esperado - 0.01, 'la primera deja leer «De turno hoy»');
+    });
+    if (cuantas === 1) {
+      // la dirección entra con su primera palabra («calle»), después de «en»; «Guardá el dato» al final
+      const iDir = palabras.indexOf('calle');
+      assert.ok(Math.abs(k.datos.marcas[1] - Number((0.4 + 0.35 * iDir - 0.12).toFixed(2))) < 0.01);
+      assert.ok(Math.abs(k.datos.marcas[2] - Number((0.4 + 0.35 * palabras.indexOf('guardá') - 0.12).toFixed(2))) < 0.01);
+    }
+    assert.ok(k.datos.marcas.every((m, i, a) => i === 0 || m > a[i - 1]), 'las fichas entran en orden');
+  }
+});

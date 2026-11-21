@@ -7,11 +7,11 @@ import { aplicaKit3, desdePieza } from './desde-pieza.mjs';
 import { armarParticipa } from '../piezas/armadores.mjs';
 import { ALCANCE_PARTICIPA } from '../piezas/variables.mjs';
 import { PIEZAS_DEL_DIA } from '../piezas-del-dia.mjs';
-import { FOTOS_PARTICIPA, PIEZAS_DEL_KIT } from './variables.mjs';
+import { FOTOS_DE_PARTICIPA, PIEZAS_DEL_KIT } from './variables.mjs';
 
 const AQUI = import.meta.dirname;
-const PIEZAS = [['noticia', null], ['nota', null], ['evento', null], ['marca', 'a'], ['marca', 'b']];
-const armar = (v, d) => armarParticipa(v, { hora: 17, saludo: null, ...(d ? { diseno: d } : {}) });
+const PIEZAS = ['noticia', 'nota', 'evento', 'marca'];
+const armar = (v) => armarParticipa(v, { hora: 17, saludo: null });
 
 test('el kit dibuja las cuatro convocatorias (el reclamo y la encuesta del viejo, no)', () => {
   for (const id of ['participa-noticia', 'participa-nota', 'participa-evento', 'participa-marca']) assert.ok(PIEZAS_DEL_KIT.includes(id), id);
@@ -21,8 +21,8 @@ test('el kit dibuja las cuatro convocatorias (el reclamo y la encuesta del viejo
 });
 
 test('cada variante: marcas en orden creciente y antes del contacto, contacto al final, sin fotos descargadas, subtítulos desde después de la pregunta', () => {
-  for (const [v, d] of PIEZAS) {
-    const pieza = armar(v, d);
+  for (const v of PIEZAS) {
+    const pieza = armar(v);
     const r = desdePieza(pieza);
     assert.equal(r.plantilla, 'participa');
     assert.deepEqual(r.fotos, []);
@@ -39,30 +39,40 @@ test('cada variante: marcas en orden creciente y antes del contacto, contacto al
   }
 });
 
-test('«¿Viste algo?»: cuatro fotos fijas del kit (archivos que existen), con crédito para el posteo y la respuesta antes del contacto', () => {
-  assert.equal(FOTOS_PARTICIPA.length, 4);
-  for (const f of FOTOS_PARTICIPA) {
-    assert.ok(fs.existsSync(path.join(AQUI, 'fotos-participa', `${f.id}.jpg`)), f.id);
-    assert.ok(f.credito, `${f.id} sin crédito`);
+test('la serie: cada convocatoria tiene sus fotos reales (archivos que existen, con crédito para el posteo, sin repetir entre convocatorias), llegan al chat en orden y la respuesta va antes del contacto', () => {
+  const vistas = new Set();
+  for (const [clave, v] of [['viste', 'noticia'], ['nota', 'nota'], ['evento', 'evento'], ['marca', 'marca']]) {
+    const todas = FOTOS_DE_PARTICIPA[clave];
+    assert.equal(todas.length, 4, clave);
+    for (const f of todas) {
+      assert.ok(fs.existsSync(path.join(AQUI, 'fotos-participa', `${f.id}.jpg`)), f.id);
+      assert.ok(f.credito, `${f.id} sin crédito`);
+      assert.ok(!vistas.has(f.id), `${f.id} repetida`); vistas.add(f.id);
+    }
+    const r = desdePieza(armar(v));
+    const n = r.datos.fotos.length;
+    assert.ok(n >= 2 && n <= 4, `${v}: entre 2 y 4 fotos`);
+    assert.deepEqual(r.datos.fotos.map((f) => f.id), todas.slice(0, n).map((f) => f.id));
+    assert.deepEqual([...r.creditosFijos].sort(), [...new Set(todas.slice(0, n).map((f) => f.credito))].sort());
+    assert.ok(r.datos.tFotos.every((t, i) => i === 0 || t > r.datos.tFotos[i - 1]), `${v}: las fotos llegan en orden`);
+    assert.ok(r.datos.tFotos.at(-1) < r.datos.tRespuesta && r.datos.tRespuesta < r.datos.c.escribinos, `${v}: foto, respuesta y contacto en orden`);
+    assert.ok(r.datos.tB < r.datos.tFotos[0], `${v}: el título se achica antes de la primera foto`);
   }
-  const r = desdePieza(armar('noticia'));
-  assert.deepEqual(r.datos.fotos.map((f) => f.id), FOTOS_PARTICIPA.map((f) => f.id));
-  assert.deepEqual(r.creditosFijos.sort(), ['Diario La Vanguardia', 'Municipalidad de Balcarce', 'Radio Gabal (FM 104.1)']);
-  assert.ok(r.datos.tFotos.every((t, i) => i === 0 || t > r.datos.tFotos[i - 1]));
-  assert.ok(r.datos.tFotos.at(-1) < r.datos.tRespuesta && r.datos.tRespuesta < r.datos.c.escribinos);
-  assert.ok(!r.datos.resto.some((w) => /^[A-Z]/.test(w.w) && /algo/i.test(w.w)));
+  assert.deepEqual(FOTOS_DE_PARTICIPA.viste.map((f) => f.id), ['avenida', 'plaza', 'navidad', 'obra']);
 });
 
-test('«Sumá tu marca»: los números salen de ALCANCE_PARTICIPA (tabla estadisticas), el aviso es de ejemplo («Tu comercio acá») y el cierre en pantalla es el pedido', () => {
-  for (const d of ['a', 'b']) {
-    const r = desdePieza(armar('marca', d));
-    assert.equal(r.datos.variante, d === 'a' ? 'marcaA' : 'marcaB');
-    assert.deepEqual([r.datos.alcance.paginasVistas, r.datos.alcance.fbAlcance, r.datos.alcance.igAlcance], [ALCANCE_PARTICIPA.paginasVistas, ALCANCE_PARTICIPA.fbAlcance, ALCANCE_PARTICIPA.igAlcance]);
-    assert.deepEqual(r.datos.cierre, ['Tu comercio,', 'en el medio de', 'Balcarce']);
-  }
-  assert.ok(ALCANCE_PARTICIPA.paginasVistas > 0 && ALCANCE_PARTICIPA.dias === 14);
+test('«Sumá tu marca»: sólo los números de redes (Facebook e Instagram, de ALCANCE_PARTICIPA), el aviso de ejemplo «Tu comercio acá» va sobre la última foto y el cierre en pantalla es el pedido', () => {
+  const r = desdePieza(armar('marca'));
+  assert.equal(r.datos.variante, 'marca');
+  assert.deepEqual([r.datos.alcance.fbAlcance, r.datos.alcance.igAlcance], [ALCANCE_PARTICIPA.fbAlcance, ALCANCE_PARTICIPA.igAlcance]);
+  assert.equal(r.datos.alcance.paginasVistas, undefined, 'nada de páginas vistas del sitio');
+  assert.deepEqual(r.datos.cierre, ['Tu comercio,', 'en el medio de', 'Balcarce']);
+  assert.deepEqual(r.datos.fotos.map((f) => !!f.aviso), r.datos.fotos.map((_, i) => i === r.datos.fotos.length - 1));
+  assert.ok(ALCANCE_PARTICIPA.fbAlcance > 0 && ALCANCE_PARTICIPA.igAlcance > 0 && ALCANCE_PARTICIPA.dias === 14);
+  for (const v of ['noticia', 'nota', 'evento']) assert.ok(!desdePieza(armar(v)).datos.alcance, `${v}: sin números`);
   const fuente = fs.readFileSync(path.join(AQUI, 'plantillas', 'participa.js'), 'utf8');
   assert.match(fuente, /Tu comercio acá/);
+  assert.doesNotMatch(fuente, /páginas vistas|QUÉ|CUÁNDO|DÓNDE|Feria de plantas|azul/i, 'ni páginas vistas, ni tarjetas de un evento inventado, ni azul');
 });
 
 test('con la voz real (palabras alineadas) las marcas siguen a la voz', () => {
@@ -70,8 +80,8 @@ test('con la voz real (palabras alineadas) las marcas siguen a la voz', () => {
   const palabras = pieza.guion.split(/\s+/).map((w, i) => ({ texto: w.replace(/[.,?¿]/g, ''), desde: 1 + i * 0.5, hasta: 1.4 + i * 0.5, ...(/[.?]$/.test(w) ? { finFrase: true } : {}) }));
   const r = desdePieza(pieza, { palabras });
   assert.equal(r.estimado, false);
-  assert.ok(r.datos.m.que > r.datos.m.comercio && r.datos.m.agenda < r.datos.c.escribinos);
-  assert.ok(Math.abs(r.datos.m.organizas - 0.88) < 0.01, 'la primera palabra de la voz (a 1 s) menos 0,12');
+  assert.ok(r.datos.m.b > r.datos.m.a && r.datos.m.rep < r.datos.c.escribinos);
+  assert.ok(Math.abs(r.datos.m.a - 0.88) < 0.01, 'la primera palabra de la voz (a 1 s) menos 0,12');
 });
 
 test('la tabla de piezas: tres convocatorias aprobadas y la de marca, a las 17:00 de lunes a viernes, voz baja, todo en pausa hasta que Hernán lo prenda', () => {
@@ -85,7 +95,7 @@ test('la tabla de piezas: tres convocatorias aprobadas y la de marca, a las 17:0
 
 // ------------------------------------------------------------------ la música de fondo (preparada, apagada)
 
-test('música: apagada por defecto; con MUSICA_3_0 sólo suena en las convocatorias y si el archivo existe; los cuatro temas están normalizados y con licencia anotada', async () => {
+test('música: apagada por defecto; con MUSICA_3_0 sólo suena en las convocatorias y si el archivo existe; el tema está normalizado y con licencia anotada', async () => {
   const { rutaDeLaMusica } = await import('./kit3.mjs');
   const { MUSICA_DEL_KIT } = await import('./variables.mjs');
   assert.equal(rutaDeLaMusica('participa-noticia', {}), null);

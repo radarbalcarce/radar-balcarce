@@ -1,7 +1,7 @@
 // Ensayo MUDO de las convocatorias «Participá» con el kit 3.0 (sin voz, sin IA, sin red, sin publicar): arma cada pieza con su armador, la dibuja con subtítulos estimados (2,5 palabras por segundo)
 // y deja por pieza <nombre>.mp4, <nombre>-tapa.png, <nombre>-tapa-grilla.png y <nombre>-hoja.png (4 cuadros con la zona que tapa Instagram marcada en rojo: la franja de abajo desde la fila 1540, la columna de íconos de la
 // derecha). Uso:
-//   node v3/redes/kit3/ensayo-participa.mjs [--salida D:\ruta] [--solo-tapa] [noticia nota evento marca-a marca-b]
+//   node v3/redes/kit3/ensayo-participa.mjs [--salida D:\ruta] [--solo-tapa] [noticia nota evento marca]
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -14,22 +14,16 @@ const PIEZAS = {
   noticia: () => armarParticipa('noticia', { hora: 17, saludo: null }),
   nota: () => armarParticipa('nota', { hora: 17, saludo: null }),
   evento: () => armarParticipa('evento', { hora: 17, saludo: null }),
-  'marca-a': () => armarParticipa('marca', { hora: 17, saludo: null, diseno: 'a' }),
-  'marca-b': () => armarParticipa('marca', { hora: 17, saludo: null, diseno: 'b' }),
+  marca: () => armarParticipa('marca', { hora: 17, saludo: null }),
 };
 
 async function ffmpegDelRepo() { try { const { default: f } = await import('ffmpeg-static'); if (f) return f; } catch { /* sigue */ } return 'ffmpeg'; }
 
 /** Los 4 instantes que muestra la hoja de cada pieza (segundos del video): los momentos clave de cada diseño, sacados de las marcas de la voz (la tapa no entra: se mira aparte). */
 export function instantesDeLaHoja(spec) {
-  const { m, c } = spec.datos;
+  const d = spec.datos;
   const fin = spec.dur + T0 - 0.35;
-  const v = {
-    viste: [m.mandanos + 2.0, spec.datos.tRespuesta + 1.0, c.whatsapp + 1.4, fin],
-    marcaA: [m.noticias + 0.9, m.contamos + 1.9, c.espacio + 0.6, fin], marcaB: [m.noticias + 0.9, m.contamos + 1.9, c.espacio + 0.6, fin],
-    nota: [m.barrio + 0.9, m.historia + 0.9, c.mail + 1.4, fin],
-    evento: [m.donde + 1.0, m.agenda + 1.1, c.mail + 1.6, fin],
-  }[spec.datos.variante];
+  const v = [d.tB - 0.15, d.tFotos[d.tFotos.length - 1] + 0.8, d.tRespuesta + 1.4, d.c.espacio + 0.6].map((s) => Math.min(s, fin));
   return v.map((s) => Number((s + T0).toFixed(2)));
 }
 
@@ -48,6 +42,16 @@ export async function hojaDeCuadros(mp4, destino, duracion, instantes = null) {
   if (r.status !== 0) throw new Error(String(r.stderr));
 }
 
+/** Las tapas de la serie una al lado de la otra, en la grilla del feed (como se ven en el perfil): tapas-juntas.png. */
+export async function tapasJuntas(salida, nombres) {
+  const grillas = nombres.map((n) => path.join(salida, `${n}-tapa-grilla.png`)).filter((p) => fs.existsSync(p));
+  if (grillas.length < 2) return;
+  const ffmpeg = await ffmpegDelRepo();
+  const f = grillas.map((_, k) => `[${k}:v]scale=-2:900[v${k}]`).join(';') + ';' + grillas.map((_, k) => `[v${k}]`).join('') + `hstack=inputs=${grillas.length}`;
+  const r = spawnSync(ffmpeg, ['-y', '-loglevel', 'error', ...grillas.flatMap((g) => ['-i', g]), '-filter_complex', f, path.join(salida, 'tapas-juntas.png')]);
+  if (r.status !== 0) throw new Error(String(r.stderr));
+}
+
 async function main() {
   const args = process.argv.slice(2);
   const i = args.indexOf('--salida');
@@ -55,7 +59,7 @@ async function main() {
   const soloTapa = args.includes('--solo-tapa');
   const conMusica = args.includes('--musica'); // prende la música del kit sólo para este ensayo (sin voz: suena más fuerte para poder oírla)
   const pedidas = args.filter((a, k) => !a.startsWith('--') && args[k - 1] !== '--salida');
-  const lista = pedidas.length ? pedidas : ['noticia', 'nota', 'evento'];
+  const lista = pedidas.length ? pedidas : ['noticia', 'nota', 'evento', 'marca'];
   fs.mkdirSync(salida, { recursive: true });
   for (const nombre of lista) {
     if (!PIEZAS[nombre]) { console.log(`no conozco «${nombre}» (hay: ${Object.keys(PIEZAS).join(', ')})`); continue; }
@@ -66,6 +70,7 @@ async function main() {
     fs.writeFileSync(path.join(salida, `${nombre}.json`), JSON.stringify({ guion: pieza.guion, duracion: r.duracion, avisos: r.avisos, creditos: r.creditos }, null, 2));
     console.log(`${nombre}: listo · ${r.duracion} s`);
   }
+  await tapasJuntas(salida, lista.filter((n) => PIEZAS[n]));
 }
 const esElPrograma = process.argv[1] && import.meta.url === (await import('node:url')).pathToFileURL(path.resolve(process.argv[1])).href;
 if (esElPrograma) main().catch((e) => { console.error(e.stack || e); process.exit(1); });

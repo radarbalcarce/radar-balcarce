@@ -1,8 +1,9 @@
-/* Plantilla «Participá» del kit 3.0 (20/11/2026, diseños aprobados por Hernán): una convocatoria con movimiento por variante, todas con el mismo cierre de contacto.
-   SPEC.datos.variante: 'viste' (¿Viste algo?, rojo Balcarce y fotos que llegan a un chat), 'nota' (Tu nota, papel con morado de Cultura y renglón de cuaderno), 'evento' (Tu evento, tinta con ámbar y tarjetas
-   QUÉ / CUÁNDO / DÓNDE que saltan a la agenda), 'marcaA' (Sumá tu marca, sobria: papel y tinta) y 'marcaB' (Sumá tu marca, dinámica: celular y contadores). Las dos de marca están a la espera de que Hernán elija una.
-   Zona segura (§ 27): todo entre las filas 270 y 1250 y dentro de x = 60..940; los subtítulos van en 1264-1480 (sobre tinta o color: nunca sobre papel); nada debajo de la 1670. Lee SPEC.datos (desde-pieza.mjs, `adaptarParticipa`). */
-const TINTA = '#14161A', PAPEL = '#FAF8F3', ROJO = '#C7381C', MORADO = '#9D2C8F', AMBAR = '#E8A33C', LINEA = '#E4DFD2';
+/* Plantilla «Participá» del kit 3.0 (rehecha el 20/11/2026 con la devolución de Hernán): una SERIE de cuatro convocatorias que se reconoce, todas con el dibujo de «¿Viste algo?»: fondo rojo Balcarce, la pregunta grande
+   (primera parte en blanco, segunda en una caja de papel), fotos REALES de Balcarce que llegan a un chat, la respuesta de Radar y el contacto. Cambian las palabras y las fotos, no el estilo.
+   SPEC.datos.variante: 'viste' (¿Viste algo?), 'nota' (Tu nota), 'evento' (Tu evento, tu feria, tu comercio) y 'marca' (Sumá tu marca: la respuesta del chat suma el alcance real en Facebook e Instagram y la última foto lleva
+   el aviso de ejemplo «Tu comercio acá»). Nada se inventa: ni eventos ni comercios con nombre ni números.
+   Zona segura (§ 27): todo entre las filas 270 y 1250 y dentro de x = 60..940; los subtítulos van en 1264-1480 (sobre tinta o color: nunca sobre papel); nada debajo de la 1670. Lee SPEC.datos (desde-pieza.mjs, adaptarParticipa). */
+const TINTA = '#14161A', PAPEL = '#FAF8F3', ROJO = '#C7381C';
 const SERIF = 'font-family:SS4;font-weight:900;';
 const BASE = 'position:absolute;white-space:nowrap;';
 
@@ -89,70 +90,112 @@ function contacto(K, D, fondo) {
   return tC;
 }
 
-/* lo que se va cuando empieza el contacto: un grupo que sube y se desvanece */
-const retirar = (K, els, tC) => K.TL.to(els, { autoAlpha: 0, y: '-=50', duration: 0.35, ease: 'power2.in' }, tC);
+/* ================================================================ la serie: una convocatoria que se reconoce (rojo Balcarce, pregunta grande, fotos reales que llegan a un chat, respuesta, contacto) */
+const CHAT = { top: 600, alto: 650 };
+const altoDeLaCaja = (D) => Math.round(D.fsB * 1.02) + 46; // alto de la caja de la segunda parte del título (con su aire de abajo)
 
-/* ================================================================ 1. ¿Viste algo? */
-function vistePregunta(K, parent, D, y0) {
-  const vi = K.div(parent, '', BASE + 'left:52px;top:' + y0 + 'px;z-index:2;' + SERIF + 'font-size:290px;line-height:1;letter-spacing:-.025em;color:#fff;transform-origin:0 0;text-shadow:0 6px 40px rgba(0,0,0,.28)', '¿Viste');
+/* el título: la primera parte («¿Viste») en blanco y la segunda («algo?») en una caja de papel con letra roja; las dos cambian de una convocatoria a otra */
+function seriePregunta(K, parent, D, y0) {
+  const vi = K.div(parent, '', BASE + 'left:52px;top:' + y0 + 'px;z-index:2;' + SERIF + 'font-size:290px;line-height:1;letter-spacing:-.025em;color:#fff;transform-origin:0 0;text-shadow:0 6px 40px rgba(0,0,0,.28)', D.a);
   const caja = K.div(parent, '', 'position:absolute;left:44px;top:' + (y0 + 290) + 'px;padding:0 34px 46px;border-radius:30px;background:' + PAPEL + ';transform-origin:0 0', '');
-  K.div(caja, '', SERIF + 'font-size:330px;line-height:1.02;letter-spacing:-.03em;color:' + ROJO + ';white-space:nowrap', 'algo?');
+  K.div(caja, '', SERIF + 'font-size:' + D.fsB + 'px;line-height:1.02;letter-spacing:-.03em;color:' + D.color + ';white-space:nowrap', D.b);
   return { vi, caja };
 }
-function tapaViste(K, S) {
+function fondoDeLaSerie(K, parent, D) {
+  K.div(parent, '', 'position:absolute;inset:0;background:' + D.fondo);
+  K.div(parent, '', 'position:absolute;inset:0;background:radial-gradient(90% 55% at 15% 22%,' + D.brillo + ' 0%,rgba(255,255,255,0) 60%)');
+}
+/* la burbuja de una foto en el chat (con la hora y las tildes); `aviso`: el cartelito chico «Publicidad · Tu comercio acá» (de ejemplo) sobre la foto, como se vería en una nota del sitio */
+function fotoDeChat(K, parent, f, o) {
+  const hora = '<span style="position:absolute;right:12px;bottom:10px;padding:2px 12px;border-radius:14px;background:rgba(0,0,0,.45);color:#fff;font-size:24px;font-weight:600">' + f.hora + ' <b class="tk" style="color:#B8C4CA">✓✓</b></span>';
+  const aviso = f.aviso
+    ? '<span style="position:absolute;left:12px;bottom:10px;padding:5px 14px 6px;border-radius:9px;background:' + PAPEL + ';line-height:1.05"><span style="display:block;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:' + o.color + '">Publicidad</span><span style="display:block;' + SERIF + 'font-size:24px;color:' + TINTA + '">Tu comercio acá</span></span>'
+    : '';
+  const b = K.div(parent, '', o.caja, '');
+  K.div(b, '', 'position:relative;width:' + o.w + 'px;height:' + o.h + 'px;border-radius:' + o.r + 'px;background:url(fotos/' + f.id + '.jpg) center/cover', hora + aviso);
+  return b;
+}
+
+function tapaSerie(K, S) {
   const T = K.TAPA, D = S.datos;
-  K.div(T, '', 'position:absolute;inset:0;background:' + D.fondo);
-  K.div(T, '', 'position:absolute;inset:0;background:radial-gradient(90% 55% at 15% 22%,rgba(255,140,90,.28) 0%,rgba(255,140,90,0) 60%)');
+  fondoDeLaSerie(K, T, D);
   anillos(K, T, K.TL, { n: 3, cx: 640, cy: 1020, estatico: true });
   marco(K, T, D);
-  vistePregunta(K, T, D, 300);
-  K.div(T, '', BASE + 'left:60px;top:1000px;font-weight:700;font-size:48px;line-height:1.1;color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.3)', 'Mandanos la foto o el dato.');
-  const b = K.div(T, '', 'position:absolute;left:444px;top:1092px;width:496px;padding:8px;border-radius:26px 26px 6px 26px;background:#005C4B;box-shadow:0 24px 60px rgba(0,0,0,.4);transform:rotate(3deg);transform-origin:50% 50%', '');
-  K.div(b, '', 'width:480px;height:360px;border-radius:20px;background:url(fotos/' + D.fotos[0].id + '.jpg) center/cover;position:relative', '<span style="position:absolute;right:12px;bottom:10px;padding:2px 12px;border-radius:14px;background:rgba(0,0,0,.45);color:#fff;font-size:24px;font-weight:600">' + D.fotos[0].hora + ' <b style="color:#53BDEB">✓✓</b></span>');
+  seriePregunta(K, T, D, 300);
+  K.div(T, '', BASE + 'left:60px;top:' + (590 + altoDeLaCaja(D) + 27) + 'px;font-weight:700;font-size:48px;line-height:1.1;color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.3)', D.tapaTexto);
+  const f = D.fotos[0];
+  const z = D.fsB < 330 ? 1.3 : 1; /* con el título más bajo, la foto de la tapa es más grande: no queda vacío */
+  fotoDeChat(K, T, { ...f, aviso: false }, { caja: 'position:absolute;left:' + (940 - (480 * z + 16)) + 'px;top:' + Math.round(1092 - 330 * (z - 1)) + 'px;width:' + (480 * z + 16) + 'px;padding:8px;border-radius:26px 26px 6px 26px;background:#005C4B;box-shadow:0 24px 60px rgba(0,0,0,.4);transform:rotate(3deg);transform-origin:50% 50%', w: 480 * z, h: 360 * z, r: 20 });
 }
-function escenasViste(K, S) {
+
+/* «Sumá tu marca»: la respuesta lleva el alcance real en redes (los números suben); es una burbuja ancha del chat */
+function respuestaConAlcance(K, parent, D, SLOT, PH, GAP) {
+  const r = K.div(parent, '', 'position:absolute;left:26px;top:' + (SLOT + PH + GAP) + 'px;width:820px;padding:16px 26px 18px;border-radius:24px 24px 24px 6px;background:#202C33;color:#E9EDEF', '');
+  K.div(r, '', 'font-weight:500;font-size:31px;line-height:40px', D.respuesta);
+  const fila = K.div(r, '', 'display:flex;gap:30px;margin-top:8px', '');
+  const nums = [[D.alcance.fbAlcance, 'de alcance en Facebook'], [D.alcance.igAlcance, 'de alcance en Instagram']].map(([n, que]) => {
+    const col = K.div(fila, '', 'width:370px', '');
+    const num = K.div(col, '', 'font-weight:700;font-size:78px;line-height:1.05;letter-spacing:-.04em;color:#fff;font-variant-numeric:tabular-nums', miles(n));
+    K.div(col, '', 'font-weight:600;font-size:26px;line-height:1.2;color:#9FB1BA', que);
+    return { num, n };
+  });
+  K.div(r, '', 'margin-top:8px;font-weight:500;font-size:21px;line-height:1.2;color:#8FA3AD', D.alcance.texto);
+  return { r, nums };
+}
+
+function escenasSerie(K, S) {
   const D = S.datos, TL = K.TL, CT = K.CT, M = D.m, c = D.c;
-  K.div(CT, '', 'position:absolute;inset:0;background:' + D.fondo);
-  K.div(CT, '', 'position:absolute;inset:0;background:radial-gradient(90% 55% at 15% 22%,rgba(255,140,90,.28) 0%,rgba(255,140,90,0) 60%)');
+  fondoDeLaSerie(K, CT, D);
   const anill = K.div(CT, '', 'position:absolute;inset:0;overflow:hidden');
   anillos(K, anill, TL, { n: 3, cx: 640, cy: 1020, t0: 0, rep: 3 });
   TL.to(anill, { opacity: 0, duration: 0.5 }, c.escribinos - 0.15);
   /* A. la pregunta, palabra por palabra con la voz */
   const qg = K.div(CT, '', 'position:absolute;inset:0');
-  const q = vistePregunta(K, qg, D, 340);
-  K.aparece(q.vi, M.viste, { y: 70, d: 0.5, ease: 'back.out(1.6)' });
-  mostrar(K, q.caja, M.algo);
-  TL.fromTo(q.caja, { scale: 0.7, rotation: -4, y: 40 }, { scale: 1, rotation: -1.5, y: 0, duration: 0.55, ease: 'back.out(2)' }, M.algo);
-  const fila = K.div(qg, '', 'position:absolute;left:60px;top:1050px;display:flex;gap:18px;white-space:nowrap');
+  const q = seriePregunta(K, qg, D, 340);
+  const hCaja = altoDeLaCaja(D), yResto = 630 + hCaja + 36;
+  K.aparece(q.vi, M.a, { y: 70, d: 0.5, ease: 'back.out(1.6)' });
+  mostrar(K, q.caja, M.b);
+  TL.fromTo(q.caja, { scale: 0.7, rotation: -4, y: 40 }, { scale: 1, rotation: -1.5, y: 0, duration: 0.55, ease: 'back.out(2)' }, M.b);
+  const bloque = K.div(qg, '', 'position:absolute;left:60px;top:' + yResto + 'px;width:880px');
+  const fila = K.div(bloque, '', 'display:flex;flex-wrap:wrap;gap:0 18px');
   const palabras = D.resto.map((w) => {
-    const s = K.div(fila, '', 'font-weight:700;font-size:58px;line-height:1.1;color:#fff;white-space:nowrap;text-shadow:0 3px 18px rgba(0,0,0,.25)', w.w);
+    const s = K.div(fila, '', 'font-weight:700;font-size:58px;line-height:1.14;color:#fff;white-space:nowrap;text-shadow:0 3px 18px rgba(0,0,0,.25)', w.w);
     K.aparece(s, w.a, { y: 36, d: 0.35 });
     return s;
   });
-  const ayuda = K.div(qg, '', 'position:absolute;left:60px;top:1140px;width:700px;font-weight:600;font-size:32px;color:rgba(255,255,255,.82)', 'Una calle, una obra, algo que pasó.');
-  K.aparece(ayuda, M.noticia + 0.5, { y: 14, d: 0.4 });
+  const apagar = palabras.slice();
+  if (D.ayuda) {
+    const ayuda = K.div(bloque, '', 'margin-top:12px;font-weight:600;font-size:32px;color:rgba(255,255,255,.82)', D.ayuda);
+    K.aparece(ayuda, D.resto[D.resto.length - 1].a + 0.45, { y: 14, d: 0.4 });
+    apagar.push(ayuda);
+  }
   /* B. la pregunta se achica arriba y las fotos llegan al chat */
-  const tB = M.mandanos - 0.1;
-  TL.to(palabras.concat([ayuda]), { autoAlpha: 0, y: -30, duration: 0.25, ease: 'power2.in' }, tB);
+  const tB = D.tB;
+  TL.to(apagar, { autoAlpha: 0, y: -30, duration: 0.25, ease: 'power2.in' }, tB);
+  const viW = q.vi.offsetWidth, cajaW = q.caja.offsetWidth;
+  const sCaja = Math.min(0.34 * 330 / D.fsB, (900 - (52 + 4 + viW * 0.34 + 16)) / cajaW);
+  const xCaja = 52 + 4 + viW * 0.34 + 16 - 44, yCaja = (392 + 50) - (630 + (hCaja * sCaja) / 2);
   TL.to(q.vi, { scale: 0.34, x: 4, y: 52, duration: 0.6, ease: 'power3.inOut' }, tB);
-  TL.to(q.caja, { scale: 0.34, x: 253, y: -250, rotation: 0, duration: 0.6, ease: 'power3.inOut' }, tB);
-  const WT = 600, WH = 650, HD = 84, VH = WH - HD;
+  TL.to(q.caja, { scale: sCaja, x: xCaja, y: yCaja, rotation: 0, duration: 0.6, ease: 'power3.inOut' }, tB);
+  const WT = CHAT.top, WH = CHAT.alto, HD = 84, VH = WH - HD;
   const win = K.div(CT, '', 'position:absolute;left:60px;top:' + WT + 'px;width:880px;height:' + WH + 'px;border-radius:36px;background:#0B141A;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)');
   mostrar(K, win, tB + 0.2);
   TL.fromTo(win, { y: 120, scale: 0.96 }, { y: 0, scale: 1, duration: 0.55, ease: 'power3.out' }, tB + 0.2);
   const hd = K.div(win, '', 'position:absolute;left:0;top:0;width:880px;height:' + HD + 'px;background:#1F2C34;z-index:5');
-  K.div(hd, '', 'position:absolute;left:26px;top:16px;width:52px;height:52px;border-radius:50%;background:' + ROJO + ';color:#fff;' + SERIF + 'font-size:32px;line-height:52px;text-align:center', 'R');
+  K.div(hd, '', 'position:absolute;left:26px;top:16px;width:52px;height:52px;border-radius:50%;background:' + D.color + ';color:#fff;' + SERIF + 'font-size:32px;line-height:52px;text-align:center', 'R');
   K.div(hd, '', 'position:absolute;left:98px;top:10px;font-weight:700;font-size:30px;color:#fff;line-height:36px', 'Radar Balcarce');
   K.div(hd, '', 'position:absolute;left:98px;top:46px;font-weight:500;font-size:22px;color:#8FA3AD;line-height:28px', 'en línea');
   const vista = K.div(win, '', 'position:absolute;left:0;top:' + HD + 'px;width:880px;height:' + VH + 'px;overflow:hidden');
   const PH = 421, GAP = 14, SLOT = VH - 18 - PH;
-  const burb = D.fotos.map((f) => {
-    const b = K.div(vista, '', 'position:absolute;left:298px;top:' + SLOT + 'px;width:556px;padding:8px;border-radius:24px 24px 6px 24px;background:#005C4B', '');
-    K.div(b, '', 'position:relative;width:540px;height:405px;border-radius:18px;background:url(fotos/' + f.id + '.jpg) center/cover', '<span style="position:absolute;right:12px;bottom:10px;padding:2px 12px;border-radius:14px;background:rgba(0,0,0,.45);color:#fff;font-size:24px;font-weight:600">' + f.hora + ' <b class="tk" style="color:#B8C7CF">✓✓</b></span>');
-    return b;
-  });
-  const reply = K.div(vista, '', 'position:absolute;left:26px;top:' + (SLOT + PH + GAP) + 'px;width:480px;padding:18px 24px 20px;border-radius:24px 24px 24px 6px;background:#202C33;font-weight:500;font-size:31px;line-height:40px;color:#E9EDEF', '¡Gracias! Lo chequeamos antes de publicar. <b style="color:#53BDEB">✓</b>');
-  const REPLY_H = 138;
+  const burb = D.fotos.map((f) => fotoDeChat(K, vista, f, { color: D.color, caja: 'position:absolute;left:298px;top:' + SLOT + 'px;width:556px;padding:8px;border-radius:24px 24px 6px 24px;background:#005C4B', w: 540, h: 405, r: 18 }));
+  let reply, REPLY_H, contadores = [];
+  if (D.alcance) {
+    const ra = respuestaConAlcance(K, vista, D, SLOT, PH, GAP);
+    reply = ra.r; contadores = ra.nums; REPLY_H = reply.offsetHeight + GAP;
+  } else {
+    reply = K.div(vista, '', 'position:absolute;left:26px;top:' + (SLOT + PH + GAP) + 'px;width:480px;padding:18px 24px 20px;border-radius:24px 24px 24px 6px;background:#202C33;font-weight:500;font-size:31px;line-height:40px;color:#E9EDEF', D.respuesta + ' <b style="color:#53BDEB">✓</b>');
+    REPLY_H = 138;
+  }
   D.fotos.forEach((f, i) => {
     const t = D.tFotos[i];
     mostrar(K, burb[i], t);
@@ -165,291 +208,12 @@ function escenasViste(K, S) {
   TL.fromTo(reply, { x: -80, y: 60, scale: 0.92 }, { x: 0, y: 0, scale: 1, duration: 0.45, ease: 'back.out(1.6)' }, tR);
   for (let j = 0; j < n; j++) TL.to(burb[j], { y: -(PH + GAP) * (n - 1 - j) - REPLY_H, duration: 0.45, ease: 'power3.out' }, tR);
   TL.to(reply, { y: -REPLY_H, duration: 0.45, ease: 'power3.out' }, tR);
+  contadores.forEach((x) => subir(K, x.num, x.n, tR + 0.2, 1.1));
   const tC = contacto(K, D);
   TL.to([win], { y: 200, autoAlpha: 0, duration: 0.45, ease: 'power2.in' }, tC);
   TL.to([q.vi, q.caja], { autoAlpha: 0, y: '-=60', duration: 0.35, ease: 'power2.in' }, tC);
 }
 
-/* ================================================================ 2. Tu nota (papel con morado, renglón de cuaderno) */
-/* el papel llega hasta la fila 1250; abajo, tinta (los subtítulos blancos siempre sobre oscuro) */
-function papel(K, parent, hasta, lineas = true) {
-  K.div(parent, '', 'position:absolute;inset:0;background:' + TINTA);
-  const p = K.div(parent, '', 'position:absolute;left:0;top:240px;width:1080px;height:' + (hasta - 240) + 'px;background:' + PAPEL + ';overflow:hidden');
-  if (lineas) {
-    for (let y = 420; y < hasta - 20; y += 76) K.div(p, '', 'position:absolute;left:60px;top:' + (y - 240) + 'px;width:960px;height:2px;background:' + LINEA);
-    K.div(p, '', 'position:absolute;left:44px;top:0;width:2px;height:' + (hasta - 240) + 'px;background:rgba(199,56,28,.18)');
-  }
-  return p;
-}
-const NOTA_SERIF = 'font-size:150px;line-height:1.08;letter-spacing:-.025em;color:' + TINTA;
-function stickers(K, parent, tiempos, estatico) {
-  const defs = [['tu club', MORADO, 60, 770, -2], ['tu escuela', TINTA, 250, 872, 1.5], ['tu barrio', ROJO, 130, 974, -1]];
-  return defs.map((d, i) => {
-    const s = K.div(parent, '', BASE + 'left:' + d[2] + 'px;top:' + d[3] + 'px;padding:12px 32px 16px;border-radius:16px;background:' + d[1] + ';color:#fff;font-weight:700;font-size:58px;line-height:1.1;transform:rotate(' + d[4] + 'deg);box-shadow:0 10px 26px rgba(20,22,26,.22)', d[0]);
-    if (!estatico) { mostrar(K, s, tiempos[i]); K.TL.fromTo(s, { scale: 0.5, y: 40, rotation: d[4] - 6 }, { scale: 1, y: 0, rotation: d[4], duration: 0.55, ease: 'back.out(2.4)' }, tiempos[i]); }
-    return s;
-  });
-}
-function tapaNota(K, S) {
-  const T = K.TAPA, D = S.datos;
-  const p = K.div(T, '', 'position:absolute;inset:0');
-  K.div(p, '', 'position:absolute;inset:0;background:' + TINTA);
-  const hoja = K.div(p, '', 'position:absolute;left:0;top:240px;width:1080px;height:1285px;background:' + PAPEL + ';overflow:hidden');
-  for (let y = 420; y < 1500; y += 76) K.div(hoja, '', 'position:absolute;left:60px;top:' + (y - 240) + 'px;width:960px;height:2px;background:' + LINEA);
-  marco(K, T, D);
-  K.div(T, '', BASE + 'left:60px;top:330px;' + SERIF + NOTA_SERIF, '¿Tenés algo');
-  K.div(T, '', BASE + 'left:60px;top:492px;' + SERIF + NOTA_SERIF, 'para contar?');
-  K.div(T, '', 'position:absolute;left:60px;top:660px;width:640px;height:14px;background:' + MORADO + ';border-radius:2px');
-  stickers(K, T, null, true);
-  K.div(T, '', BASE + 'left:60px;top:1130px;font-weight:700;font-size:56px;line-height:1.2;color:' + TINTA, 'Mandanos tu nota o tu historia.');
-  K.div(T, '', BASE + 'left:60px;top:1210px;font-weight:500;font-size:34px;color:#6B6F6C', 'Por vos');
-}
-function escenasNota(K, S) {
-  const D = S.datos, TL = K.TL, CT = K.CT, M = D.m;
-  const base = papel(K, CT, 1250);
-  const grupo = K.div(CT, '', 'position:absolute;inset:0');
-  const l1 = K.div(grupo, '', BASE + 'left:60px;top:330px;' + SERIF + NOTA_SERIF, '');
-  const l2 = K.div(grupo, '', BASE + 'left:60px;top:492px;' + SERIF + NOTA_SERIF, '');
-  const fin1 = tipear(K, l1, '¿Tenés algo', M.tenes, 0.075, { caret: 'color:' + MORADO });
-  const t2 = Math.max(fin1 + 0.15, M.para);
-  const fin2 = tipear(K, l2, 'para contar?', t2, 0.07, { caret: 'color:' + MORADO });
-  const raya = K.div(grupo, '', 'position:absolute;left:60px;top:660px;width:640px;height:14px;background:' + MORADO + ';border-radius:2px;transform-origin:0 50%');
-  TL.set(raya, { scaleX: 0 }, 0); TL.to(raya, { scaleX: 1, duration: 0.5, ease: 'power3.out' }, Math.max(fin2, M.contar) - 0.1);
-  const st = stickers(K, grupo, [M.club, M.escuela, M.barrio], false);
-  const man = K.div(grupo, '', BASE + 'left:60px;top:1130px;font-weight:700;font-size:56px;line-height:1.2;color:' + TINTA, 'Mandanos tu nota o tu historia.');
-  K.aparece(man, M.mandanos, { y: 30, d: 0.45 });
-  const por = K.div(grupo, '', BASE + 'left:60px;top:1210px;font-weight:500;font-size:34px;color:#6B6F6C', 'Por vos');
-  K.aparece(por, M.historia + 0.25, { y: 10, d: 0.4 });
-  const tC = contacto(K, D);
-  TL.to(base, { autoAlpha: 0, duration: 0.45 }, tC);
-  retirar(K, [grupo], tC);
-}
-
-/* ================================================================ 3. Tu evento, tu feria, tu comercio (tinta con ámbar; QUÉ / CUÁNDO / DÓNDE) */
-const EV_LINEAS = ['¿Organizás', 'un evento,', 'una feria o tenés', 'un comercio?'];
-const EV_SIZE = 100;
-function eventoTitulo(K, parent, tiempos) {
-  return EV_LINEAS.map((t, i) => {
-    const color = i === 3 ? AMBAR : '#fff';
-    const e = K.div(parent, '', BASE + 'left:60px;top:' + (290 + i * 106) + 'px;' + SERIF + 'font-size:' + EV_SIZE + 'px;line-height:1.06;letter-spacing:-.02em;color:' + color, t);
-    if (tiempos) K.aparece(e, tiempos[i], { y: 50, d: 0.45 });
-    return e;
-  });
-}
-const EV_CARTAS = [['QUÉ', 'Feria de plantas'], ['CUÁNDO', 'Sábado, 16 h'], ['DÓNDE', 'Plaza Libertad']];
-function cartaDeEvento(K, parent, i, valor) {
-  const y = 760 + i * 124;
-  const c = K.div(parent, '', 'position:absolute;left:60px;top:' + y + 'px;width:860px;height:108px;border-radius:14px;overflow:hidden;background:' + PAPEL + ';box-shadow:0 12px 34px rgba(0,0,0,.35)', '');
-  K.div(c, '', 'position:absolute;left:0;top:0;width:210px;height:108px;background:' + AMBAR + ';color:' + TINTA + ';font-weight:700;font-size:34px;letter-spacing:.08em;line-height:108px;text-align:center', EV_CARTAS[i][0]);
-  const v = K.div(c, '', BASE + 'left:240px;top:0;font-weight:600;font-size:58px;line-height:108px;color:' + TINTA, valor === null ? '' : EV_CARTAS[i][1]);
-  return { c, v };
-}
-function tapaEvento(K, S) {
-  const T = K.TAPA, D = S.datos;
-  K.div(T, '', 'position:absolute;inset:0;background:radial-gradient(100% 60% at 80% 100%,#1D2A24 0%,#14161A 70%)');
-  marco(K, T, D);
-  eventoTitulo(K, T, null);
-  [0, 1, 2].forEach((i) => cartaDeEvento(K, T, i));
-  K.div(T, '', BASE + 'left:60px;top:1160px;font-weight:700;font-size:44px;color:' + AMBAR, '→ a la agenda de Balcarce');
-}
-function escenasEvento(K, S) {
-  const D = S.datos, TL = K.TL, CT = K.CT, M = D.m;
-  K.div(CT, '', 'position:absolute;inset:0;background:radial-gradient(100% 60% at 80% 100%,#1D2A24 0%,#14161A 70%)');
-  const grupo = K.div(CT, '', 'position:absolute;inset:0');
-  eventoTitulo(K, grupo, [M.organizas, M.un1, M.una, M.un2]);
-  const cartas = [0, 1, 2].map((i) => cartaDeEvento(K, grupo, i, null));
-  const tt = [M.que, M.cuando, M.donde];
-  cartas.forEach((o, i) => {
-    mostrar(K, o.c, tt[i] - 0.2);
-    TL.fromTo(o.c, { x: -70, scale: 0.96 }, { x: 0, scale: 1, duration: 0.45, ease: 'power3.out' }, tt[i] - 0.2);
-    tipear(K, o.v, EV_CARTAS[i][1], tt[i] + 0.05, 0.06, { caret: 'color:' + AMBAR });
-  });
-  const flecha = K.div(grupo, '', BASE + 'left:60px;top:1160px;font-weight:700;font-size:44px;color:' + AMBAR, '→ a la agenda de Balcarce');
-  K.aparece(flecha, M.agenda, { y: 16, d: 0.4 });
-  /* las tarjetas saltan a la agenda: un panel de papel con el evento resaltado */
-  const ag = K.div(CT, '', 'position:absolute;left:60px;top:740px;width:860px;height:430px;border-radius:22px;overflow:hidden;background:' + PAPEL + ';box-shadow:0 30px 80px rgba(0,0,0,.5)', '');
-  K.div(ag, '', 'position:absolute;left:0;top:0;width:860px;height:96px;background:' + MORADO + ';color:#fff;font-weight:700;font-size:36px;letter-spacing:.14em;text-transform:uppercase;line-height:96px;padding-left:34px;white-space:nowrap', 'Agenda de Balcarce');
-  const fila = K.div(ag, '', 'position:absolute;left:24px;top:120px;width:812px;height:120px;border-radius:14px;background:' + AMBAR, '');
-  K.div(fila, '', 'position:absolute;left:0;top:0;width:150px;height:120px;color:' + TINTA + ';font-weight:700;font-size:30px;text-align:center;line-height:1.1;padding-top:24px', 'SÁB<br><span style="font-size:48px">16:00</span>');
-  K.div(fila, '', BASE + 'left:176px;top:16px;font-weight:700;font-size:48px;color:' + TINTA, 'Feria de plantas');
-  K.div(fila, '', BASE + 'left:176px;top:72px;font-weight:600;font-size:34px;color:rgba(20,22,26,.75)', 'Plaza Libertad');
-  [0, 1].forEach((i) => {
-    K.div(ag, '', 'position:absolute;left:24px;top:' + (262 + i * 76) + 'px;width:812px;height:60px;border-radius:12px;background:#EFEBDF', '');
-    K.div(ag, '', 'position:absolute;left:48px;top:' + (284 + i * 76) + 'px;width:' + (360 - i * 90) + 'px;height:16px;border-radius:8px;background:#D5CFBE', '');
-  });
-  mostrar(K, ag, M.agenda);
-  TL.fromTo(ag, { scale: 0.86, y: 70 }, { scale: 1, y: 0, duration: 0.6, ease: 'back.out(1.6)' }, M.agenda);
-  TL.to(cartas.map((o) => o.c), { autoAlpha: 0, scale: 0.9, duration: 0.3, ease: 'power2.in' }, M.agenda - 0.05);
-  TL.to(flecha, { autoAlpha: 0, duration: 0.2 }, M.agenda + 0.9);
-  TL.fromTo(fila, { scale: 1 }, { scale: 1.03, duration: 0.35, yoyo: true, repeat: 3, ease: 'sine.inOut' }, M.agenda + 0.6);
-  const tC = contacto(K, D);
-  retirar(K, [grupo, ag], tC);
-}
-
-/* ================================================================ 4. Sumá tu marca (dos versiones; Hernán elige una) */
-const MARCA_LINEAS = ['¿Querés que tu', 'comercio acompañe', 'las noticias', 'de Balcarce?'];
-const MK_SIZE = 82;
-function marcaTitulo(K, parent, color, acento, tiempos) {
-  return MARCA_LINEAS.map((t, i) => {
-    const e = K.div(parent, '', BASE + 'left:60px;top:' + (285 + i * 86) + 'px;' + SERIF + 'font-size:' + MK_SIZE + 'px;line-height:1.06;letter-spacing:-.02em;color:' + (i === 3 ? acento : color), t);
-    if (tiempos) K.aparece(e, tiempos[i], { y: 40, d: 0.45 });
-    return e;
-  });
-}
-/* el aviso de ejemplo: un recuadro con «Tu comercio acá». Nunca un comercio real. */
-function avisoDeEjemplo(K, parent, o) {
-  const a = K.div(parent, '', 'position:absolute;left:' + o.x + 'px;top:' + o.y + 'px;width:' + o.w + 'px;height:' + o.h + 'px;border-radius:12px;background:#fff;border:3px solid ' + o.borde + ';overflow:hidden', '');
-  K.div(a, '', BASE + 'left:' + o.pad + 'px;top:' + Math.round(o.h * 0.1) + 'px;font-weight:700;font-size:' + o.fs1 + 'px;letter-spacing:.14em;text-transform:uppercase;color:' + o.borde, o.rotulo);
-  K.div(a, '', BASE + 'left:' + o.pad + 'px;top:' + Math.round(o.h * 0.34) + 'px;' + SERIF + 'font-size:' + o.fs2 + 'px;line-height:1.05;color:' + TINTA, 'Tu comercio acá');
-  K.div(a, '', BASE + 'left:' + o.pad + 'px;top:' + Math.round(o.h * 0.72) + 'px;font-weight:600;font-size:' + o.fs3 + 'px;color:#6B6F6C', o.msg || 'Tu mensaje, junto a las noticias');
-  return a;
-}
-/* un renglón gris que imita texto */
-const linea = (K, p, x, y, w, c) => K.div(p, '', 'position:absolute;left:' + x + 'px;top:' + y + 'px;width:' + w + 'px;height:12px;border-radius:6px;background:' + (c || '#D9D4C6'));
-
-function tapaMarcaA(K, S) {
-  const T = K.TAPA, D = S.datos;
-  const hoja = K.div(T, '', 'position:absolute;left:0;top:240px;width:1080px;height:1285px;background:' + PAPEL);
-  K.div(T, '', 'position:absolute;left:0;top:0;width:1080px;height:240px;background:' + TINTA);
-  marco(K, T, D);
-  marcaTitulo(K, T, TINTA, ROJO, null);
-  tarjetaNota(K, T, { x: 60, y: 660, w: 540, h: 440 }).c.style.height = '440px';
-  tarjetaHistoria(K, T, { x: 650, y: 660, w: 248, h: 440 });
-  franjaA(K, T, D, null);
-  K.div(T, '', BASE + 'left:60px;top:1300px;font-weight:700;font-size:40px;color:' + ROJO, 'Tu comercio, en el medio de Balcarce');
-}
-/* la nota del sitio con el aviso: tarjeta clara */
-function tarjetaNota(K, parent, o) {
-  const c = K.div(parent, '', 'position:absolute;left:' + o.x + 'px;top:' + o.y + 'px;width:' + o.w + 'px;height:' + o.h + 'px;border-radius:18px;background:#fff;box-shadow:0 18px 50px rgba(20,22,26,.22);overflow:hidden', '');
-  K.div(c, '', 'position:absolute;left:0;top:0;width:' + o.w + 'px;height:52px;background:' + TINTA + ';color:#fff;font-weight:600;font-size:24px;line-height:52px;padding-left:22px;white-space:nowrap', 'radarbalcarce.com · una nota');
-  K.div(c, '', BASE + 'left:24px;top:72px;font-weight:700;font-size:22px;letter-spacing:.14em;text-transform:uppercase;color:' + ROJO, 'Balcarce');
-  K.div(c, '', BASE + 'left:24px;top:104px;' + SERIF + 'font-size:40px;line-height:1.08;color:' + TINTA, 'Titular de una nota<br>de Balcarce');
-  linea(K, c, 24, 208, o.w - 48); linea(K, c, 24, 232, o.w - 90); linea(K, c, 24, 256, o.w - 60);
-  const a = avisoDeEjemplo(K, c, { x: 24, y: 290, w: o.w - 48, h: 130, borde: ROJO, pad: 20, rotulo: 'Publicidad', fs1: 18, fs2: 40, fs3: 24 });
-  return { c, a };
-}
-/* la historia de Radar con el aviso en el tercio de abajo: celular vertical */
-function tarjetaHistoria(K, parent, o) {
-  const c = K.div(parent, '', 'position:absolute;left:' + o.x + 'px;top:' + o.y + 'px;width:' + o.w + 'px;height:' + o.h + 'px;border-radius:28px;background:' + TINTA + ';padding:8px;box-shadow:0 18px 50px rgba(20,22,26,.3)', '');
-  const p = K.div(c, '', 'position:relative;width:100%;height:100%;border-radius:22px;overflow:hidden;background:linear-gradient(170deg,#D6401F 0%,#8E2410 100%)', '');
-  K.div(p, '', BASE + 'left:18px;top:20px;font-weight:700;font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.28);padding:6px 12px;border-radius:4px', 'Radar Balcarce');
-  K.div(p, '', 'position:absolute;left:18px;top:96px;width:' + (o.w - 52) + 'px;' + SERIF + 'font-size:36px;line-height:1.08;color:#fff', 'Una historia<br>de hoy en<br>Balcarce');
-  const a = K.div(p, '', 'position:absolute;left:12px;bottom:18px;width:' + (o.w - 40) + 'px;height:128px;border-radius:12px;background:#fff;overflow:hidden', '');
-  K.div(a, '', BASE + 'left:14px;top:12px;font-weight:700;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:' + ROJO, 'Auspicia');
-  K.div(a, '', BASE + 'left:14px;top:40px;' + SERIF + 'font-size:27px;line-height:1.05;color:' + TINTA, 'Tu comercio acá');
-  K.div(a, '', BASE + 'left:14px;top:90px;font-weight:600;font-size:16px;color:#6B6F6C', 'Tu mensaje en la historia');
-  return { c, a };
-}
-function contadoresDeAlcance(K, D) {
-  return [
-    { n: D.alcance.paginasVistas, que: 'páginas vistas en el sitio', color: ROJO },
-    { n: D.alcance.fbAlcance, que: 'de alcance en Facebook', color: '#1B5FC9' },
-    { n: D.alcance.igAlcance, que: 'de alcance en Instagram', color: MORADO },
-  ];
-}
-/* los tres contadores de la versión A en una franja (filas 1128 a 1250); con `t` suben cuando la voz dice «contamos», sin `t` quedan quietos (la tapa) */
-function franjaA(K, parent, D, t) {
-  const franja = K.div(parent, '', 'position:absolute;left:60px;top:1128px;width:880px;height:96px');
-  contadoresDeAlcance(K, D).forEach((c, i) => {
-    const col = K.div(franja, '', 'position:absolute;left:' + (i * 295) + 'px;top:0;width:280px;height:96px;border-top:5px solid ' + c.color, '');
-    const n = K.div(col, '', BASE + 'left:0;top:8px;font-weight:700;font-size:56px;line-height:1;letter-spacing:-.03em;color:' + TINTA + ';font-variant-numeric:tabular-nums', miles(c.n));
-    K.div(col, '', BASE + 'left:0;top:68px;font-weight:600;font-size:23px;line-height:1.1;color:#4B4F4C', c.que);
-    if (t != null) { K.aparece(col, t + i * 0.18, { y: 22, d: 0.4 }); subir(K, n, c.n, t + i * 0.18 + 0.1, 1.3); }
-  });
-  const nota = K.div(parent, '', BASE + 'left:60px;top:1226px;font-weight:500;font-size:22px;color:#6B6F6C', D.alcance.texto);
-  if (t != null) K.aparece(nota, t + 0.6, { y: 8, d: 0.4 });
-}
-function escenasMarcaA(K, S) {
-  const D = S.datos, TL = K.TL, CT = K.CT, M = D.m;
-  const base = papel(K, CT, 1250, false);
-  const grupo = K.div(CT, '', 'position:absolute;inset:0');
-  marcaTitulo(K, grupo, TINTA, ROJO, [M.queres, M.comercio, M.las, M.de]);
-  /* cómo se ve: dentro de una nota del sitio y dentro de una historia de Radar */
-  const nota = tarjetaNota(K, grupo, { x: 60, y: 660, w: 540, h: 440 });
-  nota.c.style.height = '440px';
-  const hist = tarjetaHistoria(K, grupo, { x: 650, y: 660, w: 248, h: 440 });
-  K.aparece(nota.c, M.noticias + 0.1, { y: 60, d: 0.55, ease: 'back.out(1.4)' });
-  K.aparece(hist.c, M.escribinos, { y: 60, d: 0.55, ease: 'back.out(1.4)' });
-  const pulso = (el, t) => TL.fromTo(el, { boxShadow: '0 0 0 0 rgba(199,56,28,.55)' }, { boxShadow: '0 0 0 18px rgba(199,56,28,0)', duration: 0.9, repeat: 2, ease: 'power1.out' }, t);
-  pulso(nota.a, M.noticias + 0.7); pulso(hist.a, M.escribinos + 0.7);
-  /* el alcance, con números reales de las estadísticas del sitio y las redes */
-  franjaA(K, grupo, D, M.contamos);
-  const tC = contacto(K, D);
-  TL.to(base, { autoAlpha: 0, duration: 0.45 }, tC);
-  retirar(K, [grupo], tC);
-}
-function tapaMarcaB(K, S) {
-  const T = K.TAPA, D = S.datos;
-  K.div(T, '', 'position:absolute;inset:0;background:' + D.fondo);
-  anillos(K, T, K.TL, { n: 3, cx: 300, cy: 980, estatico: true });
-  marco(K, T, D);
-  marcaTitulo(K, T, '#fff', '#9FC0FF', null);
-  celular(K, T, { x: 60, y: 680, w: 300, h: 534 });
-  contadoresB(K, T, D, null);
-  K.div(T, '', 'position:absolute;left:420px;top:1206px;width:520px;font-weight:500;font-size:22px;line-height:1.25;color:rgba(255,255,255,.72)', D.alcance.texto);
-}
-/* el celular: dos pantallas, la nota del sitio con el aviso y la historia con el aviso */
-function celular(K, parent, o) {
-  const c = K.div(parent, '', 'position:absolute;left:' + o.x + 'px;top:' + o.y + 'px;width:' + o.w + 'px;height:' + o.h + 'px;border-radius:40px;background:#0B0D10;padding:10px;box-shadow:0 30px 80px rgba(0,0,0,.45);border:2px solid rgba(255,255,255,.18)', '');
-  const p = K.div(c, '', 'position:relative;width:100%;height:100%;border-radius:32px;overflow:hidden;background:#fff', '');
-  /* pantalla 1: la nota */
-  const s1 = K.div(p, '', 'position:absolute;inset:0;background:#fff', '');
-  K.div(s1, '', 'position:absolute;left:0;top:0;width:100%;height:46px;background:' + TINTA + ';color:#fff;font-weight:600;font-size:18px;line-height:46px;padding-left:18px', 'radarbalcarce.com');
-  K.div(s1, '', BASE + 'left:18px;top:62px;font-weight:700;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:' + ROJO, 'Balcarce');
-  K.div(s1, '', BASE + 'left:18px;top:86px;' + SERIF + 'font-size:30px;line-height:1.08;color:' + TINTA, 'Titular de una<br>nota de Balcarce');
-  linea(K, s1, 18, 168, o.w - 56); linea(K, s1, 18, 190, o.w - 90); linea(K, s1, 18, 212, o.w - 70);
-  const aviso = avisoDeEjemplo(K, s1, { x: 14, y: 250, w: o.w - 48, h: 150, borde: '#1B5FC9', pad: 16, rotulo: 'Publicidad', fs1: 15, fs2: 29, fs3: 16, msg: 'Junto a las noticias' });
-  linea(K, s1, 18, 424, o.w - 70); linea(K, s1, 18, 446, o.w - 100);
-  /* pantalla 2: la historia */
-  const s2 = K.div(p, '', 'position:absolute;inset:0;background:linear-gradient(170deg,#D6401F 0%,#8E2410 100%)', '');
-  K.div(s2, '', BASE + 'left:16px;top:20px;font-weight:700;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.28);padding:5px 10px;border-radius:4px', 'Radar Balcarce');
-  K.div(s2, '', 'position:absolute;left:16px;top:84px;width:' + (o.w - 52) + 'px;' + SERIF + 'font-size:36px;line-height:1.08;color:#fff', 'Una historia<br>de hoy en<br>Balcarce');
-  const a2 = K.div(s2, '', 'position:absolute;left:12px;bottom:26px;width:' + (o.w - 44) + 'px;height:118px;border-radius:12px;background:#fff;overflow:hidden', '');
-  K.div(a2, '', BASE + 'left:14px;top:12px;font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#1B5FC9', 'Auspicia');
-  K.div(a2, '', BASE + 'left:14px;top:38px;' + SERIF + 'font-size:28px;line-height:1.05;color:' + TINTA, 'Tu comercio acá');
-  K.div(a2, '', BASE + 'left:14px;top:84px;font-weight:600;font-size:16px;color:#6B6F6C', 'Tu mensaje en la historia');
-  return { c, s1, s2, aviso, a2 };
-}
-/* los tres contadores de la versión B, en columna a la derecha del celular */
-function contadoresB(K, parent, D, tiempos) {
-  const cont = contadoresDeAlcance(K, D), salida = [];
-  cont.forEach((c, i) => {
-    const col = K.div(parent, '', 'position:absolute;left:420px;top:' + (668 + i * 176) + 'px;width:600px;height:160px;border-left:8px solid ' + (i === 0 ? '#fff' : i === 1 ? '#9FC0FF' : AMBAR) + ';padding-left:28px', '');
-    const n = K.div(col, '', BASE + 'left:28px;top:0;font-weight:700;font-size:112px;line-height:1.1;letter-spacing:-.04em;color:#fff;font-variant-numeric:tabular-nums', miles(c.n));
-    K.div(col, '', BASE + 'left:28px;top:116px;font-weight:600;font-size:34px;line-height:1.1;color:rgba(255,255,255,.88)', c.que);
-    salida.push({ col, n, c });
-    if (tiempos) { K.aparece(col, tiempos[i], { y: 40, d: 0.45, from: { x: 60 } }); subir(K, n, c.n, tiempos[i] + 0.1, 1.5); }
-  });
-  return salida;
-}
-function escenasMarcaB(K, S) {
-  const D = S.datos, TL = K.TL, CT = K.CT, M = D.m;
-  K.div(CT, '', 'position:absolute;inset:0;background:' + D.fondo);
-  const anill = K.div(CT, '', 'position:absolute;inset:0;overflow:hidden');
-  anillos(K, anill, TL, { n: 3, cx: 300, cy: 980, t0: 0, rep: 3 });
-  const tC = D.c.escribinos - 0.1;
-  TL.to(anill, { opacity: 0, duration: 0.5 }, tC);
-  const grupo = K.div(CT, '', 'position:absolute;inset:0');
-  marcaTitulo(K, grupo, '#fff', '#9FC0FF', [M.queres, M.comercio, M.las, M.de]);
-  const cel = celular(K, grupo, { x: 60, y: 680, w: 300, h: 534 });
-  K.aparece(cel.c, M.noticias, { y: 120, d: 0.6, ease: 'back.out(1.3)' });
-  /* el aviso resalta en la nota; después la pantalla desliza a la historia y resalta en ella */
-  TL.fromTo(cel.aviso, { boxShadow: '0 0 0 0 rgba(27,95,201,.6)' }, { boxShadow: '0 0 0 16px rgba(27,95,201,0)', duration: 0.9, repeat: 1, ease: 'power1.out' }, M.noticias + 0.7);
-  TL.set(cel.s2, { yPercent: 100 }, 0);
-  TL.to(cel.s2, { yPercent: 0, duration: 0.6, ease: 'power3.inOut' }, M.escribinos);
-  TL.fromTo(cel.a2, { boxShadow: '0 0 0 0 rgba(255,255,255,.6)' }, { boxShadow: '0 0 0 16px rgba(255,255,255,0)', duration: 0.9, repeat: 1, ease: 'power1.out' }, M.escribinos + 0.8);
-  /* los contadores suben uno por uno */
-  contadoresB(K, grupo, D, [M.escribinos + 0.1, M.escribinos + 0.7, M.escribinos + 1.3]);
-  const nota = K.div(grupo, '', 'position:absolute;left:420px;top:1206px;width:520px;font-weight:500;font-size:22px;line-height:1.25;color:rgba(255,255,255,.72)', D.alcance.texto);
-  K.aparece(nota, M.escribinos + 1.6, { y: 8, d: 0.4 });
-  contacto(K, D);
-  retirar(K, [grupo], tC);
-}
-
 /* ================================================================ la entrada */
-function tapa(K, S) {
-  ({ viste: tapaViste, nota: tapaNota, evento: tapaEvento, marcaA: tapaMarcaA, marcaB: tapaMarcaB })[S.datos.variante](K, S);
-}
-function escenas(K, S) {
-  ({ viste: escenasViste, nota: escenasNota, evento: escenasEvento, marcaA: escenasMarcaA, marcaB: escenasMarcaB })[S.datos.variante](K, S);
-}
+function tapa(K, S) { tapaSerie(K, S); }
+function escenas(K, S) { escenasSerie(K, S); }
