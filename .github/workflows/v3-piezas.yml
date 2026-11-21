@@ -188,7 +188,7 @@ jobs:
           MUSICA_3_0: si # música de fondo propia en las convocatorias (20/11/2026, Hernán); sacar esta línea la apaga
           # Threads y Bluesky reciben también el VIDEO de cada pieza (20/11/2026, REGLAS § 26). Una falla ahí nunca frena la pieza. «no» apaga esa red.
           THREADS_VIDEOS: si # API oficial de Threads (video_url pública del mp4 en R2); el token lo pide al Worker (se renueva solo) y, si no contesta, usa THREADS_TOKEN
-          BLUESKY_VIDEOS: 'no' # servicio de video de Bluesky: sin probar contra la cuenta real; pasarlo a «si» después de ver una pieza salir (REGLAS § 26)
+          BLUESKY_VIDEOS: si # videos también en Bluesky (prendido el 21/11/2026, Hernán); «no» lo apaga (REGLAS § 26)
           KIT3_GRAFICOS: si # gráfico animado dentro de los reels (prendido el 20/11/2026, Hernán); si falla, la pieza sale sin gráfico; «no» lo apaga
           PLAN_PIEZAS: ${{ runner.temp }}/plan-piezas.json # el plan que ya pidió «Ver qué piezas tocan» (si ese paso falló, no hay archivo y se pide acá)
           GEMINI_API_KEY_REDES: ${{ secrets.GEMINI_API_KEY_REDES }}

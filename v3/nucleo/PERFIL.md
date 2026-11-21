@@ -61,6 +61,19 @@ Lo que la IA tiene que conocer de la ciudad (barrios, instituciones, clubes, loc
 que llega**: respuestas de la gente, mails, WhatsApp, la guía de Balcarce (comercial, instituciones, localidades, turismo) que se construye
 con el tiempo. Hasta entonces, ante la duda, no se inventa: se dice lo que dicen las fuentes.
 
+### Datos de Balcarce para cruzar con otras notas
+
+Verificados el 20/11/2026 con dos fuentes cada uno (`docs/3-0/DATOS-DE-BALCARCE-PARA-REVISAR.md`). Usar «unos» con las distancias y **no completar nada que no esté acá**.
+
+- **Dónde queda:** partido del sudeste de la provincia de Buenos Aires, a unos 400 km de la Ciudad de Buenos Aires. La ciudad cabecera es San José de Balcarce, fundada el 22 de junio de 1876.
+- **Población:** el partido tenía 48.982 habitantes en el Censo 2022 (43.823 en 2010). Las otras localidades son San Agustín, Napaleofú, Los Pinos, Villa Laguna La Brava y Ramos Otero.
+- **Rutas y distancias:** la ruta nacional 226 une Balcarce con Mar del Plata (unos 65 a 75 km, poco más de una hora) y con Tandil (unos 105 km). La ruta provincial 55 sale hacia Necochea (unos 95 a 99 km) y hacia Lobería (unos 65 km). La ruta provincial 29 se empalma con la 226 a unos 30 km de Balcarce y sigue a Ayacucho. A La Plata hay unos 370 km.
+- **Papa y McCain:** Balcarce es la principal zona papera del sudeste bonaerense. La planta de McCain en Balcarce se abastece con una red de unas 7.000 hectáreas de papa (60 % de productores de la zona y 40 % de campos que arrienda la empresa).
+- **INTA y Facultad:** Balcarce tiene la Estación Experimental Agropecuaria del INTA, y la Facultad de Ciencias Agrarias de la Universidad Nacional de Mar del Plata funciona junto a ella (Unidad Integrada Balcarce).
+- **Automovilismo:** Balcarce es la ciudad de Juan Manuel Fangio. Tiene el Museo del Automovilismo «Juan Manuel Fangio» (inaugurado en 1986) y el Autódromo Juan Manuel Fangio, en la sierra La Barrosa, con actividad desde 1972.
+- **Paisaje:** Laguna La Brava (sobre la ruta 226), sierra La Barrosa y Cerro El Triunfo (parque municipal).
+- **Fiestas:** la Fiesta Nacional del Automovilismo es todos los años en la primera quincena de febrero, durante tres o cuatro días. La Fiesta Nacional del Postre se hace en Balcarce (en 2026 fue en octubre; la fecha del año que viene está a confirmar).
+
 ## Los proyectos propios
 
 sehace.com (marca personal de Hernán), BalcarDev.online (las apps y los proyectos de Hernán y Andrés) y sus aplicaciones. Cuando se
